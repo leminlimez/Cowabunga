@@ -65,16 +65,16 @@
 		6F721C8E296482C6001CFE46 /* DockHider */ = {
 			isa = PBXGroup;
 			children = (
+				6F721CAF2964A742001CFE46 /* PrivateAPIs */,
+				6F721CAE2964A72D001CFE46 /* Views */,
 				6F721CA3296488C9001CFE46 /* HiddenDocks */,
 				6F721CA2296488BB001CFE46 /* DefaultDocks */,
 				6F721C8F296482C6001CFE46 /* DockHiderApp.swift */,
-				6F721C91296482C6001CFE46 /* ContentView.swift */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				6F721C95296482C7001CFE46 /* Preview Content */,
 				6F721C9E296487CC001CFE46 /* vm_unaligned_copy_switch_race.h */,
 				6F721C9F296487CC001CFE46 /* vm_unaligned_copy_switch_race.c */,
 				6F721C9D296487CC001CFE46 /* DockHider-Bridging-Header.h */,
-				6F721CA429648FC0001CFE46 /* DockTransparencyManager.swift */,
 			);
 			path = DockHider;
 			sourceTree = "<group>";
@@ -103,6 +103,22 @@
 				6F721CAB29649313001CFE46 /* dockLight.materialrecipe */,
 			);
 			path = HiddenDocks;
+			sourceTree = "<group>";
+		};
+		6F721CAE2964A72D001CFE46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F721C91296482C6001CFE46 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F721CAF2964A742001CFE46 /* PrivateAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				6F721CA429648FC0001CFE46 /* DockTransparencyManager.swift */,
+			);
+			path = PrivateAPIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
