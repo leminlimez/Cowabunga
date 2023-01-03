@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isVisible: Bool = true
+    @State private var successful = false
+    @State private var alertPresent = false
     
     var body: some View {
         VStack {
@@ -28,12 +30,15 @@ struct ContentView: View {
             .padding(20)
             
             Button("Apply and respring", action: {
-                
+                successful = applyDock(isVisible: false)
             })
             .padding(10)
             .background(Color.accentColor)
             .cornerRadius(8)
             .foregroundColor(.white)
+            .alert(isPresented: $alertPresent) {
+                Alert(title: Text("Applied Status"), message: Text(String(successful)))
+            }
         }
         .padding()
     }
