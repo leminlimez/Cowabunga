@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isVisible: Bool = true
     @State private var successful = false
     @State private var failedAlert = false
     
@@ -16,21 +15,10 @@ struct ContentView: View {
         VStack {
             Text("Dock Hider")
                 .bold()
-                .padding()
-            HStack {
-                Image(systemName: "platter.filled.bottom.iphone")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Toggle(isOn: $isVisible) {
-                    Text("Dock Visible")
-                        .minimumScaleFactor(0.5)
-                }
-                .padding(.leading, 10)
-            }
-            .padding(20)
+                .padding(.bottom, 35)
             
-            Button("Apply", action: {
-                successful = applyDock(isVisible: isVisible)
+            Button("Hide Dock", action: {
+                successful = applyDock(isVisible: false)
                 if !successful {
                     failedAlert = true
                 }
@@ -46,6 +34,24 @@ struct ContentView: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
+            
+            Button("Revert Dock", action: {
+                // check OS version
+                if #available(iOS 15.0, *) {
+                    // simply respring
+                    respring()
+                } else {
+                    // apply the old dock for ios 14
+                    successful = applyDock(isVisible: true)
+                    if !successful {
+                        failedAlert = true
+                    }
+                }
+            })
+            .padding(10)
+            .background(Color.red)
+            .cornerRadius(8)
+            .foregroundColor(.white)
         }
         .padding()
     }
