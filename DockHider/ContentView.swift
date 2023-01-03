@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isHidden: Bool = false
+    @State private var isVisible: Bool = true
     
     var body: some View {
         VStack {
@@ -19,11 +19,9 @@ struct ContentView: View {
                 Image(systemName: "platter.filled.bottom.iphone")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-                Toggle(isOn: $isHidden) {
-                    Text("Dock Hidden")
+                Toggle(isOn: $isVisible) {
+                    Text("Dock Visible")
                         .minimumScaleFactor(0.5)
-                }.onChange(of: isHidden) { new in
-                    
                 }
                 .padding(.leading, 10)
             }
