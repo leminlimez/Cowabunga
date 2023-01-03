@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isVisible: Bool = true
     @State private var successful = false
-    @State private var alertPresent = false
+    @State private var failedAlert = false
     
     var body: some View {
         VStack {
@@ -29,15 +29,22 @@ struct ContentView: View {
             }
             .padding(20)
             
-            Button("Apply and respring", action: {
-                successful = applyDock(isVisible: false)
+            Button("Apply", action: {
+                successful = applyDock(isVisible: isVisible)
+                if !successful {
+                    failedAlert = true
+                }
             })
             .padding(10)
             .background(Color.accentColor)
             .cornerRadius(8)
             .foregroundColor(.white)
-            .alert(isPresented: $alertPresent) {
-                Alert(title: Text("Applied Status"), message: Text(String(successful)))
+            .alert(isPresented: $failedAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text("Action was unsuccessful."),
+                    dismissButton: .default(Text("Ok"))
+                )
             }
         }
         .padding()
