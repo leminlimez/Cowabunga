@@ -65,7 +65,7 @@
 		6F721C8E296482C6001CFE46 /* DockHider */ = {
 			isa = PBXGroup;
 			children = (
-				6F721CA1296488AF001CFE46 /* DockFiles */,
+				6F721CA2296488BB001CFE46 /* DefaultDocks */,
 				6F721C8F296482C6001CFE46 /* DockHiderApp.swift */,
 				6F721C91296482C6001CFE46 /* ContentView.swift */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
@@ -86,18 +86,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		6F721CA1296488AF001CFE46 /* DockFiles */ = {
-			isa = PBXGroup;
-			children = (
-				6F721CA3296488C9001CFE46 /* HiddenDocks */,
-				6F721CA2296488BB001CFE46 /* DefaultDocks */,
-			);
-			path = DockFiles;
-			sourceTree = "<group>";
-		};
 		6F721CA2296488BB001CFE46 /* DefaultDocks */ = {
 			isa = PBXGroup;
 			children = (
+				6F721CA3296488C9001CFE46 /* HiddenDocks */,
 				6F721CA7296492FF001CFE46 /* dockDark.materialrecipe */,
 				6F721CA6296492FF001CFE46 /* dockLight.materialrecipe */,
 			);
