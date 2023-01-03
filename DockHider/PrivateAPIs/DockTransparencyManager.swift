@@ -15,31 +15,39 @@ func respring() {
     }
 }
 
-func setDockFile(fileName: String, replacePath: String) {
+func setDockFile(fileName: String, originURL: URL) throws {
+    let replacementURL = Bundle.main.url(forResource: fileName, withExtension: "materialrecipe")!
+    let replacementData = try! Data(contentsOf: replacementURL)
     
+    try FSOperation.perform(.writeData(url: originURL, data: replacementData), rootHelperConf: RootConf.shared)
 }
 
 func applyDock(isVisible: Bool) -> Bool {
     let CoreMaterialsPath = "/System/Library/PrivateFrameworks/CoreMaterial.framework"
     
-    let darkName = "dockDark.materialrecipe"
-    let darkPath = CoreMaterialsPath + "/" + darkName
-    var darkURL = URL(string: darkPath)!
-    let dockDarkURL = Bundle.main.url(forResource: "dockDark", withExtension: "materialrecipe")!
-    let dockDarkData = try! Data(contentsOf: dockDarkURL)//: Data
+    let darkPath = CoreMaterialsPath + "/dockDark.materialrecipe"
+    let lightPath = CoreMaterialsPath + "/dockLight.materialrecipe"
     
-    /*if isVisible {
-        dockDarkData = try! Data(contentsOf: Bundle.main.url(
-            forResource: "dockDark2.materialrecipe", withExtension: nil, subdirectory: "DefaultDocks")!)
+    var darkFile: String
+    var lightFile: String
+    
+    if isVisible {
+        darkFile = "defaultDark"
+        lightFile = "defaultLight"
     } else {
-        dockDarkData = try! Data(contentsOf: Bundle.main.url(
-            forResource: darkName, withExtension: nil, subdirectory: "HiddenDocks")!)
-    }*/
+        darkFile = "hiddenDark"
+        lightFile = "hiddenLight"
+    }
     
+    // apply to the docks
     do {
-        try FSOperation.perform(.writeData(url: darkURL, data: dockDarkData), rootHelperConf: RootConf.shared)
+        // dark
+        try setDockFile(fileName: darkFile, originURL: URL(string: darkPath)!)
+        // light
+        try setDockFile(fileName: lightFile, originURL: URL(string: lightPath)!)
     } catch {
         return false
     }
+    
     return true
 }
