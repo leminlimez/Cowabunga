@@ -49,5 +49,8 @@ func applyDock(isVisible: Bool) -> Bool {
         return false
     }
     
+    // respring
+    respring()
+    
     return true
 }
