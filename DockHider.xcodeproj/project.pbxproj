@@ -11,12 +11,12 @@
 		6F721C92296482C6001CFE46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C91296482C6001CFE46 /* ContentView.swift */; };
 		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
 		6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C96296482C7001CFE46 /* Preview Assets.xcassets */; };
-		6F721CA0296487CC001CFE46 /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C9F296487CC001CFE46 /* vm_unaligned_copy_switch_race.c */; };
 		6F721CA529648FC0001CFE46 /* DockTransparencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721CA429648FC0001CFE46 /* DockTransparencyManager.swift */; };
-		6F721CA8296492FF001CFE46 /* dockLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA6296492FF001CFE46 /* dockLight.materialrecipe */; };
-		6F721CA9296492FF001CFE46 /* dockDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA7296492FF001CFE46 /* dockDark.materialrecipe */; };
+		6F721CA8296492FF001CFE46 /* dockLight2.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA6296492FF001CFE46 /* dockLight2.materialrecipe */; };
+		6F721CA9296492FF001CFE46 /* dockDark2.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA7296492FF001CFE46 /* dockDark2.materialrecipe */; };
 		6F721CAC29649313001CFE46 /* dockDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAA29649313001CFE46 /* dockDark.materialrecipe */; };
 		6F721CAD29649313001CFE46 /* dockLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAB29649313001CFE46 /* dockLight.materialrecipe */; };
+		6FBEDC2F2964B96A0032B1A9 /* poc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEDC2E2964B96A0032B1A9 /* poc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,13 +26,13 @@
 		6F721C93296482C7001CFE46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F721C96296482C7001CFE46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F721C9D296487CC001CFE46 /* DockHider-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DockHider-Bridging-Header.h"; sourceTree = "<group>"; };
-		6F721C9E296487CC001CFE46 /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
-		6F721C9F296487CC001CFE46 /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		6F721CA429648FC0001CFE46 /* DockTransparencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockTransparencyManager.swift; sourceTree = "<group>"; };
-		6F721CA6296492FF001CFE46 /* dockLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockLight.materialrecipe; sourceTree = "<group>"; };
-		6F721CA7296492FF001CFE46 /* dockDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockDark.materialrecipe; sourceTree = "<group>"; };
+		6F721CA6296492FF001CFE46 /* dockLight2.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockLight2.materialrecipe; sourceTree = "<group>"; };
+		6F721CA7296492FF001CFE46 /* dockDark2.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockDark2.materialrecipe; sourceTree = "<group>"; };
 		6F721CAA29649313001CFE46 /* dockDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockDark.materialrecipe; sourceTree = "<group>"; };
 		6F721CAB29649313001CFE46 /* dockLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockLight.materialrecipe; sourceTree = "<group>"; };
+		6FBEDC2E2964B96A0032B1A9 /* poc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = poc.m; sourceTree = "<group>"; };
+		6FBEDC302964B97C0032B1A9 /* poc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = poc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +72,9 @@
 				6F721C8F296482C6001CFE46 /* DockHiderApp.swift */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				6F721C95296482C7001CFE46 /* Preview Content */,
-				6F721C9E296487CC001CFE46 /* vm_unaligned_copy_switch_race.h */,
-				6F721C9F296487CC001CFE46 /* vm_unaligned_copy_switch_race.c */,
 				6F721C9D296487CC001CFE46 /* DockHider-Bridging-Header.h */,
+				6FBEDC2E2964B96A0032B1A9 /* poc.m */,
+				6FBEDC302964B97C0032B1A9 /* poc.h */,
 			);
 			path = DockHider;
 			sourceTree = "<group>";
@@ -90,8 +90,8 @@
 		6F721CA2296488BB001CFE46 /* DefaultDocks */ = {
 			isa = PBXGroup;
 			children = (
-				6F721CA7296492FF001CFE46 /* dockDark.materialrecipe */,
-				6F721CA6296492FF001CFE46 /* dockLight.materialrecipe */,
+				6F721CA7296492FF001CFE46 /* dockDark2.materialrecipe */,
+				6F721CA6296492FF001CFE46 /* dockLight2.materialrecipe */,
 			);
 			path = DefaultDocks;
 			sourceTree = "<group>";
@@ -181,11 +181,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */,
-				6F721CA8296492FF001CFE46 /* dockLight.materialrecipe in Resources */,
+				6F721CA8296492FF001CFE46 /* dockLight2.materialrecipe in Resources */,
 				6F721CAC29649313001CFE46 /* dockDark.materialrecipe in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				6F721CAD29649313001CFE46 /* dockLight.materialrecipe in Resources */,
-				6F721CA9296492FF001CFE46 /* dockDark.materialrecipe in Resources */,
+				6F721CA9296492FF001CFE46 /* dockDark2.materialrecipe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +198,8 @@
 			files = (
 				6F721C92296482C6001CFE46 /* ContentView.swift in Sources */,
 				6F721C90296482C6001CFE46 /* DockHiderApp.swift in Sources */,
+				6FBEDC2F2964B96A0032B1A9 /* poc.m in Sources */,
 				6F721CA529648FC0001CFE46 /* DockTransparencyManager.swift in Sources */,
-				6F721CA0296487CC001CFE46 /* vm_unaligned_copy_switch_race.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
