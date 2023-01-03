@@ -8,12 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isHidden: Bool = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Dock Hider")
+                .bold()
+                .padding()
+            HStack {
+                Image(systemName: "platter.filled.bottom.iphone")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Toggle(isOn: $isHidden) {
+                    Text("Dock Hidden")
+                        .minimumScaleFactor(0.5)
+                }.onChange(of: isHidden) { new in
+                    
+                }
+                .padding(.leading, 10)
+            }
+            .padding(20)
+            
+            Button("Apply and respring", action: {
+                
+            })
+            .padding(10)
+            .background(Color.accentColor)
+            .cornerRadius(8)
+            .foregroundColor(.white)
         }
         .padding()
     }
