@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "santanderwrappers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SerenaKit/SantanderWrappers.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "78c19b2eeba612b0fb7b13df7ab304062ee22622"
+      }
+    }
+  ],
+  "version" : 2
+}
