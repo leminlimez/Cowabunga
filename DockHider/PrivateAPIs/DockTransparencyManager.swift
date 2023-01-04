@@ -24,7 +24,7 @@ func setDockFile(fileName: String, originURL: URL) throws {
 }
 
 func waitUntilFinished() async throws -> Void {
-    for _ in 0..<20 {
+    for _ in 0..<10 {
         if inProgress == false {
             return
         }
@@ -49,14 +49,11 @@ func applyDock(isVisible: Bool) -> Bool {
     // apply to the docks
     do {
         // dark
-        ApplyingVariables.applyingText = "Applying dock files..."
         try setDockFile(fileName: darkFile, originURL: URL(string: darkPath)!)
         Task {
             try await waitUntilFinished()
             if !noDiff {
                 // light
-                ApplyingVariables.applyingText = "Applying dock files..."
-                
                 var lightFile: String
                 if isVisible {
                     lightFile = "defaultLight"
@@ -68,14 +65,7 @@ func applyDock(isVisible: Bool) -> Bool {
                 Task {
                     try await waitUntilFinished()
                     // respring
-                    ApplyingVariables.applyingText = "Respringing..."
                     respring()
-                }
-            } else {
-                if isVisible {
-                    ApplyingVariables.applyingText = "Dock is already visible!"
-                } else {
-                    ApplyingVariables.applyingText = "Dock is already hidden!"
                 }
             }
         }
