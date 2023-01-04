@@ -27,10 +27,10 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
                 completion(succeeded)
             }
         } else if typeOfFile == "FolderBG" {
-            let succeededFirst = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderBackground.materialrecipe", tempName: "/folderBackground.framework/folderBackground.materialrecipe")
-            let succeededSecond = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/folderBackground.framework/folderLight.materialrecipe")
-            let succeededThird = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedDark.materialrecipe", tempName: "/folderBackground.framework/folderExpandedDark.materialrecipe")
-            let succeededFourth = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedLight.materialrecipe", tempName: "/folderBackground.framework/folderExpandedLight.materialrecipe")
+            let succeededFirst = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderBackground.materialrecipe", tempName: "/SpringBoardHome.framework/folderBackground.materialrecipe")
+            let succeededSecond = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/SpringBoardHome.framework/folderLight.materialrecipe")
+            let succeededThird = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedDark.materialrecipe", tempName: "/SpringBoardHome.framework/folderExpandedDark.materialrecipe")
+            let succeededFourth = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedLight.materialrecipe", tempName: "/SpringBoardHome.framework/folderExpandedLight.materialrecipe")
             
             let succeeded = succeededFirst && succeededSecond && succeededThird && succeededFourth
             DispatchQueue.main.async {
