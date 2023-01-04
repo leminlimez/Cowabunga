@@ -43,51 +43,37 @@ func hideHomeBar() {
     }
 }
 
-func applyTweaks(isVisible: Bool, changesHomeBar: Bool) -> Bool {
+func applyTweaks(isVisible: Bool, changesHomeBar: Bool, isLightMode: Bool) -> Bool {
     let CoreMaterialsPath = "/System/Library/PrivateFrameworks/CoreMaterial.framework"
     
-    let darkPath = CoreMaterialsPath + "/dockDark.materialrecipe"
-    let lightPath = CoreMaterialsPath + "/dockLight.materialrecipe"
+    let name: String = isLightMode ? "Light" : "Dark"
     
-    var darkFile: String
+    let dockPath = CoreMaterialsPath + "/dock" + name + ".materialrecipe"
+    
+    var dockFile: String
     
     if isVisible {
-        darkFile = "defaultDark"
+        dockFile = "default" + name
     } else {
-        darkFile = "hiddenDark"
+        dockFile = "hidden" + name
     }
     
     // apply to the docks
     do {
-        // dark
-        try setDockFile(fileName: darkFile, originURL: URL(string: darkPath)!)
+        try setDockFile(fileName: dockFile, originURL: URL(string: dockPath)!)
         Task {
             try await waitUntilFinished()
-            if !noDiff {
-                // light
-                var lightFile: String
-                if isVisible {
-                    lightFile = "defaultLight"
-                } else {
-                    lightFile = "hiddenLight"
-                }
-                
-                try setDockFile(fileName: lightFile, originURL: URL(string: lightPath)!)
+            // apply home bar
+            if changesHomeBar {
+                hideHomeBar()
                 Task {
                     try await waitUntilFinished()
-                    // apply home bar
-                    if changesHomeBar {
-                        hideHomeBar()
-                        Task {
-                            try await waitUntilFinished()
-                            // respring
-                            respring()
-                        }
-                    } else {
-                        // respring
-                        respring()
-                    }
+                    // respring
+                    respring()
                 }
+            } else {
+                // respring
+                respring()
             }
         }
     } catch {

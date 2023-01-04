@@ -16,11 +16,11 @@ var noDiff = false
 }
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var successful = false
     @State private var failedAlert = false
-    @State private var successAlert = false
     @State private var hidingHomeBar = false
-    @State private var dockVisible = true
+    @State private var hidingDock = true
     @State private var applyText = " "
     
     var body: some View {
@@ -38,8 +38,8 @@ struct ContentView: View {
                     .frame(width: 24, height: 24)
                     .foregroundColor(.blue)
                 
-                Toggle(isOn: $dockVisible) {
-                    Text("Dock Visible")
+                Toggle(isOn: $hidingDock) {
+                    Text("Hide Dock")
                         .minimumScaleFactor(0.5)
                 }
                 .padding(.leading, 10)
@@ -121,7 +121,8 @@ struct ContentView: View {
                 if !inProgress {
                     // first apply the dock
                     applyText = "Applying tweaks..."
-                    applyTweaks(isVisible: dockVisible, changesHomeBar: hidingHomeBar)
+                    let lightMode: Bool = colorScheme == .light
+                    applyTweaks(isVisible: !hidingDock, changesHomeBar: hidingHomeBar, isLightMode: lightMode)
                     //applyText = "Respringing..."
                     //respring()
                 }
