@@ -21,7 +21,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var successful = false
     @State private var failedAlert = false
-    @State private var hidingFolderBG = defaults.bool(forKey: "FolderBGHidden")
+    @State private var hidingFolderBG = false//defaults.bool(forKey: "FolderBGHidden")
     @State private var hidingHomeBar = defaults.bool(forKey: "HomeBarHidden")
     @State private var hidingDock = defaults.object(forKey: "DockHidden") as? Bool ?? true
     @State private var applyText = " "
@@ -78,7 +78,7 @@ struct ContentView: View {
                 if !inProgress {
                     // set the defaults
                     applyText = "Setting defaults..."
-                    defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
+                    //defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
                     defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
                     defaults.set(hidingDock, forKey: "DockHidden")
                     
