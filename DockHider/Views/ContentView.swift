@@ -60,65 +60,6 @@ struct ContentView: View {
                 .padding(.leading, 10)
             }
             
-            /*Button("Hide Dock", action: {
-                if !inProgress {
-                    applyText = "Hiding dock..."
-                    successful = applyDock(isVisible: false)
-                    //ApplyingVariables.applyingText = " "
-                    if !successful {
-                        if noDiff == true {
-                            applyText = "Dock already hidden!"
-                        } else {
-                            failedAlert = true
-                        }
-                    }
-                }
-            })
-            .padding(10)
-            .background(Color.accentColor)
-            .cornerRadius(8)
-            .foregroundColor(.white)
-            .alert(isPresented: $failedAlert) {
-                Alert(
-                    title: Text("An Error Occurred"),
-                    message: Text("Action was unsuccessful."),
-                    dismissButton: .default(Text("Ok"))
-                )
-            }
-            
-            Button("Revert Dock", action: {
-                if !inProgress {
-                    applyText = "Restoring dock..."
-                    successful = applyDock(isVisible: true)
-                    if !successful {
-                        if noDiff == true {
-                            applyText = "Dock already visible!"
-                        } else {
-                            failedAlert = true
-                        }
-                    }
-                }
-            })
-            .padding(10)
-            .background(Color.red)
-            .cornerRadius(8)
-            .foregroundColor(.white)
-            
-            Button("Hide Home Bar", action: {
-                if !inProgress {
-                    applyText = "Hiding home bar..."
-                    successful = hideHomeBar()
-                    //ApplyingVariables.applyingText = " "
-                    if !successful {
-                        failedAlert = true
-                    }
-                }
-            })
-            .padding(10)
-            .background(Color.accentColor)
-            .cornerRadius(8)
-            .foregroundColor(.white)*/
-            
             Button("Apply and Respring", action: {
                 if !inProgress {
                     // set the defaults
