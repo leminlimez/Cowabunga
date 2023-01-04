@@ -1,13 +1,17 @@
 # DockHider
 A Jailed application to hide the dock and home bar on iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
 
-Only tested on iOS 15.4.1 on A14, but tested with both AltStore and TrollStore.
-
 An option for reverting has been included for if you are on iOS 14.
 
 IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
 
-This is my first solo app made with xCode! If you are making modifications to the code, it is *a little* messy in places.
+This is my first solo app made with Xcode! If you are making modifications to the code, it is slightly messy in places.
+
+## Screenshots
+![Screenshot](https://i.imgur.com/n7mzG1Y.png)
+
+## Installing
+You can install through AltStore or TrollStore (if your device supports it)
 
 ## Building
 Just build like a normal xCode project. There are no extra entitlements needed. You can also build the IPA file with `build.command`.
@@ -16,3 +20,5 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 - [@haxi0](https://twitter.com/haxi0sm) for exploit code.
 - [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with a code basis.
 - SerenaKit for SantanderWrappers dependencies
+- [dayanch96](https://www.reddit.com/user/dayanch96/) for app icon
+- [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite)
