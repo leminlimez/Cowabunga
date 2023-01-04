@@ -24,7 +24,7 @@ func setDockFile(fileName: String, originURL: URL) throws {
 }
 
 func waitUntilFinished() async throws -> Void {
-    for _ in 0..<15 {
+    for _ in 0..<12 {
         if inProgress == false {
             return
         }
