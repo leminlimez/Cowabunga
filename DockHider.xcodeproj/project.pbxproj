@@ -13,7 +13,7 @@
 		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
 		6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C96296482C7001CFE46 /* Preview Assets.xcassets */; };
 		6F721CA529648FC0001CFE46 /* DockTransparencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721CA429648FC0001CFE46 /* DockTransparencyManager.swift */; };
-		6F721CA8296492FF001CFE46 /* defaultLight2.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA6296492FF001CFE46 /* defaultLight2.materialrecipe */; };
+		6F721CA8296492FF001CFE46 /* defaultLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA6296492FF001CFE46 /* defaultLight.materialrecipe */; };
 		6F721CA9296492FF001CFE46 /* defaultDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA7296492FF001CFE46 /* defaultDark.materialrecipe */; };
 		6F721CAC29649313001CFE46 /* hiddenDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */; };
 		6F721CAD29649313001CFE46 /* hiddenLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */; };
@@ -36,7 +36,7 @@
 		6F721C96296482C7001CFE46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F721C9D296487CC001CFE46 /* DockHider-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DockHider-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F721CA429648FC0001CFE46 /* DockTransparencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockTransparencyManager.swift; sourceTree = "<group>"; };
-		6F721CA6296492FF001CFE46 /* defaultLight2.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = defaultLight2.materialrecipe; sourceTree = "<group>"; };
+		6F721CA6296492FF001CFE46 /* defaultLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = defaultLight.materialrecipe; sourceTree = "<group>"; };
 		6F721CA7296492FF001CFE46 /* defaultDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = defaultDark.materialrecipe; sourceTree = "<group>"; };
 		6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = hiddenDark.materialrecipe; sourceTree = "<group>"; };
 		6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = hiddenLight.materialrecipe; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				6F721CA7296492FF001CFE46 /* defaultDark.materialrecipe */,
-				6F721CA6296492FF001CFE46 /* defaultLight2.materialrecipe */,
+				6F721CA6296492FF001CFE46 /* defaultLight.materialrecipe */,
 			);
 			path = DefaultDocks;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */,
-				6F721CA8296492FF001CFE46 /* defaultLight2.materialrecipe in Resources */,
+				6F721CA8296492FF001CFE46 /* defaultLight.materialrecipe in Resources */,
 				6F721CAC29649313001CFE46 /* hiddenDark.materialrecipe in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				6F721CAD29649313001CFE46 /* hiddenLight.materialrecipe in Resources */,
