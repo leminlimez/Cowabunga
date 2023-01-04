@@ -19,6 +19,8 @@ struct ContentView: View {
     @State private var successful = false
     @State private var failedAlert = false
     @State private var successAlert = false
+    @State private var hidingHomeBar = false
+    @State private var dockVisible = true
     @State private var applyText = " "
     
     var body: some View {
@@ -29,7 +31,34 @@ struct ContentView: View {
             Text(applyText)
                 .padding(.bottom, 15)
             
-            Button("Hide Dock", action: {
+            HStack {
+                Image(systemName: "platter.filled.bottom.iphone")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.blue)
+                
+                Toggle(isOn: $dockVisible) {
+                    Text("Dock Visible")
+                        .minimumScaleFactor(0.5)
+                }
+                .padding(.leading, 10)
+            }
+            HStack {
+                Image(systemName: "iphone")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.blue)
+                
+                Toggle(isOn: $hidingHomeBar) {
+                    Text("Hide Home Bar")
+                        .minimumScaleFactor(0.5)
+                }
+                .padding(.leading, 10)
+            }
+            
+            /*Button("Hide Dock", action: {
                 if !inProgress {
                     applyText = "Hiding dock..."
                     successful = applyDock(isVisible: false)
@@ -73,10 +102,28 @@ struct ContentView: View {
             .cornerRadius(8)
             .foregroundColor(.white)
             
-            Button("Respring", action: {
+            Button("Hide Home Bar", action: {
                 if !inProgress {
-                    applyText = "Respringing..."
-                    respring()
+                    applyText = "Hiding home bar..."
+                    successful = hideHomeBar()
+                    //ApplyingVariables.applyingText = " "
+                    if !successful {
+                        failedAlert = true
+                    }
+                }
+            })
+            .padding(10)
+            .background(Color.accentColor)
+            .cornerRadius(8)
+            .foregroundColor(.white)*/
+            
+            Button("Apply and Respring", action: {
+                if !inProgress {
+                    // first apply the dock
+                    applyText = "Applying tweaks..."
+                    applyTweaks(isVisible: dockVisible, changesHomeBar: hidingHomeBar)
+                    //applyText = "Respringing..."
+                    //respring()
                 }
             })
             .padding(10)
