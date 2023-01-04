@@ -60,7 +60,7 @@ struct ContentView: View {
                 }
                 .padding(.leading, 10)
             }
-            HStack {
+            /*HStack {
                 Image(systemName: "folder")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -72,7 +72,7 @@ struct ContentView: View {
                         .minimumScaleFactor(0.5)
                 }
                 .padding(.leading, 10)
-            }
+            }*/
             
             Button("Apply and Respring", action: {
                 if !inProgress {
