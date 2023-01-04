@@ -65,6 +65,7 @@ func applyTweaks(isVisible: Bool, changesHomeBar: Bool, isLightMode: Bool) -> Bo
             try await waitUntilFinished()
             // apply home bar
             if changesHomeBar {
+                onHomeBar = true
                 hideHomeBar()
                 Task {
                     try await waitUntilFinished()
