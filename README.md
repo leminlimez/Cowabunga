@@ -15,3 +15,4 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 ## Credits
 - [@haxi0](https://twitter.com/haxi0sm) for exploit code.
 - [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with a code basis.
+- SerenaKit for SantanderWrappers dependencies
