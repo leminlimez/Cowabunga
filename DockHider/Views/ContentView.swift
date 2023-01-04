@@ -8,10 +8,10 @@
 import SwiftUI
 
 var inProgress = false
+var noDiff = false
 @objc class InProg: NSObject {
-    //private override init() {}
-    
     @objc func disableProg() { inProgress = false }
+    @objc func setDiff() { noDiff = true }
 }
 
 // I am not experienced in swift so appologies for this part
@@ -33,13 +33,13 @@ struct ContentView: View {
                 .padding(.bottom, 15)
             
             Button("Hide Dock", action: {
-                ApplyingVariables.applyingText = "Hiding dock..."
-                successful = applyDock(isVisible: false)
-                //ApplyingVariables.applyingText = " "
-                if !successful {
-                    failedAlert = true
-                } else {
-                    successAlert = true
+                if !inProgress {
+                    ApplyingVariables.applyingText = "Hiding dock..."
+                    successful = applyDock(isVisible: false)
+                    //ApplyingVariables.applyingText = " "
+                    if !successful {
+                        failedAlert = true
+                    }
                 }
             })
             .padding(10)
@@ -53,19 +53,14 @@ struct ContentView: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
-            .alert(isPresented: $successAlert) {
-                Alert(
-                    title: Text("Success!"),
-                    message: Text("Please respring."),
-                    dismissButton: .default(Text("Ok"))
-                )
-            }
             
             Button("Revert Dock", action: {
-                ApplyingVariables.applyingText = "Restoring dock..."
-                successful = applyDock(isVisible: true)
-                if !successful {
-                    failedAlert = true
+                if !inProgress {
+                    ApplyingVariables.applyingText = "Restoring dock..."
+                    successful = applyDock(isVisible: true)
+                    if !successful {
+                        failedAlert = true
+                    }
                 }
             })
             .padding(10)
@@ -74,7 +69,9 @@ struct ContentView: View {
             .foregroundColor(.white)
             
             Button("Respring", action: {
-                respring()
+                if !inProgress {
+                    respring()
+                }
             })
             .padding(10)
             .background(Color.accentColor)

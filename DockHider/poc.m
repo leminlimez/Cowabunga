@@ -227,6 +227,9 @@ T_DECL(unaligned_copy_switch_race,
     }
     if (overwrite_first_diff_offset == -1) {
         fprintf(stderr, "no diff?\n");
+        InProg *inProg = [[InProg alloc] init];
+        [inProg disableProg];
+        [inProg setDiff];
         return;
     }
 
