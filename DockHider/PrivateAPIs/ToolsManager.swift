@@ -14,27 +14,27 @@ func respring() {
     }
 }
 
-func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion: @escaping (String) -> Void) {
+func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         if typeOfFile == "Dock" {
-            var succeeded = overwriteDockWithFileImpl(isVisible: isVisible, isDark: isDark)
+            let succeeded = overwriteDockWithFileImpl(isVisible: isVisible, isDark: isDark)
             DispatchQueue.main.async {
-                completion(succeeded ? "Success" : "Failed")
+                completion(succeeded)
             }
         } else if typeOfFile == "HomeBar" {
-            var succeeded = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car", tempName: "/MaterialKit.framework/Assets.car")
+            let succeeded = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car", tempName: "/MaterialKit.framework/Assets.car")
             DispatchQueue.main.async {
-                completion(succeeded ? "Success" : "Failed")
+                completion(succeeded)
             }
         } else if typeOfFile == "FolderBG" {
-            var succeededFirst = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderBackground.materialrecipe", tempName: "/folderBackground.framework/folderBackground.materialrecipe")
-            var succeededSecond = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/folderBackground.framework/folderLight.materialrecipe")
-            var succeededThird = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedDark.materialrecipe", tempName: "/folderBackground.framework/folderExpandedDark.materialrecipe")
-            var succeededFourth = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedLight.materialrecipe", tempName: "/folderBackground.framework/folderExpandedLight.materialrecipe")
+            let succeededFirst = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderBackground.materialrecipe", tempName: "/folderBackground.framework/folderBackground.materialrecipe")
+            let succeededSecond = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/folderBackground.framework/folderLight.materialrecipe")
+            let succeededThird = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedDark.materialrecipe", tempName: "/folderBackground.framework/folderExpandedDark.materialrecipe")
+            let succeededFourth = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedLight.materialrecipe", tempName: "/folderBackground.framework/folderExpandedLight.materialrecipe")
             
-            var succeeded = succeededFirst && succeededSecond && succeededThird && succeededFourth
+            let succeeded = succeededFirst && succeededSecond && succeededThird && succeededFourth
             DispatchQueue.main.async {
-                completion(succeeded ? "Success" : "Failed")
+                completion(succeeded)
             }
         }
     }
@@ -64,7 +64,7 @@ func overwriteDockWithFileImpl(isVisible: Bool, isDark: Bool) -> Bool {
             forResource: "hidden" + name, withExtension: ext)!
     }
     
-    var dockData = try! Data(contentsOf: urlToDock)
+    let dockData = try! Data(contentsOf: urlToDock)
     
     let originDockPath = CoreMaterialsPath + "dock" + name + "." + ext
 
@@ -135,7 +135,7 @@ func overwriteDockWithFileImpl(isVisible: Bool, isDark: Bool) -> Bool {
 // The font must be specially prepared so that it skips past the last byte in every 16KB page.
 // Credit to Zhuowei and FontOverwrite for the code logic.
 func overwriteWithFileImpl(originPath: String, tempName: String) -> Bool {
-    var newData = Data("###".utf8)
+    let newData = Data("###".utf8)
 
     #if false
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[

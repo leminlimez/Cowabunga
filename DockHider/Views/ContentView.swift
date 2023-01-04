@@ -86,21 +86,21 @@ struct ContentView: View {
                     // apply dark dock
                     applyText = "Applying to dark dock file..."
                     overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: true) { succeededForDark in
-                        if succeededForDark == "Success" {
+                        if succeededForDark  {
                             // apply light dock
                             applyText = "Applying to light dock file..."
                             overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
-                                if succeededForLight == "Success" {
+                                if succeededForLight  {
                                     if hidingHomeBar {
                                         applyText = "Applying to home bar..."
                                         overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: true) { succeededForHomeBar in
-                                            if succeededForHomeBar == "Success" {
+                                            if succeededForHomeBar  {
                                                 // apply folder background
                                                 // i forgot functions existed when making this ._.
                                                 if hidingFolderBG {
                                                     applyText = "Failed to apply home bar. Applying folder background..."
                                                     overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeededForFolderBG in
-                                                        if succeededForFolderBG == "Success" {
+                                                        if succeededForFolderBG {
                                                             // respring
                                                             applyText = "Respringing..."
                                                         } else {
@@ -118,7 +118,7 @@ struct ContentView: View {
                                                 if hidingFolderBG {
                                                     applyText = "Failed to apply home bar. Applying folder background..."
                                                     overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeededForFolderBG in
-                                                        if succeededForFolderBG == "Success" {
+                                                        if succeededForFolderBG  {
                                                             // respring
                                                             applyText = "Respringing..."
                                                         } else {
@@ -137,7 +137,7 @@ struct ContentView: View {
                                     } else if hidingFolderBG {
                                         applyText = "Applying to folder background..."
                                         overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeededForFolderBG in
-                                            if succeededForFolderBG == "Success" {
+                                            if succeededForFolderBG  {
                                                 // respring
                                                 applyText = "Respringing..."
                                             } else {
