@@ -46,11 +46,12 @@ func applyDock(isVisible: Bool) -> Bool {
         // light
         try setDockFile(fileName: lightFile, originURL: URL(string: lightPath)!)
     } catch {
+        print("Writing failed")
         return false
     }
     
     // respring
-    respring()
+    //respring()
     
     return true
 }
