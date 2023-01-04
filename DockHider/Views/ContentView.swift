@@ -9,6 +9,7 @@ import SwiftUI
 
 var inProgress = false
 var noDiff = false
+var onHomeBar = false
 let defaults = UserDefaults.standard
 
 @objc class InProg: NSObject {
@@ -126,7 +127,7 @@ struct ContentView: View {
                     defaults.set(hidingDock, forKey: "DockHidden")
                     
                     // apply the tweaks
-                    applyText = "Applying tweaks..."
+                    applyText = "Applying to dock file..."
                     let lightMode: Bool = colorScheme == .light
                     applyTweaks(isVisible: !hidingDock, changesHomeBar: hidingHomeBar, isLightMode: lightMode)
                     //applyText = "Respringing..."
@@ -137,6 +138,15 @@ struct ContentView: View {
             .background(Color.accentColor)
             .cornerRadius(8)
             .foregroundColor(.white)
+            .onChange(of: inProgress) { new in
+                if inProgress == false {
+                    if onHomeBar {
+                        applyText = "Applying to home bar file..."
+                    } else {
+                        applyText = "Respringing..."
+                    }
+                }
+            }
         }
         .padding()
     }
