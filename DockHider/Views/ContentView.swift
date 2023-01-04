@@ -9,6 +9,7 @@ import SwiftUI
 
 var inProgress = false
 var noDiff = false
+let defaults = UserDefaults.standard
 
 @objc class InProg: NSObject {
     @objc func disableProg() { inProgress = false }
@@ -19,8 +20,8 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var successful = false
     @State private var failedAlert = false
-    @State private var hidingHomeBar = false
-    @State private var hidingDock = true
+    @State private var hidingHomeBar = defaults.bool(forKey: "HomeBarHidden")
+    @State private var hidingDock = defaults.object(forKey: "DockHidden") as? Bool ?? true
     @State private var applyText = " "
     
     var body: some View {
@@ -119,7 +120,12 @@ struct ContentView: View {
             
             Button("Apply and Respring", action: {
                 if !inProgress {
-                    // first apply the dock
+                    // set the defaults
+                    applyText = "Setting defaults..."
+                    defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
+                    defaults.set(hidingDock, forKey: "DockHidden")
+                    
+                    // apply the tweaks
                     applyText = "Applying tweaks..."
                     let lightMode: Bool = colorScheme == .light
                     applyTweaks(isVisible: !hidingDock, changesHomeBar: hidingHomeBar, isLightMode: lightMode)
