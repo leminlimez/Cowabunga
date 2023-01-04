@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@_exported import FSOperations
+/*@_exported import FSOperations
 
 struct RootConf: RootHelperConfiguration {
     var useRootHelper: Bool = true
@@ -29,4 +29,4 @@ struct RootConf: RootHelperConfiguration {
     func contents(of path: URL) throws -> [URL] {
         return try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: [])
     }
-}
+}*/

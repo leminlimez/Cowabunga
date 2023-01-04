@@ -8,7 +8,7 @@
 import UIKit
 import FSOperations
 
-func respring() {
+/*func respring() {
     guard let window = UIApplication.shared.windows.first else { return }
     while true {
         window.snapshotView(afterScreenUpdates: false)
@@ -83,4 +83,4 @@ func applyTweaks(isVisible: Bool, changesHomeBar: Bool, isLightMode: Bool) -> Bo
     }
     
     return true
-}
+}*/

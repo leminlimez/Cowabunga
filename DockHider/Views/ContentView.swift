@@ -68,9 +68,41 @@ struct ContentView: View {
                     defaults.set(hidingDock, forKey: "DockHidden")
                     
                     // apply the tweaks
-                    applyText = "Applying to dock file..."
-                    let lightMode: Bool = colorScheme == .light
-                    applyTweaks(isVisible: !hidingDock, changesHomeBar: hidingHomeBar, isLightMode: lightMode)
+                    // apply dark dock
+                    applyText = "Applying to dark dock file..."
+                    overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: true) { succeededForDark in
+                        if succeededForDark == "Success" {
+                            // apply light dock
+                            applyText = "Applying to light dock file..."
+                            overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
+                                if succeededForLight == "Success" {
+                                    if hidingHomeBar {
+                                        applyText = "Applying to home bar..."
+                                        overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: true) { succeededForHomeBar in
+                                            if succeededForHomeBar == "Success" {
+                                                // respring
+                                                applyText = "Respringing..."
+                                            } else {
+                                                // respring anyway
+                                                applyText = "Failed to apply home bar. Respringing..."
+                                            }
+                                            respring()
+                                        }
+                                    } else {
+                                        // respring
+                                        applyText = "Respringing..."
+                                        respring()
+                                    }
+                                } else {
+                                    applyText = "Failed to apply light dock"
+                                }
+                            }
+                        } else {
+                            applyText = "Failed to apply dark dock"
+                        }
+                    }
+                    // let lightMode: Bool = colorScheme == .light
+                    // applyTweaks(isVisible: !hidingDock, changesHomeBar: hidingHomeBar, isLightMode: lightMode)
                     //applyText = "Respringing..."
                     //respring()
                 }
