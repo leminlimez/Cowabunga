@@ -22,7 +22,17 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
                 completion(succeeded ? "Success" : "Failed")
             }
         } else if typeOfFile == "HomeBar" {
-            var succeeded = overwriteHomeBarWithFileImpl()
+            var succeeded = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car", tempName: "/MaterialKit.framework/Assets.car")
+            DispatchQueue.main.async {
+                completion(succeeded ? "Success" : "Failed")
+            }
+        } else if typeOfFile == "FolderBG" {
+            var succeededFirst = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderBackground.materialrecipe", tempName: "/folderBackground.framework/folderBackground.materialrecipe")
+            var succeededSecond = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/folderBackground.framework/folderLight.materialrecipe")
+            var succeededThird = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedDark.materialrecipe", tempName: "/folderBackground.framework/folderExpandedDark.materialrecipe")
+            var succeededFourth = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedLight.materialrecipe", tempName: "/folderBackground.framework/folderExpandedLight.materialrecipe")
+            
+            var succeeded = succeededFirst && succeededSecond && succeededThird && succeededFourth
             DispatchQueue.main.async {
                 completion(succeeded ? "Success" : "Failed")
             }
@@ -124,23 +134,21 @@ func overwriteDockWithFileImpl(isVisible: Bool, isDark: Bool) -> Bool {
 // Overwrite the home bar with the given font using CVE-2022-46689.
 // The font must be specially prepared so that it skips past the last byte in every 16KB page.
 // Credit to Zhuowei and FontOverwrite for the code logic.
-func overwriteHomeBarWithFileImpl() -> Bool {
-    let originHomeBarPath = "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car"
-    
+func overwriteWithFileImpl(originPath: String, tempName: String) -> Bool {
     var newData = Data("###".utf8)
 
     #if false
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[
             0
         ].path
-        let originHomeBarPath = documentDirectory + "/MaterialKit.framework/Assets.car"
-        let pathToOriginHomeBar = originHomeBarPath
-        let originHomeBarData = try! Data(contentsOf: URL(fileURLWithPath: pathToOriginHomeBar))
-        try! originHomeBarData.write(to: URL(fileURLWithPath: originHomeBarPath))
+        let originPath = documentDirectory + tempName
+        let pathToOrigin = originPath
+        let originData = try! Data(contentsOf: URL(fileURLWithPath: pathToOrigin))
+        try! originData.write(to: URL(fileURLWithPath: originPath))
     #endif
     
     // open and map original file
-    let file = open(originHomeBarPath, O_RDONLY | O_CLOEXEC)
+    let file = open(originPath, O_RDONLY | O_CLOEXEC)
     if file == -1 {
       print("can't open file?!")
       return false
