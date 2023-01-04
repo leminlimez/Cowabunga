@@ -7,20 +7,35 @@
 
 import SwiftUI
 
+var inProgress = false
+@objc class InProg: NSObject {
+    //private override init() {}
+    
+    @objc func disableProg() { inProgress = false }
+}
+
+// I am not experienced in swift so appologies for this part
+struct ApplyingVariables {
+    static var applyingText = " j"
+}
+
 struct ContentView: View {
     @State private var successful = false
     @State private var failedAlert = false
     @State private var successAlert = false
-    @State private var applying = false
     
     var body: some View {
         VStack {
             Text("Dock Hider")
                 .bold()
-                .padding(.bottom, 35)
+                .padding(.bottom, 10)
+            Text(ApplyingVariables.applyingText)
+                .padding(.bottom, 15)
             
             Button("Hide Dock", action: {
+                ApplyingVariables.applyingText = "Hiding dock..."
                 successful = applyDock(isVisible: false)
+                //ApplyingVariables.applyingText = " "
                 if !successful {
                     failedAlert = true
                 } else {
@@ -33,7 +48,7 @@ struct ContentView: View {
             .foregroundColor(.white)
             .alert(isPresented: $failedAlert) {
                 Alert(
-                    title: Text("Error"),
+                    title: Text("An Error Occurred"),
                     message: Text("Action was unsuccessful."),
                     dismissButton: .default(Text("Ok"))
                 )
@@ -47,6 +62,7 @@ struct ContentView: View {
             }
             
             Button("Revert Dock", action: {
+                ApplyingVariables.applyingText = "Restoring dock..."
                 successful = applyDock(isVisible: true)
                 if !successful {
                     failedAlert = true

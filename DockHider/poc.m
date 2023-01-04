@@ -9,6 +9,7 @@
 
 @import Foundation;
 #import <UIKit/UIKit.h>
+#import "DockHider-Swift.h"
 #include <pthread.h>
 #include <dispatch/dispatch.h>
 #include <stdio.h>
@@ -359,6 +360,8 @@ T_DECL(unaligned_copy_switch_race,
     T_LOG("vm_read_overwrite: KERN_SUCCESS:%d KERN_PROTECTION_FAILURE:%d other:%d",
         kern_success, kern_protection_failure, kern_other);
     T_PASS("Ran %d times in %ld seconds with no failure", loops, duration);
+    InProg *inProg = [[InProg alloc] init];
+    [inProg disableProg];
 }
 
 void overwriteFile(NSData *data, NSString *path) {
