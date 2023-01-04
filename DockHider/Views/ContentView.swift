@@ -16,7 +16,7 @@ var inProgress = false
 
 // I am not experienced in swift so appologies for this part
 struct ApplyingVariables {
-    static var applyingText = " j"
+    static var applyingText = " "
 }
 
 struct ContentView: View {
