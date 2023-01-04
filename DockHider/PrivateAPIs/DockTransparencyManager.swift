@@ -32,7 +32,18 @@ func waitUntilFinished() async throws -> Void {
     }
 }
 
-func applyDock(isVisible: Bool) -> Bool {
+func hideHomeBar() {
+    inProgress = true
+    let originURL = URL(string: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car")!
+    let replacementData = Data("###".utf8)
+    do {
+        try FSOperation.perform(.writeData(url: originURL, data: replacementData), rootHelperConf: RootConf.shared)
+    } catch {
+        print("AE")
+    }
+}
+
+func applyTweaks(isVisible: Bool, changesHomeBar: Bool) -> Bool {
     let CoreMaterialsPath = "/System/Library/PrivateFrameworks/CoreMaterial.framework"
     
     let darkPath = CoreMaterialsPath + "/dockDark.materialrecipe"
@@ -64,8 +75,18 @@ func applyDock(isVisible: Bool) -> Bool {
                 try setDockFile(fileName: lightFile, originURL: URL(string: lightPath)!)
                 Task {
                     try await waitUntilFinished()
-                    // respring
-                    respring()
+                    // apply home bar
+                    if changesHomeBar {
+                        hideHomeBar()
+                        Task {
+                            try await waitUntilFinished()
+                            // respring
+                            respring()
+                        }
+                    } else {
+                        // respring
+                        respring()
+                    }
                 }
             }
         }
