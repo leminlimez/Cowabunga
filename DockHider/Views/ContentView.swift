@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var successful = false
     @State private var failedAlert = false
+    @State private var successAlert = false
+    @State private var applying = false
     
     var body: some View {
         VStack {
@@ -21,6 +23,8 @@ struct ContentView: View {
                 successful = applyDock(isVisible: false)
                 if !successful {
                     failedAlert = true
+                } else {
+                    successAlert = true
                 }
             })
             .padding(10)
@@ -34,22 +38,30 @@ struct ContentView: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
+            .alert(isPresented: $successAlert) {
+                Alert(
+                    title: Text("Success!"),
+                    message: Text("Please respring."),
+                    dismissButton: .default(Text("Ok"))
+                )
+            }
             
             Button("Revert Dock", action: {
-                // check OS version
-                if #available(iOS 15.0, *) {
-                    // simply respring
-                    respring()
-                } else {
-                    // apply the old dock for ios 14
-                    successful = applyDock(isVisible: true)
-                    if !successful {
-                        failedAlert = true
-                    }
+                successful = applyDock(isVisible: true)
+                if !successful {
+                    failedAlert = true
                 }
             })
             .padding(10)
             .background(Color.red)
+            .cornerRadius(8)
+            .foregroundColor(.white)
+            
+            Button("Respring", action: {
+                respring()
+            })
+            .padding(10)
+            .background(Color.accentColor)
             .cornerRadius(8)
             .foregroundColor(.white)
         }
