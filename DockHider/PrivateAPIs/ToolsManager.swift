@@ -63,6 +63,10 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
         } else if typeOfFile == "FolderBlur" {
             let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", replacementData: randomGarbage)
             let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", replacementData: randomGarbage)
+            let succeeded = succeeded1 && succeeded2
+            DispatchQueue.main.async {
+                completion(succeeded)
+            }
         }
     }
 }
