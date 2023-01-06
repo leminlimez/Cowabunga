@@ -16,7 +16,7 @@ var onHomeBar = false
     @objc func setDiff() { noDiff = true }
 }
 
-struct ContentView: View {
+struct SpringBoardView: View {
     struct GeneralOption: Identifiable {
         var value: Bool
         var id = UUID()
@@ -125,8 +125,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SpringBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SpringBoardView()
     }
 }
