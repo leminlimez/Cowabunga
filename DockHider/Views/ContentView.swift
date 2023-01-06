@@ -89,81 +89,86 @@ struct ContentView: View {
             }
             
             Button("Apply and Respring", action: {
-                if !inProgress {
-                    // set the defaults
-                    applyText = "Setting defaults..."
-                    defaults.set(disabledFolderBlur, forKey: "FolderBlurDisabled")
-                    defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
-                    defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
-                    defaults.set(hidingDock, forKey: "DockHidden")
-                    
-                    // apply the tweaks
-                    // apply dark dock
-                    applyText = "Applying to dark dock file..."
-                    overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: true) { succeededForDark in
-                        if succeededForDark  {
-                            // apply light dock
-                            applyText = "Applying to light dock file..."
-                            overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
-                                if !succeededForLight  {
-                                    print("Failed to apply light dock")
-                                }
-                            }
-                        } else {
-                            print("Failed to apply dark dock")
-                        }
-                    }
-                    
-                    // apply home bar
-                    if hidingHomeBar {
-                        applyText = "Applying to home bar file..."
-                        overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: false) { succeeded in
-                            if !succeeded {
-                                print("Failed to apply home bar")
-                            }
-                        }
-                    }
-                    
-                    // apply hide folder bg
-                    if hidingFolderBG {
-                        applyText = "Applying to folder background file..."
-                        overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeeded in
-                            if !succeeded {
-                                print("Failed to apply folder background")
-                            }
-                        }
-                    }
-                    
-                    // apply disabling folder blur
-                    if disabledFolderBlur {
-                        applyText = "Disabling folder blur..."
-                        overwriteFile(isVisible: true, typeOfFile: "FolderBlur", isDark: true) { succeeded in
-                            if !succeeded {
-                                print("Failed to disable folder blur")
-                            }
-                        }
-                    }
-                    
-                    // respring and apply changes
-                    applyText = "Respringing..."
-                    respring()
-                }
+                applyTweaks(respringWhenFinished: true)
             })
             .padding(10)
             .background(Color.accentColor)
             .cornerRadius(8)
             .foregroundColor(.white)
-            .onChange(of: inProgress) { new in
-                if inProgress == false {
-                    if onHomeBar {
-                        applyText = "Applying to home bar file..."
-                    } else {
-                        applyText = "Respringing..."
+            
+            Button("Apply without Respringing", action: {
+                applyTweaks(respringWhenFinished: false)
+            })
+            .padding(10)
+            .background(Color.accentColor)
+            .cornerRadius(8)
+            .foregroundColor(.white)
+        }
+        .padding()
+    }
+    
+    func applyTweaks(respringWhenFinished: Bool) {
+        if !inProgress {
+            // set the defaults
+            applyText = "Setting defaults..."
+            defaults.set(disabledFolderBlur, forKey: "FolderBlurDisabled")
+            defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
+            defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
+            defaults.set(hidingDock, forKey: "DockHidden")
+            
+            // apply the tweaks
+            // apply dark dock
+            applyText = "Applying to dark dock file..."
+            overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: true) { succeededForDark in
+                if succeededForDark  {
+                    // apply light dock
+                    applyText = "Applying to light dock file..."
+                    overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
+                        if !succeededForLight  {
+                            print("Failed to apply light dock")
+                        }
+                    }
+                } else {
+                    print("Failed to apply dark dock")
+                }
+            }
+            
+            // apply home bar
+            if hidingHomeBar {
+                applyText = "Applying to home bar file..."
+                overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: false) { succeeded in
+                    if !succeeded {
+                        print("Failed to apply home bar")
                     }
                 }
             }
+            
+            // apply hide folder bg
+            if hidingFolderBG {
+                applyText = "Applying to folder background file..."
+                overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeeded in
+                    if !succeeded {
+                        print("Failed to apply folder background")
+                    }
+                }
+            }
+            
+            // apply disabling folder blur
+            if disabledFolderBlur {
+                applyText = "Disabling folder blur..."
+                overwriteFile(isVisible: true, typeOfFile: "FolderBlur", isDark: true) { succeeded in
+                    if !succeeded {
+                        print("Failed to disable folder blur")
+                    }
+                }
+            }
+            
+            if respringWhenFinished {
+                // respring and apply changes
+                applyText = "Respringing..."
+                respring()
+            }
         }
-        .padding()
     }
 }
 
