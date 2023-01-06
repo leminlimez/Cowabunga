@@ -7,6 +7,20 @@
 
 import UIKit
 
+// get the user defaults for a boolean key
+func getDefaultBool(forKey: String, defaultValue: Bool = false) -> Bool {
+    let defaults = UserDefaults.standard
+    
+    return defaults.object(forKey: forKey) as? Bool ?? defaultValue
+}
+
+// set a user defaults value for a boolean key
+func setDefaultBoolean(forKey: String, value: Bool) {
+    let defaults = UserDefaults.standard
+    
+    defaults.set(value, forKey: forKey)
+}
+
 func respring() {
     guard let window = UIApplication.shared.windows.first else { return }
     while true {
@@ -14,42 +28,36 @@ func respring() {
     }
 }
 
-func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion: @escaping (Bool) -> Void) {
+func overwriteFile<Value>(typeOfFile: String, _ value: Value, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         let randomGarbage = Data("###".utf8)
         
         // DOCK
-        if typeOfFile == "Dock" {
-            if isVisible {
-                // make dock visible
-                // dark
-                let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe", backupName: "dockDark.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: "defaultDark", withExtension: "materialrecipe")!))
-                // light
-                let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe", backupName: "dockLight.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: "defaultLight", withExtension: "materialrecipe")!))
-                let succeeded = succeeded1 && succeeded2
-                DispatchQueue.main.async {
-                    completion(succeeded)
-                }
+        if typeOfFile == "DockHidden" {
+            var replaceType: String
+            if value as! Bool == false {
+                replaceType = "default"
             } else {
-                // make dock hidden
-                let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe", backupName: "dockDark.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: "hiddenDark", withExtension: "materialrecipe")!))
-                // light
-                let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe", backupName: "dockLight.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: "hiddenLight", withExtension: "materialrecipe")!))
-                let succeeded = succeeded1 && succeeded2
-                DispatchQueue.main.async {
-                    completion(succeeded)
-                }
+                replaceType = "hidden"
+            }
+            // dark
+            let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe", backupName: "dockDark.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: replaceType + "Dark", withExtension: "materialrecipe")!))
+            // light
+            let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe", backupName: "dockLight.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: replaceType + "Light", withExtension: "materialrecipe")!))
+            let succeeded = succeeded1 && succeeded2
+            DispatchQueue.main.async {
+                completion(succeeded)
             }
         
         // HOME BAR
-        } else if typeOfFile == "HomeBar" {
+        } else if typeOfFile == "HomeBarHidden" {
             let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car", backupName: "/MaterialKit.framework/Assets.car", replacementData: randomGarbage)
             DispatchQueue.main.async {
                 completion(succeeded)
             }
         
         // FOLDER BG
-        } else if typeOfFile == "FolderBG" {
+        } else if typeOfFile == "FolderBGHidden" {
             let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", backupName: "/SpringBoardHome.framework/folderLight.materialrecipe", replacementData: randomGarbage)
             let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDark.materialrecipe", backupName: "/SpringBoardHome.framework/folderDark.materialrecipe", replacementData: randomGarbage)
             let succeeded3 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDarkSimplified.materialrecipe", backupName: "/SpringBoardHome.framework/folderDarkSimplified.materialrecipe", replacementData: randomGarbage)
@@ -60,7 +68,7 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
             }
         
         // FOLDER BLUR
-        } else if typeOfFile == "FolderBlur" {
+        } else if typeOfFile == "FolderBlurDisabled" {
             let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", replacementData: randomGarbage)
             let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", replacementData: randomGarbage)
             let succeeded = succeeded1 && succeeded2
