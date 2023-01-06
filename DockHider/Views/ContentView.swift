@@ -10,7 +10,6 @@ import SwiftUI
 var inProgress = false
 var noDiff = false
 var onHomeBar = false
-let defaults = UserDefaults.standard
 
 @objc class InProg: NSObject {
     @objc func disableProg() { inProgress = false }
@@ -18,13 +17,22 @@ let defaults = UserDefaults.standard
 }
 
 struct ContentView: View {
-    @Environment(\.colorScheme) var colorScheme
-    @State private var successful = false
-    @State private var failedAlert = false
-    @State private var disabledFolderBlur = defaults.bool(forKey: "FolderBlurDisabled")
-    @State private var hidingFolderBG = defaults.bool(forKey: "FolderBGHidden")
-    @State private var hidingHomeBar = defaults.bool(forKey: "HomeBarHidden")
-    @State private var hidingDock = defaults.object(forKey: "DockHidden") as? Bool ?? true
+    struct GeneralOption: Identifiable {
+        var value: Bool
+        var id = UUID()
+        var key: String
+        var title: String
+        var imageName: String
+    }
+    
+    // list of options
+    @State var tweakOptions: [GeneralOption] = [
+        .init(value: getDefaultBool(forKey: "DockHidden", defaultValue: true), key: "DockHidden", title: "Hide Dock", imageName: "platter.filled.bottom.iphone"),
+        .init(value: getDefaultBool(forKey: "HomeBarHidden"), key: "HomeBarHidden", title: "Hide Home Bar", imageName: "iphone"),
+        .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Hide Folder Background", imageName: "folder"),
+        .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle.fill"),
+    ]
+    
     @State private var applyText = " "
     
     var body: some View {
@@ -35,57 +43,20 @@ struct ContentView: View {
             Text(applyText)
                 .padding(.bottom, 15)
             
-            HStack {
-                Image(systemName: "platter.filled.bottom.iphone")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.blue)
-                
-                Toggle(isOn: $hidingDock) {
-                    Text("Hide Dock")
-                        .minimumScaleFactor(0.5)
+            ForEach($tweakOptions) { option in
+                HStack {
+                    Image(systemName: option.imageName.wrappedValue)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.blue)
+                    
+                    Toggle(isOn: option.value) {
+                        Text(option.title.wrappedValue)
+                            .minimumScaleFactor(0.5)
+                    }
+                    .padding(.leading, 10)
                 }
-                .padding(.leading, 10)
-            }
-            HStack {
-                Image(systemName: "iphone")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.blue)
-                
-                Toggle(isOn: $hidingHomeBar) {
-                    Text("Hide Home Bar")
-                        .minimumScaleFactor(0.5)
-                }
-                .padding(.leading, 10)
-            }
-            HStack {
-                Image(systemName: "folder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.blue)
-                
-                Toggle(isOn: $hidingFolderBG) {
-                    Text("Hide Folder Background")
-                        .minimumScaleFactor(0.5)
-                }
-                .padding(.leading, 10)
-            }
-            HStack {
-                Image(systemName: "folder.circle.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.blue)
-                
-                Toggle(isOn: $disabledFolderBlur) {
-                    Text("Disable Folder Blur")
-                        .minimumScaleFactor(0.5)
-                }
-                .padding(.leading, 10)
             }
             
             Button("Apply and Respring", action: {
@@ -117,58 +88,21 @@ struct ContentView: View {
     
     func applyTweaks(respringWhenFinished: Bool) {
         if !inProgress {
-            // set the defaults
-            applyText = "Setting defaults..."
-            print("Setting defaults...")
-            defaults.set(disabledFolderBlur, forKey: "FolderBlurDisabled")
-            defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
-            defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
-            defaults.set(hidingDock, forKey: "DockHidden")
-            
-            // apply the tweaks
-            // apply dark dock
             applyText = "Applying tweaks..."
-            print("Applying to dark dock file...")
-            overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: true) { succeededForDark in
-                if succeededForDark  {
-                    // apply light dock
-                    print("Applying to light dock file...")
-                    overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
-                        if !succeededForLight  {
-                            print("Failed to apply light dock")
+            //ForEach(tweakOptions) { option in
+            for option in tweakOptions {
+                // set the user defaults
+                setDefaultBoolean(forKey: option.key, value: option.value)
+                
+                //  apply tweak
+                if option.key == "DockHidden" || option.value == true {
+                    print("Applying tweak \"" + option.title + "\"")
+                    overwriteFile(typeOfFile: option.key, option.value) { succeeded in
+                        if succeeded {
+                            print("Successfully applied tweak \"" + option.title + "\"")
+                        } else {
+                            print("Failed to apply tweak \"" + option.title + "\"!!!")
                         }
-                    }
-                } else {
-                    print("Failed to apply dark dock")
-                }
-            }
-            
-            // apply home bar
-            if hidingHomeBar {
-                print("Applying to home bar file...")
-                overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: false) { succeeded in
-                    if !succeeded {
-                        print("Failed to apply home bar")
-                    }
-                }
-            }
-            
-            // apply hide folder bg
-            if hidingFolderBG {
-                print("Applying to folder background file...")
-                overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeeded in
-                    if !succeeded {
-                        print("Failed to apply folder background")
-                    }
-                }
-            }
-            
-            // apply disabling folder blur
-            if disabledFolderBlur {
-                print("Disabling folder blur...")
-                overwriteFile(isVisible: true, typeOfFile: "FolderBlur", isDark: true) { succeeded in
-                    if !succeeded {
-                        print("Failed to disable folder blur")
                     }
                 }
             }
@@ -181,6 +115,11 @@ struct ContentView: View {
             } else {
                 applyText = "Tweaks applied"
                 print("Tweaks applied")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    if applyText == "Tweaks applied" {
+                        applyText = " "
+                    }
+                }
             }
         }
     }
