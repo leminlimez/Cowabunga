@@ -21,7 +21,8 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var successful = false
     @State private var failedAlert = false
-    @State private var hidingFolderBG = false//defaults.bool(forKey: "FolderBGHidden")
+    @State private var disabledFolderBlur = defaults.bool(forKey: "FolderBlurDisabled")
+    @State private var hidingFolderBG = defaults.bool(forKey: "FolderBGHidden")
     @State private var hidingHomeBar = defaults.bool(forKey: "HomeBarHidden")
     @State private var hidingDock = defaults.object(forKey: "DockHidden") as? Bool ?? true
     @State private var applyText = " "
@@ -60,7 +61,7 @@ struct ContentView: View {
                 }
                 .padding(.leading, 10)
             }
-            /*HStack {
+            HStack {
                 Image(systemName: "folder")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -72,13 +73,27 @@ struct ContentView: View {
                         .minimumScaleFactor(0.5)
                 }
                 .padding(.leading, 10)
-            }*/
+            }
+            HStack {
+                Image(systemName: "folder.circle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.blue)
+                
+                Toggle(isOn: $disabledFolderBlur) {
+                    Text("Disable Folder Blur")
+                        .minimumScaleFactor(0.5)
+                }
+                .padding(.leading, 10)
+            }
             
             Button("Apply and Respring", action: {
                 if !inProgress {
                     // set the defaults
                     applyText = "Setting defaults..."
-                    //defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
+                    defaults.set(disabledFolderBlur, forKey: "FolderBlurDisabled")
+                    defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
                     defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
                     defaults.set(hidingDock, forKey: "DockHidden")
                     
@@ -90,79 +105,48 @@ struct ContentView: View {
                             // apply light dock
                             applyText = "Applying to light dock file..."
                             overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
-                                if succeededForLight  {
-                                    if hidingHomeBar {
-                                        applyText = "Applying to home bar..."
-                                        overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: true) { succeededForHomeBar in
-                                            if succeededForHomeBar  {
-                                                // apply folder background
-                                                // i forgot functions existed when making this ._.
-                                                if hidingFolderBG {
-                                                    applyText = "Failed to apply home bar. Applying folder background..."
-                                                    overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeededForFolderBG in
-                                                        if succeededForFolderBG {
-                                                            // respring
-                                                            applyText = "Respringing..."
-                                                        } else {
-                                                            // respring anyway
-                                                            applyText = "Failed to apply folder background. Respringing..."
-                                                        }
-                                                        respring()
-                                                    }
-                                                } else {
-                                                    // respring
-                                                    applyText = "Respringing..."
-                                                    respring()
-                                                }
-                                            } else {
-                                                if hidingFolderBG {
-                                                    applyText = "Failed to apply home bar. Applying folder background..."
-                                                    overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeededForFolderBG in
-                                                        if succeededForFolderBG  {
-                                                            // respring
-                                                            applyText = "Respringing..."
-                                                        } else {
-                                                            // respring anyway
-                                                            applyText = "Failed to apply folder background. Respringing..."
-                                                        }
-                                                        respring()
-                                                    }
-                                                } else {
-                                                    // respring anyway
-                                                    applyText = "Failed to apply home bar. Respringing..."
-                                                    respring()
-                                                }
-                                            }
-                                        }
-                                    } else if hidingFolderBG {
-                                        applyText = "Applying to folder background..."
-                                        overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeededForFolderBG in
-                                            if succeededForFolderBG  {
-                                                // respring
-                                                applyText = "Respringing..."
-                                            } else {
-                                                // respring anyway
-                                                applyText = "Failed to apply folder background. Respringing..."
-                                            }
-                                            respring()
-                                        }
-                                    } else {
-                                        // respring
-                                        applyText = "Respringing..."
-                                        respring()
-                                    }
-                                } else {
-                                    applyText = "Failed to apply light dock"
+                                if !succeededForLight  {
+                                    print("Failed to apply light dock")
                                 }
                             }
                         } else {
-                            applyText = "Failed to apply dark dock"
+                            print("Failed to apply dark dock")
                         }
                     }
-                    // let lightMode: Bool = colorScheme == .light
-                    // applyTweaks(isVisible: !hidingDock, changesHomeBar: hidingHomeBar, isLightMode: lightMode)
-                    //applyText = "Respringing..."
-                    //respring()
+                    
+                    // apply home bar
+                    if hidingHomeBar {
+                        applyText = "Applying to home bar file..."
+                        overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: false) { succeeded in
+                            if !succeeded {
+                                print("Failed to apply home bar")
+                            }
+                        }
+                    }
+                    
+                    // apply hide folder bg
+                    if hidingFolderBG {
+                        applyText = "Applying to folder background file..."
+                        overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeeded in
+                            if !succeeded {
+                                print("Failed to apply folder background")
+                            }
+                        }
+                    }
+                    
+                    // apply disabling folder blur
+                    if disabledFolderBlur {
+                        applyText = "Disabling folder blur..."
+                        overwriteFile(isVisible: true, typeOfFile: "FolderBlur", isDark: true) { succeeded in
+                            if !succeeded {
+                                print("Failed to disable folder blur")
+                            }
+                        }
+                    }
+                    
+                    // respring and apply changes
+                    applyText = "Respringing..."
+                    respring()
                 }
             })
             .padding(10)
