@@ -111,6 +111,7 @@ struct ContentView: View {
         if !inProgress {
             // set the defaults
             applyText = "Setting defaults..."
+            print("Setting defaults...")
             defaults.set(disabledFolderBlur, forKey: "FolderBlurDisabled")
             defaults.set(hidingFolderBG, forKey: "FolderBGHidden")
             defaults.set(hidingHomeBar, forKey: "HomeBarHidden")
@@ -118,11 +119,12 @@ struct ContentView: View {
             
             // apply the tweaks
             // apply dark dock
-            applyText = "Applying to dark dock file..."
+            applyText = "Applying tweaks..."
+            print("Applying to dark dock file...")
             overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: true) { succeededForDark in
                 if succeededForDark  {
                     // apply light dock
-                    applyText = "Applying to light dock file..."
+                    print("Applying to light dock file...")
                     overwriteFile(isVisible: !hidingDock, typeOfFile: "Dock", isDark: false) { succeededForLight in
                         if !succeededForLight  {
                             print("Failed to apply light dock")
@@ -135,7 +137,7 @@ struct ContentView: View {
             
             // apply home bar
             if hidingHomeBar {
-                applyText = "Applying to home bar file..."
+                print("Applying to home bar file...")
                 overwriteFile(isVisible: true, typeOfFile: "HomeBar", isDark: false) { succeeded in
                     if !succeeded {
                         print("Failed to apply home bar")
@@ -145,7 +147,7 @@ struct ContentView: View {
             
             // apply hide folder bg
             if hidingFolderBG {
-                applyText = "Applying to folder background file..."
+                print("Applying to folder background file...")
                 overwriteFile(isVisible: true, typeOfFile: "FolderBG", isDark: true) { succeeded in
                     if !succeeded {
                         print("Failed to apply folder background")
@@ -155,7 +157,7 @@ struct ContentView: View {
             
             // apply disabling folder blur
             if disabledFolderBlur {
-                applyText = "Disabling folder blur..."
+                print("Disabling folder blur...")
                 overwriteFile(isVisible: true, typeOfFile: "FolderBlur", isDark: true) { succeeded in
                     if !succeeded {
                         print("Failed to disable folder blur")
@@ -166,6 +168,7 @@ struct ContentView: View {
             if respringWhenFinished {
                 // respring and apply changes
                 applyText = "Respringing..."
+                print("Respringing...")
                 respring()
             }
         }
