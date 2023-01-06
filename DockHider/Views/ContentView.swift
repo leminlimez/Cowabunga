@@ -103,6 +103,14 @@ struct ContentView: View {
             .background(Color.accentColor)
             .cornerRadius(8)
             .foregroundColor(.white)
+            
+            Button("Respring", action: {
+                respring()
+            })
+            .padding(10)
+            .background(Color.red)
+            .cornerRadius(8)
+            .foregroundColor(.white)
         }
         .padding()
     }
@@ -170,6 +178,9 @@ struct ContentView: View {
                 applyText = "Respringing..."
                 print("Respringing...")
                 respring()
+            } else {
+                applyText = "Tweaks applied"
+                print("Tweaks applied")
             }
         }
     }
