@@ -7,6 +7,12 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
 
 This is my first solo app made with Xcode! If you are making modifications to the code, it is slightly messy in places.
 
+Features:
+- Hide dock
+- Hide home bar
+- Hide folder backgrounds
+- Disable folder background blur
+
 ## Screenshots
 ![Screenshot](https://i.imgur.com/n7mzG1Y.png)
 
@@ -17,8 +23,7 @@ You can install through AltStore or TrollStore (if your device supports it)
 Just build like a normal xCode project. There are no extra entitlements needed. You can also build the IPA file with `build.command`.
 
 ## Credits
-- [@haxi0](https://twitter.com/haxi0sm) for exploit code.
-- [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with a code basis.
+- [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with an initial code basis.
 - SerenaKit for SantanderWrappers dependencies
 - [dayanch96](https://www.reddit.com/user/dayanch96/) for app icon
-- [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite)
+- [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
