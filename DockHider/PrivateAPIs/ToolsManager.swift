@@ -17,6 +17,8 @@ func respring() {
 func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         let randomGarbage = Data("###".utf8)
+        
+        // DOCK
         if typeOfFile == "Dock" {
             if isVisible {
                 // make dock visible
@@ -38,11 +40,15 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
                     completion(succeeded)
                 }
             }
+        
+        // HOME BAR
         } else if typeOfFile == "HomeBar" {
             let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car", backupName: "/MaterialKit.framework/Assets.car", replacementData: randomGarbage)
             DispatchQueue.main.async {
                 completion(succeeded)
             }
+        
+        // FOLDER BG
         } else if typeOfFile == "FolderBG" {
             let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", backupName: "/SpringBoardHome.framework/folderLight.materialrecipe", replacementData: randomGarbage)
             let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDark.materialrecipe", backupName: "/SpringBoardHome.framework/folderDark.materialrecipe", replacementData: randomGarbage)
@@ -52,6 +58,8 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
             DispatchQueue.main.async {
                 completion(succeeded)
             }
+        
+        // FOLDER BLUR
         } else if typeOfFile == "FolderBlur" {
             let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", replacementData: randomGarbage)
             let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", replacementData: randomGarbage)
