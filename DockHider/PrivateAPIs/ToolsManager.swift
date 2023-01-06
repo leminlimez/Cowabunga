@@ -27,15 +27,17 @@ func overwriteFile(isVisible: Bool, typeOfFile: String, isDark: Bool, completion
                 completion(succeeded)
             }
         } else if typeOfFile == "FolderBG" {
-            let succeededFirst = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderBackground.materialrecipe", tempName: "/SpringBoardHome.framework/folderBackground.materialrecipe")
-            let succeededSecond = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/SpringBoardHome.framework/folderLight.materialrecipe")
-            let succeededThird = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedDark.materialrecipe", tempName: "/SpringBoardHome.framework/folderExpandedDark.materialrecipe")
-            let succeededFourth = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedLight.materialrecipe", tempName: "/SpringBoardHome.framework/folderExpandedLight.materialrecipe")
+            let succeeded1 = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", tempName: "/SpringBoardHome.framework/folderLight.materialrecipe")
+            let succeeded2 = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDark.materialrecipe", tempName: "/SpringBoardHome.framework/folderDark.materialrecipe")
+            let succeeded3 = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDarkSimplified.materialrecipe", tempName: "/SpringBoardHome.framework/folderDarkSimplified.materialrecipe")
             
-            let succeeded = succeededFirst && succeededSecond && succeededThird && succeededFourth
+            let succeeded = succeeded1 && succeeded2 && succeeded3
             DispatchQueue.main.async {
                 completion(succeeded)
             }
+        } else if typeOfFile == "FolderBlur" {
+            let succeeded1 = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", tempName: "/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe")
+            let succeeded2 = overwriteWithFileImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", tempName: "/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe")
         }
     }
 }
