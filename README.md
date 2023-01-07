@@ -25,5 +25,5 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 ## Credits
 - [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with an initial code basis.
 - SerenaKit for SantanderWrappers dependencies
-- [dayanch96](https://www.reddit.com/user/dayanch96/) for app icon
+- [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
