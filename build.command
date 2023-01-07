@@ -34,8 +34,8 @@ fi
 
 mkdir Payload
 cp -r DockHider.app Payload/DockHider.app
-zip -vr DockHider.ipa Payload
+zip -vr Cowabunga.ipa Payload
 rm -rf DockHider.app
 rm -rf DerivedDataApp
 rm -rf Payload
-zip -vr share.zip DockHider.ipa
+zip -vr share.zip Cowabunga.ipa
