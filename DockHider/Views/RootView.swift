@@ -14,6 +14,10 @@ struct RootView: View {
                 .tabItem {
                     Label("SpringBoard Tools", systemImage: "snowflake")
                 }
+            OtherModsView()
+                .tabItem {
+                    Label("Misc. Mods", systemImage: "hammer")
+                }
         }
     }
 }
