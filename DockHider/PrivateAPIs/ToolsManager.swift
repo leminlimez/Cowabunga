@@ -32,7 +32,8 @@ let replacementPaths: [String: [String]] = [
     "DockHidden": ["CoreMaterial.framework/dockDark.materialrecipe", "CoreMaterial.framework/dockLight.materialrecipe"],
     "HomeBarHidden": ["MaterialKit.framework/Assets.car"],
     "FolderBGHidden": ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
-    "FolderBlurDisabled": ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"]
+    "FolderBlurDisabled": ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
+    "SwitcherBlurDisabled": ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"]
 ]
 
 func overwriteFile<Value>(typeOfFile: String, _ value: Value, completion: @escaping (Bool) -> Void) {
