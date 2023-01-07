@@ -8,13 +8,6 @@
 import SwiftUI
 
 var inProgress = false
-var noDiff = false
-var onHomeBar = false
-
-@objc class InProg: NSObject {
-    @objc func disableProg() { inProgress = false }
-    @objc func setDiff() { noDiff = true }
-}
 
 struct SpringBoardView: View {
     struct GeneralOption: Identifiable {
