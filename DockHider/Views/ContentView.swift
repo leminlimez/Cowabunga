@@ -31,15 +31,20 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "HomeBarHidden"), key: "HomeBarHidden", title: "Hide Home Bar", imageName: "iphone"),
         .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Hide Folder Background", imageName: "folder"),
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle.fill"),
-        .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "folder.circle.fill"),
+        .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone"),
     ]
     
     @State private var applyText = " "
     
     var body: some View {
         VStack {
-            Text("Dock Hider")
+            // title
+            Text("Cowabunga")
+                .font(.largeTitle)
                 .bold()
+                .padding(.bottom)
+            Text("SpringBoard Tools")
+                .font(.title2)
                 .padding(.bottom, 10)
             Text(applyText)
                 .padding(.bottom, 15)
