@@ -36,17 +36,24 @@ let replacementPaths: [String: [String]] = [
     "SwitcherBlurDisabled": ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"]
 ]
 
-func overwriteFile<Value>(typeOfFile: String, _ value: Value, completion: @escaping (Bool) -> Void) {
+enum OverwritingFileTypes {
+    case springboard
+}
+
+func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         // find the path and replace the file
-        if replacementPaths[typeOfFile] != nil {
-            var succeeded = true
-            for path in replacementPaths[typeOfFile]! {
-                let randomGarbage = Data("###".utf8)
-                succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
-            }
-            DispatchQueue.main.async {
-                completion(succeeded)
+        if typeOfFile == OverwritingFileTypes.springboard {
+            // springboard tweak being applied
+            if replacementPaths[fileIdentifier] != nil {
+                var succeeded = true
+                for path in replacementPaths[fileIdentifier]! {
+                    let randomGarbage = Data("###".utf8)
+                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
+                }
+                DispatchQueue.main.async {
+                    completion(succeeded)
+                }
             }
         }
     }

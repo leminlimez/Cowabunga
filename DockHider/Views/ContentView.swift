@@ -103,7 +103,7 @@ struct SpringBoardView: View {
                 //  apply tweak
                 if option.value == true {
                     print("Applying tweak \"" + option.title + "\"")
-                    overwriteFile(typeOfFile: option.key, option.value) { succeeded in
+                    overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: option.key, option.value) { succeeded in
                         if succeeded {
                             print("Successfully applied tweak \"" + option.title + "\"")
                         } else {
