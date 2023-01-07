@@ -22,6 +22,7 @@
 		6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D6296924F500BC427A /* OtherModsView.swift */; };
 		6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D82969B5A700BC427A /* MiscModsManager.swift */; };
 		6F7C01DC2969CC5300BC427A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01DB2969CC5300BC427A /* LocationManager.swift */; };
+		6F7C01DE2969CCC800BC427A /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01DD2969CCC800BC427A /* ApplicationMonitor.swift */; };
 		6FBEDC3A2964DB210032B1A9 /* ApplicationsWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC392964DB210032B1A9 /* ApplicationsWrapper */; };
 		6FBEDC3C2964DB210032B1A9 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC3B2964DB210032B1A9 /* AssetCatalogWrapper */; };
 		6FBEDC3E2964DB210032B1A9 /* CompressionWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC3D2964DB210032B1A9 /* CompressionWrapper */; };
@@ -49,6 +50,7 @@
 		6F7C01D6296924F500BC427A /* OtherModsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsView.swift; sourceTree = "<group>"; };
 		6F7C01D82969B5A700BC427A /* MiscModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscModsManager.swift; sourceTree = "<group>"; };
 		6F7C01DB2969CC5300BC427A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		6F7C01DD2969CCC800BC427A /* ApplicationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				6F7C01DB2969CC5300BC427A /* LocationManager.swift */,
+				6F7C01DD2969CCC800BC427A /* ApplicationMonitor.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */,
+				6F7C01DE2969CCC800BC427A /* ApplicationMonitor.swift in Sources */,
 				6F160E712965B20B0026D69D /* vm_unaligned_copy_switch_race.c in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
 				6F721C92296482C6001CFE46 /* ContentView.swift in Sources */,
