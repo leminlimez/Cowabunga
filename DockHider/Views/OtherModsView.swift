@@ -19,7 +19,7 @@ struct OtherModsView: View {
                 .padding(.bottom)
             Text("Miscelaneous Modifications")
                 .font(.title2)
-                .padding(.bottom, 10)
+                .padding(.bottom, 40)
             HStack {
                 Image(systemName: "gear.circle")
                     .resizable()
