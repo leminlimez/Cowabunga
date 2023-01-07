@@ -19,6 +19,7 @@
 		6F721CAC29649313001CFE46 /* hiddenDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */; };
 		6F721CAD29649313001CFE46 /* hiddenLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */; };
 		6F7C01D52968E0C500BC427A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D42968E0C500BC427A /* RootView.swift */; };
+		6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D6296924F500BC427A /* OtherModsView.swift */; };
 		6FBEDC3A2964DB210032B1A9 /* ApplicationsWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC392964DB210032B1A9 /* ApplicationsWrapper */; };
 		6FBEDC3C2964DB210032B1A9 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC3B2964DB210032B1A9 /* AssetCatalogWrapper */; };
 		6FBEDC3E2964DB210032B1A9 /* CompressionWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC3D2964DB210032B1A9 /* CompressionWrapper */; };
@@ -43,6 +44,7 @@
 		6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = hiddenDark.materialrecipe; sourceTree = "<group>"; };
 		6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = hiddenLight.materialrecipe; sourceTree = "<group>"; };
 		6F7C01D42968E0C500BC427A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		6F7C01D6296924F500BC427A /* OtherModsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsView.swift; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 			children = (
 				6F721C91296482C6001CFE46 /* ContentView.swift */,
 				6F7C01D42968E0C500BC427A /* RootView.swift */,
+				6F7C01D6296924F500BC427A /* OtherModsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */,
 				6F160E712965B20B0026D69D /* vm_unaligned_copy_switch_race.c in Sources */,
 				6F721C92296482C6001CFE46 /* ContentView.swift in Sources */,
 				6F160E732965B2810026D69D /* ToolsManager.swift in Sources */,
