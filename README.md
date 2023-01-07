@@ -1,7 +1,7 @@
 # DockHider
 A Jailed application to hide the dock and home bar on iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
 
-An option for reverting has been included for if you are on iOS 14.
+Warning: Changes are permanent on iOS 14.0-14.8.1
 
 IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
 
