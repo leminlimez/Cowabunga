@@ -16,7 +16,10 @@ Features:
 - Change system version (shows in settings)
 
 ## Screenshots
-![Screenshot](https://i.imgur.com/n7mzG1Y.png)
+![SpringBoard Tools](https://i.imgur.com/ssZcQNK.png)
+![Miscellaneous Mods](https://i.imgur.com/g4sEzUU.png)
+![No Dock](https://i.imgur.com/vgxk3R9.png)
+![No Folder Background](https://i.imgur.com/6K945m3.png)
 
 ## Installing
 You can install through AltStore or TrollStore (if your device supports it)
