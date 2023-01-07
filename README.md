@@ -1,17 +1,19 @@
-# DockHider
-A Jailed application to hide the dock and home bar on iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
+# Cowabunga
+A Jailed toolbox application for iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
 
 Warning: Changes are permanent on iOS 14.0-14.8.1
 
 IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
 
-This is my first solo app made with Xcode! If you are making modifications to the code, it is slightly messy in places.
+This is my first solo app made with Xcode!
 
 Features:
 - Hide dock
 - Hide home bar
 - Hide folder backgrounds
 - Disable folder background blur
+- Disable app switcher blur
+- Change system version (shows in settings)
 
 ## Screenshots
 ![Screenshot](https://i.imgur.com/n7mzG1Y.png)
@@ -27,3 +29,4 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 - SerenaKit for SantanderWrappers dependencies
 - [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
+- [Evyrest](https://github.com/sourcelocation/Evyrest) for background location services.
