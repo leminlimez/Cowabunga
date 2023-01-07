@@ -95,7 +95,7 @@ struct SpringBoardView: View {
                 setDefaultBoolean(forKey: option.key, value: option.value)
                 
                 //  apply tweak
-                if option.key == "DockHidden" || option.value == true {
+                if option.value == true {
                     print("Applying tweak \"" + option.title + "\"")
                     overwriteFile(typeOfFile: option.key, option.value) { succeeded in
                         if succeeded {
