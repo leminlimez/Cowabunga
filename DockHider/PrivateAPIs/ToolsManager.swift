@@ -34,16 +34,10 @@ func overwriteFile<Value>(typeOfFile: String, _ value: Value, completion: @escap
         
         // DOCK
         if typeOfFile == "DockHidden" {
-            var replaceType: String
-            if value as! Bool == false {
-                replaceType = "default"
-            } else {
-                replaceType = "hidden"
-            }
             // dark
-            let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe", backupName: "dockDark.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: replaceType + "Dark", withExtension: "materialrecipe")!))
+            let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe", backupName: "dockDark.materialrecipe", replacementData: randomGarbage)
             // light
-            let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe", backupName: "dockLight.materialrecipe", replacementData: try! Data(contentsOf:  Bundle.main.url(forResource: replaceType + "Light", withExtension: "materialrecipe")!))
+            let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe", backupName: "dockLight.materialrecipe", replacementData: randomGarbage)
             let succeeded = succeeded1 && succeeded2
             DispatchQueue.main.async {
                 completion(succeeded)
