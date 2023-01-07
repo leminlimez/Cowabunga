@@ -28,44 +28,22 @@ func respring() {
     }
 }
 
+let replacementPaths: [String: [String]] = [
+    "DockHidden": ["CoreMaterial.framework/dockDark.materialrecipe", "CoreMaterial.framework/dockLight.materialrecipe"],
+    "HomeBarHidden": ["MaterialKit.framework/Assets.car"],
+    "FolderBGHidden": ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
+    "FolderBlurDisabled": ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"]
+]
+
 func overwriteFile<Value>(typeOfFile: String, _ value: Value, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
-        let randomGarbage = Data("###".utf8)
-        
-        // DOCK
-        if typeOfFile == "DockHidden" {
-            // dark
-            let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe", backupName: "dockDark.materialrecipe", replacementData: randomGarbage)
-            // light
-            let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe", backupName: "dockLight.materialrecipe", replacementData: randomGarbage)
-            let succeeded = succeeded1 && succeeded2
-            DispatchQueue.main.async {
-                completion(succeeded)
+        // find the path and replace the file
+        if replacementPaths[typeOfFile] != nil {
+            var succeeded = true
+            for path in replacementPaths[typeOfFile]! {
+                let randomGarbage = Data("###".utf8)
+                succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
             }
-        
-        // HOME BAR
-        } else if typeOfFile == "HomeBarHidden" {
-            let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car", backupName: "/MaterialKit.framework/Assets.car", replacementData: randomGarbage)
-            DispatchQueue.main.async {
-                completion(succeeded)
-            }
-        
-        // FOLDER BG
-        } else if typeOfFile == "FolderBGHidden" {
-            let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe", backupName: "/SpringBoardHome.framework/folderLight.materialrecipe", replacementData: randomGarbage)
-            let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDark.materialrecipe", backupName: "/SpringBoardHome.framework/folderDark.materialrecipe", replacementData: randomGarbage)
-            let succeeded3 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDarkSimplified.materialrecipe", backupName: "/SpringBoardHome.framework/folderDarkSimplified.materialrecipe", replacementData: randomGarbage)
-            
-            let succeeded = succeeded1 && succeeded2 && succeeded3
-            DispatchQueue.main.async {
-                completion(succeeded)
-            }
-        
-        // FOLDER BLUR
-        } else if typeOfFile == "FolderBlurDisabled" {
-            let succeeded1 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", replacementData: randomGarbage)
-            let succeeded2 = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", backupName: "/SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe", replacementData: randomGarbage)
-            let succeeded = succeeded1 && succeeded2
             DispatchQueue.main.async {
                 completion(succeeded)
             }
