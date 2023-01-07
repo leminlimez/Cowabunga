@@ -27,7 +27,7 @@ struct SpringBoardView: View {
     
     // list of options
     @State var tweakOptions: [GeneralOption] = [
-        .init(value: getDefaultBool(forKey: "DockHidden", defaultValue: true), key: "DockHidden", title: "Hide Dock", imageName: "platter.filled.bottom.iphone"),
+        .init(value: getDefaultBool(forKey: "DockHidden"), key: "DockHidden", title: "Hide Dock", imageName: "platter.filled.bottom.iphone"),
         .init(value: getDefaultBool(forKey: "HomeBarHidden"), key: "HomeBarHidden", title: "Hide Home Bar", imageName: "iphone"),
         .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Hide Folder Background", imageName: "folder"),
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle.fill"),
