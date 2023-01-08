@@ -61,6 +61,18 @@ struct SpringBoardView: View {
             
             Button("Apply and Respring", action: {
                 applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+                applyTweaks(respringWhenFinished: true)
+
             })
             .padding(10)
             .background(Color.accentColor)
@@ -69,6 +81,18 @@ struct SpringBoardView: View {
             
             Button("Apply without Respringing", action: {
                 applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+                applyTweaks(respringWhenFinished: false)
+
             })
             .padding(10)
             .background(Color.accentColor)
