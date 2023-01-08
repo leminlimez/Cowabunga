@@ -45,11 +45,13 @@ struct OtherModsView: View {
                     alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
                         // set the version
                         let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
-                        setProductVersion(newVersion: newVersion) { succeeded in
-                            if succeeded {
-                                CurrentVersion = newVersion
-                                // set the default
-                                defaults.set(newVersion, forKey: "ProductVersion")
+                        if newVersion != "" {
+                            setProductVersion(newVersion: newVersion) { succeeded in
+                                if succeeded {
+                                    CurrentVersion = newVersion
+                                    // set the default
+                                    defaults.set(newVersion, forKey: "ProductVersion")
+                                }
                             }
                         }
                     })
