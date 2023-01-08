@@ -33,3 +33,4 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 - [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
 - [Evyrest](https://github.com/sourcelocation/Evyrest) for background location services.
+- [BomberFish](https://github.com/BomberFish) for AirPower sound tweak
