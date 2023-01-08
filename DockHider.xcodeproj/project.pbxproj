@@ -14,10 +14,6 @@
 		6F721C92296482C6001CFE46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C91296482C6001CFE46 /* ContentView.swift */; };
 		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
 		6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C96296482C7001CFE46 /* Preview Assets.xcassets */; };
-		6F721CA8296492FF001CFE46 /* defaultLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA6296492FF001CFE46 /* defaultLight.materialrecipe */; };
-		6F721CA9296492FF001CFE46 /* defaultDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CA7296492FF001CFE46 /* defaultDark.materialrecipe */; };
-		6F721CAC29649313001CFE46 /* hiddenDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */; };
-		6F721CAD29649313001CFE46 /* hiddenLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */; };
 		6F7C01D52968E0C500BC427A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D42968E0C500BC427A /* RootView.swift */; };
 		6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D6296924F500BC427A /* OtherModsView.swift */; };
 		6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D82969B5A700BC427A /* MiscModsManager.swift */; };
@@ -42,10 +38,6 @@
 		6F721C93296482C7001CFE46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F721C96296482C7001CFE46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F721C9D296487CC001CFE46 /* DockHider-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DockHider-Bridging-Header.h"; sourceTree = "<group>"; };
-		6F721CA6296492FF001CFE46 /* defaultLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = defaultLight.materialrecipe; sourceTree = "<group>"; };
-		6F721CA7296492FF001CFE46 /* defaultDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = defaultDark.materialrecipe; sourceTree = "<group>"; };
-		6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = hiddenDark.materialrecipe; sourceTree = "<group>"; };
-		6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = hiddenLight.materialrecipe; sourceTree = "<group>"; };
 		6F7C01D42968E0C500BC427A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		6F7C01D6296924F500BC427A /* OtherModsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsView.swift; sourceTree = "<group>"; };
 		6F7C01D82969B5A700BC427A /* MiscModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscModsManager.swift; sourceTree = "<group>"; };
@@ -72,15 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F160E742965C3EF0026D69D /* DockFiles */ = {
-			isa = PBXGroup;
-			children = (
-				6F721CA3296488C9001CFE46 /* HiddenDocks */,
-				6F721CA2296488BB001CFE46 /* DefaultDocks */,
-			);
-			path = DockFiles;
-			sourceTree = "<group>";
-		};
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				6F7C01DA2969CC4600BC427A /* Controllers */,
-				6F160E742965C3EF0026D69D /* DockFiles */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
 				6F721CAF2964A742001CFE46 /* PrivateAPIs */,
 				6F721CAE2964A72D001CFE46 /* Views */,
@@ -122,24 +104,6 @@
 				6F721C96296482C7001CFE46 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		6F721CA2296488BB001CFE46 /* DefaultDocks */ = {
-			isa = PBXGroup;
-			children = (
-				6F721CA7296492FF001CFE46 /* defaultDark.materialrecipe */,
-				6F721CA6296492FF001CFE46 /* defaultLight.materialrecipe */,
-			);
-			path = DefaultDocks;
-			sourceTree = "<group>";
-		};
-		6F721CA3296488C9001CFE46 /* HiddenDocks */ = {
-			isa = PBXGroup;
-			children = (
-				6F721CAA29649313001CFE46 /* hiddenDark.materialrecipe */,
-				6F721CAB29649313001CFE46 /* hiddenLight.materialrecipe */,
-			);
-			path = HiddenDocks;
 			sourceTree = "<group>";
 		};
 		6F721CAE2964A72D001CFE46 /* Views */ = {
@@ -249,11 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */,
-				6F721CA8296492FF001CFE46 /* defaultLight.materialrecipe in Resources */,
-				6F721CAC29649313001CFE46 /* hiddenDark.materialrecipe in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
-				6F721CAD29649313001CFE46 /* hiddenLight.materialrecipe in Resources */,
-				6F721CA9296492FF001CFE46 /* defaultDark.materialrecipe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
