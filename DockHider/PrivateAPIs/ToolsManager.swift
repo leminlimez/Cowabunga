@@ -34,11 +34,13 @@ let replacementPaths: [String: [String]] = [
     "FolderBGHidden": ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
     "FolderBlurDisabled": ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
     "SwitcherBlurDisabled": ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
-    "ShortcutBannerDisabled": ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"]
+    "ShortcutBannerDisabled": ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"],
+    "AirPowerEnabled": ["UISounds/connect_power.caf"]
 ]
 
 enum OverwritingFileTypes {
     case springboard
+    case audio
 }
 
 func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value, completion: @escaping (Bool) -> Void) {
@@ -52,6 +54,16 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                     let randomGarbage = Data("###".utf8)
                     succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
                 }
+                DispatchQueue.main.async {
+                    completion(succeeded)
+                }
+            }
+        } else if typeOfFile == OverwritingFileTypes.audio {
+            if replacementPaths[fileIdentifier] != nil && audioReplacementData[fileIdentifier] != nil {
+                // replace the audio data
+                let newData = Data(base64Encoded: audioReplacementData[fileIdentifier]!)!
+                let path = replacementPaths[fileIdentifier]![0]
+                let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path, backupName: path, replacementData: newData)
                 DispatchQueue.main.async {
                     completion(succeeded)
                 }
