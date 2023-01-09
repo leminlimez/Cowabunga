@@ -14,10 +14,12 @@ struct RootView: View {
                 .tabItem {
                     Label("SpringBoard Tools", systemImage: "snowflake")
                 }
-            OtherModsView()
-                .tabItem {
-                    Label("Misc. Mods", systemImage: "hammer")
-                }
+            if #available(iOS 15, *) {
+                OtherModsView()
+                    .tabItem {
+                        Label("Misc. Mods", systemImage: "hammer")
+                    }
+            }
         }
     }
 }
