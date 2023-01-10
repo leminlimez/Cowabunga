@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct OtherModsView: View {
-    @State private var CurrentVersion: String = getSystemVersion()
-    @State private var CurrentModel: String = getModel()
+    @State private var CurrentVersion: String = getPlistValue(plistPath: "/System/Library/CoreServices/SystemVersion.plist", key: "ProductVersion")
+    @State private var CurrentModel: String = getPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription")
     
     var body: some View {
         VStack {
@@ -28,14 +28,14 @@ struct OtherModsView: View {
                     .frame(width: 24, height: 24)
                     .foregroundColor(.blue)
                 
-                Text("Product Version")
+                Text("Software Version")
                     .minimumScaleFactor(0.5)
                     .padding(.trailing, 50)
                 
                 Button(CurrentVersion, action: {
                     let defaults = UserDefaults.standard
                     // create and configure alert controller
-                    let alert = UIAlertController(title: "Input Product Version", message: "No respring required to apply.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Input Software Version", message: "No respring required to apply.", preferredStyle: .alert)
                     // bring up the text prompt
                     alert.addTextField { (textField) in
                         textField.placeholder = "Version"
@@ -70,6 +70,7 @@ struct OtherModsView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 24, height: 24)
                     .foregroundColor(.blue)
+                    
                 
                 Text("Model Name")
                     .minimumScaleFactor(0.5)
