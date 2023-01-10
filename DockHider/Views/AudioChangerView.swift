@@ -22,7 +22,7 @@ struct AudioChangerView: View {
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
         .init(attachment: "Charging", audioName: "Default", fileName: "Default_Charging"),
-        .init(attachment: "Charging", audioName: "AirPower", fileName: "AirPower_Charging"),
+        .init(attachment: "Charging", audioName: "Engage", fileName: "AirPower_Charging"),
     ]
     
     // applied sound
