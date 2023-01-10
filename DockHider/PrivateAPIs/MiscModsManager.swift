@@ -7,6 +7,35 @@
 
 import Foundation
 
+func setProductVersion(newVersion: String, completion: @escaping (Bool) -> Void) {
+    // this code is because I nearly bootlooped my phone with the later function
+    DispatchQueue.global(qos: .userInteractive).async {
+        let filePath: String = "/System/Library/CoreServices/SystemVersion.plist"
+        // open plist
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
+            completion(false)
+            return
+        }
+        guard var plist = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else {
+            completion(false)
+            return
+        }
+        
+        // modify value
+        plist["ProductVersion"] = newVersion
+        
+        // overwrite the plist
+        guard let plistData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0) else {
+            completion(false)
+            return
+        }
+        let succeeded = overwriteFileWithDataImpl(originPath: filePath, backupName: "CoreServices/SystemVersion.plist", replacementData: plistData)
+        DispatchQueue.main.async {
+            completion(succeeded)
+        }
+    }
+}
+
 func getPlistValue(plistPath: String, key: String) -> String {
     // open plist
     guard let data = try? Data(contentsOf: URL(fileURLWithPath: plistPath)) else {
