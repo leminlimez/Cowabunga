@@ -27,7 +27,7 @@ struct AudioView: View {
             Text("Cowabunga")
                 .font(.largeTitle)
                 .bold()
-                .padding(.bottom)
+                .padding()
             NavigationView {
                 List {
                     Section {
@@ -47,6 +47,10 @@ struct AudioView: View {
                     } header: {
                         Text("Sound Effects Modifications")
                     }
+                    Button("Apply", action: {
+                        print("h")
+                    })
+                    .padding(10)
                 }
             }
         }
