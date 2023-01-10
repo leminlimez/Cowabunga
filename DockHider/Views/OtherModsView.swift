@@ -91,7 +91,7 @@ struct OtherModsView: View {
                         // set the version
                         let newModel: String = alert.textFields?[0].text! ?? CurrentModel
                         if newModel != "" {
-                            setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", newValue: newModel) { succeeded in
+                            setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newModel) { succeeded in
                                 if succeeded {
                                     CurrentModel = newModel
                                     // set the default
