@@ -60,6 +60,7 @@ struct AudioChangerView: View {
                                         }
                                     })
                                     .padding(.horizontal, 8)
+                                    .foregroundColor(.primary)
                                 }
                             }
                         }
