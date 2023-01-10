@@ -47,7 +47,7 @@ struct OtherModsView: View {
                         // set the version
                         let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
                         if newVersion != "" {
-                            setPlistValue(plistPath: "/System/Library/CoreServices/SystemVersion.plist", backupName: "CoreServices/SystemVersion.plist", key: "ProductVersion", newValue: newVersion) { succeeded in
+                            setProductVersion(newVersion: newVersion) { succeeded in
                                 if succeeded {
                                     CurrentVersion = newVersion
                                     // set the default
