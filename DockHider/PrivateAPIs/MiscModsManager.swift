@@ -7,33 +7,19 @@
 
 import Foundation
 
-func getSystemVersion() -> String {
-    guard let data = try? Data(contentsOf: URL(fileURLWithPath: "/System/Library/CoreServices/SystemVersion.plist")) else { return "nil" }
-    guard let plist = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else { return "nil" }
-    
-    // read the value
-    if plist["ProductVersion"] != nil {
-        return plist["ProductVersion"] as! String
-    }
-    
-    // no value was found
-    return "nil"
-}
-
-func getModel() -> String {
+func getPlistValue(plistPath: String, key: String) -> String {
     // open plist
-    let plistPath = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
     guard let data = try? Data(contentsOf: URL(fileURLWithPath: plistPath)) else {
-        print("Could not get model plist data!")
+        print("Could not get plist data!")
         return "nil"
     }
-    guard let plist = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else {
+    guard let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
         print("Could not convert plist!")
         return "nil"
     }
     
     // find the value
-    return getDictValue(plist, "ArtworkDeviceProductDescription")
+    return getDictValue(plist, key)
 }
 
 func getDictValue(_ dict: [String: Any], _ key: String) -> String {
@@ -62,25 +48,26 @@ func changeDictValue(_ dict: [String: Any], _ key: String, _ value: String) -> [
 
 func setPlistValue(plistPath: String, backupName: String, key: String, newValue: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
+        let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
+        
+        let plist = try! PropertyListSerialization.propertyList(from: stringsData, options: [], format: nil) as! [String: Any]
         // open plist
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: plistPath)) else {
+        /*guard let data = try? Data(contentsOf: URL(fileURLWithPath: plistPath)) else {
             completion(false)
             return
         }
         guard let plist = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else {
             completion(false)
             return
-        }
+        }*/
         
         // modify value
         let newPlist = changeDictValue(plist, key, newValue)
         
         // overwrite the plist
-        guard let plistData = try? PropertyListSerialization.data(fromPropertyList: newPlist, format: .xml, options: 0) else {
-            completion(false)
-            return
-        }
-        let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: plistData)
+        let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
+        
+        let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
         DispatchQueue.main.async {
             completion(succeeded)
         }
