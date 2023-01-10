@@ -20,12 +20,6 @@
 		6F7C01DC2969CC5300BC427A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01DB2969CC5300BC427A /* LocationManager.swift */; };
 		6F7C01DE2969CCC800BC427A /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01DD2969CCC800BC427A /* ApplicationMonitor.swift */; };
 		6F7C01E1296B2FB200BC427A /* AudioReplacementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01E0296B2FB200BC427A /* AudioReplacementData.swift */; };
-		6FBEDC3A2964DB210032B1A9 /* ApplicationsWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC392964DB210032B1A9 /* ApplicationsWrapper */; };
-		6FBEDC3C2964DB210032B1A9 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC3B2964DB210032B1A9 /* AssetCatalogWrapper */; };
-		6FBEDC3E2964DB210032B1A9 /* CompressionWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC3D2964DB210032B1A9 /* CompressionWrapper */; };
-		6FBEDC422964DB210032B1A9 /* FSOperations in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC412964DB210032B1A9 /* FSOperations */; };
-		6FBEDC442964DB210032B1A9 /* NSTask in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC432964DB210032B1A9 /* NSTask */; };
-		6FBEDC462964DB210032B1A9 /* SVGWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBEDC452964DB210032B1A9 /* SVGWrapper */; };
 		6FD9B526296C8AE300121229 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B525296C8AE300121229 /* AudioView.swift */; };
 		6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B527296C8CBC00121229 /* AudioChangerView.swift */; };
 		6FD9B52E296CEAB600121229 /* Default_Charging.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9B52D296CEAB600121229 /* Default_Charging.m4a */; };
@@ -62,12 +56,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
-				6FBEDC3A2964DB210032B1A9 /* ApplicationsWrapper in Frameworks */,
-				6FBEDC3C2964DB210032B1A9 /* AssetCatalogWrapper in Frameworks */,
-				6FBEDC442964DB210032B1A9 /* NSTask in Frameworks */,
-				6FBEDC422964DB210032B1A9 /* FSOperations in Frameworks */,
-				6FBEDC3E2964DB210032B1A9 /* CompressionWrapper in Frameworks */,
-				6FBEDC462964DB210032B1A9 /* SVGWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,12 +178,6 @@
 			);
 			name = DockHider;
 			packageProductDependencies = (
-				6FBEDC392964DB210032B1A9 /* ApplicationsWrapper */,
-				6FBEDC3B2964DB210032B1A9 /* AssetCatalogWrapper */,
-				6FBEDC3D2964DB210032B1A9 /* CompressionWrapper */,
-				6FBEDC412964DB210032B1A9 /* FSOperations */,
-				6FBEDC432964DB210032B1A9 /* NSTask */,
-				6FBEDC452964DB210032B1A9 /* SVGWrapper */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* DockHider.app */;
@@ -493,39 +475,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6FBEDC392964DB210032B1A9 /* ApplicationsWrapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = ApplicationsWrapper;
-		};
-		6FBEDC3B2964DB210032B1A9 /* AssetCatalogWrapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = AssetCatalogWrapper;
-		};
-		6FBEDC3D2964DB210032B1A9 /* CompressionWrapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = CompressionWrapper;
-		};
-		6FBEDC412964DB210032B1A9 /* FSOperations */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = FSOperations;
-		};
-		6FBEDC432964DB210032B1A9 /* NSTask */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = NSTask;
-		};
-		6FBEDC452964DB210032B1A9 /* SVGWrapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = SVGWrapper;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F721C84296482C6001CFE46 /* Project object */;
 }
