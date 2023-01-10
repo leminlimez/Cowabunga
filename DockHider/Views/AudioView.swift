@@ -36,6 +36,9 @@ struct AudioView: View {
                                         .foregroundColor(.blue)
                                     Text(option.title.wrappedValue)
                                         .padding(.horizontal, 8)
+                                    Text(UserDefaults.standard.string(forKey: option.key.wrappedValue+"_Applied") ?? "Default")
+                                        .padding(.leading, 45)
+                                        .foregroundColor(.secondary)
                                 }
                             }
                         }
