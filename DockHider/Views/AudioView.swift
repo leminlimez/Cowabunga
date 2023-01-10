@@ -23,11 +23,6 @@ struct AudioView: View {
     
     var body: some View {
         VStack {
-            // title
-            Text("Cowabunga")
-                .font(.largeTitle)
-                .bold()
-                .padding()
             NavigationView {
                 List {
                     Section {

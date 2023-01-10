@@ -14,6 +14,10 @@ struct RootView: View {
                 .tabItem {
                     Label("SpringBoard Tools", systemImage: "snowflake")
                 }
+            AudioView()
+                .tabItem {
+                    Label("Audio Tools", systemImage: "speaker.wave.2.fill")
+                }
             if #available(iOS 15, *) {
                 OtherModsView()
                     .tabItem {
