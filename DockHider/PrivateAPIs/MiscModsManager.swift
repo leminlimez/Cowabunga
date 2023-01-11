@@ -97,3 +97,47 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
         }
     }
 }
+
+func setPlistValueInt(plistPath: String, backupName: String, key: String, value: Int, completion: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: .userInteractive).async {
+        let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
+        
+        // open plist
+        let plist = try! PropertyListSerialization.propertyList(from: stringsData, options: [], format: nil) as! [String: Any]
+        func changeDictValue(_ dict: [String: Any], _ key: String, _ value: Int) -> [String: Any] {
+            var newDict = dict
+            for (k, v) in dict {
+                if k == key {
+                    newDict[k] = value
+                } else if let subDict = v as? [String: Any] {
+                    newDict[k] = changeDictValue(subDict, key, value)
+                }
+            }
+            return newDict
+        }
+        
+        // modify value
+        var newPlist = plist
+        newPlist = changeDictValue(newPlist, key, value)
+        
+        // overwrite the plist
+        let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
+        
+        let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
+        DispatchQueue.main.async {
+            completion(succeeded)
+        }
+    }
+}
+
+func getCurrentDeviceSubType() -> Int {
+    let currentSubType = getPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType")
+    if currentSubType == "nil" {
+        // respring
+        respring()
+    } else {
+        // return
+        return Int(currentSubType)!
+    }
+    return -1
+}
