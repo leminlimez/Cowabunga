@@ -18,12 +18,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Audio Tools", systemImage: "speaker.wave.2.fill")
                 }
-            if #available(iOS 15, *) {
-                OtherModsView()
-                    .tabItem {
-                        Label("Misc. Mods", systemImage: "hammer")
-                    }
-            }
+            OtherModsView()
+                .tabItem {
+                    Label("Misc. Mods", systemImage: "hammer")
+                }
         }
     }
 }
