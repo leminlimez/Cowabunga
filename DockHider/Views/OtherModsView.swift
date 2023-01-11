@@ -40,96 +40,98 @@ struct OtherModsView: View {
                 .padding(.bottom, 40)
             
             // software version
-            HStack {
-                Image(systemName: "gear.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.blue)
-                
-                Text("Software Version")
-                    .minimumScaleFactor(0.5)
-                    .padding(.trailing, 50)
-                
-                Button(CurrentVersion, action: {
-                    let defaults = UserDefaults.standard
-                    // create and configure alert controller
-                    let alert = UIAlertController(title: "Input Software Version", message: "No respring required to apply.", preferredStyle: .alert)
-                    // bring up the text prompt
-                    alert.addTextField { (textField) in
-                        textField.placeholder = "Version"
-                        textField.text = defaults.string(forKey: "ProductVersion") ?? CurrentVersion
-                    }
+            if #available(iOS 15, *) {
+                HStack {
+                    Image(systemName: "gear.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.blue)
                     
-                    // buttons
-                    alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
-                        // set the version
-                        let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
-                        if newVersion != "" {
-                            setProductVersion(newVersion: newVersion) { succeeded in
-                                if succeeded {
-                                    CurrentVersion = newVersion
-                                    // set the default
-                                    defaults.set(newVersion, forKey: "ProductVersion")
-                                } else {
-                                    UIApplication.shared.alert(body: "Failed to apply system version change!")
+                    Text("Software Version")
+                        .minimumScaleFactor(0.5)
+                        .padding(.trailing, 50)
+                    
+                    Button(CurrentVersion, action: {
+                        let defaults = UserDefaults.standard
+                        // create and configure alert controller
+                        let alert = UIAlertController(title: "Input Software Version", message: "No respring required to apply.", preferredStyle: .alert)
+                        // bring up the text prompt
+                        alert.addTextField { (textField) in
+                            textField.placeholder = "Version"
+                            textField.text = defaults.string(forKey: "ProductVersion") ?? CurrentVersion
+                        }
+                        
+                        // buttons
+                        alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
+                            // set the version
+                            let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
+                            if newVersion != "" {
+                                setProductVersion(newVersion: newVersion) { succeeded in
+                                    if succeeded {
+                                        CurrentVersion = newVersion
+                                        // set the default
+                                        defaults.set(newVersion, forKey: "ProductVersion")
+                                    } else {
+                                        UIApplication.shared.alert(body: "Failed to apply system version change!")
+                                    }
                                 }
                             }
-                        }
+                        })
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            // cancel the process
+                        })
+                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                     })
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                        // cancel the process
-                    })
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                })
                     .padding(.leading, 10)
-            }
-            
-            // device name
-            HStack {
-                Image(systemName: "iphone")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.blue)
-                    
+                }
                 
-                Text("Model Name")
-                    .minimumScaleFactor(0.5)
-                    .padding(.trailing, 50)
-                
-                Button(CurrentModel, action: {
-                    let defaults = UserDefaults.standard
-                    // create and configure alert controller
-                    let alert = UIAlertController(title: "Input Model Name", message: "No respring required to apply.", preferredStyle: .alert)
-                    // bring up the text prompt
-                    alert.addTextField { (textField) in
-                        textField.placeholder = "Model"
-                        textField.text = defaults.string(forKey: "ModelName") ?? CurrentModel
-                    }
+                // device name
+                HStack {
+                    Image(systemName: "iphone")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.blue)
                     
-                    // buttons
-                    alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
-                        // set the version
-                        let newModel: String = alert.textFields?[0].text! ?? CurrentModel
-                        if newModel != "" {
-                            setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newModel) { succeeded in
-                                if succeeded {
-                                    CurrentModel = newModel
-                                    // set the default
-                                    defaults.set(newModel, forKey: "ModelName")
-                                } else {
-                                    UIApplication.shared.alert(body: "Failed to apply device model name!")
+                    
+                    Text("Model Name")
+                        .minimumScaleFactor(0.5)
+                        .padding(.trailing, 50)
+                    
+                    Button(CurrentModel, action: {
+                        let defaults = UserDefaults.standard
+                        // create and configure alert controller
+                        let alert = UIAlertController(title: "Input Model Name", message: "No respring required to apply.", preferredStyle: .alert)
+                        // bring up the text prompt
+                        alert.addTextField { (textField) in
+                            textField.placeholder = "Model"
+                            textField.text = defaults.string(forKey: "ModelName") ?? CurrentModel
+                        }
+                        
+                        // buttons
+                        alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
+                            // set the version
+                            let newModel: String = alert.textFields?[0].text! ?? CurrentModel
+                            if newModel != "" {
+                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newModel) { succeeded in
+                                    if succeeded {
+                                        CurrentModel = newModel
+                                        // set the default
+                                        defaults.set(newModel, forKey: "ModelName")
+                                    } else {
+                                        UIApplication.shared.alert(body: "Failed to apply device model name!")
+                                    }
                                 }
                             }
-                        }
+                        })
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            // cancel the process
+                        })
+                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                     })
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                        // cancel the process
-                    })
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                })
                     .padding(.leading, 10)
+                }
             }
             
             // device subtype
