@@ -56,10 +56,13 @@ func getDictValue(_ dict: [String: Any], _ key: String) -> String {
         if k == key {
             return dict[k] as! String
         } else if let subDict = v as? [String: Any] {
-            return getDictValue(subDict, key)
+            let temp: String = getDictValue(subDict, key)
+            if temp != "nil" {
+                return temp
+            }
         }
     }
-    print("Could not find value")
+    // did not find key in dictionary
     return "nil"
 }
 
