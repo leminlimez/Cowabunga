@@ -113,7 +113,9 @@ struct SpringBoardView: View {
                 // respring and apply changes
                 applyText = "Respringing..."
                 print("Respringing...")
-                respring()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 15){
+                    respring()
+                }
             } else {
                 applyText = "Tweaks applied"
                 print("Tweaks applied")
