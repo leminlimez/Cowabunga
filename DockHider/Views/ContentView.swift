@@ -91,20 +91,18 @@ struct SpringBoardView: View {
     func applyTweaks(respringWhenFinished: Bool) {
         if !inProgress {
             applyText = "Applying tweaks..."
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                for option in tweakOptions {
-                    // set the user defaults
-                    setDefaultBoolean(forKey: option.key, value: option.value)
-                    
-                    //  apply tweak
-                    if option.value == true {
-                        print("Applying tweak \"" + option.title + "\"")
-                        overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value) { succeeded in
-                            if succeeded {
-                                print("Successfully applied tweak \"" + option.title + "\"")
-                            } else {
-                                print("Failed to apply tweak \"" + option.title + "\"!!!")
-                            }
+            for option in tweakOptions {
+                // set the user defaults
+                setDefaultBoolean(forKey: option.key, value: option.value)
+                
+                //  apply tweak
+                if option.value == true {
+                    print("Applying tweak \"" + option.title + "\"")
+                    overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value) { succeeded in
+                        if succeeded {
+                            print("Successfully applied tweak \"" + option.title + "\"")
+                        } else {
+                            print("Failed to apply tweak \"" + option.title + "\"!!!")
                         }
                     }
                 }
