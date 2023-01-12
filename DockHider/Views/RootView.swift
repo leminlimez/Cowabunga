@@ -14,10 +14,10 @@ struct RootView: View {
                 .tabItem {
                     Label("SpringBoard Tools", systemImage: "snowflake")
                 }
-            /*AudioView()
+            AudioView()
                 .tabItem {
                     Label("Audio Tools", systemImage: "speaker.wave.2.fill")
-                }*/
+                }
             OtherModsView()
                 .tabItem {
                     Label("Misc. Mods", systemImage: "hammer")
