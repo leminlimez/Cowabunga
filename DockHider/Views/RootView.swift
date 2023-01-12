@@ -12,15 +12,15 @@ struct RootView: View {
         TabView {
             SpringBoardView()
                 .tabItem {
-                    Label("SpringBoard Tools", systemImage: "snowflake")
+                    Label("SpringBoard", systemImage: "snowflake")
                 }
             AudioView()
                 .tabItem {
-                    Label("Audio Tools", systemImage: "speaker.wave.2.fill")
+                    Label("Audio", systemImage: "speaker.wave.2.fill")
                 }
             OtherModsView()
                 .tabItem {
-                    Label("Misc. Mods", systemImage: "hammer")
+                    Label("Miscellaneous", systemImage: "hammer")
                 }
         }
     }

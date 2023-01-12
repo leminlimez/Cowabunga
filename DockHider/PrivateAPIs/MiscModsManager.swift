@@ -170,7 +170,7 @@ func getCurrentDeviceSubType() -> Int {
     let currentSubType = getPlistIntValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType")
     if currentSubType == -1 {
         // respring
-        respring()
+        //respring()
     } else {
         // return
         return currentSubType
