@@ -152,10 +152,16 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
         
         // overwrite the plist
         let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
-        
-        let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
-        DispatchQueue.main.async {
-            completion(succeeded)
+        if newData.count == stringsData.count {
+            let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
+            DispatchQueue.main.async {
+                completion(succeeded)
+            }
+        } else {
+            // too big
+            DispatchQueue.main.async {
+                completion(false)
+            }
         }
     }
 }
