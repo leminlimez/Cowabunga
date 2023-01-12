@@ -27,7 +27,7 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle.fill", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "ShortcutBannerDisabled"), key: "ShortcutBannerDisabled", title: "Disable Shortcut Banner", imageName: "platter.filled.top.iphone", fileType: OverwritingFileTypes.plist),
-        .init(value: getDefaultBool(forKey: "AirPowerEnabled"), key: "AirPowerEnabled", title: "Enable AirPower Charging Sound", imageName: "speaker.wave.2.fill", fileType: OverwritingFileTypes.audio),
+        //.init(value: getDefaultBool(forKey: "AirPowerEnabled"), key: "AirPowerEnabled", title: "Enable AirPower Charging Sound", imageName: "speaker.wave.2.fill", fileType: OverwritingFileTypes.audio),
     ]
     
     @State private var applyText = " "
