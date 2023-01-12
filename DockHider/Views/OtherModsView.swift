@@ -87,7 +87,7 @@ struct OtherModsView: View {
                 }
                 
                 // device name
-                HStack {
+                /*HStack {
                     Image(systemName: "iphone")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -114,7 +114,7 @@ struct OtherModsView: View {
                             // set the version
                             let newModel: String = alert.textFields?[0].text! ?? CurrentModel
                             if newModel != "" {
-                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newModel) { succeeded in
+                                setDeviceName(value: newModel) { succeeded in
                                     if succeeded {
                                         CurrentModel = newModel
                                         // set the default
@@ -131,7 +131,7 @@ struct OtherModsView: View {
                         UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                     })
                     .padding(.leading, 10)
-                }
+                }*/
             }
             
             // device subtype
@@ -165,6 +165,7 @@ struct OtherModsView: View {
                                 setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key) { succeeded in
                                     if succeeded {
                                         CurrentSubType = type.key
+                                        CurrentSubTypeDisplay = type.title
                                         UIApplication.shared.alert(title: "Success!", body: "Please respring on the SpringBoard Tools page to finish applying changes.")
                                     } else {
                                         UIApplication.shared.alert(body: "Failed to apply DeviceSubType!")
