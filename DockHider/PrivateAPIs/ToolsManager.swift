@@ -40,6 +40,7 @@ let replacementPaths: [String: [String]] = [
 
 enum OverwritingFileTypes {
     case springboard
+    case plist
     case audio
 }
 
@@ -66,6 +67,22 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path, backupName: path, replacementData: newData)
                 DispatchQueue.main.async {
                     completion(succeeded)
+                }
+            }
+        } else if typeOfFile == OverwritingFileTypes.plist {
+            if replacementPaths[fileIdentifier] != nil {
+                let path: String = replacementPaths[fileIdentifier]![0]
+                let fileLength: Int = FileManager.default.contents(atPath: path)?.count ?? -1
+                if fileLength == -1 {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
+                } else {
+                    let newData: Data = Data(String(repeating: "#", count: fileLength).utf8)
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: newData)
+                    DispatchQueue.main.async {
+                        completion(succeeded)
+                    }
                 }
             }
         }
