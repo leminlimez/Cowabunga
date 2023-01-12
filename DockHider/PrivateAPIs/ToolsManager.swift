@@ -72,18 +72,21 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         } else if typeOfFile == OverwritingFileTypes.plist {
             if replacementPaths[fileIdentifier] != nil {
                 let path: String = replacementPaths[fileIdentifier]![0]
-                let fileLength: Int = FileManager.default.contents(atPath: "/System/Library/PrivateFrameworks/"+path)?.count ?? -1
-                if fileLength == -1 {
-                    print("invalid file length")
-                    DispatchQueue.main.async {
-                        completion(false)
-                    }
-                } else {
-                    let newData: Data = Data(String(repeating: "#", count: fileLength).utf8)
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: newData)
-                    DispatchQueue.main.async {
-                        completion(succeeded)
-                    }
+                let plistData = try! Data(contentsOf: URL(fileURLWithPath: "/System/Library/PrivateFrameworks/" + path))
+                let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String]
+                
+                var newPlist = plist
+                // nullify the file
+                for (i, v) in plist.enumerated() {
+                    newPlist[i] = String(repeating: "#", count: v.count)
+                }
+                
+                // overwrite the plist
+                let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
+                
+                let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: newData)
+                DispatchQueue.main.async {
+                    completion(succeeded)
                 }
             }
         }
