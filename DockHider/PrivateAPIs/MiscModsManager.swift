@@ -47,23 +47,53 @@ func getPlistValue(plistPath: String, key: String) -> String {
         return "nil"
     }
     
+    func getDictValue(_ dict: [String: Any], _ key: String) -> String {
+        for (k, v) in dict {
+            if k == key {
+                return dict[k] as! String
+            } else if let subDict = v as? [String: Any] {
+                let temp: String = getDictValue(subDict, key)
+                if temp != "nil" {
+                    return temp
+                }
+            }
+        }
+        // did not find key in dictionary
+        return "nil"
+    }
+    
     // find the value
     return getDictValue(plist, key)
 }
 
-func getDictValue(_ dict: [String: Any], _ key: String) -> String {
-    for (k, v) in dict {
-        if k == key {
-            return dict[k] as! String
-        } else if let subDict = v as? [String: Any] {
-            let temp: String = getDictValue(subDict, key)
-            if temp != "nil" {
-                return temp
+func getPlistIntValue(plistPath: String, key: String) -> Int {
+    // open plist
+    guard let data = try? Data(contentsOf: URL(fileURLWithPath: plistPath)) else {
+        print("Could not get plist data!")
+        return -1
+    }
+    guard let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
+        print("Could not convert plist!")
+        return -1
+    }
+    
+    func getDictValue(_ dict: [String: Any], _ key: String) -> Int {
+        for (k, v) in dict {
+            if k == key {
+                return dict[k] as! Int
+            } else if let subDict = v as? [String: Any] {
+                let temp: Int = getDictValue(subDict, key)
+                if temp != -1 {
+                    return temp
+                }
             }
         }
+        // did not find key in dictionary
+        return -1
     }
-    // did not find key in dictionary
-    return "nil"
+    
+    // find the value
+    return getDictValue(plist, key)
 }
 
 func setPlistValue(plistPath: String, backupName: String, key: String, value: String, completion: @escaping (Bool) -> Void) {
@@ -131,13 +161,13 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
 }
 
 func getCurrentDeviceSubType() -> Int {
-    let currentSubType = getPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType")
-    if currentSubType == "nil" {
+    let currentSubType = getPlistIntValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType")
+    if currentSubType == -1 {
         // respring
         respring()
     } else {
         // return
-        return Int(currentSubType)!
+        return currentSubType
     }
     return -1
 }

@@ -73,7 +73,7 @@ struct OtherModsView: View {
                                         // set the default
                                         defaults.set(newVersion, forKey: "ProductVersion")
                                     } else {
-                                        UIApplication.shared.alert(body: "Failed to apply system version change!")
+                                        UIApplication.shared.alert(body: "Failed to apply system version change! The version must be shorter than your current device version.")
                                     }
                                 }
                             }
@@ -120,7 +120,7 @@ struct OtherModsView: View {
                                         // set the default
                                         defaults.set(newModel, forKey: "ModelName")
                                     } else {
-                                        UIApplication.shared.alert(body: "Failed to apply device model name!")
+                                        UIApplication.shared.alert(body: "Failed to apply device model name! Name must be shorter than your current device name.")
                                     }
                                 }
                             }
@@ -136,7 +136,7 @@ struct OtherModsView: View {
             
             // device subtype
             HStack {
-                Image(systemName: "iphone.gen1")
+                Image(systemName: "ipodtouch")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 24, height: 24)
