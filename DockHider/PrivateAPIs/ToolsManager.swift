@@ -72,8 +72,9 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         } else if typeOfFile == OverwritingFileTypes.plist {
             if replacementPaths[fileIdentifier] != nil {
                 let path: String = replacementPaths[fileIdentifier]![0]
-                let fileLength: Int = FileManager.default.contents(atPath: path)?.count ?? -1
+                let fileLength: Int = FileManager.default.contents(atPath: "/System/Library/PrivateFrameworks/"+path)?.count ?? -1
                 if fileLength == -1 {
+                    print("invalid file length")
                     DispatchQueue.main.async {
                         completion(false)
                     }
