@@ -59,7 +59,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                     completion(succeeded)
                 }
             }
-        } else if typeOfFile == OverwritingFileTypes.audio {
+        /*} else if typeOfFile == OverwritingFileTypes.audio {
             if replacementPaths[fileIdentifier] != nil && audioReplacementData[fileIdentifier] != nil {
                 // replace the audio data
                 let newData = Data(base64Encoded: audioReplacementData[fileIdentifier]!)!
@@ -68,7 +68,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 DispatchQueue.main.async {
                     completion(succeeded)
                 }
-            }
+            }*/
         } else if typeOfFile == OverwritingFileTypes.plist {
             if replacementPaths[fileIdentifier] != nil {
                 let path: String = replacementPaths[fileIdentifier]![0]
