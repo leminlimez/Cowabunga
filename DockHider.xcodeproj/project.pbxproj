@@ -74,7 +74,6 @@
 		6F721C8E296482C6001CFE46 /* DockHider */ = {
 			isa = PBXGroup;
 			children = (
-				6FD9B529296CE6FD00121229 /* Sounds */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
 				6F721CAF2964A742001CFE46 /* PrivateAPIs */,
 				6F721CAE2964A72D001CFE46 /* Views */,
@@ -124,13 +123,6 @@
 				6F160E6C2964E3540026D69D /* CoreServices.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6FD9B529296CE6FD00121229 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
