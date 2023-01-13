@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "audiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKit.git",
+      "state" : {
+        "revision" : "af392ad3c01a89d1602e8a74b8876c0b76cd4134",
+        "version" : "5.5.8"
+      }
+    },
+    {
       "identity" : "santanderwrappers",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SerenaKit/SantanderWrappers.git",
