@@ -180,9 +180,10 @@ func getCurrentDeviceSubType() -> Int {
 
 func getOriginalDeviceSubType() -> Int {
     let origSubType = UserDefaults.standard.integer(forKey: "OriginalDeviceSubType")
-    if origSubType == -1 {
+    if origSubType == 0 {
         // grab it and store it
         let currentSubType = getPlistIntValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType")
+        print(currentSubType)
         if currentSubType != -1 {
             UserDefaults.standard.set(currentSubType, forKey: "OriginalDeviceSubType")
             return currentSubType
