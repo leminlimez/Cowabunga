@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct AudioChangerView: View {
-    var SoundIdentifier: String
+    var SoundIdentifier: AudioFiles.SoundEffect
     
     // included audio files
     struct IncludedAudioName: Identifiable {
         var id = UUID()
-        var attachment: String
+        var attachment: AudioFiles.SoundEffect
         var audioName: String
         var fileName: String
         var checked: Bool = false
@@ -21,10 +21,10 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
-        .init(attachment: "Charging", audioName: "Default", fileName: "Default_Charging"),
-        .init(attachment: "Charging", audioName: "Engage", fileName: "AirPower_Charging"),
-        .init(attachment: "Charging", audioName: "Old", fileName: "Old"),
-        .init(attachment: "Charging", audioName: "MagSafe", fileName: "MagSafe"),
+        .init(attachment: AudioFiles.SoundEffect, audioName: "Default", fileName: "Default_Charging"),
+        .init(attachment: AudioFiles.SoundEffect, audioName: "Engage", fileName: "AirPower_Charging"),
+        .init(attachment: AudioFiles.SoundEffect, audioName: "Old", fileName: "Old"),
+        .init(attachment: AudioFiles.SoundEffect, audioName: "MagSafe", fileName: "MagSafe"),
     ]
     
     // applied sound
@@ -58,7 +58,7 @@ struct AudioChangerView: View {
                                             }
                                             appliedSound = audio.audioName.wrappedValue
                                             // save to defaults
-                                            UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier+"_Applied")
+                                            UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
                                         }
                                     })
                                     .padding(.horizontal, 8)
@@ -73,7 +73,7 @@ struct AudioChangerView: View {
             }
         }
         .onAppear {
-            appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier+"_Applied") ?? "Default"
+            appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
             for (i, file) in audioFiles.enumerated() {
                 if file.audioName == appliedSound {
                     audioFiles[i].checked = true
@@ -85,6 +85,6 @@ struct AudioChangerView: View {
 
 struct AudioChangerView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioChangerView(SoundIdentifier: "Charging")
+        AudioChangerView(SoundIdentifier: AudioFiles.SoundEffect.charging)
     }
 }

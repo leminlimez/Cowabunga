@@ -8,8 +8,8 @@
 // this could have been a json file lol
 
 class AudioFiles {
-    enum SoundEffect {
-        case charging
+    enum SoundEffect: String {
+        case charging = "Charging"
     }
     static func getNewAudioData(attachment: SoundEffect, soundName: String) {
         
