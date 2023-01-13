@@ -22,7 +22,7 @@ struct OtherModsView: View {
     
     // list of options
     @State var deviceSubTypes: [DeviceSubType] = [
-        .init(key: Int(UIScreen.main.nativeBounds.height), title: "Default", iOS16Only: false),
+        .init(key: getOriginalDeviceSubType(), title: "Default", iOS16Only: false),
         .init(key: 2436, title: "iPhone X Gestures", iOS16Only: false),
         .init(key: 2556, title: "Dynamic Island", iOS16Only: true),
         .init(key: 2796, title: "Dynamic Island Pro Max", iOS16Only: true)
