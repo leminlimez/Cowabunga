@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AudioView: View {
     struct AudioOption: Identifiable {
-        var key: String
+        var key: AudioFiles.SoundEffect
         var value: String // currently equipped audio
         var id = UUID()
         var title: String
@@ -18,7 +18,7 @@ struct AudioView: View {
     }
     
     @State var audioOptions: [AudioOption] = [
-        .init(key: "Charging", value: "Default", title: "Charging Sound", imageName: "powerplug"),
+        .init(key: AudioFiles.SoundEffect.charging, value: "Default", title: "Charging Sound", imageName: "powerplug"),
     ]
     
     var body: some View {
@@ -36,7 +36,7 @@ struct AudioView: View {
                                         .foregroundColor(.blue)
                                     Text(option.title.wrappedValue)
                                         .padding(.horizontal, 8)
-                                    Text(UserDefaults.standard.string(forKey: option.key.wrappedValue+"_Applied") ?? "Default")
+                                    Text(UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default")
                                         .padding(.leading, 45)
                                         .foregroundColor(.secondary)
                                 }
