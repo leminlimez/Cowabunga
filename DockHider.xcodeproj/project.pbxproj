@@ -20,8 +20,6 @@
 		6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01E0296B2FB200BC427A /* AudioManager.swift */; };
 		6FD9B526296C8AE300121229 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B525296C8AE300121229 /* AudioView.swift */; };
 		6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B527296C8CBC00121229 /* AudioChangerView.swift */; };
-		6FD9B533296E2AB800121229 /* Default_Charging.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9B531296E2AB800121229 /* Default_Charging.caf */; };
-		6FD9B534296E2AB800121229 /* AirPower_Charging.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9B532296E2AB800121229 /* AirPower_Charging.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +40,6 @@
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FD9B525296C8AE300121229 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		6FD9B527296C8CBC00121229 /* AudioChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChangerView.swift; sourceTree = "<group>"; };
-		6FD9B531296E2AB800121229 /* Default_Charging.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Default_Charging.caf; sourceTree = "<group>"; };
-		6FD9B532296E2AB800121229 /* AirPower_Charging.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AirPower_Charging.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,18 +129,8 @@
 		6FD9B529296CE6FD00121229 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				6FD9B52A296CEA3200121229 /* Charging */,
 			);
 			path = Sounds;
-			sourceTree = "<group>";
-		};
-		6FD9B52A296CEA3200121229 /* Charging */ = {
-			isa = PBXGroup;
-			children = (
-				6FD9B531296E2AB800121229 /* Default_Charging.caf */,
-				6FD9B532296E2AB800121229 /* AirPower_Charging.caf */,
-			);
-			path = Charging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,10 +197,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FD9B533296E2AB800121229 /* Default_Charging.caf in Resources */,
 				6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
-				6FD9B534296E2AB800121229 /* AirPower_Charging.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

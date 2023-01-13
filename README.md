@@ -35,4 +35,5 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 - [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
 - [BomberFish](https://github.com/BomberFish) for AirPower sound tweak
+- [c22dev](https://github.com/c22dev) for fixing AirPower and adding Retro and MagSafe audios
 - [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function
