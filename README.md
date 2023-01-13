@@ -30,10 +30,10 @@ You can install through AltStore or TrollStore (if your device supports it)
 Just build like a normal xCode project. There are no extra entitlements needed. You can also build the IPA file with `build.command`.
 
 ## Credits
-- [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with an initial code basis.
-- SerenaKit for SantanderWrappers dependencies
-- [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon
+- [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command.
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
-- [BomberFish](https://github.com/BomberFish) for AirPower sound tweak
-- [c22dev](https://github.com/c22dev) for fixing AirPower and adding Retro and MagSafe audios
-- [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function
+- [BomberFish](https://github.com/BomberFish) for AirPower sound.
+- [c22dev](https://github.com/c22dev) for fixing AirPower and adding Retro and MagSafe audios.
+- [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function.
+- [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with an initial code basis.
+- [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon.
