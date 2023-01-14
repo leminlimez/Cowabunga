@@ -19,12 +19,15 @@ func customaudio(filepath: String) -> String {
     // Temp Path
     let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
     let newURL = URL(fileURLWithPath: "\(temporaryDirectoryURL)/audio.m4a")
-    do {
-        try FileManager.default.removeItem(at: newURL)
+    // Delete if old file in temp dir
+    if FileManager.default.fileExists(atPath: newURL.path) {
+        do {
+            try FileManager.default.removeItem(at: newURL)
+        }
+        catch {
+            print(error)
+        }
     }
-    catch {
-                print(error)
-            }
     // CONVERT !
     var converter = FormatConverter(inputURL: URL(fileURLWithPath: filepath), outputURL: newURL, options: options)
     converter.start { error in
@@ -48,5 +51,6 @@ func customaudio(filepath: String) -> String {
         print(error)
     }
     let encoded:String = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+    // Return base64
     return encoded
 }
