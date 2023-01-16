@@ -74,10 +74,20 @@ struct AudioView: View {
                             }
                         }
                     }) {
-                        Text("Apply")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .cornerRadius(8)
+                        if #available(iOS 15.0, *) {
+                            Text("Apply")
+                                .frame(maxWidth: .infinity)
+                                .padding(8)
+                                .buttonStyle(.bordered)
+                                .tint(.blue)
+                                .cornerRadius(8)
+                        } else {
+                            // Fallback on earlier versions
+                            Text("Apply")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .cornerRadius(8)
+                        }
                     }
                 }
                 .navigationTitle("Audio Changer")
