@@ -147,9 +147,9 @@ struct AudioChangerView: View {
                         ]
                         
                         do {
-                            let jsonData = try JSONSerialization.data(withJSONObject: dataToWrite, options: [])
-                            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio/USR_"+fileName+".json", conformingTo: .json)
-                            try jsonData.write(to: newURL)
+                            let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .xml, options: 0)
+                            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio/USR_"+fileName+".plist")
+                            try plistData.write(to: newURL)
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
                         } catch {
                             print(error.localizedDescription)
