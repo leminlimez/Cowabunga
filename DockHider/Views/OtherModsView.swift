@@ -29,8 +29,8 @@ struct OtherModsView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            VStack {
+        VStack {
+            NavigationView {
                 List {
                     Section {
                         // software version
@@ -148,10 +148,12 @@ struct OtherModsView: View {
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
                         }
+                    } header: {
+                        Text("")
                     }
                 }
+                .navigationTitle("Miscellaneous")
             }
-            .navigationTitle("Miscellaneous")
             .onAppear() {
                 for sub in deviceSubTypes {
                     if CurrentSubType == sub.key {

@@ -85,7 +85,7 @@ struct AudioView: View {
                             // Fallback on earlier versions
                             Text("Apply")
                                 .frame(maxWidth: .infinity)
-                                .padding()
+                                .padding(8)
                                 .cornerRadius(8)
                         }
                     }
