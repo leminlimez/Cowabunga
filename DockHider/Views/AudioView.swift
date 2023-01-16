@@ -46,7 +46,27 @@ struct AudioView: View {
                         Text("Sound Effects Modifications")
                     }
                     Button("Apply", action: {
-                        print("h")
+                        // apply the audio
+                        var failed: Bool = false
+                        for audioOption in audioOptions {
+                            // apply if not default
+                            if audioOption.value != "Default" {
+                                overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audioOption.key.rawValue, audioOption.value) { succeeded in
+                                    if succeeded {
+                                        print("successfully applied audio for " + audioOption.key.rawValue)
+                                    } else {
+                                        failed = true
+                                    }
+                                }
+                            }
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            if failed {
+                                UIApplication.shared.alert(body: "Failed to apply some custom audio!")
+                            } else {
+                                UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
+                            }
+                        }
                     })
                     .padding(10)
                 }

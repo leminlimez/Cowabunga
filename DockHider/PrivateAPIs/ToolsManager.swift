@@ -38,6 +38,10 @@ let replacementPaths: [String: [String]] = [
     "AirPowerEnabled": ["UISounds/connect_power.caf"]
 ]
 
+let audioPaths: [String: String] = [
+    AudioFiles.SoundEffect.charging.rawValue: "UISounds/connect_power.caf"
+]
+
 enum OverwritingFileTypes {
     case springboard
     case plist
@@ -47,6 +51,7 @@ enum OverwritingFileTypes {
 func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         // find the path and replace the file
+        // springboard option
         if typeOfFile == OverwritingFileTypes.springboard {
             // springboard tweak being applied
             if replacementPaths[fileIdentifier] != nil {
@@ -59,16 +64,26 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                     completion(succeeded)
                 }
             }
-        /*} else if typeOfFile == OverwritingFileTypes.audio {
-            if replacementPaths[fileIdentifier] != nil && audioReplacementData[fileIdentifier] != nil {
+        
+        // audio option
+        } else if typeOfFile == OverwritingFileTypes.audio {
+            if audioPaths[fileIdentifier] != nil {
                 // replace the audio data
-                let newData = Data(base64Encoded: audioReplacementData[fileIdentifier]!)!
-                let path = replacementPaths[fileIdentifier]![0]
-                let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path, backupName: path, replacementData: newData)
-                DispatchQueue.main.async {
-                    completion(succeeded)
+                let base64 = AudioFiles.getNewAudioData(attachment: fileIdentifier, soundName: value as! String)
+                if base64 != "nil" {
+                    let newData = Data(base64Encoded: base64)!
+                    let path = audioPaths[fileIdentifier]!
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path, backupName: path, replacementData: newData)
+                    DispatchQueue.main.async {
+                        completion(succeeded)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
                 }
-            }*/
+            }
+        
         } else if typeOfFile == OverwritingFileTypes.plist {
             if replacementPaths[fileIdentifier] != nil {
                 let path: String = replacementPaths[fileIdentifier]![0]
