@@ -27,10 +27,7 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle.fill", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "ShortcutBannerDisabled"), key: "ShortcutBannerDisabled", title: "Disable Shortcut Banner", imageName: "platter.filled.top.iphone", fileType: OverwritingFileTypes.plist),
-        //.init(value: getDefaultBool(forKey: "AirPowerEnabled"), key: "AirPowerEnabled", title: "Enable AirPower Charging Sound", imageName: "speaker.wave.2.fill", fileType: OverwritingFileTypes.audio),
     ]
-    
-    @State private var applyText = " "
     
     var body: some View {
         VStack {
@@ -58,29 +55,10 @@ struct SpringBoardView: View {
                     
                     Section {
                         Button(action: {
-                            applyTweaks(respringWhenFinished: true)
+                            applyTweaks()
                         }) {
                             if #available(iOS 15.0, *) {
-                                Text("Apply and Respring")
-                                    .frame(maxWidth: .infinity)
-                                    .padding(8)
-                                    .buttonStyle(.bordered)
-                                    .tint(.blue)
-                                    .cornerRadius(8)
-                            } else {
-                                // Fallback on earlier versions
-                                Text("Apply and Respring")
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .cornerRadius(8)
-                            }
-                        }
-                        
-                        Button(action: {
-                            applyTweaks(respringWhenFinished: false)
-                        }) {
-                            if #available(iOS 15.0, *) {
-                                Text("Apply without Respringing")
+                                Text("Apply")
                                     .frame(maxWidth: .infinity)
                                     .padding(6)
                                     .buttonStyle(.bordered)
@@ -88,7 +66,7 @@ struct SpringBoardView: View {
                                     .cornerRadius(8)
                             } else {
                                 // Fallback on earlier versions
-                                Text("Apply without Respringing")
+                                Text("Apply")
                                     .frame(maxWidth: .infinity)
                                     .padding(6)
                                     .cornerRadius(8)
@@ -120,42 +98,32 @@ struct SpringBoardView: View {
         }
     }
     
-    func applyTweaks(respringWhenFinished: Bool) {
+    func applyTweaks() {
         if !inProgress {
-            applyText = "Applying tweaks..."
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                for option in tweakOptions {
-                    // set the user defaults
-                    setDefaultBoolean(forKey: option.key, value: option.value)
-                    
-                    //  apply tweak
-                    if option.value == true {
-                        print("Applying tweak \"" + option.title + "\"")
-                        overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value) { succeeded in
-                            if succeeded {
-                                print("Successfully applied tweak \"" + option.title + "\"")
-                            } else {
-                                print("Failed to apply tweak \"" + option.title + "\"!!!")
-                            }
+            var failed: Bool = false
+            for option in tweakOptions {
+                // set the user defaults
+                setDefaultBoolean(forKey: option.key, value: option.value)
+                
+                //  apply tweak
+                if option.value == true {
+                    print("Applying tweak \"" + option.title + "\"")
+                    overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value) { succeeded in
+                        if succeeded {
+                            print("Successfully applied tweak \"" + option.title + "\"")
+                        } else {
+                            print("Failed to apply tweak \"" + option.title + "\"!!!")
+                            failed = true
                         }
                     }
                 }
             }
             
-            if respringWhenFinished {
-                // respring and apply changes
-                applyText = "Respringing..."
-                print("Respringing...")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    respring()
-                }
-            } else {
-                applyText = "Tweaks applied"
-                print("Tweaks applied")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                    if applyText == "Tweaks applied" {
-                        applyText = " "
-                    }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if failed {
+                    UIApplication.shared.alert(body: "An error occurred when applying tweaks")
+                } else {
+                    UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
                 }
             }
         }
