@@ -50,7 +50,7 @@ struct AudioView: View {
                     } header: {
                         Text("Sound Effects Modifications")
                     }
-                    Button("Apply", action: {
+                    Button(action: {
                         // apply the audio
                         var failed: Bool = false
                         for audioOption in audioOptions {
@@ -73,8 +73,12 @@ struct AudioView: View {
                                 UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
                             }
                         }
-                    })
-                    .padding(10)
+                    }) {
+                        Text("Activate")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .cornerRadius(8)
+                    }
                 }
                 .navigationTitle("Audio Changer")
             }
