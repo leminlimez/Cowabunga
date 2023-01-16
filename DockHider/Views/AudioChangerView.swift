@@ -21,9 +21,9 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default", fileName: "Default_Charging"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage", fileName: "AirPower_Charging"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default", fileName: "Default"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old", fileName: "Old"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage", fileName: "Engage"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe", fileName: "MagSafe"),
     ]
     
