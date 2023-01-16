@@ -96,7 +96,6 @@ struct AudioChangerView: View {
         .toolbar {
             Button(action: {
                 // import a custom audio
-                let fm = FileManager.default
                 // allow the user to choose the file
                 isImporting = true
             }) {
