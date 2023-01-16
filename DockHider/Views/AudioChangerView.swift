@@ -29,6 +29,7 @@ struct AudioChangerView: View {
         
         // lock
         .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default", fileName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Old", fileName: "Old"),
         
         // notification
         .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default", fileName: "Default"),
