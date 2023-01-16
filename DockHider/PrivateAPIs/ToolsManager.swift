@@ -41,6 +41,7 @@ enum OverwritingFileTypes {
     case springboard
     case plist
     case audio
+    case region
 }
 
 func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value, completion: @escaping (Bool) -> Void) {
@@ -98,6 +99,18 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 DispatchQueue.main.async {
                     completion(succeeded)
                 }
+            }
+        } else if typeOfFile == OverwritingFileTypes.region {
+            let startPath = "/Library/RegionFeatures/RegionFeatures_"
+            let devices = ["iphone", "ipad", "ipod"]
+            var succeeded = true
+            
+            for dev in devices {
+                let newData: Data = Data(base64Encoded: regionEncodes[dev]!)!
+                succeeded = succeeded && overwriteFileWithDataImpl(originPath: startPath + dev + ".txt", backupName: "RegionFeatures_"+dev+".txt", replacementData: newData)
+            }
+            DispatchQueue.main.async {
+                completion(succeeded)
             }
         }
     }
