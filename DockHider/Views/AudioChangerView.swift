@@ -99,6 +99,7 @@ struct AudioChangerView: View {
                 // import a custom audio
                 let fm = FileManager.default
                 // allow the user to choose the file
+                isImporting = true
             }) {
                 Image(systemName: "square.and.arrow.down")
             }
@@ -110,6 +111,59 @@ struct AudioChangerView: View {
                     audioFiles[i].checked = true
                 }
             }
+        }
+        .fileImporter(isPresented: $isImporting,
+                      allowedContentTypes: [
+                        .mp3, .wav
+                      ],
+                      allowsMultipleSelection: false
+        ) { result in
+            // user chose a file
+            guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
+            
+            // ask for a name for the sound
+            let alert = UIAlertController(title: "Enter Name", message: "Choose a name for the sound", preferredStyle: .alert)
+            
+            // bring up the text prompts
+            alert.addTextField { (textField) in
+                // text field for width
+                textField.placeholder = "Name"
+            }
+            alert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+                // set the name and add the file
+                if alert.textFields?[0].text != nil {
+                    // check if it is a valid name
+                    let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890._")
+                    var fileName: String = (alert.textFields?[0].text ?? "Unnamed").filter{validChars.contains($0)}
+                    if fileName == "" {
+                        // set to unnamed
+                        fileName = "Unnamed"
+                    }
+                    // get the base64 data
+                    let base64 = customaudio(filepath: url.path)
+                    if base64 != nil {
+                        // write the file
+                        let dataToWrite: [String: String] = [
+                            "Name": "USR_" + fileName,
+                            "AudioData": base64!
+                        ]
+                        
+                        do {
+                            let jsonData = try JSONSerialization.data(withJSONObject: dataToWrite, options: [])
+                            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio/USR_"+fileName+".json", conformingTo: .json)
+                            try jsonData.write(to: newURL)
+                            UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
+                        } catch {
+                            print(error.localizedDescription)
+                            UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
+                        }
+                    }
+                }
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // cancel the process
+            })
+            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
     }
 }
