@@ -32,43 +32,41 @@ struct AudioChangerView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
-                List {
-                    Section {
-                        ForEach($audioFiles) { audio in
-                            if audio.attachment.wrappedValue == SoundIdentifier {
-                                // create button
-                                // idk what I am doing with this but okay
-                                HStack {
-                                    Image(systemName: "checkmark")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 15, height: 15)
-                                        .foregroundColor(.blue)
-                                        .opacity(audio.checked.wrappedValue ? 1: 0)
-                                    
-                                    Button(audio.audioName.wrappedValue, action: {
-                                        if appliedSound != audio.audioName.wrappedValue {
-                                            for (i, file) in audioFiles.enumerated() {
-                                                if file.audioName == appliedSound {
-                                                    audioFiles[i].checked = false
-                                                } else if file.audioName == audio.audioName.wrappedValue {
-                                                    audioFiles[i].checked = true
-                                                }
+            List {
+                Section {
+                    ForEach($audioFiles) { audio in
+                        if audio.attachment.wrappedValue == SoundIdentifier {
+                            // create button
+                            // idk what I am doing with this but okay
+                            HStack {
+                                Image(systemName: "checkmark")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 15, height: 15)
+                                    .foregroundColor(.blue)
+                                    .opacity(audio.checked.wrappedValue ? 1: 0)
+                                
+                                Button(audio.audioName.wrappedValue, action: {
+                                    if appliedSound != audio.audioName.wrappedValue {
+                                        for (i, file) in audioFiles.enumerated() {
+                                            if file.audioName == appliedSound {
+                                                audioFiles[i].checked = false
+                                            } else if file.audioName == audio.audioName.wrappedValue {
+                                                audioFiles[i].checked = true
                                             }
-                                            appliedSound = audio.audioName.wrappedValue
-                                            // save to defaults
-                                            UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
                                         }
-                                    })
-                                    .padding(.horizontal, 8)
-                                    .foregroundColor(.primary)
-                                }
+                                        appliedSound = audio.audioName.wrappedValue
+                                        // save to defaults
+                                        UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
+                                    }
+                                })
+                                .padding(.horizontal, 8)
+                                .foregroundColor(.primary)
                             }
                         }
-                    } header: {
-                        Text("Included")
                     }
+                } header: {
+                    Text("Included")
                 }
             }
         }

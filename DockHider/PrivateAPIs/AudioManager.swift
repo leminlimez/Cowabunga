@@ -13,12 +13,23 @@ class AudioFiles {
     enum SoundEffect: String {
         case charging = "Charging"
     }
-    static func getNewAudioData(attachment: String, soundName: String) -> String {
+    static func getNewAudioData(attachment: String, soundName: String) -> String? {
         if (self.audioData[attachment] != nil) && (self.audioData[attachment]![soundName] != nil) {
             return self.audioData[attachment]![soundName]!
         }
-        return "nil"
+        return nil
     }
+    static func getAudioPath(attachment: String) -> String? {
+        if self.audioPaths[attachment] != nil {
+            return self.audioPaths[attachment]!
+        }
+        return nil
+    }
+    
+    // audio paths
+    private static let audioPaths: [String: String] = [
+        SoundEffect.charging.rawValue: "UISounds/connect_power.caf"
+    ]
     // audio file data
     // base64 encoded
     private static let audioData: [String: [String: String]] = [
