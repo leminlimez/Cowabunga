@@ -20,7 +20,7 @@ struct RootView: View {
                 }
             OtherModsView()
                 .tabItem {
-                    Label("Miscellaneous", systemImage: "hammer")
+                    Label("Misc.", systemImage: "hammer")
                 }
         }
     }
