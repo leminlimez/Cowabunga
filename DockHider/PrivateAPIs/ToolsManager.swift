@@ -35,11 +35,6 @@ let replacementPaths: [String: [String]] = [
     "FolderBlurDisabled": ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
     "SwitcherBlurDisabled": ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
     "ShortcutBannerDisabled": ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"],
-    "AirPowerEnabled": ["UISounds/connect_power.caf"]
-]
-
-let audioPaths: [String: String] = [
-    AudioFiles.SoundEffect.charging.rawValue: "UISounds/connect_power.caf"
 ]
 
 enum OverwritingFileTypes {
@@ -67,13 +62,13 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         
         // audio option
         } else if typeOfFile == OverwritingFileTypes.audio {
-            if audioPaths[fileIdentifier] != nil {
+            let path = AudioFiles.getAudioPath(attachment: fileIdentifier)
+            if path != nil {
                 // replace the audio data
                 let base64 = AudioFiles.getNewAudioData(attachment: fileIdentifier, soundName: value as! String)
                 if base64 != "nil" {
-                    let newData = Data(base64Encoded: base64)!
-                    let path = audioPaths[fileIdentifier]!
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path, backupName: path, replacementData: newData)
+                    let newData = Data(base64Encoded: base64!)!
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: newData)
                     DispatchQueue.main.async {
                         completion(succeeded)
                     }
