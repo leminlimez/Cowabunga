@@ -12,6 +12,12 @@
 class AudioFiles {
     enum SoundEffect: String {
         case charging = "Charging"
+        case lock = "Lock"
+        case notification = "Notification"
+        case screenshot = "Screenshot"
+        case sentMessage = "SentMessage"
+        case receivedMessage = "ReceivedMessage"
+        case paymentSuccess = "PaymentSuccess"
     }
     static func getNewAudioData(attachment: String, soundName: String) -> String? {
         if (self.audioData[attachment] != nil) && (self.audioData[attachment]![soundName] != nil) {
@@ -28,7 +34,13 @@ class AudioFiles {
     
     // audio paths
     private static let audioPaths: [String: String] = [
-        SoundEffect.charging.rawValue: "UISounds/connect_power.caf"
+        SoundEffect.charging.rawValue: "UISounds/connect_power.caf",
+        SoundEffect.lock.rawValue: "UISounds/lock.caf",
+        SoundEffect.notification.rawValue: "UISounds/sms-received1.caf",
+        SoundEffect.screenshot.rawValue: "UISounds/photoShutter.caf",
+        SoundEffect.sentMessage.rawValue: "UISounds/SentMessage.caf",
+        SoundEffect.receivedMessage.rawValue: "UISounds/ReceivedMessage.caf",
+        SoundEffect.paymentSuccess.rawValue: "UISounds/payment_success.caf"
     ]
     // audio file data
     // base64 encoded

@@ -17,7 +17,13 @@ struct AudioView: View {
     }
     
     @State var audioOptions: [AudioOption] = [
-        .init(key: AudioFiles.SoundEffect.charging, title: "Charging Sound", imageName: "powerplug"),
+        .init(key: AudioFiles.SoundEffect.charging, title: "Charging", imageName: "powerplug"),
+        .init(key: AudioFiles.SoundEffect.lock, title: "Lock", imageName: "lock"),
+        .init(key: AudioFiles.SoundEffect.notification, title: "Default Notifications", imageName: "iphone.radiowaves.left.and.right"),
+        .init(key: AudioFiles.SoundEffect.screenshot, title: "Screenshot", imageName: "photo"),
+        .init(key: AudioFiles.SoundEffect.sentMessage, title: "Sent Message", imageName: "bubble.right.fill"),
+        .init(key: AudioFiles.SoundEffect.receivedMessage, title: "Received Message", imageName: "bubble.left"),
+        .init(key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
     ]
     
     var body: some View {
@@ -35,8 +41,8 @@ struct AudioView: View {
                                         .foregroundColor(.blue)
                                     Text(option.title.wrappedValue)
                                         .padding(.horizontal, 8)
+                                    Spacer()
                                     Text(UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default")
-                                        .padding(.leading, 45)
                                         .foregroundColor(.secondary)
                                 }
                             }
@@ -70,6 +76,7 @@ struct AudioView: View {
                     })
                     .padding(10)
                 }
+                .navigationTitle("Audio Changer")
             }
         }
     }
