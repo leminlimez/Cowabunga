@@ -6,6 +6,8 @@
 //  Audio files and base64 by c22dev on 1/12/23
 //
 
+import Foundation
+
 // this could have been a json file lol
 // yes it could have been
 
@@ -30,6 +32,22 @@ class AudioFiles {
             return self.audioPaths[attachment]!
         }
         return nil
+    }
+    
+    // get the user audio file names
+    static func getCustomAudio() -> [String] {
+        let fm = FileManager.default
+        var audioFiles: [String] = []
+        if fm.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio") {
+            for audioURL in (try? fm.contentsOfDirectory(at: URL.documents.appendingPathComponent("Cowabunga_Audio"), includingPropertiesForKeys: nil)) ?? [] {
+                do {
+                    let fileData = try Data(contentsOf: audioURL)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        return audioFiles
     }
     
     // audio paths
