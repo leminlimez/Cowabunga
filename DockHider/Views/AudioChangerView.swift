@@ -21,10 +21,29 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
+        // charging
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default", fileName: "Default"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old", fileName: "Old"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage", fileName: "Engage"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe", fileName: "MagSafe"),
+        
+        // lock
+        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default", fileName: "Default"),
+        
+        // notification
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default", fileName: "Default"),
+        
+        // screenshot
+        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default", fileName: "Default"),
+        
+        // sent message
+        .init(attachment: AudioFiles.SoundEffect.sentMessage, audioName: "Default", fileName: "Default"),
+        
+        // received message
+        .init(attachment: AudioFiles.SoundEffect.receivedMessage, audioName: "Default", fileName: "Default"),
+        
+        // payment success
+        .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Default", fileName: "Default"),
     ]
     
     // applied sound
@@ -70,6 +89,7 @@ struct AudioChangerView: View {
                 }
             }
         }
+        .navigationTitle(SoundIdentifier.rawValue)
         .onAppear {
             appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
             for (i, file) in audioFiles.enumerated() {
