@@ -34,58 +34,90 @@ struct SpringBoardView: View {
     
     var body: some View {
         VStack {
-            // title
-            Text("Cowabunga")
-                .font(.largeTitle)
-                .bold()
-                .padding(.bottom)
-            Text("SpringBoard Tools")
-                .font(.title2)
-                .padding(.bottom, 10)
-            Text(applyText)
-                .padding(.bottom, 15)
-            
-            ForEach($tweakOptions) { option in
-                HStack {
-                    Image(systemName: option.imageName.wrappedValue)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.blue)
-                    
-                    Toggle(isOn: option.value) {
-                        Text(option.title.wrappedValue)
-                            .minimumScaleFactor(0.5)
+            NavigationView {
+                List {
+                    Section {
+                        ForEach($tweakOptions) { option in
+                            HStack {
+                                Image(systemName: option.imageName.wrappedValue)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                
+                                Toggle(isOn: option.value) {
+                                    Text(option.title.wrappedValue)
+                                        .minimumScaleFactor(0.5)
+                                }
+                                .padding(.leading, 10)
+                            }
+                        }
+                    } header: {
+                        Text("")
                     }
-                    .padding(.leading, 10)
+                    
+                    Section {
+                        Button(action: {
+                            applyTweaks(respringWhenFinished: true)
+                        }) {
+                            if #available(iOS 15.0, *) {
+                                Text("Apply and Respring")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(8)
+                                    .buttonStyle(.bordered)
+                                    .tint(.blue)
+                                    .cornerRadius(8)
+                            } else {
+                                // Fallback on earlier versions
+                                Text("Apply and Respring")
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .cornerRadius(8)
+                            }
+                        }
+                        
+                        Button(action: {
+                            applyTweaks(respringWhenFinished: false)
+                        }) {
+                            if #available(iOS 15.0, *) {
+                                Text("Apply without Respringing")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(6)
+                                    .buttonStyle(.bordered)
+                                    .tint(.blue)
+                                    .cornerRadius(8)
+                            } else {
+                                // Fallback on earlier versions
+                                Text("Apply without Respringing")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(6)
+                                    .cornerRadius(8)
+                            }
+                        }
+                        
+                        Button(action: {
+                            respring()
+                        }) {
+                            if #available(iOS 15.0, *) {
+                                Text("Respring")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(6)
+                                    .buttonStyle(.bordered)
+                                    .tint(.red)
+                                    .cornerRadius(8)
+                            } else {
+                                // Fallback on earlier versions
+                                Text("Respring")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(6)
+                                    .cornerRadius(8)
+                            }
+                        }
+                    }
                 }
+                .navigationTitle("SpringBoard Tools")
             }
-            
-            Button("Apply and Respring", action: {
-                applyTweaks(respringWhenFinished: true)
-            })
-            .padding(10)
-            .background(Color.accentColor)
-            .cornerRadius(8)
-            .foregroundColor(.white)
-            
-            Button("Apply without Respringing", action: {
-                applyTweaks(respringWhenFinished: false)
-            })
-            .padding(10)
-            .background(Color.accentColor)
-            .cornerRadius(8)
-            .foregroundColor(.white)
-            
-            Button("Respring", action: {
-                respring()
-            })
-            .padding(10)
-            .background(Color.red)
-            .cornerRadius(8)
-            .foregroundColor(.white)
         }
-        .padding()
     }
     
     func applyTweaks(respringWhenFinished: Bool) {
