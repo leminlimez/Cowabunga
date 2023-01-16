@@ -15,42 +15,43 @@ struct AudioChangerView: View {
         var id = UUID()
         var attachment: AudioFiles.SoundEffect
         var audioName: String
-        var fileName: String
         var checked: Bool = false
     }
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
         // charging
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default", fileName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old", fileName: "Old"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage", fileName: "Engage"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe", fileName: "MagSafe"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe"),
         
         // lock
-        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default", fileName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Old", fileName: "Old"),
+        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Old"),
         
         // notification
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default", fileName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Samsung", fileName: "Samsung"),
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Taco Bell", fileName: "TacoBell"),
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Samsung"),
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Taco Bell"),
         
         // screenshot
-        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default", fileName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default"),
         
         // sent message
-        .init(attachment: AudioFiles.SoundEffect.sentMessage, audioName: "Default", fileName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.sentMessage, audioName: "Default"),
         
         // received message
-        .init(attachment: AudioFiles.SoundEffect.receivedMessage, audioName: "Default", fileName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.receivedMessage, audioName: "Default"),
         
         // payment success
-        .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Default", fileName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Default"),
     ]
     
     // applied sound
     @State private var appliedSound: String = "Default"
+    
+    @State private var isImporting: Bool = true
     
     var body: some View {
         VStack {
@@ -93,6 +94,15 @@ struct AudioChangerView: View {
             }
         }
         .navigationTitle(SoundIdentifier.rawValue)
+        .toolbar {
+            Button(action: {
+                // import a custom audio
+                let fm = FileManager.default
+                // allow the user to choose the file
+            }) {
+                Image(systemName: "square.and.arrow.down")
+            }
+        }
         .onAppear {
             appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
             for (i, file) in audioFiles.enumerated() {
