@@ -35,7 +35,7 @@ class AudioFiles {
     }
     
     // get the user audio file names
-    static func getCustomAudio() -> [String] {
+    /*static func getCustomAudio() -> [String] {
         let fm = FileManager.default
         var audioFiles: [String] = []
         if fm.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio") {
@@ -48,7 +48,7 @@ class AudioFiles {
             }
         }
         return audioFiles
-    }
+    }*/
     
     // audio paths
     private static let audioPaths: [String: String] = [
