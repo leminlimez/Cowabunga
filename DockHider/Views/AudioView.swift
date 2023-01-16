@@ -10,7 +10,6 @@ import SwiftUI
 struct AudioView: View {
     struct AudioOption: Identifiable {
         var key: AudioFiles.SoundEffect
-        var value: String // currently equipped audio
         var id = UUID()
         var title: String
         var imageName: String
@@ -18,7 +17,7 @@ struct AudioView: View {
     }
     
     @State var audioOptions: [AudioOption] = [
-        .init(key: AudioFiles.SoundEffect.charging, value: "Default", title: "Charging Sound", imageName: "powerplug"),
+        .init(key: AudioFiles.SoundEffect.charging, title: "Charging Sound", imageName: "powerplug"),
     ]
     
     var body: some View {
@@ -50,8 +49,9 @@ struct AudioView: View {
                         var failed: Bool = false
                         for audioOption in audioOptions {
                             // apply if not default
-                            if audioOption.value != "Default" {
-                                overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audioOption.key.rawValue, audioOption.value) { succeeded in
+                            let currentAudio: String = UserDefaults.standard.string(forKey: audioOption.key.rawValue+"_Applied") ?? "Default"
+                            if currentAudio != "Default" {
+                                overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audioOption.key.rawValue, currentAudio) { succeeded in
                                     if succeeded {
                                         print("successfully applied audio for " + audioOption.key.rawValue)
                                     } else {
