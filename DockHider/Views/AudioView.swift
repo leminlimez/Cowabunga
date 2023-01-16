@@ -74,7 +74,7 @@ struct AudioView: View {
                             }
                         }
                     }) {
-                        Text("Activate")
+                        Text("Apply")
                             .frame(maxWidth: .infinity)
                             .padding()
                             .cornerRadius(8)
