@@ -64,10 +64,30 @@ extension UIApplication {
 }
 
 extension URL {
-
     static var documents: URL {
         return FileManager
             .default
             .urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+}
+
+extension UIColor {
+    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return (red, green, blue, alpha)
+    }
+}
+
+extension Color {
+    init(uiColor14: UIColor) {
+        self.init(red: Double(uiColor14.rgba.red),
+                  green: Double(uiColor14.rgba.green),
+                  blue: Double(uiColor14.rgba.blue),
+                  opacity: Double(uiColor14.rgba.alpha))
     }
 }

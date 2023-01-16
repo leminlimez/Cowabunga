@@ -60,7 +60,6 @@ struct AudioChangerView: View {
                     ForEach($audioFiles) { audio in
                         if audio.attachment.wrappedValue == SoundIdentifier {
                             // create button
-                            // idk what I am doing with this but okay
                             HStack {
                                 Image(systemName: "checkmark")
                                     .resizable()
