@@ -32,6 +32,8 @@ struct AudioChangerView: View {
         
         // notification
         .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default", fileName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Samsung", fileName: "Samsung"),
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Taco Bell", fileName: "TacoBell"),
         
         // screenshot
         .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default", fileName: "Default"),
