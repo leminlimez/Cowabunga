@@ -41,7 +41,11 @@ class AudioFiles {
         if fm.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio") {
             for audioURL in (try? fm.contentsOfDirectory(at: URL.documents.appendingPathComponent("Cowabunga_Audio"), includingPropertiesForKeys: nil)) ?? [] {
                 do {
-                    let fileData = try Data(contentsOf: audioURL)
+                    let plistData = try Data(contentsOf: audioURL)
+                    let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: String]
+                    if plist["AudioName"] != nil {
+                        audioFiles.append(plist["AudioName"]!)
+                    }
                 } catch {
                     print(error)
                 }
