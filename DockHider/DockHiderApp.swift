@@ -14,9 +14,9 @@ struct DockHiderApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .onAppear {
+                /*.onAppear {
                     ApplicationMonitor.shared.start()
-                }
+                }*/
         }
     }
 }
