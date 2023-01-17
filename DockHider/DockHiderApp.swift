@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct DockHiderApp: App {
-    let locationManager = LocationManager()
+    //let locationManager = LocationManager()
     
     var body: some Scene {
         WindowGroup {
