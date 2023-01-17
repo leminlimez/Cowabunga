@@ -220,12 +220,12 @@ struct HomeView: View {
                             Text(title)
                                 .fontWeight(.bold)
                         }
-                        .padding(.horizontal, 8)
+                        .padding(.horizontal, 6)
                         Spacer()
                     }
                     HStack {
                         Text(contribution)
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 6)
                             .font(.footnote)
                         Spacer()
                     }
