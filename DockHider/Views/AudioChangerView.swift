@@ -159,12 +159,6 @@ struct AudioChangerView: View {
             Button(action: {
                 // import a custom audio
                 // allow the user to choose the file
-                /*if let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
-                   let rootViewController = keyWindow.rootViewController {
-                    rootViewController.present(UIDocumentPickerViewController(forOpeningContentTypes: [.mp3, .wav], asCopy: false), animated: true)
-                } else {
-                    UIApplication.shared.alert(body: "Could not display file picker.")
-                }*/
                 isImporting = true
             }, label: {
                 Image(systemName: "square.and.arrow.down")
