@@ -36,8 +36,8 @@ func customaudio(filepath: String) -> String? {
     do {
         let attributes = try FileManager.default.attributesOfItem(atPath: newURL.path)
         let fileSize = attributes[FileAttributeKey.size] as! UInt64
-        if fileSize > 10_000 {
-            UIApplication.shared.alert(body: "You're file is too big. Please crop or compress it to under 10 kB.")
+        if fileSize > 15000 {
+            UIApplication.shared.alert(body: "You're file is too big. Please crop or compress it to under 15 kB.")
             return nil
         }
     } catch {
