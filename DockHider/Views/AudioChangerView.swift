@@ -18,6 +18,14 @@ struct AudioChangerView: View {
         var checked: Bool = false
     }
     
+    // custom audio files
+    struct CustomAudioName: Identifiable {
+        var id = UUID()
+        var audioName: String
+        var displayName: String
+        var checked: Bool = false
+    }
+    
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
         // charging
@@ -48,6 +56,10 @@ struct AudioChangerView: View {
         .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Default"),
     ]
     
+    // list of custom audio files
+    @State var customAudio: [CustomAudioName] = [
+    ]
+    
     // applied sound
     @State private var appliedSound: String = "Default"
     
@@ -76,6 +88,14 @@ struct AudioChangerView: View {
                                             } else if file.audioName == audio.audioName.wrappedValue {
                                                 audioFiles[i].checked = true
                                             }
+                                            
+                                            for (i, file) in customAudio.enumerated() {
+                                                if file.audioName == appliedSound {
+                                                    customAudio[i].checked = false
+                                                } else if file.audioName == audio.audioName.wrappedValue {
+                                                    customAudio[i].checked = true
+                                                }
+                                            }
                                         }
                                         appliedSound = audio.audioName.wrappedValue
                                         // save to defaults
@@ -89,6 +109,47 @@ struct AudioChangerView: View {
                     }
                 } header: {
                     Text("Included")
+                }
+                
+                Section {
+                    ForEach($customAudio) { audio in
+                        // create button
+                        HStack {
+                            Image(systemName: "checkmark")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(.blue)
+                                .opacity(audio.checked.wrappedValue ? 1: 0)
+                            
+                            Button(audio.displayName.wrappedValue, action: {
+                                if appliedSound != audio.audioName.wrappedValue {
+                                    for (i, file) in audioFiles.enumerated() {
+                                        if file.audioName == appliedSound {
+                                            audioFiles[i].checked = false
+                                        } else if file.audioName == audio.audioName.wrappedValue {
+                                            audioFiles[i].checked = true
+                                        }
+                                    }
+                                    
+                                    for (i, file) in customAudio.enumerated() {
+                                        if file.audioName == appliedSound {
+                                            customAudio[i].checked = false
+                                        } else if file.audioName == audio.audioName.wrappedValue {
+                                            customAudio[i].checked = true
+                                        }
+                                    }
+                                    appliedSound = audio.audioName.wrappedValue
+                                    // save to defaults
+                                    UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
+                                }
+                            })
+                            .padding(.horizontal, 8)
+                            .foregroundColor(.primary)
+                        }
+                    }
+                } header: {
+                    Text("Custom")
                 }
             }
         }
@@ -114,6 +175,12 @@ struct AudioChangerView: View {
                 if file.audioName == appliedSound {
                     audioFiles[i].checked = true
                 }
+            }
+            
+            // get the custom audio
+            var customAudioTitles = AudioFiles.getCustomAudio()
+            for audio in customAudioTitles {
+                customAudio.append(CustomAudioName.init(audioName: audio, displayName: audio.replacingOccurrences(of: "USR_", with: "")))
             }
         }
         .fileImporter(isPresented: $isImporting,
