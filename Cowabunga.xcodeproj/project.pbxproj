@@ -17,6 +17,7 @@
 		6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */; };
 		6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38F02976FE6800DE3146 /* LocationManager.swift */; };
 		6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38F42976FF8B00DE3146 /* AppDelegate.swift */; };
+		6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */; };
 		6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C8F296482C6001CFE46 /* CowabungaApp.swift */; };
 		6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C91296482C6001CFE46 /* SpringBoardView.swift */; };
 		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
 		6F6D38F02976FE6800DE3146 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6F6D38F42976FF8B00DE3146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFileUpdaterController.swift; sourceTree = "<group>"; };
 		6F721C8C296482C6001CFE46 /* Cowabunga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cowabunga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F721C8F296482C6001CFE46 /* CowabungaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowabungaApp.swift; sourceTree = "<group>"; };
 		6F721C91296482C6001CFE46 /* SpringBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoardView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */,
 				6F6D38F02976FE6800DE3146 /* LocationManager.swift */,
+				6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				6F160E732965B2810026D69D /* ToolsManager.swift in Sources */,
 				6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */,
 				6F7C01D52968E0C500BC427A /* RootView.swift in Sources */,
+				6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */,
 				6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +382,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 92S6JX27W2;
+				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -416,7 +420,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 92S6JX27W2;
+				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;

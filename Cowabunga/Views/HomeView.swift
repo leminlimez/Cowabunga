@@ -27,6 +27,7 @@ struct HomeView: View {
     ]
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
+    @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     
     var body: some View {
         NavigationView {
@@ -97,6 +98,17 @@ struct HomeView: View {
                 
                 Section {
                     // app preferences
+                    HStack {
+                        Toggle(isOn: $runInBackground) {
+                            Text("Auto respring after apply")
+                                .minimumScaleFactor(0.5)
+                        }.onChange(of: runInBackground) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "BackgroundApply")
+                            BackgroundFileUpdaterController.shared.enabled = new
+                        }
+                        .padding(.leading, 10)
+                    }
                 } header: {
                     Text("Preferences")
                 }
