@@ -206,7 +206,7 @@ struct AudioChangerView: View {
                         fileName = "Unnamed"
                     }
                     // get the base64 data
-                    let base64 = customaudio(filepath: url.path)
+                    let base64 = customaudio(fileURL: url)
                     if base64 != nil {
                         // write the file
                         let dataToWrite: [String: String] = [

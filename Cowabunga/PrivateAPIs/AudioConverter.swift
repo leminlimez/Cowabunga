@@ -10,7 +10,7 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
-func customaudio(filepath: String) -> String? {
+func customaudio(fileURL: URL) -> String? {
     // Converting options
     var options = FormatConverter.Options()
     options.format = AudioFileFormat.m4a
@@ -29,13 +29,16 @@ func customaudio(filepath: String) -> String? {
         }
     }
     // CONVERT !
-    let converter = FormatConverter(inputURL: URL(fileURLWithPath: filepath), outputURL: newURL, options: options)
+    let converter = FormatConverter(inputURL: fileURL, outputURL: newURL, options: options)
     converter.start { error in
+        print("CONVERTER")
+        print(error)
+        print("CONVERTER END")
     }
     // Check file size
     do {
         let attributes = try FileManager.default.attributesOfItem(atPath: newURL.path)
-        let fileSize = attributes[FileAttributeKey.size] as! UInt64
+        let fileSize = attributes[.size] as! Int64
         if fileSize > 15000 {
             UIApplication.shared.alert(body: "You're file is too big. Please crop or compress it to under 15 kB.")
             return nil
