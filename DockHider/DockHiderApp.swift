@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct DockHiderApp: App {
+    let locationManager = LocationManager()
+    
     var body: some Scene {
         WindowGroup {
             RootView()
+                .onAppear {
+                    ApplicationMonitor.shared.start()
+                }
         }
     }
 }
