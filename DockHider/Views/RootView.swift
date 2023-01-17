@@ -10,6 +10,10 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
             SpringBoardView()
                 .tabItem {
                     Label("SpringBoard", systemImage: "snowflake")
