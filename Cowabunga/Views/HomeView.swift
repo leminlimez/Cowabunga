@@ -1,6 +1,6 @@
 //
 //  HomeView.swift
-//  DockHider
+//  Cowabunga
 //
 //  Created by lemin on 1/17/23.
 //

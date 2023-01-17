@@ -1,6 +1,6 @@
 //
 //  AudioReplacementData.swift
-//  DockHider
+//  Cowabunga
 //
 //  Created by lemin on 1/8/23.
 //  Audio files and base64 by c22dev on 1/12/23

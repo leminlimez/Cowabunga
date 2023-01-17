@@ -1,6 +1,6 @@
 //
 //  AudioConverter.swift
-//  DockHider
+//  Cowabunga
 //
 //  Created by Constantin Clerc on 14/01/2023.
 //

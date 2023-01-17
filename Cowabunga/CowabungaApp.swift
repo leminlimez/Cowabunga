@@ -1,6 +1,6 @@
 //
-//  DockHiderApp.swift
-//  DockHider
+//  CowabungaApp.swift
+//  Cowabunga
 //
 //  Created by lemin on 1/3/23.
 //
@@ -8,15 +8,15 @@
 import SwiftUI
 
 @main
-struct DockHiderApp: App {
+struct CowabungaApp: App {
     //let locationManager = LocationManager()
     
     var body: some Scene {
         WindowGroup {
             RootView()
-                /*.onAppear {
+                .onAppear {
                     ApplicationMonitor.shared.start()
-                }*/
+                }
         }
     }
 }
