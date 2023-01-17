@@ -24,6 +24,21 @@ class AudioFiles {
     static func getNewAudioData(attachment: String, soundName: String) -> String? {
         if (self.audioData[attachment] != nil) && (self.audioData[attachment]![soundName] != nil) {
             return self.audioData[attachment]![soundName]!
+        } else if (soundName.starts(with: "USR_")) {
+            // it is a custom user audio file
+            if FileManager.default.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio/" + soundName + ".plist") {
+                // file exists
+                do {
+                    let audioURL = URL(fileURLWithPath: URL.documents.path + "/Cowabunga_Audio/" + soundName + ".plist")
+                    let plistData = try Data(contentsOf: audioURL)
+                    let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: String]
+                    if plist["AudioData"] != nil {
+                        return plist["AudioData"]
+                    }
+                } catch {
+                    return nil
+                }
+            }
         }
         return nil
     }
