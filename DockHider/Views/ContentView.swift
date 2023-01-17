@@ -30,6 +30,9 @@ struct SpringBoardView: View {
                     ForEach($tweakOptions) { option in
                         Button(action: {
                             option.wrappedValue.value.toggle()
+                            
+                            // set the user defaults
+                            setDefaultBoolean(forKey: option.key.wrappedValue, value: option.value.wrappedValue)
                         }) {
                             VStack {
                                 Image(systemName: option.wrappedValue.value ? "checkmark.circle" : option.imageName.wrappedValue)
@@ -101,9 +104,6 @@ struct SpringBoardView: View {
         if !inProgress {
             var failed: Bool = false
             for option in tweakOptions {
-                // set the user defaults
-                setDefaultBoolean(forKey: option.key, value: option.value)
-                
                 //  apply tweak
                 if option.value == true {
                     print("Applying tweak \"" + option.title + "\"")
