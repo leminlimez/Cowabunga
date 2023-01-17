@@ -115,6 +115,12 @@ struct HomeView: View {
                 
                 Section {
                     // app credits
+                    LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: "Main Developer", circle: true)
+                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "SourceLocation", contribution: "UI, Builder &  Background Running", circle: true)
+                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: "Audios, Custom Audio & Credits", circle: true)
+                    LinkCell(imageName: "ginsudev", url: "https://github.com/ginsudev/WDBFontOverwrite", title: "ginsudev", contribution: "Overwrite Script", circle: true)
+                    LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: "AirPower Audio", circle: true)
+                    LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: "Dynamic Island", circle: true)
                 } header: {
                     Text("Credits")
                 }
@@ -181,6 +187,52 @@ struct HomeView: View {
         var id = UUID()
         var key: String
         var fileType: OverwritingFileTypes
+    }
+    
+    struct LinkCell: View {
+        var imageName: String
+        var url: String
+        var title: String
+        var contribution: String
+        var systemImage: Bool = false
+        var circle: Bool = false
+        
+        var body: some View {
+            HStack(alignment: .center) {
+                Group {
+                    if systemImage {
+                        Image(systemName: imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } else {
+                        Image(imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+                .cornerRadius(circle ? .infinity : 0)
+                .frame(width: 24, height: 24)
+                VStack {
+                    HStack {
+                        Button(action: {
+                            UIApplication.shared.open(URL(string: url)!)
+                        }) {
+                            Text(title)
+                                .fontWeight(.bold)
+                        }
+                        .padding(.horizontal, 8)
+                        Spacer()
+                    }
+                    HStack {
+                        Text(contribution)
+                            .padding(.horizontal, 8)
+                            .font(.footnote)
+                        Spacer()
+                    }
+                }
+            }
+            .foregroundColor(.blue)
+        }
     }
 }
 
