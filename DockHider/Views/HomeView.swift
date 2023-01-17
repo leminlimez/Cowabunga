@@ -8,6 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
+    // list of options
+    @State var tweakOptions: [GeneralOption] = [
+        .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
+        .init(key: "HomeBarHidden", fileType: OverwritingFileTypes.springboard),
+        .init(key: "FolderBGHidden", fileType: OverwritingFileTypes.springboard),
+        .init(key: "RegionRestrictionsRemoved", fileType: OverwritingFileTypes.region),
+        .init(key: "SwitcherBlurDisabled", fileType: OverwritingFileTypes.springboard),
+        .init(key: "ShortcutBannerDisabled", fileType: OverwritingFileTypes.plist),
+    ]
+    
+    // list of audio options
+    @State var audioOptions: [AudioFiles.SoundEffect] = [
+        AudioFiles.SoundEffect.charging,
+        AudioFiles.SoundEffect.lock,
+        AudioFiles.SoundEffect.notification,
+        AudioFiles.SoundEffect.screenshot
+    ]
+    
     var body: some View {
         NavigationView {
             List {
@@ -67,7 +85,58 @@ struct HomeView: View {
     }
     
     func applyTweaks() {
+        var failedSB: Bool = false
+        // apply the springboard tweaks first
+        for option in tweakOptions {
+            // get the user defaults
+            let value: Bool = UserDefaults.standard.value(forKey: option.key) as? Bool ?? false
+            if value == true {
+                print("Applying tweak \"" + option.key + "\"")
+                overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, value) { succeeded in
+                    if succeeded {
+                        print("Successfully applied tweak \"" + option.key + "\"")
+                    } else {
+                        print("Failed to apply tweak \"" + option.key + "\"!!!")
+                        failedSB = true
+                    }
+                }
+            }
+        }
         
+        var failedAudio: Bool = false
+        // apply audio tweaks next
+        for option in audioOptions {
+            // get the user defaults
+            // apply if not default
+            let currentAudio: String = UserDefaults.standard.string(forKey: option.rawValue+"_Applied") ?? "Default"
+            if currentAudio != "Default" {
+                overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: option.rawValue, currentAudio) { succeeded in
+                    if succeeded {
+                        print("successfully applied audio for " + option.rawValue)
+                    } else {
+                        failedAudio = true
+                    }
+                }
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+            if failedSB && failedAudio {
+                UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
+            } else if failedSB {
+                UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
+            } else if failedAudio {
+                UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
+            } else {
+                UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+            }
+        }
+    }
+    
+    struct GeneralOption: Identifiable {
+        var id = UUID()
+        var key: String
+        var fileType: OverwritingFileTypes
     }
 }
 
