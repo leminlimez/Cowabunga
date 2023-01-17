@@ -26,7 +26,7 @@ struct HomeView: View {
         AudioFiles.SoundEffect.screenshot
     ]
     
-    @State private var autoRespring: Bool = false
+    @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     
     var body: some View {
         NavigationView {
@@ -43,9 +43,10 @@ struct HomeView: View {
                         Toggle(isOn: $autoRespring) {
                             Text("Auto respring after apply")
                                 .minimumScaleFactor(0.5)
-                        }/*.onChange(of: autoRespring) { new in
-                            
-                        }*/
+                        }.onChange(of: autoRespring) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "AutoRespringOnApply")
+                        }
                         .padding(.leading, 10)
                     }
                     
@@ -93,10 +94,17 @@ struct HomeView: View {
                 } header: {
                     Text("Tweak Options")
                 }
+                
                 Section {
-                    
+                    // app preferences
                 } header: {
                     Text("Preferences")
+                }
+                
+                Section {
+                    // app credits
+                } header: {
+                    Text("Credits")
                 }
             }
             .navigationTitle("Cowabunga")
@@ -108,7 +116,7 @@ struct HomeView: View {
         // apply the springboard tweaks first
         for option in tweakOptions {
             // get the user defaults
-            let value: Bool = UserDefaults.standard.value(forKey: option.key) as? Bool ?? false
+            let value: Bool = UserDefaults.standard.bool(forKey: option.key)
             if value == true {
                 print("Applying tweak \"" + option.key + "\"")
                 overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, value) { succeeded in
@@ -147,7 +155,12 @@ struct HomeView: View {
             } else if failedAudio {
                 UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
             } else {
-                UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+                if autoRespring {
+                    // auto respring on apply
+                    respring()
+                } else {
+                    UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+                }
             }
         }
     }
