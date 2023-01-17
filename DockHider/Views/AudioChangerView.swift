@@ -33,6 +33,7 @@ struct AudioChangerView: View {
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Cow"),
         
         // lock
         .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default"),
@@ -178,7 +179,7 @@ struct AudioChangerView: View {
             }
             
             // get the custom audio
-            var customAudioTitles = AudioFiles.getCustomAudio()
+            let customAudioTitles = AudioFiles.getCustomAudio()
             for audio in customAudioTitles {
                 customAudio.append(CustomAudioName.init(audioName: audio, displayName: audio.replacingOccurrences(of: "USR_", with: "")))
             }
