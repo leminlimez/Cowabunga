@@ -1,6 +1,6 @@
 //
 //  MiscModsManager.swift
-//  DockHider
+//  Cowabunga
 //
 //  Created by lemin on 1/7/23.
 //

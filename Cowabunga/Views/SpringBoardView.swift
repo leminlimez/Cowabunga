@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  DockHider
+//  Cowabunga
 //
 //  Created by lemin on 1/3/23.
 //
@@ -47,7 +47,9 @@ struct SpringBoardView: View {
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.vertical)
-                            .background(Color(uiColor14: option.wrappedValue.value ? .init(hue: 0.6, saturation: 1, brightness: 1, alpha: 0.15) : .secondarySystemBackground))
+                            .background(Color(uiColor14: option.wrappedValue.value ? .init(red: 0, green: 0.47, blue: 1, alpha: 1) : .secondarySystemBackground)
+                                .opacity(option.wrappedValue.value ? 0.15 : 1)
+                            )
                             .cornerRadius(10)
                         }
                     }
@@ -57,13 +59,25 @@ struct SpringBoardView: View {
                         Button("Apply", action: {
                             applyTweaks()
                         })
-                        .padding(5)
+                        .padding(8)
                         .buttonStyle(.bordered)
                         .tint(.accentColor)
                         .cornerRadius(8)
                         .foregroundColor(.accentColor)
+                        .frame(maxWidth: 200)
+                        
+                        Button("Respring", action: {
+                            respring()
+                        })
+                        .padding(8)
+                        .tint(.red)
+                        .buttonStyle(.bordered)
+                        .cornerRadius(8)
+                        .foregroundColor(.red)
+                        .frame(maxWidth: 200)
                     } else {
-                        // Fallback on earlier versions
+                        // for ios 14 nerds still out there
+                        
                         Button("Apply", action: {
                             applyTweaks()
                         })
@@ -71,19 +85,7 @@ struct SpringBoardView: View {
                         .background(Color.accentColor)
                         .cornerRadius(8)
                         .foregroundColor(.white)
-                    }
-                    
-                    if #available(iOS 15.0, *) {
-                        Button("Respring", action: {
-                            respring()
-                        })
-                        .padding(5)
-                        .tint(.red)
-                        .buttonStyle(.bordered)
-                        .cornerRadius(8)
-                        .foregroundColor(.red)
-                    } else {
-                        // Fallback on earlier versions
+                        
                         Button("Respring", action: {
                             respring()
                         })
