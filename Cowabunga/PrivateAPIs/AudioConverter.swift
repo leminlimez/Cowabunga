@@ -45,7 +45,7 @@ func customaudio(fileURL: URL) -> String? {
     // Base 64 Encoding
     var fileData = Data()
     do{
-        fileData = try Data.init(contentsOf: newURL)
+        fileData = try Data.init(contentsOf: newURLWithFile)
     }
     catch {
         print(error)
