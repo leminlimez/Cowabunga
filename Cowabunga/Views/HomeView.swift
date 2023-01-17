@@ -100,7 +100,7 @@ struct HomeView: View {
                     // app preferences
                     HStack {
                         Toggle(isOn: $runInBackground) {
-                            Text("Auto respring after apply")
+                            Text("Run in background")
                                 .minimumScaleFactor(0.5)
                         }.onChange(of: runInBackground) { new in
                             // set the user defaults
