@@ -32,8 +32,9 @@ Just build like a normal xCode project. There are no extra entitlements needed. 
 ## Credits
 - [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command.
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
+- [SourceLocation](https://github.com/sourcelocation) for the redesigned springboard UI.
 - [BomberFish](https://github.com/BomberFish) for AirPower sound.
-- [c22dev](https://github.com/c22dev) for adding custom audio importing, fixing AirPower, and presets audios.
+- [c22dev](https://github.com/c22dev) for adding custom audio importing encoding, fixing AirPower, and presets audios.
 - [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function.
 - [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with an initial code basis.
 - [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon.
