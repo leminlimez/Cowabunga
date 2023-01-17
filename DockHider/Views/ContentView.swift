@@ -11,7 +11,7 @@ var inProgress = false
 
 struct SpringBoardView: View {
     // lazyvgrid
-    private var gridItemLayout = [GridItem(.adaptive(minimum: 130))]
+    private var gridItemLayout = [GridItem(.adaptive(minimum: 160))]
     
     // list of options
     @State var tweakOptions: [GeneralOption] = [
@@ -24,79 +24,76 @@ struct SpringBoardView: View {
     ]
     
     var body: some View {
-        VStack {
-            NavigationView {
-                List {
-                    Section {
-                        LazyVGrid(columns: gridItemLayout) {
-                            ForEach($tweakOptions) { option in
-                                Button(action: {
-                                    option.wrappedValue.value.toggle()
-                                }) {
-                                    VStack {
-                                        Image(systemName: option.wrappedValue.value ? "checkmark.circle" : option.imageName.wrappedValue)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 24, height: 24)
-                                            .foregroundColor(.blue)
-                                            .opacity(option.wrappedValue.value ? 1 : 0.5)
-                                        
-                                        Text(option.title.wrappedValue)
-                                            .foregroundColor(.init(uiColor14: .label))
-                                    }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .padding(.vertical)
-                                    .background(Color(uiColor14: option.wrappedValue.value ? .init(hue: 0.6, saturation: 1, brightness: 1, alpha: 0.15) : .secondarySystemBackground))
-                                    .cornerRadius(10)
-                                }
-                            }
-                        }
-                    } header: {
-                        Text("")
-                    }
-                    
-                    Section {
+        NavigationView {
+            VStack {
+                LazyVGrid(columns: gridItemLayout) {
+                    ForEach($tweakOptions) { option in
                         Button(action: {
-                            applyTweaks()
+                            option.wrappedValue.value.toggle()
                         }) {
-                            if #available(iOS 15.0, *) {
-                                Text("Apply")
-                                    .frame(maxWidth: .infinity)
-                                    .padding(8)
-                                    .buttonStyle(.bordered)
-                                    .tint(.blue)
-                                    .cornerRadius(8)
-                            } else {
-                                // Fallback on earlier versions
-                                Text("Apply")
-                                    .frame(maxWidth: .infinity)
-                                    .padding(8)
-                                    .cornerRadius(8)
+                            VStack {
+                                Image(systemName: option.wrappedValue.value ? "checkmark.circle" : option.imageName.wrappedValue)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                    .opacity(option.wrappedValue.value ? 1 : 0.5)
+                                
+                                Text(option.title.wrappedValue)
+                                    .foregroundColor(.init(uiColor14: .label))
                             }
-                        }
-                        
-                        Button(action: {
-                            respring()
-                        }) {
-                            if #available(iOS 15.0, *) {
-                                Text("Respring")
-                                    .frame(maxWidth: .infinity)
-                                    .padding(8)
-                                    .buttonStyle(.bordered)
-                                    .tint(.red)
-                                    .cornerRadius(8)
-                            } else {
-                                // Fallback on earlier versions
-                                Text("Respring")
-                                    .frame(maxWidth: .infinity)
-                                    .padding(8)
-                                    .cornerRadius(8)
-                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.vertical)
+                            .background(Color(uiColor14: option.wrappedValue.value ? .init(hue: 0.6, saturation: 1, brightness: 1, alpha: 0.15) : .secondarySystemBackground))
+                            .cornerRadius(10)
                         }
                     }
                 }
-                .navigationTitle("SpringBoard Tools")
+                VStack {
+                    if #available(iOS 15.0, *) {
+                        Button("Apply", action: {
+                            applyTweaks()
+                        })
+                        .padding(5)
+                        .buttonStyle(.bordered)
+                        .tint(.accentColor)
+                        .cornerRadius(8)
+                        .foregroundColor(.accentColor)
+                    } else {
+                        // Fallback on earlier versions
+                        Button("Apply", action: {
+                            applyTweaks()
+                        })
+                        .padding(10)
+                        .background(Color.accentColor)
+                        .cornerRadius(8)
+                        .foregroundColor(.white)
+                    }
+                    
+                    if #available(iOS 15.0, *) {
+                        Button("Respring", action: {
+                            respring()
+                        })
+                        .padding(5)
+                        .tint(.red)
+                        .buttonStyle(.bordered)
+                        .cornerRadius(8)
+                        .foregroundColor(.red)
+                    } else {
+                        // Fallback on earlier versions
+                        Button("Respring", action: {
+                            respring()
+                        })
+                        .padding(10)
+                        .cornerRadius(8)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                    }
+                }
+                .padding(.vertical)
             }
+            .padding()
+            .navigationTitle("SpringBoard Tools")
         }
     }
     
