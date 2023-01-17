@@ -64,7 +64,7 @@ struct AudioChangerView: View {
     // applied sound
     @State private var appliedSound: String = "Default"
     
-    @State private var isImporting: Bool = true
+    @State private var isImporting: Bool = false
     
     var body: some View {
         VStack {
