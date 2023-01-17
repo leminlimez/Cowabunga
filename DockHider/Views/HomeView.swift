@@ -26,10 +26,29 @@ struct HomeView: View {
         AudioFiles.SoundEffect.screenshot
     ]
     
+    @State private var autoRespring: Bool = false
+    
     var body: some View {
         NavigationView {
             List {
                 Section {
+                    // auto respring option
+                    HStack {
+                        /*Image(systemName: option.imageName.wrappedValue)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.blue)*/
+                        
+                        Toggle(isOn: $autoRespring) {
+                            Text("Auto respring after apply")
+                                .minimumScaleFactor(0.5)
+                        }/*.onChange(of: autoRespring) { new in
+                            
+                        }*/
+                        .padding(.leading, 10)
+                    }
+                    
                     // apply all tweaks button
                     Button(action: {
                         applyTweaks()
