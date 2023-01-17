@@ -14,6 +14,8 @@
 		6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E72975EF6000DE3146 /* AudioConverter.swift */; };
 		6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E9297603F700DE3146 /* RegionEncodes.swift */; };
 		6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EB2976DEDA00DE3146 /* HomeView.swift */; };
+		6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */; };
+		6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38F02976FE6800DE3146 /* LocationManager.swift */; };
 		6F721C90296482C6001CFE46 /* DockHiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C8F296482C6001CFE46 /* DockHiderApp.swift */; };
 		6F721C92296482C6001CFE46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C91296482C6001CFE46 /* ContentView.swift */; };
 		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		6F6D38E72975EF6000DE3146 /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		6F6D38E9297603F700DE3146 /* RegionEncodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEncodes.swift; sourceTree = "<group>"; };
 		6F6D38EB2976DEDA00DE3146 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
+		6F6D38F02976FE6800DE3146 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6F721C8C296482C6001CFE46 /* DockHider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DockHider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F721C8F296482C6001CFE46 /* DockHiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockHiderApp.swift; sourceTree = "<group>"; };
 		6F721C91296482C6001CFE46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F6D38ED2976FE6800DE3146 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */,
+				6F6D38F02976FE6800DE3146 /* LocationManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
+				6F6D38ED2976FE6800DE3146 /* Controllers */,
 				6F721CAF2964A742001CFE46 /* PrivateAPIs */,
 				6F721CAE2964A72D001CFE46 /* Views */,
 				6F721C8F296482C6001CFE46 /* DockHiderApp.swift */,
@@ -218,8 +232,10 @@
 				6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */,
 				6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */,
 				6F160E712965B20B0026D69D /* vm_unaligned_copy_switch_race.c in Sources */,
+				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
+				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
 				6F721C92296482C6001CFE46 /* ContentView.swift in Sources */,
 				6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */,
 				6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */,
