@@ -154,6 +154,7 @@ struct OtherModsView: View {
                 }
                 .navigationTitle("Miscellaneous")
             }
+            .navigationViewStyle(.stack)
             .onAppear() {
                 for sub in deviceSubTypes {
                     if CurrentSubType == sub.key {

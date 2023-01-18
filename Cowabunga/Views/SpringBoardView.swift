@@ -100,6 +100,7 @@ struct SpringBoardView: View {
             .padding()
             .navigationTitle("SpringBoard Tools")
         }
+        .navigationViewStyle(.stack)
     }
     
     func applyTweaks() {

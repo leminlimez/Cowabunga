@@ -127,6 +127,7 @@ struct HomeView: View {
             }
             .navigationTitle("Cowabunga")
         }
+        .navigationViewStyle(.stack)
     }
     
     func applyTweaks() {
