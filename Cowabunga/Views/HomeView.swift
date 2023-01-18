@@ -26,6 +26,8 @@ struct HomeView: View {
         AudioFiles.SoundEffect.screenshot
     ]
     
+    @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
+    
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     
@@ -128,6 +130,9 @@ struct HomeView: View {
             .navigationTitle("Cowabunga")
         }
         .navigationViewStyle(.stack)
+        .onAppear {
+            backgroundController.setup()
+        }
     }
     
     func applyTweaks() {
