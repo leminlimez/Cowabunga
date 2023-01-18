@@ -14,7 +14,8 @@ func customaudio(fileURL: URL) -> String? {
     // Converting options
     var options = FormatConverter.Options()
     options.format = AudioFileFormat.caf
-    options.sampleRate = 11025
+    options.channels = 1
+    options.sampleRate = 6500//11025
     options.bitDepth = 16
     // Temp Path
     let temporaryDirectoryURL = FileManager.default.temporaryDirectory
