@@ -26,6 +26,9 @@ struct SpringBoardView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
+                Spacer()
+                Spacer()
                 LazyVGrid(columns: gridItemLayout) {
                     ForEach($tweakOptions) { option in
                         Button(action: {
@@ -64,9 +67,9 @@ struct SpringBoardView: View {
                         .tint(.accentColor)
                         .cornerRadius(8)
                         .foregroundColor(.accentColor)
-                        .frame(maxWidth: 200)
+                        .frame(maxWidth: .infinity)
                         
-                        Button("Respring", action: {
+                        /*Button("Respring", action: {
                             respring()
                         })
                         .padding(8)
@@ -74,7 +77,7 @@ struct SpringBoardView: View {
                         .buttonStyle(.bordered)
                         .cornerRadius(8)
                         .foregroundColor(.red)
-                        .frame(maxWidth: 200)
+                        .frame(maxWidth: 200)*/
                     } else {
                         // for ios 14 nerds still out there
                         
@@ -85,15 +88,17 @@ struct SpringBoardView: View {
                         .background(Color.accentColor)
                         .cornerRadius(8)
                         .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
                         
-                        Button("Respring", action: {
+                        /*Button("Respring", action: {
                             respring()
                         })
                         .padding(10)
                         .cornerRadius(8)
                         .background(Color.red)
-                        .foregroundColor(.white)
+                        .foregroundColor(.white)*/
                     }
+                    Spacer()
                 }
                 .padding(.vertical)
             }
