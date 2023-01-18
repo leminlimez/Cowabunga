@@ -210,7 +210,7 @@ struct AudioChangerView: View {
                     // get the base64 data
                     let base64 = customaudio(fileURL: url)
                     url.stopAccessingSecurityScopedResource()
-                    if base64 != nil {
+                    if base64 != nil && base64 != "" {
                         // write the file
                         let dataToWrite: [String: String] = [
                             "Name": "USR_" + fileName,
@@ -226,6 +226,8 @@ struct AudioChangerView: View {
                             print(error.localizedDescription)
                             UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
                         }
+                    } else if base64 == "" {
+                        UIApplication.shared.alert(body: "Unable to save file. Empty encoded string?")
                     }
                 }
             })
