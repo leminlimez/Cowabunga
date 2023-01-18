@@ -12,7 +12,7 @@ import UIKit
 
 func customaudio(fileURL: URL) -> String? {
     // Converting options
-    var options = FormatConverter.Options()
+    /*var options = FormatConverter.Options()
     options.format = AudioFileFormat.caf
     options.channels = 1
     options.sampleRate = 6500//11025
@@ -27,13 +27,13 @@ func customaudio(fileURL: URL) -> String? {
         print("CONVERTER")
         print(error)
         print("CONVERTER END")
-    }
+    }*/
     // Check file size
     do {
-        let attributes = try FileManager.default.attributesOfItem(atPath: newURL.path)
+        let attributes = try FileManager.default.attributesOfItem(atPath: fileURL.path)
         let fileSize = attributes[.size] as! Int64
-        if fileSize > 15000 {
-            UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under 15 kB.")
+        if fileSize > 12000 {
+            UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under 12 kB.")
             return nil
         }
     } catch {
@@ -44,7 +44,7 @@ func customaudio(fileURL: URL) -> String? {
     // Base 64 Encoding
     var fileData = Data()
     do{
-        fileData = try Data.init(contentsOf: newURL)
+        fileData = try Data.init(contentsOf: fileURL)
     }
     catch {
         print(error)
