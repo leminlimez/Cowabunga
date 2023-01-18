@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "$0")"
 
 WORKING_LOCATION="$(pwd)"
-APPLICATION_NAME=DockHider
+APPLICATION_NAME=Cowabunga
 rm -rf build
 mkdir build
 
@@ -33,9 +33,9 @@ if [ -e "$TARGET_APP/embedded.mobileprovision" ]; then
 fi
 
 mkdir Payload
-cp -r DockHider.app Payload/DockHider.app
+cp -r Cowabunga.app Payload/Cowabunga.app
 zip -vr Cowabunga.ipa Payload
-rm -rf DockHider.app
+rm -rf Cowabunga.app
 rm -rf DerivedDataApp
 rm -rf Payload
 zip -vr share.zip Cowabunga.ipa
