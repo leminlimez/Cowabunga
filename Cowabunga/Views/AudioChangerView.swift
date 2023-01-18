@@ -233,6 +233,16 @@ struct AudioChangerView: View {
             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
     }
+    
+    /*func previewAudio(audioName: String) {
+        let base64: String? = AudioFiles.getNewAudioData(attachment: SoundIdentifier.rawValue, soundName: audioName)
+        if base64 != nil {
+            let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
+            if audioData != nil {
+                
+            }
+        }
+    }*/
 }
 
 struct AudioChangerView_Previews: PreviewProvider {
