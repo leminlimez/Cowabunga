@@ -126,7 +126,7 @@ struct OtherModsView: View {
                                                         // set the default
                                                         defaults.set(newNameNoSpaces, forKey: "ModelName")
                                                     } else {
-                                                        UIApplication.shared.alert(body: "Failed to apply device model name! Name must be shorter than your current device name.")
+                                                        UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed.")
                                                     }
                                                 }
                                             } else {
