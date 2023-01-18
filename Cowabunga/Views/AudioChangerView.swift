@@ -47,6 +47,7 @@ struct AudioChangerView: View {
         // screenshot
         .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default"),
         .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Star Wars Blaster"),
+        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Taco Bell"),
         
         // sent message
         .init(attachment: AudioFiles.SoundEffect.sentMessage, audioName: "Default"),
