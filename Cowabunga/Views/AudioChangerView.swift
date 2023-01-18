@@ -222,7 +222,7 @@ struct AudioChangerView: View {
                         ]
                         
                         do {
-                            let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .xml, options: 0)
+                            let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .binary, options: 0)
                             let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent("USR_"+fileName+".plist")
                             try plistData.write(to: newURL)
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
