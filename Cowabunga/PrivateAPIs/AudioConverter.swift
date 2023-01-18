@@ -17,9 +17,8 @@ func customaudio(fileURL: URL) -> String? {
     options.sampleRate = 11025
     options.bitDepth = 16
     // Temp Path
-    let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-    let newURL = URL(fileURLWithPath: "\(temporaryDirectoryURL)/outputAudio.m4a")
-    guard newURL.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "Temp file permission error"); return nil }
+    let temporaryDirectoryURL = FileManager.default.temporaryDirectory
+    let newURL = temporaryDirectoryURL.appendingPathComponent("outputAudio.m4a")//URL(fileURLWithPath: "\(temporaryDirectoryURL)/outputAudio.m4a")
     // Delete if old file in temp dir
     // CONVERT !
     let converter = FormatConverter(inputURL: fileURL, outputURL: newURL, options: options)
