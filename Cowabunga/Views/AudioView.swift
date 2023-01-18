@@ -17,7 +17,7 @@ struct AudioView: View {
     }
     
     @State var audioOptions: [AudioOption] = [
-        .init(key: AudioFiles.SoundEffect.charging, title: "Charging", imageName: "powerplug"),
+        .init(key: AudioFiles.SoundEffect.charging, title: "Charging", imageName: "bolt.fill"),
         .init(key: AudioFiles.SoundEffect.lock, title: "Lock", imageName: "lock"),
         .init(key: AudioFiles.SoundEffect.notification, title: "Default Notifications", imageName: "iphone.radiowaves.left.and.right"),
         .init(key: AudioFiles.SoundEffect.screenshot, title: "Screenshot", imageName: "photo"),
