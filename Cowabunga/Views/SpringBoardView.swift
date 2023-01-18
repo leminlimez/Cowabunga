@@ -15,12 +15,12 @@ struct SpringBoardView: View {
     
     // list of options
     @State var tweakOptions: [GeneralOption] = [
-        .init(value: getDefaultBool(forKey: "DockHidden"), key: "DockHidden", title: "Hide Dock", imageName: "platter.filled.bottom.iphone", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "DockHidden"), key: "DockHidden", title: "Hide Dock", imageName: "dock.rectangle", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "HomeBarHidden"), key: "HomeBarHidden", title: "Hide Home Bar", imageName: "iphone", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Disable Folder Background", imageName: "folder", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle.fill", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "ShortcutBannerDisabled"), key: "ShortcutBannerDisabled", title: " Disable Shortcut Banner ", imageName: "platter.filled.top.iphone", fileType: OverwritingFileTypes.plist),
+        .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Background Blur", imageName: "folder.circle.fill", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "ShortcutBannerDisabled"), key: "ShortcutBannerDisabled", title: " Disable Shortcut Banner ", imageName: "pencil.slash", fileType: OverwritingFileTypes.plist),
     ]
     
     var body: some View {
