@@ -219,7 +219,7 @@ struct AudioChangerView: View {
                         
                         do {
                             let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .xml, options: 0)
-                            let newURL: URL = getAudioDirectory()!.appendingPathComponent("USR_"+fileName+".plist")
+                            let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent("USR_"+fileName+".plist")
                             try plistData.write(to: newURL)
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
                         } catch {
@@ -237,19 +237,6 @@ struct AudioChangerView: View {
             })
             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    func getAudioDirectory() -> URL? {
-        do {
-            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio")
-            if !FileManager.default.fileExists(atPath: newURL.path) {
-                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
-            }
-            return newURL
-        } catch {
-            print("An error occurred getting/making the audio directory")
-        }
-        return nil
     }
     
     /*func previewAudio(audioName: String) {

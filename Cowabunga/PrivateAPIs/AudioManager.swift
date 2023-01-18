@@ -53,8 +53,9 @@ class AudioFiles {
     static func getCustomAudio() -> [String] {
         let fm = FileManager.default
         var audioFiles: [String] = []
-        if fm.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio") {
-            for audioURL in (try? fm.contentsOfDirectory(at: URL.documents.appendingPathComponent("Cowabunga_Audio"), includingPropertiesForKeys: nil)) ?? [] {
+        let audioDir = getAudioDirectory()
+        if audioDir != nil {
+            for audioURL in (try? fm.contentsOfDirectory(at: audioDir!, includingPropertiesForKeys: nil)) ?? [] {
                 do {
                     let plistData = try Data(contentsOf: audioURL)
                     let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: String]
@@ -67,6 +68,20 @@ class AudioFiles {
             }
         }
         return audioFiles
+    }
+    
+    // get the directory of the audio
+    static func getAudioDirectory() -> URL? {
+        do {
+            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio")
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            }
+            return newURL
+        } catch {
+            print("An error occurred getting/making the audio directory")
+        }
+        return nil
     }
     
     // audio paths
