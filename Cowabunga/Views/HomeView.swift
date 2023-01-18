@@ -13,7 +13,7 @@ struct HomeView: View {
         .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
         .init(key: "HomeBarHidden", fileType: OverwritingFileTypes.springboard),
         .init(key: "FolderBGHidden", fileType: OverwritingFileTypes.springboard),
-        .init(key: "RegionRestrictionsRemoved", fileType: OverwritingFileTypes.region),
+        .init(key: "FolderBlurDisabled", fileType: OverwritingFileTypes.springboard),
         .init(key: "SwitcherBlurDisabled", fileType: OverwritingFileTypes.springboard),
         .init(key: "ShortcutBannerDisabled", fileType: OverwritingFileTypes.plist),
     ]
