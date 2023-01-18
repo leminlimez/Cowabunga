@@ -23,7 +23,7 @@ struct AudioChangerView: View {
         var id = UUID()
         var audioName: String
         var displayName: String
-        var checked: Bool = false
+        var checked: Bool
     }
     
     // list of included audio files
@@ -176,7 +176,11 @@ struct AudioChangerView: View {
             // get the custom audio
             let customAudioTitles = AudioFiles.getCustomAudio()
             for audio in customAudioTitles {
-                customAudio.append(CustomAudioName.init(audioName: audio, displayName: audio.replacingOccurrences(of: "USR_", with: "")))
+                var checked: Bool = false
+                if audio == appliedSound {
+                    checked = true
+                }
+                customAudio.append(CustomAudioName.init(audioName: audio, displayName: audio.replacingOccurrences(of: "USR_", with: ""), checked: checked))
             }
         }
         .fileImporter(isPresented: $isImporting,
