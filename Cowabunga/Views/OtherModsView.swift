@@ -81,6 +81,62 @@ struct OtherModsView: View {
                                 .foregroundColor(.blue)
                                 .padding(.leading, 10)
                             }
+                            
+                            // device name
+                            HStack {
+                                Image(systemName: "iphone")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                
+                                
+                                Text("Model Name")
+                                    .minimumScaleFactor(0.5)
+                                
+                                Spacer()
+                                
+                                Button(CurrentModel, action: {
+                                    let defaults = UserDefaults.standard
+                                    // create and configure alert controller
+                                    let alert = UIAlertController(title: "Input Model Name", message: "No respring required to apply.", preferredStyle: .alert)
+                                    // bring up the text prompt
+                                    alert.addTextField { (textField) in
+                                        textField.placeholder = "Model"
+                                        textField.text = defaults.string(forKey: "ModelName") ?? CurrentModel
+                                    }
+                                    
+                                    // buttons
+                                    alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
+                                        // set the version
+                                        let newModel: String = alert.textFields?[0].text! ?? CurrentModel
+                                        if newModel != "" {
+                                            let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.,_/")
+                                            var newName: String = newModel.filter{validChars.contains($0)}
+                                            if newName <= CurrentModel {
+                                                // set it to the same length if less
+                                                if newName < CurrentModel {
+                                                    newName += String(repeating: " ", count: CurrentModel.count - newName.count)
+                                                }
+                                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: newName) { succeeded in
+                                                    if succeeded {
+                                                        CurrentModel = newModel
+                                                        // set the default
+                                                        defaults.set(newModel, forKey: "ModelName")
+                                                    } else {
+                                                        UIApplication.shared.alert(body: "Failed to apply device model name! Name must be shorter than your current device name.")
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    })
+                                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                        // cancel the process
+                                    })
+                                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                                })
+                                .padding(.leading, 10)
+                            }
                         }
                         
                         // device subtype
