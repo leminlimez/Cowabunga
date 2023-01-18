@@ -9,7 +9,7 @@ import SwiftUI
 
 extension UNNotificationCategory
 {
-    static let clipboardReaderIdentifier = "TweaksApplication"
+    static let clipboardReaderIdentifier = "CowabungaTweaksApplication"
 }
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
