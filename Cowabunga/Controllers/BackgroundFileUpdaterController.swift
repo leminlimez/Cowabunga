@@ -18,7 +18,7 @@ class BackgroundFileUpdaterController: ObservableObject {
     @Published var enabled: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     
     func setup() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 180.0, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 180.0, repeats: true) { timer in
             if self.enabled {
                 BackgroundFileUpdaterController.shared.updateFiles()
             }
