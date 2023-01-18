@@ -90,13 +90,13 @@ struct AudioChangerView: View {
                                             } else if file.audioName == audio.audioName.wrappedValue {
                                                 audioFiles[i].checked = true
                                             }
-                                            
-                                            for (i, file) in customAudio.enumerated() {
-                                                if file.audioName == appliedSound {
-                                                    customAudio[i].checked = false
-                                                } else if file.audioName == audio.audioName.wrappedValue {
-                                                    customAudio[i].checked = true
-                                                }
+                                        }
+                                        
+                                        for (i, file) in customAudio.enumerated() {
+                                            if file.audioName == appliedSound {
+                                                customAudio[i].checked = false
+                                            } else if file.audioName == audio.audioName.wrappedValue {
+                                                customAudio[i].checked = true
                                             }
                                         }
                                         appliedSound = audio.audioName.wrappedValue
@@ -148,6 +148,33 @@ struct AudioChangerView: View {
                             })
                             .padding(.horizontal, 8)
                             .foregroundColor(.primary)
+                        }
+                    }
+                    .onDelete { indexSet in
+                        indexSet.forEach { i in
+                            print("Deleting: " + customAudio[i].audioName)
+                            if customAudio[i].checked {
+                                // check default instead
+                                for (i, file) in audioFiles.enumerated() {
+                                    if file.audioName == "Default" && file.attachment == SoundIdentifier {
+                                        audioFiles[i].checked = true
+                                        appliedSound = "Default"
+                                        UserDefaults.standard.set("Default", forKey: SoundIdentifier.rawValue+"_Applied")
+                                    } else if file.attachment != SoundIdentifier {
+                                        // uncheck it from others if applied elsewhere
+                                        if UserDefaults.standard.string(forKey: file.attachment.rawValue+"_Applied") == customAudio[i].audioName {
+                                            UserDefaults.standard.set("Default", forKey: file.attachment.rawValue+"_Applied")
+                                        }
+                                    }
+                                }
+                            }
+                            // delete the file
+                            do {
+                                let url = AudioFiles.getAudioDirectory()!.appendingPathComponent(customAudio[i].audioName+".plist")
+                                try FileManager.default.removeItem(at: url)
+                            } catch {
+                                UIApplication.shared.alert(body: "Unable to delete audio for audio \"" + customAudio[i].displayName + "\"!")
+                            }
                         }
                     }
                 } header: {
