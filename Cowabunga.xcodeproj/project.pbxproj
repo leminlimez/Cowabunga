@@ -205,7 +205,6 @@
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
-				6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */,
 				6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
@@ -478,14 +477,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
-			};
-		};
-		6FBEDC382964DB210032B1A9 /* XCRemoteSwiftPackageReference "SantanderWrappers" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SerenaKit/SantanderWrappers.git";
-			requirement = {
-				branch = main;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
