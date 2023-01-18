@@ -276,7 +276,7 @@ struct AudioChangerView: View {
     }
     
     /*func previewAudio(audioName: String) {
-        let base64: String? = AudioFiles.getNewAudioData(attachment: SoundIdentifier.rawValue, soundName: audioName)
+        let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
         if base64 != nil {
             let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
             if audioData != nil {
