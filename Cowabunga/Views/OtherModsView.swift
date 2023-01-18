@@ -110,24 +110,30 @@ struct OtherModsView: View {
                                     alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
                                         // set the version
                                         let newModel: String = alert.textFields?[0].text! ?? CurrentModel
-                                        if newModel != "" {
-                                            let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.,_/")
-                                            var newName: String = newModel.filter{validChars.contains($0)}
-                                            if newName <= CurrentModel {
+                                        let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.,_/")
+                                        var newName: String = newModel.filter{validChars.contains($0)}
+                                        if newName != "" {
+                                            let newNameNoSpaces = newName
+                                            if newName.count <= CurrentModel.count {
                                                 // set it to the same length if less
-                                                if newName < CurrentModel {
+                                                if newName.count < CurrentModel.count {
                                                     newName += String(repeating: " ", count: CurrentModel.count - newName.count)
                                                 }
-                                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: newName) { succeeded in
+                                                print(newName)
+                                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newName) { succeeded in
                                                     if succeeded {
-                                                        CurrentModel = newModel
+                                                        CurrentModel = newName
                                                         // set the default
-                                                        defaults.set(newModel, forKey: "ModelName")
+                                                        defaults.set(newNameNoSpaces, forKey: "ModelName")
                                                     } else {
                                                         UIApplication.shared.alert(body: "Failed to apply device model name! Name must be shorter than your current device name.")
                                                     }
                                                 }
+                                            } else {
+                                                UIApplication.shared.alert(body: "Failed to apply device model name! Name must be shorter than your current device name.")
                                             }
+                                        } else {
+                                            UIApplication.shared.alert(body: "Failed to apply device model name! Please enter a valid name.")
                                         }
                                     })
                                     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in

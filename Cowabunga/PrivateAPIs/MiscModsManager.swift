@@ -119,7 +119,7 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
         newPlist = changeDictValue(newPlist, key, value)
         
         // overwrite the plist
-        let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .xml, options: 0)
+        let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
         
         let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
         DispatchQueue.main.async {
