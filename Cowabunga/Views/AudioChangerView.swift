@@ -209,6 +209,7 @@ struct AudioChangerView: View {
                     }
                     // get the base64 data
                     let base64 = customaudio(fileURL: url)
+                    url.stopAccessingSecurityScopedResource()
                     if base64 != nil {
                         // write the file
                         let dataToWrite: [String: String] = [
@@ -218,7 +219,7 @@ struct AudioChangerView: View {
                         
                         do {
                             let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .xml, options: 0)
-                            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio/USR_"+fileName+".plist")
+                            let newURL: URL = getAudioDirectory()!.appendingPathComponent("USR_"+fileName+".plist")
                             try plistData.write(to: newURL)
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
                         } catch {
@@ -230,9 +231,23 @@ struct AudioChangerView: View {
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
                 // cancel the process
+                url.stopAccessingSecurityScopedResource()
             })
             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func getAudioDirectory() -> URL? {
+        do {
+            let newURL: URL = URL.documents.appendingPathComponent("Cowabunga_Audio")
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            }
+            return newURL
+        } catch {
+            print("An error occurred getting/making the audio directory")
+        }
+        return nil
     }
     
     /*func previewAudio(audioName: String) {
