@@ -18,7 +18,7 @@ func customaudio(fileURL: URL) -> String? {
     options.bitDepth = 16
     // Temp Path
     let temporaryDirectoryURL = FileManager.default.temporaryDirectory
-    let newURL = temporaryDirectoryURL.appendingPathComponent("outputAudio.m4a")//URL(fileURLWithPath: "\(temporaryDirectoryURL)/outputAudio.m4a")
+    let newURL = temporaryDirectoryURL.appendingPathComponent("outputAudio.caf")
     // Delete if old file in temp dir
     // CONVERT !
     let converter = FormatConverter(inputURL: fileURL, outputURL: newURL, options: options)
