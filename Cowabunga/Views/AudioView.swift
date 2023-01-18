@@ -23,7 +23,7 @@ struct AudioView: View {
         .init(key: AudioFiles.SoundEffect.screenshot, title: "Screenshot", imageName: "photo"),
         //.init(key: AudioFiles.SoundEffect.sentMessage, title: "Sent Message", imageName: "bubble.right.fill"),
         //.init(key: AudioFiles.SoundEffect.receivedMessage, title: "Received Message", imageName: "bubble.left"),
-        //.init(key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
+        .init(key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
     ]
     
     var body: some View {
