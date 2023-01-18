@@ -152,7 +152,8 @@ struct AudioChangerView: View {
                     }
                     .onDelete { indexSet in
                         indexSet.forEach { i in
-                            print("Deleting: " + customAudio[i].audioName)
+                            let deletingAudioName = customAudio[i].audioName
+                            print("Deleting: " + deletingAudioName)
                             if customAudio[i].checked {
                                 // check default instead
                                 for (i, file) in audioFiles.enumerated() {
@@ -162,7 +163,7 @@ struct AudioChangerView: View {
                                         UserDefaults.standard.set("Default", forKey: SoundIdentifier.rawValue+"_Applied")
                                     } else if file.attachment != SoundIdentifier {
                                         // uncheck it from others if applied elsewhere
-                                        if UserDefaults.standard.string(forKey: file.attachment.rawValue+"_Applied") == customAudio[i].audioName {
+                                        if UserDefaults.standard.string(forKey: file.attachment.rawValue+"_Applied") == deletingAudioName {
                                             UserDefaults.standard.set("Default", forKey: file.attachment.rawValue+"_Applied")
                                         }
                                     }
@@ -170,8 +171,9 @@ struct AudioChangerView: View {
                             }
                             // delete the file
                             do {
-                                let url = AudioFiles.getAudioDirectory()!.appendingPathComponent(customAudio[i].audioName+".plist")
+                                let url = AudioFiles.getAudioDirectory()!.appendingPathComponent(deletingAudioName+".plist")
                                 try FileManager.default.removeItem(at: url)
+                                customAudio.remove(at: i)
                             } catch {
                                 UIApplication.shared.alert(body: "Unable to delete audio for audio \"" + customAudio[i].displayName + "\"!")
                             }
