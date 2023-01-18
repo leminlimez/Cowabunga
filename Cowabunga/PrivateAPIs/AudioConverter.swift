@@ -18,8 +18,7 @@ func customaudio(fileURL: URL) -> String? {
     options.bitDepth = 16
     // Temp Path
     let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-    let newURL = URL(fileURLWithPath: "/var/containers/Bundle/Application/3B284421-75B1-4675-BFC5-A836A7EEE337/")
-    let newURLWithFile = URL(fileURLWithPath: "\(newURL)")
+    let newURL = URL(fileURLWithPath: "\(temporaryDirectoryURL)/audio.m4a")
     // Delete if old file in temp dir
     // CONVERT !
     let converter = FormatConverter(inputURL: fileURL, outputURL: newURL, options: options)
@@ -30,7 +29,7 @@ func customaudio(fileURL: URL) -> String? {
     }
     // Check file size
     do {
-        let attributes = try FileManager.default.attributesOfItem(atPath: newURLWithFile.path)
+        let attributes = try FileManager.default.attributesOfItem(atPath: newURL.path)
         let fileSize = attributes[.size] as! Int64
         if fileSize > 15000 {
             UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under 15 kB.")
@@ -44,7 +43,7 @@ func customaudio(fileURL: URL) -> String? {
     // Base 64 Encoding
     var fileData = Data()
     do{
-        fileData = try Data.init(contentsOf: newURLWithFile)
+        fileData = try Data.init(contentsOf: newURL)
     }
     catch {
         print(error)
