@@ -245,16 +245,19 @@ struct AudioChangerView: View {
                     url.stopAccessingSecurityScopedResource()
                     if base64 != nil && base64 != "" {
                         // write the file
+                        fileName = "USR_" + fileName
                         let dataToWrite: [String: String] = [
-                            "Name": "USR_" + fileName,
+                            "Name": fileName,
                             "AudioData": base64!
                         ]
                         
                         do {
                             let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .binary, options: 0)
-                            let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent("USR_"+fileName+".plist")
+                            let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent(fileName+".plist")
                             try plistData.write(to: newURL)
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
+                            // add to the list
+                            customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
                         } catch {
                             print(error.localizedDescription)
                             UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
