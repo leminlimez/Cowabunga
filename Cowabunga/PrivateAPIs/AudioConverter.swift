@@ -26,7 +26,6 @@ func customaudio(fileURL: URL) -> String? {
     converter.start { error in
         print("CONVERTER")
         print(error)
-        UIApplication.shared.alert(body: "Cannot convert you're file \(error)")
         print("CONVERTER END")
     }
     // Check file size
