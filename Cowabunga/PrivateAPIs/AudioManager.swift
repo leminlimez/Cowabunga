@@ -59,8 +59,8 @@ class AudioFiles {
                 do {
                     let plistData = try Data(contentsOf: audioURL)
                     let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: String]
-                    if plist["AudioName"] != nil {
-                        audioFiles.append(plist["AudioName"]!)
+                    if plist["Name"] != nil {
+                        audioFiles.append(plist["Name"]!)
                     }
                 } catch {
                     print(error)
