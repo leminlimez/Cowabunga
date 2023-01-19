@@ -108,7 +108,7 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
             var newDict = dict
             for (k, v) in dict {
                 if k == key {
-                    newDict[k] = value.utf8
+                    newDict[k] = value
                 } else if let subDict = v as? [String: Any] {
                     newDict[k] = changeDictValue(subDict, key, value)
                 }
@@ -121,19 +121,24 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
         newPlist = changeDictValue(newPlist, key, value)
         
         // overwrite the plist
-        let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
-        
-        if newData.count == originalSize {
+        do {
+            let newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
             
-            let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
-            DispatchQueue.main.async {
-                completion(succeeded)
+            if newData.count == originalSize {
+                
+                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
+                DispatchQueue.main.async {
+                    completion(succeeded)
+                }
+            } else {
+                UIApplication.shared.alert(body: "Size did not match! (New size: " + String(newData.count) + ", Old size: " + String(originalSize) + ")")
+                DispatchQueue.main.async {
+                    completion(false)
+                }
             }
-        } else {
-            UIApplication.shared.alert(body: "Size did not match! (New size: " + String(newData.count) + ", Old size: " + String(originalSize) + ")")
-            DispatchQueue.main.async {
-                completion(false)
-            }
+        } catch {
+            print(error.localizedDescription)
+            UIApplication.shared.alert(body: "Error serializing the new data.")
         }
     }
 }
