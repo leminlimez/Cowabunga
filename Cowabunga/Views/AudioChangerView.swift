@@ -154,6 +154,8 @@ struct AudioChangerView: View {
                                     // save to defaults
                                     UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
                                 }
+                                // preview the sound
+                                previewAudio(audioName: audio.audioName.wrappedValue)
                             })
                             .padding(.horizontal, 8)
                             .foregroundColor(.primary)
