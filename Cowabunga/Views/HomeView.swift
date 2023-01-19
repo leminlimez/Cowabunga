@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var versionBuild: String = " (beta 3)"
     // list of options
     @State var tweakOptions: [GeneralOption] = [
         .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
@@ -125,6 +126,12 @@ struct HomeView: View {
                     LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: "Dynamic Island SubTypes", circle: true)
                 } header: {
                     Text("Credits")
+                }
+                
+                Section {
+                    
+                } header: {
+                    Text("Version " + (Bundle.main.releaseVersionNumber ?? "UNKNOWN") + versionBuild)
                 }
             }
             .navigationTitle("Cowabunga")
