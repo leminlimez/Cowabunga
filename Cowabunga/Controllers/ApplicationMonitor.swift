@@ -64,14 +64,18 @@ private extension ApplicationMonitor
     {
         let delay = 5 as TimeInterval
         
-        let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("App Stopped Running", comment: "")
-        content.body = NSLocalizedString("Tap this notification to resume tweak applications.", comment: "")
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay + 1, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: UserNotification.appStoppedRunning.rawValue, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
+            let content = UNMutableNotificationContent()
+            content.title = NSLocalizedString("App Stopped Running", comment: "")
+            content.body = NSLocalizedString("Tap this notification to resume tweak applications.", comment: "")
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay + 1, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UserNotification.appStoppedRunning.rawValue, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request)
+        } else {
+            cancelApplicationQuitNotification()
+        }
         
         DispatchQueue.global().asyncAfter(deadline: .now() + delay) {
             // If app is still running at this point, we schedule another notification with same identifier.
