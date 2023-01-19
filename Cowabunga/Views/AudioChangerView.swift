@@ -238,6 +238,7 @@ struct AudioChangerView: View {
             alert.addTextField { (textField) in
                 // text field for width
                 textField.placeholder = "Name"
+                textField.text = url.deletingPathExtension().lastPathComponent
             }
             alert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
                 // set the name and add the file
