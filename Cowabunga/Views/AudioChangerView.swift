@@ -223,7 +223,7 @@ struct AudioChangerView: View {
         }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
-                        .mp3//, .wav
+                        .mp3, .wav, .init(filenameExtension: "m4a")!
                       ],
                       allowsMultipleSelection: false
         ) { result in
@@ -250,29 +250,30 @@ struct AudioChangerView: View {
                         fileName = "Unnamed"
                     }
                     // get the base64 data
-                    let base64 = customaudio(fileURL: url)
-                    url.stopAccessingSecurityScopedResource()
-                    if base64 != nil && base64 != "" {
-                        // write the file
-                        fileName = "USR_" + fileName
-                        let dataToWrite: [String: String] = [
-                            "Name": fileName,
-                            "AudioData": base64!
-                        ]
-                        
-                        do {
-                            let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .binary, options: 0)
-                            let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent(fileName+".plist")
-                            try plistData.write(to: newURL)
-                            UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
-                            // add to the list
-                            customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
-                        } catch {
-                            print(error.localizedDescription)
-                            UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
+                    customaudio(fileURL: url) { base64 in
+                        if base64 != nil && base64 != "" {
+                            url.stopAccessingSecurityScopedResource()
+                            // write the file
+                            fileName = "USR_" + fileName
+                            let dataToWrite: [String: String] = [
+                                "Name": fileName,
+                                "AudioData": base64!
+                            ]
+                            
+                            do {
+                                let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .binary, options: 0)
+                                let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent(fileName+".plist")
+                                try plistData.write(to: newURL)
+                                UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
+                                // add to the list
+                                customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
+                            } catch {
+                                print(error.localizedDescription)
+                                UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
+                            }
+                        } else if base64 == "" {
+                            UIApplication.shared.alert(body: "Unable to save file. Empty encoded string?")
                         }
-                    } else if base64 == "" {
-                        UIApplication.shared.alert(body: "Unable to save file. Empty encoded string?")
                     }
                 }
             })
