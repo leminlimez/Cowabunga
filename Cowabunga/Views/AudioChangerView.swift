@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+var player: AVAudioPlayer?
 
 struct AudioChangerView: View {
     var SoundIdentifier: AudioFiles.SoundEffect
@@ -47,7 +50,7 @@ struct AudioChangerView: View {
         // screenshot
         .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default"),
         .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Star Wars Blaster"),
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Taco Bell"),
+        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Taco Bell"),
         
         // sent message
         .init(attachment: AudioFiles.SoundEffect.sentMessage, audioName: "Default"),
@@ -104,6 +107,10 @@ struct AudioChangerView: View {
                                         appliedSound = audio.audioName.wrappedValue
                                         // save to defaults
                                         UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
+                                    }
+                                    // preview the sound
+                                    if audio.audioName.wrappedValue != "Default" {
+                                        previewAudio(audioName: audio.audioName.wrappedValue)
                                     }
                                 })
                                 .padding(.horizontal, 8)
@@ -216,7 +223,7 @@ struct AudioChangerView: View {
         }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
-                        .mp3, .wav
+                        .mp3//, .wav
                       ],
                       allowsMultipleSelection: false
         ) { result in
@@ -277,15 +284,39 @@ struct AudioChangerView: View {
         }
     }
     
-    /*func previewAudio(audioName: String) {
-        let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
-        if base64 != nil {
-            let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
-            if audioData != nil {
-                
+    func previewAudio(audioName: String) {
+        // check if file is already in temp directory
+        let temporaryDirectoryURL = FileManager.default.temporaryDirectory
+        let newURL = temporaryDirectoryURL.appendingPathComponent(audioName+".m4a")
+        if !FileManager.default.fileExists(atPath: temporaryDirectoryURL.path + "/" + audioName + ".m4a") {
+            let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
+            if base64 != nil {
+                let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
+                if audioData != nil {
+                    do {
+                        try audioData!.write(to: newURL, options: .atomic)
+                    } catch {
+                        print("Error creating audio file")
+                        return
+                    }
+                }
             }
         }
-    }*/
+        
+        // play the audio
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: newURL, fileTypeHint: AVFileType.m4a.rawValue)
+            guard let player = player else { return }
+            
+            player.play()
+        } catch {
+            print("Error playing audio file")
+            print(error.localizedDescription)
+        }
+    }
 }
 
 struct AudioChangerView_Previews: PreviewProvider {
