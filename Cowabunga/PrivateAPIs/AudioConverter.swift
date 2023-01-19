@@ -11,6 +11,9 @@ import SwiftUI
 import UIKit
 
 func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
+    // config
+    let fileLimit: Int = 14 // in kB
+    
     DispatchQueue.global(qos: .userInteractive).async {
         // Temp Path
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory
@@ -39,9 +42,9 @@ func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
                     do {
                         let attributes = try FileManager.default.attributesOfItem(atPath: fileURL.path)
                         let fileSize = attributes[.size] as! Int64
-                        if fileSize > 12000 {
+                        if fileSize > fileLimit*1000 {
                             print(fileSize)
-                            UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under 12 kB.")
+                            UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under "+String(fileLimit)+" kB.")
                             DispatchQueue.main.async {
                                 completion(nil)
                             }
