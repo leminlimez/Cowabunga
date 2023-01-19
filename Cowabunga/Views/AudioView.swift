@@ -39,10 +39,10 @@ struct AudioView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 24, height: 24)
                                         .foregroundColor(.blue)
-                                    Text(option.title.wrappedValue.replacingOccurrences(of: "USR_", with: ""))
+                                    Text(option.title.wrappedValue)
                                         .padding(.horizontal, 8)
                                     Spacer()
-                                    Text(UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default")
+                                    Text((UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default").replacingOccurrences(of: "USR_", with: ""))
                                         .foregroundColor(.secondary)
                                 }
                             }
