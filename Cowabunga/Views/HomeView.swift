@@ -103,8 +103,15 @@ struct HomeView: View {
                     // app preferences
                     HStack {
                         Toggle(isOn: $runInBackground) {
-                            Text("Run in background")
-                                .minimumScaleFactor(0.5)
+                            HStack {
+                                Text("Run in background")
+                                    .minimumScaleFactor(0.5)
+                                /*Button(action: {
+                                    UIApplication.shared.alert(title: "Run in Background", body: "Use location services to keep the dock and folder background hidden. Location Services must be set to ALWAYS")
+                                }) {
+                                    Image(systemName: "info.circle")
+                                }*/
+                            }
                         }.onChange(of: runInBackground) { new in
                             // set the user defaults
                             UserDefaults.standard.set(new, forKey: "BackgroundApply")
