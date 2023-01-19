@@ -108,7 +108,11 @@ struct HomeView: View {
                         }.onChange(of: runInBackground) { new in
                             // set the user defaults
                             UserDefaults.standard.set(new, forKey: "BackgroundApply")
-                            BackgroundFileUpdaterController.shared.enabled = new
+                            if new == false {
+                                ApplicationMonitor.shared.stop()
+                            }
+                            exit(0)
+                            //BackgroundFileUpdaterController.shared.enabled = new
                         }
                         .padding(.leading, 10)
                     }
