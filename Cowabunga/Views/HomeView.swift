@@ -172,7 +172,9 @@ struct HomeView: View {
                             if new == false {
                                 ApplicationMonitor.shared.stop()
                             }
-                            exit(0)
+                            Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false) { _ in
+                                exit(0)
+                            }
                             //BackgroundFileUpdaterController.shared.enabled = new
                         }
                         .padding(.leading, 10)
