@@ -125,8 +125,8 @@ struct OtherModsView: View {
                                                         CurrentModel = newName
                                                         // set the default
                                                         defaults.set(newNameNoSpaces, forKey: "ModelName")
-                                                    } else {
-                                                        UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed.")
+                                                    /*} else {
+                                                        UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed.")*/
                                                     }
                                                 }
                                             } else {
