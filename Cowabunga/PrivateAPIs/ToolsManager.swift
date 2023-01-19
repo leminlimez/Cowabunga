@@ -107,7 +107,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             }
         } else if typeOfFile == OverwritingFileTypes.region {
             let startPath = "/Library/RegionFeatures/RegionFeatures_"
-            let devices = ["iphone", "ipad", "ipod"]
+            let devices = ["iphone", "audio"]
             var succeeded = true
             
             for dev in devices {
