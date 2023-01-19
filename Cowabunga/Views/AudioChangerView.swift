@@ -30,14 +30,14 @@ struct AudioChangerView: View {
     @State var audioFiles: [IncludedAudioName] = [
         // charging
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old"),
+        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old Charging"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe"),
         .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Cow"),
         
         // lock
         .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Old"),
+        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Old Lock"),
         
         // notification
         .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default"),
@@ -57,6 +57,7 @@ struct AudioChangerView: View {
         
         // payment success
         .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Default"),
+        .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Coin"),
     ]
     
     // list of custom audio files
