@@ -177,7 +177,7 @@ struct AudioChangerView: View {
                             }
                             // delete the file
                             do {
-                                let url = AudioFiles.getAudioDirectory()!.appendingPathComponent(deletingAudioName+".plist")
+                                let url = AudioFiles.getAudioDirectory()!.appendingPathComponent(deletingAudioName+".m4a")
                                 try FileManager.default.removeItem(at: url)
                                 customAudio.remove(at: i)
                             } catch {
