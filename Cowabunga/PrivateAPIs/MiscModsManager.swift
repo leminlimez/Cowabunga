@@ -106,7 +106,7 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
             var newDict = dict
             for (k, v) in dict {
                 if k == key {
-                    newDict[k] = value
+                    newDict[k] = value.utf8
                 } else if let subDict = v as? [String: Any] {
                     newDict[k] = changeDictValue(subDict, key, value)
                 }
