@@ -31,6 +31,12 @@ struct HomeView: View {
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
+    @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
+    
+    @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
+        120.0: "Frequent",
+        300.0: "Power Saving"
+    ]
     
     var body: some View {
         NavigationView {
@@ -101,6 +107,54 @@ struct HomeView: View {
                 
                 Section {
                     // app preferences
+                    // background run frequency
+                    HStack {
+                        Text("Background Update Frequency")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button(bgUpdateIntervalDisplayTitles[bgUpdateInterval] ?? "Error", action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: "Choose an update option", message: "", preferredStyle: .actionSheet)
+                            
+                            // create the actions
+                            for (t, title) in bgUpdateIntervalDisplayTitles {
+                                let newAction = UIAlertAction(title: title, style: .default) { (action) in
+                                    // apply the type
+                                    bgUpdateInterval = t
+                                    // set the default
+                                    UserDefaults.standard.set(t, forKey: "BackgroundUpdateInterval")
+                                    // update the timer
+                                    backgroundController.time = bgUpdateInterval
+                                }
+                                if bgUpdateInterval == t {
+                                    // add a check mark
+                                    newAction.setValue(true, forKey: "checked")
+                                }
+                                alert.addAction(newAction)
+                            }
+                            
+                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // run in background toggle
                     HStack {
                         Toggle(isOn: $runInBackground) {
                             HStack {
@@ -150,6 +204,12 @@ struct HomeView: View {
         .navigationViewStyle(.stack)
         .onAppear {
             backgroundController.setup()
+            if bgUpdateInterval == 0 {
+                // set the default
+                UserDefaults.standard.set(120.0, forKey: "BackgroundUpdateInterval")
+                bgUpdateInterval = 120.0
+            }
+            backgroundController.time = bgUpdateInterval
         }
     }
     
