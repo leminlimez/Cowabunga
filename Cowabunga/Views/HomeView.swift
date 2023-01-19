@@ -189,7 +189,7 @@ struct HomeView: View {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             if failedSB && failedAudio {
                 UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
             } else if failedSB {
