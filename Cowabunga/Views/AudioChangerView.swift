@@ -16,7 +16,7 @@ struct AudioChangerView: View {
     // included audio files
     struct IncludedAudioName: Identifiable {
         var id = UUID()
-        var attachment: AudioFiles.SoundEffect
+        var attachments: [AudioFiles.SoundEffect]
         var audioName: String
         var checked: Bool = false
     }
@@ -31,36 +31,29 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
+        .init(attachments: [AudioFiles.SoundEffect.charging, AudioFiles.SoundEffect.lock, AudioFiles.SoundEffect.notification, AudioFiles.SoundEffect.screenshot, AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.paymentSuccess], audioName: "Default"),
         // charging
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Old Charging"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Engage"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "MagSafe"),
-        .init(attachment: AudioFiles.SoundEffect.charging, audioName: "Cow"),
+        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Old Charging"),
+        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Engage"),
+        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "MagSafe"),
+        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Cow"),
         
         // lock
-        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.lock, audioName: "Old Lock"),
+        .init(attachments: [AudioFiles.SoundEffect.lock], audioName: "Old Lock"),
         
         // notification
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Samsung"),
-        .init(attachment: AudioFiles.SoundEffect.notification, audioName: "Taco Bell"),
+        .init(attachments: [AudioFiles.SoundEffect.notification], audioName: "Samsung"),
+        .init(attachments: [AudioFiles.SoundEffect.notification, AudioFiles.SoundEffect.screenshot], audioName: "Taco Bell"),
         
         // screenshot
-        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Star Wars Blaster"),
-        .init(attachment: AudioFiles.SoundEffect.screenshot, audioName: "Taco Bell"),
+        .init(attachments: [AudioFiles.SoundEffect.screenshot], audioName: "Star Wars Blaster"),
         
         // sent message
-        .init(attachment: AudioFiles.SoundEffect.sentMessage, audioName: "Default"),
         
         // received message
-        .init(attachment: AudioFiles.SoundEffect.receivedMessage, audioName: "Default"),
         
         // payment success
-        .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Default"),
-        .init(attachment: AudioFiles.SoundEffect.paymentSuccess, audioName: "Coin"),
+        .init(attachments: [AudioFiles.SoundEffect.paymentSuccess], audioName: "Coin"),
     ]
     
     // list of custom audio files
@@ -77,7 +70,7 @@ struct AudioChangerView: View {
             List {
                 Section {
                     ForEach($audioFiles) { audio in
-                        if audio.attachment.wrappedValue == SoundIdentifier {
+                        if (audio.attachments.wrappedValue).contains(SoundIdentifier) {
                             // create button
                             HStack {
                                 Image(systemName: "checkmark")
@@ -168,15 +161,17 @@ struct AudioChangerView: View {
                             if customAudio[i].checked {
                                 // check default instead
                                 for (i, file) in audioFiles.enumerated() {
-                                    if file.audioName == "Default" && file.attachment == SoundIdentifier {
+                                    if file.audioName == "Default" {
                                         audioFiles[i].checked = true
                                         appliedSound = "Default"
                                         UserDefaults.standard.set("Default", forKey: SoundIdentifier.rawValue+"_Applied")
-                                    } else if file.attachment != SoundIdentifier {
-                                        // uncheck it from others if applied elsewhere
-                                        if UserDefaults.standard.string(forKey: file.attachment.rawValue+"_Applied") == deletingAudioName {
-                                            UserDefaults.standard.set("Default", forKey: file.attachment.rawValue+"_Applied")
+                                        for (_, id) in file.attachments.enumerated() {
+                                            // uncheck if applied elsewhere
+                                            if UserDefaults.standard.string(forKey: id.rawValue+"_Applied") == deletingAudioName {
+                                                UserDefaults.standard.set("Default", forKey: id.rawValue+"_Applied")
+                                            }
                                         }
+                                        break
                                     }
                                 }
                             }
