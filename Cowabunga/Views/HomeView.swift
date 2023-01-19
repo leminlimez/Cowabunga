@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var versionBuild: String = " (beta 5)"
+    @State private var versionBuild: String = " (beta 6)"
     // list of options
     @State var tweakOptions: [GeneralOption] = [
         .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
@@ -35,7 +35,7 @@ struct HomeView: View {
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
         120.0: "Frequent",
-        300.0: "Power Saving"
+        600.0: "Power Saving"
     ]
     
     var body: some View {
@@ -206,7 +206,14 @@ struct HomeView: View {
         .navigationViewStyle(.stack)
         .onAppear {
             backgroundController.setup()
-            if bgUpdateInterval == 0 {
+            var isGood = false
+            for (t, _) in bgUpdateIntervalDisplayTitles {
+                if bgUpdateInterval == t {
+                    isGood = true
+                    break
+                }
+            }
+            if !isGood {
                 // set the default
                 UserDefaults.standard.set(120.0, forKey: "BackgroundUpdateInterval")
                 bgUpdateInterval = 120.0
