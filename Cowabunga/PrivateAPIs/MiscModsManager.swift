@@ -130,7 +130,7 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
                 completion(succeeded)
             }
         } else {
-            UIApplication.shared.alert(body: "Size did not match! (New size: " + newData.count + ", Old size: " + originalSize + ")")
+            UIApplication.shared.alert(body: "Size did not match! (New size: " + String(newData.count) + ", Old size: " + String(originalSize) + ")")
             DispatchQueue.main.async {
                 completion(false)
             }
