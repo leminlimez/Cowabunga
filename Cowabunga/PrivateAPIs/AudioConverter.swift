@@ -10,7 +10,7 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
-func customaudio(fileURL: URL, completion: @escaping (String?) -> Void) {
+func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         // Temp Path
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory
@@ -45,6 +45,11 @@ func customaudio(fileURL: URL, completion: @escaping (String?) -> Void) {
                             DispatchQueue.main.async {
                                 completion(nil)
                             }
+                        } else {
+                            let fileData = try Data.init(contentsOf: fileURL)
+                            DispatchQueue.main.async {
+                                completion(fileData)
+                            }
                         }
                     } catch {
                         print("Error: Unable to check file size.")
@@ -52,23 +57,6 @@ func customaudio(fileURL: URL, completion: @escaping (String?) -> Void) {
                         DispatchQueue.main.async {
                             completion(nil)
                         }
-                    }
-                    // Base 64 Encoding
-                    var fileData = Data()
-                    do{
-                        fileData = try Data.init(contentsOf: fileURL)
-                    }
-                    catch {
-                        print(error)
-                        UIApplication.shared.alert(body: "An unexpected error occurred.")
-                        DispatchQueue.main.async {
-                            completion(nil)
-                        }
-                    }
-                    let encoded:String = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
-                    // Return base64
-                    DispatchQueue.main.async {
-                        completion(encoded)
                     }
                 }
             }
