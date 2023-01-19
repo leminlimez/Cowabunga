@@ -16,7 +16,9 @@ struct CowabungaApp: App {
         WindowGroup {
             RootView()
                 .onAppear {
-                    ApplicationMonitor.shared.start()
+                    if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
+                        ApplicationMonitor.shared.start()
+                    }
                 }
         }
     }
