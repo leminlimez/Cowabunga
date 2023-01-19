@@ -24,17 +24,18 @@ class AudioFiles {
     static func getNewAudioData(soundName: String) -> String? {
         if (self.audioData[soundName] != nil) {
             return self.audioData[soundName]!
-        } else if (soundName.starts(with: "USR_")) {
+        }
+        return nil
+    }
+    static func getCustomAudioData(soundName: String) -> Data? {
+        if (soundName.starts(with: "USR_")) {
             // it is a custom user audio file
-            if FileManager.default.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio/" + soundName + ".plist") {
+            if FileManager.default.fileExists(atPath: URL.documents.path + "/Cowabunga_Audio/" + soundName + ".m4a") {
                 // file exists
                 do {
-                    let audioURL = URL(fileURLWithPath: URL.documents.path + "/Cowabunga_Audio/" + soundName + ".plist")
-                    let plistData = try Data(contentsOf: audioURL)
-                    let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: String]
-                    if plist["AudioData"] != nil {
-                        return plist["AudioData"]
-                    }
+                    let audioURL = URL(fileURLWithPath: URL.documents.path + "/Cowabunga_Audio/" + soundName + ".m4a")
+                    let audioData = try Data(contentsOf: audioURL)
+                    return audioData
                 } catch {
                     return nil
                 }
@@ -56,15 +57,7 @@ class AudioFiles {
         let audioDir = getAudioDirectory()
         if audioDir != nil {
             for audioURL in (try? fm.contentsOfDirectory(at: audioDir!, includingPropertiesForKeys: nil)) ?? [] {
-                do {
-                    let plistData = try Data(contentsOf: audioURL)
-                    let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: String]
-                    if plist["Name"] != nil {
-                        audioFiles.append(plist["Name"]!)
-                    }
-                } catch {
-                    print(error)
-                }
+                audioFiles.append(audioURL.deletingPathExtension().lastPathComponent)
             }
         }
         return audioFiles

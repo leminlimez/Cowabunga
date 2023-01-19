@@ -67,9 +67,14 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             if path != nil {
                 // replace the audio data
                 let base64 = AudioFiles.getNewAudioData(soundName: value as! String)
-                if base64 != "nil" {
+                if base64 != nil {
                     let newData = Data(base64Encoded: base64!)!
                     let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: newData)
+                    DispatchQueue.main.async {
+                        completion(succeeded)
+                    }
+                } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: customAudioData)
                     DispatchQueue.main.async {
                         completion(succeeded)
                     }

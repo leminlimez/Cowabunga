@@ -248,20 +248,15 @@ struct AudioChangerView: View {
                         fileName = "Unnamed"
                     }
                     // get the base64 data
-                    customaudio(fileURL: url) { base64 in
-                        if base64 != nil && base64 != "" {
+                    customaudio(fileURL: url) { audioData in
+                        if audioData != nil {
                             url.stopAccessingSecurityScopedResource()
                             // write the file
                             fileName = "USR_" + fileName
-                            let dataToWrite: [String: String] = [
-                                "Name": fileName,
-                                "AudioData": base64!
-                            ]
                             
                             do {
-                                let plistData = try PropertyListSerialization.data(fromPropertyList: dataToWrite, format: .binary, options: 0)
-                                let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent(fileName+".plist")
-                                try plistData.write(to: newURL)
+                                let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent(fileName+".m4a")
+                                try audioData!.write(to: newURL)
                                 UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
                                 // add to the list
                                 customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
@@ -269,8 +264,6 @@ struct AudioChangerView: View {
                                 print(error.localizedDescription)
                                 UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
                             }
-                        } else if base64 == "" {
-                            UIApplication.shared.alert(body: "Unable to save file. Empty encoded string?")
                         }
                     }
                 }
@@ -286,8 +279,10 @@ struct AudioChangerView: View {
     func previewAudio(audioName: String) {
         // check if file is already in temp directory
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory
-        let newURL = temporaryDirectoryURL.appendingPathComponent(audioName+".m4a")
-        if !FileManager.default.fileExists(atPath: temporaryDirectoryURL.path + "/" + audioName + ".m4a") {
+        var newURL = temporaryDirectoryURL.appendingPathComponent(audioName+".m4a")
+        if audioName.starts(with: "USR_") {
+            newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent(audioName+".m4a")
+        } else if !FileManager.default.fileExists(atPath: temporaryDirectoryURL.path + "/" + audioName + ".m4a") {
             let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
             if base64 != nil {
                 let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
