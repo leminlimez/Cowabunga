@@ -128,32 +128,6 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
     }
 }
 
-func setModelName(value: String, completion: @escaping (Bool) -> Void) {
-    DispatchQueue.global(qos: .userInteractive).async {
-        let plistPath: String = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
-        let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
-        
-        // open plist
-        var plist = try! PropertyListSerialization.propertyList(from: stringsData, options: [], format: nil) as! [String: Any]
-        
-        // modify value
-        if var firstLevel = plist["CacheExtra"] as? [String : Any], var secondLevel = firstLevel["oPeik/9e8lQWMszEjbPzng"] as? [String: Any], var thirdLevel = secondLevel["ArtworkDeviceProductDescription"] as? String {
-            thirdLevel = value
-            secondLevel["ArtworkDeviceProductDescription"] = thirdLevel
-            firstLevel["oPeik/9e8lQWMszEjbPzng"] = secondLevel
-            plist["CacheExtra"] = firstLevel
-        }
-        
-        // overwrite the plist
-        let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
-        
-        let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: "com.apple.MobileGestalt.plist", replacementData: newData)
-        DispatchQueue.main.async {
-            completion(succeeded)
-        }
-    }
-}
-
 func setPlistValueInt(plistPath: String, backupName: String, key: String, value: Int, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
