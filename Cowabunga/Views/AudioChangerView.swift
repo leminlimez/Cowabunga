@@ -220,7 +220,7 @@ struct AudioChangerView: View {
         }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
-                        .mp3, .wav, .init(filenameExtension: "m4a")!
+                        .mp3, .wav//, .init(filenameExtension: "m4a")!
                       ],
                       allowsMultipleSelection: false
         ) { result in
@@ -251,19 +251,12 @@ struct AudioChangerView: View {
                     customaudio(fileURL: url) { audioData in
                         if audioData != nil {
                             url.stopAccessingSecurityScopedResource()
-                            // write the file
-                            fileName = "USR_" + fileName
-                            
-                            do {
-                                let newURL: URL = AudioFiles.getAudioDirectory()!.appendingPathComponent(fileName+".m4a")
-                                try audioData!.write(to: newURL)
-                                UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
-                                // add to the list
-                                customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
-                            } catch {
-                                print(error.localizedDescription)
-                                UIApplication.shared.alert(body: "An unexpected error occurred when attempting to save the file.")
-                            }
+                            // success
+                            UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
+                            // add to the list
+                            customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
+                        } else {
+                            UIApplication.shared.alert(body: "An unknown error occurred while saving the audio")
                         }
                     }
                 }

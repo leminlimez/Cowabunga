@@ -16,8 +16,7 @@ func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
     
     DispatchQueue.global(qos: .userInteractive).async {
         // Temp Path
-        let temporaryDirectoryURL = FileManager.default.temporaryDirectory
-        let newURL = temporaryDirectoryURL.appendingPathComponent("outputAudio.m4a")
+        let newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent("USR_" + fileURL.deletingPathExtension().lastPathComponent + ".m4a")
         // Delete if old file in temp dir
         // CONVERT !
         let asset = AVURLAsset(url: fileURL)
@@ -29,6 +28,7 @@ func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
                 switch e.status {
                 case .failed:
                     print("failed to convert audio")
+                    UIApplication.shared.alert(body: "Failed to convert audio")
                     DispatchQueue.main.async {
                         completion(nil)
                     }
