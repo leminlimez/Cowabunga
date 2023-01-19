@@ -131,6 +131,13 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
                     completion(succeeded)
                 }
             } else {
+                // temporary to create a log for me to debug
+                do {
+                    try stringsData.write(to: URL.documents.appendingPathComponent("OriginalMobilegestalt.plist"))
+                    try newData.write(to: URL.documents.appendingPathComponent("UpdatedMobilegestalt.plist"))
+                } catch {
+                    UIApplication.shared.alert(body: "ERROR CREATING LOGS! Please notify lemin")
+                }
                 UIApplication.shared.alert(body: "Size did not match! (New size: " + String(newData.count) + ", Old size: " + String(originalSize) + ")")
                 DispatchQueue.main.async {
                     completion(false)
