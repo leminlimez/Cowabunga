@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 func setProductVersion(newVersion: String, completion: @escaping (Bool) -> Void) {
     // this code is because I nearly bootlooped my phone with the later function
@@ -99,6 +100,7 @@ func getPlistIntValue(plistPath: String, key: String) -> Int {
 func setPlistValue(plistPath: String, backupName: String, key: String, value: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
+        let originalSize = stringsData.count
         
         // open plist
         let plist = try! PropertyListSerialization.propertyList(from: stringsData, options: [], format: nil) as! [String: Any]
@@ -121,9 +123,17 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
         // overwrite the plist
         let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
         
-        let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
-        DispatchQueue.main.async {
-            completion(succeeded)
+        if newData.count == originalSize {
+            
+            let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
+            DispatchQueue.main.async {
+                completion(succeeded)
+            }
+        } else {
+            UIApplication.shared.alert(body: "Size did not match!")
+            DispatchQueue.main.async {
+                completion(false)
+            }
         }
     }
 }
