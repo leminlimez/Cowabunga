@@ -181,6 +181,66 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
     }
 }
 
+func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: .userInteractive).async {
+        do {
+            var succeededOnce: Bool = false
+            // Credit: TrollTools for process
+            // get the carrier files
+            for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Carrier Bundles/Overlay/"), includingPropertiesForKeys: nil) {
+                guard let plistData = try? Data(contentsOf: url) else { continue }
+                guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { continue }
+                let originalSize = plistData.count
+                
+                // modify values
+                if var images = plist["StatusBarImages"] as? [[String: Any]] {
+                    for var (i, image) in images.enumerated() {
+                        image["StatusBarCarrierName"] = newName
+                        
+                        images[i] = image
+                    }
+                    plist["StatusBarImages"] = images
+                }
+                
+                // remove unnecessary parameters
+                plist.removeValue(forKey: "CarrierName")
+                plist.removeValue(forKey: "CarrierBookmarks")
+                plist.removeValue(forKey: "StockSymboli")
+                plist.removeValue(forKey: "MyAccountURL")
+                plist["MyAccountURLTitle"] = "##"
+                
+                // create the new data
+                guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0) else { continue }
+                // add data if too big
+                if newData.count < originalSize {
+                    plist["MyAccountURLTitle"] = String(repeating: "#", count: (originalSize - newData.count-1))
+                    newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                    
+                    // hacky but it works
+                    // would work better if it was recursive
+                    if newData.count < originalSize {
+                        plist["MyAccountURLTitle"] = plist["MyAccountURLTitle"] as! String + "#"
+                        newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                    }
+                }
+                
+                // apply
+                succeededOnce = succeededOnce || overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
+            }
+            
+            // send back whether or not at least one was successful
+            DispatchQueue.main.async {
+                completion(succeededOnce)
+            }
+        } catch {
+            // an error occurred
+            DispatchQueue.main.async {
+                completion(false)
+            }
+        }
+    }
+}
+
 func getCurrentDeviceSubType() -> Int {
     let currentSubType = getPlistIntValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType")
     if currentSubType == -1 {

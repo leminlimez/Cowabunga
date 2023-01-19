@@ -10,6 +10,7 @@ import SwiftUI
 struct OtherModsView: View {
     @State private var CurrentVersion: String = getPlistValue(plistPath: "/System/Library/CoreServices/SystemVersion.plist", key: "ProductVersion")
     @State private var CurrentModel: String = getPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription")
+    @State private var CurrentCarrier: String = UserDefaults.standard.string(forKey: "CarrierName") ?? ""
     @State private var CurrentSubType: Int = getCurrentDeviceSubType()
     @State private var CurrentSubTypeDisplay: String = "nil"
     
@@ -141,6 +142,55 @@ struct OtherModsView: View {
                                     })
                                     UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                                 })
+                                .padding(.leading, 10)
+                            }
+                            
+                            // carrier name changer
+                            HStack {
+                                Image(systemName: "antenna.radiowaves.left.and.right")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                
+                                Text("Carrier Name")
+                                    .minimumScaleFactor(0.5)
+                                
+                                Spacer()
+                                
+                                Button("Edit", action: {
+                                    // create and configure alert controller
+                                    let alert = UIAlertController(title: "Input Carrier Name", message: "Reboot needed to apply.", preferredStyle: .alert)
+                                    // bring up the text prompt
+                                    alert.addTextField { (textField) in
+                                        textField.placeholder = "New Carrier Name"
+                                        textField.text = CurrentCarrier
+                                    }
+                                    
+                                    // buttons
+                                    alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
+                                        // set the version
+                                        let newName: String = alert.textFields?[0].text! ?? ""
+                                        // set the defaults
+                                        UserDefaults.standard.set(newName, forKey: "CarrierName")
+                                        if newName != "" {
+                                            setCarrierName(newName: newName) { succeeded in
+                                                if succeeded {
+                                                    UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
+                                                } else {
+                                                    UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
+                                                }
+                                            }
+                                        } else {
+                                            UIApplication.shared.alert(body: "No name was inputted!")
+                                        }
+                                    })
+                                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                        // cancel the process
+                                    })
+                                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                                })
+                                .foregroundColor(.blue)
                                 .padding(.leading, 10)
                             }
                         }
