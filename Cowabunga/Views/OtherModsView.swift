@@ -120,7 +120,7 @@ struct OtherModsView: View {
                                                     newName += String(repeating: " ", count: CurrentModel.count - newName.count)
                                                 }
                                                 print(newName)
-                                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newName) { succeeded in
+                                                setModelName(value: newName) { succeeded in
                                                     if succeeded {
                                                         CurrentModel = newName
                                                         // set the default
