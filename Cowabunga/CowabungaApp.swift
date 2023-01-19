@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct CowabungaApp: App {
     //let locationManager = LocationManager()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
