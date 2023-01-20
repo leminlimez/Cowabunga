@@ -121,6 +121,30 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
     }
 }
 
+// mineek's file
+@_exported import FSOperations
+
+struct RootConf: RootHelperConfiguration {
+    var useRootHelper: Bool = true
+    
+    private init() {}
+    
+    static let shared = RootConf()
+    
+    func perform(_ operation: FSOperation) throws {
+        switch operation {
+        case .writeData(let url, let data):
+            try overwriteFilePOC(data, url.path)
+        default:
+            break
+        }
+    }
+    
+    func contents(of path: URL) throws -> [URL] {
+        return try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: [])
+    }
+}
+
 // Overwrite the dock with the given font using CVE-2022-46689.
 // The font must be specially prepared so that it skips past the last byte in every 16KB page.
 // Credit to Zhuowei and FontOverwrite for the code logic.

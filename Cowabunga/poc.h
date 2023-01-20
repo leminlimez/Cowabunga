@@ -10,5 +10,5 @@
 
 #include <stdio.h>
 @import Foundation;
-void overwriteFile_Haxi0(NSData *data, NSString *path);
+void overwriteFilePOC(NSData *data, NSString *path);
 #endif /* poc_h */
