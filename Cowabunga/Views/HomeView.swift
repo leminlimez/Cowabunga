@@ -223,7 +223,7 @@ struct HomeView: View {
     }
     
     func applyTweaks() {
-        UIApplication.shared.alert(title: "Applying tweaks...", body: "Please wait", animated: false, withButton: false)
+        UIApplication.shared.alert(title: "Applying springboard tweaks...", body: "Please wait", animated: false, withButton: false)
         var failedSB: Bool = false
         // apply the springboard tweaks first
         for option in tweakOptions {
@@ -242,6 +242,7 @@ struct HomeView: View {
             }
         }
         
+        UIApplication.shared.change(title: "Applying audio tweaks...", body: "Please wait")
         var failedAudio: Bool = false
         // apply audio tweaks next
         for option in audioOptions {
