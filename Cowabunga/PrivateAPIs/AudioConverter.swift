@@ -5,7 +5,7 @@
 //  Created by Constantin Clerc on 14/01/2023.
 //
 
-import AudioKit
+//import AudioKit
 import AVFoundation
 import SwiftUI
 import UIKit

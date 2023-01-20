@@ -10,7 +10,6 @@
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E712965B20B0026D69D /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E702965B20B0026D69D /* vm_unaligned_copy_switch_race.c */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
-		6F296F8929721DF600A5C856 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6F296F8829721DF600A5C856 /* AudioKit */; };
 		6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E72975EF6000DE3146 /* AudioConverter.swift */; };
 		6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E9297603F700DE3146 /* RegionEncodes.swift */; };
 		6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EB2976DEDA00DE3146 /* HomeView.swift */; };
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F296F8929721DF600A5C856 /* AudioKit in Frameworks */,
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,7 +171,6 @@
 			);
 			name = Cowabunga;
 			packageProductDependencies = (
-				6F296F8829721DF600A5C856 /* AudioKit */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -205,7 +202,6 @@
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
-				6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -398,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 6.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -436,7 +432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 6.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -469,25 +465,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6F296F8829721DF600A5C856 /* AudioKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */;
-			productName = AudioKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F721C84296482C6001CFE46 /* Project object */;
 }
