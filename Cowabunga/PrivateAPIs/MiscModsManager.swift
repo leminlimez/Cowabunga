@@ -210,11 +210,12 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                 }
                 
                 // remove unnecessary parameters
-                plist.removeValue(forKey: "CarrierName")
+                //plist.removeValue(forKey: "CarrierName")
                 plist.removeValue(forKey: "CarrierBookmarks")
                 plist.removeValue(forKey: "StockSymboli")
                 plist.removeValue(forKey: "MyAccountURL")
-                plist["MyAccountURLTitle"] = "##"
+                plist.removeValue(forKey: "HomeBundleIdentifier")
+                plist.removeValue(forKey: "MyAccountURLTitle")
                 
                 // create the new data
                 guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0) else { continue }
@@ -223,12 +224,18 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                 // while loop to make data match because recursive function didn't work
                 // very slow, will hopefully improve
                 var newDataSize = newData.count
+                var added = 1
                 while newDataSize < originalSize {
-                    plist["MyAccountURLTitle"] = plist["MyAccountURLTitle"] as! String + "#"
+                    plist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
+                    added += 1
+                    //plist["MyAccountURLTitle"] = plist["MyAccountURLTitle"] as! String + "#"
                     newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
                     newDataSize = newData.count
                 }
-                
+                if newData.count != originalSize {
+                    print("ORIGINAL: " + String(originalSize))
+                    print("NEW DATA: " + String(newData.count))
+                }
                 // apply
                 succeededOnce = succeededOnce || overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
             }
@@ -239,6 +246,7 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
             }
         } catch {
             // an error occurred
+            print("An error occurred with setting the carrier name")
             DispatchQueue.main.async {
                 completion(false)
             }
