@@ -1,6 +1,8 @@
 # Cowabunga
 A Jailed toolbox application for iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
 
+Enable Notifications and set Location Services to Always to keep the app running in the background and keep the dock hidden.
+
 Warning: Some changes are permanent on iOS 14.0-14.8.1
 
 IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
