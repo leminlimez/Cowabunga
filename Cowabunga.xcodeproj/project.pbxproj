@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6F00EE0E297A289000A9EF21 /* poc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F00EE0D297A289000A9EF21 /* poc.m */; };
+		6F00EE12297A2A3D00A9EF21 /* ApplicationsWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6F00EE11297A2A3D00A9EF21 /* ApplicationsWrapper */; };
+		6F00EE14297A2A3D00A9EF21 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 6F00EE13297A2A3D00A9EF21 /* AssetCatalogWrapper */; };
+		6F00EE16297A2A3D00A9EF21 /* FSOperations in Frameworks */ = {isa = PBXBuildFile; productRef = 6F00EE15297A2A3D00A9EF21 /* FSOperations */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E712965B20B0026D69D /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E702965B20B0026D69D /* vm_unaligned_copy_switch_race.c */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
@@ -66,7 +69,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F296F8929721DF600A5C856 /* AudioKit in Frameworks */,
+				6F00EE12297A2A3D00A9EF21 /* ApplicationsWrapper in Frameworks */,
+				6F00EE16297A2A3D00A9EF21 /* FSOperations in Frameworks */,
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
+				6F00EE14297A2A3D00A9EF21 /* AssetCatalogWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +185,9 @@
 			name = Cowabunga;
 			packageProductDependencies = (
 				6F296F8829721DF600A5C856 /* AudioKit */,
+				6F00EE11297A2A3D00A9EF21 /* ApplicationsWrapper */,
+				6F00EE13297A2A3D00A9EF21 /* AssetCatalogWrapper */,
+				6F00EE15297A2A3D00A9EF21 /* FSOperations */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -211,6 +220,7 @@
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
 				6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				6F00EE10297A2A3D00A9EF21 /* XCRemoteSwiftPackageReference "SantanderWrappers" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -477,6 +487,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6F00EE10297A2A3D00A9EF21 /* XCRemoteSwiftPackageReference "SantanderWrappers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SerenaKit/SantanderWrappers.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
@@ -488,6 +506,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6F00EE11297A2A3D00A9EF21 /* ApplicationsWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F00EE10297A2A3D00A9EF21 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
+			productName = ApplicationsWrapper;
+		};
+		6F00EE13297A2A3D00A9EF21 /* AssetCatalogWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F00EE10297A2A3D00A9EF21 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
+			productName = AssetCatalogWrapper;
+		};
+		6F00EE15297A2A3D00A9EF21 /* FSOperations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F00EE10297A2A3D00A9EF21 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
+			productName = FSOperations;
+		};
 		6F296F8829721DF600A5C856 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6F296F8729721DF600A5C856 /* XCRemoteSwiftPackageReference "AudioKit" */;
