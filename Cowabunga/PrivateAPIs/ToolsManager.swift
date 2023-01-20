@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 // get the user defaults for a boolean key
 func getDefaultBool(forKey: String, defaultValue: Bool = false) -> Bool {
