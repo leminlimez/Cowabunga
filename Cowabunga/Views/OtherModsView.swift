@@ -84,7 +84,7 @@ struct OtherModsView: View {
                             }
                             
                             // device name
-                            HStack {
+                            /*HStack {
                                 Image(systemName: "iphone")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -138,7 +138,7 @@ struct OtherModsView: View {
                                     UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                                 })
                                 .padding(.leading, 10)
-                            }
+                            }*/
                             
                             // carrier name changer
                             /*HStack {
