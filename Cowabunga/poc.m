@@ -200,7 +200,7 @@ T_DECL(unaligned_copy_switch_race,
     if (overwrite_length >= PAGE_SIZE) {
         fprintf(stderr, "too long!\n");
         fprintf(stderr, "overwrite_length: %zu\n", overwrite_length);
-        fprintf(stderr, "PAGE_SIZE: %d\n", PAGE_SIZE);
+        fprintf(stderr, "PAGE_SIZE: %lu\n", PAGE_SIZE);
         // shrink it until it fits
         while (overwrite_length >= PAGE_SIZE) {
             overwrite_length -= 1;
