@@ -146,7 +146,7 @@ struct OtherModsView: View {
                             }
                             
                             // carrier name changer
-                            HStack {
+                            /*HStack {
                                 Image(systemName: "antenna.radiowaves.left.and.right")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -197,7 +197,7 @@ struct OtherModsView: View {
                                 })
                                 .foregroundColor(.blue)
                                 .padding(.leading, 10)
-                            }
+                            }*/
                         }
                         
                         // device subtype

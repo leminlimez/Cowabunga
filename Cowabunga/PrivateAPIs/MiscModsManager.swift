@@ -198,8 +198,9 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                 guard let plistData = try? Data(contentsOf: url) else { continue }
                 guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { continue }
                 let originalSize = plistData.count
-                if originalSize < 15950 {
+                if originalSize < 15950 && plist["CarrierName"] != nil && plist["CarrierName"] as! String == "AT&T" {
                     // modify values
+                    print("Modifying: " + (plist["CarrierName"] as! String))
                     if var images = plist["StatusBarImages"] as? [[String: Any]] {
                         for var (i, image) in images.enumerated() {
                             image["StatusBarCarrierName"] = newName
@@ -210,7 +211,7 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                     }
                     
                     // remove unnecessary parameters
-                    //plist.removeValue(forKey: "CarrierName")
+                    plist.removeValue(forKey: "CarrierName")
                     plist.removeValue(forKey: "CarrierBookmarks")
                     plist.removeValue(forKey: "StockSymboli")
                     plist.removeValue(forKey: "MyAccountURL")
