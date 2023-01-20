@@ -1,7 +1,7 @@
 # Cowabunga
 A Jailed toolbox application for iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
 
-Warning: Changes are permanent on iOS 14.0-14.8.1
+Warning: Some changes are permanent on iOS 14.0-14.8.1
 
 IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
 
@@ -11,17 +11,15 @@ Features:
 - Hide dock
 - Hide home bar
 - Hide folder backgrounds
-- Disable folder background blur
+- Remove regional Restrictions
 - Disable app switcher blur
+- Custom sound effects
 - Change system version (shows in settings, iOS 15+)
 - Enable iPhone X Gestures
 - Enable Dynamic Island (iOS 16+)
 
 ## Screenshots
-![SpringBoard Tools](https://i.imgur.com/ssZcQNK.png)
-![Miscellaneous Mods](https://i.imgur.com/g4sEzUU.png)
-![No Dock](https://i.imgur.com/vgxk3R9.png)
-![No Folder Background](https://i.imgur.com/6K945m3.png)
+<img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/> <img src="/Images/Misc.PNG" width="300" height="650"/>
 
 ## Installing
 You can install through AltStore or TrollStore (if your device supports it)
