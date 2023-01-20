@@ -191,13 +191,14 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
 func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         do {
+            var succeededOnce: Bool = false
             // Credit: TrollTools for process
             // get the carrier files
             for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Carrier Bundles/Overlay/"), includingPropertiesForKeys: nil) {
                 guard let plistData = try? Data(contentsOf: url) else { continue }
                 guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { continue }
                 let originalSize = plistData.count
-                if originalSize < 30000 {
+                if originalSize < 15950 {
                     // modify values
                     if var images = plist["StatusBarImages"] as? [[String: Any]] {
                         for var (i, image) in images.enumerated() {
@@ -211,7 +212,7 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                     // remove unnecessary parameters
                     //plist.removeValue(forKey: "CarrierName")
                     plist.removeValue(forKey: "CarrierBookmarks")
-                    //plist.removeValue(forKey: "StockSymboli")
+                    plist.removeValue(forKey: "StockSymboli")
                     plist.removeValue(forKey: "MyAccountURL")
                     //plist.removeValue(forKey: "HomeBundleIdentifier")
                     plist.removeValue(forKey: "MyAccountURLTitle")
@@ -232,18 +233,16 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                         newDataSize = newData.count
                     }
                     // apply
-                    // uses haxi0's poc because it is over 16 kb
-                    try FSOperation.perform(.writeData(url: url, data: newData), rootHelperConf: RootConf.shared)
+                    succeededOnce = succeededOnce || overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
                 }
             }
             
             // send back whether or not at least one was successful
             DispatchQueue.main.async {
-                completion(true)
+                completion(succeededOnce)
             }
         } catch {
             // an error occurred
-            print("An error occurred with setting the carrier name")
             DispatchQueue.main.async {
                 completion(false)
             }
