@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct AudioView: View {
+    struct Category: Identifiable {
+        var key: SoundCategory
+        var id = UUID()
+        var title: String
+        var imageName: String
+        var active: Bool = false
+    }
+    
     struct AudioOption: Identifiable {
         var key: AudioFiles.SoundEffect
         var id = UUID()
@@ -26,13 +34,20 @@ struct AudioView: View {
         .init(key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
     ]
     
+    @State var audioCategories: [Category] = [
+        .init(key: SoundCategory.device, title: "Device", imageName: "iphone"),
+        .init(key: SoundCategory.camera, title: "Camera", imageName: "camera"),
+        .init(key: SoundCategory.messages, title: "Messages", imageName: "message"),
+        .init(key: SoundCategory.payment, title: "Payment", imageName: "creditcard")
+    ]
+    
     var body: some View {
         VStack {
             NavigationView {
                 List {
                     Section {
-                        ForEach($audioOptions) { option in
-                            NavigationLink(destination: AudioChangerView(SoundIdentifier: option.key.wrappedValue), isActive: option.active) {
+                        ForEach($audioCategories) { option in
+                            NavigationLink(destination: AudioOptionsView(Category: option.key.wrappedValue), isActive: option.active) {
                                 HStack {
                                     Image(systemName: option.imageName.wrappedValue)
                                         .resizable()
@@ -41,14 +56,11 @@ struct AudioView: View {
                                         .foregroundColor(.blue)
                                     Text(option.title.wrappedValue)
                                         .padding(.horizontal, 8)
-                                    Spacer()
-                                    Text((UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default").replacingOccurrences(of: "USR_", with: ""))
-                                        .foregroundColor(.secondary)
                                 }
                             }
                         }
                     } header: {
-                        Text("Sound Effects Modifications")
+                        Text("Categories")
                     }
                     Button(action: {
                         // apply the audio
