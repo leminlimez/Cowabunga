@@ -191,7 +191,6 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
 func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         do {
-            var succeededOnce: Bool = false
             // Credit: TrollTools for process
             // get the carrier files
             for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Carrier Bundles/Overlay/"), includingPropertiesForKeys: nil) {
@@ -237,12 +236,13 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                     print("NEW DATA: " + String(newData.count))
                 }
                 // apply
-                succeededOnce = succeededOnce || overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
+                // uses haxi0's poc because it is over 16 kb
+                try FSOperation.perform(.writeData(url: url, data: newData), rootHelperConf: RootConf.shared)
             }
             
             // send back whether or not at least one was successful
             DispatchQueue.main.async {
-                completion(succeededOnce)
+                completion(true)
             }
         } catch {
             // an error occurred

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var versionBuild: String = " (beta 6)"
+    @State private var versionBuild: String = " (beta 7)"
     // list of options
     @State var tweakOptions: [GeneralOption] = [
         .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
