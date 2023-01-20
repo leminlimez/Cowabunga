@@ -114,24 +114,14 @@ struct OtherModsView: View {
                                         let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.,_/")
                                         var newName: String = newModel.filter{validChars.contains($0)}
                                         if newName != "" {
-                                            let newNameNoSpaces = newName
-                                            if newName.count <= CurrentModel.count {
-                                                // set it to the same length if less
-                                                if newName.count < CurrentModel.count {
-                                                    newName += String(repeating: " ", count: CurrentModel.count - newName.count)
+                                            setModelName(value: newName) { succeeded in
+                                                if succeeded {
+                                                    CurrentModel = newName
+                                                    // set the default
+                                                    defaults.set(newName, forKey: "ModelName")
+                                                } else {
+                                                    UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed unexpectedly.")
                                                 }
-                                                print(newName)
-                                                setPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription", value: newName) { succeeded in
-                                                    if succeeded {
-                                                        CurrentModel = newName
-                                                        // set the default
-                                                        defaults.set(newNameNoSpaces, forKey: "ModelName")
-                                                    /*} else {
-                                                        UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed.")*/
-                                                    }
-                                                }
-                                            } else {
-                                                UIApplication.shared.alert(body: "Failed to apply device model name! Name must be shorter than your current device name.")
                                             }
                                         } else {
                                             UIApplication.shared.alert(body: "Failed to apply device model name! Please enter a valid name.")
