@@ -91,6 +91,74 @@ class AudioFiles {
         return nil
     }
     
+    struct audioFilesData: Codable {
+        let files: [audioFilesInfo]
+    }
+    
+    struct audioFilesInfo: Codable {
+        let name: String
+        let attachment: String
+    }
+    
+    // fetch included audio files
+    static func fetchIncludedAudio() {
+        // get the included audio names
+        let url: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/AudioNames.json")
+        if url != nil {
+            // get the data of the file
+            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+                guard let data = data else {
+                    print("No data to decode")
+                    return
+                }
+                guard let audioFileData = try? JSONDecoder().decode(audioFilesData.self, from: data) else {
+                    print("Couldn't decode json data")
+                    return
+                }
+                
+                // check if all the files exist
+                if let includedAudioDirectory: URL = getIncludedAudioDirectory() {
+                    for audioTitle in audioFileData.files {
+                        if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioTitle.name + ".m4a") {
+                            // fetch the file and add it to path
+                            let audioURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/" + audioTitle.name + ".m4a")
+                            if audioURL != nil {
+                                let audio_task = URLSession.shared.dataTask(with: audioURL!) { audio_data, audio_response, audio_error in
+                                    if audio_data != nil {
+                                        // write the audio file
+                                        do {
+                                            try audio_data!.write(to: includedAudioDirectory.appendingPathComponent(audioTitle.name + ".m4a"))
+                                        } catch {
+                                            print("Error writing included audio data to directory")
+                                        }
+                                    } else {
+                                        print("No audio data")
+                                    }
+                                }
+                                audio_task.resume()
+                            }
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    // get the directory of the included audio
+    static func getIncludedAudioDirectory() -> URL? {
+        do {
+            let newURL: URL = URL.documents.appendingPathComponent("Included_Audio")
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            }
+            return newURL
+        } catch {
+            print("An error occurred getting/making the included audio directory")
+        }
+        return nil
+    }
+    
     // audio paths
     private static let audioPaths: [String: String] = [
         // Device Sounds Paths

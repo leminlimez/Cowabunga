@@ -1,7 +1,16 @@
 {
-	"names": [
-		"Coin",
-		"Slip",
-		"Crash"
+	"audio_files": [
+		{
+			"name": "Coin",
+			"attachment": "PaymentSuccess"
+		},
+		{
+			"name": "Slip",
+			"attachment": "SentMessage"
+		},
+		{
+			"name": "Crash",
+			"attachment": "ReceivedMessage"
+		}
 	]
 }
