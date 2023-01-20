@@ -223,6 +223,7 @@ struct HomeView: View {
     }
     
     func applyTweaks() {
+        UIApplication.shared.alert(title: "Applying tweaks...", body: "Please wait", animated: false, withButton: false)
         var failedSB: Bool = false
         // apply the springboard tweaks first
         for option in tweakOptions {
@@ -260,17 +261,32 @@ struct HomeView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             if failedSB && failedAudio {
-                UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
+                UIApplication.shared.dismissAlert(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
+                }
             } else if failedSB {
-                UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
+                UIApplication.shared.dismissAlert(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
+                }
             } else if failedAudio {
-                UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
+                UIApplication.shared.dismissAlert(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
+                }
             } else {
                 if autoRespring {
                     // auto respring on apply
-                    respring()
+                    UIApplication.shared.change(title: "Respringing...", body: "Please wait")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        respring()
+                    }
                 } else {
-                    UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+                    UIApplication.shared.dismissAlert(animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+                    }
                 }
             }
         }
