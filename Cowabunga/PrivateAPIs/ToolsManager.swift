@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 
 // get the user defaults for a boolean key
 func getDefaultBool(forKey: String, defaultValue: Bool = false) -> Bool {
@@ -119,30 +118,6 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 completion(succeeded)
             }
         }
-    }
-}
-
-// mineek's file
-@_exported import FSOperations
-
-struct RootConf: RootHelperConfiguration {
-    var useRootHelper: Bool = true
-    
-    private init() {}
-    
-    static let shared = RootConf()
-    
-    func perform(_ operation: FSOperation) throws {
-        switch operation {
-        case .writeData(let url, let data):
-            try overwriteFilePOC(data, url.path)
-        default:
-            break
-        }
-    }
-    
-    func contents(of path: URL) throws -> [URL] {
-        return try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: [])
     }
 }
 
