@@ -49,8 +49,10 @@ struct AudioChangerView: View {
         .init(attachments: [AudioFiles.SoundEffect.screenshot], audioName: "Star Wars Blaster"),
         
         // sent message
+        .init(attachments: [AudioFiles.SoundEffect.sentMessage], audioName: "Slip"),
         
         // received message
+        .init(attachments: [AudioFiles.SoundEffect.receivedMessage], audioName: "Crash"),
         
         // payment success
         .init(attachments: [AudioFiles.SoundEffect.paymentSuccess], audioName: "Coin"),

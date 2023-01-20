@@ -21,8 +21,8 @@ struct AudioView: View {
         .init(key: AudioFiles.SoundEffect.lock, title: "Lock", imageName: "lock"),
         .init(key: AudioFiles.SoundEffect.notification, title: "Default Notifications", imageName: "iphone.radiowaves.left.and.right"),
         .init(key: AudioFiles.SoundEffect.screenshot, title: "Screenshot", imageName: "photo"),
-        //.init(key: AudioFiles.SoundEffect.sentMessage, title: "Sent Message", imageName: "bubble.right.fill"),
-        //.init(key: AudioFiles.SoundEffect.receivedMessage, title: "Received Message", imageName: "bubble.left"),
+        .init(key: AudioFiles.SoundEffect.sentMessage, title: "Sent Message", imageName: "bubble.right.fill"),
+        .init(key: AudioFiles.SoundEffect.receivedMessage, title: "Received Message", imageName: "bubble.left"),
         .init(key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
     ]
     
