@@ -112,15 +112,20 @@ struct OtherModsView: View {
                                         // set the version
                                         let newModel: String = alert.textFields?[0].text! ?? CurrentModel
                                         let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.,_/")
-                                        var newName: String = newModel.filter{validChars.contains($0)}
+                                        let newName: String = newModel.filter{validChars.contains($0)}
                                         if newName != "" {
+                                            UIApplication.shared.alert(title: "Applying model name...", body: "Please wait", animated: false, withButton: false)
                                             setModelName(value: newName) { succeeded in
+                                                UIApplication.shared.dismissAlert(animated: true)
                                                 if succeeded {
                                                     CurrentModel = newName
                                                     // set the default
                                                     defaults.set(newName, forKey: "ModelName")
                                                 } else {
-                                                    UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed unexpectedly.")
+                                                    // delay
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                        UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed unexpectedly.")
+                                                    }
                                                 }
                                             }
                                         } else {
