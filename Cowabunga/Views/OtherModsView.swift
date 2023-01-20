@@ -174,11 +174,16 @@ struct OtherModsView: View {
                                         // set the defaults
                                         UserDefaults.standard.set(newName, forKey: "CarrierName")
                                         if newName != "" {
+                                            UIApplication.shared.alert(title: "Applying carrier...", body: "Please wait", animated: false, withButton: false)
                                             setCarrierName(newName: newName) { succeeded in
-                                                if succeeded {
-                                                    UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
-                                                } else {
-                                                    UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
+                                                UIApplication.shared.dismissAlert(animated: true)
+                                                // delay
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                    if succeeded {
+                                                        UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
+                                                    } else {
+                                                        UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
+                                                    }
                                                 }
                                             }
                                         } else {

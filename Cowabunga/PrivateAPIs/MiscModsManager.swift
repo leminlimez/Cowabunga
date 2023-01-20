@@ -218,17 +218,15 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                 
                 // create the new data
                 guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0) else { continue }
-                // add data if too big
-                if newData.count < originalSize {
-                    plist["MyAccountURLTitle"] = String(repeating: "#", count: (originalSize - newData.count-1))
+                
+                // add data if too small
+                // while loop to make data match because recursive function didn't work
+                // very slow, will hopefully improve
+                var newDataSize = newData.count
+                while newDataSize < originalSize {
+                    plist["MyAccountURLTitle"] = plist["MyAccountURLTitle"] as! String + "#"
                     newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
-                    
-                    // hacky but it works
-                    // would work better if it was recursive
-                    if newData.count < originalSize {
-                        plist["MyAccountURLTitle"] = plist["MyAccountURLTitle"] as! String + "#"
-                        newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
-                    }
+                    newDataSize = newData.count
                 }
                 
                 // apply
