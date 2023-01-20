@@ -13,13 +13,27 @@ import Foundation
 
 class AudioFiles {
     enum SoundEffect: String {
+        // Device Sounds
         case charging = "Charging"
         case lock = "Lock"
+        case lowPower = "LowPower"
         case notification = "Notification"
+        
+        // Camera Sounds
         case screenshot = "Screenshot"
+        case beginRecording = "BeginRecording"
+        case endRecording = "EndRecording"
+        
+        // Messages Sounds
         case sentMessage = "SentMessage"
         case receivedMessage = "ReceivedMessage"
+        case sentMail = "SentMail"
+        case newMail = "NewMail"
+        
+        // Payment Sounds
         case paymentSuccess = "PaymentSuccess"
+        case paymentFailed = "PaymentFailed"
+        case paymentReceived = "PaymentReceived"
     }
     static func getNewAudioData(soundName: String) -> String? {
         if (self.audioData[soundName] != nil) {
@@ -79,13 +93,27 @@ class AudioFiles {
     
     // audio paths
     private static let audioPaths: [String: String] = [
+        // Device Sounds Paths
         SoundEffect.charging.rawValue: "UISounds/connect_power.caf",
         SoundEffect.lock.rawValue: "UISounds/lock.caf",
+        SoundEffect.lowPower.rawValue: "UISounds/low_power.caf",
         SoundEffect.notification.rawValue: "UISounds/sms-received1.caf",
+        
+        // Camera Sounds Paths
         SoundEffect.screenshot.rawValue: "UISounds/photoShutter.caf",
+        SoundEffect.beginRecording.rawValue: "UISounds/begin_recording.caf",
+        SoundEffect.endRecording.rawValue: "UISounds/end_recording.caf",
+        
+        // Messages Sounds Paths
         SoundEffect.sentMessage.rawValue: "UISounds/SentMessage.caf",
         SoundEffect.receivedMessage.rawValue: "UISounds/ReceivedMessage.caf",
-        SoundEffect.paymentSuccess.rawValue: "UISounds/payment_success.caf"
+        SoundEffect.sentMessage.rawValue: "UISounds/mail-sent.caf",
+        SoundEffect.newMail.rawValue: "UISounds/new-mail.caf",
+        
+        // Payments Sounds Paths
+        SoundEffect.paymentSuccess.rawValue: "UISounds/payment_success.caf",
+        SoundEffect.paymentFailed.rawValue: "UISounds/payment_failure.caf",
+        SoundEffect.paymentReceived.rawValue: "UISounds/PaymentReceived.caf",
     ]
     // audio file data
     // base64 encoded

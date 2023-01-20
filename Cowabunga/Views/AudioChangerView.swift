@@ -31,7 +31,17 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
-        .init(attachments: [AudioFiles.SoundEffect.charging, AudioFiles.SoundEffect.lock, AudioFiles.SoundEffect.notification, AudioFiles.SoundEffect.screenshot, AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.paymentSuccess], audioName: "Default"),
+        .init(attachments: [
+            AudioFiles.SoundEffect.charging, AudioFiles.SoundEffect.lock, AudioFiles.SoundEffect.lowPower, AudioFiles.SoundEffect.notification,
+            AudioFiles.SoundEffect.screenshot, AudioFiles.SoundEffect.beginRecording, AudioFiles.SoundEffect.endRecording,
+            AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.sentMail, AudioFiles.SoundEffect.newMail,
+            AudioFiles.SoundEffect.paymentSuccess, AudioFiles.SoundEffect.paymentFailed, AudioFiles.SoundEffect.paymentReceived
+        ], audioName: "Default"),
+        
+        
+        /*
+            DEVICE SOUNDS
+         */
         // charging
         .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Old Charging"),
         .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Engage"),
@@ -41,21 +51,47 @@ struct AudioChangerView: View {
         // lock
         .init(attachments: [AudioFiles.SoundEffect.lock], audioName: "Old Lock"),
         
+        // low power
+        
         // notification
         .init(attachments: [AudioFiles.SoundEffect.notification], audioName: "Samsung"),
         .init(attachments: [AudioFiles.SoundEffect.notification, AudioFiles.SoundEffect.screenshot], audioName: "Taco Bell"),
         
+        
+        /*
+            CAMERA SOUNDS
+         */
         // screenshot
         .init(attachments: [AudioFiles.SoundEffect.screenshot], audioName: "Star Wars Blaster"),
         
+        // begin recording
+        
+        // end recording
+        
+        
+        /*
+            MESSAGES SOUNDS
+         */
         // sent message
         .init(attachments: [AudioFiles.SoundEffect.sentMessage], audioName: "Slip"),
         
         // received message
         .init(attachments: [AudioFiles.SoundEffect.receivedMessage], audioName: "Crash"),
         
+        // sent mail
+        
+        // new mail
+        
+        
+        /*
+            PAYMENT SOUNDS
+         */
         // payment success
         .init(attachments: [AudioFiles.SoundEffect.paymentSuccess], audioName: "Coin"),
+        
+        // payment failed
+        
+        // payment received
     ]
     
     // list of custom audio files
