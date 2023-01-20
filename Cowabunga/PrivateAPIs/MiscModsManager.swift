@@ -188,6 +188,62 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
     }
 }
 
+func setModelName(value: String, completion: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: .userInteractive).async {
+        do {
+            let plistPath: String = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+            let stringsData = try Data(contentsOf: URL(fileURLWithPath: plistPath))
+            let originalSize = stringsData.count
+            
+            // open plist
+            var plist = try PropertyListSerialization.propertyList(from: stringsData, options: [], format: nil) as! [String: Any]
+            
+            // modify value
+            if var firstLevel = plist["CacheExtra"] as? [String : Any], var secondLevel = firstLevel["oPeik/9e8lQWMszEjbPzng"] as? [String: Any], var thirdLevel = secondLevel["ArtworkDeviceProductDescription"] as? String {
+                thirdLevel = value
+                secondLevel["ArtworkDeviceProductDescription"] = thirdLevel
+                firstLevel["oPeik/9e8lQWMszEjbPzng"] = secondLevel
+                plist["CacheExtra"] = firstLevel
+            }
+            
+            // create the new data
+            var newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+            
+            // add data if it doesn't fit
+            var newDataSize = newData.count
+            var toAdd = 1
+            while newDataSize < originalSize {
+                // add a space at the end
+                if var firstLevel = plist["CacheExtra"] as? [String : Any], var secondLevel = firstLevel["oPeik/9e8lQWMszEjbPzng"] as? [String: Any], var thirdLevel = secondLevel["ArtworkDeviceProductDescription"] as? String {
+                    thirdLevel = value + String(repeating: " ", count: toAdd)
+                    secondLevel["ArtworkDeviceProductDescription"] = thirdLevel
+                    firstLevel["oPeik/9e8lQWMszEjbPzng"] = secondLevel
+                    plist["CacheExtra"] = firstLevel
+                }
+                toAdd += 1
+            }
+            
+            // overwrite the plist
+            if newDataSize == originalSize {
+                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: "com.apple.MobileGestalt.plist", replacementData: newData)
+                DispatchQueue.main.async {
+                    completion(succeeded)
+                }
+            } else {
+                print("The file sizes do not match!")
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        } catch {
+            print("An error occurred setting the model name")
+            DispatchQueue.main.async {
+                completion(false)
+            }
+        }
+    }
+}
+
 func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         do {
