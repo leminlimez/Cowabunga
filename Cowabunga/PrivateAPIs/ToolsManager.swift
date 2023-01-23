@@ -50,19 +50,21 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
     if typeOfFile == OverwritingFileTypes.springboard {
         // springboard tweak being applied
         if replacementPaths[fileIdentifier] != nil {
+            var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
                 do {
                     let originalData = try Data(contentsOf: URL(fileURLWithPath: path))
                     let randomGarbage = Data(String.init(repeating: "#", count: originalData.count).utf8)
                     DispatchQueue.global(qos: .userInteractive).async {
-                        overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
-                    }//succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
+                        //overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
+                        succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
+                    }
                 } catch {
                     print("Could not get data")
                 }
             }
             DispatchQueue.main.async {
-                completion(true)
+                completion(succeeded)
             }
         }
     
@@ -126,6 +128,16 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
 }
 
 func overwriteFileWithDataImpl(originPath: String, backupName: String, replacementData: Data) -> Bool {
-    overwriteFile(replacementData, originPath)
-    return true
+    do {
+        let originalFile = try Data(contentsOf: URL(fileURLWithPath: originPath))
+        if replacementData.count > originalFile.count {
+            print("File size too big!")
+            return false
+        }
+        overwriteFile(replacementData, originPath)
+        return true
+    } catch {
+        print("An error occurred")
+        return false
+    }
 }
