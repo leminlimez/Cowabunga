@@ -57,12 +57,12 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                     DispatchQueue.global(qos: .userInteractive).async {
                         overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
                     }//succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
-                    DispatchQueue.main.async {
-                        completion(true)
-                    }
                 } catch {
                     print("Could not get data")
                 }
+            }
+            DispatchQueue.main.async {
+                completion(true)
             }
         }
     
