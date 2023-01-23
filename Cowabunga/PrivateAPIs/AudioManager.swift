@@ -118,6 +118,12 @@ class AudioFiles {
                 
                 // check if all the files exist
                 if let includedAudioDirectory: URL = getIncludedAudioDirectory() {
+                    // check the already existing json
+                    var jsonData = ""
+                    if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/AudioNames.json") {
+                        // create the json
+                        jsonData = "{\"audio_files\""
+                    }
                     for audioTitle in audioFileData.files {
                         if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioTitle.name + ".m4a") {
                             // fetch the file and add it to path
