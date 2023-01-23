@@ -47,7 +47,7 @@ struct AudioOptionsView: View {
         // Payment Category
         .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
         .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentFailed, title: "Payment Failed", imageName: "creditcard.trianglebadge.exclamationmark"),
-        .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: "Payment Received", imageName: "creditcard.viewfinder"),
+        .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: "Payment Received", imageName: "square.and.arrow.down.on.square"),
     ]
     
     var body: some View {
