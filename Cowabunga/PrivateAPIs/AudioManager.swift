@@ -82,6 +82,7 @@ class AudioFiles {
     }
     
     static func setup(fetchingNewAudio: Bool) {
+        print("setting up audio")
         ListOfAudio = getIncludedAudioList()!
         
         // fetch new audio if needed
@@ -166,56 +167,40 @@ class AudioFiles {
                     print("No data to decode")
                     return
                 }
-                guard let audioFileData = try? JSONDecoder().decode(audioFilesData.self, from: data) else {
+                guard let audioFileData = try? JSONSerialization.jsonObject(with: data, options: []) else {
                     print("Couldn't decode json data")
                     return
                 }
                 
                 // check if all the files exist
-                if let includedAudioDirectory: URL = getIncludedAudioDirectory() {
-                    // check the already existing json
-                    /*var jsonData: [audioFilesInfo] = []
-                    if FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/AudioNames.json") {
-                        // get the json
+                if  let audioFileData = audioFileData as? Dictionary<String, AnyObject>, let audioFiles = audioFileData["audio_files"] as? [[String: Any]], let includedAudioDirectory: URL = getIncludedAudioDirectory() {
+                    
+                    for audioTitle in audioFiles {
                         do {
-                            let jsonFileData = try Data(contentsOf: includedAudioDirectory.appendingPathComponent("AudioNames.json"))
-                            let json = try JSONSerialization.jsonObject(with: jsonFileData, options: [])
-                            
-                            if  let object = json as? [Any] {
-                                for filesInfo in object as! [Dictionary<String, AnyObject>] {
-                                    let audioName = filesInfo["name"] as! String
-                                    let attachments = filesInfo["attachments"] as! [String]
-                                    let audioFileInfo = audioFilesInfo(name: audioName, attachments: attachments)
-                                    jsonData.append(audioFileInfo)
+                            let audioFileName: String = audioTitle["name"] as! String
+                            let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
+                            if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
+                                // fetch the file and add it to path
+                                let audioURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/" + audioFileName + ".m4a")
+                                if audioURL != nil {
+                                    let audio_task = URLSession.shared.dataTask(with: audioURL!) { audio_data, audio_response, audio_error in
+                                        if audio_data != nil {
+                                            // write the audio file
+                                            do {
+                                                addIncludedAudioFile(audioName: audioFileName, attachments: audioFileAttachments)
+                                                try audio_data!.write(to: includedAudioDirectory.appendingPathComponent(audioFileName + ".m4a"))
+                                            } catch {
+                                                print("Error writing included audio data to directory")
+                                            }
+                                        } else {
+                                            print("No audio data")
+                                        }
+                                    }
+                                    audio_task.resume()
                                 }
-                            } else {
-                                print("Json data is invalid")
                             }
                         } catch {
-                            print("Could not parse audio json file")
-                        }
-                    }*/
-                    
-                    for audioTitle in audioFileData.files {
-                        if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioTitle.name + ".m4a") {
-                            // fetch the file and add it to path
-                            let audioURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/" + audioTitle.name + ".m4a")
-                            if audioURL != nil {
-                                let audio_task = URLSession.shared.dataTask(with: audioURL!) { audio_data, audio_response, audio_error in
-                                    if audio_data != nil {
-                                        // write the audio file
-                                        do {
-                                            addIncludedAudioFile(audioName: audioTitle.name, attachments: audioTitle.attachments)
-                                            try audio_data!.write(to: includedAudioDirectory.appendingPathComponent(audioTitle.name + ".m4a"))
-                                        } catch {
-                                            print("Error writing included audio data to directory")
-                                        }
-                                    } else {
-                                        print("No audio data")
-                                    }
-                                }
-                                audio_task.resume()
-                            }
+                            print("an error occurred while parsing an audio file")
                         }
                     }
                 }
