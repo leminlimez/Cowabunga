@@ -12,7 +12,7 @@ import UIKit
 
 func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
     // config
-    let fileLimit: Int = 14 // in kB
+    let fileLimit: Int = 50 // in kB
     
     DispatchQueue.global(qos: .userInteractive).async {
         // Temp Path
