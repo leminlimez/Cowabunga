@@ -12,7 +12,7 @@ import Foundation
 // yes it could have been
 
 class AudioFiles {
-    enum SoundEffect: String {
+    enum SoundEffect: String, CaseIterable {
         // Device Sounds
         case charging = "Charging"
         case lock = "Lock"
@@ -35,6 +35,61 @@ class AudioFiles {
         case paymentFailed = "PaymentFailed"
         case paymentReceived = "PaymentReceived"
     }
+    
+    static var ListOfAudio: [String: [String]] = [:]
+    
+    static func getIncludedAudioList() -> [String: [String]]? {
+        do {
+            let newURL: URL = getIncludedAudioDirectory()!.appendingPathComponent("AudioNames.plist")
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                var plist: [String: [String]] = [:]
+                // create the plist
+                for attachment in SoundEffect.allCases {
+                    plist[attachment.rawValue] = ["Default"]
+                }
+                let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                try newData.write(to: newURL)
+                return plist
+            } else {
+                // get the existing plist
+                let plistData = try! Data(contentsOf: newURL)
+                
+                // open plist
+                let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: [String]]
+                return plist
+            }
+        } catch {
+            print("An error occurred getting/making the audio directory")
+        }
+        return nil
+    }
+    
+    static func addIncludedAudioFile(audioName: String, attachments: [String]) {
+        for attachment in attachments {
+            if ListOfAudio[attachment] != nil {
+                ListOfAudio[attachment]?.append(audioName)
+            }
+        }
+        
+        // write to the plist
+        do {
+            let newURL: URL = getIncludedAudioDirectory()!.appendingPathComponent("AudioNames.plist")
+            let newData = try! PropertyListSerialization.data(fromPropertyList: ListOfAudio, format: .xml, options: 0)
+            try newData.write(to: newURL)
+        } catch {
+            print("error adding the audio to the file")
+        }
+    }
+    
+    static func setup(fetchingNewAudio: Bool) {
+        ListOfAudio = getIncludedAudioList()!
+        
+        // fetch new audio if needed
+        if fetchingNewAudio == true {
+            fetchIncludedAudio()
+        }
+    }
+    
     static func getNewAudioData(soundName: String) -> String? {
         if (self.audioData[soundName] != nil) {
             return self.audioData[soundName]!
@@ -119,7 +174,7 @@ class AudioFiles {
                 // check if all the files exist
                 if let includedAudioDirectory: URL = getIncludedAudioDirectory() {
                     // check the already existing json
-                    var jsonData: [audioFilesInfo] = []
+                    /*var jsonData: [audioFilesInfo] = []
                     if FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/AudioNames.json") {
                         // get the json
                         do {
@@ -139,7 +194,7 @@ class AudioFiles {
                         } catch {
                             print("Could not parse audio json file")
                         }
-                    }
+                    }*/
                     
                     for audioTitle in audioFileData.files {
                         if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioTitle.name + ".m4a") {
@@ -150,6 +205,7 @@ class AudioFiles {
                                     if audio_data != nil {
                                         // write the audio file
                                         do {
+                                            addIncludedAudioFile(audioName: audioTitle.name, attachments: audioTitle.attachments)
                                             try audio_data!.write(to: includedAudioDirectory.appendingPathComponent(audioTitle.name + ".m4a"))
                                         } catch {
                                             print("Error writing included audio data to directory")
@@ -198,7 +254,7 @@ class AudioFiles {
         // Messages Sounds Paths
         SoundEffect.sentMessage.rawValue: "UISounds/SentMessage.caf",
         SoundEffect.receivedMessage.rawValue: "UISounds/ReceivedMessage.caf",
-        SoundEffect.sentMessage.rawValue: "UISounds/mail-sent.caf",
+        SoundEffect.sentMail.rawValue: "UISounds/mail-sent.caf",
         SoundEffect.newMail.rawValue: "UISounds/new-mail.caf",
         
         // Payments Sounds Paths
