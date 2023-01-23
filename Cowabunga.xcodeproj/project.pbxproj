@@ -25,8 +25,8 @@
 		6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D82969B5A700BC427A /* MiscModsManager.swift */; };
 		6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01E0296B2FB200BC427A /* AudioManager.swift */; };
 		6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA660A5297B051E002471FB /* AudioOptionsView.swift */; };
-		6FA660A8297B86B1002471FB /* vm_unaligned_copy_switch_race.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA660A7297B86B1002471FB /* vm_unaligned_copy_switch_race.m */; };
 		6FA660AA297EDF98002471FB /* BadgeChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA660A9297EDF98002471FB /* BadgeChanger.swift */; };
+		6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */; };
 		6FD9B526296C8AE300121229 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B525296C8AE300121229 /* AudioView.swift */; };
 		6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B527296C8CBC00121229 /* AudioChangerView.swift */; };
 /* End PBXBuildFile section */
@@ -53,8 +53,8 @@
 		6F7C01D82969B5A700BC427A /* MiscModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscModsManager.swift; sourceTree = "<group>"; };
 		6F7C01E0296B2FB200BC427A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		6FA660A5297B051E002471FB /* AudioOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOptionsView.swift; sourceTree = "<group>"; };
-		6FA660A7297B86B1002471FB /* vm_unaligned_copy_switch_race.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vm_unaligned_copy_switch_race.m; sourceTree = "<group>"; };
 		6FA660A9297EDF98002471FB /* BadgeChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeChanger.swift; sourceTree = "<group>"; };
+		6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FD9B525296C8AE300121229 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		6FD9B527296C8CBC00121229 /* AudioChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChangerView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
 				6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */,
 				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
-				6FA660A7297B86B1002471FB /* vm_unaligned_copy_switch_race.m */,
+				6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */,
 			);
 			path = Cowabunga;
 			sourceTree = "<group>";
@@ -241,6 +241,7 @@
 				6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */,
 				6FA660AA297EDF98002471FB /* BadgeChanger.swift in Sources */,
 				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
+				6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
@@ -250,7 +251,6 @@
 				6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */,
 				6F160E732965B2810026D69D /* ToolsManager.swift in Sources */,
 				6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */,
-				6FA660A8297B86B1002471FB /* vm_unaligned_copy_switch_race.m in Sources */,
 				6F7C01D52968E0C500BC427A /* RootView.swift in Sources */,
 				6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */,
 				6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */,

