@@ -140,6 +140,37 @@ struct OtherModsView: View {
                                 .padding(.leading, 10)
                             }*/
                             
+                            // export mobilegestalt
+                            /*HStack {
+                                Image(systemName: "iphone")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                
+                                
+                                Text("Mobilegestalt Export")
+                                    .minimumScaleFactor(0.5)
+                                
+                                Spacer()
+                                
+                                Button("Export", action: {
+                                    let plistPath: String = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+                                    do {
+                                        let archiveURL: URL? = try URL(fileURLWithPath: plistPath)
+                                        // show share menu
+                                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
+                                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
+                                    } catch {
+                                        UIApplication.shared.alert(body: "Failed.")
+                                    }
+                                })
+                                .padding(.leading, 10)
+                            }*/
+                            
                             // carrier name changer
                             HStack {
                                 Image(systemName: "antenna.radiowaves.left.and.right")
