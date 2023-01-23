@@ -287,14 +287,21 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                     plist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
                     newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
                     newDataSize = newData.count
-                    if newDataSize > originalSize {
-                        added -= 1
-                    } else if newDataSize < originalSize {
-                        added += 1
+                    if count < 5 {
+                        // max out this method at 5 if it isn't working
+                        added += originalSize - newDataSize
+                    } else {
+                        if newDataSize > originalSize {
+                            added -= 1
+                        } else if newDataSize < originalSize {
+                            added += 1
+                        }
                     }
                 }
-                // apply
-                succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
+                if newDataSize == originalSize {
+                    // apply
+                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
+                }
             }
             
             // send back whether or not at least one was successful
