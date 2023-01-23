@@ -206,7 +206,7 @@ class AudioFiles {
                                     }
                                     audio_task.resume()
                                 }
-                            } else if isBeta != nil && FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
+                            } else if isBeta != nil && testingAudio == false && FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
                                 // delete the file
                                 do {
                                     try FileManager.default.removeItem(at: includedAudioDirectory.appendingPathComponent(audioFileName+".m4a"))

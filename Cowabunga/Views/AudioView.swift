@@ -88,12 +88,13 @@ struct AudioView: View {
                                     if succeeded {
                                         print("successfully applied audio for " + audioOption.key.rawValue)
                                     } else {
+                                        print("failed to apply audio for " + audioOption.key.rawValue)
                                         failed = true
                                     }
                                 }
                             }
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                             if failed {
                                 UIApplication.shared.alert(body: "Failed to apply some custom audio!")
                             } else {
