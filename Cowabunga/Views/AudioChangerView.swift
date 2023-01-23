@@ -326,7 +326,7 @@ struct AudioChangerView: View {
         if audioName.starts(with: "USR_") {
             newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent(audioName+".m4a")
         } else if !FileManager.default.fileExists(atPath: temporaryDirectoryURL.path + "/" + audioName + ".m4a") {
-            let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
+            /*let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
             if base64 != nil {
                 let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
                 if audioData != nil {
@@ -336,6 +336,11 @@ struct AudioChangerView: View {
                         print("Error creating audio file")
                         return
                     }
+                }
+            }*/
+            do {
+                if FileManager.default.fileExists(atPath: AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName+".m4a").path) {
+                    newURL = AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName+".m4a")
                 }
             }
         }
