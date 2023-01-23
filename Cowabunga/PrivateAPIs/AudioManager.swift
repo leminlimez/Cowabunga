@@ -97,7 +97,7 @@ class AudioFiles {
     
     struct audioFilesInfo: Codable {
         let name: String
-        let attachment: String
+        let attachments: [String]
     }
     
     // fetch included audio files
