@@ -1,16 +1,48 @@
 {
 	"audio_files": [
-		{
-			"name": "Coin",
-			"attachments": {"PaymentSuccess"}
-		},
+        {
+            "name": "Old Charging",
+            "attachments": ["Charging"]
+        },
+        {
+            "name": "Engage",
+            "attachments": ["Charging"]
+        },
+        {
+            "name": "MagSafe",
+            "attachments": ["Charging"]
+        },
+        {
+            "name": "Cow",
+            "attachments": ["Charging"]
+        },
+        {
+            "name": "Old Lock",
+            "attachments": ["Lock"]
+        },
+        {
+            "name": "Samsung",
+            "attachments": ["Notification"]
+        },
+        {
+            "name": "Taco Bell",
+            "attachments": ["Notification", "Screenshot"]
+        },
+        {
+            "name": "Star Wars Blaster",
+            "attachments": ["Screenshot"]
+        },
 		{
 			"name": "Slip",
-			"attachments": {"SentMessage"}
+			"attachments": ["SentMessage"]
 		},
 		{
 			"name": "Crash",
-			"attachments": {"ReceivedMessage"}
-		}
+			"attachments": ["ReceivedMessage"]
+		},
+        {
+            "name": "Coin",
+            "attachments": ["PaymentSuccess"]
+        }
 	]
 }
