@@ -247,12 +247,12 @@ func setModelName(value: String, completion: @escaping (Bool) -> Void) {
 func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         do {
-            var succeededOnce: Bool = false
+            var succeeded: Bool = true
             // Credit: TrollTools for process
             // get the carrier files
             for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Carrier Bundles/Overlay/"), includingPropertiesForKeys: nil) {
-                guard let plistData = try? Data(contentsOf: url) else { continue }
-                guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { continue }
+                guard let plistData = try? Data(contentsOf: url) else { print("could not get data"); continue }
+                                                                              guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { print("Could not serialize"); continue }
                 let originalSize = plistData.count
                 // modify values
                 print("Modifying: " + (plist["CarrierName"] as? String ?? "IDK"))
@@ -294,12 +294,12 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                     }
                 }
                 // apply
-                succeededOnce = succeededOnce || overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
+                succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
             }
             
             // send back whether or not at least one was successful
             DispatchQueue.main.async {
-                completion(succeededOnce)
+                completion(succeeded)
             }
         } catch {
             // an error occurred
