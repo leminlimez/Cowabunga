@@ -18,7 +18,7 @@ struct AudioChangerView: View {
         var id = UUID()
         var attachments: [AudioFiles.SoundEffect]
         var audioName: String
-        var checked: Bool = false
+        var checked: Bool
     }
     
     // custom audio files
@@ -36,9 +36,9 @@ struct AudioChangerView: View {
             AudioFiles.SoundEffect.screenshot, AudioFiles.SoundEffect.beginRecording, AudioFiles.SoundEffect.endRecording,
             AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.sentMail, AudioFiles.SoundEffect.newMail,
             AudioFiles.SoundEffect.paymentSuccess, AudioFiles.SoundEffect.paymentFailed, AudioFiles.SoundEffect.paymentReceived
-        ], audioName: "Default"),
+        ], audioName: "Default", checked: false),
         
-        
+        /*
         /*
             DEVICE SOUNDS
          */
@@ -91,7 +91,7 @@ struct AudioChangerView: View {
         
         // payment failed
         
-        // payment received
+        // payment received*/
     ]
     
     // list of custom audio files
@@ -243,6 +243,17 @@ struct AudioChangerView: View {
             for (i, file) in audioFiles.enumerated() {
                 if file.audioName == appliedSound {
                     audioFiles[i].checked = true
+                }
+            }
+            
+            // get the included audio
+            for audioName in AudioFiles.ListOfAudio[SoundIdentifier.rawValue]! {
+                if audioName != "Default" {
+                    var checked: Bool = false
+                    if audioName == appliedSound {
+                        checked = true
+                    }
+                    audioFiles.append(IncludedAudioName.init(attachments: [SoundIdentifier], audioName: audioName, checked: checked))
                 }
             }
             
