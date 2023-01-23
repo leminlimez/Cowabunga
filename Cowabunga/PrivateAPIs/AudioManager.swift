@@ -3,7 +3,7 @@
 //  Cowabunga
 //
 //  Created by lemin on 1/8/23.
-//  Audio files and base64 by c22dev on 1/12/23
+//  Audio files by c22dev on 1/12/23
 //
 
 import Foundation
@@ -91,9 +91,15 @@ class AudioFiles {
         }
     }
     
-    static func getNewAudioData(soundName: String) -> String? {
-        if (self.audioData[soundName] != nil) {
-            return self.audioData[soundName]!
+    static func getNewAudioData(soundName: String) -> Data? {
+        if FileManager.default.fileExists(atPath: (getIncludedAudioDirectory()?.appendingPathComponent(soundName+".m4a").path)!) {
+            do {
+                let newData = try Data(contentsOf: (getIncludedAudioDirectory()?.appendingPathComponent(soundName+".m4a"))!)
+                return newData
+            } catch {
+                print("An error occurred getting the data of the audio")
+                return nil
+            }
         }
         return nil
     }
