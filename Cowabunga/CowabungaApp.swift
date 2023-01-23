@@ -16,7 +16,7 @@ struct CowabungaApp: App {
         WindowGroup {
             RootView()
                 .onAppear {
-                    AudioFiles.setup(fetchingNewAudio: true)
+                    AudioFiles.setup(fetchingNewAudio: UserDefaults.standard.bool(forKey: "AutoFetchAudio"))
                     if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
                         ApplicationMonitor.shared.start()
                     }

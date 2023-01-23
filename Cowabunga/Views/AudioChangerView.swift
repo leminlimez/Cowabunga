@@ -37,61 +37,6 @@ struct AudioChangerView: View {
             AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.sentMail, AudioFiles.SoundEffect.newMail,
             AudioFiles.SoundEffect.paymentSuccess, AudioFiles.SoundEffect.paymentFailed, AudioFiles.SoundEffect.paymentReceived
         ], audioName: "Default", checked: false),
-        
-        /*
-        /*
-            DEVICE SOUNDS
-         */
-        // charging
-        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Old Charging"),
-        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Engage"),
-        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "MagSafe"),
-        .init(attachments: [AudioFiles.SoundEffect.charging], audioName: "Cow"),
-        
-        // lock
-        .init(attachments: [AudioFiles.SoundEffect.lock], audioName: "Old Lock"),
-        
-        // low power
-        
-        // notification
-        .init(attachments: [AudioFiles.SoundEffect.notification], audioName: "Samsung"),
-        .init(attachments: [AudioFiles.SoundEffect.notification, AudioFiles.SoundEffect.screenshot], audioName: "Taco Bell"),
-        
-        
-        /*
-            CAMERA SOUNDS
-         */
-        // screenshot
-        .init(attachments: [AudioFiles.SoundEffect.screenshot], audioName: "Star Wars Blaster"),
-        
-        // begin recording
-        
-        // end recording
-        
-        
-        /*
-            MESSAGES SOUNDS
-         */
-        // sent message
-        .init(attachments: [AudioFiles.SoundEffect.sentMessage], audioName: "Slip"),
-        
-        // received message
-        .init(attachments: [AudioFiles.SoundEffect.receivedMessage], audioName: "Crash"),
-        
-        // sent mail
-        
-        // new mail
-        
-        
-        /*
-            PAYMENT SOUNDS
-         */
-        // payment success
-        .init(attachments: [AudioFiles.SoundEffect.paymentSuccess], audioName: "Coin"),
-        
-        // payment failed
-        
-        // payment received*/
     ]
     
     // list of custom audio files
@@ -326,18 +271,6 @@ struct AudioChangerView: View {
         if audioName.starts(with: "USR_") {
             newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent(audioName+".m4a")
         } else if !FileManager.default.fileExists(atPath: temporaryDirectoryURL.path + "/" + audioName + ".m4a") {
-            /*let base64: String? = AudioFiles.getNewAudioData(soundName: audioName)
-            if base64 != nil {
-                let audioData = Data(base64Encoded: base64!, options: .ignoreUnknownCharacters)
-                if audioData != nil {
-                    do {
-                        try audioData!.write(to: newURL, options: .atomic)
-                    } catch {
-                        print("Error creating audio file")
-                        return
-                    }
-                }
-            }*/
             do {
                 if FileManager.default.fileExists(atPath: AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName+".m4a").path) {
                     newURL = AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName+".m4a")
