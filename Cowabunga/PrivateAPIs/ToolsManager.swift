@@ -52,16 +52,9 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         if replacementPaths[fileIdentifier] != nil {
             var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
-                do {
-                    let originalData = try Data(contentsOf: URL(fileURLWithPath: "/System/Library/PrivateFrameworks/" + path))
-                    let randomGarbage = Data(String.init(repeating: "#", count: originalData.count).utf8)
-                    DispatchQueue.global(qos: .userInteractive).async {
-                        //overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
-                        succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
-                    }
-                } catch {
-                    print("Could not get data")
-                    succeeded = false
+                let randomGarbage = Data("###".utf8)
+                DispatchQueue.global(qos: .userInteractive).async {
+                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
                 }
             }
             DispatchQueue.main.async {
