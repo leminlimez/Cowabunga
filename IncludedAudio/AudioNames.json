@@ -1,7 +1,7 @@
 {
 	"audio_files": [
         {
-            "name": "Old Charging",
+            "name": "Old_Charging",
             "attachments": ["Charging"]
         },
         {
@@ -17,7 +17,7 @@
             "attachments": ["Charging"]
         },
         {
-            "name": "Old Lock",
+            "name": "Old_Lock",
             "attachments": ["Lock"]
         },
         {
@@ -25,11 +25,11 @@
             "attachments": ["Notification"]
         },
         {
-            "name": "Taco Bell",
+            "name": "Taco_Bell",
             "attachments": ["Notification", "Screenshot"]
         },
         {
-            "name": "Star Wars Blaster",
+            "name": "Star_Wars_Blaster",
             "attachments": ["Screenshot"]
         },
 		{
