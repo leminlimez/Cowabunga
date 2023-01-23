@@ -280,13 +280,18 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                 // while loop to make data match because recursive function didn't work
                 // very slow, will hopefully improve
                 var newDataSize = newData.count
-                var added = 1
-                while newDataSize < originalSize {
+                var added = originalSize - newDataSize
+                var count = 0
+                while newDataSize != originalSize && count < 200 {
+                    count += 1
                     plist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
-                    added += 1
-                    //plist["MyAccountURLTitle"] = plist["MyAccountURLTitle"] as! String + "#"
                     newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
                     newDataSize = newData.count
+                    if newDataSize > originalSize {
+                        added -= 1
+                    } else if newDataSize < originalSize {
+                        added += 1
+                    }
                 }
                 // apply
                 succeededOnce = succeededOnce || overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)

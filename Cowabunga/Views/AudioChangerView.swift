@@ -258,10 +258,11 @@ struct AudioChangerView: View {
         }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
-                        .mp3, .wav//, .init(filenameExtension: "m4a")!
+                        .mp3, .wav, .init(filenameExtension: "m4a")!
                       ],
                       allowsMultipleSelection: false
         ) { result in
+            isImporting = false
             // user chose a file
             guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
             guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
