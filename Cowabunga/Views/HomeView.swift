@@ -32,6 +32,7 @@ struct HomeView: View {
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
+    @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
         120.0: "Frequent",
@@ -44,12 +45,6 @@ struct HomeView: View {
                 Section {
                     // auto respring option
                     HStack {
-                        /*Image(systemName: option.imageName.wrappedValue)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.blue)*/
-                        
                         Toggle(isOn: $autoRespring) {
                             Text("Auto respring after apply")
                                 .minimumScaleFactor(0.5)
@@ -179,6 +174,25 @@ struct HomeView: View {
                         }
                         .padding(.leading, 10)
                     }
+                    
+                    // auto fetch audio updates toggle
+                    HStack {
+                        Toggle(isOn: $autoFetchAudio) {
+                            HStack {
+                                Text("Auto Update Included Audio")
+                                    .minimumScaleFactor(0.5)
+                            }
+                        }.onChange(of: autoFetchAudio) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "AutoFetchAudio")
+                        }
+                        .padding(.leading, 10)
+                    }
+                    
+                    // button to update included audio
+                    Button("Update Included Audio", action: {
+                        AudioFiles.setup(fetchingNewAudio: true)
+                    })
                 } header: {
                     Text("Preferences")
                 }
