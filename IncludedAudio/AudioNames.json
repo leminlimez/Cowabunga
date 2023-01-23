@@ -2,15 +2,15 @@
 	"audio_files": [
 		{
 			"name": "Coin",
-			"attachment": "PaymentSuccess"
+			"attachments": {"PaymentSuccess"}
 		},
 		{
 			"name": "Slip",
-			"attachment": "SentMessage"
+			"attachments": {"SentMessage"}
 		},
 		{
 			"name": "Crash",
-			"attachment": "ReceivedMessage"
+			"attachments": {"ReceivedMessage"}
 		}
 	]
 }
