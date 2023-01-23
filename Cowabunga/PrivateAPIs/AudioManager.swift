@@ -119,11 +119,28 @@ class AudioFiles {
                 // check if all the files exist
                 if let includedAudioDirectory: URL = getIncludedAudioDirectory() {
                     // check the already existing json
-                    var jsonData = ""
-                    if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/AudioNames.json") {
-                        // create the json
-                        jsonData = "{\"audio_files\""
+                    var jsonData: [audioFilesInfo] = []
+                    if FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/AudioNames.json") {
+                        // get the json
+                        do {
+                            let jsonFileData = try Data(contentsOf: includedAudioDirectory.appendingPathComponent("AudioNames.json"))
+                            let json = try JSONSerialization.jsonObject(with: jsonFileData, options: [])
+                            
+                            if  let object = json as? [Any] {
+                                for filesInfo in object as! [Dictionary<String, AnyObject>] {
+                                    let audioName = filesInfo["name"] as! String
+                                    let attachments = filesInfo["attachments"] as! [String]
+                                    let audioFileInfo = audioFilesInfo(name: audioName, attachments: attachments)
+                                    jsonData.append(audioFileInfo)
+                                }
+                            } else {
+                                print("Json data is invalid")
+                            }
+                        } catch {
+                            print("Could not parse audio json file")
+                        }
                     }
+                    
                     for audioTitle in audioFileData.files {
                         if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioTitle.name + ".m4a") {
                             // fetch the file and add it to path
