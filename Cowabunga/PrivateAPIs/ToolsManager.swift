@@ -51,13 +51,18 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         // springboard tweak being applied
         if replacementPaths[fileIdentifier] != nil {
             for path in replacementPaths[fileIdentifier]! {
-                let randomGarbage = Data("###".utf8)
-                DispatchQueue.global(qos: .userInteractive).async {
-                    overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
-                }//succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
-            }
-            DispatchQueue.main.async {
-                completion(true)
+                do {
+                    let originalData = try Data(contentsOf: URL(fileURLWithPath: path))
+                    let randomGarbage = Data(String.init(repeating: "#", count: originalData.count).utf8)
+                    DispatchQueue.global(qos: .userInteractive).async {
+                        overwriteFile(randomGarbage, "/System/Library/PrivateFrameworks/"+path)
+                    }//succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
+                    DispatchQueue.main.async {
+                        completion(true)
+                    }
+                } catch {
+                    print("Could not get data")
+                }
             }
         }
     
