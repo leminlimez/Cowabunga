@@ -37,6 +37,7 @@ class AudioFiles {
     }
     
     static var ListOfAudio: [String: [String]] = [:]
+    static var testingAudio: Bool = false
     
     static func getIncludedAudioList() -> [String: [String]]? {
         do {
@@ -185,7 +186,8 @@ class AudioFiles {
                         do {
                             let audioFileName: String = audioTitle["name"] as! String
                             let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
-                            if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
+                            let isBeta: String? = audioTitle["isBeta"] as? String
+                            if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") && (isBeta == nil || testingAudio == true) {
                                 // fetch the file and add it to path
                                 let audioURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/" + audioFileName + ".m4a")
                                 if audioURL != nil {
@@ -203,6 +205,13 @@ class AudioFiles {
                                         }
                                     }
                                     audio_task.resume()
+                                }
+                            } else if isBeta != nil && FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
+                                // delete the file
+                                do {
+                                    try FileManager.default.removeItem(at: includedAudioDirectory.appendingPathComponent(audioFileName+".m4a"))
+                                } catch {
+                                    print("There was an error removing the file")
                                 }
                             }
                         }
