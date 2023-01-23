@@ -11,7 +11,7 @@ var inProgress = false
 
 struct SpringBoardView: View {
     // lazyvgrid
-    private var gridItemLayout = [GridItem(.adaptive(minimum: 160))]
+    private var gridItemLayout = [GridItem(.adaptive(minimum: 140))]
     
     // list of options
     @State var tweakOptions: [GeneralOption] = [
