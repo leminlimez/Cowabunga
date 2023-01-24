@@ -185,7 +185,7 @@ struct AudioChangerView: View {
                 appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
                 // add off
                 let audios: [AudioFiles.SoundEffect] = AudioFiles.SoundEffect.allCases
-                //audioFiles.append(IncludedAudioName.init(attachments: audios, audioName: "Off", checked: (appliedSound == "Off")))
+                audioFiles.append(IncludedAudioName.init(attachments: audios, audioName: "Off", checked: (appliedSound == "Off")))
                 // add default
                 audioFiles.append(IncludedAudioName.init(attachments: audios, audioName: "Default", checked: (appliedSound == "Default")))
                 

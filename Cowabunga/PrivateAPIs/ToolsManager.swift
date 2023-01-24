@@ -66,21 +66,32 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
     } else if typeOfFile == OverwritingFileTypes.audio {
         let path = AudioFiles.getAudioPath(attachment: fileIdentifier)
         if path != nil {
-            // replace the audio data
-            let newData = AudioFiles.getNewAudioData(soundName: value as! String)
-            if newData != nil {
-                let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: newData!)
-                DispatchQueue.main.async {
-                    completion(succeeded)
-                }
-            } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
-                let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: customAudioData)
-                DispatchQueue.main.async {
-                    completion(succeeded)
+            if value as! String == "Off" {
+                // disable the audio
+                let randomGarbage = Data("###".utf8)
+                DispatchQueue.global(qos: .userInteractive).async {
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: randomGarbage)
+                    DispatchQueue.main.async {
+                        completion(succeeded)
+                    }
                 }
             } else {
-                DispatchQueue.main.async {
-                    completion(false)
+                // replace the audio data
+                let newData = AudioFiles.getNewAudioData(soundName: value as! String)
+                if newData != nil {
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: newData!)
+                    DispatchQueue.main.async {
+                        completion(succeeded)
+                    }
+                } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: customAudioData)
+                    DispatchQueue.main.async {
+                        completion(succeeded)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
                 }
             }
         }
