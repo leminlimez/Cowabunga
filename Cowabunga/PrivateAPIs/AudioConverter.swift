@@ -16,7 +16,7 @@ func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
     
     DispatchQueue.global(qos: .userInteractive).async {
         do {
-            if try Data(contentsOf: fileURL).count > fileLimit*1000 {
+            if try Data(contentsOf: fileURL).count < fileLimit*1000 {
                 // Temp Path
                 let newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent("USR_" + fileURL.deletingPathExtension().lastPathComponent + ".m4a")
                 // Delete if old file in temp dir
@@ -66,10 +66,16 @@ func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
                         }
                     }
                 })
+            } else {
+                print("File size too big")
+                UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under "+String(fileLimit)+" kB.")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             }
         } catch {
-            print("File size too big")
-            UIApplication.shared.alert(body: "Your file is too big. Please crop or compress it to under "+String(fileLimit)+" kB.")
+            print("Could not get file size")
+            UIApplication.shared.alert(body: "Could not get the data of the item.")
             DispatchQueue.main.async {
                 completion(nil)
             }
