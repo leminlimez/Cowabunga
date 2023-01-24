@@ -16,6 +16,21 @@ struct CowabungaApp: App {
         WindowGroup {
             RootView()
                 .onAppear {
+                    // credit: TrollTools
+                    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/leminlimez/Cowabunga/releases/latest") {
+                        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                            guard let data = data else { return }
+                            
+                            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                                if json["tag_name"] as? String ?? "vUNKNOWN" != "v" + version {
+                                    UIApplication.shared.confirmAlert(title: "Update available", body: "A new Cowabunga update is available, do you want to visit releases page?", onOK: {
+                                        UIApplication.shared.open(URL(string: "https://github.com/leminlimez/Cowabunga/releases/latest")!)
+                                    }, noCancel: false)
+                                }
+                            }
+                        }
+                        task.resume()
+                    }
                     AudioFiles.setup(fetchingNewAudio: UserDefaults.standard.bool(forKey: "AutoFetchAudio"))
                     if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
                         ApplicationMonitor.shared.start()
