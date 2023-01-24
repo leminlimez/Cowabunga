@@ -213,55 +213,55 @@ struct AudioChangerView: View {
                 generated = true
             }
         }
-        .fileImporter(isPresented: $isImporting,
-                      allowedContentTypes: [
-                        .audio
-                      ],
-                      allowsMultipleSelection: false
+        .fileImporter(
+            isPresented: $isImporting,
+            allowedContentTypes: [.audio],
+            allowsMultipleSelection: false
         ) { result in
             // user chose a file
             guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
-            guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
-            
-            // ask for a name for the sound
-            let alert = UIAlertController(title: "Enter Name", message: "Choose a name for the sound", preferredStyle: .alert)
-            
-            // bring up the text prompts
-            alert.addTextField { (textField) in
-                // text field for width
-                textField.placeholder = "Name"
-                textField.text = url.deletingPathExtension().lastPathComponent
-            }
-            alert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
-                // set the name and add the file
-                if alert.textFields?[0].text != nil {
-                    // check if it is a valid name
-                    let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890._")
-                    var fileName: String = (alert.textFields?[0].text ?? "Unnamed").filter{validChars.contains($0)}
-                    if fileName == "" {
-                        // set to unnamed
-                        fileName = "Unnamed"
-                    }
-                    // get the base64 data
-                    customaudio(fileURL: url) { audioData in
-                        if audioData != nil {
-                            url.stopAccessingSecurityScopedResource()
-                            // success
-                            UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
-                            // add to the list
-                            customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
-                        } else {
-                            url.stopAccessingSecurityScopedResource()
-                            UIApplication.shared.alert(body: "An unknown error occurred while saving the audio")
-                        }
-                    }
+            DispatchQueue.global(qos: .userInitiated).async {
+                guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
+                
+                // ask for a name for the sound
+                let alert = UIAlertController(title: "Enter Name", message: "Choose a name for the sound", preferredStyle: .alert)
+                
+                // bring up the text prompts
+                alert.addTextField { (textField) in
+                    // text field for width
+                    textField.placeholder = "Name"
+                    textField.text = url.deletingPathExtension().lastPathComponent
                 }
-            })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                // cancel the process
-                url.stopAccessingSecurityScopedResource()
-            })
-            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+                    // set the name and add the file
+                    if alert.textFields?[0].text != nil {
+                        // check if it is a valid name
+                        let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890._")
+                        var fileName: String = (alert.textFields?[0].text ?? "Unnamed").filter{validChars.contains($0)}
+                        if fileName == "" {
+                            // set to unnamed
+                            fileName = "Unnamed"
+                        }
+                        // get the base64 data
+                        customaudio(fileURL: url) { audioData in
+                            if audioData != nil {
+                                // success
+                                UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
+                                // add to the list
+                                customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
+                            } else {
+                                UIApplication.shared.alert(body: "An unknown error occurred while saving the audio")
+                            }
+                        }
+                        url.stopAccessingSecurityScopedResource()
+                    }
+                })
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // cancel the process
+                    url.stopAccessingSecurityScopedResource()
+                })
+                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
