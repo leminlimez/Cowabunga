@@ -250,8 +250,6 @@ struct AudioChangerView: View {
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
                             // add to the list
                             customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
-                        } else {
-                            UIApplication.shared.alert(body: "An unknown error occurred while saving the audio")
                         }
                     }
                     url.stopAccessingSecurityScopedResource()

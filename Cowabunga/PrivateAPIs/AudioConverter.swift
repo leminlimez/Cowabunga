@@ -16,7 +16,7 @@ func customaudio(fileURL: URL, completion: @escaping (Data?) -> Void) {
     
     DispatchQueue.global(qos: .userInteractive).async {
         do {
-            if try Data(contentsOf: fileURL).count < fileLimit*1000 {
+            if try Data(contentsOf: fileURL).count > fileLimit*1000 {
                 // Temp Path
                 let newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent("USR_" + fileURL.deletingPathExtension().lastPathComponent + ".m4a")
                 // Delete if old file in temp dir
