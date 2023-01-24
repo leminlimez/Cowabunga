@@ -60,7 +60,7 @@ struct AudioChangerView: View {
                                     .foregroundColor(.blue)
                                     .opacity(audio.checked.wrappedValue ? 1: 0)
                                 
-                                Button(audio.audioName.wrappedValue, action: {
+                                Button(audio.audioName.wrappedValue.replacingOccurrences(of: "_", with: " "), action: {
                                     if appliedSound != audio.audioName.wrappedValue {
                                         for (i, file) in audioFiles.enumerated() {
                                             if file.audioName == appliedSound {
