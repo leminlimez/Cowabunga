@@ -28,6 +28,7 @@
 		6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */; };
 		6FD9B526296C8AE300121229 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B525296C8AE300121229 /* AudioView.swift */; };
 		6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B527296C8CBC00121229 /* AudioChangerView.swift */; };
+		6FF21AC52980A1460054EBC0 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FF21AC42980A1460054EBC0 /* entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FD9B525296C8AE300121229 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		6FD9B527296C8CBC00121229 /* AudioChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChangerView.swift; sourceTree = "<group>"; };
+		6FF21AC42980A1460054EBC0 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
+				6FF21AC42980A1460054EBC0 /* entitlements.plist */,
 				6F6D38F42976FF8B00DE3146 /* AppDelegate.swift */,
 				6F721C8E296482C6001CFE46 /* Cowabunga */,
 				6F721C8D296482C6001CFE46 /* Products */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FF21AC52980A1460054EBC0 /* entitlements.plist in Resources */,
 				6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 			);

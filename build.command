@@ -32,6 +32,10 @@ if [ -e "$TARGET_APP/embedded.mobileprovision" ]; then
     rm -rf "$TARGET_APP/embedded.mobileprovision"
 fi
 
+# Add entitlements
+echo "Adding entitlements"
+ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
+
 mkdir Payload
 cp -r Cowabunga.app Payload/Cowabunga.app
 zip -vr Cowabunga.ipa Payload
