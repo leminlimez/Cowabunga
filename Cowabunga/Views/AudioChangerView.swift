@@ -49,6 +49,8 @@ struct AudioChangerView: View {
     
     @State private var isImporting: Bool = false
     
+    @State private var generated: Bool = false
+    
     var body: some View {
         VStack {
             List {
@@ -185,32 +187,36 @@ struct AudioChangerView: View {
             })
         }
         .onAppear {
-            appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
-            for (i, file) in audioFiles.enumerated() {
-                if file.audioName == appliedSound {
-                    audioFiles[i].checked = true
+            if !generated {
+                appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
+                for (i, file) in audioFiles.enumerated() {
+                    if file.audioName == appliedSound {
+                        audioFiles[i].checked = true
+                    }
                 }
-            }
-            
-            // get the included audio
-            for audioName in AudioFiles.ListOfAudio[SoundIdentifier.rawValue]! {
-                if audioName != "Default" {
+                
+                // get the included audio
+                for audioName in AudioFiles.ListOfAudio[SoundIdentifier.rawValue]! {
+                    if audioName != "Default" {
+                        var checked: Bool = false
+                        if audioName == appliedSound {
+                            checked = true
+                        }
+                        audioFiles.append(IncludedAudioName.init(attachments: [SoundIdentifier], audioName: audioName, checked: checked))
+                    }
+                }
+                
+                // get the custom audio
+                let customAudioTitles = AudioFiles.getCustomAudio()
+                for audio in customAudioTitles {
                     var checked: Bool = false
-                    if audioName == appliedSound {
+                    if audio == appliedSound {
                         checked = true
                     }
-                    audioFiles.append(IncludedAudioName.init(attachments: [SoundIdentifier], audioName: audioName, checked: checked))
+                    customAudio.append(CustomAudioName.init(audioName: audio, displayName: audio.replacingOccurrences(of: "USR_", with: ""), checked: checked))
                 }
-            }
-            
-            // get the custom audio
-            let customAudioTitles = AudioFiles.getCustomAudio()
-            for audio in customAudioTitles {
-                var checked: Bool = false
-                if audio == appliedSound {
-                    checked = true
-                }
-                customAudio.append(CustomAudioName.init(audioName: audio, displayName: audio.replacingOccurrences(of: "USR_", with: ""), checked: checked))
+                
+                generated = true
             }
         }
         .fileImporter(isPresented: $isImporting,
