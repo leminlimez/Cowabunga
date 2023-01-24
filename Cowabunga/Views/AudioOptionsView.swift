@@ -12,6 +12,7 @@ enum SoundCategory: String {
     case camera = "Camera"
     case messages = "Messages"
     case payment = "Payment"
+    case keyboard = "Keyboard"
 }
 
 struct AudioOptionsView: View {
@@ -48,6 +49,11 @@ struct AudioOptionsView: View {
         .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
         .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentFailed, title: "Payment Failed", imageName: "creditcard.trianglebadge.exclamationmark"),
         .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: "Payment Received", imageName: "square.and.arrow.down.on.square"),
+        
+        // Keyboard Category
+        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: "Key Press Click", imageName: "square"),
+        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: "Key Press Delete", imageName: "delete.left"),
+        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: "Key Press Modifier", imageName: "keyboard.badge.ellipsis"),
     ]
     
     var body: some View {

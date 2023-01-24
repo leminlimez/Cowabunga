@@ -34,6 +34,11 @@ class AudioFiles {
         case paymentSuccess = "PaymentSuccess"
         case paymentFailed = "PaymentFailed"
         case paymentReceived = "PaymentReceived"
+        
+        // Keyboard Sounds
+        case kbKeyClick = "KeyClick"
+        case kbKeyDel = "KeyDelete"
+        case kbKeyMod = "KeyModifier"
     }
     
     static var ListOfAudio: [String: [String]] = [:]
@@ -259,5 +264,10 @@ class AudioFiles {
         SoundEffect.paymentSuccess.rawValue: "UISounds/payment_success.caf",
         SoundEffect.paymentFailed.rawValue: "UISounds/payment_failure.caf",
         SoundEffect.paymentReceived.rawValue: "UISounds/PaymentReceived.caf",
+        
+        // Keyboard Sounds Paths
+        SoundEffect.kbKeyClick.rawValue: "UISounds/key_press_click.caf",
+        SoundEffect.kbKeyDel.rawValue: "UISounds/key_press_delete.caf",
+        SoundEffect.kbKeyMod.rawValue: "UISounds/key_press_modifier.caf",
     ]
 }
