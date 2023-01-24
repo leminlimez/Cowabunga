@@ -190,13 +190,15 @@ struct AudioChangerView: View {
                 audioFiles.append(IncludedAudioName.init(attachments: audios, audioName: "Default", checked: (appliedSound == "Default")))
                 
                 // get the included audio
-                for audioName in AudioFiles.ListOfAudio[SoundIdentifier.rawValue]! {
-                    if audioName != "Default" {
-                        var checked: Bool = false
-                        if audioName == appliedSound {
-                            checked = true
+                if AudioFiles.ListOfAudio[SoundIdentifier.rawValue] != nil {
+                    for audioName in AudioFiles.ListOfAudio[SoundIdentifier.rawValue]! {
+                        if audioName != "Default" {
+                            var checked: Bool = false
+                            if audioName == appliedSound {
+                                checked = true
+                            }
+                            audioFiles.append(IncludedAudioName.init(attachments: [SoundIdentifier], audioName: audioName, checked: checked))
                         }
-                        audioFiles.append(IncludedAudioName.init(attachments: [SoundIdentifier], audioName: audioName, checked: checked))
                     }
                 }
                 
