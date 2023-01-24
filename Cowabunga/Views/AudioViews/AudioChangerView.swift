@@ -175,7 +175,7 @@ struct AudioChangerView: View {
             Button(action: {
                 // import a custom audio
                 // allow the user to choose the file
-                isImporting = true
+                isImporting.toggle()
             }, label: {
                 Image(systemName: "square.and.arrow.down")
             })
@@ -215,7 +215,7 @@ struct AudioChangerView: View {
         }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
-                        .audio//.mp3, .wav, .init(filenameExtension: "m4a")!
+                        .audio
                       ],
                       allowsMultipleSelection: false
         ) { result in
@@ -251,6 +251,7 @@ struct AudioChangerView: View {
                             // add to the list
                             customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
                         } else {
+                            url.stopAccessingSecurityScopedResource()
                             UIApplication.shared.alert(body: "An unknown error occurred while saving the audio")
                         }
                     }
