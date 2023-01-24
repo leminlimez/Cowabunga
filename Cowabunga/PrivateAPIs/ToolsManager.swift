@@ -28,13 +28,22 @@ func respring() {
     }
 }
 
+enum SpringBoardOptions: String, CaseIterable {
+    case DockHidden = "DockHidden"
+    case HomeBarHidden = "HomeBarHidden"
+    case FolderBGHidden = "FolderBGHidden"
+    case FolderBlurDisabled = "FolderBlurDisabled"
+    case SwitcherBlurDisabled = "SwitcherBlurDisabled"
+    case ShortcutBannerDisabled = "ShortcutBannerDisabled"
+}
+
 let replacementPaths: [String: [String]] = [
-    "DockHidden": ["CoreMaterial.framework/dockDark.materialrecipe", "CoreMaterial.framework/dockLight.materialrecipe"],
-    "HomeBarHidden": ["MaterialKit.framework/Assets.car"],
-    "FolderBGHidden": ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
-    "FolderBlurDisabled": ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
-    "SwitcherBlurDisabled": ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
-    "ShortcutBannerDisabled": ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"],
+    SpringBoardOptions.DockHidden.rawValue: ["CoreMaterial.framework/dockDark.materialrecipe", "CoreMaterial.framework/dockLight.materialrecipe"],
+    SpringBoardOptions.HomeBarHidden.rawValue: ["MaterialKit.framework/Assets.car"],
+    SpringBoardOptions.FolderBGHidden.rawValue: ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
+    SpringBoardOptions.FolderBlurDisabled.rawValue: ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
+    SpringBoardOptions.SwitcherBlurDisabled.rawValue: ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
+    SpringBoardOptions.ShortcutBannerDisabled.rawValue: ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"],
 ]
 
 enum OverwritingFileTypes {
