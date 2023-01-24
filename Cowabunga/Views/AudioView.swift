@@ -25,35 +25,6 @@ struct AudioView: View {
         var active: Bool = false
     }
     
-    @State var audioOptions: [AudioOption] = [
-        // Device Category
-        .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.charging, title: "Charging", imageName: "bolt.fill"),
-        .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.lock, title: "Lock", imageName: "lock"),
-        .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.lowPower, title: "Low Power", imageName: "battery.25"),
-        .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.notification, title: "Default Notifications", imageName: "iphone.radiowaves.left.and.right"),
-        
-        // Camera Category
-        .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.screenshot, title: "Screenshot", imageName: "photo"),
-        .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.beginRecording, title: "Begin Recording", imageName: "record.circle"),
-        .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.endRecording, title: "End Recording", imageName: "stop"),
-        
-        // Messages Category
-        .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.sentMessage, title: "Sent Message", imageName: "bubble.right.fill"),
-        .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.receivedMessage, title: "Received Message", imageName: "bubble.left"),
-        .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.sentMail, title: "Sent Mail", imageName: "envelope"),
-        .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.newMail, title: "New Mail", imageName: "envelope.badge"),
-        
-        // Payment Category
-        .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
-        .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentFailed, title: "Payment Failed", imageName: "creditcard.trianglebadge.exclamationmark"),
-        .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: "Payment Received", imageName: "square.and.arrow.down.on.square"),
-        
-        // Keyboard Category
-        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: "Key Press Click", imageName: "square"),
-        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: "Key Press Delete", imageName: "delete.left"),
-        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: "Key Press Modifier", imageName: "keyboard.badge.ellipsis"),
-    ]
-    
     @State var audioCategories: [Category] = [
         .init(key: SoundCategory.device, title: "Device", imageName: "iphone"),
         .init(key: SoundCategory.camera, title: "Camera", imageName: "camera"),
@@ -85,23 +56,8 @@ struct AudioView: View {
                     }
                     Button(action: {
                         // apply the audio
-                        var failed: Bool = false
-                        for audioOption in audioOptions {
-                            // apply if not default
-                            let currentAudio: String = UserDefaults.standard.string(forKey: audioOption.key.rawValue+"_Applied") ?? "Default"
-                            if currentAudio != "Default" {
-                                overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audioOption.key.rawValue, currentAudio) { succeeded in
-                                    if succeeded {
-                                        print("successfully applied audio for " + audioOption.key.rawValue)
-                                    } else {
-                                        print("failed to apply audio for " + audioOption.key.rawValue)
-                                        failed = true
-                                    }
-                                }
-                            }
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                            if failed {
+                        AudioFiles.applyAllAudio() { succeeded in
+                            if !succeeded {
                                 UIApplication.shared.alert(body: "Failed to apply some custom audio!")
                             } else {
                                 UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")

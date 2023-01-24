@@ -19,14 +19,6 @@ struct HomeView: View {
         .init(key: "ShortcutBannerDisabled", fileType: OverwritingFileTypes.plist),
     ]
     
-    // list of audio options
-    @State var audioOptions: [AudioFiles.SoundEffect] = [
-        AudioFiles.SoundEffect.charging,
-        AudioFiles.SoundEffect.lock,
-        AudioFiles.SoundEffect.notification,
-        AudioFiles.SoundEffect.screenshot
-    ]
-    
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
@@ -259,22 +251,13 @@ struct HomeView: View {
         UIApplication.shared.change(title: "Applying audio tweaks...", body: "Please wait")
         var failedAudio: Bool = false
         // apply audio tweaks next
-        for option in audioOptions {
-            // get the user defaults
-            // apply if not default
-            let currentAudio: String = UserDefaults.standard.string(forKey: option.rawValue+"_Applied") ?? "Default"
-            if currentAudio != "Default" {
-                overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: option.rawValue, currentAudio) { succeeded in
-                    if succeeded {
-                        print("successfully applied audio for " + option.rawValue)
-                    } else {
-                        failedAudio = true
-                    }
-                }
+        AudioFiles.applyAllAudio() { succeeded in
+            if !succeeded {
+                failedAudio = true
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if failedSB && failedAudio {
                 UIApplication.shared.dismissAlert(animated: true)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
