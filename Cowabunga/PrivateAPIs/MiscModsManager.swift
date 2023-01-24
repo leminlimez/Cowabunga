@@ -188,7 +188,7 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
     }
 }
 
-func setModelName(value: String, completion: @escaping (Bool) -> Void) {
+/*func setModelName(value: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         do {
             let plistPath: String = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
@@ -237,6 +237,58 @@ func setModelName(value: String, completion: @escaping (Bool) -> Void) {
             }
         } catch {
             print("An error occurred setting the model name")
+            DispatchQueue.main.async {
+                completion(false)
+            }
+        }
+    }
+}*/
+
+func setRegion(completion: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: .userInteractive).async {
+        do {
+            let plistPath: String = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+            let plistData = try Data(contentsOf: URL(fileURLWithPath: plistPath))
+            let originalSize = plistData.count
+            
+            // open plist
+            var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+            
+            // modify values
+            if var firstLevel = plist["CacheExtra"] as? [String : Any], var secondLevel = firstLevel["h63QSdBCiT/z0WU6rdQv6Q"] as? String {
+                secondLevel = "LL"
+                firstLevel["h63QSdBCiT/z0WU6rdQv6Q"] = secondLevel
+                plist["CacheExtra"] = firstLevel
+            }
+            if var firstLevel = plist["CacheExtra"] as? [String : Any], var secondLevel = firstLevel["zHeENZu+wbg7PUprwNwBWg"] as? String {
+                secondLevel = "LL/A"
+                firstLevel["zHeENZu+wbg7PUprwNwBWg"] = secondLevel
+                plist["CacheExtra"] = firstLevel
+            }
+            
+            // create the new data
+            var newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+            
+            // check the size and apply
+            if newData.count == originalSize {
+                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: "com.apple.MobileGestalt.plist", replacementData: newData)
+                if succeeded {
+                    UIApplication.shared.alert(title: "Successfully applied region", body: "Respring and see if it worked")
+                } else {
+                    UIApplication.shared.alert(body: "Could not overwrite region file")
+                }
+                DispatchQueue.main.async {
+                    completion(succeeded)
+                }
+            } else {
+                UIApplication.shared.alert(body: "The file sizes did not match!")
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        } catch {
+            print("An error occurred while setting region")
+            UIApplication.shared.alert(body: "An error occurred while setting region")
             DispatchQueue.main.async {
                 completion(false)
             }
