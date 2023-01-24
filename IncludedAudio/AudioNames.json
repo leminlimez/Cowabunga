@@ -22,8 +22,7 @@
         },
         {
             "name": "Windows_XP",
-            "attachments": ["Lock"],
-            "isBeta": "true"
+            "attachments": ["Lock"]
         },
         {
             "name": "Samsung",
