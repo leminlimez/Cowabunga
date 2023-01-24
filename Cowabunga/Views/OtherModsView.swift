@@ -227,7 +227,7 @@ struct OtherModsView: View {
                         }
                         
                         // region restrictions
-                        HStack {
+                        /*HStack {
                             Image(systemName: "ipodtouch")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -247,7 +247,7 @@ struct OtherModsView: View {
                             })
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
-                        }
+                        }*/
                         
                         // device subtype
                         HStack {
