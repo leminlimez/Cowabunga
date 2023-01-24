@@ -32,12 +32,14 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
+        // default
         .init(attachments: [
             AudioFiles.SoundEffect.charging, AudioFiles.SoundEffect.lock, AudioFiles.SoundEffect.lowPower, AudioFiles.SoundEffect.notification,
             AudioFiles.SoundEffect.screenshot, AudioFiles.SoundEffect.beginRecording, AudioFiles.SoundEffect.endRecording,
             AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.sentMail, AudioFiles.SoundEffect.newMail,
             AudioFiles.SoundEffect.paymentSuccess, AudioFiles.SoundEffect.paymentFailed, AudioFiles.SoundEffect.paymentReceived
         ], audioName: "Default", checked: false),
+        // off
     ]
     
     // list of custom audio files
