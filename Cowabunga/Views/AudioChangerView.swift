@@ -32,14 +32,6 @@ struct AudioChangerView: View {
     
     // list of included audio files
     @State var audioFiles: [IncludedAudioName] = [
-        // default
-        .init(attachments: [
-            AudioFiles.SoundEffect.charging, AudioFiles.SoundEffect.lock, AudioFiles.SoundEffect.lowPower, AudioFiles.SoundEffect.notification,
-            AudioFiles.SoundEffect.screenshot, AudioFiles.SoundEffect.beginRecording, AudioFiles.SoundEffect.endRecording,
-            AudioFiles.SoundEffect.sentMessage, AudioFiles.SoundEffect.receivedMessage, AudioFiles.SoundEffect.sentMail, AudioFiles.SoundEffect.newMail,
-            AudioFiles.SoundEffect.paymentSuccess, AudioFiles.SoundEffect.paymentFailed, AudioFiles.SoundEffect.paymentReceived
-        ], audioName: "Default", checked: false),
-        // off
     ]
     
     // list of custom audio files
@@ -191,11 +183,11 @@ struct AudioChangerView: View {
         .onAppear {
             if !generated {
                 appliedSound = UserDefaults.standard.string(forKey: SoundIdentifier.rawValue+"_Applied") ?? "Default"
-                for (i, file) in audioFiles.enumerated() {
-                    if file.audioName == appliedSound {
-                        audioFiles[i].checked = true
-                    }
-                }
+                // add off
+                let audios: [AudioFiles.SoundEffect] = AudioFiles.SoundEffect.allCases
+                audioFiles.append(IncludedAudioName.init(attachments: audios, audioName: "Off", checked: (appliedSound == "Off")))
+                // add default
+                audioFiles.append(IncludedAudioName.init(attachments: audios, audioName: "Default", checked: (appliedSound == "Default")))
                 
                 // get the included audio
                 for audioName in AudioFiles.ListOfAudio[SoundIdentifier.rawValue]! {
