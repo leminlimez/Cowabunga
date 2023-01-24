@@ -226,6 +226,29 @@ struct OtherModsView: View {
                             }
                         }
                         
+                        // region restrictions
+                        HStack {
+                            Image(systemName: "ipodtouch")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                            
+                            
+                            Text("Region Restrictions")
+                                .minimumScaleFactor(0.5)
+                            
+                            Spacer()
+                            
+                            Button("Test", action: {
+                                setRegion() { succeeded in
+                                    print(succeeded)
+                                }
+                            })
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        }
+                        
                         // device subtype
                         HStack {
                             Image(systemName: "ipodtouch")
