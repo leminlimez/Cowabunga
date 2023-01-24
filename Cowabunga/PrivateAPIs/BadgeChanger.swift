@@ -5,7 +5,7 @@
 //  Created by exerhythm on 16.10.2022.
 //
 
-/*import UIKit
+import UIKit
 import Dynamic
 
 class BadgeChanger {
@@ -13,23 +13,14 @@ class BadgeChanger {
         let radius = max(1, radius)
         let badge: UIImage = try UIImage.circle(radius: UIDevice.current.userInterfaceIdiom == .pad ? radius * 2 : radius, color: color)
         let badgeBitmapPath = "/var/mobile/Library/Caches/MappedImageCache/Persistent/SBIconBadgeView.BadgeBackground:26:26.cpbitmap"
-        try? FileManager.default.removeItem(atPath: badgeBitmapPath)
-        
-        badge.writeToCPBitmapFile(to: badgeBitmapPath as NSString)
-    }
-    
-    static func change(to image: UIImage) throws {
-        let size = CGSize(width: 26, height: 26)
-        
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        image.draw(in: CGRect(origin: CGPoint.zero, size: size))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        let badgeBitmapPath = "/var/mobile/Library/Caches/MappedImageCache/Persistent/SBIconBadgeView.BadgeBackground:26:26.cpbitmap"
-        try? FileManager.default.removeItem(atPath: badgeBitmapPath)
-
-        resizedImage.writeToCPBitmapFile(to: badgeBitmapPath as NSString)
+        // create the temp data
+        let temporaryDirectoryURL = FileManager.default.temporaryDirectory
+        let newFile = temporaryDirectoryURL.appendingPathComponent("TEMP_SBIconBadgeView.BadgeBackground:26:26.cpbitmap")
+        badge.writeToCPBitmapFile(to: newFile.path as NSString)
+        // get the data created
+        let newData = try Data(contentsOf: newFile)
+        // overwrite
+        let success = overwriteFileWithDataImpl(originPath: badgeBitmapPath, backupName: "SBIconBadgeView.BadgeBackground:26:26.cpbitmap", replacementData: newData)
     }
 }
 
@@ -73,4 +64,4 @@ extension UIImage {
 
 extension String: LocalizedError {
     public var errorDescription: String? { return self }
-}*/
+}
