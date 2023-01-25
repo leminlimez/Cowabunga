@@ -107,7 +107,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             for path in replacementPaths[fileIdentifier]! {
                 let randomGarbage = Data("###".utf8)
                 DispatchQueue.global(qos: .userInteractive).async {
-                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: randomGarbage)
+                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: randomGarbage)
                 }
             }
             DispatchQueue.main.async {
@@ -123,7 +123,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 // disable the audio
                 let randomGarbage = Data("###".utf8)
                 DispatchQueue.global(qos: .userInteractive).async {
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: randomGarbage)
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: randomGarbage)
                     DispatchQueue.main.async {
                         completion(succeeded)
                     }
@@ -132,12 +132,12 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 // replace the audio data
                 let newData = AudioFiles.getNewAudioData(soundName: value as! String)
                 if newData != nil {
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: newData!)
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: newData!)
                     DispatchQueue.main.async {
                         completion(succeeded)
                     }
                 } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, backupName: path!, replacementData: customAudioData)
+                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: customAudioData)
                     DispatchQueue.main.async {
                         completion(succeeded)
                     }
@@ -164,7 +164,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             // overwrite the plist
             let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
             
-            let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, backupName: path, replacementData: newData)
+            let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: newData)
             DispatchQueue.main.async {
                 completion(succeeded)
             }
@@ -176,7 +176,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         
         for dev in devices {
             let newData: Data = Data(base64Encoded: regionEncodes[dev]!)!
-            succeeded = succeeded && overwriteFileWithDataImpl(originPath: startPath + dev + ".txt", backupName: "RegionFeatures_"+dev+".txt", replacementData: newData)
+            succeeded = succeeded && overwriteFileWithDataImpl(originPath: startPath + dev + ".txt", replacementData: newData)
         }
         DispatchQueue.main.async {
             completion(succeeded)
@@ -188,7 +188,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
 // The font must be specially prepared so that it skips past the last byte in every 16KB page.
 // See BrotliPadding.swift for an implementation that adds this padding to WOFF2 fonts.
 // credit: FontOverwrite
-func overwriteFileWithDataImpl(originPath: String, backupName: String, replacementData: Data) -> Bool {
+func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Bool {
 #if false
     let documentDirectory = FileManager.default.urls(
         for: .documentDirectory,
@@ -196,7 +196,7 @@ func overwriteFileWithDataImpl(originPath: String, backupName: String, replaceme
     )[0].path
     
     let pathToRealTarget = originPath
-    let originPath = documentDirectory + backupName
+    let originPath = documentDirectory + originPath
     let origData = try! Data(contentsOf: URL(fileURLWithPath: pathToRealTarget))
     try! origData.write(to: URL(fileURLWithPath: originPath))
 #endif

@@ -30,7 +30,7 @@ func setProductVersion(newVersion: String, completion: @escaping (Bool) -> Void)
             completion(false)
             return
         }
-        let succeeded = overwriteFileWithDataImpl(originPath: filePath, backupName: "CoreServices/SystemVersion.plist", replacementData: plistData)
+        let succeeded = overwriteFileWithDataImpl(originPath: filePath, replacementData: plistData)
         DispatchQueue.main.async {
             completion(succeeded)
         }
@@ -97,7 +97,7 @@ func getPlistIntValue(plistPath: String, key: String) -> Int {
     return getDictValue(plist, key)
 }
 
-func setPlistValue(plistPath: String, backupName: String, key: String, value: String, completion: @escaping (Bool) -> Void) {
+func setPlistValue(plistPath: String, key: String, value: String, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
         let originalSize = stringsData.count
@@ -126,7 +126,7 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
             
             if newData.count == originalSize {
                 
-                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
+                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
                 DispatchQueue.main.async {
                     completion(succeeded)
                 }
@@ -150,7 +150,7 @@ func setPlistValue(plistPath: String, backupName: String, key: String, value: St
     }
 }
 
-func setPlistValueInt(plistPath: String, backupName: String, key: String, value: Int, completion: @escaping (Bool) -> Void) {
+func setPlistValueInt(plistPath: String, key: String, value: Int, completion: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: .userInteractive).async {
         let stringsData = try! Data(contentsOf: URL(fileURLWithPath: plistPath))
         
@@ -175,7 +175,7 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
         // overwrite the plist
         let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
         if newData.count == stringsData.count {
-            let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: backupName, replacementData: newData)
+            let succeeded = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
             DispatchQueue.main.async {
                 completion(succeeded)
             }
@@ -225,7 +225,7 @@ func setPlistValueInt(plistPath: String, backupName: String, key: String, value:
             
             // overwrite the plist
             if newDataSize == originalSize {
-                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: "com.apple.MobileGestalt.plist", replacementData: newData)
+                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
                 DispatchQueue.main.async {
                     completion(succeeded)
                 }
@@ -286,7 +286,7 @@ func setRegion(completion: @escaping (Bool) -> Void) {
                 
                 // check the size and apply
                 if newData.count == originalSize {
-                    let succeeded = overwriteFileWithDataImpl(originPath: plistPath, backupName: "com.apple.MobileGestalt.plist", replacementData: newData)
+                    let succeeded = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
                     if succeeded {
                         UIApplication.shared.alert(title: "Successfully applied region", body: "Respring and see if it worked")
                     } else {
@@ -373,7 +373,7 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                 }
                 if newDataSize == originalSize {
                     // apply
-                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, backupName: url.lastPathComponent, replacementData: newData)
+                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, replacementData: newData)
                 }
             }
             

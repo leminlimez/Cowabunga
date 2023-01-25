@@ -282,7 +282,7 @@ struct OtherModsView: View {
                                     if !type.iOS16Only ||  iOS16 {
                                         let newAction = UIAlertAction(title: type.title + " (" + String(type.key) + ")", style: .default) { (action) in
                                             // apply the type
-                                            setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", backupName: "com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key) { succeeded in
+                                            setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key) { succeeded in
                                                 if succeeded {
                                                     CurrentSubType = type.key
                                                     CurrentSubTypeDisplay = type.title
