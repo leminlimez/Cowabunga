@@ -274,8 +274,8 @@ class AudioFiles {
         
         // Camera Sounds Paths
         SoundEffect.screenshot.rawValue: "UISounds/photoShutter.caf",
-        SoundEffect.beginRecording.rawValue: "UISounds/begin_recording.caf",
-        SoundEffect.endRecording.rawValue: "UISounds/end_recording.caf",
+        SoundEffect.beginRecording.rawValue: "UISounds/begin_record.caf",
+        SoundEffect.endRecording.rawValue: "UISounds/end_record.caf",
         
         // Messages Sounds Paths
         SoundEffect.sentMessage.rawValue: "UISounds/SentMessage.caf",
