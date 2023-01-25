@@ -62,7 +62,7 @@ extension UIApplication {
             if !noCancel {
                 currentUIAlertController?.addAction(.init(title: "Cancel", style: .cancel))
             }
-            currentUIAlertController?.addAction(.init(title: "OK", style: noCancel ? .cancel : .default, handler: { _ in
+            currentUIAlertController?.addAction(.init(title: "Ok", style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
             }))
             self.present(alert: currentUIAlertController!)

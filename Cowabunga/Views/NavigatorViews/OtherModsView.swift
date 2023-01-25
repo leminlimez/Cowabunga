@@ -301,6 +301,27 @@ struct OtherModsView: View {
                                         }
                                     }
                                     
+                                    let resetAction = UIAlertAction(title: "Reset Default SubType", style: .destructive) { (action) in
+                                        // resets the device subtype
+                                        UIApplication.shared.confirmAlert(title: "Are you sure you want to reset the Default SubType?", body: "You should only reset the Default SubType if it is incorrect or stuck on another value.", onOK: {
+                                            // reset the subtypes
+                                            let succeeded: Bool = resetDeviceSubType()
+                                            if succeeded {
+                                                // successfully reset
+                                                UIApplication.shared.alert(title: "Successfully reset the Default SubType!", body: "The Default SubType should now be accurate to your device.")
+                                            } else {
+                                                // failed to apply
+                                                let newUIAlert = UIAlertController(title: "Failed to determine Default SubType!", message: "Please submit an issue on github and include your device model.", preferredStyle: .alert)
+                                                newUIAlert.addAction(.init(title: "Ok", style: .cancel))
+                                                newUIAlert.addAction(.init(title: "Submit Issue", style: .default, handler: { _ in
+                                                    // send them to the issues page
+                                                    UIApplication.shared.open(URL(string: "https://github.com/leminlimez/Cowabunga/issues")!)
+                                                }))
+                                                UIApplication.shared.present(alert: newUIAlert)
+                                            }
+                                        }, noCancel: false)
+                                    }
+                                    
                                     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
                                         // cancels the action
                                     }

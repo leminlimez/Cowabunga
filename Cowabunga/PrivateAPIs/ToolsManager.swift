@@ -69,6 +69,7 @@ func resetDeviceSubType() -> Bool {
     for (i, v) in canUseStandardMethod.enumerated() {
         canUseStandardMethod[i] = "iPhone" + v
     }
+    // change to a json file and fetch from github
     let specialCases: [String: Int] = [
         "iPhone9,1": 569, // iPhone 7
         "iPhone9,3": 569, // iPhone 7
