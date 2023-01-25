@@ -50,14 +50,8 @@ class BackgroundFileUpdaterController: ObservableObject {
             }
             
             // apply to audios
-            let needsUpdates: [AudioFiles.SoundEffect] = [AudioFiles.SoundEffect.lock]
-            for audio in needsUpdates {
-                let appliedSound = UserDefaults.standard.string(forKey: audio.rawValue+"_Applied") ?? "Default"
-                if appliedSound != "Default" {
-                    overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audio.rawValue, appliedSound) { succeeded in
-                        // success
-                    }
-                }
+            AudioFiles.applyAllAudio() { succeeded in
+                // success
             }
         }
     }
