@@ -327,6 +327,7 @@ struct OtherModsView: View {
                                     }
                                     
                                     // add the actions
+                                    alert.addAction(resetAction)
                                     alert.addAction(cancelAction)
                                     
                                     let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
