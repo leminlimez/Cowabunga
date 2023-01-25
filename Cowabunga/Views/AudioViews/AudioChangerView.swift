@@ -249,7 +249,7 @@ struct AudioChangerView: View {
                             // success
                             UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
                             // add to the list
-                            customAudio.append(CustomAudioName.init(audioName: fileName, displayName: fileName.replacingOccurrences(of: "USR_", with: ""), checked: false))
+                            customAudio.append(CustomAudioName.init(audioName: "USR_" + fileName, displayName: fileName, checked: false))
                             url.stopAccessingSecurityScopedResource()
                         } else {
                             url.stopAccessingSecurityScopedResource()
@@ -266,28 +266,27 @@ struct AudioChangerView: View {
     }
     
     func previewAudio(audioName: String) {
-        // check if file is already in temp directory
-        let temporaryDirectoryURL = FileManager.default.temporaryDirectory
-        var newURL = temporaryDirectoryURL.appendingPathComponent(audioName+".m4a")
+        // get the directory of the file
+        var newURL: URL?
         if audioName.starts(with: "USR_") {
-            newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent(audioName+".m4a")
-        } else if !FileManager.default.fileExists(atPath: temporaryDirectoryURL.path + "/" + audioName + ".m4a") {
-            do {
-                if FileManager.default.fileExists(atPath: AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName+".m4a").path) {
-                    newURL = AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName+".m4a")
-                }
-            }
+            newURL = AudioFiles.getAudioDirectory()!.appendingPathComponent(audioName + ".m4a")
+        } else if audioName != "Default" && audioName != "Off" {
+            newURL = AudioFiles.getIncludedAudioDirectory()!.appendingPathComponent(audioName + ".m4a")
         }
         
         // play the audio
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: newURL, fileTypeHint: AVFileType.m4a.rawValue)
-            guard let player = player else { return }
-            
-            player.play()
+            if newURL != nil {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                
+                player = try AVAudioPlayer(contentsOf: newURL!, fileTypeHint: AVFileType.m4a.rawValue)
+                guard let player = player else { return }
+                
+                player.play()
+            } else {
+                print("Could not get audio file URL")
+            }
         } catch {
             print("Error playing audio file")
             print(error.localizedDescription)
