@@ -72,10 +72,13 @@ func resetDeviceSubType() -> Bool {
     let specialCases: [String: Int] = [
         "iPhone9,1": 569, // iPhone 7
         "iPhone9,3": 569, // iPhone 7
+        "iPhone9,2": 570, // iPhone 7 Plus
+        "iPhone9,4": 570, // iPhone 7 Plus
         "iPhone10,1": 569, // iPhone 8
         "iPhone10,4": 569, // iPhone 8
         "iPhone10,2": 570, // iPhone 8 Plus
         "iPhone10,5": 570, // iPhone 8 Plus
+        "iPhone14,6": 569, // iPhone SE (3rd generation)
     ]
     
     var deviceSubType: Int = -1
