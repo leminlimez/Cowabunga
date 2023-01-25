@@ -16,6 +16,7 @@ Features:
 - Remove regional Restrictions
 - Disable app switcher blur
 - Custom sound effects
+- Carrier changer
 - Change system version (shows in settings, iOS 15+)
 - Enable iPhone X Gestures
 - Enable Dynamic Island (iOS 16+)
