@@ -309,6 +309,12 @@ struct OtherModsView: View {
                                             if succeeded {
                                                 // successfully reset
                                                 UIApplication.shared.alert(title: "Successfully reset the Default SubType!", body: "The Default SubType should now be accurate to your device.")
+                                                // set the new
+                                                for (i, v) in deviceSubTypes.enumerated() {
+                                                    if v.title == "Default" {
+                                                        deviceSubTypes[i].key = getOriginalDeviceSubType()
+                                                    }
+                                                }
                                             } else {
                                                 // failed to apply
                                                 let newUIAlert = UIAlertController(title: "Failed to determine Default SubType!", message: "Please submit an issue on github and include your device model.", preferredStyle: .alert)
