@@ -82,7 +82,7 @@ struct AudioChangerView: View {
                                         UserDefaults.standard.set(appliedSound, forKey: SoundIdentifier.rawValue+"_Applied")
                                     }
                                     // preview the sound
-                                    if audio.audioName.wrappedValue != "Default" {
+                                    if audio.audioName.wrappedValue != "Default" && audio.audioName.wrappedValue != "Off" {
                                         previewAudio(audioName: audio.audioName.wrappedValue)
                                     }
                                 })
