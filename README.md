@@ -1,22 +1,30 @@
 # Cowabunga
-A Jailed toolbox application for iOS 14.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
+A Jailed toolbox application for iOS 14.0-15.7.1 and 16.0-16.1.2 using [CVE-2022-46689](https://support.apple.com/en-us/HT213530).
 
-Enable Notifications and set Location Services to Always to keep the app running in the background and keep the dock hidden.
+Enable Notifications and set Location Services to **Always** to keep the app running in the background, keep the dock and folder background hidden, and prevent some sound effects from reverting.
 
 Warning: Some changes are permanent on iOS 14.0-14.8.1
 
 IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
 
-This is my first solo app made with Xcode!
+## Features
+- Running in the background to keep some changes from reverting
+    - From running tests, battery loss is negligible (~1% per day on frequent), but that may very
 
-Features:
+**Springboard
 - Hide dock
 - Hide home bar
 - Hide folder backgrounds
-- Remove regional Restrictions
+- Disable folder background blur
 - Disable app switcher blur
+
+**Audio
 - Custom sound effects
-- Carrier changer
+- Upload your own sounds (nearly every audio format allowed!)
+
+**Misc
+- Custom carrier name
+Warning: Use the features below at your own risk!
 - Change system version (shows in settings, iOS 15+)
 - Enable iPhone X Gestures
 - Enable Dynamic Island (iOS 16+)
@@ -25,18 +33,16 @@ Features:
 <img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/> <img src="/Images/Misc.PNG" width="300" height="650"/>
 
 ## Installing
-You can install through AltStore or TrollStore (if your device supports it)
+You can install through AltStore, Sideloadly, Xcode, or TrollStore (if your device supports it)
 
 ## Building
-Just build like a normal xCode project. There are no extra entitlements needed. You can also build the IPA file with `build.command`.
+Just build like a normal xCode project. Sign using your own team and bundle identifier. You can also build the IPA file with `build.command`.
 
 ## Credits
-- [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command.
+- [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command, carrier changer logic, alerts UI, and update inbounds message.
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
-- [SourceLocation](https://github.com/sourcelocation) for the redesigned springboard UI.
+- [SourceLocation](https://github.com/sourcelocation) for the redesigned springboard UI and background services.
 - [BomberFish](https://github.com/BomberFish) for AirPower sound.
-- [c22dev](https://github.com/c22dev) for adding custom audio importing encoding, fixing AirPower, and presets audios.
+- [c22dev](https://github.com/c22dev) for fixing AirPower and some included audios.
 - [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function.
 - [Evyrest](https://github.com/sourcelocation/Evyrest) for location based background running.
-- [mineek](https://twitter.com/mineekdev) and [SantanderMacDirtyCow](https://github.com/mineek/SantanderMacDirtyCow) for providing me with an initial code basis.
-- [dayanch96](https://www.reddit.com/user/dayanch96/) for DockHider v3.0.0-v4.0.1 app icon.
