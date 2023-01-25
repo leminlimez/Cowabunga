@@ -70,7 +70,7 @@ func resetDeviceSubType() -> Bool {
         canUseStandardMethod[i] = "iPhone" + v
     }
     // change to a json file and fetch from github
-    let specialCases: [String: Int] = [
+    /*let specialCases: [String: Int] = [
         "iPhone9,1": 569, // iPhone 7
         "iPhone9,3": 569, // iPhone 7
         "iPhone9,2": 570, // iPhone 7 Plus
@@ -80,15 +80,37 @@ func resetDeviceSubType() -> Bool {
         "iPhone10,2": 570, // iPhone 8 Plus
         "iPhone10,5": 570, // iPhone 8 Plus
         "iPhone14,6": 569, // iPhone SE (3rd generation)
-    ]
+    ]*/
     
     var deviceSubType: Int = -1
-    let deviceModel = machineName()
+    let deviceModel: String = machineName()
     if canUseStandardMethod.contains(deviceModel) {
         // can use device bounds
         deviceSubType = Int(UIScreen.main.nativeBounds.height)
-    } else if specialCases[deviceModel] != nil {
-        deviceSubType = specialCases[deviceModel]!
+    } else {//else if specialCases[deviceModel] != nil {
+        //deviceSubType = specialCases[deviceModel]!
+        let url: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/DefaultSubTypes.json")
+        if url != nil {
+            // get the data of the file
+            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+                guard let data = data else {
+                    print("No data to decode")
+                    return
+                }
+                guard let subtypeData = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                    print("Couldn't decode json data")
+                    return
+                }
+                
+                // check if all the files exist
+                if  let subtypeData = subtypeData as? Dictionary<String, AnyObject>, let deviceTypes = subtypeData["Default_SubTypes"] as? [String: Int] {
+                    if deviceTypes[deviceModel] != nil {
+                        // successfully found subtype
+                        deviceSubType = deviceTypes[deviceModel] ?? -1
+                    }
+                }
+            }
+        }
     }
     
     // set the subtype
