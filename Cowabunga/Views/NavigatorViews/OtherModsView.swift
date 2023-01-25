@@ -254,69 +254,71 @@ struct OtherModsView: View {
                         }*/
                         
                         // device subtype
-                        HStack {
-                            Image(systemName: "ipodtouch")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                            
-                            
-                            Text("Device SubType")
-                                .minimumScaleFactor(0.5)
-                            
-                            Spacer()
-                            
-                            Button(CurrentSubTypeDisplay, action: {
-                                // create and configure alert controller
-                                let alert = UIAlertController(title: "Choose a device subset", message: "Respring to see changes", preferredStyle: .actionSheet)
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            HStack {
+                                Image(systemName: "ipodtouch")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
                                 
-                                var iOS16 = false
-                                if #available(iOS 16, *) {
-                                    iOS16 = true
-                                }
                                 
-                                // create the actions
+                                Text("Device SubType")
+                                    .minimumScaleFactor(0.5)
                                 
-                                for type in deviceSubTypes {
-                                    if !type.iOS16Only ||  iOS16 {
-                                        let newAction = UIAlertAction(title: type.title + " (" + String(type.key) + ")", style: .default) { (action) in
-                                            // apply the type
-                                            setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key) { succeeded in
-                                                if succeeded {
-                                                    CurrentSubType = type.key
-                                                    CurrentSubTypeDisplay = type.title
-                                                    UIApplication.shared.alert(title: "Success!", body: "Please respring on the SpringBoard Tools page to finish applying changes.")
-                                                } else {
-                                                    UIApplication.shared.alert(body: "Failed to apply DeviceSubType!")
+                                Spacer()
+                                
+                                Button(CurrentSubTypeDisplay, action: {
+                                    // create and configure alert controller
+                                    let alert = UIAlertController(title: "Choose a device subset", message: "Respring to see changes", preferredStyle: .actionSheet)
+                                    
+                                    var iOS16 = false
+                                    if #available(iOS 16, *) {
+                                        iOS16 = true
+                                    }
+                                    
+                                    // create the actions
+                                    
+                                    for type in deviceSubTypes {
+                                        if !type.iOS16Only ||  iOS16 {
+                                            let newAction = UIAlertAction(title: type.title + " (" + String(type.key) + ")", style: .default) { (action) in
+                                                // apply the type
+                                                setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key) { succeeded in
+                                                    if succeeded {
+                                                        CurrentSubType = type.key
+                                                        CurrentSubTypeDisplay = type.title
+                                                        UIApplication.shared.alert(title: "Success!", body: "Please respring on the SpringBoard Tools page to finish applying changes.")
+                                                    } else {
+                                                        UIApplication.shared.alert(body: "Failed to apply DeviceSubType!")
+                                                    }
                                                 }
                                             }
+                                            if CurrentSubType == type.key {
+                                                // add a check mark
+                                                newAction.setValue(true, forKey: "checked")
+                                            }
+                                            alert.addAction(newAction)
                                         }
-                                        if CurrentSubType == type.key {
-                                            // add a check mark
-                                            newAction.setValue(true, forKey: "checked")
-                                        }
-                                        alert.addAction(newAction)
                                     }
-                                }
-                                
-                                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                                    // cancels the action
-                                }
-                                
-                                // add the actions
-                                alert.addAction(cancelAction)
-                                
-                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                                // present popover for iPads
-                                alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                                alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                                
-                                // present the alert
-                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
-                            })
-                            .foregroundColor(.blue)
-                            .padding(.leading, 10)
+                                    
+                                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                        // cancels the action
+                                    }
+                                    
+                                    // add the actions
+                                    alert.addAction(cancelAction)
+                                    
+                                    let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                    // present popover for iPads
+                                    alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                    alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                    
+                                    // present the alert
+                                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                                })
+                                .foregroundColor(.blue)
+                                .padding(.leading, 10)
+                            }
                         }
                     } header: {
                         Text("Use at your own risk")
