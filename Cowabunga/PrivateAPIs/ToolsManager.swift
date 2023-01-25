@@ -53,6 +53,50 @@ enum OverwritingFileTypes {
     case region
 }
 
+// reset the device subtype
+func resetDeviceSubType() -> Bool {
+    func machineName() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        return machineMirror.children.reduce("") { identifier, element in
+        guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+    }
+    
+    var canUseStandardMethod: [String] = ["10,3", "10,4", "10,6", "11,2", "11,4", "11,6", "11,8", "12,1", "12,3", "12,5", "13,1", "13,2", "13,3", "13,4", "14,4", "14,5", "14,2", "14,3", "14,7", "14,8", "15,2"]
+    for (i, v) in canUseStandardMethod.enumerated() {
+        canUseStandardMethod[i] = "iPhone" + v
+    }
+    let specialCases: [String: Int] = [
+        "iPhone9,1": 569, // iPhone 7
+        "iPhone9,3": 569, // iPhone 7
+        "iPhone10,1": 569, // iPhone 8
+        "iPhone10,4": 569, // iPhone 8
+        "iPhone10,2": 570, // iPhone 8 Plus
+        "iPhone10,5": 570, // iPhone 8 Plus
+    ]
+    
+    var deviceSubType: Int = -1
+    let deviceModel = machineName()
+    if canUseStandardMethod.contains(deviceModel) {
+        // can use device bounds
+        deviceSubType = Int(UIScreen.main.nativeBounds.height)
+    } else if specialCases[deviceModel] != nil {
+        deviceSubType = specialCases[deviceModel]!
+    }
+    
+    // set the subtype
+    if deviceSubType > 0 {
+        UserDefaults.standard.set(deviceSubType, forKey: "OriginalDeviceSubType")
+        return true
+    } else {
+        print("Could not get the device subtype")
+    }
+    return false
+}
+
 func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value, completion: @escaping (Bool) -> Void) {
     // find the path and replace the file
     // springboard option
