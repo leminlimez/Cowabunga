@@ -38,21 +38,15 @@ class BackgroundFileUpdaterController: ObservableObject {
             // apply the dock and folder
             // apply the dock
             if UserDefaults.standard.bool(forKey: "DockHidden") == true {
-                overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "DockHidden", true) { succceeded in
-                    // success
-                }
+                let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "DockHidden", true)
             }
             // apply the folder
             if UserDefaults.standard.bool(forKey: "FolderBGHidden") == true {
-                overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBGHidden", true) { succceeded in
-                    // success
-                }
+                let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBGHidden", true)
             }
             
             // apply to audios
-            AudioFiles.applyAllAudio() { succeeded in
-                // success
-            }
+            let _ = AudioFiles.applyAllAudio()
         }
     }
 }

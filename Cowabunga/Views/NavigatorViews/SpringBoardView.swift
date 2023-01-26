@@ -116,13 +116,12 @@ struct SpringBoardView: View {
                 //  apply tweak
                 if option.value == true {
                     print("Applying tweak \"" + option.title + "\"")
-                    overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value) { succeeded in
-                        if succeeded {
-                            print("Successfully applied tweak \"" + option.title + "\"")
-                        } else {
-                            print("Failed to apply tweak \"" + option.title + "\"!!!")
-                            failed = true
-                        }
+                    let succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value)
+                    if succeeded {
+                        print("Successfully applied tweak \"" + option.title + "\"")
+                    } else {
+                        print("Failed to apply tweak \"" + option.title + "\"!!!")
+                        failed = true
                     }
                 }
             }

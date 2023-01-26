@@ -117,7 +117,7 @@ func resetDeviceSubType() -> Bool {
     return false
     }
 
-func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value, completion: @escaping (Bool) -> Void) {
+func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value) -> Bool {
     // find the path and replace the file
     // springboard option
     if typeOfFile == OverwritingFileTypes.springboard {
@@ -126,13 +126,9 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
                 let randomGarbage = Data("###".utf8)
-                DispatchQueue.global(qos: .userInteractive).async {
-                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: randomGarbage)
-                }
+                succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: randomGarbage)
             }
-            DispatchQueue.main.async {
-                completion(succeeded)
-            }
+            return succeeded
         }
     
     // audio option
@@ -142,33 +138,19 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             if value as! String == "Off" {
                 // disable the audio
                 let randomGarbage = Data("###".utf8)
-                DispatchQueue.global(qos: .userInteractive).async {
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: randomGarbage)
-                    DispatchQueue.main.async {
-                        completion(succeeded)
-                    }
-                }
+                return overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: randomGarbage)
             } else {
                 // replace the audio data
                 let newData = AudioFiles.getNewAudioData(soundName: value as! String)
                 if newData != nil {
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: newData!)
-                    DispatchQueue.main.async {
-                        completion(succeeded)
-                    }
+                    return overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: newData!)
                 } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
-                    let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: customAudioData)
-                    DispatchQueue.main.async {
-                        completion(succeeded)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completion(false)
-                    }
+                    return overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: customAudioData)
                 }
             }
         }
     
+    // modifying a plist
     } else if typeOfFile == OverwritingFileTypes.plist {
         if replacementPaths[fileIdentifier] != nil {
             let path: String = replacementPaths[fileIdentifier]![0]
@@ -184,10 +166,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             // overwrite the plist
             let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
             
-            let succeeded = overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: newData)
-            DispatchQueue.main.async {
-                completion(succeeded)
-            }
+            return overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: newData)
         }
     } else if typeOfFile == OverwritingFileTypes.region {
         let startPath = "/Library/RegionFeatures/RegionFeatures_"
@@ -198,10 +177,9 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             let newData: Data = Data(base64Encoded: regionEncodes[dev]!)!
             succeeded = succeeded && overwriteFileWithDataImpl(originPath: startPath + dev + ".txt", replacementData: newData)
         }
-        DispatchQueue.main.async {
-            completion(succeeded)
-        }
+        return succeeded
     }
+    return false
 }
 
 // Overwrite the system font with the given font using CVE-2022-46689.

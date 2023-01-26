@@ -237,13 +237,12 @@ struct HomeView: View {
             let value: Bool = UserDefaults.standard.bool(forKey: option.key)
             if value == true {
                 print("Applying tweak \"" + option.key + "\"")
-                overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, value) { succeeded in
-                    if succeeded {
-                        print("Successfully applied tweak \"" + option.key + "\"")
-                    } else {
-                        print("Failed to apply tweak \"" + option.key + "\"!!!")
-                        failedSB = true
-                    }
+                let succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, value)
+                if succeeded {
+                    print("Successfully applied tweak \"" + option.key + "\"")
+                } else {
+                    print("Failed to apply tweak \"" + option.key + "\"!!!")
+                    failedSB = true
                 }
             }
         }
@@ -251,33 +250,30 @@ struct HomeView: View {
         UIApplication.shared.change(title: "Applying audio tweaks...", body: "Please wait")
         var failedAudio: Bool = false
         // apply audio tweaks next
-        AudioFiles.applyAllAudio() { succeeded in
-            if !succeeded {
-                failedAudio = true
-            }
+        let succeeded = AudioFiles.applyAllAudio()
+        if !succeeded {
+            failedAudio = true
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            if failedSB && failedAudio {
-                UIApplication.shared.dismissAlert(animated: true)
-                UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
-            } else if failedSB {
-                UIApplication.shared.dismissAlert(animated: true)
-                UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
-            } else if failedAudio {
-                UIApplication.shared.dismissAlert(animated: true)
-                UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
-            } else {
-                if autoRespring {
-                    // auto respring on apply
-                    UIApplication.shared.change(title: "Respringing...", body: "Please wait")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        respring()
-                    }
-                } else {
-                    UIApplication.shared.dismissAlert(animated: true)
-                    UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+        if failedSB && failedAudio {
+            UIApplication.shared.dismissAlert(animated: true)
+            UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
+        } else if failedSB {
+            UIApplication.shared.dismissAlert(animated: true)
+            UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
+        } else if failedAudio {
+            UIApplication.shared.dismissAlert(animated: true)
+            UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
+        } else {
+            if autoRespring {
+                // auto respring on apply
+                UIApplication.shared.change(title: "Respringing...", body: "Please wait")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    respring()
                 }
+            } else {
+                UIApplication.shared.dismissAlert(animated: true)
+                UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
             }
         }
     }
