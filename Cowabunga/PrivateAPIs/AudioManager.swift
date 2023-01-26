@@ -44,6 +44,8 @@ class AudioFiles {
     static var ListOfAudio: [String: [String]] = [:]
     static var testingAudio: Bool = false
     
+    static var applyFailedMessage: String = ""
+    
     static func getIncludedAudioList() -> [String: [String]]? {
         do {
             let newURL: URL = getIncludedAudioDirectory()!.appendingPathComponent("AudioNames.plist")
@@ -99,6 +101,7 @@ class AudioFiles {
     
     static func applyAllAudio() -> Bool {
         var failed: Bool = false
+        applyFailedMessage = ""
         for audioOption in SoundEffect.allCases {
             // apply if not default
             let currentAudio: String = UserDefaults.standard.string(forKey: audioOption.rawValue+"_Applied") ?? "Default"
@@ -109,6 +112,10 @@ class AudioFiles {
                 } else {
                     print("failed to apply audio for " + audioOption.rawValue)
                     failed = true
+                    if applyFailedMessage != "" {
+                        applyFailedMessage += ", "
+                    }
+                    applyFailedMessage += audioOption.rawValue
                 }
             }
         }

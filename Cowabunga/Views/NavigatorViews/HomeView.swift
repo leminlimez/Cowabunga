@@ -263,7 +263,7 @@ struct HomeView: View {
             UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
         } else if failedAudio {
             UIApplication.shared.dismissAlert(animated: true)
-            UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
+            UIApplication.shared.alert(body: "Failed to apply audio for: " + AudioFiles.applyFailedMessage + ".")
         } else {
             if autoRespring {
                 // auto respring on apply
