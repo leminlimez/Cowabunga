@@ -66,13 +66,13 @@ struct OtherModsView: View {
                                         UIApplication.shared.alert(title: "Applying carrier...", body: "Please wait", animated: false, withButton: false)
                                         setCarrierName(newName: newName) { succeeded in
                                             UIApplication.shared.dismissAlert(animated: true)
-                                            // delay
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                                if succeeded {
-                                                    UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
-                                                } else {
-                                                    UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
-                                                }
+                                            // state that it was a success
+                                            if succeeded {
+                                                print("Succeessfully changed carrier name.")
+                                                UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
+                                            } else {
+                                                print("Failed to change carrier name.")
+                                                UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
                                             }
                                         }
                                     } else {
@@ -179,10 +179,7 @@ struct OtherModsView: View {
                                                     // set the default
                                                     defaults.set(newName, forKey: "ModelName")
                                                 } else {
-                                                    // delay
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                                        UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed unexpectedly.")
-                                                    }
+                                                    UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed unexpectedly.")
                                                 }
                                             }
                                         } else {
