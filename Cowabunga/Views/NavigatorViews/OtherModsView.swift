@@ -64,16 +64,15 @@ struct OtherModsView: View {
                                     UserDefaults.standard.set(newName, forKey: "CarrierName")
                                     if newName != "" {
                                         UIApplication.shared.alert(title: "Applying carrier...", body: "Please wait", animated: false, withButton: false)
-                                        setCarrierName(newName: newName) { succeeded in
-                                            UIApplication.shared.dismissAlert(animated: true)
-                                            // state that it was a success
-                                            if succeeded {
-                                                print("Succeessfully changed carrier name.")
-                                                UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
-                                            } else {
-                                                print("Failed to change carrier name.")
-                                                UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
-                                            }
+                                        let succeeded = setCarrierName(newName: newName)
+                                        UIApplication.shared.dismissAlert(animated: true)
+                                        // state that it was a success
+                                        if succeeded {
+                                            print("Succeessfully changed carrier name.")
+                                            UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
+                                        } else {
+                                            print("Failed to change carrier name.")
+                                            UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
                                         }
                                     } else {
                                         UIApplication.shared.alert(body: "No name was inputted!")
@@ -120,14 +119,13 @@ struct OtherModsView: View {
                                         // set the version
                                         let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
                                         if newVersion != "" {
-                                            setProductVersion(newVersion: newVersion) { succeeded in
-                                                if succeeded {
-                                                    CurrentVersion = newVersion
-                                                    // set the default
-                                                    defaults.set(newVersion, forKey: "ProductVersion")
-                                                } else {
-                                                    UIApplication.shared.alert(body: "Failed to apply system version change! The version must be shorter than your current device version.")
-                                                }
+                                            let succeeded = setProductVersion(newVersion: newVersion)
+                                            if succeeded {
+                                                CurrentVersion = newVersion
+                                                // set the default
+                                                defaults.set(newVersion, forKey: "ProductVersion")
+                                            } else {
+                                                UIApplication.shared.alert(body: "Failed to apply system version change! The version must be shorter than your current device version.")
                                             }
                                         }
                                     })
@@ -280,14 +278,13 @@ struct OtherModsView: View {
                                         if !type.iOS16Only ||  iOS16 {
                                             let newAction = UIAlertAction(title: type.title + " (" + String(type.key) + ")", style: .default) { (action) in
                                                 // apply the type
-                                                setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key) { succeeded in
-                                                    if succeeded {
-                                                        CurrentSubType = type.key
-                                                        CurrentSubTypeDisplay = type.title
-                                                        UIApplication.shared.alert(title: "Success!", body: "Please respring on the SpringBoard Tools page to finish applying changes.")
-                                                    } else {
-                                                        UIApplication.shared.alert(body: "Failed to apply DeviceSubType!")
-                                                    }
+                                                let succeeded = setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key)
+                                                if succeeded {
+                                                    CurrentSubType = type.key
+                                                    CurrentSubTypeDisplay = type.title
+                                                    UIApplication.shared.alert(title: "Success!", body: "Please respring on the SpringBoard Tools page to finish applying changes.")
+                                                } else {
+                                                    UIApplication.shared.alert(body: "Failed to apply DeviceSubType!")
                                                 }
                                             }
                                             if CurrentSubType == type.key {

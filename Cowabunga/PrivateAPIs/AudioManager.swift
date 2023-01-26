@@ -97,27 +97,22 @@ class AudioFiles {
         }
     }
     
-    static func applyAllAudio(completion: @escaping (Bool) -> Void) {
-        DispatchQueue.global(qos: .userInteractive).async {
-            var failed: Bool = false
-            for audioOption in SoundEffect.allCases {
-                // apply if not default
-                let currentAudio: String = UserDefaults.standard.string(forKey: audioOption.rawValue+"_Applied") ?? "Default"
-                if currentAudio != "Default" {
-                    overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audioOption.rawValue, currentAudio) { succeeded in
-                        if succeeded {
-                            print("successfully applied audio for " + audioOption.rawValue)
-                        } else {
-                            print("failed to apply audio for " + audioOption.rawValue)
-                            failed = true
-                        }
-                    }
+    static func applyAllAudio() -> Bool {
+        var failed: Bool = false
+        for audioOption in SoundEffect.allCases {
+            // apply if not default
+            let currentAudio: String = UserDefaults.standard.string(forKey: audioOption.rawValue+"_Applied") ?? "Default"
+            if currentAudio != "Default" {
+                let succeeded = overwriteFile(typeOfFile: OverwritingFileTypes.audio, fileIdentifier: audioOption.rawValue, currentAudio)
+                if succeeded {
+                    print("successfully applied audio for " + audioOption.rawValue)
+                } else {
+                    print("failed to apply audio for " + audioOption.rawValue)
+                    failed = true
                 }
             }
-            DispatchQueue.main.async {
-                completion(!failed)
-            }
         }
+        return !failed
     }
     
     static func getNewAudioData(soundName: String) -> Data? {

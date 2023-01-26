@@ -56,12 +56,11 @@ struct AudioView: View {
                     }
                     Button(action: {
                         // apply the audio
-                        AudioFiles.applyAllAudio() { succeeded in
-                            if !succeeded {
-                                UIApplication.shared.alert(body: "Failed to apply some custom audio!")
-                            } else {
-                                UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
-                            }
+                        let succeeded = AudioFiles.applyAllAudio()
+                        if !succeeded {
+                            UIApplication.shared.alert(body: "Failed to apply some custom audio!")
+                        } else {
+                            UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
                         }
                     }) {
                         if #available(iOS 15.0, *) {
