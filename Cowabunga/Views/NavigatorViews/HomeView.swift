@@ -260,19 +260,13 @@ struct HomeView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if failedSB && failedAudio {
                 UIApplication.shared.dismissAlert(animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
-                }
+                UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
             } else if failedSB {
                 UIApplication.shared.dismissAlert(animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
-                }
+                UIApplication.shared.alert(body: "An error occurred when applying springboard tweaks")
             } else if failedAudio {
                 UIApplication.shared.dismissAlert(animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
-                }
+                UIApplication.shared.alert(body: "An error occurred when applying audio tweaks")
             } else {
                 if autoRespring {
                     // auto respring on apply
@@ -282,9 +276,7 @@ struct HomeView: View {
                     }
                 } else {
                     UIApplication.shared.dismissAlert(animated: true)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
-                    }
+                    UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
                 }
             }
         }

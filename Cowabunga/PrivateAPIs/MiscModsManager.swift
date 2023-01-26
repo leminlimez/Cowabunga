@@ -282,7 +282,7 @@ func setRegion(completion: @escaping (Bool) -> Void) {
             
             if succeeded {
                 // create the new data
-                var newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
                 
                 // check the size and apply
                 if newData.count == originalSize {
@@ -328,7 +328,7 @@ func setCarrierName(newName: String, completion: @escaping (Bool) -> Void) {
                                                                               guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { print("Could not serialize"); continue }
                 let originalSize = plistData.count
                 // modify values
-                print("Modifying: " + (plist["CarrierName"] as? String ?? "IDK"))
+                print("Modifying: " + (plist["CarrierName"] as? String ?? url.deletingPathExtension().lastPathComponent))
                 if var images = plist["StatusBarImages"] as? [[String: Any]] {
                     for var (i, image) in images.enumerated() {
                         image["StatusBarCarrierName"] = newName
