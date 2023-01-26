@@ -58,7 +58,7 @@ struct AudioView: View {
                         // apply the audio
                         let succeeded = AudioFiles.applyAllAudio()
                         if !succeeded {
-                            UIApplication.shared.alert(body: "Failed to apply some custom audio!")
+                            UIApplication.shared.alert(body: "Failed to apply audio for: " + AudioFiles.applyFailedMessage + ".")
                         } else {
                             UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
                         }
