@@ -14,7 +14,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            SpringBoardView()
+            ToolsView()
+                .tabItem {
+                    Label("Tools", systemImage: "wrench.and.screwdriver.fill")
+                }
+            /*SpringBoardView()
                 .tabItem {
                     Label("SpringBoard", systemImage: "snowflake")
                 }
@@ -33,7 +37,7 @@ struct RootView: View {
             OtherModsView()
                 .tabItem {
                     Label("Misc.", systemImage: "hammer")
-                }
+                }*/
         }
     }
 }
