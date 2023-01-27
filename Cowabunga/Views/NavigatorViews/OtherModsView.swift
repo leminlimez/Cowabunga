@@ -86,6 +86,26 @@ struct OtherModsView: View {
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
                         }
+                        
+                        // custom settings
+                        HStack {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                            
+                            Text("Extra Preferences")
+                                .minimumScaleFactor(0.5)
+                            
+                            Spacer()
+                            
+                            Button("Enable", action: {
+                                createSettingsPage()
+                            })
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        }
                     } header: {
                         Text("Safe")
                     }
