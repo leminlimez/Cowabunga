@@ -11,9 +11,9 @@ import Foundation
 class LockManager {
     static var testingLocks: Bool = false
     
-    static func applyLock(lockName: String, lockType: String) -> Bool {
+    static func applyLock(lockName: String, lockType: String, isCustom: Bool) -> Bool {
         let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca"
-        let folderURL: URL? = getLockFolder(lockName: lockName)
+        let folderURL: URL? = getLockFolder(lockName: lockName, isCustom: isCustom)
         
         if folderURL != nil {
             // add to the file contents
@@ -60,13 +60,18 @@ class LockManager {
     }
     
     // get the a folder of locks
-    static func getLockFolder(lockName: String) -> URL? {
+    static func getLockFolder(lockName: String, isCustom: Bool) -> URL? {
         do {
-            let newURL: URL = getIncludedLocksDirectory()!.appendingPathComponent(lockName)
-            if !FileManager.default.fileExists(atPath: newURL.path) {
-                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            if isCustom {
+                // get the folder of a lock in custom locks
+            } else {
+                // get the folder of a lock in included locks
+                let newURL: URL = getIncludedLocksDirectory()!.appendingPathComponent(lockName)
+                if !FileManager.default.fileExists(atPath: newURL.path) {
+                    try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+                }
+                return newURL
             }
-            return newURL
         } catch {
             print("An error occurred getting/making the " + lockName + " lock directory")
         }
@@ -132,7 +137,7 @@ class LockManager {
                             let lockFileName: String = lockFile["name"] as! String
                             let lockFileVersion: Int = lockFile["version"] as! Int
                             let isBeta: String? = lockFile["isBeta"] as? String
-                            let newFolder: URL? = getLockFolder(lockName: lockFileName)
+                            let newFolder: URL? = getLockFolder(lockName: lockFileName, isCustom: false)
                             
                             if !FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
                                 fetchFiles(lockFileName: lockFileName, newFolder: newFolder!, lockFileVersion: lockFileVersion)
