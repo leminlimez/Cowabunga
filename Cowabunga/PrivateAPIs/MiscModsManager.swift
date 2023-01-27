@@ -11,6 +11,8 @@ import SwiftUI
 enum SettingsOptionType: String {
     case textbox = "PSEditTextCell"
     case toggle = "PSSwitchCell"
+    case slider = "PSSliderCell"
+    case button = "PSButtonCell"
 }
 
 struct SettingsPageOption: Identifiable {
@@ -27,10 +29,16 @@ struct SettingsPageOption: Identifiable {
 let settingsOptions: [SettingsPageOption] = [
     // LS Footnote
     .init(type: SettingsOptionType.textbox, defaultValue: "", key: "LockScreenFootnote", placeholder: "Footnote", label: "Lock Screen Footnote", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"),
+    // Device Supervision
+    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
+    // Organization Name
+    .init(type: SettingsOptionType.textbox, defaultValue: "", key: "OrganizationName", label: "Organization Name", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Don't Lock After Respring
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
-    // Device Supervision
-    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist")
+    // Numeric Wi-Fi Strength
+    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowRSSI", label: "Numeric Wi-Fi Strength", editingFilePath: "com.apple.springboard"),
+    // Numeric Cellular Strength
+    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowGSMRSSI", label: "Numeric Cellular Strength", editingFilePath: "com.apple.springboard")
 ]
 
 
@@ -351,7 +359,7 @@ func getOriginalDeviceSubType() -> Int {
 }
 
 // creates a page in settings
-func createSettingsPage() {
+func createSettingsPage() -> Bool {
     var itemsList: [[String: Any]] = [
     ]
     
@@ -376,12 +384,44 @@ func createSettingsPage() {
         "title": "Cowabunga Extra Tools"
     ]
     
+    // modify the settings labels plist
+    // broken because it becomes very large for some reason?
+    /*do {
+        let plistPath: String = "/System/Library/PrivateFrameworks/PreferencesUI.framework/Settings.plist"
+        let plistData = try Data(contentsOf: URL(fileURLWithPath: plistPath))
+        
+        // open plist
+        var settingsPlist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+        
+        // set the labels
+        var items = settingsPlist["items"] as! [[String: Any]]
+        for (i, itm) in items.enumerated() {
+            if itm["label"] != nil {
+                if itm["label"] as! String == "Classroom" {
+                    items[i]["label"] = ""
+                } else if itm["label"] as! String == "Photos" {
+                    items[i]["label"] = "Cowabunga"
+                }
+            }
+        }
+        
+        settingsPlist["items"] = items
+        
+        // write to the plist
+        let newData = try PropertyListSerialization.data(fromPropertyList: settingsPlist, format: .xml, options: 0)
+        // replace the data
+        let _ = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
+    } catch {
+        print("Could not change labels!")
+    }*/
+    
     // convert to plist data
     do {
         let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
         // replace the data
-        overwriteFileWithDataImpl(originPath: "/System/Library/PreferenceBundles/MusicSettings.bundle/MusicSettings.plist", replacementData: newData)
+        return overwriteFileWithDataImpl(originPath: "/System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist", replacementData: newData)
     } catch {
         print("Could not get the data!")
+        return false
     }
 }
