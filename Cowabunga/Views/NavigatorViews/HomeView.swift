@@ -184,7 +184,7 @@ struct HomeView: View {
                     }
                     
                     // auto fetch locks updates toggle
-                    HStack {
+                    /*HStack {
                         Toggle(isOn: $autoFetchLocks) {
                             HStack {
                                 Text("Auto Update Included Locks")
@@ -201,7 +201,7 @@ struct HomeView: View {
                     Button("Update Included Files", action: {
                         AudioFiles.setup(fetchingNewAudio: true)
                         LockManager.setup(fetchingNewLocks: true)
-                    })
+                    })*/
                 } header: {
                     Text("Preferences")
                 }

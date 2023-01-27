@@ -30,7 +30,7 @@ extension LocationManager
         var recoverySuggestion: String? {
             switch self
             {
-            case .requiresAlwaysAuthorization: return NSLocalizedString("Please grant Clip “Always” location permission in Settings so it can run in the background indefinitely.", comment: "")
+            case .requiresAlwaysAuthorization: return NSLocalizedString("Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely.", comment: "")
             }
         }
         

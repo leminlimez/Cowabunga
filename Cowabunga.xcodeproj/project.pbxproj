@@ -479,8 +479,8 @@
 				INFOPLIST_FILE = Cowabunga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = egg;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Photos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -493,7 +493,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 7.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -519,8 +519,8 @@
 				INFOPLIST_FILE = Cowabunga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = egg;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Photos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -533,7 +533,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 7.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
