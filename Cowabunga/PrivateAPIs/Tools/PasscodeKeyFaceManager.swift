@@ -255,6 +255,8 @@ class PasscodeKeyFaceManager {
             return size
         } catch {
             // just set the defaults to 150
+            print("Could not get sizes")
+            print(error.localizedDescription)
             defaults.set(150, forKey: "passcodeFaceSize")
             return 150
         }

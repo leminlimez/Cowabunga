@@ -9,8 +9,7 @@ import SwiftUI
 import Photos
 
 struct PasscodeEditorView: View {
-    
-    @State private var ipadView: Bool = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false//(UIDevice.current.userInterfaceIdiom == .pad)
+    @State private var ipadView: Bool = false
     
     @State private var showingImagePicker = false
     @State private var faces: [UIImage?] = [UIImage?](repeating: nil, count: 10)
@@ -19,7 +18,7 @@ struct PasscodeEditorView: View {
     @State private var changingFaceN = 0
     @State private var isBig = false
     @State private var customSize: [String] = [String(KeySize.small.rawValue), String(KeySize.small.rawValue)]
-    @State private var currentSize: Int = PasscodeKeyFaceManager.getDefaultFaceSize()
+    @State private var currentSize: Int = 0
     //@State private var sizeButtonState = KeySizeState.small
     @State private var isImporting = false
     @State private var isExporting = false
@@ -253,6 +252,10 @@ struct PasscodeEditorView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear() {
+            ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
+            currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
+        }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
                         //.folder
