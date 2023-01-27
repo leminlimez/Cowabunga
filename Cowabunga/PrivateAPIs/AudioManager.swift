@@ -91,12 +91,12 @@ class AudioFiles {
     
     static func setup(fetchingNewAudio: Bool) {
         print("setting up audio")
-        ListOfAudio = getIncludedAudioList()!
-        
         // fetch new audio if needed
         if fetchingNewAudio == true {
             fetchIncludedAudio()
         }
+        
+        ListOfAudio = getIncludedAudioList()!
     }
     
     static func applyAllAudio() -> Bool {
