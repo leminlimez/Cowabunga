@@ -5,6 +5,8 @@
 //  Created by lemin on 1/27/23.
 //
 
+#import <Foundation/Foundation.h>
+
 #ifndef grant_full_disk_access_h
 #define grant_full_disk_access_h
 
