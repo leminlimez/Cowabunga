@@ -13,7 +13,8 @@ struct LockView: View {
     var body: some View {
         VStack {
             Button(action: {
-                
+                print("applying lock")
+                LockManager.applyLock(sourceURL: LockManager.getLockFolder(lockName: "Troll")!, lockType: "3x-812h")
             }) {
                 Text("Test")
             }

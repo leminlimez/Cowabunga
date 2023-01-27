@@ -11,13 +11,14 @@ import Foundation
 class LockManager {
     static var testingLocks: Bool = false
     
-    static func setLock(sourceURL: URL, lockType: String) -> Bool {
+    static func applyLock(sourceURL: URL, lockType: String) -> Bool {
         let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca";
+        let sourceName: String = sourceURL.deletingPathExtension().lastPathComponent
         
         // add to the file contents
         var replacingContents: String = camlFileContents
         for i in 1 ... 40 {
-            let newFile = sourceURL.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString.replacingOccurrences(of: "file://", with: "");
+            let newFile = sourceURL.appendingPathComponent(sourceName + "_" + String(i) + ".png").absoluteString.replacingOccurrences(of: "file://", with: "");
             replacingContents = replacingContents.replacingOccurrences(of: "trolling" + String(i) + "x", with: newFile);
         }
         
