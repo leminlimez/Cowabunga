@@ -14,7 +14,7 @@ struct LockView: View {
         VStack {
             Button(action: {
                 print("applying lock")
-                LockManager.applyLock(lockName: "Troll", lockType: "3x-812h")
+                LockManager.applyLock(lockName: "Troll", lockType: "3x-812h", isCustom: false)
             }) {
                 Text("Test")
             }
