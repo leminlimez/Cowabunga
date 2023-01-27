@@ -12,11 +12,19 @@ import SwiftUI
 struct LockView: View {
     var body: some View {
         VStack {
-            Button(action: {
-                print("applying lock")
-                LockManager.applyLock(lockName: "Troll", lockType: "3x-812h", isCustom: false)
-            }) {
-                Text("Test")
+            NavigationView {
+                List {
+                    Section {
+                        Button(action: {
+                            print("applying lock")
+                            LockManager.applyLock(lockName: "Troll", lockType: "3x-812h", isCustom: false)
+                        }) {
+                            Text("Test")
+                        }
+                    } header: {
+                        Text("Included")
+                    }
+                }
             }
         }
     }
