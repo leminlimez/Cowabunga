@@ -143,3 +143,7 @@ extension UIDevice {
         return deviceModel ?? ""
     }
 }
+
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
+}
