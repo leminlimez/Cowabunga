@@ -32,7 +32,7 @@ let settingsOptions: [SettingsPageOption] = [
     // Device Supervision
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Organization Name
-    .init(type: SettingsOptionType.textbox, defaultValue: "", key: "OrganizationName", label: "Organization Name", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
+    .init(type: SettingsOptionType.textbox, defaultValue: "", key: "OrganizationName", placeholder: "Organization", label: "Organization Name", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Don't Lock After Respring
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
     // Numeric Wi-Fi Strength
