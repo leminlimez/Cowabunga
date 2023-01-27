@@ -32,6 +32,8 @@
 		6FF21AC829840DC40054EBC0 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AC729840DC40054EBC0 /* LockView.swift */; };
 		6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AC9298416E90054EBC0 /* LockManager.swift */; };
 		6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21ACF298449F30054EBC0 /* ToolsView.swift */; };
+		6FF21AD2298450C80054EBC0 /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */; };
+		6FF21AD52984513A0054EBC0 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AD32984513A0054EBC0 /* helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,9 @@
 		6FF21AC729840DC40054EBC0 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		6FF21AC9298416E90054EBC0 /* LockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockManager.swift; sourceTree = "<group>"; };
 		6FF21ACF298449F30054EBC0 /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
+		6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
+		6FF21AD32984513A0054EBC0 /* helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
+		6FF21AD42984513A0054EBC0 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,9 @@
 				6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */,
 				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
 				6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */,
+				6FF21AD42984513A0054EBC0 /* helpers.h */,
+				6FF21AD32984513A0054EBC0 /* helpers.m */,
+				6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */,
 			);
 			path = Cowabunga;
 			sourceTree = "<group>";
@@ -274,7 +282,9 @@
 				6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */,
 				6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */,
 				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
+				6FF21AD52984513A0054EBC0 /* helpers.m in Sources */,
 				6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */,
+				6FF21AD2298450C80054EBC0 /* grant_full_disk_access.m in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
