@@ -17,7 +17,9 @@ struct CowabungaApp: App {
             RootView()
                 .onAppear {
                     // grant r/w access
-                    grant_full_disk_access()
+                    grant_full_disk_access() { error in
+                        
+                    }
                     // credit: TrollTools
                     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/leminlimez/Cowabunga/releases/latest") {
                         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
