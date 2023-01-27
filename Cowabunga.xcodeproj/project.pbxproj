@@ -69,6 +69,7 @@
 		6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
 		6FF21AD32984513A0054EBC0 /* helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
 		6FF21AD42984513A0054EBC0 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		6FF21AD62984522B0054EBC0 /* grant_full_disk_access.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +130,7 @@
 				6FF21AD42984513A0054EBC0 /* helpers.h */,
 				6FF21AD32984513A0054EBC0 /* helpers.m */,
 				6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */,
+				6FF21AD62984522B0054EBC0 /* grant_full_disk_access.h */,
 			);
 			path = Cowabunga;
 			sourceTree = "<group>";
@@ -436,6 +438,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -474,6 +477,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
