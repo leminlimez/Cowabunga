@@ -13,12 +13,11 @@ class LockManager {
     
     static func applyLock(sourceURL: URL, lockType: String) -> Bool {
         let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca";
-        let sourceName: String = sourceURL.deletingPathExtension().lastPathComponent
         
         // add to the file contents
         var replacingContents: String = camlFileContents
         for i in 1 ... 40 {
-            let newFile = sourceURL.appendingPathComponent(sourceName + "_" + String(i) + ".png").absoluteString.replacingOccurrences(of: "file://", with: "");
+            let newFile = sourceURL.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString.replacingOccurrences(of: "file://", with: "");
             replacingContents = replacingContents.replacingOccurrences(of: "trolling" + String(i) + "x", with: newFile);
         }
         
@@ -97,13 +96,13 @@ class LockManager {
                             if !FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
                                 // fetch the files and add it to path
                                 for i in 1 ... 40 {
-                                    let imageURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/" + lockFileName + "_" + String(i) + ".png")
+                                    let imageURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/" + lockFileName + "/trollformation" + String(i) + ".png")
                                     if imageURL != nil {
                                         let lock_task = URLSession.shared.dataTask(with: imageURL!) { image_data, image_response, image_error in
                                             if image_data != nil {
                                                 // write the image file
                                                 do {
-                                                    try image_data!.write(to: newFolder!.appendingPathComponent(lockFileName + "_" + String(i) + ".png"))
+                                                    try image_data!.write(to: newFolder!.appendingPathComponent("trollformation" + String(i) + ".png"))
                                                 } catch {
                                                     print("Error writing included lock data to directory")
                                                 }
