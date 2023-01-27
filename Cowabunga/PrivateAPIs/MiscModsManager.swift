@@ -8,6 +8,32 @@
 import Foundation
 import SwiftUI
 
+enum SettingsOptionType: String {
+    case textbox = "PSEditTextCell"
+    case toggle = "PSSwitchCell"
+}
+
+struct SettingsPageOption: Identifiable {
+    var id = UUID()
+    var type: SettingsOptionType
+    var defaultValue: Any
+    var key: String
+    var placeholder: String?
+    var label: String
+    var editingFilePath: String
+}
+
+// settings pages
+let settingsOptions: [SettingsPageOption] = [
+    // LS Footnote
+    .init(type: SettingsOptionType.textbox, defaultValue: "", key: "LockScreenFootnote", placeholder: "Footnote", label: "Lock Screen Footnote", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"),
+    // Don't Lock After Respring
+    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
+    // Device Supervision
+    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist")
+]
+
+
 func setProductVersion(newVersion: String) -> Bool {
     // this code is because I nearly bootlooped my phone with the later function
     let filePath: String = "/System/Library/CoreServices/SystemVersion.plist"
@@ -322,4 +348,40 @@ func getOriginalDeviceSubType() -> Int {
         }
     }
     return origSubType
+}
+
+// creates a page in settings
+func createSettingsPage() {
+    var itemsList: [[String: Any]] = [
+    ]
+    
+    // create the pages
+    for (_, page) in settingsOptions.enumerated() {
+        var newDict: [String: Any] = [
+            "cell": page.type.rawValue,
+            "default": page.defaultValue,
+            "defaults": page.editingFilePath,
+            "key": page.key,
+            "label": page.label
+        ]
+        if page.placeholder != nil {
+            newDict["placeholder"] = page.placeholder
+        }
+        // append to plist
+        itemsList.append(newDict)
+    }
+    
+    let plist: [String: Any] = [
+        "items": itemsList,
+        "title": "Cowabunga Extra Tools"
+    ]
+    
+    // convert to plist data
+    do {
+        let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+        // replace the data
+        overwriteFileWithDataImpl(originPath: "/System/Library/PreferenceBundles/MusicSettings.bundle/MusicSettings.plist", replacementData: newData)
+    } catch {
+        print("Could not get the data!")
+    }
 }
