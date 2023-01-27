@@ -83,6 +83,41 @@ class LockManager {
                     return
                 }
                 
+                // function to fetch update files
+                func fetchFiles(lockFileName: String, newFolder: URL, lockFileVersion: Int) {
+                    // fetch the files and add it to path
+                    for i in 1 ... 40 {
+                        let imageURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/" + lockFileName + "/trollformation" + String(i) + ".png")
+                        if imageURL != nil {
+                            let lock_task = URLSession.shared.dataTask(with: imageURL!) { image_data, image_response, image_error in
+                                if image_data != nil {
+                                    // write the image file
+                                    do {
+                                        try image_data!.write(to: newFolder.appendingPathComponent("trollformation" + String(i) + ".png"))
+                                    } catch {
+                                        print("Error writing included lock data to directory")
+                                    }
+                                } else {
+                                    print("No lock data")
+                                }
+                            }
+                            lock_task.resume()
+                        }
+                    }
+                    
+                    // write the plist with the version
+                    let plistURL: URL = newFolder.appendingPathComponent(lockFileName + ".plist")
+                    let plist: [String: Int] = [
+                        "version": lockFileVersion
+                    ]
+                    do {
+                        let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                        try newData.write(to: plistURL)
+                    } catch {
+                        print("Error creating the version plist!")
+                    }
+                }
+                
                 // check if all the files exist and are updated
                 if  let locksFileData = locksFileData as? Dictionary<String, AnyObject>, let lockFiles = locksFileData["lock_files"] as? [[String: Any]] {
                     
@@ -94,42 +129,31 @@ class LockManager {
                             let newFolder: URL? = getLockFolder(lockName: lockFileName)
                             
                             if !FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
-                                // fetch the files and add it to path
-                                for i in 1 ... 40 {
-                                    let imageURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/" + lockFileName + "/trollformation" + String(i) + ".png")
-                                    if imageURL != nil {
-                                        let lock_task = URLSession.shared.dataTask(with: imageURL!) { image_data, image_response, image_error in
-                                            if image_data != nil {
-                                                // write the image file
-                                                do {
-                                                    try image_data!.write(to: newFolder!.appendingPathComponent("trollformation" + String(i) + ".png"))
-                                                } catch {
-                                                    print("Error writing included lock data to directory")
-                                                }
-                                            } else {
-                                                print("No lock data")
-                                            }
-                                        }
-                                        lock_task.resume()
-                                    }
-                                }
-                                
-                                // write the plist with the version
-                                let plistURL: URL = newFolder!.appendingPathComponent(lockFileName + ".plist")
-                                let plist: [String: Int] = [
-                                    "version": lockFileVersion
-                                ]
+                                fetchFiles(lockFileName: lockFileName, newFolder: newFolder!, lockFileVersion: lockFileVersion)
+                            } else if FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
+                                // get the current version
                                 do {
-                                    let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
-                                    try newData.write(to: plistURL)
+                                    let plistData = try Data(contentsOf: newFolder!.appendingPathComponent(lockFileName + ".plist"))
+                                    // open plist
+                                    let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Int]
+                                    if plist["version"] != nil && plist["version"]! < lockFileVersion {
+                                        // update the file
+                                        fetchFiles(lockFileName: lockFileName, newFolder: newFolder!, lockFileVersion: lockFileVersion)
+                                    }
                                 } catch {
-                                    print("Error creating the version plist!")
+                                    print("Error while trying to update files: " + error.localizedDescription)
+                                }
+                            } else if FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta != nil || testingLocks == false) {
+                                // delete since it is in beta and user is not part of beta channel
+                                do {
+                                    try FileManager.default.removeItem(at: newFolder!)
+                                } catch {
+                                    print("There was an error trying to remove the lock files: " + error.localizedDescription)
                                 }
                             }
                         }
                     }
                 }
-                // else update if version does not match or delete if beta
             }
             task.resume()
         }
