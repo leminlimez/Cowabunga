@@ -22,6 +22,10 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
 - Custom sound effects
 - Upload your own sounds (nearly every audio format allowed!)
 
+**Passcode
+- Customize passcode keys
+- Import passcode keys files (.passthm) from TrollTools
+
 **Misc
 - Custom carrier name
 Warning: Use the features below at your own risk!
@@ -29,8 +33,16 @@ Warning: Use the features below at your own risk!
 - Enable iPhone X Gestures
 - Enable Dynamic Island (iOS 16+)
 
+**Extra Tools
+- Lock Screen Footnote
+- Supervise Device
+- Device Organization Name
+- No Lock On Respring
+- Numeric Wi-Fi/Cellular Strength
+
 ## Screenshots
-<img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/> <img src="/Images/Misc.PNG" width="300" height="650"/>
+<img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/Tools.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/>
+<img src="/Images/Passcode_Editor.PNG" width="300" height="650"/> <img src="/Images/LS_Footnote.PNG" width="300" height="650"/> <img src="/Images/Misc.PNG" width="300" height="650"/> <img src="/Images/Extra_Tools.PNG" width="300" height="650"/>
 
 ## Installing
 You can install through AltStore, Sideloadly, Xcode, or TrollStore (if your device supports it)
