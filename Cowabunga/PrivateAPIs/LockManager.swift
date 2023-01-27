@@ -24,7 +24,7 @@ class LockManager {
         // write to the path
         let newData: Data? = replacingContents.data(using: .utf8)
         if newData != nil {
-            return overwriteFileWithDataImpl(originPath: originPath, replacementData: newData!)
+            return overwriteFileWithDataImpl(originPath: originPath + "/main.caml", replacementData: newData!)
         } else {
             print("Failed to replace lock: failed to get data")
             return false
