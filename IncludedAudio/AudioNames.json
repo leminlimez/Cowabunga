@@ -28,6 +28,10 @@
             "name": "Samsung",
             "attachments": ["Notification"]
         },
+	{
+            "name": "Discord",
+            "attachments": ["Notification"]
+        },
         {
             "name": "Taco_Bell",
             "attachments": ["Notification", "Screenshot"]
