@@ -101,7 +101,12 @@ struct OtherModsView: View {
                             Spacer()
                             
                             Button("Enable", action: {
-                                createSettingsPage()
+                                let succeeded = createSettingsPage()
+                                if succeeded {
+                                    UIApplication.shared.alert(title: "Success!", body: "Go to the photos tab in settings.")
+                                } else {
+                                    UIApplication.shared.alert(body: "An error occurred while trying to enable default settings.")
+                                }
                             })
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
