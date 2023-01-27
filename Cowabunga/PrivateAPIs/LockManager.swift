@@ -9,6 +9,8 @@
 import Foundation
 
 class LockManager {
+    static var testingLocks: Bool = false
+    
     static func setLock(sourceURL: URL, lockType: String) -> Bool {
         let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca";
         
@@ -26,6 +28,110 @@ class LockManager {
         } else {
             print("Failed to replace lock: failed to get data")
             return false
+        }
+    }
+    
+    static func setup(fetchingNewLocks: Bool) {
+        print("setting up locks")
+        // fetch new locks if needed
+        if fetchingNewLocks == true {
+            fetchIncludedLocks()
+        }
+    }
+    
+    // get the directory of the included locks
+    static func getIncludedLocksDirectory() -> URL? {
+        do {
+            let newURL: URL = URL.documents.appendingPathComponent("Included_Locks")
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            }
+            return newURL
+        } catch {
+            print("An error occurred getting/making the included locks directory")
+        }
+        return nil
+    }
+    
+    // get the a folder of locks
+    static func getLockFolder(lockName: String) -> URL? {
+        do {
+            let newURL: URL = getIncludedLocksDirectory()!.appendingPathComponent(lockName)
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            }
+            return newURL
+        } catch {
+            print("An error occurred getting/making the " + lockName + " lock directory")
+        }
+        return nil
+    }
+    
+    // fetch included lock files
+    static func fetchIncludedLocks() {
+        // get the included lock names
+        let url: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/LockNames.json")
+        if url != nil {
+            // get the data of the file
+            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+                guard let data = data else {
+                    print("No data to decode")
+                    return
+                }
+                guard let locksFileData = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                    print("Couldn't decode json data")
+                    return
+                }
+                
+                // check if all the files exist and are updated
+                if  let locksFileData = locksFileData as? Dictionary<String, AnyObject>, let lockFiles = locksFileData["lock_files"] as? [[String: Any]] {
+                    
+                    for lockFile in lockFiles {
+                        do {
+                            let lockFileName: String = lockFile["name"] as! String
+                            let lockFileVersion: Int = lockFile["version"] as! Int
+                            let isBeta: String? = lockFile["isBeta"] as? String
+                            let newFolder: URL? = getLockFolder(lockName: lockFileName)
+                            
+                            if !FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
+                                // fetch the files and add it to path
+                                for i in 1 ... 40 {
+                                    let imageURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/" + lockFileName + "_" + String(i) + ".png")
+                                    if imageURL != nil {
+                                        let lock_task = URLSession.shared.dataTask(with: imageURL!) { image_data, image_response, image_error in
+                                            if image_data != nil {
+                                                // write the image file
+                                                do {
+                                                    try image_data!.write(to: newFolder!.appendingPathComponent(lockFileName + "_" + String(i) + ".png"))
+                                                } catch {
+                                                    print("Error writing included lock data to directory")
+                                                }
+                                            } else {
+                                                print("No lock data")
+                                            }
+                                        }
+                                        lock_task.resume()
+                                    }
+                                }
+                                
+                                // write the plist with the version
+                                let plistURL: URL = newFolder!.appendingPathComponent(lockFileName + ".plist")
+                                let plist: [String: Int] = [
+                                    "version": lockFileVersion
+                                ]
+                                do {
+                                    let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                                    try newData.write(to: plistURL)
+                                } catch {
+                                    print("Error creating the version plist!")
+                                }
+                            }
+                        }
+                    }
+                }
+                // else update if version does not match or delete if beta
+            }
+            task.resume()
         }
     }
     

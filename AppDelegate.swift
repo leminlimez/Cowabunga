@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UserDefaults.standard.register(defaults: [
-            "AutoFetchAudio": true
+            "AutoFetchAudio": true,
+            "AutoFetchLocks": true
         ])
         if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
             ApplicationMonitor.shared.start()
