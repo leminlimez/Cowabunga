@@ -28,7 +28,7 @@ struct SettingsPageOption: Identifiable {
 // settings pages
 let settingsOptions: [SettingsPageOption] = [
     // LS Footnote
-    .init(type: SettingsOptionType.textbox, defaultValue: "", key: "LockScreenFootnote", placeholder: "Footnote", label: "Lock Screen Footnote", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"),
+    //.init(type: SettingsOptionType.textbox, defaultValue: "", key: "LockScreenFootnote", placeholder: "Footnote", label: "Lock Screen Footnote", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"),
     // Device Supervision
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Organization Name
