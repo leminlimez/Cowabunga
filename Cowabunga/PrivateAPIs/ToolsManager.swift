@@ -55,25 +55,13 @@ enum OverwritingFileTypes {
 
 // reset the device subtype
 func resetDeviceSubType() -> Bool {
-    func machineName() -> String {
-        if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
-            return simulatorModelIdentifier
-        }
-
-        var sysinfo = utsname()
-        uname(&sysinfo) // ignore return value
-        let deviceModel = String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)?.trimmingCharacters(in: .controlCharacters)
-
-        return deviceModel ?? ""
-    }
-    
     var canUseStandardMethod: [String] = ["10,3", "10,4", "10,6", "11,2", "11,4", "11,6", "11,8", "12,1", "12,3", "12,5", "13,1", "13,2", "13,3", "13,4", "14,4", "14,5", "14,2", "14,3", "14,7", "14,8", "15,2"]
     for (i, v) in canUseStandardMethod.enumerated() {
         canUseStandardMethod[i] = "iPhone" + v
     }
     
     var deviceSubType: Int = -1
-    let deviceModel: String = machineName()
+    let deviceModel: String = UIDevice().machineName
 
     print("Device Model: " + deviceModel)
     if canUseStandardMethod.contains(deviceModel) {
