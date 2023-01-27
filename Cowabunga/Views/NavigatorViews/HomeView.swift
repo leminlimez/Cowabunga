@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var versionBuild: String =  " (beta 1)"
+    @State private var versionBuild: String =  " (beta 2)"
     // list of options
     @State var tweakOptions: [GeneralOption] = [
         .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
@@ -24,7 +24,9 @@ struct HomeView: View {
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
+    
     @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
+    @State private var autoFetchLocks: Bool = UserDefaults.standard.bool(forKey: "AutoFetchLocks")
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
         120.0: "Frequent",
@@ -181,9 +183,24 @@ struct HomeView: View {
                         .padding(.leading, 10)
                     }
                     
-                    // button to update included audio
-                    Button("Update Included Audio", action: {
+                    // auto fetch locks updates toggle
+                    HStack {
+                        Toggle(isOn: $autoFetchLocks) {
+                            HStack {
+                                Text("Auto Update Included Locks")
+                                    .minimumScaleFactor(0.5)
+                            }
+                        }.onChange(of: autoFetchLocks) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "AutoFetchLocks")
+                        }
+                        .padding(.leading, 10)
+                    }
+                    
+                    // button to update included files
+                    Button("Update Included Files", action: {
                         AudioFiles.setup(fetchingNewAudio: true)
+                        LockManager.setup(fetchingNewLocks: true)
                     })
                 } header: {
                     Text("Preferences")
