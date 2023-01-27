@@ -31,6 +31,7 @@
 		6FF21AC52980A1460054EBC0 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FF21AC42980A1460054EBC0 /* entitlements.plist */; };
 		6FF21AC829840DC40054EBC0 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AC729840DC40054EBC0 /* LockView.swift */; };
 		6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AC9298416E90054EBC0 /* LockManager.swift */; };
+		6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21ACF298449F30054EBC0 /* ToolsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		6FF21AC42980A1460054EBC0 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		6FF21AC729840DC40054EBC0 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		6FF21AC9298416E90054EBC0 /* LockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockManager.swift; sourceTree = "<group>"; };
+		6FF21ACF298449F30054EBC0 /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				6F721C91296482C6001CFE46 /* SpringBoardView.swift */,
 				6F7C01D6296924F500BC427A /* OtherModsView.swift */,
 				6F6D38EB2976DEDA00DE3146 /* HomeView.swift */,
+				6FF21ACF298449F30054EBC0 /* ToolsView.swift */,
 			);
 			path = NavigatorViews;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
+				6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */,
 				6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */,
 				6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */,
 				6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */,
