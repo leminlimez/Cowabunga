@@ -11,22 +11,28 @@ import Foundation
 class LockManager {
     static var testingLocks: Bool = false
     
-    static func applyLock(sourceURL: URL, lockType: String) -> Bool {
-        let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca";
+    static func applyLock(lockName: String, lockType: String) -> Bool {
+        let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca"
+        let folderURL: URL? = getLockFolder(lockName: lockName)
         
-        // add to the file contents
-        var replacingContents: String = camlFileContents
-        for i in 1 ... 40 {
-            let newFile = sourceURL.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString.replacingOccurrences(of: "file://", with: "");
-            replacingContents = replacingContents.replacingOccurrences(of: "trolling" + String(i) + "x", with: newFile);
-        }
-        
-        // write to the path
-        let newData: Data? = replacingContents.data(using: .utf8)
-        if newData != nil {
-            return overwriteFileWithDataImpl(originPath: originPath + "/main.caml", replacementData: newData!)
+        if folderURL != nil {
+            // add to the file contents
+            var replacingContents: String = camlFileContents
+            for i in 1 ... 40 {
+                let newFile = folderURL!.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString
+                replacingContents = replacingContents.replacingOccurrences(of: "trolling" + String(i) + "x", with: newFile)
+            }
+            
+            // write to the path
+            let newData: Data? = replacingContents.data(using: .utf8)
+            if newData != nil {
+                return overwriteFileWithDataImpl(originPath: originPath + "/main.caml", replacementData: newData!)
+            } else {
+                print("Failed to replace lock: failed to get data")
+                return false
+            }
         } else {
-            print("Failed to replace lock: failed to get data")
+            print("Failed to get the lock folder url")
             return false
         }
     }
