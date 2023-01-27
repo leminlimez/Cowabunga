@@ -22,10 +22,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
                 }
-            LockView()
+            /*LockView()
                 .tabItem {
                     Label("Lock", systemImage: "lock")
-                }
+                }*/
             OtherModsView()
                 .tabItem {
                     Label("Misc.", systemImage: "hammer")
