@@ -305,7 +305,11 @@ func setCarrierName(newName: String) -> Bool {
             while newDataSize != originalSize && count < 200 {
                 count += 1
                 plist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
-                newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                do {
+                    newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                } catch {
+                    continue
+                }
                 newDataSize = newData.count
                 if count < 5 {
                     // max out this method at 5 if it isn't working
