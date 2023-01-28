@@ -11,34 +11,34 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
 - Running in the background to keep some changes from reverting
     - From running tests, battery loss is negligible (~1% per day on frequent), but that may very
 
-**Springboard
-- Hide dock
-- Hide home bar
-- Hide folder backgrounds
-- Disable folder background blur
-- Disable app switcher blur
+- Springboard
+    - Hide dock
+    - Hide home bar
+    - Hide folder backgrounds
+    - Disable folder background blur
+    - Disable app switcher blur
 
-**Audio
-- Custom sound effects
-- Upload your own sounds (nearly every audio format allowed!)
+- Audio
+    - Custom sound effects
+    - Upload your own sounds (nearly every audio format allowed!)
 
-**Passcode
-- Customize passcode keys
-- Import passcode keys files (.passthm) from TrollTools
+- Passcode
+    - Customize passcode keys
+    - Import passcode keys files (.passthm) from TrollTools
 
-**Misc
-- Custom carrier name
-Warning: Use the features below at your own risk!
-- Change system version (shows in settings, iOS 15+)
-- Enable iPhone X Gestures
-- Enable Dynamic Island (iOS 16+)
+- Misc
+    - Custom carrier name
+    Warning: Use the features below at your own risk!
+    - Change system version (shows in settings, iOS 15+)
+    - Enable iPhone X Gestures
+    - Enable Dynamic Island (iOS 16+)
 
-**Extra Tools
-- Lock Screen Footnote
-- Supervise Device
-- Device Organization Name
-- No Lock On Respring
-- Numeric Wi-Fi/Cellular Strength
+- Extra Tools
+    - Lock Screen Footnote
+    - Supervise Device
+    - Device Organization Name
+    - No Lock On Respring
+    - Numeric Wi-Fi/Cellular Strength
 
 ## Screenshots
 <img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/Tools.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/>
