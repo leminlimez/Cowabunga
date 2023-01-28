@@ -197,6 +197,8 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
     // check size of font
     let originalFileSize = lseek(fd, 0, SEEK_END)
     guard originalFileSize >= replacementData.count else {
+        print("Original file: \(originalFileSize)")
+        print("Replacement file: \(replacementData.count)")
         print("File too big")
         return false
     }
