@@ -166,6 +166,7 @@ struct OtherModsView: View {
                                 alert.addTextField { (textField) in
                                     textField.placeholder = "Version"
                                     textField.text = defaults.string(forKey: "ProductVersion") ?? CurrentVersion
+                                    textField.keyboardType = .decimalPad
                                 }
                                 
                                 // buttons
