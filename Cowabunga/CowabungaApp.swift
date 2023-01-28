@@ -21,7 +21,7 @@ struct CowabungaApp: App {
                     } else {
                         do {
                             // TrollStore method
-                            try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile"), includingPropertiesForKeys: nil)
+                            try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches"), includingPropertiesForKeys: nil)
                         } catch {
                             // MDC method
                             // grant r/w access
