@@ -21,11 +21,11 @@ struct RootView: View {
             /*SpringBoardView()
                 .tabItem {
                     Label("SpringBoard", systemImage: "snowflake")
-                }
+                }*/
             AudioView()
                 .tabItem {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
-                }
+                }/*
             PasscodeEditorView()
                 .tabItem {
                     Label("Passcode", systemImage: "key")
