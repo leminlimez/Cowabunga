@@ -303,7 +303,10 @@ static bool overwrite_file(int fd, NSData* sourceData) {
 
 static void grant_full_disk_access_impl(void (^completion)(NSString* extension_token,
                                                            NSError* _Nullable error)) {
-  char* targetPath = "/System/Library/PrivateFrameworks/TCC.framework/Support/tccd";
+  char* targetPath = "/System/Library/PrivateFrameworks/TCC.framework/tccd";
+    if (@available(iOS 15.4, *)) {
+        targetPath = "/System/Library/PrivateFrameworks/TCC.framework/Support/tccd";
+    }
   int fd = open(targetPath, O_RDONLY | O_CLOEXEC);
   off_t targetLength = lseek(fd, 0, SEEK_END);
   lseek(fd, 0, SEEK_SET);
