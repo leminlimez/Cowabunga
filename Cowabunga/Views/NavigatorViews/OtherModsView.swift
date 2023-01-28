@@ -14,6 +14,8 @@ struct OtherModsView: View {
     @State private var CurrentSubType: Int = getCurrentDeviceSubType()
     @State private var CurrentSubTypeDisplay: String = "nil"
     
+    @State private var supervised: Bool = UserDefaults.standard.bool(forKey: "IsSupervised")
+    
     struct DeviceSubType: Identifiable {
         var id = UUID()
         var key: Int
@@ -102,12 +104,40 @@ struct OtherModsView: View {
                         Button("Enable", action: {
                             let succeeded = createSettingsPage()
                             if succeeded {
-                                UIApplication.shared.alert(title: "Success!", body: "Go to the photos tab in settings.")
+                                UIApplication.shared.alert(title: "Success!", body: "Go to the phone tab in settings.")
                             } else {
                                 UIApplication.shared.alert(body: "An error occurred while trying to enable default settings.")
                             }
                         })
                         .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // supervise
+                    HStack {
+                        Image(systemName: "iphone")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.blue)
+                        
+                        Text("Supervised")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Toggle(isOn: $supervised) {
+                            
+                        }.onChange(of: supervised) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "IsSupervised")
+                            // set the value
+                            do {
+                                try togglePlistOption(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist", key: "IsSupervised", value: new)
+                            } catch {
+                                print("Failed")
+                            }
+                        }
                         .padding(.leading, 10)
                     }
                 } header: {

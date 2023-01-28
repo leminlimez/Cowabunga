@@ -195,13 +195,13 @@ struct HomeView: View {
                             UserDefaults.standard.set(new, forKey: "AutoFetchLocks")
                         }
                         .padding(.leading, 10)
-                    }
+                    }*/
                     
                     // button to update included files
-                    Button("Update Included Files", action: {
+                    Button("Update Included Audio", action: {
                         AudioFiles.setup(fetchingNewAudio: true)
-                        LockManager.setup(fetchingNewLocks: true)
-                    })*/
+                        //LockManager.setup(fetchingNewLocks: true)
+                    })
                 } header: {
                     Text("Preferences")
                 }

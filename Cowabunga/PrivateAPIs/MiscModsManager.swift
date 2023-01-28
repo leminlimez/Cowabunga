@@ -30,11 +30,11 @@ let settingsOptions: [SettingsPageOption] = [
     // LS Footnote
     //.init(type: SettingsOptionType.textbox, defaultValue: "", key: "LockScreenFootnote", placeholder: "Footnote", label: "Lock Screen Footnote", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"),
     // Device Supervision
-    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
+    //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "IsSupervised", label: "Device Supervised", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Organization Name
-    .init(type: SettingsOptionType.textbox, defaultValue: "", key: "OrganizationName", placeholder: "Organization", label: "Organization Name", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
+    //.init(type: SettingsOptionType.textbox, defaultValue: "", key: "OrganizationName", placeholder: "Organization", label: "Organization Name", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Don't Lock After Respring
-    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
+    //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
     // Numeric Wi-Fi Strength
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowRSSI", label: "Numeric Wi-Fi Strength", editingFilePath: "com.apple.springboard"),
     // Numeric Cellular Strength
@@ -358,6 +358,24 @@ func getOriginalDeviceSubType() -> Int {
     return origSubType
 }
 
+func togglePlistOption(plistPath: String, key: String, value: Any) throws {
+    let url = URL(fileURLWithPath: plistPath)
+    
+    var plistData: Data
+    if !FileManager.default.fileExists(atPath: url.path) {
+        plistData = try PropertyListSerialization.data(fromPropertyList: [key: value], format: .xml, options: 0)
+    } else {
+        guard let data = try? Data(contentsOf: url), var plist = try PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else { throw "Couldn't read plist" }
+        plist[key] = value
+        
+        // Save plist
+        plistData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+    }
+    
+    // write to file
+    try plistData.write(to: url)
+}
+
 // creates a page in settings
 func createSettingsPage() -> Bool {
     var itemsList: [[String: Any]] = [
@@ -419,7 +437,8 @@ func createSettingsPage() -> Bool {
     do {
         let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
         // replace the data
-        return overwriteFileWithDataImpl(originPath: "/System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist", replacementData: newData)
+        // /System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist
+        return overwriteFileWithDataImpl(originPath: "/System/Library/PreferenceBundles/MobilePhoneSettings.bundle/Phone.plist", replacementData: newData)
     } catch {
         print("Could not get the data!")
         return false

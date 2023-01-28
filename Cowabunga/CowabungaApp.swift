@@ -36,7 +36,7 @@ struct CowabungaApp: App {
                         task.resume()
                     }
                     AudioFiles.setup(fetchingNewAudio: UserDefaults.standard.bool(forKey: "AutoFetchAudio"))
-                    LockManager.setup(fetchingNewLocks: UserDefaults.standard.bool(forKey: "AutoFetchLocks"))
+                    //LockManager.setup(fetchingNewLocks: UserDefaults.standard.bool(forKey: "AutoFetchLocks"))
                     if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
                         ApplicationMonitor.shared.start()
                     }
