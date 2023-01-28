@@ -308,7 +308,8 @@ func setCarrierName(newName: String) -> Bool {
                 do {
                     newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
                 } catch {
-                    continue
+                    newDataSize = -1
+                    break
                 }
                 newDataSize = newData.count
                 if count < 5 {
