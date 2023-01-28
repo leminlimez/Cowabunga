@@ -42,7 +42,7 @@ struct ToolsView: View {
         //.init(key: "GesturesView", view: AnyView(GesturesView()), title: "iPhone X Gestures", imageName: "iphone"),
         //.init(key: "BadgeChangerView", view: AnyView(BadgeChangerView()), title: "Custom Badges", imageName: "app.badge"),
         .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: "Springboard Tools", imageName: "snowflake"),
-        .init(key: "AudioView", view: AnyView(AudioView()), title: "Sound Effects", imageName: "speaker.wave.2.fill"),
+        //.init(key: "AudioView", view: AnyView(AudioView()), title: "Sound Effects", imageName: "speaker.wave.2.fill"),
         .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
         .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone"),
         .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
