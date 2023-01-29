@@ -104,7 +104,11 @@ struct OtherModsView: View {
                         Button("Enable", action: {
                             let succeeded = createSettingsPage()
                             if succeeded {
-                                UIApplication.shared.alert(title: "Success!", body: "Go to the phone tab in settings.")
+                                if #available(iOS 16, *) {
+                                    UIApplication.shared.alert(title: "Success!", body: "Go to the Phone tab in settings.")
+                                } else {
+                                    UIApplication.shared.alert(title: "Success!", body: "Go to the Photos tab in settings.")
+                                }
                             } else {
                                 UIApplication.shared.alert(body: "An error occurred while trying to enable default settings.")
                             }
