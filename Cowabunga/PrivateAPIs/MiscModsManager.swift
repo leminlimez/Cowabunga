@@ -34,11 +34,11 @@ let settingsOptions: [SettingsPageOption] = [
     // Organization Name
     //.init(type: SettingsOptionType.textbox, defaultValue: "", key: "OrganizationName", placeholder: "Organization", label: "Organization Name", editingFilePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist"),
     // Don't Lock After Respring
-    //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
+    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
     // Numeric Wi-Fi Strength
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowRSSI", label: "Numeric Wi-Fi Strength", editingFilePath: "com.apple.springboard"),
     // Numeric Cellular Strength
-    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowGSMRSSI", label: "Numeric Cellular Strength", editingFilePath: "com.apple.springboard")
+    //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowGSMRSSI", label: "Numeric Cellular Strength", editingFilePath: "com.apple.springboard")
 ]
 
 
@@ -442,8 +442,13 @@ func createSettingsPage() -> Bool {
     do {
         let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
         // replace the data
-        // /System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist
-        return overwriteFileWithDataImpl(originPath: "/System/Library/PreferenceBundles/MobilePhoneSettings.bundle/Phone.plist", replacementData: newData)
+        var path: String
+        if #available(iOS 16, *) {
+            path = "/System/Library/PreferenceBundles/MobilePhoneSettings.bundle/Phone.plist"
+        } else {
+            path = "/System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist"
+        }
+        return overwriteFileWithDataImpl(originPath: path, replacementData: newData)
     } catch {
         print("Could not get the data!")
         return false
