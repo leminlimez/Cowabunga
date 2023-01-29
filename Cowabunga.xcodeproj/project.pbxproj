@@ -39,7 +39,6 @@
 		6FF21AE129846AB20054EBC0 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE029846AB20054EBC0 /* MaterialView.swift */; };
 		6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE229846AC30054EBC0 /* ImagePickerView.swift */; };
 		6FF21AE6298479BD0054EBC0 /* LSFootnoteChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */; };
-		6FF21AE82985F36B0054EBC0 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FF21AE72985F36B0054EBC0 /* entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +79,7 @@
 		6FF21AE029846AB20054EBC0 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		6FF21AE229846AC30054EBC0 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSFootnoteChangerView.swift; sourceTree = "<group>"; };
-		6FF21AE72985F36B0054EBC0 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = entitlements.plist; path = ../TrollTools/entitlements.plist; sourceTree = "<group>"; };
+		6FF21AE92985F3BC0054EBC0 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +108,7 @@
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
-				6FF21AE72985F36B0054EBC0 /* entitlements.plist */,
+				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
 				6F6D38F42976FF8B00DE3146 /* AppDelegate.swift */,
 				6F721C8E296482C6001CFE46 /* Cowabunga */,
 				6F721C8D296482C6001CFE46 /* Products */,
@@ -301,7 +300,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FF21AE82985F36B0054EBC0 /* entitlements.plist in Resources */,
 				6F721C97296482C7001CFE46 /* Preview Assets.xcassets in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 			);
