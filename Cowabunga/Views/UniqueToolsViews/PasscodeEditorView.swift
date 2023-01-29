@@ -49,7 +49,7 @@ struct PasscodeEditorView: View {
                         .foregroundColor(.white)
                         .font(.title2)
                         .padding(1)
-                    Text("Tap on any key to edit \nit's appearance")
+                    Text("Tap on any key to edit \nits appearance")
                         .foregroundColor(.white)
                         .font(.footnote)
                         .multilineTextAlignment(.center)
