@@ -26,10 +26,12 @@ struct RootView: View {
                 .tabItem {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
                 }
-            /*ExploreView()
-                .tabItem {
-                    Label("Themes", systemImage: "sparkles")
-                }*/
+            if #available(iOS 15.0, *) {
+                ExploreView()
+                    .tabItem {
+                        Label("Themes", systemImage: "sparkles")
+                    }
+            }
 //            PasscodeEditorView()
 //                .tabItem {
 //                    Label("Passcode", systemImage: "key")
