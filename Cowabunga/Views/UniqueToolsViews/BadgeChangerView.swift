@@ -77,14 +77,14 @@ struct BadgeChangerView: View {
                             .foregroundColor(.init(uiColor14: .systemBackground))
                             .padding(.top, 24)
                     }
-                    Button("Apply and respring", action: {
+                    Button("Apply", action: {
                         do {
                             if image == nil {
                                 try BadgeChanger.change(to: UIColor(color), with: radius)
                             } else {
                                 try BadgeChanger.change(to: image!)
                             }
-                            respring()
+                            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
                         } catch {
                             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
                         }
