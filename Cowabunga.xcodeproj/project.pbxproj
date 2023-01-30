@@ -50,6 +50,10 @@
 		6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE229846AC30054EBC0 /* ImagePickerView.swift */; };
 		6FF21AE6298479BD0054EBC0 /* LSFootnoteChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */; };
 		6FF21AEC298815FF0054EBC0 /* respring.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AEB298815FF0054EBC0 /* respring.m */; };
+		6FF21AF1298820550054EBC0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF21AF0298820540054EBC0 /* MobileCoreServices.framework */; };
+		6FF21AF3298821010054EBC0 /* BadgeChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AF2298821010054EBC0 /* BadgeChangerView.swift */; };
+		6FF21AF5298821290054EBC0 /* BadgeChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AF4298821290054EBC0 /* BadgeChanger.swift */; };
+		6FF21AF8298821410054EBC0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF21AF7298821410054EBC0 /* Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +106,9 @@
 		6FF21AE92985F3BC0054EBC0 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		6FF21AEB298815FF0054EBC0 /* respring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = respring.m; sourceTree = "<group>"; };
 		6FF21AED298816140054EBC0 /* respring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = respring.h; sourceTree = "<group>"; };
+		6FF21AF0298820540054EBC0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6FF21AF2298821010054EBC0 /* BadgeChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeChangerView.swift; sourceTree = "<group>"; };
+		6FF21AF4298821290054EBC0 /* BadgeChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeChanger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +116,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FF21AF8298821410054EBC0 /* Dynamic in Frameworks */,
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
+				6FF21AF1298820550054EBC0 /* MobileCoreServices.framework in Frameworks */,
 				6FF21ADE29846A180054EBC0 /* ZIPFoundation in Frameworks */,
 				21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */,
 			);
@@ -238,6 +247,7 @@
 		6FBEDC4F2964E1F10032B1A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FF21AF0298820540054EBC0 /* MobileCoreServices.framework */,
 				6F160E6C2964E3540026D69D /* CoreServices.framework */,
 			);
 			name = Frameworks;
@@ -271,6 +281,7 @@
 				6FF21AC729840DC40054EBC0 /* LockView.swift */,
 				6FF21AD7298458690054EBC0 /* PasscodeEditorView.swift */,
 				6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */,
+				6FF21AF2298821010054EBC0 /* BadgeChangerView.swift */,
 			);
 			path = UniqueToolsViews;
 			sourceTree = "<group>";
@@ -279,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF21ADA298458910054EBC0 /* PasscodeKeyFaceManager.swift */,
+				6FF21AF4298821290054EBC0 /* BadgeChanger.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -320,6 +332,7 @@
 			packageProductDependencies = (
 				6FF21ADD29846A180054EBC0 /* ZIPFoundation */,
 				21C08D9E2987CE3700294DE7 /* HCaptcha */,
+				6FF21AF7298821410054EBC0 /* Dynamic */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -353,6 +366,7 @@
 			packageReferences = (
 				6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */,
+				6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -384,8 +398,10 @@
 				21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */,
 				6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */,
 				6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */,
+				6FF21AF5298821290054EBC0 /* BadgeChanger.swift in Sources */,
 				2183C9992987D8EA00AE187C /* MachineName.swift in Sources */,
 				2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */,
+				6FF21AF3298821010054EBC0 /* BadgeChangerView.swift in Sources */,
 				6FF21AE129846AB20054EBC0 /* MaterialView.swift in Sources */,
 				6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */,
 				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
@@ -659,6 +675,14 @@
 				kind = branch;
 			};
 		};
+		6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mhdhejazi/Dynamic";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -671,6 +695,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		6FF21AF7298821410054EBC0 /* Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */;
+			productName = Dynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
