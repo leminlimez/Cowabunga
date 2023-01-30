@@ -45,16 +45,16 @@ class LockManager {
         }
     }
     
-    // get the directory of the included locks
-    static func getIncludedLocksDirectory() -> URL? {
+    // get the directory of the saved locks
+    static func getLocksDirectory() -> URL? {
         do {
-            let newURL: URL = URL.documents.appendingPathComponent("Included_Locks")
+            let newURL: URL = URL.documents.appendingPathComponent("Saved_Locks")
             if !FileManager.default.fileExists(atPath: newURL.path) {
                 try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
             }
             return newURL
         } catch {
-            print("An error occurred getting/making the included locks directory")
+            print("An error occurred getting/making the saved locks directory")
         }
         return nil
     }
@@ -66,7 +66,7 @@ class LockManager {
                 // get the folder of a lock in custom locks
             } else {
                 // get the folder of a lock in included locks
-                let newURL: URL = getIncludedLocksDirectory()!.appendingPathComponent(lockName)
+                let newURL: URL = getLocksDirectory()!.appendingPathComponent(lockName)
                 if !FileManager.default.fileExists(atPath: newURL.path) {
                     try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
                 }
