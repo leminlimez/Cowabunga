@@ -18,6 +18,7 @@
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
 		21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */ = {isa = PBXBuildFile; productRef = 21C08D9E2987CE3700294DE7 /* HCaptcha */; };
 		21C08DA12987CF5300294DE7 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08DA02987CF5300294DE7 /* ExploreView.swift */; };
+		21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED3C7929884AAD00135B50 /* CornerRadius++.swift */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E72975EF6000DE3146 /* AudioConverter.swift */; };
@@ -69,6 +70,7 @@
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		21C08DA02987CF5300294DE7 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		21ED3C7929884AAD00135B50 /* CornerRadius++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CornerRadius++.swift"; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				2183C9982987D8EA00AE187C /* MachineName.swift */,
 				2183C99A2987D8FA00AE187C /* Extensions.swift */,
 				2183C99D2987DA6800AE187C /* AppIcon.swift */,
+				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */,
 				6F160E732965B2810026D69D /* ToolsManager.swift in Sources */,
 				6FF21AC829840DC40054EBC0 /* LockView.swift in Sources */,
+				21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */,
 				6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */,
 				6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */,
 				6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */,
