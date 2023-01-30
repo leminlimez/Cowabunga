@@ -11,6 +11,9 @@ struct OtherModsView: View {
     @State private var CurrentVersion: String = getPlistValue(plistPath: "/System/Library/CoreServices/SystemVersion.plist", key: "ProductVersion")
     @State private var CurrentModel: String = getPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription")
     @State private var CurrentCarrier: String = UserDefaults.standard.string(forKey: "CarrierName") ?? ""
+    
+    @State private var deviceRes = (UIScreen.main.nativeBounds.width, UIScreen.main.nativeBounds.height)
+    
     @State private var CurrentSubType: Int = getCurrentDeviceSubType()
     @State private var CurrentSubTypeDisplay: String = "nil"
     
@@ -144,7 +147,7 @@ struct OtherModsView: View {
                     
                     // disable shortcut apps to appclip
                     HStack {
-                        Image(systemName: "appclip")
+                        Image(systemName: "app.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 24, height: 24)
@@ -276,6 +279,82 @@ struct OtherModsView: View {
                                     // cancel the process
                                 })
                                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                            })
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        }
+                        
+                        // resolution setter
+                        HStack {
+                            Image(systemName: "squareshape.controlhandles.on.squareshape.controlhandles")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                            
+                            Text("Device Resolution")
+                                .minimumScaleFactor(0.5)
+                            
+                            Spacer()
+                            
+                            Button("\(deviceRes.0)x\(deviceRes.1)", action: {
+                                // ask the user for a custom size
+                                let sizeAlert = UIAlertController(title: "Enter Dimensions", message: "", preferredStyle: .alert)
+                                // bring up the text prompts
+                                sizeAlert.addTextField { (textField) in
+                                    // text field for width
+                                    textField.placeholder = "Width"
+                                    textField.text = String(Double(deviceRes.0))
+                                    textField.keyboardType = .decimalPad
+                                }
+                                sizeAlert.addTextField { (textField) in
+                                    // text field for height
+                                    textField.placeholder = "Height"
+                                    textField.text = String(Double(deviceRes.1))
+                                    textField.keyboardType = .decimalPad
+                                }
+                                sizeAlert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+                                    // set the sizes
+                                    let first = sizeAlert.textFields![0].text
+                                    if first != nil && Double(first!) != nil {
+                                        deviceRes.0 = Double(first!)!
+                                    }
+                                    
+                                    let second = sizeAlert.textFields![1].text
+                                    if second != nil && Double(second!) != nil {
+                                        deviceRes.1 = Double(second!)!
+                                    }
+                                    
+                                    // credit:
+                                    func createPlist(at url: URL) throws {
+                                        let 💀 : [String: Any] = [
+                                            "canvas_height": Int(deviceRes.0),
+                                            "canvas_width": Int(deviceRes.1),
+                                        ]
+                                        let data = NSDictionary(dictionary: 💀)
+                                        data.write(toFile: url.path, atomically: true)
+                                    }
+                                    
+                                    do {
+                                        let tmpPlistURL = URL(fileURLWithPath: "/var/tmp/com.apple.iokit.IOMobileGraphicsFamily.plist")
+                                        try? FileManager.default.removeItem(at: tmpPlistURL)
+                                        
+                                        try createPlist(at: tmpPlistURL)
+                                        
+                                        let aliasURL = URL(fileURLWithPath: "/private/var/mobile/Library/Preferences/com.apple.iokit.IOMobileGraphicsFamily.plist")
+                                        try? FileManager.default.removeItem(at: aliasURL)
+                                        try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
+                                        
+                                        UIApplication.shared.alert(title: "Success!", body: "Please respring to finalize change.")
+                                    } catch {
+                                        print("An error occurred: \(error.localizedDescription)")
+                                        UIApplication.shared.alert(body: "Failed to apply resolution: \(error.localizedDescription)")
+                                    }
+                                })
+                                sizeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                    // cancel the process
+                                })
+                                UIApplication.shared.windows.first?.rootViewController?.present(sizeAlert, animated: true, completion: nil)
                             })
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
