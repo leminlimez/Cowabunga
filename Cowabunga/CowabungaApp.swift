@@ -11,13 +11,18 @@ import SwiftUI
 struct CowabungaApp: App {
     //let locationManager = LocationManager()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var sourceRepoFetcher = SourcedRepoFetcher()
     
     var body: some Scene {
         WindowGroup {
             RootView()
+                .environmentObject(sourceRepoFetcher)
                 .onAppear {
                     if #available(iOS 16.2, *) {
+                        #if targetEnvironment(simulator)
+                        #else
                         UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.")
+                        #endif
                     } else {
                         do {
                             // TrollStore method
