@@ -345,7 +345,7 @@ struct OtherModsView: View {
                                         try? FileManager.default.removeItem(at: aliasURL)
                                         try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
                                         
-                                        UIApplication.shared.alert(title: "Success!", body: "Please respring to finalize change.")
+                                        UIApplication.shared.alert(title: "Success!", body: "Please respring to finalize changes. Reboot to revert.")
                                     } catch {
                                         print("An error occurred: \(error.localizedDescription)")
                                         UIApplication.shared.alert(body: "Failed to apply resolution: \(error.localizedDescription)")
