@@ -22,6 +22,7 @@ struct PasscodeEditorView: View {
     //@State private var sizeButtonState = KeySizeState.small
     @State private var isImporting = false
     @State private var isExporting = false
+    @State private var showingSaved = false
     
     @State private var sizeLimit: [Int] = [PasscodeSizeLimit.min.rawValue, PasscodeSizeLimit.max.rawValue] // the limits of the custom size (max, min)
     
