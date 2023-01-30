@@ -393,7 +393,7 @@ func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool
     do {
         var succeeded: Bool = true
         for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: path), includingPropertiesForKeys: nil) {
-            if !url.lastPathComponent.starts(with: ".DO-NOT-DELETE") {
+            //if !url.lastPathComponent.starts(with: ".DO-NOT-DELETE") {
                 // get the info.plist
                 let plistURL = url.appendingPathComponent("Info.plist")
                 guard let plistData = try? Data(contentsOf: plistURL) else { print("could not get data"); continue }
@@ -417,7 +417,7 @@ func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool
                     print("Could not replace plist data: \(error.localizedDescription)")
                     succeeded = false
                 }
-            }
+            //}
         }
         return succeeded
     } catch {
