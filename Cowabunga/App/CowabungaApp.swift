@@ -11,12 +11,12 @@ import SwiftUI
 struct CowabungaApp: App {
     //let locationManager = LocationManager()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject var sourceRepoFetcher = SourcedRepoFetcher()
+    @StateObject var cowabungaAPI = CowabungaAPI()
     
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(sourceRepoFetcher)
+                .environmentObject(cowabungaAPI)
                 .onAppear {
                     if #available(iOS 16.2, *) {
                         #if targetEnvironment(simulator)
