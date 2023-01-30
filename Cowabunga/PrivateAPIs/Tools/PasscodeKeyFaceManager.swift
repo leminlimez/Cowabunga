@@ -257,9 +257,23 @@ class PasscodeKeyFaceManager {
             // just set the defaults to 150
             print("Could not get sizes")
             print(error.localizedDescription)
-            defaults.set(150, forKey: "passcodeFaceSize")
+            //defaults.set(150, forKey: "passcodeFaceSize")
             return 150
         }
+    }
+    
+    // get the directory of the saved passcodes
+    static func getPasscodesDirectory() -> URL? {
+        do {
+            let newURL: URL = URL.documents.appendingPathComponent("Saved_Passcodes")
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
+            }
+            return newURL
+        } catch {
+            print("An error occurred getting/making the saved passcodes directory")
+        }
+        return nil
     }
 }
 
