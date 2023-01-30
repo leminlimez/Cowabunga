@@ -87,7 +87,11 @@ struct OtherModsView: View {
                         .foregroundColor(.blue)
                         .padding(.leading, 10)
                     }
-                    
+                } header: {
+                    Text("Basic Modifications")
+                }
+                
+                Section {
                     // delete shortcut banner
                     HStack {
                         Image(systemName: "pencil.slash")
@@ -162,7 +166,11 @@ struct OtherModsView: View {
                         .foregroundColor(.blue)
                         .padding(.leading, 10)
                     }
-                    
+                } header: {
+                    Text("Shortcut Apps")
+                }
+                
+                Section {
                     // custom settings
                     HStack {
                         Image(systemName: "plus")
@@ -220,8 +228,9 @@ struct OtherModsView: View {
                         .padding(.leading, 10)
                     }
                 } header: {
-                    Text("Safe")
+                    Text("More Settings")
                 }
+                
                 Section {
                     // software version
                     if #available(iOS 15, *) {
