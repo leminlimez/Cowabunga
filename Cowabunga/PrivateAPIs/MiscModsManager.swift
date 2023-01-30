@@ -381,6 +381,51 @@ func togglePlistOption(plistPath: String, key: String, value: Any) throws {
     try plistData.write(to: url)
 }
 
+enum ShortcutAppMod {
+    case deleteBanner
+    case modifyAppClips
+}
+
+// modify the shortcut apps
+func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool {
+    let path: String = "/var/mobile/Library/WebClips"
+    // get the contents of the path
+    do {
+        var succeeded: Bool = true
+        for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: path), includingPropertiesForKeys: nil) {
+            if !url.lastPathComponent.starts(with: ".DO-NOT-DELETE") {
+                // get the info.plist
+                let plistURL = url.appendingPathComponent("Info.plist")
+                guard let plistData = try? Data(contentsOf: plistURL) else { print("could not get data"); continue }
+                guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { print("Could not serialize"); continue }
+                
+                // delete the property
+                if modifying == ShortcutAppMod.deleteBanner {
+                    plist.removeValue(forKey: "ShortcutIdentifier")
+                }
+                
+                if modifying == ShortcutAppMod.modifyAppClips {
+                    plist.updateValue(value, forKey: "IsAppClip")
+                }
+                
+                do {
+                    // create the new data
+                    let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                    // apply plist
+                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: plistURL.path, replacementData: newData)
+                } catch {
+                    print("Could not replace plist data: \(error.localizedDescription)")
+                    succeeded = false
+                }
+            }
+        }
+        return succeeded
+    } catch {
+        print("An error occurred when getting the shortcut directory: \(error.localizedDescription)")
+        return false
+    }
+}
+
 // creates a page in settings
 func createSettingsPage() -> Bool {
     var itemsList: [[String: Any]] = [
