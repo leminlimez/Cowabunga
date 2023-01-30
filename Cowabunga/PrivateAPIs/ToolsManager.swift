@@ -22,10 +22,7 @@ func setDefaultBoolean(forKey: String, value: Bool) {
 }
 
 func respring() {
-    guard let window = UIApplication.shared.windows.first else { return }
-    while true {
-        window.snapshotView(afterScreenUpdates: false)
-    }
+    respringBackboard()
 }
 
 enum SpringBoardOptions: String, CaseIterable {
