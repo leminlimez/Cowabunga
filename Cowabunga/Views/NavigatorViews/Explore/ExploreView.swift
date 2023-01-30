@@ -5,24 +5,34 @@
 //  Created by sourcelocation on 30/01/2023.
 //
 
-/*import SwiftUI
+import SwiftUI
 
 struct ExploreView: View {
     // lazyvgrid
     private var gridItemLayout = [GridItem(.adaptive(minimum: 150))]
-    private var themes: [DownloadableTheme]
+    @State private var themes: [DownloadableTheme] = []
     
     var body: some View {
-        
-        LazyVGrid(columns: gridItemLayout) {
-            ForEach($themes) { theme in
-                Button(action: {
-                    print("Downloading from \()")
-                }) {
-                    
+        NavigationView {
+            if themes.isEmpty {
+                ProgressView()
+            } else {
+                LazyVGrid(columns: gridItemLayout) {
+                    ForEach($themes) { theme in
+                        Button(action: {
+                            print("Downloading from \(theme.downloadURL)")
+                        }) {
+                            
+                        }
+                    }
                 }
             }
         }
+        .onAppear {
+            Task {
+            }
+        }
+        
 //            .sheet(isPresented: $showLogin, content: { LoginView() })
         // maybe later
     }
@@ -32,4 +42,4 @@ struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
         ExploreView()
     }
-}*/
+}
