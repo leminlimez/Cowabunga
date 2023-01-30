@@ -14,8 +14,6 @@ struct Card {
     var format: String
 }
 
-private let helper = ObjcHelper()
-
 struct CardView: View {
     let fm = FileManager.default
     
@@ -47,7 +45,7 @@ struct CardView: View {
             }
             
             hasDefaultImage = true
-            helper.respring()
+            respring()
         case ".pdf":
             do {
                 try fm.removeItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined.pdf")
@@ -57,7 +55,7 @@ struct CardView: View {
             }
             
             hasDefaultImage = true
-            helper.respring()
+            respring()
         default:
             errorMessage = "Unknown file"
             showError = true
@@ -80,7 +78,7 @@ struct CardView: View {
                     
                     try fm.removeItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id.replacingOccurrences(of: "pkpass", with: "cache") )
                     
-                    helper.respring()
+                    respring()
                     
                     
                 } catch {
