@@ -51,7 +51,7 @@ struct BadgeChangerView: View {
                         }
                         .offset(x: minSize / 12, y:  -minSize / 12)
                     }
-                    Text("TrollTools")
+                    Text("Cowabunga")
                         .font(.title)
                         .foregroundColor(.white)
                         .fontWeight(.medium)
