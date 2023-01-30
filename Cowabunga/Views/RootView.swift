@@ -26,10 +26,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
                 }
-            ExploreView()
+            /*ExploreView()
                 .tabItem {
                     Label("Themes", systemImage: "sparkles")
-                }
+                }*/
 //            PasscodeEditorView()
 //                .tabItem {
 //                    Label("Passcode", systemImage: "key")
