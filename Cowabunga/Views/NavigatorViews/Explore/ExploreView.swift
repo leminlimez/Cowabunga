@@ -5,7 +5,7 @@
 //  Created by sourcelocation on 30/01/2023.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct ExploreView: View {
     // lazyvgrid
@@ -32,4 +32,4 @@ struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
         ExploreView()
     }
-}
+}*/
