@@ -18,26 +18,30 @@ struct RootView: View {
                 .tabItem {
                     Label("Tools", systemImage: "wrench.and.screwdriver.fill")
                 }
-            /*SpringBoardView()
-                .tabItem {
-                    Label("SpringBoard", systemImage: "snowflake")
-                }*/
+//            SpringBoardView()
+//                .tabItem {
+//                    Label("SpringBoard", systemImage: "snowflake")
+//                }
             AudioView()
                 .tabItem {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
-                }/*
-            PasscodeEditorView()
-                .tabItem {
-                    Label("Passcode", systemImage: "key")
                 }
-            /*LockView()
+            ExploreView()
                 .tabItem {
-                    Label("Lock", systemImage: "lock")
-                }*/
-            OtherModsView()
-                .tabItem {
-                    Label("Misc.", systemImage: "hammer")
-                }*/
+                    Label("Themes", systemImage: "sparkles")
+                }
+//            PasscodeEditorView()
+//                .tabItem {
+//                    Label("Passcode", systemImage: "key")
+//                }
+//            LockView()
+//                .tabItem {
+//                    Label("Lock", systemImage: "lock")
+//                }
+//            OtherModsView()
+//                .tabItem {
+//                    Label("Misc.", systemImage: "hammer")
+//                }
         }
     }
 }
