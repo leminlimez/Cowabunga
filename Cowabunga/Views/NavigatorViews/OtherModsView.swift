@@ -88,6 +88,81 @@ struct OtherModsView: View {
                         .padding(.leading, 10)
                     }
                     
+                    // delete shortcut banner
+                    HStack {
+                        Image(systemName: "pencil.slash")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.blue)
+                        
+                        Text("Delete Shortcut Banners")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button("Delete", action: {
+                            let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.deleteBanner)
+                            if succeeded {
+                                UIApplication.shared.alert(title: "Success!", body: "The shortcut banner will no longer appear for current shortcuts. Please respring to finalize.")
+                            } else {
+                                UIApplication.shared.alert(body: "An error occurred while trying to delete shortcut banners.")
+                            }
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // set shortcut apps to appclip
+                    HStack {
+                        Image(systemName: "appclip")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.blue)
+                        
+                        Text("Enable Shortcut Apps as Appclips")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button("Enable", action: {
+                            let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.modifyAppClips, true)
+                            if succeeded {
+                                UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+                            } else {
+                                UIApplication.shared.alert(body: "An error occurred while trying to enable appclip icons.")
+                            }
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // disable shortcut apps to appclip
+                    HStack {
+                        Image(systemName: "appclip")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.blue)
+                        
+                        Text("Disable Shortcut Apps as Appclips")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button("Disable", action: {
+                            let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.modifyAppClips, false)
+                            if succeeded {
+                                UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+                            } else {
+                                UIApplication.shared.alert(body: "An error occurred while trying to disable appclip cions.")
+                            }
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
                     // custom settings
                     HStack {
                         Image(systemName: "plus")
