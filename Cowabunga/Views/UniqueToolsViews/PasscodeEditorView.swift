@@ -66,12 +66,42 @@ struct PasscodeEditorView: View {
                         HStack(spacing: 22) {
                             // import button
                             Button(action: {
+                                // ask whether they are importing from file or saved
+                                // create and configure alert controller
+                                let alert = UIAlertController(title: "Import Passcode Theme", message: "From where do you want to import from?", preferredStyle: .actionSheet)
+                                
+                                // create the actions
+                                let filesAction = UIAlertAction(title: "Files", style: .default) { (action) in
+                                    // open file importer
+                                    isImporting = true
+                                }
+                                
+                                let savedAction = UIAlertAction(title: "Saved", style: .default) { (action) in
+                                    // import from saved passcode files
+                                }
+                                
+                                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                    // cancels the action
+                                }
+                                
+                                // add the actions
+                                alert.addAction(filesAction)
+                                alert.addAction(savedAction)
+                                alert.addAction(cancelAction)
+                                
+                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                // present popover for iPads
+                                alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                
+                                // present the alert
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                                 isImporting = true
                             }) {
                                 Image(systemName: "square.and.arrow.down")
                             }
                             .frame(width: 80, height: 80)
-                            .scaleEffect(2)
+                            .font(.system(size: 40))
                             .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                             
                             // zero key
@@ -94,7 +124,7 @@ struct PasscodeEditorView: View {
                                 Image(systemName: "square.and.arrow.up")
                             }
                             .frame(width: 80, height: 80)
-                            .scaleEffect(2)
+                            .font(.system(size: 40))
                             .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                         }
                     }
