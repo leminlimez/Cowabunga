@@ -297,20 +297,20 @@ struct OtherModsView: View {
                             
                             Spacer()
                             
-                            Button("\(deviceRes.0)x\(deviceRes.1)", action: {
+                            Button("\(Int(deviceRes.0))x\(Int(deviceRes.1))", action: {
                                 // ask the user for a custom size
                                 let sizeAlert = UIAlertController(title: "Enter Dimensions", message: "", preferredStyle: .alert)
                                 // bring up the text prompts
                                 sizeAlert.addTextField { (textField) in
                                     // text field for width
                                     textField.placeholder = "Width"
-                                    textField.text = String(Double(deviceRes.0))
+                                    textField.text = String(Int(deviceRes.0))
                                     textField.keyboardType = .decimalPad
                                 }
                                 sizeAlert.addTextField { (textField) in
                                     // text field for height
                                     textField.placeholder = "Height"
-                                    textField.text = String(Double(deviceRes.1))
+                                    textField.text = String(Int(deviceRes.1))
                                     textField.keyboardType = .decimalPad
                                 }
                                 sizeAlert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
