@@ -7,18 +7,18 @@
 
 import Foundation
 
-class DownloadableTheme {
-    var title: String
+class DownloadableTheme: Identifiable {
+    var name: String
     var description: String
     var contact: [String: String]
-    var previewImageURL: URL
-    var downloadURL: URL
+    var preview: URL
+    var url: URL
 
-    init(title: String, description: String, contact: [String : String], previewImageURL: URL, downloadURL: URL) {
-        self.title = title
+    init(name: String, description: String, contact: [String : String], preview: URL, url: URL) {
+        self.name = name
         self.description = description
         self.contact = contact
-        self.previewImageURL = previewImageURL
-        self.downloadURL = downloadURL
+        self.preview = preview
+        self.url = url
     }
 }
