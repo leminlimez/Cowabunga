@@ -43,9 +43,45 @@ struct ExploreView: View {
                                         
                                         // save the passthm file
                                         let themeSaveURL = saveURL.appendingPathComponent("theme.passthm")
-                                        let sessionConfig = URLSessionConfiguration.default
-                                        let session = URLSession(configuration: sessionConfig)
-                                        let request = URLRequest(url: theme.url)
+                                        let themeTask = URLSession.shared.dataTask(with: theme.url) { data, response, error in
+                                            guard let data = data else {
+                                                print("No data found!")
+                                                UIApplication.shared.dismissAlert(animated: true)
+                                                UIApplication.shared.alert(title: "Could not download passcode theme!", body: error?.localizedDescription ?? "Unknown Error")
+                                                return
+                                            }
+                                            do {
+                                                try data.write(to: themeSaveURL)
+                                            } catch {
+                                                print("Could not save data to theme save url!")
+                                                UIApplication.shared.dismissAlert(animated: true)
+                                                UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
+                                                return
+                                            }
+                                            
+                                            // save the preview file
+                                            let previewSaveURL = saveURL.appendingPathComponent("preview.png")
+                                            let task = URLSession.shared.dataTask(with: theme.url) { prevData, prevResponse, prevError in
+                                                guard let prevData = prevData else {
+                                                    print("No data found!")
+                                                    UIApplication.shared.dismissAlert(animated: true)
+                                                    UIApplication.shared.alert(title: "Could not download passcode theme!", body: prevError?.localizedDescription ?? "Unknown Error")
+                                                    return
+                                                }
+                                                do {
+                                                    try prevData.write(to: previewSaveURL)
+                                                    UIApplication.shared.dismissAlert(animated: true)
+                                                    UIApplication.shared.alert(title: "Successfully saved passcode theme!", body: "You can use it by tapping the import button in the Passcode Editor and tapping \"Saved\".")
+                                                } catch {
+                                                    print("Could not save data to preview url!")
+                                                    UIApplication.shared.dismissAlert(animated: true)
+                                                    UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
+                                                    return
+                                                }
+                                            }
+                                            task.resume()
+                                        }
+                                        themeTask.resume()
                                     } catch {
                                         print("Could not download passcode theme: \(error.localizedDescription)")
                                         UIApplication.shared.dismissAlert(animated: true)
