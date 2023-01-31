@@ -141,11 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				2183C9942987D8C800AE187C /* Alert++.swift */,
-				2183C9962987D8D800AE187C /* Color++.swift */,
-				2183C9982987D8EA00AE187C /* MachineName.swift */,
-				2183C99A2987D8FA00AE187C /* Extensions.swift */,
 				2183C99D2987DA6800AE187C /* AppIcon.swift */,
+				2183C9962987D8D800AE187C /* Color++.swift */,
 				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
+				2183C99A2987D8FA00AE187C /* Extensions.swift */,
+				2183C9982987D8EA00AE187C /* MachineName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,12 +153,12 @@
 		2183C99C2987D91600AE187C /* Exploit */ = {
 			isa = PBXGroup;
 			children = (
-				6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */,
-				6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */,
+				6FF21AD62984522B0054EBC0 /* grant_full_disk_access.h */,
+				6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */,
 				6FF21AD42984513A0054EBC0 /* helpers.h */,
 				6FF21AD32984513A0054EBC0 /* helpers.m */,
-				6FF21AD1298450C80054EBC0 /* grant_full_disk_access.m */,
-				6FF21AD62984522B0054EBC0 /* grant_full_disk_access.h */,
+				6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */,
+				6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */,
 			);
 			path = Exploit;
 			sourceTree = "<group>";
@@ -183,8 +183,8 @@
 		2183C9A32988356900AE187C /* ObjectiveC💀 */ = {
 			isa = PBXGroup;
 			children = (
-				2183C99C2987D91600AE187C /* Exploit */,
 				6FF21AFF29882C020054EBC0 /* CoreServices.h */,
+				2183C99C2987D91600AE187C /* Exploit */,
 			);
 			path = "ObjectiveC💀";
 			sourceTree = "<group>";
@@ -192,8 +192,8 @@
 		2183C9A4298835BB00AE187C /* App */ = {
 			isa = PBXGroup;
 			children = (
-				6F721C8F296482C6001CFE46 /* CowabungaApp.swift */,
 				6F6D38F42976FF8B00DE3146 /* AppDelegate.swift */,
+				6F721C8F296482C6001CFE46 /* CowabungaApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */,
-				6F6D38F02976FE6800DE3146 /* LocationManager.swift */,
 				6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */,
+				6F6D38F02976FE6800DE3146 /* LocationManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -246,10 +246,10 @@
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
-				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
 				6F721C8E296482C6001CFE46 /* Cowabunga */,
-				6F721C8D296482C6001CFE46 /* Products */,
+				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
 				6FBEDC4F2964E1F10032B1A9 /* Frameworks */,
+				6F721C8D296482C6001CFE46 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,17 +264,17 @@
 		6F721C8E296482C6001CFE46 /* Cowabunga */ = {
 			isa = PBXGroup;
 			children = (
+				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
+				6FBEDC492964E0800032B1A9 /* Info.plist */,
+				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
+				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				2183C9A22988354300AE187C /* API */,
 				2183C9A4298835BB00AE187C /* App */,
-				6FBEDC492964E0800032B1A9 /* Info.plist */,
 				6F6D38ED2976FE6800DE3146 /* Controllers */,
 				2183C9932987D8B400AE187C /* Extensions */,
 				2183C9A32988356900AE187C /* ObjectiveC💀 */,
 				6F721CAF2964A742001CFE46 /* PrivateAPIs */,
 				6F721CAE2964A72D001CFE46 /* Views */,
-				6F721C93296482C7001CFE46 /* Assets.xcassets */,
-				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
-				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
 			);
 			path = Cowabunga;
 			sourceTree = "<group>";
@@ -282,12 +282,12 @@
 		6F721CAE2964A72D001CFE46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6F247A5A298888B4007BD53A /* PasscodeChangerViews */,
-				6FF21AF9298826F00054EBC0 /* CardChangerViews */,
-				6F7C01D42968E0C500BC427A /* RootView.swift */,
 				6FF21ABB298050340054EBC0 /* AudioViews */,
+				6FF21AF9298826F00054EBC0 /* CardChangerViews */,
 				6FF21ABA298050150054EBC0 /* NavigatorViews */,
 				6FF21ADF29846AA60054EBC0 /* OtherViews */,
+				6F247A5A298888B4007BD53A /* PasscodeChangerViews */,
+				6F7C01D42968E0C500BC427A /* RootView.swift */,
 				6FF21AC629840D300054EBC0 /* UniqueToolsViews */,
 			);
 			path = Views;
@@ -296,12 +296,12 @@
 		6F721CAF2964A742001CFE46 /* PrivateAPIs */ = {
 			isa = PBXGroup;
 			children = (
-				6FF21AD9298458830054EBC0 /* Tools */,
 				6F6D38E72975EF6000DE3146 /* AudioConverter.swift */,
 				6F7C01E0296B2FB200BC427A /* AudioManager.swift */,
-				6F160E722965B2810026D69D /* ToolsManager.swift */,
-				6F7C01D82969B5A700BC427A /* MiscModsManager.swift */,
 				6FF21AC9298416E90054EBC0 /* LockManager.swift */,
+				6F7C01D82969B5A700BC427A /* MiscModsManager.swift */,
+				6FF21AD9298458830054EBC0 /* Tools */,
+				6F160E722965B2810026D69D /* ToolsManager.swift */,
 			);
 			path = PrivateAPIs;
 			sourceTree = "<group>";
@@ -318,11 +318,11 @@
 		6FF21ABA298050150054EBC0 /* NavigatorViews */ = {
 			isa = PBXGroup;
 			children = (
-				6F721C91296482C6001CFE46 /* SpringBoardView.swift */,
-				6F7C01D6296924F500BC427A /* OtherModsView.swift */,
-				6F6D38EB2976DEDA00DE3146 /* HomeView.swift */,
-				6FF21ACF298449F30054EBC0 /* ToolsView.swift */,
 				2183C99F2987E06400AE187C /* Explore */,
+				6F6D38EB2976DEDA00DE3146 /* HomeView.swift */,
+				6F7C01D6296924F500BC427A /* OtherModsView.swift */,
+				6F721C91296482C6001CFE46 /* SpringBoardView.swift */,
+				6FF21ACF298449F30054EBC0 /* ToolsView.swift */,
 			);
 			path = NavigatorViews;
 			sourceTree = "<group>";
@@ -330,9 +330,9 @@
 		6FF21ABB298050340054EBC0 /* AudioViews */ = {
 			isa = PBXGroup;
 			children = (
-				6FD9B525296C8AE300121229 /* AudioView.swift */,
 				6FD9B527296C8CBC00121229 /* AudioChangerView.swift */,
 				6FA660A5297B051E002471FB /* AudioOptionsView.swift */,
+				6FD9B525296C8AE300121229 /* AudioView.swift */,
 			);
 			path = AudioViews;
 			sourceTree = "<group>";
@@ -360,8 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				21DC3EBC29892E75007D6F5C /* ButtonStyles */,
-				6FF21AE029846AB20054EBC0 /* MaterialView.swift */,
 				6FF21AE229846AC30054EBC0 /* ImagePickerView.swift */,
+				6FF21AE029846AB20054EBC0 /* MaterialView.swift */,
 			);
 			path = OtherViews;
 			sourceTree = "<group>";
@@ -369,8 +369,8 @@
 		6FF21AF9298826F00054EBC0 /* CardChangerViews */ = {
 			isa = PBXGroup;
 			children = (
-				6FF21AFA298826FF0054EBC0 /* MainCardView.swift */,
 				6FF21AFC298827190054EBC0 /* CardView.swift */,
+				6FF21AFA298826FF0054EBC0 /* MainCardView.swift */,
 			);
 			path = CardChangerViews;
 			sourceTree = "<group>";
