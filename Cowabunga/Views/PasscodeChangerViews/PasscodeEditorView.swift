@@ -283,10 +283,6 @@ struct PasscodeEditorView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear() {
-            ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
-            currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
-        }
         .fileImporter(isPresented: $isImporting,
                       allowedContentTypes: [
                         //.folder
@@ -303,6 +299,8 @@ struct PasscodeEditorView: View {
             } catch { UIApplication.shared.alert(body: error.localizedDescription) }
         }
         .onAppear {
+            ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
+            currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
             do {
                 faces = try PasscodeKeyFaceManager.getFaces()
                 
