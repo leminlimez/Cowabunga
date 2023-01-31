@@ -15,6 +15,8 @@ struct ExploreView: View {
     private var gridItemLayout = [GridItem(.adaptive(minimum: 150))]
     @State private var themes: [DownloadableTheme] = []
     
+    @State var submitThemeAlertShown = false
+    
     var body: some View {
         NavigationView {
             if themes.isEmpty {
@@ -26,6 +28,7 @@ struct ExploreView: View {
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
                                 Button {
+                                    UIImpactFeedbackGenerator(style: .soft).impactOccurred()
                                     print("Downloading from \(theme.url.absoluteString)")
                                 } label: {
                                     VStack(spacing: 0) {
@@ -42,7 +45,7 @@ struct ExploreView: View {
                                             VStack(spacing: 4) {
                                                 HStack {
                                                     Text(theme.name)
-                                                        .foregroundColor(.black)
+                                                        .foregroundColor(Color(uiColor14: .label))
                                                         .minimumScaleFactor(0.5)
                                                     Spacer()
                                                 }
@@ -64,23 +67,23 @@ struct ExploreView: View {
                                         .frame(height: 58)
                                     }
                                 }
-                                .background(Color.white)
+                                .background(Color(uiColor14: .systemBackground))
                                 .cornerRadius(10)
                                 .padding(4)
                             }
                         }
-                        .padding(.horizontal)
+                        .padding()
                     }
                     .navigationTitle("Themes")
                 }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    UIApplication.shared.alert(title: "Submit themes", body: "")
-                } label: {
-                    Image("paperplane")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            submitThemeAlertShown = true
+                        } label: {
+                            Image(systemName: "paperplane")
+                        }
+                    }
                 }
             }
         }
@@ -93,7 +96,15 @@ struct ExploreView: View {
                 }
             }
         }
-        
+        .alert("Submit themes", isPresented: $submitThemeAlertShown, actions: {
+            Button("Join Discord", role: .none, action: {
+                UIApplication.shared.open(URL(string: "https://discord.gg/zTPFJuQfdw")!)
+            })
+            Button("OK", role: .cancel, action: {})
+        }, message: {
+            Text("Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel.")
+
+        })
 //            .sheet(isPresented: $showLogin, content: { LoginView() })
         // maybe later
     }

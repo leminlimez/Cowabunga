@@ -54,6 +54,7 @@ struct AudioView: View {
                     } header: {
                         Text("Categories")
                     }
+                    
                     Button(action: {
                         // apply the audio
                         let succeeded = AudioFiles.applyAllAudio()
@@ -63,20 +64,10 @@ struct AudioView: View {
                             UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
                         }
                     }) {
-                        if #available(iOS 15.0, *) {
-                            Text("Apply")
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                                .buttonStyle(.bordered)
-                                .tint(.blue)
-                                .cornerRadius(8)
-                        } else {
-                            // Fallback on earlier versions
-                            Text("Apply")
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                                .cornerRadius(8)
-                        }
+                        Text("Apply")
+                            .frame(maxWidth: .infinity)
+                            .padding(8)
+                            .cornerRadius(8)
                     }
                 }
                 .navigationTitle("Audio Changer")

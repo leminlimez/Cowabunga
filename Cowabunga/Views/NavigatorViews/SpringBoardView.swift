@@ -20,7 +20,7 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Disable Folder Background", imageName: "folder", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "ShortcutBannerDisabled"), key: "ShortcutBannerDisabled", title: " Disable Shortcut Banner ", imageName: "pencil.slash", fileType: OverwritingFileTypes.plist),
+        .init(value: getDefaultBool(forKey: "ShortcutBannerDisabled"), key: "ShortcutBannerDisabled", title: " Disable Shortcut Banner ", imageName: "square.2.stack.3d.top.fill", fileType: OverwritingFileTypes.plist),
     ]
     
     var body: some View {
@@ -47,6 +47,8 @@ struct SpringBoardView: View {
                             Text(option.title.wrappedValue)
                                 .foregroundColor(.init(uiColor14: .label))
                                 .lineLimit(2)
+                                .padding(.horizontal)
+                                .minimumScaleFactor(0.5)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(.vertical)
@@ -58,46 +60,11 @@ struct SpringBoardView: View {
                 }
             }
             VStack {
-                if #available(iOS 15.0, *) {
-                    Button("Apply", action: {
-                        applyTweaks()
-                    })
-                    .padding(8)
-                    .buttonStyle(.bordered)
-                    .tint(.accentColor)
-                    .cornerRadius(8)
-                    .foregroundColor(.accentColor)
-                    .frame(maxWidth: .infinity)
-                    
-                    /*Button("Respring", action: {
-                        respring()
-                    })
-                    .padding(8)
-                    .tint(.red)
-                    .buttonStyle(.bordered)
-                    .cornerRadius(8)
-                    .foregroundColor(.red)
-                    .frame(maxWidth: 200)*/
-                } else {
-                    // for ios 14 nerds still out there
-                    
-                    Button("Apply", action: {
-                        applyTweaks()
-                    })
-                    .padding(10)
-                    .background(Color.accentColor)
-                    .cornerRadius(8)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    
-                    /*Button("Respring", action: {
-                        respring()
-                    })
-                    .padding(10)
-                    .cornerRadius(8)
-                    .background(Color.red)
-                    .foregroundColor(.white)*/
+                Button("Apply") {
+                    applyTweaks()
                 }
+                .buttonStyle(FullwidthTintedButton(color: .blue))
+                
                 Spacer()
             }
             .padding(.vertical)
