@@ -274,7 +274,7 @@ func setCarrierName(newName: String) -> Bool {
             guard let plistData = try? Data(contentsOf: url) else { print("could not get data"); continue }
             guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { print("Could not serialize"); continue }
             // modify values
-            print("Modifying: " + (plist["CarrierName"] as? String ?? url.deletingPathExtension().lastPathComponent))
+            //print("Modifying: " + (plist["CarrierName"] as? String ?? url.deletingPathExtension().lastPathComponent))
             if var images = plist["StatusBarImages"] as? [[String: Any]] {
                 for var (i, image) in images.enumerated() {
                     image["StatusBarCarrierName"] = newName
