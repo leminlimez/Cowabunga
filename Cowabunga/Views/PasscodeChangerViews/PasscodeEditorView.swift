@@ -298,6 +298,9 @@ struct PasscodeEditorView: View {
                 faces = try PasscodeKeyFaceManager.getFaces()
             } catch { UIApplication.shared.alert(body: error.localizedDescription) }
         }
+        .sheet(isPresented: $showingSaved) {
+            SavedPasscodesView()
+        }
         .onAppear {
             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
             currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
