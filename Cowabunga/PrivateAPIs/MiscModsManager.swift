@@ -272,8 +272,7 @@ func setCarrierName(newName: String) -> Bool {
         // get the carrier files
         for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Carrier Bundles/Overlay/"), includingPropertiesForKeys: nil) {
             guard let plistData = try? Data(contentsOf: url) else { print("could not get data"); continue }
-                                                                          guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { print("Could not serialize"); continue }
-            let originalSize = plistData.count
+            guard var plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else { print("Could not serialize"); continue }
             // modify values
             print("Modifying: " + (plist["CarrierName"] as? String ?? url.deletingPathExtension().lastPathComponent))
             if var images = plist["StatusBarImages"] as? [[String: Any]] {
@@ -294,39 +293,10 @@ func setCarrierName(newName: String) -> Bool {
             plist.removeValue(forKey: "MyAccountURLTitle")
             
             // create the new data
-            guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0) else { continue }
+            guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0) else { continue }
             
-            // add data if too small
-            // while loop to make data match because recursive function didn't work
-            // very slow, will hopefully improve
-            var newDataSize = newData.count
-            var added = originalSize - newDataSize
-            var count = 0
-            while newDataSize != originalSize && count < 200 {
-                count += 1
-                plist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
-                do {
-                    newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
-                } catch {
-                    newDataSize = -1
-                    break
-                }
-                newDataSize = newData.count
-                if count < 5 {
-                    // max out this method at 5 if it isn't working
-                    added += originalSize - newDataSize
-                } else {
-                    if newDataSize > originalSize {
-                        added -= 1
-                    } else if newDataSize < originalSize {
-                        added += 1
-                    }
-                }
-            }
-            if newDataSize == originalSize {
-                // apply
-                succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, replacementData: newData)
-            }
+            // apply
+            succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, replacementData: newData)
         }
         
         // send back whether or not at least one was successful
