@@ -51,9 +51,9 @@ struct AudioOptionsView: View {
         .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: "Payment Received", imageName: "square.and.arrow.down.on.square"),
         
         // Keyboard Category
-        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: "Key Press Click", imageName: "square"),
-        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: "Key Press Delete", imageName: "delete.left"),
-        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: "Key Press Modifier", imageName: "keyboard.badge.ellipsis"),
+        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: "Keyboard Press Normal", imageName: "square"),
+        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: "Keyboard Press Delete", imageName: "delete.left"),
+        .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: "Keyboard Press Clear", imageName: "keyboard.badge.ellipsis"),
     ]
     
     var body: some View {
