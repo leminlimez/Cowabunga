@@ -32,6 +32,25 @@ struct ExploreView: View {
                                 Button {
                                     UIImpactFeedbackGenerator(style: .soft).impactOccurred()
                                     print("Downloading from \(theme.url.absoluteString)")
+                                    UIApplication.shared.alert(title: "Downloading \(theme.name)...", body: "Please wait", animated: false, withButton: false)
+                                    
+                                    // create the folder
+                                    do {
+                                        let saveURL = PasscodeKeyFaceManager.getPasscodesDirectory()!.appendingPathComponent(theme.name.replacingOccurrences(of: " ", with: "_"))
+                                        if !FileManager.default.fileExists(atPath: saveURL.path) {
+                                            try FileManager.default.createDirectory(at: saveURL, withIntermediateDirectories: false)
+                                        }
+                                        
+                                        // save the passthm file
+                                        let themeSaveURL = saveURL.appendingPathComponent("theme.passthm")
+                                        let sessionConfig = URLSessionConfiguration.default
+                                        let session = URLSession(configuration: sessionConfig)
+                                        let request = URLRequest(url: theme.url)
+                                    } catch {
+                                        print("Could not download passcode theme: \(error.localizedDescription)")
+                                        UIApplication.shared.dismissAlert(animated: true)
+                                        UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
+                                    }
                                 } label: {
                                     VStack(spacing: 0) {
                                         AsyncImage(url: theme.preview) { image in
