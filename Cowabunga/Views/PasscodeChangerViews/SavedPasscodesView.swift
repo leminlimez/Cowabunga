@@ -64,7 +64,7 @@ struct SavedPasscodesView: View {
                     if numOfSaved > 0 {
                         for passcode in try FileManager.default.contentsOfDirectory(at: savedPasscodesDir!, includingPropertiesForKeys: nil) {
                             let passcodeURL: URL? = passcode.appendingPathComponent("theme.passthm")
-                            let passcodeName: String = passcode.lastPathComponent
+                            let passcodeName: String = passcode.lastPathComponent.replacingOccurrences(of: "_", with: " ")
                             let passcodeImage: URL? = passcode.appendingPathComponent("preview.png")
                             if passcodeURL != nil && passcodeImage != nil {
                                 do {
