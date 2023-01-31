@@ -22,7 +22,7 @@ struct SavedPasscodesView: View {
                         Image(systemName: "phone")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: 0.5)
+                            .frame(maxWidth: 40, maxHeight: 40)
                             .cornerRadius(10, corners: .topLeft)
                             .cornerRadius(10, corners: .topRight)
                         
