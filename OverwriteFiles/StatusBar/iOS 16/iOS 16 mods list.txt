@@ -1,0 +1,15 @@
+Folders names with descriptions for each mod.
+
+- *StatBar Battery Icon 16: Hides the battery icon.*
+
+- *StatBar Battery-Time 16: Hides the battery icon, and time.*
+
+- *StatBar Carrier Name-Bar 16: Hides the carrier name/bars.*
+
+- *StatBar Carrier Name-Bars-Time 16: Hides the carrier name/bars. and time.*
+
+- *StatBar Carrier Name-Bars-Time-Battery 16: Hides the carrier name/bars, time, and the battery icon.*
+
+- *StatBar Time 16: Hides the time in the status bar.*
+
+- *StatBar Hide all 16: Hides the entire status bar.*
