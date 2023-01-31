@@ -25,6 +25,8 @@ struct ExploreView: View {
                 ZStack {
                     Color(uiColor14: .secondarySystemBackground).edgesIgnoringSafeArea(.all)
                     ScrollView {
+                        Text("This is a demo. Doesn't currently work")
+                            .multilineTextAlignment(.center)
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
                                 Button {

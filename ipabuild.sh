@@ -6,8 +6,10 @@ cd "$(dirname "$0")"
 
 WORKING_LOCATION="$(pwd)"
 APPLICATION_NAME=Cowabunga
-rm -rf build
-mkdir build
+
+if [ ! -d "build" ]; then
+    mkdir build
+fi
 
 cd build
 
