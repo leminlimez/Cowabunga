@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var versionBuild: String =  " (beta 2)"
+    @State private var versionBuildString: String?
     // list of options
     @State var tweakOptions: [GeneralOption] = [
         .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
@@ -37,6 +37,20 @@ struct HomeView: View {
         NavigationView {
             List {
                 Section {
+                    VStack {
+                        // apply all tweaks button
+                        Button("Fix tweaks") {
+                            applyTweaks()
+                        }
+                        .buttonStyle(FullwidthTintedButton(color: .blue))
+                        
+                        Button("Respring") {
+                            respring()
+                        }
+                        .buttonStyle(FullwidthTintedButton(color: .red))
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .padding()
                     // auto respring option
                     HStack {
                         Toggle(isOn: $autoRespring) {
@@ -45,49 +59,6 @@ struct HomeView: View {
                         }.onChange(of: autoRespring) { new in
                             // set the user defaults
                             UserDefaults.standard.set(new, forKey: "AutoRespringOnApply")
-                        }
-                        .padding(.leading, 10)
-                    }
-                    
-                    // apply all tweaks button
-                    Button(action: {
-                        applyTweaks()
-                    }) {
-                        if #available(iOS 15.0, *) {
-                            Text("Apply all")
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                                .buttonStyle(.bordered)
-                                .tint(.blue)
-                                .cornerRadius(8)
-                        } else {
-                            // Fallback on earlier versions
-                            Text("Apply all")
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                                .cornerRadius(8)
-                                .foregroundColor(.blue)
-                        }
-                    }
-                    
-                    // respring button
-                    Button(action: {
-                        respring()
-                    }) {
-                        if #available(iOS 15.0, *) {
-                            Text("Respring")
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                                .buttonStyle(.bordered)
-                                .tint(.red)
-                                .cornerRadius(8)
-                        } else {
-                            // Fallback on earlier versions
-                            Text("Respring")
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                                .foregroundColor(.red)
-                                .cornerRadius(8)
                         }
                     }
                 } header: {
@@ -166,7 +137,6 @@ struct HomeView: View {
                             }
                             //BackgroundFileUpdaterController.shared.enabled = new
                         }
-                        .padding(.leading, 10)
                     }
                     
                     // auto fetch audio updates toggle
@@ -180,7 +150,6 @@ struct HomeView: View {
                             // set the user defaults
                             UserDefaults.standard.set(new, forKey: "AutoFetchAudio")
                         }
-                        .padding(.leading, 10)
                     }
                     
                     // auto fetch locks updates toggle
@@ -209,7 +178,7 @@ struct HomeView: View {
                 Section {
                     // app credits
                     LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: "Main Developer", circle: true)
-                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "SourceLocation", contribution: "SpringBoard Grid UI &  Background Running", circle: true)
+                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "SourceLocation", contribution: "Co-Developer", circle: true)
                     LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: "Included Audio & Credits", circle: true)
                     LinkCell(imageName: "zhuowei", url: "https://twitter.com/zhuowei/", title: "zhuowei", contribution: "Unsandboxing", circle: true)
                     //LinkCell(imageName: "haxi0", url: "https://github.com/haxi0", title: "haxi0", contribution: "TrollLock", circle: true)
@@ -223,7 +192,7 @@ struct HomeView: View {
                 Section {
                     
                 } header: {
-                    Text("Version " + (Bundle.main.releaseVersionNumber ?? "UNKNOWN") + versionBuild)
+                    Text("Version \(Bundle.main.releaseVersionNumber ?? "UNKNOWN") (\(versionBuildString ?? "Release"))")
                 }
             }
             .navigationTitle("Cowabunga")
@@ -244,10 +213,15 @@ struct HomeView: View {
                 bgUpdateInterval = 120.0
             }
             backgroundController.time = bgUpdateInterval
+            
+            if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, build != "0" {
+                versionBuildString = "Beta \(build)"
+            }
         }
     }
     
     func applyTweaks() {
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         UIApplication.shared.alert(title: "Applying springboard tweaks...", body: "Please wait", animated: false, withButton: false)
         var failedSB: Bool = false
         // apply the springboard tweaks first
@@ -326,6 +300,7 @@ struct HomeView: View {
                 }
                 .cornerRadius(circle ? .infinity : 0)
                 .frame(width: 24, height: 24)
+                
                 VStack {
                     HStack {
                         Button(action: {

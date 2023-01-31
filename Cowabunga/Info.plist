@@ -2,17 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prefs</string>
+			</array>
+		</dict>
+	</array>
+	<key>HCaptchaDomain</key>
+	<string>http://repo.sourceloc.net</string>
+	<key>HCaptchaKey</key>
+	<string>c1edb33e-8b1f-47f8-92df-360f9a38ec7f</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>HCaptchaDomain</key>
-	<string>http://repo.sourceloc.net</string>
-	<key>HCaptchaKey</key>
-	<string>c1edb33e-8b1f-47f8-92df-360f9a38ec7f</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Grant permission to the sandbox (needs it for Passcode keys + some other options)</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
