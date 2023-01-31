@@ -267,7 +267,7 @@ func setRegion() -> Bool {
 
 func setCarrierName(newName: String) -> Bool {
     do {
-        var succeeded: Bool = true
+        var succeededOnce: Bool = false
         // Credit: TrollTools for process
         // get the carrier files
         for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Carrier Bundles/Overlay/"), includingPropertiesForKeys: nil) {
@@ -296,11 +296,19 @@ func setCarrierName(newName: String) -> Bool {
             guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0) else { continue }
             
             // apply
-            succeeded = succeeded && overwriteFileWithDataImpl(originPath: url.path, replacementData: newData)
+            /*if overwriteFileWithDataImpl(originPath: url.path, replacementData: newData) == true {
+                succeededOnce = true
+            }*/
+            do {
+                try newData.write(to: url)
+                succeededOnce = true
+            } catch {
+                print(error.localizedDescription)
+            }
         }
         
         // send back whether or not at least one was successful
-        return succeeded
+        return succeededOnce
     } catch {
         // an error occurred
         return false
