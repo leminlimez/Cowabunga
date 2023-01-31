@@ -61,7 +61,7 @@ struct ExploreView: View {
                                             
                                             // save the preview file
                                             let previewSaveURL = saveURL.appendingPathComponent("preview.png")
-                                            let task = URLSession.shared.dataTask(with: theme.url) { prevData, prevResponse, prevError in
+                                            let task = URLSession.shared.dataTask(with: theme.preview) { prevData, prevResponse, prevError in
                                                 guard let prevData = prevData else {
                                                     print("No data found!")
                                                     UIApplication.shared.dismissAlert(animated: true)
