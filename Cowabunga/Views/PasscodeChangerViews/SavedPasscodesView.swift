@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SavedPasscodesView: View {
+    @Binding var isVisible: Bool
+    @Binding var faces: [UIImage?]
     @State private var savedPasscodesDir = PasscodeKeyFaceManager.getPasscodesDirectory()
     @State private var numOfSaved = 0
     
@@ -25,6 +27,9 @@ struct SavedPasscodesView: View {
     
     var body: some View {
         VStack {
+            Text("Saved")
+                .padding(.top, 25)
+                .font(.largeTitle)
             if numOfSaved == 0 {
                 Text("You do not have any saved passcode themes. Check out the explore tab to find some!")
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -35,14 +40,19 @@ struct SavedPasscodesView: View {
                             Image(uiImage: passcode.passcodeImage.wrappedValue)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: 40, maxHeight: 40)
+                                .frame(maxWidth: 120, maxHeight: 150)
                                 .cornerRadius(10, corners: .topLeft)
                                 .cornerRadius(10, corners: .topRight)
+                                .cornerRadius(10, corners: .bottomLeft)
+                                .cornerRadius(10, corners: .bottomRight)
+                                .padding(.trailing, 15)
                             
                             Button(action: {
                                 // apply passcode file when tapped
                                 do {
                                     try PasscodeKeyFaceManager.setFacesFromTheme(passcode.passcodeFile.wrappedValue, keySize: CGFloat(PasscodeKeyFaceManager.getDefaultFaceSize()), customX: 150, customY: 150)
+                                    faces = try PasscodeKeyFaceManager.getFaces()
+                                    isVisible = false
                                 } catch {
                                     print("There was an error applying passcode keys: \(error.localizedDescription)")
                                 }
@@ -50,6 +60,7 @@ struct SavedPasscodesView: View {
                                 Text(passcode.passcodeName.wrappedValue)
                                     .minimumScaleFactor(0.5)
                                     .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(Color(uiColor14: .label))
                             }
                         }
                     }
@@ -85,11 +96,5 @@ struct SavedPasscodesView: View {
                 print("Error getting contents of directory")
             }
         }
-    }
-}
-
-struct SavedPasscodesView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavedPasscodesView()
     }
 }

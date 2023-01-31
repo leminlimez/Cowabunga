@@ -303,7 +303,7 @@ struct PasscodeEditorView: View {
             } catch { UIApplication.shared.alert(body: error.localizedDescription) }
         }
         .sheet(isPresented: $showingSaved) {
-            SavedPasscodesView()
+            SavedPasscodesView(isVisible: $showingSaved, faces: $faces)
         }
         .onAppear {
             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
