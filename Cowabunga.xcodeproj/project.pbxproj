@@ -665,7 +665,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 92S6JX27W2;
+				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -686,7 +686,7 @@
 				);
 				MARKETING_VERSION = 7.1.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -706,7 +706,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 92S6JX27W2;
+				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -727,7 +727,7 @@
 				);
 				MARKETING_VERSION = 7.1.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
