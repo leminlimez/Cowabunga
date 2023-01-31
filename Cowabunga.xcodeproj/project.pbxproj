@@ -14,6 +14,8 @@
 		2183C99B2987D8FA00AE187C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C99A2987D8FA00AE187C /* Extensions.swift */; };
 		2183C99E2987DA6800AE187C /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C99D2987DA6800AE187C /* AppIcon.swift */; };
 		2183C9A72988368A00AE187C /* CowabungaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9A62988368A00AE187C /* CowabungaAPI.swift */; };
+		21BA5BD3298998B70022F814 /* statusBarOverrides15 in Resources */ = {isa = PBXBuildFile; fileRef = 21BA5BD1298998B70022F814 /* statusBarOverrides15 */; };
+		21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */ = {isa = PBXBuildFile; fileRef = 21BA5BD2298998B70022F814 /* statusBarOverrides16 */; };
 		21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D992987CC2F00294DE7 /* LoginView.swift */; };
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
 		21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */ = {isa = PBXBuildFile; productRef = 21C08D9E2987CE3700294DE7 /* HCaptcha */; };
@@ -69,6 +71,8 @@
 		2183C99A2987D8FA00AE187C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2183C99D2987DA6800AE187C /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		2183C9A62988368A00AE187C /* CowabungaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowabungaAPI.swift; sourceTree = "<group>"; };
+		21BA5BD1298998B70022F814 /* statusBarOverrides15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides15; sourceTree = "<group>"; };
+		21BA5BD2298998B70022F814 /* statusBarOverrides16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides16; sourceTree = "<group>"; };
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		21C08DA02987CF5300294DE7 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -206,6 +210,34 @@
 			path = CowabungaAPI;
 			sourceTree = "<group>";
 		};
+		21BA5BCA298998870022F814 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				21BA5BD0298998B70022F814 /* StatusBarOverwriteFiles */,
+				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		21BA5BD0298998B70022F814 /* StatusBarOverwriteFiles */ = {
+			isa = PBXGroup;
+			children = (
+				21BA5BD1298998B70022F814 /* statusBarOverrides15 */,
+				21BA5BD2298998B70022F814 /* statusBarOverrides16 */,
+			);
+			path = StatusBarOverwriteFiles;
+			sourceTree = "<group>";
+		};
+		21BA5BD5298999620022F814 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */,
+				6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */,
+				6F6D38F02976FE6800DE3146 /* LocationManager.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
 		21C08D982987CC2300294DE7 /* SourcedRepo */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,9 +268,13 @@
 		6F6D38ED2976FE6800DE3146 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6F6D38EF2976FE6800DE3146 /* ApplicationMonitor.swift */,
-				6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */,
-				6F6D38F02976FE6800DE3146 /* LocationManager.swift */,
+				6F6D38E72975EF6000DE3146 /* AudioConverter.swift */,
+				6F7C01E0296B2FB200BC427A /* AudioManager.swift */,
+				6FF21AC9298416E90054EBC0 /* LockManager.swift */,
+				6F7C01D82969B5A700BC427A /* MiscModsManager.swift */,
+				6F160E722965B2810026D69D /* ToolsManager.swift */,
+				21BA5BD5298999620022F814 /* Background */,
+				6FF21AD9298458830054EBC0 /* Tools */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,14 +302,14 @@
 			children = (
 				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
-				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				2183C9A22988354300AE187C /* API */,
 				2183C9A4298835BB00AE187C /* App */,
 				6F6D38ED2976FE6800DE3146 /* Controllers */,
 				2183C9932987D8B400AE187C /* Extensions */,
+				6F721CAF2964A742001CFE46 /* Managers */,
 				2183C9A32988356900AE187C /* ObjectiveC💀 */,
-				6F721CAF2964A742001CFE46 /* PrivateAPIs */,
+				21BA5BCA298998870022F814 /* Other */,
 				6F721CAE2964A72D001CFE46 /* Views */,
 			);
 			path = Cowabunga;
@@ -293,17 +329,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6F721CAF2964A742001CFE46 /* PrivateAPIs */ = {
+		6F721CAF2964A742001CFE46 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				6F6D38E72975EF6000DE3146 /* AudioConverter.swift */,
-				6F7C01E0296B2FB200BC427A /* AudioManager.swift */,
-				6FF21AC9298416E90054EBC0 /* LockManager.swift */,
-				6F7C01D82969B5A700BC427A /* MiscModsManager.swift */,
-				6FF21AD9298458830054EBC0 /* Tools */,
-				6F160E722965B2810026D69D /* ToolsManager.swift */,
 			);
-			path = PrivateAPIs;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		6FBEDC4F2964E1F10032B1A9 /* Frameworks */ = {
@@ -446,7 +476,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21BA5BD3298998B70022F814 /* statusBarOverrides15 in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
+				21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
