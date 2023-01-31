@@ -291,8 +291,8 @@ class AudioFiles {
         SoundEffect.paymentReceived.rawValue: "UISounds/PaymentReceived.caf",
         
         // Keyboard Sounds Paths
-        SoundEffect.kbKeyClick.rawValue: "UISounds/key_press_click.caf",
-        SoundEffect.kbKeyDel.rawValue: "UISounds/key_press_delete.caf",
-        SoundEffect.kbKeyMod.rawValue: "UISounds/key_press_modifier.caf",
+        SoundEffect.kbKeyClick.rawValue: "UISounds/keyboard_press_normal.caf",
+        SoundEffect.kbKeyDel.rawValue: "UISounds/keyboard_press_delete.caf",
+        SoundEffect.kbKeyMod.rawValue: "UISounds/keyboard_press_clear.caf",
     ]
 }
