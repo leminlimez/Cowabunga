@@ -13,10 +13,10 @@ struct SavedPasscodesView: View {
     
     var body: some View {
         VStack {
-            /*if numOfSaved == 0 {
+            if numOfSaved == 0 {
                 Text("You do not have any saved passcode themes. Check out the explore tab to find some!")
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            } else {*/
+            } else {
                 List {
                     HStack {
                         Image(systemName: "phone")
@@ -31,7 +31,7 @@ struct SavedPasscodesView: View {
                             .font(.system(size: 24, weight: .bold))
                     }
                 }
-            //}
+            }
         }
         .onAppear {
             do {
