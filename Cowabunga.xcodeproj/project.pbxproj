@@ -46,7 +46,6 @@
 		6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38F62977303600DE3146 /* BackgroundFileUpdaterController.swift */; };
 		6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C8F296482C6001CFE46 /* CowabungaApp.swift */; };
 		6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C91296482C6001CFE46 /* SpringBoardView.swift */; };
-		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
 		6F75AD72298AB723009C0AD6 /* SpringboardColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75AD71298AB723009C0AD6 /* SpringboardColorManager.swift */; };
 		6F7C01D52968E0C500BC427A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D42968E0C500BC427A /* RootView.swift */; };
 		6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D6296924F500BC427A /* OtherModsView.swift */; };
@@ -124,7 +123,6 @@
 		6F721C8C296482C6001CFE46 /* Cowabunga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cowabunga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F721C8F296482C6001CFE46 /* CowabungaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowabungaApp.swift; sourceTree = "<group>"; };
 		6F721C91296482C6001CFE46 /* SpringBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoardView.swift; sourceTree = "<group>"; };
-		6F721C93296482C7001CFE46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cowabunga-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F75AD71298AB723009C0AD6 /* SpringboardColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringboardColorManager.swift; sourceTree = "<group>"; };
 		6F7C01D42968E0C500BC427A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 				6F56C885298ACEA2003BCD6F /* SpringboardFiles */,
 				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
-				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				2183C9A22988354300AE187C /* API */,
 				2183C9A4298835BB00AE187C /* App */,
 				6F6D38ED2976FE6800DE3146 /* Controllers */,
@@ -569,7 +566,6 @@
 				21E155E22989C32B00B59658 /* StatBar-HideAll-16 in Resources */,
 				21E155ED2989C32B00B59658 /* StatBar-HideBatteryIcon-16 in Resources */,
 				21E155D72989C32B00B59658 /* StatBar-HideCarrierNameBarsTime-16 in Resources */,
-				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */,
 				21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */,
 				21E155DC2989C32B00B59658 /* StatBar-HideBatteryTime-16 in Resources */,

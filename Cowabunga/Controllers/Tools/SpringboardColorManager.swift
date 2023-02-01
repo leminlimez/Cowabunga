@@ -13,9 +13,10 @@ class SpringboardColorManager {
         case folder
     }
     
-    static func applyColor(forType: SpringboardType, color: UIColor) {
+    static func applyColor(forType: SpringboardType, color: UIColor) throws {
         var modifyingFiles: [URL] = []
         let bgDir = getBackgroundDirectory()
+        
         if bgDir != nil {
             // get the file
             if forType == SpringboardType.folder {
@@ -47,7 +48,7 @@ class SpringboardColorManager {
                 }
             }
         } else {
-            UIApplication.shared.alert(body: "Could not find the background files directory!")
+            throw "Could not find the background files directory!"
         }
     }
     

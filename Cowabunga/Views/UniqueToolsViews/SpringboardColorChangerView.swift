@@ -17,6 +17,7 @@ struct SpringboardColorChangerView: View {
     
     
     @State private var folderColor = Color.gray
+    @State private var dockColor = Color.gray
     
     
     var body: some View {
@@ -34,7 +35,7 @@ struct SpringboardColorChangerView: View {
                     .ignoresSafeArea()
                 
                 ScrollView {
-                    VStack(spacing: 100) {
+                    VStack(spacing: 50) {
                         // MARK: Badge
                         VStack {
                             ZStack(alignment: .topTrailing) {
@@ -85,8 +86,16 @@ struct SpringboardColorChangerView: View {
                                     .cornerRadius(8)
                                     .foregroundColor(.init(uiColor14: .systemBackground))
                             }
+                            
+                            Button("Apply", action: {
+                                applyBadge()
+                            })
+                            .buttonStyle(TintedButton(color: .blue))
+                            .padding(4)
                         }
                         .padding(.top, 64)
+                        
+                        divider
                         
                         // MARK: Folder
                         VStack {
@@ -98,9 +107,9 @@ struct SpringboardColorChangerView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: minSize / 2, height: minSize / 2)
                                 }
-                                VStack(spacing: 12) {
+                                VStack(spacing: minSize / 30) {
                                     ForEach(0...1, id: \.self) { i1 in
-                                        HStack(spacing: 12) {
+                                        HStack(spacing: minSize / 30) {
                                             ForEach(0...2, id: \.self) { i2 in
                                                 RoundedRectangle(cornerRadius: minSize / 24)
                                                     .fill(iconColors[i1 * 3 + i2])
@@ -112,7 +121,7 @@ struct SpringboardColorChangerView: View {
                                     }
                                     Spacer()
                                 }
-                                .padding(24)
+                                .padding(minSize / 20)
                             }
                             
                             HStack {
@@ -125,29 +134,55 @@ struct SpringboardColorChangerView: View {
                                     .scaleEffect(1.5)
                                     .padding()
                             }
+                            Button("Apply", action: {
+                                applyFolder()
+                            })
+                            .buttonStyle(TintedButton(color: .blue))
+                            .padding(4)
+                        }
+                        
+                        divider
+                        
+                        // MARK: Dock
+                        VStack {
+                            let iconColors: [Color] = [.blue, .orange, .green, .purple]
+                            ZStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: minSize / 15)
+                                        .fill(dockColor.opacity(0.5))
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.horizontal)
+                                }
+                                HStack(spacing: 12) {
+                                    ForEach(0...3, id: \.self) { i1 in
+                                        RoundedRectangle(cornerRadius: minSize / 24)
+                                            .fill(iconColors[i1])
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: minSize / 7)
+                                    }
+                                }
+                                .padding(24)
+                            }
+                            
+                            HStack {
+                                Text("Dock")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.medium)
+                                ColorPicker("Set badge color", selection: $dockColor)
+                                    .labelsHidden()
+                                    .scaleEffect(1.5)
+                                    .padding()
+                            }
+                            Button("Apply", action: {
+                                applyDock()
+                            })
+                            .buttonStyle(TintedButton(color: .blue))
+                            .padding(4)
                         }
                         .padding(.bottom, 100)
                     }
                     .frame(maxWidth: .infinity)
-                }
-                VStack {
-                    Spacer()
-                    
-                    Button("Apply", action: {
-                        do {
-                            if badgeImage == nil {
-                                try BadgeChanger.change(to: UIColor(badgeColor), with: badgeRadius)
-                            } else {
-                                try BadgeChanger.change(to: badgeImage!)
-                            }
-                            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
-                        } catch {
-                            UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
-                        }
-                    })
-                    .buttonStyle(FullwidthTintedButton(color: .blue))
-                    .padding(.top, 24)
-                    .padding()
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -158,11 +193,49 @@ struct SpringboardColorChangerView: View {
         
     }
     
+    @ViewBuilder
+    var divider: some View {
+        Divider()
+            .overlay(Color.white.opacity(0.25))
+            .padding(.horizontal, 32)
+    }
+    
     func showBadgePicker() {
         PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
             DispatchQueue.main.async {
                 showingBadgeImagePicker = status == .authorized
             }
+        }
+    }
+    
+    
+    // MARK: Apply
+    func applyBadge() {
+        do {
+            if badgeImage == nil {
+                try BadgeChanger.change(to: UIColor(badgeColor), with: badgeRadius)
+            } else {
+                try BadgeChanger.change(to: badgeImage!)
+            }
+            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+        } catch {
+            UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
+        }
+    }
+    func applyFolder() {
+        do {
+            SpringboardColorManager.applyColor(forType: .folder, color: UIColor(folderColor))
+            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+        } catch {
+            UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
+        }
+    }
+    func applyDock() {
+        do {
+            SpringboardColorManager.applyColor(forType: .dock, color: UIColor(dockColor))
+            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+        } catch {
+            UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
         }
     }
 }
