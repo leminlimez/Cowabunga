@@ -159,7 +159,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
                 
                 // set the transparency of the modules
-                if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["materialFiltering"] as? [String: Any], var thirdLevel = secondLevel["colorMatrix"] as? [String: Double] {
+                if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["materialFiltering"] as? [String: Any], var thirdLevel = secondLevel["colorMatrix"] as? [String: Int] {
                     for (i, _) in thirdLevel {
                         thirdLevel[i] = 0
                     }
