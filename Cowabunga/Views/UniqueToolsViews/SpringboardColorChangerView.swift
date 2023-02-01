@@ -224,7 +224,7 @@ struct SpringboardColorChangerView: View {
     }
     func applyFolder() {
         do {
-            SpringboardColorManager.applyColor(forType: .folder, color: UIColor(folderColor))
+            try SpringboardColorManager.applyColor(forType: .folder, color: UIColor(folderColor))
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
@@ -232,7 +232,7 @@ struct SpringboardColorChangerView: View {
     }
     func applyDock() {
         do {
-            SpringboardColorManager.applyColor(forType: .dock, color: UIColor(dockColor))
+            try SpringboardColorManager.applyColor(forType: .dock, color: UIColor(dockColor))
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
