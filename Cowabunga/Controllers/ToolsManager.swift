@@ -114,7 +114,7 @@ func resetDeviceSubType() -> Bool {
         print("Could not get the device subtype")
     }
     return false
-    }
+}
 
 func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: String, _ value: Value) -> Bool {
     // find the path and replace the file
