@@ -20,7 +20,7 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Disable Folder Background", imageName: "folder", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "CCModuleBackgroundDisabled"), key: "CCModuleBackgroundDisabled", title: " Disable CC Module Background ", imageName: "switch.2", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "CCModuleBackgroundDisabled"), key: "CCModuleBackgroundDisabled", title: " Disable CC Module Background ", imageName: "switch.2", fileType: OverwritingFileTypes.cc),
     ]
     
     var body: some View {

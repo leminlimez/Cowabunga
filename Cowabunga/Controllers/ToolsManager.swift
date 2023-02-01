@@ -53,11 +53,12 @@ let replacementPaths: [String: [String]] = [
     SpringBoardOptions.FolderBGHidden.rawValue: ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
     SpringBoardOptions.FolderBlurDisabled.rawValue: ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
     SpringBoardOptions.SwitcherBlurDisabled.rawValue: ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
-    SpringBoardOptions.CCModuleBackgroundDisabled.rawValue: ["CoreMaterial.framework/modulesBackground.materialrecipe"],
+    SpringBoardOptions.CCModuleBackgroundDisabled.rawValue: ["CoreMaterial.framework/modules.materialrecipe"],
 ]
 
 enum OverwritingFileTypes {
     case springboard
+    case cc
     case plist
     case audio
     case region
@@ -147,7 +148,67 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 }
             }
         }
-    
+        
+    // setting cc modules transparency
+    } else if typeOfFile == OverwritingFileTypes.cc {
+        if replacementPaths[fileIdentifier] != nil {
+            do {
+                let path: String = replacementPaths[fileIdentifier]![0]
+                let plistData = try Data(contentsOf: URL(fileURLWithPath: "/System/Library/PrivateFrameworks/" + path))
+                let originalSize = plistData.count
+                var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+                
+                // set the transparency of the modules
+                if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["materialFiltering"] as? [String: Any], var thirdLevel = secondLevel["colorMatrix"] as? [String: Double] {
+                    for (i, _) in thirdLevel {
+                        thirdLevel[i] = 0
+                    }
+                    secondLevel["colorMatrix"] = thirdLevel
+                    firstLevel["materialFiltering"] = secondLevel
+                    plist["baseMaterial"] = firstLevel
+                }
+                
+                // overwrite the plist
+                var newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                // add data if too small
+                // while loop to make data match because recursive function didn't work
+                // very slow, will hopefully improve
+                var newDataSize = newData.count
+                var added = originalSize - newDataSize
+                var count = 0
+                while newDataSize != originalSize && count < 50 {
+                    count += 1
+                    plist.updateValue(String(repeating: "#", count: added), forKey: "#")
+                    do {
+                        newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
+                    } catch {
+                        newDataSize = -1
+                        break
+                    }
+                    newDataSize = newData.count
+                    if count < 5 {
+                        // max out this method at 5 if it isn't working
+                        added += originalSize - newDataSize
+                    } else {
+                        if newDataSize > originalSize {
+                            added -= 1
+                        } else if newDataSize < originalSize {
+                            added += 1
+                        }
+                    }
+                }
+                
+                if originalSize == newData.count {
+                    return overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: newData)
+                } else {
+                    print("File sizes didn't match!")
+                    return false
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
     // modifying a plist
     } else if typeOfFile == OverwritingFileTypes.plist {
         if replacementPaths[fileIdentifier] != nil {
