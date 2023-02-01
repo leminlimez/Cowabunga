@@ -16,7 +16,7 @@ struct HomeView: View {
         .init(key: "FolderBGHidden", fileType: OverwritingFileTypes.springboard),
         .init(key: "FolderBlurDisabled", fileType: OverwritingFileTypes.springboard),
         .init(key: "SwitcherBlurDisabled", fileType: OverwritingFileTypes.springboard),
-        .init(key: "ShortcutBannerDisabled", fileType: OverwritingFileTypes.plist),
+        .init(key: "CCModuleBackgroundDisabled", fileType: OverwritingFileTypes.springboard),
     ]
     
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
