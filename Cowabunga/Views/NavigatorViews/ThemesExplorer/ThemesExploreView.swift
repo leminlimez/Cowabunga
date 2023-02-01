@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct ExploreView: View {
+struct ThemesExploreView: View {
     
     @EnvironmentObject var cowabungaAPI: CowabungaAPI
     // lazyvgrid
@@ -167,9 +167,9 @@ struct ExploreView: View {
 }
 
 @available(iOS 15.0, *)
-struct ExploreView_Previews: PreviewProvider {
+struct ThemesExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+        ThemesExploreView()
             .environmentObject(CowabungaAPI())
     }
 }

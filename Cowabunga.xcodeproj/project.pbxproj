@@ -19,7 +19,7 @@
 		21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D992987CC2F00294DE7 /* LoginView.swift */; };
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
 		21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */ = {isa = PBXBuildFile; productRef = 21C08D9E2987CE3700294DE7 /* HCaptcha */; };
-		21C08DA12987CF5300294DE7 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08DA02987CF5300294DE7 /* ExploreView.swift */; };
+		21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */; };
 		21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */; };
 		21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */; };
 		21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 21E1556C2989C32A00B59658 /* iOS 16 mods list.txt */; };
@@ -66,7 +66,7 @@
 		6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE229846AC30054EBC0 /* ImagePickerView.swift */; };
 		6FF21AE6298479BD0054EBC0 /* LSFootnoteChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */; };
 		6FF21AF1298820550054EBC0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF21AF0298820540054EBC0 /* MobileCoreServices.framework */; };
-		6FF21AF3298821010054EBC0 /* BadgeChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AF2298821010054EBC0 /* BadgeChangerView.swift */; };
+		6FF21AF3298821010054EBC0 /* SpringboardColorChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AF2298821010054EBC0 /* SpringboardColorChangerView.swift */; };
 		6FF21AF5298821290054EBC0 /* BadgeChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AF4298821290054EBC0 /* BadgeChanger.swift */; };
 		6FF21AF8298821410054EBC0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF21AF7298821410054EBC0 /* Dynamic */; };
 		6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFA298826FF0054EBC0 /* MainCardView.swift */; };
@@ -86,7 +86,7 @@
 		21BA5BD2298998B70022F814 /* statusBarOverrides16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides16; sourceTree = "<group>"; };
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
-		21C08DA02987CF5300294DE7 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExploreView.swift; sourceTree = "<group>"; };
 		21D7BA2D298AADFB0055943A /* StatBar-HideCarrierNameBarsTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBarsTime-15"; sourceTree = "<group>"; };
 		21D7BA2E298AADFB0055943A /* StatBar-HideAll-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideAll-15"; sourceTree = "<group>"; };
 		21D7BA2F298AADFB0055943A /* StatBar-HideTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideTime-15"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSFootnoteChangerView.swift; sourceTree = "<group>"; };
 		6FF21AE92985F3BC0054EBC0 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		6FF21AF0298820540054EBC0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		6FF21AF2298821010054EBC0 /* BadgeChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeChangerView.swift; sourceTree = "<group>"; };
+		6FF21AF2298821010054EBC0 /* SpringboardColorChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringboardColorChangerView.swift; sourceTree = "<group>"; };
 		6FF21AF4298821290054EBC0 /* BadgeChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeChanger.swift; sourceTree = "<group>"; };
 		6FF21AFA298826FF0054EBC0 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FF21AFC298827190054EBC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -196,12 +196,12 @@
 			path = Exploit;
 			sourceTree = "<group>";
 		};
-		2183C99F2987E06400AE187C /* Explore */ = {
+		2183C99F2987E06400AE187C /* ThemesExplorer */ = {
 			isa = PBXGroup;
 			children = (
-				21C08DA02987CF5300294DE7 /* ExploreView.swift */,
+				21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */,
 			);
-			path = Explore;
+			path = ThemesExplorer;
 			sourceTree = "<group>";
 		};
 		2183C9A22988354300AE187C /* API */ = {
@@ -385,7 +385,6 @@
 				2183C9A4298835BB00AE187C /* App */,
 				6F6D38ED2976FE6800DE3146 /* Controllers */,
 				2183C9932987D8B400AE187C /* Extensions */,
-				6F721CAF2964A742001CFE46 /* Managers */,
 				2183C9A32988356900AE187C /* ObjectiveC💀 */,
 				21BA5BCA298998870022F814 /* Other */,
 				6F721CAE2964A72D001CFE46 /* Views */,
@@ -407,13 +406,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6F721CAF2964A742001CFE46 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		6FBEDC4F2964E1F10032B1A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,7 +418,7 @@
 		6FF21ABA298050150054EBC0 /* NavigatorViews */ = {
 			isa = PBXGroup;
 			children = (
-				2183C99F2987E06400AE187C /* Explore */,
+				2183C99F2987E06400AE187C /* ThemesExplorer */,
 				6F6D38EB2976DEDA00DE3146 /* HomeView.swift */,
 				6F7C01D6296924F500BC427A /* OtherModsView.swift */,
 				6F721C91296482C6001CFE46 /* SpringBoardView.swift */,
@@ -450,7 +442,7 @@
 			children = (
 				6FF21AC729840DC40054EBC0 /* LockView.swift */,
 				6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */,
-				6FF21AF2298821010054EBC0 /* BadgeChangerView.swift */,
+				6FF21AF2298821010054EBC0 /* SpringboardColorChangerView.swift */,
 			);
 			path = UniqueToolsViews;
 			sourceTree = "<group>";
@@ -588,7 +580,7 @@
 				2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */,
 				6F75AD72298AB723009C0AD6 /* SpringboardColorManager.swift in Sources */,
 				21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */,
-				6FF21AF3298821010054EBC0 /* BadgeChangerView.swift in Sources */,
+				6FF21AF3298821010054EBC0 /* SpringboardColorChangerView.swift in Sources */,
 				6FF21AE129846AB20054EBC0 /* MaterialView.swift in Sources */,
 				6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */,
 				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
@@ -605,7 +597,7 @@
 				2183C9952987D8C800AE187C /* Alert++.swift in Sources */,
 				6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */,
 				2183C99B2987D8FA00AE187C /* Extensions.swift in Sources */,
-				21C08DA12987CF5300294DE7 /* ExploreView.swift in Sources */,
+				21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */,
 				2183C9972987D8D800AE187C /* Color++.swift in Sources */,
 				6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */,
 				6FF21AFD298827190054EBC0 /* CardView.swift in Sources */,
