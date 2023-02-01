@@ -401,7 +401,10 @@ func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool
                 
                 // delete the property
                 if modifying == ShortcutAppMod.deleteBanner {
-                    plist.removeValue(forKey: "ShortcutIdentifier")
+                    // make sure it is an app and not a regular shortcut
+                    if plist["ApplicationBundleIdentifier"] != nil && (plist["ApplicationBundleIdentifier"] as? String) != "" {
+                        plist.removeValue(forKey: "ShortcutIdentifier")
+                    }
                 }
                 
                 if modifying == ShortcutAppMod.modifyAppClips {
