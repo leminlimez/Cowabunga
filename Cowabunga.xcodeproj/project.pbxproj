@@ -35,6 +35,8 @@
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
+		6F56C887298ACED7003BCD6F /* folder.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F56C886298ACED7003BCD6F /* folder.materialrecipe */; };
+		6F56C889298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F56C888298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe */; };
 		6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E72975EF6000DE3146 /* AudioConverter.swift */; };
 		6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E9297603F700DE3146 /* RegionEncodes.swift */; };
 		6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EB2976DEDA00DE3146 /* HomeView.swift */; };
@@ -110,6 +112,8 @@
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
 		6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasscodesView.swift; sourceTree = "<group>"; };
+		6F56C886298ACED7003BCD6F /* folder.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folder.materialrecipe; sourceTree = "<group>"; };
+		6F56C888298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folderExpandedBackgroundHome.materialrecipe; sourceTree = "<group>"; };
 		6F6D38E72975EF6000DE3146 /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		6F6D38E9297603F700DE3146 /* RegionEncodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEncodes.swift; sourceTree = "<group>"; };
 		6F6D38EB2976DEDA00DE3146 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -341,6 +345,15 @@
 			path = PasscodeChangerViews;
 			sourceTree = "<group>";
 		};
+		6F56C885298ACEA2003BCD6F /* SpringboardFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6F56C886298ACED7003BCD6F /* folder.materialrecipe */,
+				6F56C888298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe */,
+			);
+			path = SpringboardFiles;
+			sourceTree = "<group>";
+		};
 		6F6D38ED2976FE6800DE3146 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +391,7 @@
 		6F721C8E296482C6001CFE46 /* Cowabunga */ = {
 			isa = PBXGroup;
 			children = (
+				6F56C885298ACEA2003BCD6F /* SpringboardFiles */,
 				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
@@ -551,6 +565,7 @@
 				21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */,
 				21E155F22989C32B00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 in Resources */,
 				21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */,
+				6F56C887298ACED7003BCD6F /* folder.materialrecipe in Resources */,
 				21E155E22989C32B00B59658 /* StatBar-HideAll-16 in Resources */,
 				21E155ED2989C32B00B59658 /* StatBar-HideBatteryIcon-16 in Resources */,
 				21E155D72989C32B00B59658 /* StatBar-HideCarrierNameBarsTime-16 in Resources */,
@@ -558,6 +573,7 @@
 				21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */,
 				21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */,
 				21E155DC2989C32B00B59658 /* StatBar-HideBatteryTime-16 in Resources */,
+				6F56C889298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe in Resources */,
 				21E155E82989C32B00B59658 /* StatBar-HideCarrierNameBars-16 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
