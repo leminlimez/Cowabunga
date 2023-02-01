@@ -42,6 +42,8 @@ class SpringboardColorManager {
                         plist["baseMaterial"] = firstLevel
                     }
                     
+                    // fill with empty data
+                    
                     // write the new file
                 } catch {
                     print(error.localizedDescription)
