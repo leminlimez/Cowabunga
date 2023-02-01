@@ -265,6 +265,41 @@ func setRegion() -> Bool {
     }
 }
 
+func fillEmptyData(originalSize: Int, plist: [String: Any]) throws -> Data {
+    var newPlist = plist
+    // create the new data
+    guard var newData = try? PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0) else { throw "Unable to get data" }
+    // add data if too small
+    // while loop to make data match because recursive function didn't work
+    // very slow, will hopefully improve
+    var newDataSize = newData.count
+    var added = originalSize - newDataSize
+    var count = 0
+    while newDataSize != originalSize && count < 200 {
+        count += 1
+        newPlist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
+        do {
+            newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
+        } catch {
+            newDataSize = -1
+            break
+        }
+        newDataSize = newData.count
+        if count < 5 {
+            // max out this method at 5 if it isn't working
+            added += originalSize - newDataSize
+        } else {
+            if newDataSize > originalSize {
+                added -= 1
+            } else if newDataSize < originalSize {
+                added += 1
+            }
+        }
+    }
+    
+    return newData
+}
+
 func setCarrierName(newName: String) -> Bool {
     do {
         var succeededOnce: Bool = false
@@ -292,36 +327,9 @@ func setCarrierName(newName: String) -> Bool {
             plist.removeValue(forKey: "HomeBundleIdentifier")
             plist.removeValue(forKey: "MyAccountURLTitle")
             
-            // create the new data
-            guard var newData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0) else { continue }
-            // add data if too small
-            // while loop to make data match because recursive function didn't work
-            // very slow, will hopefully improve
-            var newDataSize = newData.count
-            var added = originalSize - newDataSize
-            var count = 0
-            while newDataSize != originalSize && count < 200 {
-                count += 1
-                plist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
-                do {
-                    newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)
-                } catch {
-                    newDataSize = -1
-                    break
-                }
-                newDataSize = newData.count
-                if count < 5 {
-                    // max out this method at 5 if it isn't working
-                    added += originalSize - newDataSize
-                } else {
-                    if newDataSize > originalSize {
-                        added -= 1
-                    } else if newDataSize < originalSize {
-                        added += 1
-                    }
-                }
-            }
-            if newDataSize == originalSize {
+            guard let newData = try? fillEmptyData(originalSize: originalSize, plist: plist) else { continue }
+            
+            if newData.count == originalSize {
                 // apply
                 if overwriteFileWithDataImpl(originPath: url.path, replacementData: newData) == true {
                     succeededOnce = true
