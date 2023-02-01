@@ -91,6 +91,7 @@ struct ExploreView: View {
                                             image
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
+                                                .frame(width: 170, height: 250)
                                                 .cornerRadius(10, corners: .topLeft)
                                                 .cornerRadius(10, corners: .topRight)
                                         } placeholder: {
