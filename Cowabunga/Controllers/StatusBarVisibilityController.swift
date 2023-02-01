@@ -10,10 +10,6 @@ import Foundation
 class StatusBarVisibilityController {
     static var shared = StatusBarVisibilityController()
     
-    enum StatusBarHider {
-        case
-    }
-    
     let fm = FileManager.default
     
     func changeStatusBarVisibility(hidden: Bool, versionOS: String) throws {
