@@ -23,7 +23,7 @@ class SpringboardColorManager {
         SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/"
     ]
     
-    static func createColor(forType: SpringboardType, color: UIColor) throws {
+    static func createColor(forType: SpringboardType, color: CIColor) throws {
         let bgDir = getBackgroundDirectory()
         
         if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
@@ -38,13 +38,13 @@ class SpringboardColorManager {
                     
                     if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["tinting"] as? [String: Any], var thirdLevel = secondLevel["tintColor"] as? [String: Any] {
                         // set the colors
-                        thirdLevel["red"] = CIColor(color: color).red
-                        thirdLevel["green"] = CIColor(color: color).green
-                        thirdLevel["blue"] = CIColor(color: color).blue
+                        thirdLevel["red"] = color.red
+                        thirdLevel["green"] = color.green
+                        thirdLevel["blue"] = color.blue
                         thirdLevel["alpha"] = 1
                         
                         secondLevel["tintColor"] = thirdLevel
-                        secondLevel["tintAlpha"] = CIColor(color: color).alpha
+                        secondLevel["tintAlpha"] = color.alpha
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }

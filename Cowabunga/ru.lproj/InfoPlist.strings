@@ -1,0 +1,18 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "Предоставьте разрешение эксплоиту (требуется для клавиш код-пароля + некоторые другие параметры)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga работает в фоновом режиме, чтобы твики оставались примененными. Обычно iOS убивает такие приложения через некоторое время. Но Cowabunga обманывает iOS, запрашивая данные о местоположении, что позволяет проводить более длительные сеансы. Данные нигде не хранятся, только извлекаются.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Cowabunga работает в фоновом режиме, чтобы твики оставались примененными. Обычно iOS убивает такие приложения через некоторое время. Но Cowabunga обманывает iOS, запрашивая данные о местоположении, что позволяет проводить более длительные сеансы. Данные нигде не хранятся, только извлекаются.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Фото";
+
