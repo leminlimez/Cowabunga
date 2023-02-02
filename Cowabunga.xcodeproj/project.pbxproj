@@ -34,6 +34,7 @@
 		21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E155992989C32A00B59658 /* StatBar-HideTime-16 */; };
 		21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 21E155AA2989C32A00B59658 /* iOS 15 mods list.txt */; };
 		21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED3C7929884AAD00135B50 /* CornerRadius++.swift */; };
+		6F0C298E298C126000A20CA0 /* dock.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F0C298D298C126000A20CA0 /* dock.materialrecipe */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
@@ -111,6 +112,7 @@
 		21E155992989C32A00B59658 /* StatBar-HideTime-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideTime-16"; sourceTree = "<group>"; };
 		21E155AA2989C32A00B59658 /* iOS 15 mods list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS 15 mods list.txt"; sourceTree = "<group>"; };
 		21ED3C7929884AAD00135B50 /* CornerRadius++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CornerRadius++.swift"; sourceTree = "<group>"; };
+		6F0C298D298C126000A20CA0 /* dock.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dock.materialrecipe; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 		6F56C885298ACEA2003BCD6F /* SpringboardFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6F0C298D298C126000A20CA0 /* dock.materialrecipe */,
 				6F56C886298ACED7003BCD6F /* folder.materialrecipe */,
 				6F56C888298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe */,
 			);
@@ -569,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BA5BD3298998B70022F814 /* statusBarOverrides15 in Resources */,
+				6F0C298E298C126000A20CA0 /* dock.materialrecipe in Resources */,
 				21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */,
 				21E155F22989C32B00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 in Resources */,
 				21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */,

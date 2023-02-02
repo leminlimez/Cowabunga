@@ -14,13 +14,19 @@ class SpringboardColorManager {
     }
     
     private static let finalFiles: [SpringboardType: [String]] = [
-        SpringboardType.folder: ["folderDark", "folderLight"]
+        SpringboardType.folder: ["folderDark", "folderLight"],
+        SpringboardType.dock: ["dockDark", "dockLight"]
+    ]
+    
+    private static let fileFolders: [SpringboardType: String] = [
+        SpringboardType.folder: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
+        SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/"
     ]
     
     static func createColor(forType: SpringboardType, color: UIColor) throws {
         let bgDir = getBackgroundDirectory()
         
-        if bgDir != nil && finalFiles[forType] != nil {
+        if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
             // get the files
             let url = Bundle.main.url(forResource: finalFiles[forType]![0].replacingOccurrences(of: "Dark", with: ""), withExtension: ".materialrecipe")
             
@@ -46,8 +52,7 @@ class SpringboardColorManager {
                     // fill with empty data
                     for (_, file) in finalFiles[forType]!.enumerated() {
                         // get original data
-                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
-                        print(path)
+                        let path: String = "\(fileFolders[forType]!)\(file).materialrecipe"
                         let newUrl = URL(fileURLWithPath: path)
                         do {
                             let originalFileSize = try Data(contentsOf: newUrl).count
@@ -75,19 +80,15 @@ class SpringboardColorManager {
     static func applyColor(forType: SpringboardType) {
         let bgDir = getBackgroundDirectory()
         
-        if bgDir != nil {
-            if forType == SpringboardType.folder {
-                let files = ["folderDark", "folderLight", "folderExpandedBackgroundHome"]
-                for (_, file) in files.enumerated() {
-                    do {
-                        let newData = try Data(contentsOf: bgDir!.appendingPathComponent(file + ".materialrecipe"))
-                        // overwrite file
-                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
-                        let _ = overwriteFileWithDataImpl(originPath: path, replacementData: newData)
-                    } catch {
-                        print(error.localizedDescription)
-                        print("SECOND")
-                    }
+        if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
+            for (_, file) in finalFiles[forType]!.enumerated() {
+                do {
+                    let newData = try Data(contentsOf: bgDir!.appendingPathComponent(file + ".materialrecipe"))
+                    // overwrite file
+                    let path: String = "\(fileFolders[forType]!)\(file).materialrecipe"
+                    let _ = overwriteFileWithDataImpl(originPath: path, replacementData: newData)
+                } catch {
+                    print(error.localizedDescription)
                 }
             }
         }
