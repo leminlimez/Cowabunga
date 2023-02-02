@@ -36,66 +36,68 @@ struct SpringboardColorChangerView: View {
                 
                 ScrollView {
                     VStack(spacing: 50) {
-                        // MARK: Badge
-                        VStack {
-                            ZStack(alignment: .topTrailing) {
-                                Image(uiImage: UIImage(named: "1024")!)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: minSize / 2, height: minSize / 2)
-                                    .cornerRadius(minSize / 8)
-                                ZStack {
-                                    if badgeImage == nil {
-                                        Rectangle()
-                                            .fill(badgeColor)
-                                            .frame(width: minSize / 5, height: minSize / 5)
-                                            .cornerRadius(minSize * badgeRadius / 240)
-                                    } else {
-                                        Image(uiImage: badgeImage!)
-                                            .resizable()
-                                            .frame(width: minSize / 5, height: minSize / 5)
+                        if #unavailable(iOS 16) {
+                            // MARK: Badge
+                            VStack {
+                                ZStack(alignment: .topTrailing) {
+                                    Image(uiImage: UIImage(named: "1024")!)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: minSize / 2, height: minSize / 2)
+                                        .cornerRadius(minSize / 8)
+                                    ZStack {
+                                        if badgeImage == nil {
+                                            Rectangle()
+                                                .fill(badgeColor)
+                                                .frame(width: minSize / 5, height: minSize / 5)
+                                                .cornerRadius(minSize * badgeRadius / 240)
+                                        } else {
+                                            Image(uiImage: badgeImage!)
+                                                .resizable()
+                                                .frame(width: minSize / 5, height: minSize / 5)
+                                        }
+                                        Text("1")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 45))
                                     }
-                                    Text("1")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 45))
+                                    .offset(x: minSize / 12, y:  -minSize / 12)
                                 }
-                                .offset(x: minSize / 12, y:  -minSize / 12)
-                            }
-                            Text("Cowabunga")
-                                .font(.title)
-                                .foregroundColor(.white)
-                                .fontWeight(.medium)
-                            HStack {
-                                ColorPicker("Set badge color", selection: $badgeColor)
-                                    .labelsHidden()
-                                    .scaleEffect(1.5)
-                                    .padding()
-                                Slider(value: $badgeRadius, in: 0...24)
-                                    .frame(width: minSize / 2)
-                            }
-                            Button(action: {
-                                if badgeImage == nil {
-                                    showBadgePicker()
-                                } else {
-                                    badgeImage = nil
+                                Text("Cowabunga")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.medium)
+                                HStack {
+                                    ColorPicker("Set badge color", selection: $badgeColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding()
+                                    Slider(value: $badgeRadius, in: 0...24)
+                                        .frame(width: minSize / 2)
                                 }
-                            }) {
-                                Text(badgeImage == nil ? "Custom image" : "Clear image")
-                                    .padding(10)
-                                    .background(Color.secondary)
-                                    .cornerRadius(8)
-                                    .foregroundColor(.init(uiColor14: .systemBackground))
+                                Button(action: {
+                                    if badgeImage == nil {
+                                        showBadgePicker()
+                                    } else {
+                                        badgeImage = nil
+                                    }
+                                }) {
+                                    Text(badgeImage == nil ? "Custom image" : "Clear image")
+                                        .padding(10)
+                                        .background(Color.secondary)
+                                        .cornerRadius(8)
+                                        .foregroundColor(.init(uiColor14: .systemBackground))
+                                }
+                                
+                                Button("Apply", action: {
+                                    applyBadge()
+                                })
+                                .buttonStyle(TintedButton(color: .blue))
+                                .padding(4)
                             }
+                            .padding(.top, 64)
                             
-                            Button("Apply", action: {
-                                applyBadge()
-                            })
-                            .buttonStyle(TintedButton(color: .blue))
-                            .padding(4)
+                            divider
                         }
-                        .padding(.top, 64)
-                        
-                        divider
                         
                         // MARK: Folder
                         VStack {
@@ -169,7 +171,7 @@ struct SpringboardColorChangerView: View {
                                     .font(.title)
                                     .foregroundColor(.white)
                                     .fontWeight(.medium)
-                                ColorPicker("Set badge color", selection: $dockColor)
+                                ColorPicker("Set dock color", selection: $dockColor)
                                     .labelsHidden()
                                     .scaleEffect(1.5)
                                     .padding()
