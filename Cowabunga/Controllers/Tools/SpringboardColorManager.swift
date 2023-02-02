@@ -47,10 +47,11 @@ class SpringboardColorManager {
                     for (_, file) in finalFiles[forType]!.enumerated() {
                         // get original data
                         let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
+                        print(path)
                         let newUrl = URL(fileURLWithPath: path)
                         do {
                             let originalFileSize = try Data(contentsOf: newUrl).count
-                            let newData = try fillEmptyData(originalSize: originalFileSize, plist: plist)
+                            let newData = try addEmptyData(matchingSize: originalFileSize, to: plist)
                             // save file to background directory
                             if newData.count == originalFileSize {
                                 try newData.write(to: bgDir!.appendingPathComponent(file+".materialrecipe"))
