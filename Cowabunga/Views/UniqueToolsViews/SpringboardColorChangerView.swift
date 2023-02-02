@@ -16,8 +16,8 @@ struct SpringboardColorChangerView: View {
     @State private var didChangeBadge: Bool = false
     
     
-    @State private var folderColor = Color.gray
-    @State private var dockColor = Color.gray
+    @State private var folderColor = Color.gray.opacity(0.5)
+    @State private var dockColor = Color.gray.opacity(0.5)
     
     
     var body: some View {
@@ -94,7 +94,6 @@ struct SpringboardColorChangerView: View {
                                 .buttonStyle(TintedButton(color: .blue))
                                 .padding(4)
                             }
-                            .padding(.top, 64)
                             
                             divider
                         }
@@ -105,7 +104,7 @@ struct SpringboardColorChangerView: View {
                             ZStack {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: minSize / 8)
-                                        .fill(folderColor.opacity(0.5))
+                                        .fill(folderColor)
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: minSize / 2, height: minSize / 2)
                                 }
@@ -151,7 +150,7 @@ struct SpringboardColorChangerView: View {
                             ZStack {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: minSize / 15)
-                                        .fill(dockColor.opacity(0.5))
+                                        .fill(dockColor)
                                         .frame(maxWidth: .infinity)
                                         .padding(.horizontal)
                                 }
@@ -185,6 +184,7 @@ struct SpringboardColorChangerView: View {
                         .padding(.bottom, 100)
                     }
                     .frame(maxWidth: .infinity)
+                    .padding(.top, 64)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
