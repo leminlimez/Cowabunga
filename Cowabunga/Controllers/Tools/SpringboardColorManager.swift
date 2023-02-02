@@ -11,16 +11,19 @@ class SpringboardColorManager {
     enum SpringboardType {
         case dock
         case folder
+        case folderBG
     }
     
     private static let finalFiles: [SpringboardType: [String]] = [
         SpringboardType.folder: ["folderDark", "folderLight"],
-        SpringboardType.dock: ["dockDark", "dockLight"]
+        SpringboardType.dock: ["dockDark", "dockLight"],
+        SpringboardType.folderBG: ["folderExpandedBackgroundHome"]
     ]
     
     private static let fileFolders: [SpringboardType: String] = [
         SpringboardType.folder: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
-        SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/"
+        SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/",
+        SpringboardType.folderBG: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/"
     ]
     
     static func createColor(forType: SpringboardType, color: CIColor) throws {
