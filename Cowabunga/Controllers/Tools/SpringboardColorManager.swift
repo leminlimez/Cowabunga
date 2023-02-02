@@ -13,7 +13,7 @@ class SpringboardColorManager {
         case folder
     }
     
-    static func applyColor(forType: SpringboardType, color: UIColor) throws {
+    static func createColor(forType: SpringboardType, color: UIColor) throws {
         var modifyingFiles: [URL] = []
         let bgDir = getBackgroundDirectory()
         
@@ -43,14 +43,54 @@ class SpringboardColorManager {
                     }
                     
                     // fill with empty data
-                    
-                    // write the new file
+                    var files: [String] = []
+                    if url.deletingPathExtension().lastPathComponent == "folder" {
+                        files.append("folderDark")
+                        files.append("folderLight")
+                    } else if url.deletingPathExtension().lastPathComponent == "folderExpandedBackgroundHome" {
+                        files.append("folderExpandedBackgroundHome")
+                    }
+                    for file in files {
+                        // get original data
+                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
+                        let url = URL(string: path)
+                        do {
+                            let originalFileSize = try Data(contentsOf: url!).count
+                            let newData = try fillEmptyData(originalSize: originalFileSize, plist: plist)
+                            // save file to background directory
+                            if newData.count == originalFileSize {
+                                try newData.write(to: bgDir!.appendingPathComponent(file+".materialrecipe"))
+                            }
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
                 } catch {
                     print(error.localizedDescription)
                 }
             }
         } else {
             throw "Could not find the background files directory!"
+        }
+    }
+    
+    static func applyColor(forType: SpringboardType) {
+        let bgDir = getBackgroundDirectory()
+        
+        if bgDir != nil {
+            if forType == SpringboardType.folder {
+                let files = ["folderDark", "folderLight", "folderExpandedBackgroundHome"]
+                for file in files {
+                    do {
+                        let newData = try Data(contentsOf: bgDir!.appendingPathComponent(file + ".materialrecipe"))
+                        // overwrite file
+                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
+                        let _ = overwriteFileWithDataImpl(originPath: path, replacementData: newData)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
         }
     }
     
