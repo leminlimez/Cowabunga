@@ -28,7 +28,7 @@ class SpringboardColorManager {
         
         if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
             // get the files
-            let url = Bundle.main.url(forResource: finalFiles[forType]![0].replacingOccurrences(of: "Dark", with: ""), withExtension: ".materialrecipe")
+            let url = Bundle.main.url(forResource: "replacement", withExtension: ".materialrecipe")
             
             // set the colors
             if url != nil {
@@ -44,7 +44,7 @@ class SpringboardColorManager {
                         thirdLevel["alpha"] = 1
                         
                         secondLevel["tintColor"] = thirdLevel
-                        secondLevel["tintAlpha"] = color.rgba.alpha*0.2
+                        secondLevel["tintAlpha"] = color.rgba.alpha
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }
