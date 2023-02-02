@@ -35,9 +35,10 @@ class SpringboardColorManager {
                         thirdLevel["red"] = color.rgba.red
                         thirdLevel["green"] = color.rgba.green
                         thirdLevel["blue"] = color.rgba.blue
-                        thirdLevel["alpha"] = color.rgba.alpha
+                        thirdLevel["alpha"] = 1
                         
                         secondLevel["tintColor"] = thirdLevel
+                        secondLevel["tintAlpha"] = color.rgba.alpha
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }
