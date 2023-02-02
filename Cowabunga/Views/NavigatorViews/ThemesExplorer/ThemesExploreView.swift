@@ -130,7 +130,7 @@ struct ThemesExploreView: View {
                         }
                         .padding()
                     }
-                    .navigationTitle("Themes")
+                    .navigationTitle("Explore")
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
