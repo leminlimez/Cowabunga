@@ -109,7 +109,7 @@ struct CardView: View {
             }
 
         default:
-            errorMessage = "Unknown Format, Contact Dev"
+            errorMessage = "Unknown Format"
             showError = true
         }
     }

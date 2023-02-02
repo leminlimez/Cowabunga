@@ -45,7 +45,7 @@ struct ToolsView: View {
         //.init(key: "AudioView", view: AnyView(AudioView()), title: "Sound Effects", imageName: "speaker.wave.2.fill"),
         .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
         .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone"),
-        .init(key: "BadgeChangerView", view: AnyView(BadgeChangerView()), title: "Badge Changer", imageName: "app.badge"),
+        .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Springboard Colors", imageName: "app.badge"),
 //        .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
         .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
         //.init(key: "CarrierNameChangerView", view: AnyView(CarrierNameChangerView()), title: "Custom Carrier Name", imageName: "chart.bar"),

@@ -1,0 +1,261 @@
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "Приложение закрылось";
+
+/* No comment provided by engineer. */
+"Apply" = "Применить";
+
+/* No comment provided by engineer. */
+"Audio" = "Аудио";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Редактор аудио";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Авто респринг после применения ";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Авто-обновлять включенное аудио";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Частота обновления в фоне";
+
+/* No comment provided by engineer. */
+"Basic Modifications" = "Обычные настройки";
+
+/* No comment provided by engineer. */
+"Carrier Name" = "Имя оператора";
+
+/* No comment provided by engineer. */
+"Categories" = "Категории";
+
+/* No comment provided by engineer. */
+"Choose size" = "Выбрать размер";
+
+/* No comment provided by engineer. */
+"Clear image" = "Убрать фото";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga нужно разрешение \"Всегда\".";
+
+/* No comment provided by engineer. */
+"Credits" = "Благодарности";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "В данный момент чтобы отправить темы для отображения у других людей, нам нужно их проверять на нашем сервере Дискорд в канале #showcase.";
+
+/* No comment provided by engineer. */
+"Custom" = "Собственные";
+
+/* No comment provided by engineer. */
+"Custom image" = "Выбрать фото";
+
+/* No comment provided by engineer. */
+"Delete" = "Удалить";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Убрать баннер приложений из Команды";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "Разрешение устройства";
+
+/* No comment provided by engineer. */
+"Disable" = "Отключить";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Убрать приложения Команды как App Clip";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Edit" = "Редактировать";
+
+/* No comment provided by engineer. */
+"Email" = "Почта";
+
+/* No comment provided by engineer. */
+"Enable" = "Включить\n";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Сделать приложения Команды как App Clip";
+
+/* No comment provided by engineer. */
+"Error Occured" = "Произошла ошибка";
+
+/* No comment provided by engineer. */
+"Explore" = "Обзор";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "Дополнительные настройки";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Исправить твики";
+
+/* No comment provided by engineer. */
+"Folder" = "Папка";
+
+/* No comment provided by engineer. */
+"Footnote" = "Сноска";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "Забыли пароль?";
+
+/* No comment provided by engineer. */
+"General" = "Основные";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "Жесты / Динамический остров";
+
+/* No comment provided by engineer. */
+"Home" = "Главная";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "Я не робот (без б)";
+
+/* No comment provided by engineer. */
+"Included" = "Включенные";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Присоединиться в Discord";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Сноска на экране блокировки";
+
+/* No comment provided by engineer. */
+"Log in" = "Войти";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Войти в Sourced";
+
+/* No comment provided by engineer. */
+"Miscellaneous" = "Разное";
+
+/* No comment provided by engineer. */
+"More Settings" = "Больше настроек";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Карт не найдено";
+
+/* No comment provided by engineer. */
+"No Cards Were Found" = "Карт не найдено";
+
+/* No comment provided by engineer. */
+"OK" = "ОК";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Открыть Настройки";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Редактор клавиш пин-кода";
+
+/* No comment provided by engineer. */
+"Password" = "Пароль";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Пожалуйста нажмите на \"Всегда\" в настройках чтобы Cowabunga могло работать без перерыва.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Пожалуйста войдите в ваш аккаунт Sourced чтобы продолжить";
+
+/* No comment provided by engineer. */
+"Preferences" = "Настройки";
+
+/* No comment provided by engineer. */
+"Remove all" = "Скрыть все";
+
+/* No comment provided by engineer. */
+"Reset faces" = "Сбросить клавиши";
+
+/* No comment provided by engineer. */
+"Respring" = "Респринг";
+
+/* No comment provided by engineer. */
+"Run in background" = "Работать в фоне";
+
+/* No comment provided by engineer. */
+"Saved" = "Сохраненные";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Установить цвет наклеек";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Установить цвет Dock";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Установить цвет папки";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Приложения из Команды";
+
+/* No comment provided by engineer. */
+"Sign up" = "Зарегестрироваться";
+
+/* No comment provided by engineer. */
+"Software Version" = "Версия ОС";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "Твики SpringBoard";
+
+/* No comment provided by engineer. */
+"Submit themes" = "Отправить темы";
+
+/* No comment provided by engineer. */
+"Supervised" = "\"Под наблюдением\"";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Смахните чтобы просмотреть разные карты";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Нажмите на карту чтобы настроить ";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Нажмите на любую клавишу чтобы ее изменить";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Нажмите на это уведомление чтобы продолжить работу приложения.";
+
+/* No comment provided by engineer. */
+"Test" = "Тест";
+
+/* No comment provided by engineer. */
+"Themes" = "Темы";
+
+/* No comment provided by engineer. */
+"Tools" = "Твики";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "Опции твиков";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Обновить включенное в приложение аудио";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Используйте на свой риск";
+
+/* No comment provided by engineer. */
+"validate" = "Проверить";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "Версия %@ (%@)";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "У Вас нет сохранённых тем код-паролей. Загляните во вкладку \"Темы\" чтобы их найти!";
+

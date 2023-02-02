@@ -105,8 +105,8 @@ struct PasscodeEditorView: View {
                             }) {
                                 Image(systemName: "square.and.arrow.down")
                             }
-                            .frame(width: 20, height: 20)
-                            .font(.system(size: 20))
+                            .frame(width: 80, height: 80)
+                            .font(.system(size: 40))
                             .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                             
                             // zero key
@@ -128,8 +128,8 @@ struct PasscodeEditorView: View {
                             }) {
                                 Image(systemName: "square.and.arrow.up")
                             }
-                            .frame(width: 20, height: 20)
-                            .font(.system(size: 20))
+                            .frame(width: 80, height: 80)
+                            .font(.system(size: 40))
                             .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                         }
                     }

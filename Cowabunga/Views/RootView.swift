@@ -27,9 +27,9 @@ struct RootView: View {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
                 }
             if #available(iOS 15.0, *) {
-                ExploreView()
+                ThemesExploreView()
                     .tabItem {
-                        Label("Themes", systemImage: "sparkles")
+                        Label("Explore", systemImage: "sparkles")
                     }
             }
 //            PasscodeEditorView()
