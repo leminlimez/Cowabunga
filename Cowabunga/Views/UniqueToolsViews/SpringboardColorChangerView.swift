@@ -16,8 +16,9 @@ struct SpringboardColorChangerView: View {
     @State private var didChangeBadge: Bool = false
     
     
-    @State private var folderColor = Color.gray.opacity(0.5)
-    @State private var dockColor = Color.gray.opacity(0.5)
+    @State private var folderColor = Color.gray.opacity(0.2)
+    @State private var folderBGColor = Color.gray.opacity(0.2)
+    @State private var dockColor = Color.gray.opacity(0.2)
     
     
     var body: some View {
@@ -136,7 +137,53 @@ struct SpringboardColorChangerView: View {
                                     .padding()
                             }
                             Button("Apply", action: {
-                                applyFolder()
+                                apply(.folder, folderColor)
+                            })
+                            .buttonStyle(TintedButton(color: .blue))
+                            .padding(4)
+                        }
+                        
+                        divider
+                        
+                        // MARK: Expanded Folder Background
+                        VStack {
+                            let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
+                            ZStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: minSize / 8)
+                                        .fill(folderBGColor)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: minSize / 2, height: minSize / 2)
+                                }
+                                VStack(spacing: minSize / 30) {
+                                    ForEach(0...1, id: \.self) { i1 in
+                                        HStack(spacing: minSize / 30) {
+                                            ForEach(0...2, id: \.self) { i2 in
+                                                RoundedRectangle(cornerRadius: minSize / 24)
+                                                    .fill(iconColors[i1 * 3 + i2])
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: minSize / 9, height: minSize / 9)
+                                                    .opacity(i1 == 1 && i2 == 2 ? 0 : 1)
+                                            }
+                                        }
+                                    }
+                                    Spacer()
+                                }
+                                .padding(minSize / 20)
+                            }
+                            
+                            HStack {
+                                Text("Expanded Folder Background")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.medium)
+                                ColorPicker("Set expanded folder background", selection: $folderBGColor)
+                                    .labelsHidden()
+                                    .scaleEffect(1.5)
+                                    .padding()
+                            }
+                            Button("Apply", action: {
+                                apply(.folderBG, folderBGColor)
                             })
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
@@ -176,7 +223,7 @@ struct SpringboardColorChangerView: View {
                                     .padding()
                             }
                             Button("Apply", action: {
-                                applyDock()
+                                apply(.dock, dockColor)
                             })
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
@@ -224,19 +271,10 @@ struct SpringboardColorChangerView: View {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
         }
     }
-    func applyFolder() {
+    func apply(_ sbType: SpringboardColorManager.SpringboardType, _ color: Color) {
         do {
-            try SpringboardColorManager.createColor(forType: .folder, color: CIColor(color: UIColor(dockColor)))
-            SpringboardColorManager.applyColor(forType: .folder)
-            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
-        } catch {
-            UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
-        }
-    }
-    func applyDock() {
-        do {
-            try SpringboardColorManager.createColor(forType: .dock, color: CIColor(color: UIColor(dockColor)))
-            SpringboardColorManager.applyColor(forType: .dock)
+            try SpringboardColorManager.createColor(forType: sbType, color: CIColor(color: UIColor(color)))
+            SpringboardColorManager.applyColor(forType: sbType)
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
