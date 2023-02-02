@@ -62,7 +62,6 @@ class SpringboardColorManager {
                                 try newData.write(to: bgDir!.appendingPathComponent(file+".materialrecipe"))
                             } else {
                                 print("NOT CORRECT SIZE")
-                                throw "ER"
                             }
                         } catch {
                             print(error.localizedDescription)
