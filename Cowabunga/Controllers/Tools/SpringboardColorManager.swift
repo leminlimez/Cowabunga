@@ -52,23 +52,28 @@ class SpringboardColorManager {
                     }
                     for (_, file) in files.enumerated() {
                         // get original data
-                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/" + file + ".materialrecipe"
-                        let url = URL(string: path)
+                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
+                        print(path)
+                        let newUrl = URL(string: path)
                         do {
-                            let originalFileSize = try Data(contentsOf: url!).count
+                            let originalFileSize = try Data(contentsOf: newUrl!).count
                             let newData = try fillEmptyData(originalSize: originalFileSize, plist: plist)
                             // save file to background directory
                             if newData.count == originalFileSize {
                                 try newData.write(to: bgDir!.appendingPathComponent(file+".materialrecipe"))
                             } else {
                                 print("NOT CORRECT SIZE")
+                                throw "ER"
                             }
                         } catch {
                             print(error.localizedDescription)
+                            throw "ET"
                         }
                     }
                 } catch {
                     print(error.localizedDescription)
+                    print("ORIGINAL")
+                    throw "ER"
                 }
             }
         } else {
@@ -86,10 +91,11 @@ class SpringboardColorManager {
                     do {
                         let newData = try Data(contentsOf: bgDir!.appendingPathComponent(file + ".materialrecipe"))
                         // overwrite file
-                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/" + file + ".materialrecipe"
+                        let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
                         let _ = overwriteFileWithDataImpl(originPath: path, replacementData: newData)
                     } catch {
                         print(error.localizedDescription)
+                        print("SECOND")
                     }
                 }
             }
