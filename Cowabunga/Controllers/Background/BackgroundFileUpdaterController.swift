@@ -35,7 +35,6 @@ class BackgroundFileUpdaterController: ObservableObject {
     
     func updateFiles() {
         Task {
-            // apply the dock and folder
             // apply the dock
             if UserDefaults.standard.bool(forKey: "DockHidden") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "DockHidden", true)
@@ -43,6 +42,11 @@ class BackgroundFileUpdaterController: ObservableObject {
             // apply the folder
             if UserDefaults.standard.bool(forKey: "FolderBGHidden") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBGHidden", true)
+            }
+            
+            // apply the transparent modules
+            if UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") == true {
+                let _ = overwriteFile(typeOfFile: OverwritingFileTypes.cc, fileIdentifier: "CCModuleBackgroundDisabled", true)
             }
             
             // apply to audios

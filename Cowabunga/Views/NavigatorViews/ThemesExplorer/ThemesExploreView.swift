@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 @available(iOS 15.0, *)
-struct ExploreView: View {
+struct ThemesExploreView: View {
     
     @EnvironmentObject var cowabungaAPI: CowabungaAPI
     // lazyvgrid
@@ -25,8 +26,6 @@ struct ExploreView: View {
                 ZStack {
                     Color(uiColor14: .secondarySystemBackground).edgesIgnoringSafeArea(.all)
                     ScrollView {
-                        Text("This is a demo. Doesn't currently work")
-                            .multilineTextAlignment(.center)
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
                                 Button {
@@ -89,10 +88,11 @@ struct ExploreView: View {
                                     }
                                 } label: {
                                     VStack(spacing: 0) {
-                                        AsyncImage(url: theme.preview) { image in
+                                        CachedAsyncImage(url: theme.preview, urlCache: .imageCache) { image in
                                             image
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
+                                                .frame(width: 170, height: 250)
                                                 .cornerRadius(10, corners: .topLeft)
                                                 .cornerRadius(10, corners: .topRight)
                                         } placeholder: {
@@ -168,9 +168,9 @@ struct ExploreView: View {
 }
 
 @available(iOS 15.0, *)
-struct ExploreView_Previews: PreviewProvider {
+struct ThemesExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+        ThemesExploreView()
             .environmentObject(CowabungaAPI())
     }
 }

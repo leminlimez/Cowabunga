@@ -64,6 +64,21 @@ struct SavedPasscodesView: View {
                             }
                         }
                     }
+                    .onDelete { indexSet in
+                        indexSet.forEach { i in
+                            let deletingPasscodeName = savedPasscodesList[i].passcodeName
+                            print("Deleting: " + deletingPasscodeName)
+                            
+                            // delete the file
+                            do {
+                                let url = savedPasscodesDir!.appendingPathComponent(deletingPasscodeName.replacingOccurrences(of: " ", with: "_"))
+                                try FileManager.default.removeItem(at: url)
+                                savedPasscodesList.remove(at: i)
+                            } catch {
+                                UIApplication.shared.alert(body: "Unable to delete audio for audio \"" + deletingPasscodeName + "\"!")
+                            }
+                        }
+                    }
                 }
             }
         }
