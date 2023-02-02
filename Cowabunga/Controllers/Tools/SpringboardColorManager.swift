@@ -13,21 +13,21 @@ class SpringboardColorManager {
         case folder
     }
     
+    private static let finalFiles: [SpringboardType: [String]] = [
+        SpringboardType.folder: ["folderDark", "folderLight"]
+    ]
+    
     static func createColor(forType: SpringboardType, color: UIColor) throws {
-        var modifyingFiles: [URL] = []
         let bgDir = getBackgroundDirectory()
         
-        if bgDir != nil {
-            // get the file
-            if forType == SpringboardType.folder {
-                modifyingFiles.append(Bundle.main.url(forResource: "folder", withExtension: "materialrecipe")!)
-                modifyingFiles.append(Bundle.main.url(forResource: "folderExpandedBackgroundHome", withExtension: "materialrecipe")!)
-            }
+        if bgDir != nil && finalFiles[forType] != nil {
+            // get the files
+            let url = Bundle.main.url(forResource: finalFiles[forType]![0].replacingOccurrences(of: "Dark", with: ""), withExtension: ".materialrecipe")
             
             // set the colors
-            for (_, url) in modifyingFiles.enumerated() {
+            if url != nil {
                 do {
-                    let plistData = try Data(contentsOf: url)
+                    let plistData = try Data(contentsOf: url!)
                     var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
                     
                     if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["tinting"] as? [String: Any], var thirdLevel = secondLevel["tintColor"] as? [String: Any] {
@@ -44,14 +44,7 @@ class SpringboardColorManager {
                     }
                     
                     // fill with empty data
-                    var files: [String] = []
-                    if url.deletingPathExtension().lastPathComponent == "folder" {
-                        files.append("folderDark")
-                        files.append("folderLight")
-                    } else if url.deletingPathExtension().lastPathComponent == "folderExpandedBackgroundHome" {
-                        files.append("folderExpandedBackgroundHome")
-                    }
-                    for (_, file) in files.enumerated() {
+                    for (_, file) in finalFiles[forType]!.enumerated() {
                         // get original data
                         let path: String = "/System/Library/PrivateFrameworks/SpringBoardHome.framework/\(file).materialrecipe"
                         let newUrl = URL(fileURLWithPath: path)
@@ -66,14 +59,12 @@ class SpringboardColorManager {
                             }
                         } catch {
                             print(error.localizedDescription)
-                            throw "ET"
+                            throw error.localizedDescription
                         }
                     }
-                } catch {
-                    print(error.localizedDescription)
-                    print("ORIGINAL")
-                    throw "ER"
                 }
+            } else {
+                throw "Could not find original resource url"
             }
         } else {
             throw "Could not find the background files directory!"
