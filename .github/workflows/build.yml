@@ -1,0 +1,20 @@
+name: Build Cowabunga
+
+on:
+  push:
+    branches: [ "gh-actions" ]
+
+jobs:
+  build:
+
+    runs-on: macos-12
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Make IPA
+      run: ./ipabuild.sh
+    - uses: actions/upload-artifact@v3
+      with:
+       name: IPA Download
+       path: build/Cowabunga.ipa
