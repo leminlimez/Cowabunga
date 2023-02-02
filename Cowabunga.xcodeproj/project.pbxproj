@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 216D5FB3298C574000910C67 /* replacement.materialrecipe */; };
+		216D5FB6298C5C0700910C67 /* LocString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D5FB5298C5C0700910C67 /* LocString.swift */; };
+		216D5FB9298C68E000910C67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 216D5FB7298C68E000910C67 /* InfoPlist.strings */; };
+		216D5FBC298C68E000910C67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 216D5FBA298C68E000910C67 /* Localizable.strings */; };
 		2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9912987D52500AE187C /* UIViewWrapperView.swift */; };
 		2183C9952987D8C800AE187C /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9942987D8C800AE187C /* Alert++.swift */; };
 		2183C9972987D8D800AE187C /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9962987D8D800AE187C /* Color++.swift */; };
@@ -17,8 +20,6 @@
 		2183C9A72988368A00AE187C /* CowabungaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9A62988368A00AE187C /* CowabungaAPI.swift */; };
 		21AC8BAB298C0736000B7E85 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 21AC8BAA298C0736000B7E85 /* CachedAsyncImage */; };
 		21AC8BAD298C07CB000B7E85 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */; };
-		21BA5BD3298998B70022F814 /* statusBarOverrides15 in Resources */ = {isa = PBXBuildFile; fileRef = 21BA5BD1298998B70022F814 /* statusBarOverrides15 */; };
-		21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */ = {isa = PBXBuildFile; fileRef = 21BA5BD2298998B70022F814 /* statusBarOverrides16 */; };
 		21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D992987CC2F00294DE7 /* LoginView.swift */; };
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
 		21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */ = {isa = PBXBuildFile; productRef = 21C08D9E2987CE3700294DE7 /* HCaptcha */; };
@@ -79,6 +80,9 @@
 
 /* Begin PBXFileReference section */
 		216D5FB3298C574000910C67 /* replacement.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = replacement.materialrecipe; sourceTree = "<group>"; };
+		216D5FB5298C5C0700910C67 /* LocString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocString.swift; sourceTree = "<group>"; };
+		216D5FB8298C68E000910C67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		216D5FBB298C68E000910C67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2183C9912987D52500AE187C /* UIViewWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewWrapperView.swift; sourceTree = "<group>"; };
 		2183C9942987D8C800AE187C /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		2183C9962987D8D800AE187C /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
@@ -87,8 +91,6 @@
 		2183C99D2987DA6800AE187C /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		2183C9A62988368A00AE187C /* CowabungaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowabungaAPI.swift; sourceTree = "<group>"; };
 		21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
-		21BA5BD1298998B70022F814 /* statusBarOverrides15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides15; sourceTree = "<group>"; };
-		21BA5BD2298998B70022F814 /* statusBarOverrides16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides16; sourceTree = "<group>"; };
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExploreView.swift; sourceTree = "<group>"; };
@@ -260,19 +262,10 @@
 		21BA5BCA298998870022F814 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				21BA5BD0298998B70022F814 /* StatusBarOverwriteFiles */,
 				6F6D38E9297603F700DE3146 /* RegionEncodes.swift */,
+				216D5FB5298C5C0700910C67 /* LocString.swift */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		21BA5BD0298998B70022F814 /* StatusBarOverwriteFiles */ = {
-			isa = PBXGroup;
-			children = (
-				21BA5BD1298998B70022F814 /* statusBarOverrides15 */,
-				21BA5BD2298998B70022F814 /* statusBarOverrides16 */,
-			);
-			path = StatusBarOverwriteFiles;
 			sourceTree = "<group>";
 		};
 		21BA5BD5298999620022F814 /* Background */ = {
@@ -410,6 +403,8 @@
 				6F56C885298ACEA2003BCD6F /* SpringboardFiles */,
 				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
+				216D5FBA298C68E000910C67 /* Localizable.strings */,
+				216D5FB7298C68E000910C67 /* InfoPlist.strings */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				2183C9A22988354300AE187C /* API */,
 				2183C9A4298835BB00AE187C /* App */,
@@ -556,6 +551,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
@@ -579,8 +575,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BA5BD3298998B70022F814 /* statusBarOverrides15 in Resources */,
 				21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */,
+				216D5FB9298C68E000910C67 /* InfoPlist.strings in Resources */,
 				21E155F22989C32B00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 in Resources */,
 				21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */,
 				21E155E22989C32B00B59658 /* StatBar-HideAll-16 in Resources */,
@@ -588,7 +584,7 @@
 				21E155D72989C32B00B59658 /* StatBar-HideCarrierNameBarsTime-16 in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */,
-				21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */,
+				216D5FBC298C68E000910C67 /* Localizable.strings in Resources */,
 				21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */,
 				21E155DC2989C32B00B59658 /* StatBar-HideBatteryTime-16 in Resources */,
 				21E155E82989C32B00B59658 /* StatBar-HideCarrierNameBars-16 in Resources */,
@@ -647,6 +643,7 @@
 				6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */,
 				6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */,
 				6F7C01D52968E0C500BC427A /* RootView.swift in Sources */,
+				216D5FB6298C5C0700910C67 /* LocString.swift in Sources */,
 				6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */,
 				6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */,
 				6FF21AD8298458690054EBC0 /* PasscodeEditorView.swift in Sources */,
@@ -654,6 +651,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		216D5FB7298C68E000910C67 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				216D5FB8298C68E000910C67 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		216D5FBA298C68E000910C67 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				216D5FBB298C68E000910C67 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6F721C98296482C7001CFE46 /* Debug */ = {

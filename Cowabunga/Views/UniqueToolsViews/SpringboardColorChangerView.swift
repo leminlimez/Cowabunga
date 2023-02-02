@@ -219,14 +219,14 @@ struct SpringboardColorChangerView: View {
             } else {
                 try BadgeChanger.change(to: badgeImage!)
             }
-            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+            UIApplication.shared.alert(title:  "Success!", body: "Please respring to see changes.")
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
         }
     }
     func applyFolder() {
         do {
-            try SpringboardColorManager.createColor(forType: .folder, color: UIColor(folderColor))
+            try SpringboardColorManager.createColor(forType: .folder, color: CIColor(color: UIColor(dockColor)))
             SpringboardColorManager.applyColor(forType: .folder)
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
@@ -235,7 +235,7 @@ struct SpringboardColorChangerView: View {
     }
     func applyDock() {
         do {
-            try SpringboardColorManager.createColor(forType: .dock, color: UIColor(dockColor))
+            try SpringboardColorManager.createColor(forType: .dock, color: CIColor(color: UIColor(dockColor)))
             SpringboardColorManager.applyColor(forType: .dock)
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
