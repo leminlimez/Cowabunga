@@ -38,10 +38,14 @@ class BackgroundFileUpdaterController: ObservableObject {
             // apply the dock
             if UserDefaults.standard.bool(forKey: "DockHidden") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "DockHidden", true)
+            } else {
+                SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
             }
             // apply the folder
             if UserDefaults.standard.bool(forKey: "FolderBGHidden") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBGHidden", true)
+            } else {
+                SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
             }
             
             // apply the transparent modules
