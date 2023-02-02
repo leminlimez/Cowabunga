@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 @available(iOS 15.0, *)
 struct ThemesExploreView: View {
@@ -87,7 +88,7 @@ struct ThemesExploreView: View {
                                     }
                                 } label: {
                                     VStack(spacing: 0) {
-                                        AsyncImage(url: theme.preview) { image in
+                                        CachedAsyncImage(url: theme.preview, urlCache: .imageCache) { image in
                                             image
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)

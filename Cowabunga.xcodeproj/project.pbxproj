@@ -14,6 +14,8 @@
 		2183C99B2987D8FA00AE187C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C99A2987D8FA00AE187C /* Extensions.swift */; };
 		2183C99E2987DA6800AE187C /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C99D2987DA6800AE187C /* AppIcon.swift */; };
 		2183C9A72988368A00AE187C /* CowabungaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9A62988368A00AE187C /* CowabungaAPI.swift */; };
+		21AC8BAB298C0736000B7E85 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 21AC8BAA298C0736000B7E85 /* CachedAsyncImage */; };
+		21AC8BAD298C07CB000B7E85 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */; };
 		21BA5BD3298998B70022F814 /* statusBarOverrides15 in Resources */ = {isa = PBXBuildFile; fileRef = 21BA5BD1298998B70022F814 /* statusBarOverrides15 */; };
 		21BA5BD4298998B70022F814 /* statusBarOverrides16 in Resources */ = {isa = PBXBuildFile; fileRef = 21BA5BD2298998B70022F814 /* statusBarOverrides16 */; };
 		21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D992987CC2F00294DE7 /* LoginView.swift */; };
@@ -84,6 +86,7 @@
 		2183C99A2987D8FA00AE187C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2183C99D2987DA6800AE187C /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		2183C9A62988368A00AE187C /* CowabungaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowabungaAPI.swift; sourceTree = "<group>"; };
+		21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
 		21BA5BD1298998B70022F814 /* statusBarOverrides15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides15; sourceTree = "<group>"; };
 		21BA5BD2298998B70022F814 /* statusBarOverrides16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = statusBarOverrides16; sourceTree = "<group>"; };
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
 				6FF21AF1298820550054EBC0 /* MobileCoreServices.framework in Frameworks */,
 				6FF21ADE29846A180054EBC0 /* ZIPFoundation in Frameworks */,
+				21AC8BAB298C0736000B7E85 /* CachedAsyncImage in Frameworks */,
 				6FF21B0229882CB70054EBC0 /* ACarousel in Frameworks */,
 				21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */,
 			);
@@ -183,6 +187,7 @@
 				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
 				2183C99A2987D8FA00AE187C /* Extensions.swift */,
 				2183C9982987D8EA00AE187C /* MachineName.swift */,
+				21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 				21C08D9E2987CE3700294DE7 /* HCaptcha */,
 				6FF21AF7298821410054EBC0 /* Dynamic */,
 				6FF21B0129882CB70054EBC0 /* ACarousel */,
+				21AC8BAA298C0736000B7E85 /* CachedAsyncImage */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -546,6 +552,7 @@
 				21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */,
 				6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */,
 				6FF21B0029882CB70054EBC0 /* XCRemoteSwiftPackageReference "ACarousel" */,
+				21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -598,6 +605,7 @@
 				21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */,
 				6FF21AF3298821010054EBC0 /* SpringboardColorChangerView.swift in Sources */,
 				6FF21AE129846AB20054EBC0 /* MaterialView.swift in Sources */,
+				21AC8BAD298C07CB000B7E85 /* URLCache+imageCache.swift in Sources */,
 				6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */,
 				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
 				6FF21AE6298479BD0054EBC0 /* LSFootnoteChangerView.swift in Sources */,
@@ -861,6 +869,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hCaptcha/HCaptcha-ios-sdk";
@@ -896,6 +912,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		21AC8BAA298C0736000B7E85 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
 		21C08D9E2987CE3700294DE7 /* HCaptcha */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */;
