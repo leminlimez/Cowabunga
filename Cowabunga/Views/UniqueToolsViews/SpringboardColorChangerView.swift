@@ -19,6 +19,7 @@ struct SpringboardColorChangerView: View {
     @State private var folderColor = Color.gray.opacity(0.2)
     @State private var folderBGColor = Color.gray.opacity(0.2)
     @State private var dockColor = Color.gray.opacity(0.2)
+    @State private var switcherColor = Color.gray.opacity(0.2)
     
     
     var body: some View {
@@ -173,11 +174,11 @@ struct SpringboardColorChangerView: View {
                             }
                             
                             HStack {
-                                Text("Expanded Folder Background")
+                                Text("Background Behind Expanded Folder")
                                     .font(.title)
                                     .foregroundColor(.white)
                                     .fontWeight(.medium)
-                                ColorPicker("Set expanded folder background", selection: $folderBGColor)
+                                ColorPicker("Set background behind expanded folder", selection: $folderBGColor)
                                     .labelsHidden()
                                     .scaleEffect(1.5)
                                     .padding()
@@ -224,6 +225,46 @@ struct SpringboardColorChangerView: View {
                             }
                             Button("Apply", action: {
                                 apply(.dock, dockColor)
+                            })
+                            .buttonStyle(TintedButton(color: .blue))
+                            .padding(4)
+                        }
+                        
+                        divider
+                        
+                        // MARK: App Switcher Background
+                        VStack {
+                            let iconColors: [Color] = [.blue, .orange, .green, .purple]
+                            ZStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: minSize / 15)
+                                        .fill(dockColor)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.horizontal)
+                                }
+                                HStack(spacing: 12) {
+                                    ForEach(0...3, id: \.self) { i1 in
+                                        RoundedRectangle(cornerRadius: minSize / 24)
+                                            .fill(iconColors[i1])
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: minSize / 7)
+                                    }
+                                }
+                                .padding(24)
+                            }
+                            
+                            HStack {
+                                Text("App Switcher Background")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.medium)
+                                ColorPicker("Set app switcher background color", selection: $switcherColor)
+                                    .labelsHidden()
+                                    .scaleEffect(1.5)
+                                    .padding()
+                            }
+                            Button("Apply", action: {
+                                apply(.switcher, switcherColor)
                             })
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
