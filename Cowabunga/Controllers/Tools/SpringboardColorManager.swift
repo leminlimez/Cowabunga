@@ -44,13 +44,13 @@ class SpringboardColorManager {
                     
                     if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["tinting"] as? [String: Any], var thirdLevel = secondLevel["tintColor"] as? [String: Any] {
                         // set the colors
-                        thirdLevel["red"] = color.rgba.red
-                        thirdLevel["green"] = color.rgba.green
-                        thirdLevel["blue"] = color.rgba.blue
+                        thirdLevel["red"] = CIColor(color: color).red
+                        thirdLevel["green"] = CIColor(color: color).green
+                        thirdLevel["blue"] = CIColor(color: color).blue
                         thirdLevel["alpha"] = 1
                         
                         secondLevel["tintColor"] = thirdLevel
-                        secondLevel["tintAlpha"] = color.rgba.alpha
+                        secondLevel["tintAlpha"] = CIColor(color: color).alpha
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }
