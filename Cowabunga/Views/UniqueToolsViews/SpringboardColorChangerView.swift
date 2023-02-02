@@ -129,7 +129,7 @@ struct SpringboardColorChangerView: View {
                                     .font(.title)
                                     .foregroundColor(.white)
                                     .fontWeight(.medium)
-                                ColorPicker("Set badge color", selection: $folderColor)
+                                ColorPicker("Set folder color", selection: $folderColor)
                                     .labelsHidden()
                                     .scaleEffect(1.5)
                                     .padding()
@@ -224,7 +224,8 @@ struct SpringboardColorChangerView: View {
     }
     func applyFolder() {
         do {
-            try SpringboardColorManager.applyColor(forType: .folder, color: UIColor(folderColor))
+            try SpringboardColorManager.createColor(forType: .folder, color: UIColor(folderColor))
+            SpringboardColorManager.applyColor(forType: .folder)
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
@@ -232,7 +233,8 @@ struct SpringboardColorChangerView: View {
     }
     func applyDock() {
         do {
-            try SpringboardColorManager.applyColor(forType: .dock, color: UIColor(dockColor))
+            try SpringboardColorManager.createColor(forType: .dock, color: UIColor(dockColor))
+            SpringboardColorManager.applyColor(forType: .dock)
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
