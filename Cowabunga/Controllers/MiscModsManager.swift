@@ -277,10 +277,14 @@ func fillEmptyData(originalSize: Int, plist: [String: Any]) throws -> Data {
     var count = 0
     while newDataSize != originalSize && count < 200 {
         count += 1
-        if added > 0{
+        if added > 0 {
             newPlist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
         } else {
-            break
+            if count == 1 {
+                added = 1
+            } else {
+                break
+            }
         }
         do {
             newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
