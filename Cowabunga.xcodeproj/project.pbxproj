@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 216D5FB3298C574000910C67 /* replacement.materialrecipe */; };
 		216D5FB6298C5C0700910C67 /* LocString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D5FB5298C5C0700910C67 /* LocString.swift */; };
-		216D5FB9298C68E000910C67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 216D5FB7298C68E000910C67 /* InfoPlist.strings */; };
-		216D5FBC298C68E000910C67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 216D5FBA298C68E000910C67 /* Localizable.strings */; };
 		2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9912987D52500AE187C /* UIViewWrapperView.swift */; };
 		2183C9952987D8C800AE187C /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9942987D8C800AE187C /* Alert++.swift */; };
 		2183C9972987D8D800AE187C /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183C9962987D8D800AE187C /* Color++.swift */; };
@@ -24,6 +22,8 @@
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
 		21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */ = {isa = PBXBuildFile; productRef = 21C08D9E2987CE3700294DE7 /* HCaptcha */; };
 		21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */; };
+		21CD1051298C8151007EE649 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1053298C8151007EE649 /* Localizable.strings */; };
+		21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1054298C8177007EE649 /* InfoPlist.strings */; };
 		21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */; };
 		21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */; };
 		21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 21E1556C2989C32A00B59658 /* iOS 16 mods list.txt */; };
@@ -81,8 +81,6 @@
 /* Begin PBXFileReference section */
 		216D5FB3298C574000910C67 /* replacement.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = replacement.materialrecipe; sourceTree = "<group>"; };
 		216D5FB5298C5C0700910C67 /* LocString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocString.swift; sourceTree = "<group>"; };
-		216D5FB8298C68E000910C67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		216D5FBB298C68E000910C67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2183C9912987D52500AE187C /* UIViewWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewWrapperView.swift; sourceTree = "<group>"; };
 		2183C9942987D8C800AE187C /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		2183C9962987D8D800AE187C /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
@@ -94,6 +92,10 @@
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExploreView.swift; sourceTree = "<group>"; };
+		21CD1052298C8151007EE649 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21CD1055298C8177007EE649 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		21CD1057298C8177007EE649 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21CD1058298C8184007EE649 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21D7BA2D298AADFB0055943A /* StatBar-HideCarrierNameBarsTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBarsTime-15"; sourceTree = "<group>"; };
 		21D7BA2E298AADFB0055943A /* StatBar-HideAll-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideAll-15"; sourceTree = "<group>"; };
 		21D7BA2F298AADFB0055943A /* StatBar-HideTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideTime-15"; sourceTree = "<group>"; };
@@ -113,13 +115,10 @@
 		21E155992989C32A00B59658 /* StatBar-HideTime-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideTime-16"; sourceTree = "<group>"; };
 		21E155AA2989C32A00B59658 /* iOS 15 mods list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS 15 mods list.txt"; sourceTree = "<group>"; };
 		21ED3C7929884AAD00135B50 /* CornerRadius++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CornerRadius++.swift"; sourceTree = "<group>"; };
-		6F0C298D298C126000A20CA0 /* dock.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dock.materialrecipe; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
 		6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasscodesView.swift; sourceTree = "<group>"; };
-		6F56C886298ACED7003BCD6F /* folder.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folder.materialrecipe; sourceTree = "<group>"; };
-		6F56C888298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folderExpandedBackgroundHome.materialrecipe; sourceTree = "<group>"; };
 		6F6D38E72975EF6000DE3146 /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		6F6D38E9297603F700DE3146 /* RegionEncodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEncodes.swift; sourceTree = "<group>"; };
 		6F6D38EB2976DEDA00DE3146 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -353,16 +352,6 @@
 			path = PasscodeChangerViews;
 			sourceTree = "<group>";
 		};
-		6F56C885298ACEA2003BCD6F /* SpringboardFiles */ = {
-			isa = PBXGroup;
-			children = (
-				6F0C298D298C126000A20CA0 /* dock.materialrecipe */,
-				6F56C886298ACED7003BCD6F /* folder.materialrecipe */,
-				6F56C888298ACEEA003BCD6F /* folderExpandedBackgroundHome.materialrecipe */,
-			);
-			path = SpringboardFiles;
-			sourceTree = "<group>";
-		};
 		6F6D38ED2976FE6800DE3146 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,11 +389,9 @@
 		6F721C8E296482C6001CFE46 /* Cowabunga */ = {
 			isa = PBXGroup;
 			children = (
-				6F56C885298ACEA2003BCD6F /* SpringboardFiles */,
 				6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */,
 				6FBEDC492964E0800032B1A9 /* Info.plist */,
-				216D5FBA298C68E000910C67 /* Localizable.strings */,
-				216D5FB7298C68E000910C67 /* InfoPlist.strings */,
+				21CD1054298C8177007EE649 /* InfoPlist.strings */,
 				6F721C93296482C7001CFE46 /* Assets.xcassets */,
 				2183C9A22988354300AE187C /* API */,
 				2183C9A4298835BB00AE187C /* App */,
@@ -413,6 +400,7 @@
 				2183C9A32988356900AE187C /* ObjectiveC💀 */,
 				21BA5BCA298998870022F814 /* Other */,
 				6F721CAE2964A72D001CFE46 /* Views */,
+				21CD1053298C8151007EE649 /* Localizable.strings */,
 			);
 			path = Cowabunga;
 			sourceTree = "<group>";
@@ -576,15 +564,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */,
-				216D5FB9298C68E000910C67 /* InfoPlist.strings in Resources */,
+				21CD1051298C8151007EE649 /* Localizable.strings in Resources */,
 				21E155F22989C32B00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 in Resources */,
+				21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */,
 				21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */,
 				21E155E22989C32B00B59658 /* StatBar-HideAll-16 in Resources */,
 				21E155ED2989C32B00B59658 /* StatBar-HideBatteryIcon-16 in Resources */,
 				21E155D72989C32B00B59658 /* StatBar-HideCarrierNameBarsTime-16 in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */,
-				216D5FBC298C68E000910C67 /* Localizable.strings in Resources */,
 				21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */,
 				21E155DC2989C32B00B59658 /* StatBar-HideBatteryTime-16 in Resources */,
 				21E155E82989C32B00B59658 /* StatBar-HideCarrierNameBars-16 in Resources */,
@@ -653,20 +641,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		216D5FB7298C68E000910C67 /* InfoPlist.strings */ = {
+		21CD1053298C8151007EE649 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				216D5FB8298C68E000910C67 /* ru */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		216D5FBA298C68E000910C67 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				216D5FBB298C68E000910C67 /* ru */,
+				21CD1052298C8151007EE649 /* en */,
+				21CD1057298C8177007EE649 /* ru */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		21CD1054298C8177007EE649 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21CD1055298C8177007EE649 /* ru */,
+				21CD1058298C8184007EE649 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
