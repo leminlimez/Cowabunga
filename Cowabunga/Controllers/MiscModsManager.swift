@@ -265,47 +265,56 @@ func setRegion() -> Bool {
     }
 }
 
-func fillEmptyData(originalSize: Int, plist: [String: Any]) throws -> Data {
-    var newPlist = plist
-    // create the new data
-    guard var newData = try? PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0) else { throw "Unable to get data" }
-    // add data if too small
-    // while loop to make data match because recursive function didn't work
-    // very slow, will hopefully improve
-    var newDataSize = newData.count
-    var added = originalSize - newDataSize
-    var count = 0
-    while newDataSize != originalSize && count < 200 {
-        count += 1
-        if added > 0 {
-            newPlist.updateValue(String(repeating: "#", count: added), forKey: "MyAccountURLTitle")
-        } else {
-            if count == 1 {
-                added = 1
-            } else {
-                break
-            }
-        }
-        do {
-            newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
-        } catch {
-            newDataSize = -1
-            break
-        }
-        newDataSize = newData.count
-        if count < 5 {
-            // max out this method at 5 if it isn't working
-            added += originalSize - newDataSize
-        } else {
-            if newDataSize > originalSize {
-                added -= 1
-            } else if newDataSize < originalSize {
-                added += 1
-            }
-        }
+//func fillEmptyData(originalSize: Int, plist: [String: Any]) throws -> Data {
+//    var newPlist = plist
+//    // create the new data
+//    guard var newData = try? PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0) else { throw "Unable to get data" }
+//    // add data if too small
+//    // while loop to make data match because recursive function didn't work
+//    // very slow, will hopefully improve
+//    var newDataSize = newData.count
+//    var added = originalSize - newDataSize
+//    var count = 0
+//    while newDataSize != originalSize || count < 200 {
+//        count += 1
+//        newPlist.updateValue(String(repeating: "#", count: added), forKey: "MdC")
+//        do {
+//            newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
+//        } catch {
+//            newDataSize = -1
+//            break
+//        }
+//        newDataSize = newData.count
+//        if count < 5 {
+//            // max out this method at 5 if it isn't working
+//            added += originalSize - newDataSize
+//        } else {
+//            if newDataSize > originalSize {
+//                added -= 1
+//            } else if newDataSize < originalSize {
+//                added += 1
+//            }
+//        }
+//    }
+//
+//    return newData
+//}
+
+func addEmptyData(matchingSize: Int, to plist: [String: Any]) throws -> Data {
+    func getSize(of plist: [String: Any]) throws -> Int {
+        guard var data = try? PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0) else { throw "Unable to get data" }
+        return data.count
     }
+    var newPlist = plist
     
-    return newData
+    let newPlistSize = try getSize(of: newPlist)
+    let difference = matchingSize - newPlistSize - 34
+    guard difference >= 0 else { throw "Difference in size between new plist and one to match cannot be negative" }
+    
+    newPlist["MdC"] = String(repeating: "#", count: difference)
+    let newPlistSize1 = try getSize(of: newPlist)
+    
+    return try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
 }
 
 func setCarrierName(newName: String) -> Bool {
@@ -335,7 +344,7 @@ func setCarrierName(newName: String) -> Bool {
             plist.removeValue(forKey: "HomeBundleIdentifier")
             plist.removeValue(forKey: "MyAccountURLTitle")
             
-            guard let newData = try? fillEmptyData(originalSize: originalSize, plist: plist) else { continue }
+            guard let newData = try? addEmptyData(matchingSize: originalSize, to: plist) else { continue }
             
             if newData.count == originalSize {
                 // apply
