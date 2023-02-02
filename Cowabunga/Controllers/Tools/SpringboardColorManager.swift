@@ -26,6 +26,12 @@ class SpringboardColorManager {
     static func createColor(forType: SpringboardType, color: UIColor) throws {
         let bgDir = getBackgroundDirectory()
         
+        // check the color values
+        if (color.rgba.red > 1 || color.rgba.red < 0 || color.rgba.green > 1 || color.rgba.green < 0
+            || color.rgba.blue > 1 || color.rgba.blue < 0 || color.rgba.alpha > 1 || color.rgba.alpha < 0) {
+            throw "Color error! r: \(color.rgba.red), g: \(color.rgba.green), b: \(color.rgba.blue), a: \(color.rgba.alpha)"
+        }
+        
         if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
             // get the files
             let url = Bundle.main.url(forResource: "replacement", withExtension: ".materialrecipe")
