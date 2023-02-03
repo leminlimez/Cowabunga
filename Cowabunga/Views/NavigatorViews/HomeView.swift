@@ -251,6 +251,7 @@ struct HomeView: View {
         UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
         if !UserDefaults.standard.bool(forKey: "FolderBGHidden") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
         }
         if !UserDefaults.standard.bool(forKey: "FolderBlurDisabled") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folderBG)
