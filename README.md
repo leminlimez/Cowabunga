@@ -48,7 +48,7 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
 You can install through AltStore, Sideloadly, Xcode, or TrollStore (if your device supports it)
 
 ## Building
-Just build like a normal Xcode project. Sign using your own team and bundle identifier. You can also build the IPA file with `build.command`.
+Just build like a normal Xcode project. Sign using your own team and bundle identifier. You can also build the IPA file with `ipabuild.sh`.
 
 ## Credits
 - [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command, carrier changer logic, alerts UI, and update inbounds message.
