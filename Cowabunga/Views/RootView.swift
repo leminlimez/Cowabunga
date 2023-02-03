@@ -22,6 +22,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Tools", systemImage: "wrench.and.screwdriver.fill")
                 }
+            ThemesView()
+                .tabItem {
+                    Label("Themes", systemImage: "paintbrush")
+                }
 //            SpringBoardView()
 //                .tabItem {
 //                    Label("SpringBoard", systemImage: "snowflake")
