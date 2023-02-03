@@ -123,7 +123,7 @@ struct ThemesExploreView: View {
                                         .frame(height: 58)
                                     }
                                 }
-                                .background(Color(uiColor14: .systemBackground))
+                                .background(Color(uiColor14: .secondarySystemBackground))
                                 .cornerRadius(10)
                                 .padding(4)
                             }
