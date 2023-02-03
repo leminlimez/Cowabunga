@@ -248,6 +248,20 @@ struct HomeView: View {
             failedAudio = true
         }
         
+        UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
+        if !UserDefaults.standard.bool(forKey: "FolderBGHidden") {
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
+        }
+        if !UserDefaults.standard.bool(forKey: "FolderBlurDisabled") {
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folderBG)
+        }
+        if !UserDefaults.standard.bool(forKey: "SwitcherBlurDisabled") {
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.switcher)
+        }
+        if !UserDefaults.standard.bool(forKey: "DockHidden") {
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
+        }
+        
         if failedSB && failedAudio {
             UIApplication.shared.dismissAlert(animated: true)
             UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")

@@ -29,7 +29,7 @@ class SpringboardColorManager {
         SpringboardType.switcher: "/System/Library/PrivateFrameworks/SpringBoard.framework/"
     ]
     
-    static func createColor(forType: SpringboardType, color: CIColor) throws {
+    static func createColor(forType: SpringboardType, color: CIColor, blur: Int) throws {
         let bgDir = getBackgroundDirectory()
         
         if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
@@ -49,8 +49,13 @@ class SpringboardColorManager {
                         thirdLevel["blue"] = color.blue
                         thirdLevel["alpha"] = 1
                         
+                        if var secondLevel2 = firstLevel["materialFiltering"] as? [String: Any] {
+                            secondLevel2["blurRadius"] = blur
+                            firstLevel["materialFiltering"] = secondLevel2
+                        }
+                        
                         secondLevel["tintColor"] = thirdLevel
-                        secondLevel["tintAlpha"] = color.alpha
+                        secondLevel["tintAlpha"] = color.alpha*0.2
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }
