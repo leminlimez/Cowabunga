@@ -1,0 +1,273 @@
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "Aplikacja przestała działać";
+
+/* No comment provided by engineer. */
+"App Switcher" = "Menu aplikacji";
+
+/* No comment provided by engineer. */
+"Apply" = "Zapisz";
+
+/* No comment provided by engineer. */
+"Audio" = "Dźwięk";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Modyfikowanie dźwięków";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Automatycznie restartuj springboard po zapisie";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Automatycznie aktualizuj wbudowane Dźwięki";
+
+/* No comment provided by engineer. */
+"Background" = "Tło";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Częstotliwość Odświeżania w Tle";
+
+/* No comment provided by engineer. */
+"Basic Modifications" = "Podstawowe Modyfikacje";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Blur:   %lld";
+
+/* No comment provided by engineer. */
+"Carrier Name" = "Nazwa Operatora";
+
+/* No comment provided by engineer. */
+"Categories" = "Kategotie";
+
+/* No comment provided by engineer. */
+"Choose size" = "Zmień rozmiar";
+
+/* No comment provided by engineer. */
+"Clear image" = "Wyczyść obraz";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga wymaga aby usługi lokalizacji ustawione były na \"Zawsze.\"";
+
+/* No comment provided by engineer. */
+"Credits" = "Podziękowania";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Obecnie aby zgłaszać własne motywy aby inni mogli z nich korzystać, musimy je ocenić na naszym serwerze Discord na kanale \"showcase.";
+
+/* No comment provided by engineer. */
+"Custom" = "Własne";
+
+/* No comment provided by engineer. */
+"Custom image" = "Własny obraz";
+
+/* No comment provided by engineer. */
+"Delete" = "Usuń";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Usuń Baner Skrótów";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "Rozdzielczość Urządzenia";
+
+/* No comment provided by engineer. */
+"Disable" = "Wyłącz";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Wyłącz Aplikacje-Skróty jako wycinki aplikacji";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Edit" = "Edytuj";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Enable" = "Włącz";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Włącz Aplikacje-Skróty jako wycinki aplikacji";
+
+/* No comment provided by engineer. */
+"Error Occured" = "Wystąpił błąd";
+
+/* No comment provided by engineer. */
+"Explore" = "Odkryj";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "Dodatkowe Preferencje";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Napraw modyfikacje";
+
+/* No comment provided by engineer. */
+"Folder" = "Folder";
+
+/* No comment provided by engineer. */
+"Footnote" = "Notatka";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "Zapomniane hasło?";
+
+/* No comment provided by engineer. */
+"General" = "Ogólne";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "Gesty / Dynamic Island";
+
+/* No comment provided by engineer. */
+"Home" = "Strona Główna";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "Nie jestem robotem (bez jaj)";
+
+/* No comment provided by engineer. */
+"Included" = "Zawarte";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Dołącz na Discorda";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Edytor Notatki na Ekranie Blokady";
+
+/* No comment provided by engineer. */
+"Log in" = "Zaloguj się";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Log in Sourced";
+
+/* No comment provided by engineer. */
+"Miscellaneous" = "Różne";
+
+/* No comment provided by engineer. */
+"More Settings" = "Więcej Ustawień";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Nie Znaleziono Żadnych Kart";
+
+/* No comment provided by engineer. */
+"No Cards Were Found" = "Nie Znaleziono Żadnych Kart";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Otwórz Ustawienia";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Edytor Klawiszy Kodu";
+
+/* No comment provided by engineer. */
+"Password" = "Hasło";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Proszę przyznać aplikacji Cowabunga uprawnienia lokalizacji na poziomie \"Zawsze\" aby mogła ciągle działać w tle.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Please log into your Sourced Repo account to continue";
+
+/* No comment provided by engineer. */
+"Preferences" = "Preferencje";
+
+/* No comment provided by engineer. */
+"Remove all" = "Usuń wszystko";
+
+/* No comment provided by engineer. */
+"Reset faces" = "Zresetuj klawisze";
+
+/* No comment provided by engineer. */
+"Respring" = "Zrestartuj Springboard";
+
+/* No comment provided by engineer. */
+"Run in background" = "Działaj w tle";
+
+/* No comment provided by engineer. */
+"Saved" = "Zapisano";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "Ustaw kolor menu aplikacji";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Ustaw kolor znacznika powiadomień";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Ustaw kolor docku";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "Ustaw kolor tła otwartych folderów";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Ustaw kolor folderów";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Aplikacje-Skróty";
+
+/* No comment provided by engineer. */
+"Sign up" = "Zarejestruj Się";
+
+/* No comment provided by engineer. */
+"Software Version" = "Wersja Systemu";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "Narzędzia Springboardu";
+
+/* No comment provided by engineer. */
+"Submit themes" = "Zgłoś motyw";
+
+/* No comment provided by engineer. */
+"Supervised" = "Nadzorowany";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Przesuń w góre aby zobaczyć inne karty";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Dotknij karty aby ją personalizować";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Dotknij któregokolwiek przycisku aby \ngo edytować";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Dotknij powiadomienia aby kontunuować aplikacje modyfikacji.";
+
+/* No comment provided by engineer. */
+"Test" = "Test";
+
+/* No comment provided by engineer. */
+"Tools" = "Narzędzia";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "Opcje Modyfikacji";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Zaktualizuj Zawarte Dźwięki";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Używasz na własną odpowiedzialność";
+
+/* No comment provided by engineer. */
+"validate" = "validate";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "Version %@ (%@)";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Nie masz żadnych zapisanych motywów. Sprawdź zakładkę \"Odkryj\" aby znaleźć coś dla siebie!";
+
