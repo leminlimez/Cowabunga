@@ -24,7 +24,6 @@ struct ThemesExploreView: View {
                 ProgressView()
             } else {
                 ZStack {
-                    Color(uiColor14: .secondarySystemBackground).edgesIgnoringSafeArea(.all)
                     ScrollView {
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
