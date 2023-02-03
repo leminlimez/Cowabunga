@@ -16,10 +16,16 @@ struct SpringboardColorChangerView: View {
     @State private var didChangeBadge: Bool = false
     
     
-    @State private var folderColor = Color.gray.opacity(0.2)
-    @State private var folderBGColor = Color.gray.opacity(0.2)
-    @State private var dockColor = Color.gray.opacity(0.2)
-    @State private var switcherColor = Color.gray.opacity(0.2)
+    @State private var folderColor = Color.gray//.opacity(0.2)
+    @State private var folderBlur: Double = 30
+    @State private var folderBGColor = Color.gray//.opacity(0.2)
+    @State private var folderBGBlur: Double = 30
+    
+    @State private var dockColor = Color.gray//.opacity(0.2)
+    @State private var dockBlur: Double = 30
+    
+    @State private var switcherColor = Color.gray//.opacity(0.2)
+    @State private var switcherBlur: Double = 30
     
     
     var body: some View {
@@ -105,86 +111,86 @@ struct SpringboardColorChangerView: View {
                             let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
                             ZStack {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: minSize / 8)
+                                    // Background
+                                    RoundedRectangle(cornerRadius: minSize / 32)
+                                        .fill(folderBGColor)
+                                        .frame(width: minSize/2, height: minSize*0.8)
+                                    
+                                    // Folder Itself
+                                    RoundedRectangle(cornerRadius: minSize / 24)
                                         .fill(folderColor)
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: minSize / 2, height: minSize / 2)
+                                        .frame(width: minSize / 4, height: minSize / 4)
                                 }
-                                VStack(spacing: minSize / 30) {
+                                VStack(spacing: minSize / 50) {
                                     ForEach(0...1, id: \.self) { i1 in
-                                        HStack(spacing: minSize / 30) {
+                                        HStack(spacing: minSize / 50) {
                                             ForEach(0...2, id: \.self) { i2 in
-                                                RoundedRectangle(cornerRadius: minSize / 24)
+                                                RoundedRectangle(cornerRadius: minSize / 60)
                                                     .fill(iconColors[i1 * 3 + i2])
                                                     .aspectRatio(contentMode: .fit)
-                                                    .frame(width: minSize / 9, height: minSize / 9)
+                                                    .frame(width: minSize / 20, height: minSize / 20)
                                                     .opacity(i1 == 1 && i2 == 2 ? 0 : 1)
                                             }
                                         }
                                     }
                                     Spacer()
                                 }
-                                .padding(minSize / 20)
+                                .padding(.top, minSize*0.31)
                             }
+                            .padding(.bottom, 20)
                             
-                            HStack {
-                                Text("Folder")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .fontWeight(.medium)
-                                ColorPicker("Set folder color", selection: $folderColor)
-                                    .labelsHidden()
-                                    .scaleEffect(1.5)
-                                    .padding()
-                            }
-                            Button("Apply", action: {
-                                apply(.folder, folderColor)
-                            })
-                            .buttonStyle(TintedButton(color: .blue))
-                            .padding(4)
-                        }
-                        
-                        divider
-                        
-                        // MARK: Expanded Folder Background
-                        VStack {
-                            let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
-                            ZStack {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: minSize / 8)
-                                        .fill(folderBGColor)
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: minSize / 2, height: minSize / 2)
-                                }
-                                VStack(spacing: minSize / 30) {
-                                    ForEach(0...1, id: \.self) { i1 in
-                                        HStack(spacing: minSize / 30) {
-                                            ForEach(0...2, id: \.self) { i2 in
-                                                RoundedRectangle(cornerRadius: minSize / 24)
-                                                    .fill(iconColors[i1 * 3 + i2])
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: minSize / 9, height: minSize / 9)
-                                                    .opacity(i1 == 1 && i2 == 2 ? 0 : 1)
-                                            }
-                                        }
-                                    }
+                            VStack{
+                                HStack {
+                                    Text("Folder")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                        .fontWeight(.medium)
+                                        .padding(.horizontal, 25)
                                     Spacer()
+                                    ColorPicker("Set folder color", selection: $folderColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding(.horizontal, 50)
                                 }
-                                .padding(minSize / 20)
+                                HStack {
+                                    Text("Blur:   \(Int(folderBlur))")
+                                        .foregroundColor(.white)
+                                        .frame(width: 125)
+                                    Spacer()
+                                    Slider(value: $folderBlur, in: 0...150, step: 1.0)
+                                        .padding(.horizontal)
+                                }
                             }
+                            .padding(.bottom, 20)
                             
-                            HStack {
-                                Text("Background Behind Expanded Folder")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .fontWeight(.medium)
-                                ColorPicker("Set background behind expanded folder", selection: $folderBGColor)
-                                    .labelsHidden()
-                                    .scaleEffect(1.5)
-                                    .padding()
+                            VStack{
+                                HStack {
+                                    Text("Background")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                        .fontWeight(.medium)
+                                        .padding(.horizontal, 25)
+                                    Spacer()
+                                    ColorPicker("Set expanded folder background color", selection: $folderBGColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding(.horizontal, 50)
+                                }
+                                HStack {
+                                    Text("Blur:   \(Int(folderBGBlur))")
+                                        .foregroundColor(.white)
+                                        .frame(width: 125)
+                                    Spacer()
+                                    Slider(value: $folderBGBlur, in: 0...150, step: 1.0)
+                                        .padding(.horizontal)
+                                }
                             }
+                            .padding(.bottom, 20)
+                            
                             Button("Apply", action: {
-                                apply(.folderBG, folderBGColor)
+                                apply(.folder, folderColor, Int(folderBlur))
+                                apply(.folderBG, folderBGColor, Int(folderBGBlur))
                             })
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
@@ -200,9 +206,10 @@ struct SpringboardColorChangerView: View {
                                     RoundedRectangle(cornerRadius: minSize / 15)
                                         .fill(dockColor)
                                         .frame(maxWidth: .infinity)
+                                        .frame(height: minSize / 4)
                                         .padding(.horizontal)
                                 }
-                                HStack(spacing: 12) {
+                                HStack(spacing: 20) {
                                     ForEach(0...3, id: \.self) { i1 in
                                         RoundedRectangle(cornerRadius: minSize / 24)
                                             .fill(iconColors[i1])
@@ -212,19 +219,34 @@ struct SpringboardColorChangerView: View {
                                 }
                                 .padding(24)
                             }
+                            .padding(.bottom, 20)
                             
-                            HStack {
-                                Text("Dock")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .fontWeight(.medium)
-                                ColorPicker("Set dock color", selection: $dockColor)
-                                    .labelsHidden()
-                                    .scaleEffect(1.5)
-                                    .padding()
+                            VStack{
+                                HStack {
+                                    Text("Dock")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                        .fontWeight(.medium)
+                                        .padding(.horizontal, 25)
+                                    Spacer()
+                                    ColorPicker("Set dock color", selection: $dockColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding(.horizontal, 50)
+                                }
+                                HStack {
+                                    Text("Blur:   \(Int(dockBlur))")
+                                        .foregroundColor(.white)
+                                        .frame(width: 125)
+                                    Spacer()
+                                    Slider(value: $dockBlur, in: 0...150, step: 1.0)
+                                        .padding(.horizontal)
+                                }
                             }
+                            .padding(.bottom, 20)
+                            
                             Button("Apply", action: {
-                                apply(.dock, dockColor)
+                                apply(.dock, dockColor, Int(dockBlur))
                             })
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
@@ -237,34 +259,47 @@ struct SpringboardColorChangerView: View {
                             let iconColors: [Color] = [.blue, .orange, .green, .purple]
                             ZStack {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: minSize / 15)
-                                        .fill(dockColor)
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.horizontal)
+                                    RoundedRectangle(cornerRadius: minSize / 32)
+                                        .fill(switcherColor)
+                                        .frame(width: minSize/2, height: minSize*0.8)
                                 }
-                                HStack(spacing: 12) {
-                                    ForEach(0...3, id: \.self) { i1 in
+                                HStack(spacing: -90) {
+                                    ForEach(0...2, id: \.self) { i1 in
                                         RoundedRectangle(cornerRadius: minSize / 24)
                                             .fill(iconColors[i1])
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: minSize / 7)
+                                            .frame(width: minSize / 3.5)
                                     }
                                 }
                                 .padding(24)
                             }
+                            .padding(.bottom, 20)
                             
-                            HStack {
-                                Text("App Switcher Background")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .fontWeight(.medium)
-                                ColorPicker("Set app switcher background color", selection: $switcherColor)
-                                    .labelsHidden()
-                                    .scaleEffect(1.5)
-                                    .padding()
+                            VStack{
+                                HStack {
+                                    Text("App Switcher")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                        .fontWeight(.medium)
+                                        .padding(.horizontal, 25)
+                                    Spacer()
+                                    ColorPicker("Set app switcher color", selection: $switcherColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding(.horizontal, 50)
+                                }
+                                HStack {
+                                    Text("Blur:   \(Int(switcherBlur))")
+                                        .foregroundColor(.white)
+                                        .frame(width: 125)
+                                    Spacer()
+                                    Slider(value: $switcherBlur, in: 0...150, step: 1.0)
+                                        .padding(.horizontal)
+                                }
                             }
+                            .padding(.bottom, 20)
+                            
                             Button("Apply", action: {
-                                apply(.switcher, switcherColor)
+                                apply(.switcher, switcherColor, Int(switcherBlur))
                             })
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
@@ -312,9 +347,9 @@ struct SpringboardColorChangerView: View {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
         }
     }
-    func apply(_ sbType: SpringboardColorManager.SpringboardType, _ color: Color) {
+    func apply(_ sbType: SpringboardColorManager.SpringboardType, _ color: Color, _ blur: Int) {
         do {
-            try SpringboardColorManager.createColor(forType: sbType, color: CIColor(color: UIColor(color)))
+            try SpringboardColorManager.createColor(forType: sbType, color: CIColor(color: UIColor(color)), blur: blur)
             SpringboardColorManager.applyColor(forType: sbType)
             UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
         } catch {

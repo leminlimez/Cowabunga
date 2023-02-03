@@ -33,6 +33,7 @@ struct SavedPasscodesView: View {
             if numOfSaved == 0 {
                 Text("You do not have any saved passcode themes. Check out the explore tab to find some!")
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .padding(30)
             } else {
                 List {
                     ForEach($savedPasscodesList) { passcode in
