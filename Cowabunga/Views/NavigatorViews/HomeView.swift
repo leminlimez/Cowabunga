@@ -190,6 +190,14 @@ struct HomeView: View {
                 }
                 
                 Section {
+                    LinkCell(imageName: "", url: "", title: "sourcelocation", contribution: "Russian")
+                    LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "Polish")
+                    LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "German")
+                } header: {
+                    Text("Translators")
+                }
+                
+                Section {
                     
                 } header: {
                     Text("Version \(Bundle.main.releaseVersionNumber ?? "UNKNOWN") (\(versionBuildString ?? "Release"))")
@@ -308,9 +316,11 @@ struct HomeView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     } else {
-                        Image(imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        if imageName != "" {
+                            Image(imageName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
                     }
                 }
                 .cornerRadius(circle ? .infinity : 0)
@@ -319,7 +329,9 @@ struct HomeView: View {
                 VStack {
                     HStack {
                         Button(action: {
-                            UIApplication.shared.open(URL(string: url)!)
+                            if url != "" {
+                                UIApplication.shared.open(URL(string: url)!)
+                            }
                         }) {
                             Text(title)
                                 .fontWeight(.bold)
