@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "santanderwrappers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SerenaKit/SantanderWrappers",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0d01ba8cafe29a97edcbf14094a580f0fe467a8d"
+      }
+    },
+    {
       "identity" : "swiftui-cached-async-image",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
