@@ -14,6 +14,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+//            ThemesView()
+//                .tabItem {
+//                    Label("Audio", systemImage: "speaker.wave.2.fill")
+//                }
             ToolsView()
                 .tabItem {
                     Label("Tools", systemImage: "wrench.and.screwdriver.fill")
