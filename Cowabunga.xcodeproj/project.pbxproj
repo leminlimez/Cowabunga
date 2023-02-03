@@ -149,6 +149,8 @@
 		6F7C01D6296924F500BC427A /* OtherModsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsView.swift; sourceTree = "<group>"; };
 		6F7C01D82969B5A700BC427A /* MiscModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscModsManager.swift; sourceTree = "<group>"; };
 		6F7C01E0296B2FB200BC427A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		6F843AAC298DC3190085D20A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F843AAD298DC3190085D20A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FA660A5297B051E002471FB /* AudioOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOptionsView.swift; sourceTree = "<group>"; };
 		6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				en,
 				Base,
 				ru,
+				pl,
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
@@ -690,6 +693,7 @@
 			children = (
 				21CD1052298C8151007EE649 /* en */,
 				21CD1057298C8177007EE649 /* ru */,
+				6F843AAD298DC3190085D20A /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -699,6 +703,7 @@
 			children = (
 				21CD1055298C8177007EE649 /* ru */,
 				21CD1058298C8184007EE649 /* en */,
+				6F843AAC298DC3190085D20A /* pl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -757,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -812,7 +817,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -1,0 +1,18 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "Przyznaj dostep do \"sandbox\" (potrzebny aby modyfikować prszyciski ekranu blokady i kilka innych rzeczy)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Aplikacja Cowabunga działa w tle aby modyfikacje ciągle działały. Zazwyczaj iOS automatycznie zamyka takie aplikacje po jakimś czasie, jednak Cowabunga wykorzystuje trik polegający na używaniu dostępu do lokalizacji pozwalający na znacznie dłuższą żywotność. Dane nie są przechowywane, jedynie pobierane lokalnie.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Aplikacja Cowabunga działa w tle aby modyfikacje ciągle działały. Zazwyczaj iOS automatycznie zamyka takie aplikacje po jakimś czasie, jednak Cowabunga wykorzystuje trik polegający na używaniu dostępu do lokalizacji pozwalający na znacznie dłuższą żywotność. Dane nie są przechowywane, jedynie pobierane lokalnie.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Photos";
+
