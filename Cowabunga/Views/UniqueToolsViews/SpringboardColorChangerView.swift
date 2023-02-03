@@ -115,12 +115,14 @@ struct SpringboardColorChangerView: View {
                                     RoundedRectangle(cornerRadius: minSize / 32)
                                         .fill(folderBGColor)
                                         .frame(width: minSize/2, height: minSize*0.8)
+                                        .opacity(0.3)
                                     
                                     // Folder Itself
                                     RoundedRectangle(cornerRadius: minSize / 24)
                                         .fill(folderColor)
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: minSize / 4, height: minSize / 4)
+                                        .opacity(0.3)
                                 }
                                 VStack(spacing: minSize / 50) {
                                     ForEach(0...1, id: \.self) { i1 in
@@ -190,6 +192,7 @@ struct SpringboardColorChangerView: View {
                             
                             Button("Apply", action: {
                                 apply(.folder, folderColor, Int(folderBlur))
+                                apply(.libraryFolder, folderColor, Int(folderBlur))
                                 apply(.folderBG, folderBGColor, Int(folderBGBlur))
                             })
                             .buttonStyle(TintedButton(color: .blue))
@@ -208,6 +211,7 @@ struct SpringboardColorChangerView: View {
                                         .frame(maxWidth: .infinity)
                                         .frame(height: minSize / 4)
                                         .padding(.horizontal)
+                                        .opacity(0.3)
                                 }
                                 HStack(spacing: 20) {
                                     ForEach(0...3, id: \.self) { i1 in
@@ -262,12 +266,14 @@ struct SpringboardColorChangerView: View {
                                     RoundedRectangle(cornerRadius: minSize / 32)
                                         .fill(switcherColor)
                                         .frame(width: minSize/2, height: minSize*0.8)
+                                        .opacity(0.3)
                                 }
                                 HStack(spacing: -90) {
                                     ForEach(0...2, id: \.self) { i1 in
                                         RoundedRectangle(cornerRadius: minSize / 24)
                                             .fill(iconColors[i1])
                                             .frame(width: minSize / 3.5)
+                                            //.scaleEffect(1 - (0.05*i1))
                                     }
                                 }
                                 .padding(24)

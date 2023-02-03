@@ -12,18 +12,21 @@ class SpringboardColorManager {
         case dock
         case folder
         case folderBG
+        case libraryFolder
         case switcher
     }
     
     private static let finalFiles: [SpringboardType: [String]] = [
         SpringboardType.folder: ["folderDark", "folderLight"],
+        SpringboardType.libraryFolder: ["platters", "plattersDark"],
         SpringboardType.dock: ["dockDark", "dockLight"],
-        SpringboardType.folderBG: ["folderExpandedBackgroundHome"],
+        SpringboardType.folderBG: ["folderExpandedBackgroundHome", "homeScreenOverlay", "homeScreenOverlay-iPad"],
         SpringboardType.switcher: ["homeScreenBackdrop-application"]
     ]
     
     private static let fileFolders: [SpringboardType: String] = [
         SpringboardType.folder: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
+        SpringboardType.libraryFolder: "/System/Library/PrivateFrameworks/CoreMaterial.framework/",
         SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/",
         SpringboardType.folderBG: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
         SpringboardType.switcher: "/System/Library/PrivateFrameworks/SpringBoard.framework/"
@@ -55,7 +58,7 @@ class SpringboardColorManager {
                         }
                         
                         secondLevel["tintColor"] = thirdLevel
-                        secondLevel["tintAlpha"] = color.alpha*0.2
+                        secondLevel["tintAlpha"] = color.alpha*0.3
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }
