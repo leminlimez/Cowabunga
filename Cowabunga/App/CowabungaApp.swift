@@ -27,6 +27,7 @@ struct CowabungaApp: App {
                         do {
                             // TrollStore method
                             try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches"), includingPropertiesForKeys: nil)
+                            StatusManager.sharedInstance().setIsMDCMode(false)
                         } catch {
                             // MDC method
                             // grant r/w access
@@ -34,6 +35,8 @@ struct CowabungaApp: App {
                                 grant_full_disk_access() { error in
                                     if (error != nil) {
                                         UIApplication.shared.alert(title: "Access Error", body: "Error: \(String(describing: error?.localizedDescription))\nPlease close the app and retry.")
+                                    } else {
+                                        StatusManager.sharedInstance().setIsMDCMode(true)
                                     }
                                 }
                             } else {
