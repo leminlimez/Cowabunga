@@ -1,0 +1,273 @@
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "O aplicativo parou de funcionar";
+
+/* No comment provided by engineer. */
+"App Switcher" = "Troca de aplicativos";
+
+/* No comment provided by engineer. */
+"Apply" = "Aplicar";
+
+/* No comment provided by engineer. */
+"Audio" = "Sons";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Som ao carregar";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Respring automático ao aplicar";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Atualização automática com os sons incuídos";
+
+/* No comment provided by engineer. */
+"Background" = "Segundo plano";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Frequência de atualização em segundo plano";
+
+/* No comment provided by engineer. */
+"Basic Modifications" = "Modificações básicas";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Blur:   %lld";
+
+/* No comment provided by engineer. */
+"Carrier Name" = "Nome da operadora";
+
+/* No comment provided by engineer. */
+"Categories" = "Categorias";
+
+/* No comment provided by engineer. */
+"Choose size" = "Escolha o tamanho";
+
+/* No comment provided by engineer. */
+"Clear image" = "Remover imagem";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga requer “Sempre\" acesso a localização.";
+
+/* No comment provided by engineer. */
+"Credits" = "Créditos";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "No momento para enviarem temas para outras pessoas verem e utilizarem, temos que analisá-los em nosso chat do discord em #showcase.";
+
+/* No comment provided by engineer. */
+"Custom" = "Personalizado";
+
+/* No comment provided by engineer. */
+"Custom image" = "Imagem personalizada";
+
+/* No comment provided by engineer. */
+"Delete" = "Remover";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Remove o banner do app atalhos";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "Resolução do aparelho";
+
+/* No comment provided by engineer. */
+"Disable" = "Desativar";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Desativa o Atalhos como AppClips";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Edit" = "Editar";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Enable" = "Ativar";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Ativa o Atalhos como AppClips";
+
+/* No comment provided by engineer. */
+"Error Occured" = "Ocorreu um erro";
+
+/* No comment provided by engineer. */
+"Explore" = "Explorar";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "preferências extras";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Corrige os ajustes";
+
+/* No comment provided by engineer. */
+"Folder" = "Pasta";
+
+/* No comment provided by engineer. */
+"Footnote" = "Nome no rodapé";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "Esqueceu a senha?";
+
+/* No comment provided by engineer. */
+"General" = "Geral";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "gestos / Ilha dinâmica";
+
+/* No comment provided by engineer. */
+"Home" = "Início";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "Eu não sou um robo (sem zoas)";
+
+/* No comment provided by engineer. */
+"Included" = "Incluído";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Entre no Discord";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Troca o nome do rodapé na tela de bloqueio";
+
+/* No comment provided by engineer. */
+"Log in" = "Entrar";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Log in Sourced";
+
+/* No comment provided by engineer. */
+"Miscellaneous" = "Diversos";
+
+/* No comment provided by engineer. */
+"More Settings" = "Mais ajustes";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Nenhum cartão foi encontrado";
+
+/* No comment provided by engineer. */
+"No Cards Were Found" = "Nenhum cartão foi encontrado";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Abra os Ajustes";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Altere a imagem da senha da tela de bloqueio";
+
+/* No comment provided by engineer. */
+"Password" = "Senha";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Por favor conceder a Cowabunga “Sempre” permissão de localização em Configurações para que possa rodar em segundo plano indefinidamente.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Faça login na sua conta Sourced Repo para continuar";
+
+/* No comment provided by engineer. */
+"Preferences" = "preferências";
+
+/* No comment provided by engineer. */
+"Remove all" = "Remover tudo";
+
+/* No comment provided by engineer. */
+"Reset faces" = "Resetar";
+
+/* No comment provided by engineer. */
+"Respring" = "Respring";
+
+/* No comment provided by engineer. */
+"Run in background" = "Rodar em segundo plano";
+
+/* No comment provided by engineer. */
+"Saved" = "Salvado";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "Definir cor ao trocar de aplicativos";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Definir cor da notificação";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Definir a cor da dock";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "Definir cor de fundo da pasta aberta";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Definir cor da pasta";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Aplicativo Atalhos";
+
+/* No comment provided by engineer. */
+"Sign up" = "Entrar";
+
+/* No comment provided by engineer. */
+"Software Version" = "Versão do software";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "Ferramentas do SpringBoard";
+
+/* No comment provided by engineer. */
+"Submit themes" = "Enviar temas";
+
+/* No comment provided by engineer. */
+"Supervised" = "Supervisionado";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Deslize para ver outros cartões";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Clique em um cartão para customizar";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Tap on any key to edit \nits appearance";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Clique nessa notificação para retornar os ajustes dos aplicativos";
+
+/* No comment provided by engineer. */
+"Test" = "Teste";
+
+/* No comment provided by engineer. */
+"Tools" = "Ferramentas";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "Opções de ajustes";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Atualização incluí sons";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Use por sua conta e risco";
+
+/* No comment provided by engineer. */
+"validate" = "Válido";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "Versão %@ (%@)";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Você não tem nenhum tema de tela de bloqueio salvo. Verifique a aba Explorar para encontrar alguns temas!";
+
