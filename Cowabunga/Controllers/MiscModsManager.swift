@@ -280,6 +280,9 @@ func addEmptyData(matchingSize: Int, to plist: [String: Any]) throws -> Data {
     var count = 0
     while newDataSize != matchingSize || count < 200 {
         count += 1
+        if added < 0 {
+            break
+        }
         newPlist.updateValue(String(repeating: "#", count: added), forKey: "MdC")
         do {
             newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
