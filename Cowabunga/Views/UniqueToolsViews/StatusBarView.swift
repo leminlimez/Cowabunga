@@ -158,7 +158,7 @@ struct StatusBarView: View {
                 })
             }
             
-            Section (footer: Text("Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
+            Section (footer: Text("Using \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
                 Button("Reset All") {
                     if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
                         do {
