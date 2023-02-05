@@ -461,7 +461,7 @@ func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool
 }
 
 // creates a page in settings
-func createSettingsPage() -> Bool {
+func createSettingsPage(enabled: Bool) -> Bool {
     var itemsList: [[String: Any]] = [
     ]
     

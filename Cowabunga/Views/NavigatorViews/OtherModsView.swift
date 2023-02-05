@@ -19,6 +19,7 @@ struct OtherModsView: View {
     
     @State private var supervised: Bool = UserDefaults.standard.bool(forKey: "IsSupervised")
     
+    @State private var extraSettingsEnabled: Bool = UserDefaults.standard.bool(forKey: "IsExtraSettingsEnabled")
     struct DeviceSubType: Identifiable {
         var id = UUID()
         var key: Int
@@ -186,20 +187,35 @@ struct OtherModsView: View {
                     
                     Spacer()
                     
-                    Button("Enable", action: {
-                        let succeeded = createSettingsPage()
-                        if succeeded {
-                            if #available(iOS 16, *) {
-                                UIApplication.shared.open(URL(string: "App-prefs:Phone")!)
-                            } else {
-                                UIApplication.shared.open(URL(string: "App-prefs:Photos")!)
+                    //  Button("Enable", action: {
+                        //       let succeeded = createSettingsPage()
+                    //   if succeeded {
+                            //       if #available(iOS 16, *) {
+                    //        UIApplication.shared.open(URL(string: "App-prefs:Phone")!)
+                                //       } else {
+                                //        UIApplication.shared.open(URL(string: "App-prefs:Photos")!)
+                                //         }
+                                //   } else {
+                            //         UIApplication.shared.alert(body: "An error occurred while trying to enable default settings.")
+                                //    }
+                        //   })
+                    //  .foregroundColor(.blue)
+                    //.padding(.leading, 10)
+                        
+                        Toggle(isOn: $extraSettingsEnabled) {
+                            
+                        }.onChange(of: extraSettingsEnabled) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "IsExtraSettingsEnabled")
+                            // set the value
+                            do {
+                                try togglePlistOption(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist", key: "IsSupervised", value: new)
+                            } catch {
+                                print("Failed")
                             }
-                        } else {
-                            UIApplication.shared.alert(body: "An error occurred while trying to enable default settings.")
                         }
-                    })
-                    .foregroundColor(.blue)
-                    .padding(.leading, 10)
+                        .padding(.leading, 10)
+                    
                 }
                 
                 // supervise
