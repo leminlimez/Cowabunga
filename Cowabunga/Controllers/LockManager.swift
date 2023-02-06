@@ -59,6 +59,55 @@ class LockManager {
         return nil
     }
     
+    // add an imported lock
+    static func addImportedLock(lockName: String, url: URL) throws -> Data {
+        if FileManager.default.fileExists(atPath: url.appendingPathComponent("trollformation1.png").path) {
+            // it is a valid passcode file
+            let newFolder: URL = getLocksDirectory()!.appendingPathComponent(lockName)
+            if !FileManager.default.fileExists(atPath: newFolder.path) {
+                do {
+                    try FileManager.default.createDirectory(at: newFolder, withIntermediateDirectories: false)
+                } catch {
+                    throw "Could not create new directory."
+                }
+            }
+            
+            // fill it with files
+            for i in 1 ... 40 {
+                let imgName: String = "trollformation\(i).png"
+                let imgURL = url.appendingPathComponent(imgName)
+                if FileManager.default.fileExists(atPath: imgURL.path) {
+                    do {
+                        let imgData = try Data(contentsOf: imgURL)
+                        try imgData.write(to: newFolder.appendingPathComponent(imgName))
+                        if i == 40 {
+                            return imgData
+                        }
+                    } catch {
+                        // delete the created folder
+                        do {
+                            try FileManager.default.removeItem(at: newFolder)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        throw "Could not save image data: \(error.localizedDescription)"
+                    }
+                } else {
+                    // delete the created folder
+                    do {
+                        try FileManager.default.removeItem(at: newFolder)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    throw "Missing contents in lock folder!"
+                }
+            }
+        } else {
+            throw "Not a valid lock theme folder!"
+        }
+        throw "Could not get image data!"
+    }
+    
     // get the a folder of locks
     static func getLockFolder(lockName: String, isCustom: Bool) -> URL? {
         do {
