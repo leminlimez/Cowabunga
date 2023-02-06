@@ -57,31 +57,27 @@ struct AudioView: View {
         VStack {
             NavigationView {
                 List {
-                    Section {
-                        ForEach($audioCategories) { cat in
-                            Section {
-                                ForEach(cat.options) { option in
-                                    NavigationLink(destination: AudioChangerView(SoundIdentifier: option.key.wrappedValue), isActive: option.active) {
-                                        HStack {
-                                            Image(systemName: option.imageName.wrappedValue)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 24, height: 24)
-                                                .foregroundColor(.blue)
-                                            Text(option.title.wrappedValue)
-                                                .padding(.horizontal, 8)
-                                            Spacer()
-                                            Text((UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default").replacingOccurrences(of: "USR_", with: "").replacingOccurrences(of: "_", with: " "))
-                                                .foregroundColor(.secondary)
-                                        }
+                    ForEach($audioCategories) { cat in
+                        Section {
+                            ForEach(cat.options) { option in
+                                NavigationLink(destination: AudioChangerView(SoundIdentifier: option.key.wrappedValue), isActive: option.active) {
+                                    HStack {
+                                        Image(systemName: option.imageName.wrappedValue)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 24, height: 24)
+                                            .foregroundColor(.blue)
+                                        Text(option.title.wrappedValue)
+                                            .padding(.horizontal, 8)
+                                        Spacer()
+                                        Text((UserDefaults.standard.string(forKey: option.key.wrappedValue.rawValue+"_Applied") ?? "Default").replacingOccurrences(of: "USR_", with: "").replacingOccurrences(of: "_", with: " "))
+                                            .foregroundColor(.secondary)
                                     }
                                 }
-                            } header: {
-                                Text(cat.title.wrappedValue)
                             }
+                        } header: {
+                            Text(cat.title.wrappedValue)
                         }
-                    } header: {
-                        Text("Categories")
                     }
                     
                     Button(action: {
