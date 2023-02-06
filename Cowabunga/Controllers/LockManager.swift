@@ -7,13 +7,58 @@
 // Credit to Haxi0 for original TrollLock
 
 import Foundation
+import UIKit
 
 class LockManager {
     static var testingLocks: Bool = false
     
-    static func applyLock(lockName: String, lockType: String, isCustom: Bool) -> Bool {
+    static let globalLockPaths: [String] = [
+        "3x-d73",
+        "3x-896h",
+        "3x-812h",
+        "2x-896h",
+        "2x-812h"
+    ]
+    
+    static let deviceLockPath: [String: String] = [
+        "iPhone15,3": "3x-d73", // iPhone 14 Pro Max
+        "iPhone15,2": "3x-d73", // iPhone 14 Pro
+        "iPhone14,7": "3x-812h", // iPhone 14
+        
+        "iPhone14,3": "3x-812h", // iPhone 13 Pro Max
+        "iPhone14,2": "3x-812h", // iPhone 13 Pro
+        "iPhone14,5": "3x-812h", // iPhone 13
+        "iPhone14,4": "3x-812h", // iPhone 13 Mini
+        
+        "iPhone13,4": "3x-896h", // iPhone 12 Pro Max
+        "iPhone13,3": "3x-812h", // iPhone 12 Pro
+        "iPhone13,2": "3x-812h", // iPhone 12
+        "iPhone13,1": "3x-812h", // iPhone 12 Mini
+        
+        "iPhone12,5": "3x-812h", // iPhone 11 Pro Max
+        "iPhone12,3": "2x-896h", // iPhone 11 Pro
+        "iPhone12,1": "2x-812h", // iPhone 11
+        
+        "iPhone11,8": "2x-812h", // iPhone XR
+        "iPhone11,4": "3x-896h", // iPhone XS Max (China)
+        "iPhone11,6": "3x-896h", // iPhone XS Max
+        "iPhone11,2": "3x-812h", // iPhone XS
+        
+        "iPhone10,3": "3x-812h", // iPhone X (GSM)
+        "iPhone10,6": "3x-812h" // iPhone X (Global)
+    ]
+    
+    static func getLockType() -> String {
+        let model: String = UIDevice().machineName
+        if deviceLockPath[model] != nil {
+            return deviceLockPath[model]!
+        }
+        return ""
+    }
+    
+    static func applyLock(lockName: String, lockType: String) -> Bool {
         let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca"
-        let folderURL: URL? = getLockFolder(lockName: lockName, isCustom: isCustom)
+        let folderURL: URL? = getLockFolder(lockName: lockName)
         
         if folderURL != nil {
             // add to the file contents
@@ -34,14 +79,6 @@ class LockManager {
         } else {
             print("Failed to get the lock folder url")
             return false
-        }
-    }
-    
-    static func setup(fetchingNewLocks: Bool) {
-        print("setting up locks")
-        // fetch new locks if needed
-        if fetchingNewLocks == true {
-            fetchIncludedLocks()
         }
     }
     
@@ -109,114 +146,17 @@ class LockManager {
     }
     
     // get the a folder of locks
-    static func getLockFolder(lockName: String, isCustom: Bool) -> URL? {
+    static func getLockFolder(lockName: String) -> URL? {
         do {
-            if isCustom {
-                // get the folder of a lock in custom locks
-            } else {
-                // get the folder of a lock in included locks
-                let newURL: URL = getLocksDirectory()!.appendingPathComponent(lockName)
-                if !FileManager.default.fileExists(atPath: newURL.path) {
-                    try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
-                }
-                return newURL
+            let newURL: URL = getLocksDirectory()!.appendingPathComponent(lockName)
+            if !FileManager.default.fileExists(atPath: newURL.path) {
+                try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: false)
             }
+            return newURL
         } catch {
             print("An error occurred getting/making the " + lockName + " lock directory")
         }
         return nil
-    }
-    
-    // fetch included lock files
-    static func fetchIncludedLocks() {
-        // get the included lock names
-        let url: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/LockNames.json")
-        if url != nil {
-            // get the data of the file
-            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-                guard let data = data else {
-                    print("No data to decode")
-                    return
-                }
-                guard let locksFileData = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                    print("Couldn't decode json data")
-                    return
-                }
-                
-                // function to fetch update files
-                func fetchFiles(lockFileName: String, newFolder: URL, lockFileVersion: Int) {
-                    // fetch the files and add it to path
-                    for i in 1 ... 40 {
-                        let imageURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedLocks/" + lockFileName + "/trollformation" + String(i) + ".png")
-                        if imageURL != nil {
-                            let lock_task = URLSession.shared.dataTask(with: imageURL!) { image_data, image_response, image_error in
-                                if image_data != nil {
-                                    // write the image file
-                                    do {
-                                        try image_data!.write(to: newFolder.appendingPathComponent("trollformation" + String(i) + ".png"))
-                                    } catch {
-                                        print("Error writing included lock data to directory")
-                                    }
-                                } else {
-                                    print("No lock data")
-                                }
-                            }
-                            lock_task.resume()
-                        }
-                    }
-                    
-                    // write the plist with the version
-                    let plistURL: URL = newFolder.appendingPathComponent(lockFileName + ".plist")
-                    let plist: [String: Int] = [
-                        "version": lockFileVersion
-                    ]
-                    do {
-                        let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
-                        try newData.write(to: plistURL)
-                    } catch {
-                        print("Error creating the version plist!")
-                    }
-                }
-                
-                // check if all the files exist and are updated
-                if  let locksFileData = locksFileData as? Dictionary<String, AnyObject>, let lockFiles = locksFileData["lock_files"] as? [[String: Any]] {
-                    
-                    for lockFile in lockFiles {
-                        do {
-                            let lockFileName: String = lockFile["name"] as! String
-                            let lockFileVersion: Int = lockFile["version"] as! Int
-                            let isBeta: String? = lockFile["isBeta"] as? String
-                            let newFolder: URL? = getLockFolder(lockName: lockFileName, isCustom: false)
-                            
-                            if !FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
-                                fetchFiles(lockFileName: lockFileName, newFolder: newFolder!, lockFileVersion: lockFileVersion)
-                            } else if FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta == nil || testingLocks == true) {
-                                // get the current version
-                                do {
-                                    let plistData = try Data(contentsOf: newFolder!.appendingPathComponent(lockFileName + ".plist"))
-                                    // open plist
-                                    let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Int]
-                                    if plist["version"] != nil && plist["version"]! < lockFileVersion {
-                                        // update the file
-                                        fetchFiles(lockFileName: lockFileName, newFolder: newFolder!, lockFileVersion: lockFileVersion)
-                                    }
-                                } catch {
-                                    print("Error while trying to update files: " + error.localizedDescription)
-                                }
-                            } else if FileManager.default.fileExists(atPath: newFolder!.path + "/" + lockFileName + ".plist") && (isBeta != nil || testingLocks == false) {
-                                // delete since it is in beta and user is not part of beta channel
-                                do {
-                                    try FileManager.default.removeItem(at: newFolder!)
-                                } catch {
-                                    print("There was an error trying to remove the lock files: " + error.localizedDescription)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            task.resume()
-        }
     }
     
     private static var camlFileContents = """
