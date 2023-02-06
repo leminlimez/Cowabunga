@@ -1,0 +1,18 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "获取访问沙盒的权限（需要应用在锁屏密码按键美化+其他功能上）";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga在后台运行以保证插件效果持续生效。通常iOS会定期杀掉一些后台。但是Cowabunga通过请求定位数据的方式来保持更久的生效状态。数据不会以任何形式储存在任何地方，只会收取。";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Cowabunga在后台运行以保证插件效果持续生效。通常iOS会定期杀掉一些后台。但是Cowabunga通过请求定位数据的方式来保持更久的生效状态。数据不会以任何形式储存在任何地方，只会收取。";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "照片";
+

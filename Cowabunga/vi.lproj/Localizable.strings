@@ -1,0 +1,351 @@
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Cũng sẽ đồng thời giấu đi tên nhà mạng";
+
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "Ứng dụng đã ngừng chạy";
+
+/* No comment provided by engineer. */
+"App Switcher" = "Bộ chuyển đổi ứng dụng";
+
+/* No comment provided by engineer. */
+"Apply" = "Áp dụng";
+
+/* No comment provided by engineer. */
+"Audio" = "Âm thanh";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Thay đổi âm thanh";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Tự động khởi động lại màn hình sau khi áp dụng ";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Tự động cập nhật âm thanh kèm sẵn";
+
+/* No comment provided by engineer. */
+"Background" = "Nền";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Tần số cập nhật trong nền";
+
+/* No comment provided by engineer. */
+"Basic Modifications" = "Tùy chỉnh cơ bản";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Mờ:   %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "Chữ breadcrumb";
+
+/* No comment provided by engineer. */
+"Carrier Name" = "Tên nhà mạng";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "Tên nhà mạng";
+
+/* No comment provided by engineer. */
+"Categories" = "Thể loại";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "Thay đổi chữ Breadcrumb";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "Thay đổi tên nhà mạng";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "Đổi thời gian thanh trạng thái";
+
+/* No comment provided by engineer. */
+"Choose size" = "Chọn kích thước";
+
+/* No comment provided by engineer. */
+"Clear image" = "Cài lại ảnh";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga cần quyền vị trí “Luôn luôn”.";
+
+/* No comment provided by engineer. */
+"Credits" = "Tác giả";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Hiện tại, để đăng chủ đề cho mọi người sử dụng hãy đăng chủ đề của bạn lên Discord của chúng tôi ở #showcase-channel và chúng tôi sẽ xem xét nó.";
+
+/* No comment provided by engineer. */
+"Custom" = "Tùy chỉnh";
+
+/* No comment provided by engineer. */
+"Custom image" = "Ảnh tự chọn";
+
+/* No comment provided by engineer. */
+"Delete" = "Xóa";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Xóa thông báo của Shortcut";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "Độ phân giải thiết bị";
+
+/* No comment provided by engineer. */
+"Disable" = "Vô hiệu hóa";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Vô hiệu ứng dụng của Shortcut thành Appclips";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Edit" = "Sửa";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Enable" = "Kích hoạt";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Kích hoạt ứng dụng Shortcut thành Appclips";
+
+/* No comment provided by engineer. */
+"Error Occured" = "Có lỗi xảy ra";
+
+/* No comment provided by engineer. */
+"Explore" = "Khám phá";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "Tùy chọn thêm";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Sửa các tùy chỉnh";
+
+/* No comment provided by engineer. */
+"Folder" = "Thư mục";
+
+/* No comment provided by engineer. */
+"Footnote" = "Chú thích cuối";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "Quên mật khẩu?";
+
+/* No comment provided by engineer. */
+"General" = "Chung";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "Cử chỉ / Dynamic Island";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "Giấu chế độ máy bay";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "Giấu AirPlay";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "Giấu báo thức";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "Giấu pin";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "Giấu Bluetooth";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "Giấu CarPlay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "Giấu tín hiệu di động*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "Giấu đừng làm phiền";
+
+/* No comment provided by engineer. */
+"Hide Location" = "Giấu vị trí";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "Giấu khóa quay màn hình";
+
+/* No comment provided by engineer. */
+"Hide Status Bar Time" = "Giấu thời gian thanh trạng thái";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "Giấu VPN";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi^" = "Giấu Wi-Fi^";
+
+/* No comment provided by engineer. */
+"Home" = "Nhà";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "Tôi không phải là robot (thiệt mà)";
+
+/* No comment provided by engineer. */
+"Included" = "Đã kèm sẵn";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Tham gia Discord";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Thay đổi chú thích cuối của màn hình khóa";
+
+/* No comment provided by engineer. */
+"Log in" = "Đăng nhập";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Đăng nhập đã cho phép";
+
+/* No comment provided by engineer. */
+"Miscellaneous" = "Khác";
+
+/* No comment provided by engineer. */
+"More Settings" = "Cài đặt thêm";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Không tìm thấy thẻ";
+
+/* No comment provided by engineer. */
+"No Cards Were Found" = "Không tìm thấy thẻ";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Mở cài đặt";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Chỉnh sửa hình mật khẩu";
+
+/* No comment provided by engineer. */
+"Password" = "Mật khẩu";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Xin hãy cho phép Cowabunga quyền \"Luôn luôn\" ở trong cài đặt để nó chạy vô thời hạn trong nền.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Xin hãy đăng nhập vào tài khoản Repo đã cho phép để tiếp tục";
+
+/* No comment provided by engineer. */
+"Preferences" = "Tùy chọn";
+
+/* No comment provided by engineer. */
+"Remove all" = "Xóa tất cả";
+
+/* No comment provided by engineer. */
+"Reset All" = "Cài lại tất cả";
+
+/* No comment provided by engineer. */
+"Reset faces" = "Cài lại hình";
+
+/* No comment provided by engineer. */
+"Respring" = "Khởi động lại màn hình";
+
+/* No comment provided by engineer. */
+"Run in background" = "Chạy trong nền";
+
+/* No comment provided by engineer. */
+"Saved" = "Đã lưu";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "Chọn màu bộ chuyển đổi ứng dụng";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Chọn màu phù hiệu thông báo";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Chọn màu dock";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "Chọn màu thư mục đã mở rộng";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Chọn màu thư mục";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Ứng dụng Shortcut";
+
+/* No comment provided by engineer. */
+"Sign up" = "Đăng ký";
+
+/* No comment provided by engineer. */
+"Software Version" = "Phiên bản hệ điều hành";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "Công cụ SpringBoard";
+
+/* No comment provided by engineer. */
+"Status Bar" = "Thanh trạng thái";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "Thời gian thanh trạng thái";
+
+/* No comment provided by engineer. */
+"Submit themes" = "Đăng chủ đề";
+
+/* No comment provided by engineer. */
+"Supervised" = "Đã ở chế độ giám sát";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Vuốt để xem thẻ khác";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Nhấn để chỉnh thẻ";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Nhấn vào nút bất kì để chỉnh sửa \nvẻ bề ngoài";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Nhấn vào thông báo này để tiếp tục chạy các tùy chỉnh.";
+
+/* No comment provided by engineer. */
+"Test" = "Thử";
+
+/* No comment provided by engineer. */
+"Tools" = "Công cụ";
+
+/* No comment provided by engineer. */
+"Translators" = "Phiên dịch";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "Tùy chọn tùy chỉnh";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Tự động cập nhật âm thanh kèm sẵn";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Tự chịu rủi ro khi sử dụng";
+
+/* No comment provided by engineer. */
+"Using %@" = "Đang sử dụng %@";
+
+/* No comment provided by engineer. */
+"validate" = "xác thực";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "Phiên bản %@ (%@)";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "Khi để trống trên các thiết bị có tai thỏ nó sẽ hiển thị tên nhà mạng.";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Bạn chưa có lưu hình mật khẩu nào hết. Hãy vào phần Khám phá để tìm thêm!";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "Thiết bị của bạn sẽ khởi động lại màn hình.";
+

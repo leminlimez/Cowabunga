@@ -5,13 +5,13 @@
 "CFBundleName" = "Cowabunga";
 
 /* Privacy - Media Library Usage Description */
-"NSAppleMusicUsageDescription" = "Conceder permissão para sandbox (Isso é necessário para a tela de bloqueio + algumas outras opções)";
+"NSAppleMusicUsageDescription" = "Conceda permissão para sandbox (Isso é necessário para a tela de bloqueio + algumas outras opções)";
 
 /* Privacy - Location Always and When In Use Usage Description */
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga vai rodar em segundo plano para garantir que os ajustes aplicadas não sejam revertidos. O iOS tende a fechar esses aplicativos após um período de tempo. Porém Cowabunga engana o iOS solicitando dados de localização, assim permitindo sessões muito mais longas. Os Dados nunca serão armazenados, apenas buscados.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga Cowabunga vai rodar em segundo plano para garantir que os ajustes aplicadas não sejam revertidos. O iOS tende a fechar esses aplicativos após um período de tempo. Porém Cowabunga engana o iOS solicitando dados de localização, assim permitindo sessões muito mais longas. Os Dados nunca serão armazenados, apenas buscados.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga vai rodar em segundo plano para garantir que os ajustes aplicadas não sejam revertidos. O iOS tende a fechar esses aplicativos após um período de tempo. Porém Cowabunga engana o iOS solicitando dados de localização, assim permitindo sessões muito mais longas. Os Dados nunca serão armazenados, apenas buscados.";
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Fotos";
