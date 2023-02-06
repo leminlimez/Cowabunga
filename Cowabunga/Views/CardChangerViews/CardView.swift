@@ -19,8 +19,6 @@ struct CardView: View {
     
     @State private var cardImage = UIImage()
     @State private var showSheet = false
-    @State private var showError = false
-    @State private var errorMessage = ""
     @State private var hasDefaultImage = false
     
     private func resetImage(format: String)
@@ -30,7 +28,7 @@ struct CardView: View {
         do {
             try fm.removeItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id.replacingOccurrences(of: "pkpass", with: "cache") )
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
         
         switch format
@@ -41,7 +39,7 @@ struct CardView: View {
                 try fm.removeItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined@2x.png")
                 try fm.moveItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined@2x.png.backup", toPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined@2x.png")
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
             
             hasDefaultImage = true
@@ -51,14 +49,13 @@ struct CardView: View {
                 try fm.removeItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined.pdf")
                 try fm.moveItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined.pdf.backup", toPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined.pdf")
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
             
             hasDefaultImage = true
             respring()
         default:
-            errorMessage = "Unknown file"
-            showError = true
+            UIApplication.shared.alert(body: "Unknown file!")
         }
     }
     
@@ -82,9 +79,7 @@ struct CardView: View {
                     
                     
                 } catch {
-                    errorMessage = error.localizedDescription
-                    showError = true
-                    print(error)
+                    UIApplication.shared.alert(body: error.localizedDescription)
                 }
             }
             
@@ -101,16 +96,14 @@ struct CardView: View {
                 
                 try fm.moveItem(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined.pdf", toPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined.pdf.backup")
                 
-                try! data!.write(to: url)
+                try data!.write(to: url)
                 
             } catch {
-                errorMessage = error.localizedDescription
-                showError = true
+                UIApplication.shared.alert(body: error.localizedDescription)
             }
 
         default:
-            errorMessage = "Unknown Format"
-            showError = true
+            UIApplication.shared.alert(body: "Unknown format!")
         }
     }
     
@@ -125,12 +118,6 @@ struct CardView: View {
             }.onChange(of: self.cardImage)
             {
                 newImage in setImage(image: newImage, format: card.format)
-            }.alert(isPresented: $showError)
-            {
-                Alert(
-                    title: Text("Error Occured"),
-                    message: Text(errorMessage)
-                )
             }
             
             if (fm.fileExists(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined" + card.format + ".backup"))

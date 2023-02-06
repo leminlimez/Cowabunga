@@ -72,7 +72,7 @@ struct MainCardView: View {
             return (path, ".pdf")
         } else
         {
-            showNoCardsError = true
+            UIApplication.shared.alert(body: "No cards were found!")
             return ("","")
         }
     }
@@ -81,7 +81,6 @@ struct MainCardView: View {
     {
         ZStack
         {
-            Color.black.ignoresSafeArea()
             Text("Tap a card to customize").font(.system(size: 25)).foregroundColor(.white).padding(.bottom, 350 )
             Text("Swipe to view different cards").font(.system(size: 15)).foregroundColor(.white).padding(.bottom, 300 )
 
@@ -99,9 +98,6 @@ struct MainCardView: View {
                             CardView(card: Card(image: imageData.0, id: i, format: imageData.1))
                         }
 
-                    }.alert(isPresented: $showNoCardsError)
-                    {
-                        Alert(title: Text("No Cards Were Found"))
                     }
                 }
                 else
