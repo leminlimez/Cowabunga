@@ -37,63 +37,6 @@ struct OtherModsView: View {
     var body: some View {
         List {
             Section {
-                // carrier name changer
-                HStack {
-                    Image(systemName: "antenna.radiowaves.left.and.right")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.blue)
-                    
-                    Text("Carrier Name")
-                        .minimumScaleFactor(0.5)
-                    
-                    Spacer()
-                    
-                    Button("Edit", action: {
-                        // create and configure alert controller
-                        let alert = UIAlertController(title: "Input Carrier Name", message: "Reboot needed to apply.", preferredStyle: .alert)
-                        // bring up the text prompt
-                        alert.addTextField { (textField) in
-                            textField.placeholder = "New Carrier Name"
-                            textField.text = CurrentCarrier
-                        }
-                        
-                        // buttons
-                        alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
-                            // set the version
-                            let newName: String = alert.textFields?[0].text! ?? ""
-                            // set the defaults
-                            UserDefaults.standard.set(newName, forKey: "CarrierName")
-                            if newName != "" {
-                                UIApplication.shared.alert(title: "Applying carrier...", body: "Please wait", animated: false, withButton: false)
-                                let succeeded = setCarrierName(newName: newName)
-                                UIApplication.shared.dismissAlert(animated: true)
-                                // state that it was a success
-                                if succeeded {
-                                    print("Succeessfully changed carrier name.")
-                                    UIApplication.shared.alert(title: "Carrier Name Successfully Changed to \"" + newName + "\"!", body: "Please reboot to see changes.")
-                                } else {
-                                    print("Failed to change carrier name.")
-                                    UIApplication.shared.alert(body: "An error occurred while trying to change the carrier name.")
-                                }
-                            } else {
-                                UIApplication.shared.alert(body: "No name was inputted!")
-                            }
-                        })
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                            // cancel the process
-                        })
-                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                    })
-                    .foregroundColor(.blue)
-                    .padding(.leading, 10)
-                }
-            } header: {
-                Text("Basic Modifications")
-            }
-            
-            Section {
                 // delete shortcut banner
                 HStack {
                     Image(systemName: "pencil.slash")
