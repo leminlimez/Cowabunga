@@ -27,6 +27,12 @@ struct ToolsView: View {
         var ios15Only: Bool = false
     }
     
+    struct ToolsCategory: Identifiable {
+        var id = UUID()
+        var title: String
+        var options: [GeneralOption]
+    }
+    
     @State var springboardOptions: [SpringboardOption] = [
         .init(value: false, key: "SBShowRSSI", title: "Numeric Wi-Fi Strength", imageName: "wifi"),
         .init(value: false, key: "SBShowGSMRSSI", title: "Numeric Cellular Strength", imageName: "antenna.radiowaves.left.and.right"),
@@ -39,46 +45,47 @@ struct ToolsView: View {
         .init(value: false, key: "SBControlCenterDemo", title: "CC AirPlay Radar", imageName: "wifi.circle"),
     ]
     
-    @State var generalOptions: [GeneralOption] = [
-        //.init(key: "GesturesView", view: AnyView(GesturesView()), title: "iPhone X Gestures", imageName: "iphone"),
-        //.init(key: "BadgeChangerView", view: AnyView(BadgeChangerView()), title: "Custom Badges", imageName: "app.badge"),
-        .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: "Springboard Tools", imageName: "snowflake"),
-        //.init(key: "AudioView", view: AnyView(AudioView()), title: "Sound Effects", imageName: "speaker.wave.2.fill"),
-        .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
-        .init(key: "LockView", view: AnyView(LockView()), title: "Locks", imageName: "lock"),
-        .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone"),
-        .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Badge Changer", imageName: "app.badge", ios15Only: true),
-        .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
-        .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
-        .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
-        //.init(key: "CarrierNameChangerView", view: AnyView(CarrierNameChangerView()), title: "Custom Carrier Name", imageName: "chart.bar"),
-        //.init(key: "LockscreenRespringView", view: AnyView(LockscreenRespringView()), title: "Locking after Respring", imageName: "lock"),
-        //.init(key: "CalculatorErrorView", view: AnyView(CalculatorErrorView()), title: "Calculator Error Message", imageName: "function"),
-        //.init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "platter.filled.bottom.and.arrow.down.iphone"),
+    @State var toolsCategories: [ToolsCategory] = [
+        .init(title: "Home Screen", options: [
+            .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: "Springboard Tools", imageName: "snowflake"),
+            .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Badge Changer", imageName: "app.badge", ios15Only: true)
+        ]),
+        .init(title: "Lock Screen", options: [
+            .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
+            .init(key: "LockView", view: AnyView(LockView()), title: "Locks", imageName: "lock"),
+            .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone")
+        ]),
+        .init(title: "Other", options: [
+            .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
+            .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
+            .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
+        ])
     ]
     @State var iOS16: Bool = false
     
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    ForEach($generalOptions) { option in
-                        if !option.ios15Only.wrappedValue || !iOS16 {
-                            NavigationLink(destination: option.view.wrappedValue, isActive: option.active) {
-                                HStack {
-                                    Image(systemName: option.imageName.wrappedValue)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 24, height: 24)
-                                        .foregroundColor(.blue)
-                                    Text(option.title.wrappedValue)
-                                        .padding(.horizontal, 8)
+                ForEach($toolsCategories) { cat in
+                    Section {
+                        ForEach(cat.options) { option in
+                            if !option.ios15Only.wrappedValue || !iOS16 {
+                                NavigationLink(destination: option.view.wrappedValue, isActive: option.active) {
+                                    HStack {
+                                        Image(systemName: option.imageName.wrappedValue)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 24, height: 24)
+                                            .foregroundColor(.blue)
+                                        Text(option.title.wrappedValue)
+                                            .padding(.horizontal, 8)
+                                    }
                                 }
                             }
                         }
+                    } header: {
+                        Text(cat.title.wrappedValue)
                     }
-                } header: {
-                    Text("General")
                 }
                 
                 /*Section {
@@ -150,18 +157,6 @@ struct ToolsView: View {
         } catch {
             print("error replacing plist")
             UIApplication.shared.alert(body: "Could not replace springboard option!")
-        }
-    }
-    
-    func activateView(viewName: String, isActive: Bool) {
-        for (i, option) in generalOptions.enumerated() {
-            if option.key == viewName {
-                var option = generalOptions[i]
-                option.active = isActive
-                generalOptions[i] = option
-                print("Activity: " + String(generalOptions[i].active) )
-                return
-            }
         }
     }
 }
