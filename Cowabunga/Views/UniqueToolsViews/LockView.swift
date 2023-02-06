@@ -94,11 +94,15 @@ struct LockView: View {
                         .padding(.horizontal)
                         
                         Button(action: {
-                            for (i, L) in locks.enumerated() {
-                                if L.title == currentLock {
-                                    locks[i].checked = false
-                                } else if L.title == lock.title.wrappedValue {
-                                    locks[i].checked = true
+                            if currentLock == "Default" {
+                                defaultLock.checked = false
+                            } else {
+                                for (i, L) in locks.enumerated() {
+                                    if L.title == currentLock {
+                                        locks[i].checked = false
+                                    } else if L.title == lock.title.wrappedValue {
+                                        locks[i].checked = true
+                                    }
                                 }
                             }
                             lock.checked.wrappedValue = true
