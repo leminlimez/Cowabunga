@@ -44,7 +44,7 @@ struct SpringboardColorChangerView: View {
                 
                 ScrollView {
                     VStack(spacing: 50) {
-                        if #unavailable(iOS 16) {
+                        //if #unavailable(iOS 16) {
                             // MARK: Badge
                             VStack {
                                 ZStack(alignment: .topTrailing) {
@@ -103,11 +103,11 @@ struct SpringboardColorChangerView: View {
                                 .padding(4)
                             }
                             
-                            divider
-                        }
+                            //divider
+                        //}
                         
                         // MARK: Folder
-                        VStack {
+                        /*VStack {
                             let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
                             ZStack {
                                 ZStack {
@@ -310,7 +310,7 @@ struct SpringboardColorChangerView: View {
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
                         }
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 100)*/
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 64)
@@ -322,13 +322,6 @@ struct SpringboardColorChangerView: View {
             ImagePickerView(image: $badgeImage, didChange: $didChangeBadge)
         }
         
-    }
-    
-    @ViewBuilder
-    var divider: some View {
-        Divider()
-            .overlay(Color.white.opacity(0.25))
-            .padding(.horizontal, 32)
     }
     
     func showBadgePicker() {
