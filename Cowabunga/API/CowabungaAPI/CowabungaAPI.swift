@@ -20,6 +20,15 @@ class CowabungaAPI: ObservableObject {
         let themes = try JSONDecoder().decode([DownloadableTheme].self, from: data)
         return themes
     }
+    
+    func fetchLockThemes() async throws -> [DownloadableTheme] {
+        var request = URLRequest(url: .init(string: serverURL + "lock-themes.json")!)
+        
+        let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
+        guard response.statusCode == 200 else { throw "Could not connect to server" }
+        let themes = try JSONDecoder().decode([DownloadableTheme].self, from: data)
+        return themes
+    }
 }
 
 class DownloadableTheme: Identifiable, Codable {
