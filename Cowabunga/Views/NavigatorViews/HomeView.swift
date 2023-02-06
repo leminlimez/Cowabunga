@@ -277,6 +277,20 @@ struct HomeView: View {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
         }*/
         
+        if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
+            let lockName: String = UserDefaults.standard.string(forKey: "Lock")!
+            let lockType: String = LockManager.getLockType()
+            print("applying lock")
+            if lockType != "" {
+                let _ = LockManager.applyLock(lockName: lockName, lockType: lockType)
+            } else {
+                // just apply all of them lol
+                for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
+                    let _ = LockManager.applyLock(lockName: lockName, lockType: lockPath)
+                }
+            }
+        }
+        
         if failedSB && failedAudio {
             UIApplication.shared.dismissAlert(animated: true)
             UIApplication.shared.alert(body: "An error occurred when applying springboard and audio tweaks")
