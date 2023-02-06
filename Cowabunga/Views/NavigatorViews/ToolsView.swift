@@ -47,7 +47,7 @@ struct ToolsView: View {
         .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone"),
         .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Springboard Colors", imageName: "square.on.circle"),
         .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
-//        .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
+        .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
         .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
         //.init(key: "CarrierNameChangerView", view: AnyView(CarrierNameChangerView()), title: "Custom Carrier Name", imageName: "chart.bar"),
         //.init(key: "LockscreenRespringView", view: AnyView(LockscreenRespringView()), title: "Locking after Respring", imageName: "lock"),

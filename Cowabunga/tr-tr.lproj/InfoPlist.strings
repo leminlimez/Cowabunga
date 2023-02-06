@@ -1,0 +1,18 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "Sandbox'a erişim için izin verin (Şifre tuşları + bazı özellikler için gereklidir)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga tweakların etkin olduğundan emin olmak için arka planda çalışır. Gennellikle iOS belirli zaman sonra uygulamayı kapatır. Ama Cowabunga iOS'u konum isteyerek kandırır bu sayede arka planda daha fazla çalışabilir. Verileriniz hiçbir yerde depolanmaz, sadece alınıyor.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Cowabunga tweakların etkin olduğundan emin olmak için arka planda çalışır. Gennellikle iOS belirli zaman sonra uygulamayı kapatır. Ama Cowabunga iOS'u konum isteyerek kandırır bu sayede arka planda daha fazla çalışabilir. Verileriniz hiçbir yerde depolanmaz, sadece alınıyor.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Fotoğraflar";
+

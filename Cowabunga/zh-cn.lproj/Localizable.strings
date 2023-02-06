@@ -1,0 +1,345 @@
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*会同时隐藏运营商名称\n^会同时隐藏数据图标";
+
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "软件已停止运行";
+
+/* No comment provided by engineer. */
+"App Switcher" = "多任务后台";
+
+/* No comment provided by engineer. */
+"Apply" = "应用";
+
+/* No comment provided by engineer. */
+"Audio" = "音效";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "音效更改";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "应用后自动注销";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "自动升级内置音效";
+
+/* No comment provided by engineer. */
+"Background" = "后台";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "后台更新频率";
+
+/* No comment provided by engineer. */
+"Basic Modifications" = "基础设置";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "模糊度:   %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "左上角返回文字";
+
+/* No comment provided by engineer. */
+"Carrier Name" = "运营商名称";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "运营商文字";
+
+/* No comment provided by engineer. */
+"Categories" = "分类";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "自定义左上角返回文字";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "自定义运营商名称";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "自定义状态栏时间文字";
+
+/* No comment provided by engineer. */
+"Choose size" = "选择尺寸";
+
+/* No comment provided by engineer. */
+"Clear image" = "清除已自定义图片";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga请求“总是”的定位权限。";
+
+/* No comment provided by engineer. */
+"Credits" = "贡献";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "近期请提交主题以给其他用户预览和使用，我们需要在Discord的#showcase 频道进行审核。";
+
+/* No comment provided by engineer. */
+"Custom" = "自定义";
+
+/* No comment provided by engineer. */
+"Custom image" = "自定义图片";
+
+/* No comment provided by engineer. */
+"Delete" = "删除";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "设备分辨率";
+
+/* No comment provided by engineer. */
+"Disable" = "禁用";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "停止将捷径生成的软件变为轻App";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Edit" = "修改";
+
+/* No comment provided by engineer. */
+"Email" = "邮件";
+
+/* No comment provided by engineer. */
+"Enable" = "启用";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "将捷径生成的软件变为轻App";
+
+/* No comment provided by engineer. */
+"Error Occured" = "出现错误";
+
+/* No comment provided by engineer. */
+"Explore" = "发现";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "额外设置";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "修复插件";
+
+/* No comment provided by engineer. */
+"Folder" = "文件夹";
+
+/* No comment provided by engineer. */
+"Footnote" = "锁屏底部文字";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "忘记密码?";
+
+/* No comment provided by engineer. */
+"General" = "通用";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "X手势/ 灵动岛";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "隐藏飞行模式图标";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "隐藏隔空播放图标";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "隐藏闹钟图标";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "隐藏电池图标";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "隐藏蓝牙图标";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "隐藏Carplay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "隐藏蜂窝数据图标*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "隐藏勿扰模式";
+
+/* No comment provided by engineer. */
+"Hide Location" = "隐藏定位图标";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "隐藏旋转锁定图标";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "隐藏VPN图标";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi^" = "隐藏Wi-Fi^";
+
+/* No comment provided by engineer. */
+"Home" = "桌面";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "我不是一个机器人";
+
+/* No comment provided by engineer. */
+"Included" = "已包含";
+
+/* No comment provided by engineer. */
+"Join Discord" = "加入 Discord";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "锁屏底部文字美化";
+
+/* No comment provided by engineer. */
+"Log in" = "Log in";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Log in Sourced";
+
+/* No comment provided by engineer. */
+"Miscellaneous" = "其他设置";
+
+/* No comment provided by engineer. */
+"More Settings" = "更多设置";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "没有找到卡片";
+
+/* No comment provided by engineer. */
+"No Cards Were Found" = "没有找到卡片";
+
+/* No comment provided by engineer. */
+"OK" = "好的";
+
+/* No comment provided by engineer. */
+"Open Settings" = "打开设置";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "锁屏密码按钮美化";
+
+/* No comment provided by engineer. */
+"Password" = "密码";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "请在设置中给予Cowabunga “总是” 的定位权限以让其在后台持续运行。";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Please log into your Sourced Repo account to continue";
+
+/* No comment provided by engineer. */
+"Preferences" = "偏好设置";
+
+/* No comment provided by engineer. */
+"Remove all" = "移除所有";
+
+/* No comment provided by engineer. */
+"Reset All" = "重置所有";
+
+/* No comment provided by engineer. */
+"Reset faces" = "重置按键";
+
+/* No comment provided by engineer. */
+"Respring" = "注销";
+
+/* No comment provided by engineer. */
+"Run in background" = "后台运行";
+
+/* No comment provided by engineer. */
+"Saved" = "已保存";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "设置后台多任务背景颜色";
+
+/* No comment provided by engineer. */
+"Set badge color" = "设置角标颜色";
+
+/* No comment provided by engineer. */
+"Set dock color" = "设置Dock颜色";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "设置文件夹展开的背景颜色";
+
+/* No comment provided by engineer. */
+"Set folder color" = "设置文件夹背景颜色";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "快捷指令";
+
+/* No comment provided by engineer. */
+"Sign up" = "注册";
+
+/* No comment provided by engineer. */
+"Software Version" = "系统版本";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "主屏幕工具";
+
+/* No comment provided by engineer. */
+"Status Bar" = "状态栏";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "状态栏文字";
+
+/* No comment provided by engineer. */
+"Submit themes" = "提交主题";
+
+/* No comment provided by engineer. */
+"Supervised" = "监管设备";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "滑动以查看不同卡片";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "点击一张卡片以自定义";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "任意键编辑\n它的外观";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "点击此通知以继续保持插件生效。";
+
+/* No comment provided by engineer. */
+"Test" = "测试";
+
+/* No comment provided by engineer. */
+"Tools" = "工具";
+
+/* No comment provided by engineer. */
+"Translators" = "翻译者";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "插件选项";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "升级内置音效";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "若要使用，有问题后果自负！";
+
+/* No comment provided by engineer. */
+"Using %@" = "正在使用 %@";
+
+/* No comment provided by engineer. */
+"validate" = "生效";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "系统版本 %@ (%@)";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "在刘海设备上设置空白将会展示运营商名称。";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "你没有任何以保存的锁屏密码主题。可以查看发现栏看看能否找到满意的！";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "你的设备将会注销。";
+

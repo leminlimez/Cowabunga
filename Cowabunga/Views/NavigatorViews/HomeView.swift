@@ -191,10 +191,14 @@ struct HomeView: View {
                 }
                 
                 Section {
+                    LinkCell(imageName: "", url: "", title: "Yan.#0001", contribution: "French")
                     LinkCell(imageName: "", url: "", title: "sourcelocation", contribution: "Russian")
                     LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "Polish")
                     LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "German")
                     LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "Portuguese")
+                    LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "Chinese")
+                    LinkCell(imageName: "", url: "", title: "yun#7739", contribution: "Vietnamese")
+                    LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "Turkish")
                 } header: {
                     Text("Translators")
                 }
