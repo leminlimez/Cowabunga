@@ -48,16 +48,16 @@ class BackgroundFileUpdaterController: ObservableObject {
             // apply the folder
             if UserDefaults.standard.bool(forKey: "FolderBGHidden") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBGHidden", true)
-            } else {
+            }/* else {
                 SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
                 SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
-            }
+            }*/
             
             if UserDefaults.standard.bool(forKey: "FolderBlurDisabled") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBlurDisabled", true)
-            } else {
+            }/* else {
                 SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folderBG)
-            }
+            }*/
             
             // apply the transparent modules
             if UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") == true {

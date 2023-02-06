@@ -37,6 +37,7 @@ func respring() {
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
         respringFrontboard()
+        exit(0)
     })
 }
 

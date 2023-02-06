@@ -261,7 +261,7 @@ struct HomeView: View {
             failedAudio = true
         }
         
-        UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
+       /* UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
         if !UserDefaults.standard.bool(forKey: "FolderBGHidden") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
@@ -274,7 +274,7 @@ struct HomeView: View {
         }
         if !UserDefaults.standard.bool(forKey: "DockHidden") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
-        }
+        }*/
         
         if failedSB && failedAudio {
             UIApplication.shared.dismissAlert(animated: true)

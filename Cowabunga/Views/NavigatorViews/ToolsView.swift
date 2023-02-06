@@ -24,6 +24,7 @@ struct ToolsView: View {
         var title: String
         var imageName: String
         var active: Bool = false
+        var ios15Only: Bool = false
     }
     
     @State var springboardOptions: [SpringboardOption] = [
@@ -45,7 +46,7 @@ struct ToolsView: View {
         //.init(key: "AudioView", view: AnyView(AudioView()), title: "Sound Effects", imageName: "speaker.wave.2.fill"),
         .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
         .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone"),
-        .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Springboard Colors", imageName: "square.on.circle"),
+        .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Badge Changer", imageName: "app.badge", ios15Only: true),
         .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
         .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
         .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
@@ -60,15 +61,23 @@ struct ToolsView: View {
             List {
                 Section {
                     ForEach($generalOptions) { option in
-                        NavigationLink(destination: option.view.wrappedValue, isActive: option.active) {
-                            HStack {
-                                Image(systemName: option.imageName.wrappedValue)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 24, height: 24)
-                                    .foregroundColor(.blue)
-                                Text(option.title.wrappedValue)
-                                    .padding(.horizontal, 8)
+                        var ios15: Bool = false
+                        if option.ios15Only.wrappedValue == true {
+                            if #unavailable(iOS 16, *) {
+                                ios15 = true
+                            }
+                        }
+                        if ios15 == false {
+                            NavigationLink(destination: option.view.wrappedValue, isActive: option.active) {
+                                HStack {
+                                    Image(systemName: option.imageName.wrappedValue)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 24, height: 24)
+                                        .foregroundColor(.blue)
+                                    Text(option.title.wrappedValue)
+                                        .padding(.horizontal, 8)
+                                }
                             }
                         }
                     }
