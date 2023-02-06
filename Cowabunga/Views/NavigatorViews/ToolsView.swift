@@ -55,19 +55,14 @@ struct ToolsView: View {
         //.init(key: "CalculatorErrorView", view: AnyView(CalculatorErrorView()), title: "Calculator Error Message", imageName: "function"),
         //.init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "platter.filled.bottom.and.arrow.down.iphone"),
     ]
+    @State var iOS16: Bool = false
     
     var body: some View {
         NavigationView {
             List {
                 Section {
                     ForEach($generalOptions) { option in
-                        var ios15: Bool = false
-                        if option.ios15Only.wrappedValue == true {
-                            if #unavailable(iOS 16, *) {
-                                ios15 = true
-                            }
-                        }
-                        if ios15 == false {
+                        if !option.ios15Only.wrappedValue || !iOS16 {
                             NavigationLink(destination: option.view.wrappedValue, isActive: option.active) {
                                 HStack {
                                     Image(systemName: option.imageName.wrappedValue)
@@ -115,6 +110,9 @@ struct ToolsView: View {
             }
             .navigationTitle("Tools")
             .onAppear {
+                if #available(iOS 16, *) {
+                    iOS16 = true
+                }
                 for (i, option) in springboardOptions.enumerated() {
                     springboardOptions[i].value = getSpringboardOption(key: option.key) as? Bool ?? false
                 }
