@@ -45,6 +45,7 @@ struct ToolsView: View {
         .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: "Springboard Tools", imageName: "snowflake"),
         //.init(key: "AudioView", view: AnyView(AudioView()), title: "Sound Effects", imageName: "speaker.wave.2.fill"),
         .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
+        .init(key: "LockView", view: AnyView(LockView()), title: "Locks", imageName: "lock"),
         .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone"),
         .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Badge Changer", imageName: "app.badge", ios15Only: true),
         .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
