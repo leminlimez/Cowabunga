@@ -29,15 +29,6 @@
 		21CD1066298C85FD007EE649 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 21CD1065298C85FD007EE649 /* AssetCatalogWrapper */; };
 		21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */; };
 		21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */; };
-		21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 21E1556C2989C32A00B59658 /* iOS 16 mods list.txt */; };
-		21E155D72989C32B00B59658 /* StatBar-HideCarrierNameBarsTime-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E155722989C32A00B59658 /* StatBar-HideCarrierNameBarsTime-16 */; };
-		21E155DC2989C32B00B59658 /* StatBar-HideBatteryTime-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E155782989C32A00B59658 /* StatBar-HideBatteryTime-16 */; };
-		21E155E22989C32B00B59658 /* StatBar-HideAll-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E1557F2989C32A00B59658 /* StatBar-HideAll-16 */; };
-		21E155E82989C32B00B59658 /* StatBar-HideCarrierNameBars-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E155862989C32A00B59658 /* StatBar-HideCarrierNameBars-16 */; };
-		21E155ED2989C32B00B59658 /* StatBar-HideBatteryIcon-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E1558C2989C32A00B59658 /* StatBar-HideBatteryIcon-16 */; };
-		21E155F22989C32B00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E155922989C32A00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 */; };
-		21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */ = {isa = PBXBuildFile; fileRef = 21E155992989C32A00B59658 /* StatBar-HideTime-16 */; };
-		21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 21E155AA2989C32A00B59658 /* iOS 15 mods list.txt */; };
 		21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED3C7929884AAD00135B50 /* CornerRadius++.swift */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
@@ -111,24 +102,8 @@
 		21CD1058298C8184007EE649 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21CD105C298C8540007EE649 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		21CD105D298C8540007EE649 /* CatalogThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogThemeManager.swift; sourceTree = "<group>"; };
-		21D7BA2D298AADFB0055943A /* StatBar-HideCarrierNameBarsTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBarsTime-15"; sourceTree = "<group>"; };
-		21D7BA2E298AADFB0055943A /* StatBar-HideAll-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideAll-15"; sourceTree = "<group>"; };
-		21D7BA2F298AADFB0055943A /* StatBar-HideTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideTime-15"; sourceTree = "<group>"; };
-		21D7BA30298AADFB0055943A /* StatBar-HideBatteryIcon-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideBatteryIcon-15"; sourceTree = "<group>"; };
-		21D7BA31298AADFB0055943A /* StatBar-HideCarrierNameBars-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBars-15"; sourceTree = "<group>"; };
-		21D7BA32298AADFB0055943A /* StatBar-HideCarrierNameBarsTimeBattery-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBarsTimeBattery-15"; sourceTree = "<group>"; };
-		21D7BA33298AADFB0055943A /* StatBar-HideBatteryTime-15 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideBatteryTime-15"; sourceTree = "<group>"; };
 		21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintedButton14.swift; sourceTree = "<group>"; };
 		21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarVisibilityController.swift; sourceTree = "<group>"; };
-		21E1556C2989C32A00B59658 /* iOS 16 mods list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS 16 mods list.txt"; sourceTree = "<group>"; };
-		21E155722989C32A00B59658 /* StatBar-HideCarrierNameBarsTime-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBarsTime-16"; sourceTree = "<group>"; };
-		21E155782989C32A00B59658 /* StatBar-HideBatteryTime-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideBatteryTime-16"; sourceTree = "<group>"; };
-		21E1557F2989C32A00B59658 /* StatBar-HideAll-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideAll-16"; sourceTree = "<group>"; };
-		21E155862989C32A00B59658 /* StatBar-HideCarrierNameBars-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBars-16"; sourceTree = "<group>"; };
-		21E1558C2989C32A00B59658 /* StatBar-HideBatteryIcon-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideBatteryIcon-16"; sourceTree = "<group>"; };
-		21E155922989C32A00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideCarrierNameBarsTimeBattery-16"; sourceTree = "<group>"; };
-		21E155992989C32A00B59658 /* StatBar-HideTime-16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StatBar-HideTime-16"; sourceTree = "<group>"; };
-		21E155AA2989C32A00B59658 /* iOS 15 mods list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS 15 mods list.txt"; sourceTree = "<group>"; };
 		21ED3C7929884AAD00135B50 /* CornerRadius++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CornerRadius++.swift"; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
@@ -354,48 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				216D5FB2298C574000910C67 /* SpringboardFiles */,
-				21E156282989C38000B59658 /* StatusBar */,
 			);
 			path = OverwriteFiles;
-			sourceTree = "<group>";
-		};
-		21E1556B2989C32A00B59658 /* iOS 16 */ = {
-			isa = PBXGroup;
-			children = (
-				21E1556C2989C32A00B59658 /* iOS 16 mods list.txt */,
-				21E1557F2989C32A00B59658 /* StatBar-HideAll-16 */,
-				21E1558C2989C32A00B59658 /* StatBar-HideBatteryIcon-16 */,
-				21E155782989C32A00B59658 /* StatBar-HideBatteryTime-16 */,
-				21E155862989C32A00B59658 /* StatBar-HideCarrierNameBars-16 */,
-				21E155722989C32A00B59658 /* StatBar-HideCarrierNameBarsTime-16 */,
-				21E155922989C32A00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 */,
-				21E155992989C32A00B59658 /* StatBar-HideTime-16 */,
-			);
-			path = "iOS 16";
-			sourceTree = "<group>";
-		};
-		21E155A22989C32A00B59658 /* iOS 15 */ = {
-			isa = PBXGroup;
-			children = (
-				21E155AA2989C32A00B59658 /* iOS 15 mods list.txt */,
-				21D7BA2E298AADFB0055943A /* StatBar-HideAll-15 */,
-				21D7BA30298AADFB0055943A /* StatBar-HideBatteryIcon-15 */,
-				21D7BA33298AADFB0055943A /* StatBar-HideBatteryTime-15 */,
-				21D7BA31298AADFB0055943A /* StatBar-HideCarrierNameBars-15 */,
-				21D7BA2D298AADFB0055943A /* StatBar-HideCarrierNameBarsTime-15 */,
-				21D7BA32298AADFB0055943A /* StatBar-HideCarrierNameBarsTimeBattery-15 */,
-				21D7BA2F298AADFB0055943A /* StatBar-HideTime-15 */,
-			);
-			path = "iOS 15";
-			sourceTree = "<group>";
-		};
-		21E156282989C38000B59658 /* StatusBar */ = {
-			isa = PBXGroup;
-			children = (
-				21E1556B2989C32A00B59658 /* iOS 16 */,
-				21E155A22989C32A00B59658 /* iOS 15 */,
-			);
-			path = StatusBar;
 			sourceTree = "<group>";
 		};
 		6F247A5A298888B4007BD53A /* PasscodeChangerViews */ = {
@@ -660,19 +595,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E155F82989C32B00B59658 /* StatBar-HideTime-16 in Resources */,
 				21CD1051298C8151007EE649 /* Localizable.strings in Resources */,
-				21E155F22989C32B00B59658 /* StatBar-HideCarrierNameBarsTimeBattery-16 in Resources */,
 				21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */,
-				21E156062989C32B00B59658 /* iOS 15 mods list.txt in Resources */,
-				21E155E22989C32B00B59658 /* StatBar-HideAll-16 in Resources */,
-				21E155ED2989C32B00B59658 /* StatBar-HideBatteryIcon-16 in Resources */,
-				21E155D72989C32B00B59658 /* StatBar-HideCarrierNameBarsTime-16 in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */,
-				21E155D22989C32B00B59658 /* iOS 16 mods list.txt in Resources */,
-				21E155DC2989C32B00B59658 /* StatBar-HideBatteryTime-16 in Resources */,
-				21E155E82989C32B00B59658 /* StatBar-HideCarrierNameBars-16 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
