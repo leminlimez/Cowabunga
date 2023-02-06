@@ -568,6 +568,7 @@
 				"zh-CN",
 				vi,
 				"tr-TR",
+				fr,
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
