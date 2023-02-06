@@ -21,7 +21,7 @@ struct LockView: View {
     @State var locks: [Lock] = [
     ]
     
-    @State private var currentLock: String = UserDefaults.standard.string(forKey: "CurrentLock") ?? "Default"
+    @State private var currentLock: String = "Default"
     @State private var locksDir = LockManager.getLocksDirectory()
     
     @State private var isImporting = false
