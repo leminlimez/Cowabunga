@@ -1,4 +1,7 @@
 /* No comment provided by engineer. */
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Também ocultará o nome da Operadora\n^Também ocultará o ícone dos dados celulares";
+
+/* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
 /* No comment provided by engineer. */
@@ -17,34 +20,49 @@
 "Audio" = "Sons";
 
 /* No comment provided by engineer. */
-"Audio Changer" = "Som ao carregar";
+"Audio Changer" = "Modificador de Sons";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "Respring automático ao aplicar";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "Atualização automática com os sons incuídos";
+"Auto Update Included Audio" = "Atualização automática com os sons incluídos";
 
 /* No comment provided by engineer. */
-"Background" = "Segundo plano";
+"Background" = "Fundo";
 
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Frequência de atualização em segundo plano";
 
 /* No comment provided by engineer. */
-"Basic Modifications" = "Modificações básicas";
+"Basic Modifications" = "Modificações Básicas";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "Blur:   %lld";
 
 /* No comment provided by engineer. */
-"Carrier Name" = "Nome da operadora";
+"Breadcrumb Text" = "Texto de Navegação";
+
+/* No comment provided by engineer. */
+"Carrier Name" = "Nome da Operadora";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "Texto da Operadora";
 
 /* No comment provided by engineer. */
 "Categories" = "Categorias";
 
 /* No comment provided by engineer. */
-"Choose size" = "Escolha o tamanho";
+"Change Breadcrumb Text" = "Alterar texto de Navegação";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "Alterar texto da Operadora";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "Alterar o Horário na Barra de Status";
+
+/* No comment provided by engineer. */
+"Choose size" = "Escolher o tamanho";
 
 /* No comment provided by engineer. */
 "Clear image" = "Remover imagem";
@@ -53,7 +71,7 @@
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga requer “Sempre\" acesso a localização.";
+"Cowabunga requires “Always” location permission." = "Cowabunga requer “Sempre” a permissão de localização.";
 
 /* No comment provided by engineer. */
 "Credits" = "Créditos";
@@ -71,10 +89,10 @@
 "Delete" = "Remover";
 
 /* No comment provided by engineer. */
-"Delete Shortcut Banners" = "Remove o banner do app atalhos";
+"Delete Shortcut Banners" = "Remove o banner do app Atalhos";
 
 /* No comment provided by engineer. */
-"Device Resolution" = "Resolução do aparelho";
+"Device Resolution" = "Resolução do dispositivo";
 
 /* No comment provided by engineer. */
 "Disable" = "Desativar";
@@ -104,10 +122,10 @@
 "Explore" = "Explorar";
 
 /* No comment provided by engineer. */
-"Extra Preferences" = "preferências extras";
+"Extra Preferences" = "Preferências Extras";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "Corrige os ajustes";
+"Fix tweaks" = "Corrigir os ajustes";
 
 /* No comment provided by engineer. */
 "Folder" = "Pasta";
@@ -122,13 +140,52 @@
 "General" = "Geral";
 
 /* No comment provided by engineer. */
-"Gestures / Dynamic Island" = "gestos / Ilha dinâmica";
+"Gestures / Dynamic Island" = "Gestos / Ilha Dinâmica";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "Esconder Modo Avião";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "Esconder AirPlay";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "Esconder Alarme";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "Esconder Bateria";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "Esconder Bluetooth";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "Esconder CarPlay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "Esconder Rede Celular*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "Esconder Não Perturbe";
+
+/* No comment provided by engineer. */
+"Hide Location" = "Esconder Localização";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "Esconder Rotação de Tela";
+
+/* No comment provided by engineer. */
+"Hide Status Bar Time" = "Esconder a Hora da barra de Status";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "Esconder VPN";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi^" = "Esconder Wi-Fi^";
 
 /* No comment provided by engineer. */
 "Home" = "Início";
 
 /* No comment provided by engineer. */
-"I'm not a robot (no cap)" = "Eu não sou um robo (sem zoas)";
+"I'm not a robot (no cap)" = "Eu não sou um robô (sem zoas)";
 
 /* No comment provided by engineer. */
 "Included" = "Incluído";
@@ -137,25 +194,25 @@
 "Join Discord" = "Entre no Discord";
 
 /* No comment provided by engineer. */
-"Lock Screen Footnote Changer" = "Troca o nome do rodapé na tela de bloqueio";
+"Lock Screen Footnote Changer" = "Trocar o nome do rodapé na tela de bloqueio";
 
 /* No comment provided by engineer. */
 "Log in" = "Entrar";
 
 /* No comment provided by engineer. */
-"Log in Sourced" = "Log in Sourced";
+"Log in Sourced" = "Entrar em Sourced";
 
 /* No comment provided by engineer. */
 "Miscellaneous" = "Diversos";
 
 /* No comment provided by engineer. */
-"More Settings" = "Mais ajustes";
+"More Settings" = "Mais configurações";
 
 /* No comment provided by engineer. */
-"No Cards Found" = "Nenhum cartão foi encontrado";
+"No Cards Found" = "Nenhum Cartão Encontrado";
 
 /* No comment provided by engineer. */
-"No Cards Were Found" = "Nenhum cartão foi encontrado";
+"No Cards Were Found" = "Nenhum Cartão Foi Encontrado";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -164,22 +221,25 @@
 "Open Settings" = "Abra os Ajustes";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Altere a imagem da senha da tela de bloqueio";
+"Passcode Face Editor" = "Altere a Imagem da Senha da Tela de Bloqueio";
 
 /* No comment provided by engineer. */
 "Password" = "Senha";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Por favor conceder a Cowabunga “Sempre” permissão de localização em Configurações para que possa rodar em segundo plano indefinidamente.";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Por favor conceda a Cowabunga “Sempre” a permissão de localização em Configurações para que possa rodar em Segundo Plano indefinidamente.";
 
 /* No comment provided by engineer. */
-"Please log into your Sourced Repo account to continue" = "Faça login na sua conta Sourced Repo para continuar";
+"Please log into your Sourced Repo account to continue" = "Por favor entre em sua conta Sourced Repo para continuar";
 
 /* No comment provided by engineer. */
-"Preferences" = "preferências";
+"Preferences" = "Preferências";
 
 /* No comment provided by engineer. */
-"Remove all" = "Remover tudo";
+"Remove all" = "Remover Tudo";
+
+/* No comment provided by engineer. */
+"Reset All" = "Resetar Tudo";
 
 /* No comment provided by engineer. */
 "Reset faces" = "Resetar";
@@ -188,7 +248,7 @@
 "Respring" = "Respring";
 
 /* No comment provided by engineer. */
-"Run in background" = "Rodar em segundo plano";
+"Run in background" = ">Rodar em Segundo Plano";
 
 /* No comment provided by engineer. */
 "Saved" = "Salvado";
@@ -197,7 +257,7 @@
 "Set app switcher color" = "Definir cor ao trocar de aplicativos";
 
 /* No comment provided by engineer. */
-"Set badge color" = "Definir cor da notificação";
+"Set badge color" = "Definir cor do ícone da notificação";
 
 /* No comment provided by engineer. */
 "Set dock color" = "Definir a cor da dock";
@@ -215,28 +275,34 @@
 "Sign up" = "Entrar";
 
 /* No comment provided by engineer. */
-"Software Version" = "Versão do software";
+"Software Version" = "Versão do Software";
 
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "Ferramentas do SpringBoard";
 
 /* No comment provided by engineer. */
-"Submit themes" = "Enviar temas";
+"Status Bar" = "Barra de Satus";
 
 /* No comment provided by engineer. */
-"Supervised" = "Supervisionado";
+"Status Bar Time Text" = "Horário na Barra de Status";
 
 /* No comment provided by engineer. */
-"Swipe to view different cards" = "Deslize para ver outros cartões";
+"Submit themes" = "Enviar um Tema";
 
 /* No comment provided by engineer. */
-"Tap a card to customize" = "Clique em um cartão para customizar";
+"Supervised" = "Supervisionar";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Tap on any key to edit \nits appearance";
+"Swipe to view different cards" = "Deslize para ver diferentes cartões";
 
 /* No comment provided by engineer. */
-"Tap this notification to resume tweak applications." = "Clique nessa notificação para retornar os ajustes dos aplicativos";
+"Tap a card to customize" = "Toque em um cartão para personalizar";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Toque em qualquer Código para alterar a \naparência";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Clique nessa notificação para retornar os ajustes dos aplicativos.";
 
 /* No comment provided by engineer. */
 "Test" = "Teste";
@@ -245,19 +311,28 @@
 "Tools" = "Ferramentas";
 
 /* No comment provided by engineer. */
-"Tweak Options" = "Opções de ajustes";
+"Translators" = "Tradutores";
 
 /* No comment provided by engineer. */
-"Update Included Audio" = "Atualização incluí sons";
+"Tweak Options" = "Opções dos Ajustes";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "A Atualização incluí os sons";
 
 /* No comment provided by engineer. */
 "Use at your own risk" = "Use por sua conta e risco";
 
 /* No comment provided by engineer. */
-"validate" = "Válido";
+"Using %@" = "Usando %@";
+
+/* No comment provided by engineer. */
+"validate" = "Validado";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Versão %@ (%@)";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "Caso definido em branco em dispositivos com o Notch, o nome da operadora sera exibido.";
 
 /* No comment provided by engineer. */
 "x" = "x";
@@ -270,4 +345,7 @@
 
 /* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "Você não tem nenhum tema de tela de bloqueio salvo. Verifique a aba Explorar para encontrar alguns temas!";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "Seu dispositivo irá realizar o respring.";
 
