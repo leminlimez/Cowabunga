@@ -475,7 +475,7 @@ struct OtherModsView: View {
                                         }
                                     } else {
                                         // failed to apply
-                                        let newUIAlert = UIAlertController(title: "Failed to determine Default SubType!", message: "Please submit an issue on github and include your device model.", preferredStyle: .alert)
+                                        let newUIAlert = UIAlertController(title: "Failed to determine Default SubType!", message: "Please submit an issue on github and include your device model: \(UIDevice().machineName).", preferredStyle: .alert)
                                         newUIAlert.addAction(.init(title: "Cancel", style: .cancel))
                                         newUIAlert.addAction(.init(title: "Submit Issue", style: .default, handler: { _ in
                                             // send them to the issues page
