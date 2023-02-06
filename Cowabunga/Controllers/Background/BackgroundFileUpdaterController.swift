@@ -41,6 +41,10 @@ class BackgroundFileUpdaterController: ObservableObject {
             } else {
                 SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
             }
+            // apply the home bar
+            if UserDefaults.standard.bool(forKey: "HomeBarHidden") == true {
+                let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "HomeBarHidden", true)
+            }
             // apply the folder
             if UserDefaults.standard.bool(forKey: "FolderBGHidden") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "FolderBGHidden", true)
