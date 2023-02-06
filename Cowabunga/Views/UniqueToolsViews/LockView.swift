@@ -28,109 +28,118 @@ struct LockView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
-                List {
+            List {
+                HStack {
+                    Image(systemName: "checkmark")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.blue)
+                        .opacity(defaultLock.checked ? 1: 0)
+                    
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.black)
+                            .cornerRadius(6, corners: .topLeft)
+                            .cornerRadius(6, corners: .topRight)
+                            .cornerRadius(6, corners: .bottomLeft)
+                            .cornerRadius(6, corners: .bottomRight)
+                        
+                        Image(systemName: "lock.open.fill")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                    }
+                    .padding(.horizontal)
+                    
+                    Button(action: {
+                        for (i, lock) in locks.enumerated() {
+                            if lock.title == currentLock {
+                                locks[i].checked = false
+                                break
+                            }
+                        }
+                        defaultLock.checked = true
+                        currentLock = "Default"
+                        UserDefaults.standard.set("Default", forKey: "CurrentLock")
+                    }) {
+                        Text(defaultLock.title)
+                    }
+                }
+                
+                ForEach($locks) { lock in
                     HStack {
                         Image(systemName: "checkmark")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 15, height: 15)
                             .foregroundColor(.blue)
-                            .opacity(defaultLock.checked ? 1: 0)
+                            .opacity(lock.checked.wrappedValue ? 1: 0)
                         
                         ZStack {
                             Rectangle()
-                                .frame(width: 40, height: 40)
+                                .frame(width: 50, height: 50)
                                 .foregroundColor(.black)
-                                .cornerRadius(10, corners: .topLeft)
-                                .cornerRadius(10, corners: .topRight)
-                                .cornerRadius(10, corners: .bottomLeft)
-                                .cornerRadius(10, corners: .bottomRight)
+                                .cornerRadius(6, corners: .topLeft)
+                                .cornerRadius(6, corners: .topRight)
+                                .cornerRadius(6, corners: .bottomLeft)
+                                .cornerRadius(6, corners: .bottomRight)
                             
-                            Image(systemName: "lock.open.fill")
+                            Image(uiImage: lock.icon.wrappedValue!)
                                 .resizable()
                                 .foregroundColor(.white)
                                 .frame(width: 40, height: 40)
                         }
+                        .padding(.horizontal)
                         
                         Button(action: {
-                            for (i, lock) in locks.enumerated() {
-                                if lock.title == currentLock {
+                            for (i, L) in locks.enumerated() {
+                                if L.title == currentLock {
                                     locks[i].checked = false
-                                    break
+                                } else if L.title == lock.title.wrappedValue {
+                                    locks[i].checked = true
                                 }
                             }
-                            defaultLock.checked = true
-                            currentLock = "Default"
-                            UserDefaults.standard.set("Default", forKey: "CurrentLock")
-                        }) {
-                            Text(defaultLock.title)
-                        }
-                    }
-                    
-                    ForEach($locks) { lock in
-                        HStack {
-                            Image(systemName: "checkmark")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 15, height: 15)
-                                .foregroundColor(.blue)
-                                .opacity(lock.checked.wrappedValue ? 1: 0)
-                            
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 40, height: 40)
-                                    .foregroundColor(.black)
-                                    .cornerRadius(10, corners: .topLeft)
-                                    .cornerRadius(10, corners: .topRight)
-                                    .cornerRadius(10, corners: .bottomLeft)
-                                    .cornerRadius(10, corners: .bottomRight)
-                                
-                                Image(uiImage: lock.icon.wrappedValue!)
-                                    .resizable()
-                                    .foregroundColor(.white)
-                                    .frame(width: 40, height: 40)
-                            }
-                            
-                            Button(action: {
-                                for (i, L) in locks.enumerated() {
-                                    if L.title == currentLock {
-                                        locks[i].checked = false
-                                    } else if L.title == lock.title.wrappedValue {
-                                        locks[i].checked = true
-                                    }
-                                }
-                                lock.checked.wrappedValue = true
-                                currentLock = lock.title.wrappedValue
-                                UserDefaults.standard.set(lock.title.wrappedValue, forKey: "CurrentLock")
-                                let lockType: String = LockManager.getLockType()
-                                print("applying lock")
-                                if lockType != "" {
-                                    let succeeded = LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockType)
-                                    if succeeded {
-                                        UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
-                                    } else {
-                                        UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
-                                    }
+                            lock.checked.wrappedValue = true
+                            currentLock = lock.title.wrappedValue
+                            UserDefaults.standard.set(lock.title.wrappedValue, forKey: "CurrentLock")
+                            let lockType: String = LockManager.getLockType()
+                            print("applying lock")
+                            if lockType != "" {
+                                let succeeded = LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockType)
+                                if succeeded {
+                                    UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
                                 } else {
-                                    // just apply all of them lol
-                                    var succeeded: Bool = true
-                                    for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
-                                        succeeded = succeeded && LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockPath)
-                                    }
-                                    if succeeded {
-                                        UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
-                                    } else {
-                                        UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
-                                    }
+                                    UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
                                 }
-                            }) {
-                                Text(lock.title.wrappedValue.replacingOccurrences(of: "_", with: " "))
+                            } else {
+                                // just apply all of them lol
+                                var succeeded: Bool = true
+                                for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
+                                    succeeded = succeeded && LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockPath)
+                                }
+                                if succeeded {
+                                    UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
+                                } else {
+                                    UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
+                                }
                             }
+                        }) {
+                            Text(lock.title.wrappedValue.replacingOccurrences(of: "_", with: " "))
                         }
                     }
                 }
             }
+        }
+        .toolbar {
+            Button(action: {
+                // import a custom audio
+                // allow the user to choose the file
+                isImporting.toggle()
+            }, label: {
+                Image(systemName: "square.and.arrow.down")
+            })
         }
         .fileImporter(
             isPresented: $isImporting,
