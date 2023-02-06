@@ -29,7 +29,7 @@
 "Background" = "Arrière-plan";
 
 /* No comment provided by engineer. */
-"Background Update Frequency" = "Fréquence de mise à jour en arrière-plan";
+"Background Update Frequency" = "Fréquence d'actualisation en arrière-plan";
 
 /* No comment provided by engineer. */
 "Basic Modifications" = "Modifications basiques";
@@ -113,7 +113,7 @@
 "Folder" = "Dossier";
 
 /* No comment provided by engineer. */
-"Footnote" = "Message";
+"Footnote" = "Bas de page de l'écran vérouillé";
 
 /* No comment provided by engineer. */
 "Forgot password?" = "Mot de passe oublié ?";
@@ -125,7 +125,7 @@
 "Gestures / Dynamic Island" = "Gestes / Dynamic Island";
 
 /* No comment provided by engineer. */
-"Home" = "Accueil ";
+"Home" = "Accueil";
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "Je ne suis pas un robot (pas de mensonges)";
@@ -170,7 +170,7 @@
 "Password" = "Mot de passe";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Merci d'autoriser Cowabunga à \"Toujours\" utiliser la localisation pour que l'application puisse tourner indéfiniment en arrière-plan.";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Merci d'autoriser Cowabunga à \"Toujours\" utiliser la localisation pour que l'application puisse s'acrualiser indéfiniment en arrière-plan.";
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Merci de vous connectez au repo de Sourced pour continuer";
@@ -233,7 +233,7 @@
 "Tap a card to customize" = "Tape sur une carte pour la customizer";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Tape sur n'importe quelle touche pour méfier son apparence";
+"Tap on any key to edit \nits appearance" = "Tape sur n'importe quelle touche pour modifier son apparence";
 
 /* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "Tape sur cette notification pour redémarrer l'application des modifications (tweaks)";
