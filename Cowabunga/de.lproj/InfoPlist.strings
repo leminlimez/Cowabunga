@@ -5,13 +5,13 @@
 "CFBundleName" = "Cowabunga";
 
 /* Privacy - Media Library Usage Description */
-"NSAppleMusicUsageDescription" = "Gebe die Berechtigung an die sandbox (word benötigt für die Tasten des Codes und für weitere Sachen)";
+"NSAppleMusicUsageDescription" = "Gebe der sandbox die Berechtigung( wird für einige tweaks benötigt z.b Code Tasten und weitere)";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund um sicherzustellen das alle tweaks funktionieren. Normalerweise beendet iOS solche Apps nach einer gewissen Zeit. Aber Cowabunga legt iOS rein in dem es nach deinem Standort fragt, dadurch läuft es deutlich länger. Deine Daten werden nirgendwo gelagert.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund um sicherzustellen das alle deine Änderung bleiben. iOS beendet Apps normalerweise nach einer gewissen Zeit aber Cowabunga trickst iOS aus indem es nach deinem Standort fragt. Diese Daten werden nirgendwo gespeichert sie werden lediglich abgefragt.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund um sicherzustellen das alle tweaks funktionieren. Normalerweise beendet iOS solche Apps nach einer gewissen Zeit. Aber Cowabunga legt iOS rein in dem es nach deinem Standort fragt, dadurch läuft es deutlich länger. Deine Daten werden nirgendwo gelagert.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund um sicherzustellen das alle deine Änderung bleiben. iOS beendet Apps normalerweise nach einer gewissen Zeit aber Cowabunga trickst iOS aus indem es nach deinem Standort fragt. Diese Daten werden nirgendwo gespeichert sie werden lediglich abgefragt.";
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Photos";
