@@ -197,6 +197,7 @@ struct LockView: View {
             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
         .onAppear {
+            currentLock = UserDefaults.standard.string(forKey: "CurrentLock") ?? "Default"
             if currentLock == "Default" {
                 defaultLock.checked = true
             } else {
