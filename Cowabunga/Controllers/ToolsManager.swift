@@ -69,6 +69,15 @@ enum OverwritingFileTypes {
 // reset the device subtype
 func resetDeviceSubType() -> Bool {
     var canUseStandardMethod: [String] = ["10,3", "10,4", "10,6", "11,2", "11,4", "11,6", "11,8", "12,1", "12,3", "12,5", "13,1", "13,2", "13,3", "13,4", "14,4", "14,5", "14,2", "14,3", "14,7", "14,8", "15,2"]
+    let predefinedSubtypes: [String: Int] = [
+        "iPhone8,1": 568,
+        "iPhone8,2": 570,
+        "iPhone8,4": 568,
+        "iPhone9,1": 569,
+        "iPhone9,3": 569,
+        "iPhone9,2": 570,
+        "iPhone9,4": 570
+    ]
     for (i, v) in canUseStandardMethod.enumerated() {
         canUseStandardMethod[i] = "iPhone" + v
     }
@@ -80,6 +89,8 @@ func resetDeviceSubType() -> Bool {
     if canUseStandardMethod.contains(deviceModel) {
         // can use device bounds
         deviceSubType = Int(UIScreen.main.nativeBounds.height)
+    } else if predefinedSubtypes[deviceModel] != nil {
+        deviceSubType = predefinedSubtypes[deviceModel]!
     } else {//else if specialCases[deviceModel] != nil {
         //deviceSubType = specialCases[deviceModel]!
         let url: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/DefaultSubTypes.json")
