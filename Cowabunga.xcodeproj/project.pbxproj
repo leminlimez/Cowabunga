@@ -131,8 +131,6 @@
 		6F429682298DE9A800A96108 /* StatusSetter15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter15.m; sourceTree = "<group>"; };
 		6F42968829907C4800A96108 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-cn.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6F42968929907C4800A96108 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-cn.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		6F42968A29907D5600A96108 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6F42968B29907D5600A96108 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F42968C29907DA800A96108 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F42968D29907DA800A96108 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F42968E29907E6700A96108 /* tr-TR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "tr-TR"; path = "tr-tr.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -568,7 +566,6 @@
 				de,
 				"pt-BR",
 				"zh-CN",
-				fr,
 				vi,
 				"tr-TR",
 			);
@@ -685,7 +682,6 @@
 				6F429672298DC7D400A96108 /* de */,
 				6F429674298DE83000A96108 /* pt-BR */,
 				6F42968929907C4800A96108 /* zh-CN */,
-				6F42968B29907D5600A96108 /* fr */,
 				6F42968D29907DA800A96108 /* vi */,
 				6F42968F29907E6700A96108 /* tr-TR */,
 			);
@@ -701,7 +697,6 @@
 				6F429671298DC7D400A96108 /* de */,
 				6F429673298DE83000A96108 /* pt-BR */,
 				6F42968829907C4800A96108 /* zh-CN */,
-				6F42968A29907D5600A96108 /* fr */,
 				6F42968C29907DA800A96108 /* vi */,
 				6F42968E29907E6700A96108 /* tr-TR */,
 			);
