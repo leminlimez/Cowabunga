@@ -5,7 +5,7 @@
 "1" = "1";
 
 /* No comment provided by engineer. */
-"App Stopped Running" = "L'application a arrêté de fonctionner";
+"App Stopped Running" = "L'application a cessé de fonctionner";
 
 /* No comment provided by engineer. */
 "App Switcher" = "Sélecteur d'application";
@@ -14,16 +14,16 @@
 "Apply" = "Appliquer";
 
 /* No comment provided by engineer. */
-"Audio" = "Son";
+"Audio" = "Audio";
 
 /* No comment provided by engineer. */
-"Audio Changer" = "Changeur de son";
+"Audio Changer" = "Modificateur d'audios";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "Respring automatiquement après enregistrement";
+"Auto respring after apply" = "Respring automatiquement après l'application des modifications";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "Mettre à jour automatiquement les sons inclus";
+"Auto Update Included Audio" = "Mettre à jour automatiquement les audios pré-disponibles";
 
 /* No comment provided by engineer. */
 "Background" = "Arrière-plan";
@@ -32,13 +32,13 @@
 "Background Update Frequency" = "Fréquence d'actualisation en arrière-plan";
 
 /* No comment provided by engineer. */
-"Basic Modifications" = "Modifications basiques";
+"Basic Modifications" = "Modifications de base";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "Flou:   %lld";
 
 /* No comment provided by engineer. */
-"Carrier Name" = "Nom d'opérateur";
+"Carrier Name" = "Nom de l'opérateur";
 
 /* No comment provided by engineer. */
 "Categories" = "Catégories";
@@ -47,19 +47,19 @@
 "Choose size" = "Choisissez la taille";
 
 /* No comment provided by engineer. */
-"Clear image" = "Supprimez l'image";
+"Clear image" = "Supprimer l'image";
 
 /* No comment provided by engineer. */
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga a besoin de l'autorisation \"Toujours\" de la localisation.";
+"Cowabunga requires “Always” location permission." = "Cowabunga a besoin de l'autorisation \"Toujours\" pour les permissions de localisation.";
 
 /* No comment provided by engineer. */
 "Credits" = "Crédits";
 
 /* No comment provided by engineer. */
-"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Pour l'instant, pour proposer des thèmes pour que d'autres personnes les utilisent, vous devez l'envoyez  par le discord dans le salon #showcase (anglais uniquement)";
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Pour publier des thèmes, vous devez les proposer en passant par le serveur Discord dans le salon #showcase.";
 
 /* No comment provided by engineer. */
 "Custom" = "Personnalisé";
@@ -71,22 +71,22 @@
 "Delete" = "Supprimer";
 
 /* No comment provided by engineer. */
-"Delete Shortcut Banners" = "Supprimer les notifications de Raccourci";
+"Delete Shortcut Banners" = "Supprimer les bannières de Raccourci";
 
 /* No comment provided by engineer. */
 "Device Resolution" = "Résolution de l'appareil";
 
 /* No comment provided by engineer. */
-"Disable" = "Désactivez";
+"Disable" = "Désactiver";
 
 /* No comment provided by engineer. */
-"Disable Shortcut Apps as Appclips" = "Désactivez l'application Raccourci comme App Clip";
+"Disable Shortcut Apps as Appclips" = "Transformer les raccourcis en veritables app";
 
 /* No comment provided by engineer. */
 "Dock" = "Dock";
 
 /* No comment provided by engineer. */
-"Edit" = "Édition";
+"Edit" = "Modifier";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -95,19 +95,19 @@
 "Enable" = "Activer";
 
 /* No comment provided by engineer. */
-"Enable Shortcut Apps as Appclips" = "Activez l'application Raccourci comme un App Clip";
+"Enable Shortcut Apps as Appclips" = "Re-convertir les apps Raccourci comme des App Clip";
 
 /* No comment provided by engineer. */
-"Error Occured" = "Une erreur est survenu";
+"Error Occured" = "Une erreur est survenue";
 
 /* No comment provided by engineer. */
-"Explore" = "Explorez";
+"Explore" = "Découvrir";
 
 /* No comment provided by engineer. */
 "Extra Preferences" = "Réglages supplémentaires";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "Réparez les modifications (tweaks)";
+"Fix tweaks" = "Réparer les modifications";
 
 /* No comment provided by engineer. */
 "Folder" = "Dossier";
@@ -128,34 +128,34 @@
 "Home" = "Accueil";
 
 /* No comment provided by engineer. */
-"I'm not a robot (no cap)" = "Je ne suis pas un robot (pas de mensonges)";
+"I'm not a robot (no cap)" = "Je ne suis pas un robot";
 
 /* No comment provided by engineer. */
-"Included" = "Inclue";
+"Included" = "Inclus";
 
 /* No comment provided by engineer. */
-"Join Discord" = "Rejoins le Discord";
+"Join Discord" = "Rejoindre le serveur Discord";
 
 /* No comment provided by engineer. */
-"Lock Screen Footnote Changer" = "Modification du message sur l'écran verrouillé";
+"Lock Screen Footnote Changer" = "Bas de page de l'écran verrouillé";
 
 /* No comment provided by engineer. */
 "Log in" = "Connexion";
 
 /* No comment provided by engineer. */
-"Log in Sourced" = "Connecte toi à Sourced";
+"Log in Sourced" = "Se connecter à Sourced";
 
 /* No comment provided by engineer. */
-"Miscellaneous" = "Autres";
+"Miscellaneous" = "Divers";
 
 /* No comment provided by engineer. */
 "More Settings" = "Plus de réglages";
 
 /* No comment provided by engineer. */
-"No Cards Found" = "Pas de cartes trouvés";
+"No Cards Found" = "Pas de cartes trouvées";
 
 /* No comment provided by engineer. */
-"No Cards Were Found" = "Aucune carte n'a été trouvé";
+"No Cards Were Found" = "Aucune carte n'a été trouvée";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -164,31 +164,31 @@
 "Open Settings" = "Ouvrir les réglages";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Éditeur d'icône de mot de passe";
+"Passcode Face Editor" = "Éditeur d'icônes du mot de passe";
 
 /* No comment provided by engineer. */
 "Password" = "Mot de passe";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Merci d'autoriser Cowabunga à \"Toujours\" utiliser la localisation pour que l'application puisse s'acrualiser indéfiniment en arrière-plan.";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Merci d'autoriser Cowabunga à \"Toujours\" utiliser la localisation pour que l'application puisse s'actualiser en arrière-plan.";
 
 /* No comment provided by engineer. */
-"Please log into your Sourced Repo account to continue" = "Merci de vous connectez au repo de Sourced pour continuer";
+"Please log into your Sourced Repo account to continue" = "Merci de vous connectez au repo Sourced pour continuer";
 
 /* No comment provided by engineer. */
 "Preferences" = "Réglages";
 
 /* No comment provided by engineer. */
-"Remove all" = "Tout supprimer";
+"Remove all" = "Tout désactiver";
 
 /* No comment provided by engineer. */
-"Reset faces" = "Remettre à 0 les icônes ";
+"Reset faces" = "Réinitialiser les icônes ";
 
 /* No comment provided by engineer. */
 "Respring" = "Respring";
 
 /* No comment provided by engineer. */
-"Run in background" = "Tourner en arrière-plan";
+"Run in background" = "Actualiser en arrière-plan";
 
 /* No comment provided by engineer. */
 "Saved" = "Sauvegardé";
@@ -203,40 +203,40 @@
 "Set dock color" = "Définissez la couleur du dock";
 
 /* No comment provided by engineer. */
-"Set expanded folder background color" = "Définissez  la couleur de l'arrière-plan des dossiers";
+"Set expanded folder background color" = "Définissez la couleur de l'arrière-plan des dossiers";
 
 /* No comment provided by engineer. */
 "Set folder color" = "Définissez la couleur des dossiers";
 
 /* No comment provided by engineer. */
-"Shortcut Apps" = "Raccourcis";
+"Shortcut Apps" = "Applications Raccourci";
 
 /* No comment provided by engineer. */
-"Sign up" = "Créer un compte";
+"Sign up" = "S'inscrire";
 
 /* No comment provided by engineer. */
 "Software Version" = "Version du système";
 
 /* No comment provided by engineer. */
-"SpringBoard Tools" = "Outils du SpringBoard";
+"SpringBoard Tools" = "Outils SpringBoard";
 
 /* No comment provided by engineer. */
-"Submit themes" = "Proposez des thèmes";
+"Submit themes" = "Proposer des thèmes";
 
 /* No comment provided by engineer. */
 "Supervised" = "Supervisé";
 
 /* No comment provided by engineer. */
-"Swipe to view different cards" = "Swipe pour voir des cartes différentes";
+"Swipe to view different cards" = "Glisse pour voir d'autres cartes";
 
 /* No comment provided by engineer. */
-"Tap a card to customize" = "Tape sur une carte pour la customizer";
+"Tap a card to customize" = "Tapez sur une carte pour la personnaliser";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Tape sur n'importe quelle touche pour modifier son apparence";
+"Tap on any key to edit \nits appearance" = "Tapez sur n'importe quelle touche pour modifier son apparence";
 
 /* No comment provided by engineer. */
-"Tap this notification to resume tweak applications." = "Tape sur cette notification pour redémarrer l'application des modifications (tweaks)";
+"Tap this notification to resume tweak applications." = "Tapez sur la notification pour reprendre l'actualisation en arrière plan";
 
 /* No comment provided by engineer. */
 "Test" = "Test";
@@ -245,16 +245,16 @@
 "Tools" = "Outils";
 
 /* No comment provided by engineer. */
-"Tweak Options" = "Options des modifications (tweaks)";
+"Tweak Options" = "Options des modifications";
 
 /* No comment provided by engineer. */
-"Update Included Audio" = "Mettre à jour l'audio inclue";
+"Update Included Audio" = "Mettre à jour les audios pré-disponibles";
 
 /* No comment provided by engineer. */
-"Use at your own risk" = "Utilisez à votre propre risque";
+"Use at your own risk" = "Utilisez cela à vos risques et périls";
 
 /* No comment provided by engineer. */
-"validate" = "validez";
+"validate" = "valider";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Version %@ (%@)";
@@ -269,5 +269,5 @@
 "Y" = "Y";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Vous n'avez aucun thème de mot de passe. Allez dans la partie \"Explorez\" pour en trouver!";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Vous n'avez aucun thème sauvegardé. Rendez-vous dans la partie \"Découvrir\" pour en installer!";
 
