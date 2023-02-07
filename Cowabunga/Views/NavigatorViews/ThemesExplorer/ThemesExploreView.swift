@@ -29,13 +29,7 @@ struct ThemesExploreView: View {
                             // refresh
                             themes.removeAll()
                             URLCache.imageCache.removeAllCachedResponses()
-                            Task {
-                                do {
-                                    themes = try await cowabungaAPI.fetchPasscodeThemes().shuffled()
-                                } catch {
-                                    UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
-                                }
-                            }
+                            loadThemes()
                         }
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
@@ -157,13 +151,7 @@ struct ThemesExploreView: View {
             }
         }
         .onAppear {
-            Task {
-                do {
-                    themes = try await cowabungaAPI.fetchPasscodeThemes().shuffled()
-                } catch {
-                    UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
-                }
-            }
+            loadThemes()
         }
         .alert("Submit themes", isPresented: $submitThemeAlertShown, actions: {
             Button("Join Discord", role: .none, action: {
@@ -176,6 +164,16 @@ struct ThemesExploreView: View {
         })
 //            .sheet(isPresented: $showLogin, content: { LoginView() })
         // maybe later
+    }
+    
+    func loadThemes() {
+        Task {
+            do {
+                themes = try await cowabungaAPI.fetchPasscodeThemes().shuffled()
+            } catch {
+                UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
+            }
+        }
     }
 }
 
