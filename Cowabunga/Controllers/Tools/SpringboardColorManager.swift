@@ -18,7 +18,7 @@ class SpringboardColorManager {
     
     private static let finalFiles: [SpringboardType: [String]] = [
         SpringboardType.folder: ["folderDark", "folderLight"],
-        SpringboardType.libraryFolder: ["platters", "plattersDark"],
+        SpringboardType.libraryFolder: ["podBackgroundViewDark", "podBackgroundViewLight"],
         SpringboardType.dock: ["dockDark", "dockLight"],
         SpringboardType.folderBG: ["folderExpandedBackgroundHome", "homeScreenOverlay", "homeScreenOverlay-iPad"],
         SpringboardType.switcher: ["homeScreenBackdrop-application"]
@@ -26,16 +26,24 @@ class SpringboardColorManager {
     
     private static let fileFolders: [SpringboardType: String] = [
         SpringboardType.folder: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
-        SpringboardType.libraryFolder: "/System/Library/PrivateFrameworks/CoreMaterial.framework/",
+        SpringboardType.libraryFolder: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
         SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/",
         SpringboardType.folderBG: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
         SpringboardType.switcher: "/System/Library/PrivateFrameworks/SpringBoard.framework/"
     ]
     
+    private static let fileExt: [SpringboardType: String] = [
+        SpringboardType.folder: ".materialrecipe",
+        SpringboardType.libraryFolder: ".visualstyleset",
+        SpringboardType.dock: ".materialrecipe",
+        SpringboardType.folderBG: ".materialrecipe",
+        SpringboardType.switcher: ".materialrecipe"
+    ]
+    
     static func createColor(forType: SpringboardType, color: CIColor, blur: Int) throws {
         let bgDir = getBackgroundDirectory()
         
-        if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil {
+        if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil && fileExt[forType] != nil {
             // get the files
             let url = Bundle.main.url(forResource: "replacement", withExtension: ".materialrecipe")
             
@@ -66,14 +74,14 @@ class SpringboardColorManager {
                     // fill with empty data
                     for (_, file) in finalFiles[forType]!.enumerated() {
                         // get original data
-                        let path: String = "\(fileFolders[forType]!)\(file).materialrecipe"
+                        let path: String = "\(fileFolders[forType]!)\(file)\(fileExt[forType]!)"
                         let newUrl = URL(fileURLWithPath: path)
                         do {
                             let originalFileSize = try Data(contentsOf: newUrl).count
                             let newData = try addEmptyData(matchingSize: originalFileSize, to: plist)
                             // save file to background directory
                             if newData.count == originalFileSize {
-                                try newData.write(to: bgDir!.appendingPathComponent(file+".materialrecipe"))
+                                try newData.write(to: bgDir!.appendingPathComponent(file+fileExt[forType]!))
                             } else {
                                 print("NOT CORRECT SIZE")
                             }

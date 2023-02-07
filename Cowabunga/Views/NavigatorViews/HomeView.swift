@@ -17,6 +17,7 @@ struct HomeView: View {
         .init(key: "FolderBlurDisabled", fileType: OverwritingFileTypes.springboard),
         .init(key: "SwitcherBlurDisabled", fileType: OverwritingFileTypes.springboard),
         .init(key: "CCModuleBackgroundDisabled", fileType: OverwritingFileTypes.cc),
+        .init(key: "PodBackgroundDisabled", fileType: OverwritingFileTypes.springboard)
     ]
     
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
@@ -262,10 +263,9 @@ struct HomeView: View {
             failedAudio = true
         }
         
-       /* UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
+        UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
         if !UserDefaults.standard.bool(forKey: "FolderBGHidden") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
         }
         if !UserDefaults.standard.bool(forKey: "FolderBlurDisabled") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folderBG)
@@ -275,7 +275,10 @@ struct HomeView: View {
         }
         if !UserDefaults.standard.bool(forKey: "DockHidden") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
-        }*/
+        }
+        if !UserDefaults.standard.bool(forKey: "PodBackgroundDisabled") {
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
+        }
         
         if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
             let lockName: String = UserDefaults.standard.string(forKey: "Lock")!

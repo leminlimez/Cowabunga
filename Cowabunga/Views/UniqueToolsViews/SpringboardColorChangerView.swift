@@ -44,7 +44,7 @@ struct SpringboardColorChangerView: View {
                 
                 ScrollView {
                     VStack(spacing: 50) {
-                        //if #unavailable(iOS 16) {
+                        if #unavailable(iOS 16) {
                             // MARK: Badge
                             VStack {
                                 ZStack(alignment: .topTrailing) {
@@ -103,11 +103,11 @@ struct SpringboardColorChangerView: View {
                                 .padding(4)
                             }
                             
-                            //divider
-                        //}
+                            divider
+                        }
                         
                         // MARK: Folder
-                        /*VStack {
+                        VStack {
                             let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
                             ZStack {
                                 ZStack {
@@ -191,8 +191,8 @@ struct SpringboardColorChangerView: View {
                             .padding(.bottom, 20)
                             
                             Button("Apply", action: {
-                                apply(.folder, folderColor, Int(folderBlur))
-                                apply(.libraryFolder, folderColor, Int(folderBlur))
+                                apply(.folder, folderColor, Int(folderBlur), false)
+                                apply(.libraryFolder, folderColor, Int(folderBlur), false)
                                 apply(.folderBG, folderBGColor, Int(folderBGBlur))
                             })
                             .buttonStyle(TintedButton(color: .blue))
@@ -310,7 +310,7 @@ struct SpringboardColorChangerView: View {
                             .buttonStyle(TintedButton(color: .blue))
                             .padding(4)
                         }
-                        .padding(.bottom, 100)*/
+                        .padding(.bottom, 100)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 64)
@@ -323,6 +323,13 @@ struct SpringboardColorChangerView: View {
         }
         
     }
+    
+    @ViewBuilder
+        var divider: some View {
+            Divider()
+                .overlay(Color.white.opacity(0.25))
+                .padding(.horizontal, 32)
+        }
     
     func showBadgePicker() {
         PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
@@ -346,11 +353,13 @@ struct SpringboardColorChangerView: View {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
         }
     }
-    func apply(_ sbType: SpringboardColorManager.SpringboardType, _ color: Color, _ blur: Int) {
+    func apply(_ sbType: SpringboardColorManager.SpringboardType, _ color: Color, _ blur: Int, _ alert: Bool = true) {
         do {
             try SpringboardColorManager.createColor(forType: sbType, color: CIColor(color: UIColor(color)), blur: blur)
             SpringboardColorManager.applyColor(forType: sbType)
-            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+            if alert == true {
+                UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+            }
         } catch {
             UIApplication.shared.alert(body:"An error occured. " + error.localizedDescription)
         }
