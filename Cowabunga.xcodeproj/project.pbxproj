@@ -44,6 +44,9 @@
 		6F4296AE2991E8E400A96108 /* StatusSetter16.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296A92991E8E400A96108 /* StatusSetter16.m */; };
 		6F4296AF2991E8E400A96108 /* StatusSetter15.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296AA2991E8E400A96108 /* StatusSetter15.m */; };
 		6F4296B12991E92B00A96108 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296B02991E92B00A96108 /* SettingsView.swift */; };
+		6F4296B32992CC4F00A96108 /* AdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296B22992CC4F00A96108 /* AdvancedView.swift */; };
+		6F4296B52992CCB500A96108 /* AdvancedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296B42992CCB500A96108 /* AdvancedManager.swift */; };
+		6F4296B82992CDDE00A96108 /* AdvancedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296B72992CDDE00A96108 /* AdvancedObject.swift */; };
 		6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E72975EF6000DE3146 /* AudioConverter.swift */; };
 		6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E9297603F700DE3146 /* RegionEncodes.swift */; };
 		6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EB2976DEDA00DE3146 /* HomeView.swift */; };
@@ -137,6 +140,9 @@
 		6F4296A92991E8E400A96108 /* StatusSetter16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter16.m; sourceTree = "<group>"; };
 		6F4296AA2991E8E400A96108 /* StatusSetter15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter15.m; sourceTree = "<group>"; };
 		6F4296B02991E92B00A96108 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6F4296B22992CC4F00A96108 /* AdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedView.swift; sourceTree = "<group>"; };
+		6F4296B42992CCB500A96108 /* AdvancedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedManager.swift; sourceTree = "<group>"; };
+		6F4296B72992CDDE00A96108 /* AdvancedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedObject.swift; sourceTree = "<group>"; };
 		6F6D38E72975EF6000DE3146 /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		6F6D38E9297603F700DE3146 /* RegionEncodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEncodes.swift; sourceTree = "<group>"; };
 		6F6D38EB2976DEDA00DE3146 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -372,9 +378,19 @@
 			path = StatusManager;
 			sourceTree = "<group>";
 		};
+		6F4296B62992CDCC00A96108 /* AdvancedTools */ = {
+			isa = PBXGroup;
+			children = (
+				6F4296B42992CCB500A96108 /* AdvancedManager.swift */,
+				6F4296B72992CDDE00A96108 /* AdvancedObject.swift */,
+			);
+			path = AdvancedTools;
+			sourceTree = "<group>";
+		};
 		6F6D38ED2976FE6800DE3146 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6F4296B62992CDCC00A96108 /* AdvancedTools */,
 				6F6D38E72975EF6000DE3146 /* AudioConverter.swift */,
 				6F7C01E0296B2FB200BC427A /* AudioManager.swift */,
 				21BA5BD5298999620022F814 /* Background */,
@@ -475,6 +491,7 @@
 		6FF21AC629840D300054EBC0 /* UniqueToolsViews */ = {
 			isa = PBXGroup;
 			children = (
+				6F4296B22992CC4F00A96108 /* AdvancedView.swift */,
 				6FF21AC729840DC40054EBC0 /* LockView.swift */,
 				6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */,
 				6FF21AF2298821010054EBC0 /* SpringboardColorChangerView.swift */,
@@ -611,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2183C99E2987DA6800AE187C /* AppIcon.swift in Sources */,
+				6F4296B52992CCB500A96108 /* AdvancedManager.swift in Sources */,
 				6FD9B526296C8AE300121229 /* AudioView.swift in Sources */,
 				21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */,
 				2183C9A72988368A00AE187C /* CowabungaAPI.swift in Sources */,
@@ -623,6 +641,7 @@
 				6F429676298DE8D700A96108 /* StatusBarView.swift in Sources */,
 				6F369566298C870F0011ADB8 /* AltIconSelectionView.swift in Sources */,
 				6F75AD72298AB723009C0AD6 /* SpringboardColorManager.swift in Sources */,
+				6F4296B32992CC4F00A96108 /* AdvancedView.swift in Sources */,
 				21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */,
 				6FF21AF3298821010054EBC0 /* SpringboardColorChangerView.swift in Sources */,
 				6FF21AE129846AB20054EBC0 /* MaterialView.swift in Sources */,
@@ -649,6 +668,7 @@
 				21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */,
 				6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */,
 				6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */,
+				6F4296B82992CDDE00A96108 /* AdvancedObject.swift in Sources */,
 				2183C9972987D8D800AE187C /* Color++.swift in Sources */,
 				6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */,
 				6FF21AFD298827190054EBC0 /* CardView.swift in Sources */,
