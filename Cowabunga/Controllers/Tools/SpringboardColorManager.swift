@@ -99,6 +99,18 @@ class SpringboardColorManager {
         }
     }
     
+    static func deteleColor(forType: SpringboardType) throws {
+        let bgDir = getBackgroundDirectory()
+        if bgDir != nil {
+            for (_, file) in finalFiles[forType]!.enumerated() {
+                let path: String = "\(fileFolders[forType]!)\(file)\(fileExt[forType]!)"
+                try FileManager.default.removeItem(atPath: path)
+            }
+        } else {
+            throw "Could not find the background files directory!"
+        }
+    }
+    
     static func applyColor(forType: SpringboardType) {
         let bgDir = getBackgroundDirectory()
         

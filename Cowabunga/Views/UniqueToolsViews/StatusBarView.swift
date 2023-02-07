@@ -181,28 +181,6 @@ struct StatusBarView: View {
             }
         }
         .navigationTitle("Status Bar")
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    openURL(URL(string: "https://github.com/Avangelista/StatusMagic")!)
-                }) {
-                    Image("github")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                }
-                Button(action: {
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    openURL(URL(string: "https://ko-fi.com/avangelista")!)
-                }) {
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                }
-            }
-        }
     }
 }
 

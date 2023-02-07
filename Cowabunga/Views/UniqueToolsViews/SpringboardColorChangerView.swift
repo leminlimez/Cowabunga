@@ -190,13 +190,30 @@ struct SpringboardColorChangerView: View {
                             }
                             .padding(.bottom, 20)
                             
-                            Button("Apply", action: {
-                                apply(.folder, folderColor, Int(folderBlur), false)
-                                apply(.libraryFolder, folderColor, Int(folderBlur), false)
-                                apply(.folderBG, folderBGColor, Int(folderBGBlur))
-                            })
-                            .buttonStyle(TintedButton(color: .blue))
-                            .padding(4)
+                            HStack {
+                                Button("Apply", action: {
+                                    apply(.folder, folderColor, Int(folderBlur), false)
+                                    apply(.libraryFolder, folderColor, Int(folderBlur), false)
+                                    apply(.folderBG, folderBGColor, Int(folderBGBlur))
+                                })
+                                .buttonStyle(TintedButton(color: .blue))
+                                .padding(4)
+                                
+                                Button(action: {
+                                    do {
+                                        try SpringboardColorManager.deteleColor(forType: .folder)
+                                        try SpringboardColorManager.deteleColor(forType: .folderBG)
+                                        try SpringboardColorManager.deteleColor(forType: .libraryFolder)
+                                        UIApplication.shared.alert(title: "Success!", body: "Successfully deleted color files.")
+                                    } catch {
+                                        UIApplication.shared.alert(title: "Error deleting color files!", body: error.localizedDescription)
+                                    }
+                                }) {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(TintedButton(color: .red))
+                                .padding(4)
+                            }
                         }
                         
                         divider
@@ -249,11 +266,26 @@ struct SpringboardColorChangerView: View {
                             }
                             .padding(.bottom, 20)
                             
-                            Button("Apply", action: {
-                                apply(.dock, dockColor, Int(dockBlur))
-                            })
-                            .buttonStyle(TintedButton(color: .blue))
-                            .padding(4)
+                            HStack {
+                                Button("Apply", action: {
+                                    apply(.dock, dockColor, Int(dockBlur))
+                                })
+                                .buttonStyle(TintedButton(color: .blue))
+                                .padding(4)
+                                
+                                Button(action: {
+                                    do {
+                                        try SpringboardColorManager.deteleColor(forType: .dock)
+                                        UIApplication.shared.alert(title: "Success!", body: "Successfully deleted color files.")
+                                    } catch {
+                                        UIApplication.shared.alert(title: "Error deleting color files!", body: error.localizedDescription)
+                                    }
+                                }) {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(TintedButton(color: .red))
+                                .padding(4)
+                            }
                         }
                         
                         divider
@@ -273,7 +305,7 @@ struct SpringboardColorChangerView: View {
                                         RoundedRectangle(cornerRadius: minSize / 24)
                                             .fill(iconColors[i1])
                                             .frame(width: minSize / 3.5)
-                                            //.scaleEffect(1 - (0.05*i1))
+                                        //.scaleEffect(1 - (0.05*i1))
                                     }
                                 }
                                 .padding(24)
@@ -304,13 +336,28 @@ struct SpringboardColorChangerView: View {
                             }
                             .padding(.bottom, 20)
                             
-                            Button("Apply", action: {
-                                apply(.switcher, switcherColor, Int(switcherBlur))
-                            })
-                            .buttonStyle(TintedButton(color: .blue))
-                            .padding(4)
+                            HStack {
+                                Button("Apply", action: {
+                                    apply(.switcher, switcherColor, Int(switcherBlur))
+                                })
+                                .buttonStyle(TintedButton(color: .blue))
+                                .padding(4)
+                                
+                                Button(action: {
+                                    do {
+                                        try SpringboardColorManager.deteleColor(forType: .switcher)
+                                        UIApplication.shared.alert(title: "Success!", body: "Successfully deleted color files.")
+                                    } catch {
+                                        UIApplication.shared.alert(title: "Error deleting color files!", body: error.localizedDescription)
+                                    }
+                                }) {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(TintedButton(color: .red))
+                                .padding(4)
+                            }
+                            .padding(.bottom, 100)
                         }
-                        .padding(.bottom, 100)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 64)
