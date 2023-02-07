@@ -134,6 +134,21 @@ struct LockView: View {
                         }
                     }
                 }
+                .onDelete { indexSet in
+                    indexSet.forEach { i in
+                        let deletingLockName = locks[i].title
+                        print("Deleting: " + deletingLockName)
+                        
+                        // delete the file
+                        do {
+                            let url = locksDir!.appendingPathComponent(deletingLockName.replacingOccurrences(of: " ", with: "_"))
+                            try FileManager.default.removeItem(at: url)
+                            locks.remove(at: i)
+                        } catch {
+                            UIApplication.shared.alert(body: "Unable to delete files for lock \"" + deletingLockName + "\"!")
+                        }
+                    }
+                }
             }
         }
         .toolbar {
