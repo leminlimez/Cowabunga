@@ -136,7 +136,7 @@ struct ThemesExploreView: View {
                         URLCache.imageCache.removeAllCachedResponses()
                         Task {
                             do {
-                                themes = try await cowabungaAPI.fetchPasscodeThemes()
+                                themes = try await cowabungaAPI.fetchPasscodeThemes().shuffled()
                             } catch {
                                 UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
                             }
