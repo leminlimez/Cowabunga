@@ -68,6 +68,19 @@ struct CowabungaApp: App {
                         ApplicationMonitor.shared.start()
                     }
                 }
+                .onOpenURL(perform: { url in
+                    // for opening passthm files
+                    if url.pathExtension.lowercased() == "passthm" {
+                        let defaultKeySize = PasscodeKeyFaceManager.getDefaultFaceSize()
+                        do {
+                            // try appying the themes
+                            try PasscodeKeyFaceManager.setFacesFromTheme(url, keySize: CGFloat(defaultKeySize), customX: CGFloat(150), customY: CGFloat(150))
+                            // show the passcode screen
+                            //PasscodeEditorView()
+                            UIApplication.shared.alert(title: "Success!", body: "Successfully imported and applied passcode theme!")
+                        } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                    }
+                })
         }
     }
 }
