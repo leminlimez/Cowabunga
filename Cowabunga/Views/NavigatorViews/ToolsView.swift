@@ -48,7 +48,7 @@ struct ToolsView: View {
     @State var toolsCategories: [ToolsCategory] = [
         .init(title: "Home Screen", options: [
             .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: "Springboard Tools", imageName: "snowflake"),
-            .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Badge Changer", imageName: "app.badge", ios15Only: true)
+            .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Springboard Colors", imageName: "square.on.circle")
         ]),
         .init(title: "Lock Screen", options: [
             .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
