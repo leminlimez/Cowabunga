@@ -18,6 +18,9 @@ struct CowabungaApp: App {
             RootView()
                 .environmentObject(cowabungaAPI)
                 .onAppear {
+                    // clear image cache
+                    URLCache.imageCache.removeAllCachedResponses()
+                    
                     if #available(iOS 16.2, *) {
                         #if targetEnvironment(simulator)
                         #else
