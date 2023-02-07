@@ -21,53 +21,53 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "CCModuleBackgroundDisabled"), key: "CCModuleBackgroundDisabled", title: " Disable CC Module Background ", imageName: "switch.2", fileType: OverwritingFileTypes.cc),
+        .init(value: getDefaultBool(forKey: "PodBackgroundDisabled"), key: "PodBackgroundDisabled", title: "Disable Library Pods Background", imageName: "square.stack", fileType: OverwritingFileTypes.springboard)
     ]
     
     var body: some View {
         VStack {
-            Spacer()
-            Spacer()
-            Spacer()
-            LazyVGrid(columns: gridItemLayout) {
-                ForEach($tweakOptions) { option in
-                    Button(action: {
-                        option.wrappedValue.value.toggle()
-                        
-                        // set the user defaults
-                        setDefaultBoolean(forKey: option.key.wrappedValue, value: option.value.wrappedValue)
-                    }) {
-                        VStack {
-                            Image(systemName: option.wrappedValue.value ? "checkmark.circle" : option.imageName.wrappedValue)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.blue)
-                                .opacity(option.wrappedValue.value ? 1 : 0.5)
+            ScrollView {
+                LazyVGrid(columns: gridItemLayout) {
+                    ForEach($tweakOptions) { option in
+                        Button(action: {
+                            option.wrappedValue.value.toggle()
                             
-                            Text(option.title.wrappedValue)
-                                .foregroundColor(.init(uiColor14: .label))
-                                .lineLimit(2)
-                                .padding(.horizontal)
-                                .minimumScaleFactor(0.5)
+                            // set the user defaults
+                            setDefaultBoolean(forKey: option.key.wrappedValue, value: option.value.wrappedValue)
+                        }) {
+                            VStack {
+                                Image(systemName: option.wrappedValue.value ? "checkmark.circle" : option.imageName.wrappedValue)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.blue)
+                                    .opacity(option.wrappedValue.value ? 1 : 0.5)
+                                
+                                Text(option.title.wrappedValue)
+                                    .foregroundColor(.init(uiColor14: .label))
+                                    .lineLimit(2)
+                                    .padding(.horizontal)
+                                    .minimumScaleFactor(0.5)
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.vertical)
+                            .background(Color(uiColor14: option.wrappedValue.value ? .init(red: 0, green: 0.47, blue: 1, alpha: 1) : .secondarySystemBackground)
+                                .opacity(option.wrappedValue.value ? 0.15 : 1)
+                            )
+                            .cornerRadius(10)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(.vertical)
-                        .background(Color(uiColor14: option.wrappedValue.value ? .init(red: 0, green: 0.47, blue: 1, alpha: 1) : .secondarySystemBackground)
-                            .opacity(option.wrappedValue.value ? 0.15 : 1)
-                        )
-                        .cornerRadius(10)
                     }
                 }
-            }
-            VStack {
-                Button("Apply") {
-                    applyTweaks()
+                VStack {
+                    Button("Apply") {
+                        applyTweaks()
+                    }
+                    .buttonStyle(FullwidthTintedButton(color: .blue))
+                    
+                    Spacer()
                 }
-                .buttonStyle(FullwidthTintedButton(color: .blue))
-                
-                Spacer()
+                .padding(.vertical)
             }
-            .padding(.vertical)
         }
         .padding()
         .navigationTitle("SpringBoard Tools")
