@@ -8,7 +8,34 @@
 "1" = "1";
 
 /* No comment provided by engineer. */
+"App Stopped Running" = "Uygulama Çalışmayı Durdurdu";
+
+/* No comment provided by engineer. */
+"App Switcher" = "Uygulama Değiştirici";
+
+/* No comment provided by engineer. */
+"Apply" = "Uygula";
+
+/* No comment provided by engineer. */
 "Audio" = "Ses";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Ses Değiştirici";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Uyguladıktan sonra otomatik respring at";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Ses Dahil Edildiğinde Otomatik Olarak Uygula";
+
+/* No comment provided by engineer. */
+"Background" = "Arkaplan";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Arkaplanda Güncelleme Sıklığı";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Blanıklılık:   %lld";
 
 /* No comment provided by engineer. */
 "Breadcrumb Text" = "Operatör Adı Şekli";
@@ -26,19 +53,76 @@
 "Change Status Bar Time Text" = "Durum Çubuğundaki Saatin Yazısını Değiştir";
 
 /* No comment provided by engineer. */
+"Choose size" = "Boyut seç";
+
+/* No comment provided by engineer. */
+"Clear image" = "Resmi temizle";
+
+/* No comment provided by engineer. */
 "Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga \"Herzaman\" konum bilgisi iznini gerektirir.";
 
 /* No comment provided by engineer. */
 "Credits" = "Yapımcılar";
 
 /* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Şimdilik diğer insanlar için temalarını yollayabilirsin, bizim onları discordumunza #showcase kanalında incelememiz gerekicek.";
+
+/* No comment provided by engineer. */
 "Custom" = "Özel";
+
+/* No comment provided by engineer. */
+"Custom image" = "Özel resim";
+
+/* No comment provided by engineer. */
+"Delete" = "Sil";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Kestirmeler Bildirimini Sil";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "Cihaz Çözünürlüğü";
+
+/* No comment provided by engineer. */
+"Disable" = "Devre Dışı Bırak";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Kestirmeler Uygulamasını Appclips Olarak Devre Dışı Bırak";
+
+/* No comment provided by engineer. */
+"Dock" = "Yuva";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
 
 /* No comment provided by engineer. */
+"Enable" = "Aktif Et";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Kestirmeler Uygulamasını Applips Olarak Aktif Et";
+
+/* No comment provided by engineer. */
+"Explore" = "Keşfet";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "Extra Özellikler";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Tweakları düzelt";
+
+/* No comment provided by engineer. */
+"Folder" = "Klasör";
+
+/* No comment provided by engineer. */
+"Footnote" = "Dipnot";
+
+/* No comment provided by engineer. */
 "Forgot password?" = "Şifrenimi unuttun?";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "Hareketler / Dinamik Ada";
 
 /* No comment provided by engineer. */
 "Hide Airplane Mode" = "Uçak Modunu Gizle";
@@ -83,22 +167,91 @@
 "Home" = "Ana";
 
 /* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "Ben robot değilim (şakasız)";
+
+/* No comment provided by engineer. */
+"Included" = "Dahil";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Discord'a Katıl";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Ana Ekrandaki Dipnot'u Değiştirici";
+
+/* No comment provided by engineer. */
 "Log in" = "Giriş yap";
 
 /* No comment provided by engineer. */
 "Log in Sourced" = "Kaynak olarak giriş yap";
 
 /* No comment provided by engineer. */
+"Miscellaneous" = "Çeşitlilik";
+
+/* No comment provided by engineer. */
+"More Settings" = "Daha Fazla Ayar";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Kart Bulunmadı";
+
+/* No comment provided by engineer. */
+"OK" = "Tamam";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Ayarları Aç";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Kilit Ekranı Özelleştirici";
+
+/* No comment provided by engineer. */
+"Password" = "Şifre";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Lütfen Cowabunga'ya  Ayarlardan \"Herzaman\" konum iznini verin bu sayede arkaplanda sorunsuz çalışacaktır.";
+
+/* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Lütfen devam etmek için kaynak kodu hesabına giriş yapın";
+
+/* No comment provided by engineer. */
+"Preferences" = "Tercihler";
+
+/* No comment provided by engineer. */
+"Remove all" = "Hepsini Sil";
 
 /* No comment provided by engineer. */
 "Reset All" = "Hepsini Sıfırla";
 
 /* No comment provided by engineer. */
+"Reset faces" = "Kilit ekranını sıfırla";
+
+/* No comment provided by engineer. */
 "Respring" = "Respring";
 
 /* No comment provided by engineer. */
+"Run in background" = "Arka planda çalışma";
+
+/* No comment provided by engineer. */
 "Saved" = "Kaydedildi";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "Uygulama değiştirici rengini seç";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Bildirim rengini değiştir";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Yuva rengini değiştir";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "Genişletilmiş klasör rengini seç";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Klasör rengini seç";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Kestirmeler Uygulaması";
+
+/* No comment provided by engineer. */
+"Sign up" = "Kayıt ol";
 
 /* No comment provided by engineer. */
 "Software Version" = "Yazılım Sürümü";
@@ -113,7 +266,22 @@
 "Status Bar Time Text" = "Durum Çubuğu Saat Metni";
 
 /* No comment provided by engineer. */
+"Submit themes" = "Tema paylaş";
+
+/* No comment provided by engineer. */
 "Supervised" = "Supervised";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Diğer kartları görmek için kaydır";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Özelleştirmek için bir kart seç";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Görünüşü düzenlemek için \nbir tuşa bas";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Bu bildirime tıklayarak twakların çalışmasını devam ettir.";
 
 /* No comment provided by engineer. */
 "Tools" = "Araçlar";
@@ -122,7 +290,16 @@
 "Translators" = "Çevirmenler";
 
 /* No comment provided by engineer. */
-"Using %@" = "Kullanım %@";
+"Tweak Options" = "Tweak Seçenekleri";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Dahil Edilen Sesi Güncelle";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Kendi riskiniz altında kullanın";
+
+/* No comment provided by engineer. */
+"validate" = "geçerlilik";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Versiyon %@ (%@)";
@@ -138,6 +315,9 @@
 
 /* No comment provided by engineer. */
 "Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Hiç kilit ekranı teman yok. Keşfet bölümünden biraz bul!";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "Cihazınız respring edilecek..";
