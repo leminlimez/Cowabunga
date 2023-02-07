@@ -103,8 +103,8 @@ class SpringboardColorManager {
         let bgDir = getBackgroundDirectory()
         if bgDir != nil {
             for (_, file) in finalFiles[forType]!.enumerated() {
-                let path: String = "\(fileFolders[forType]!)\(file)\(fileExt[forType]!)"
-                try FileManager.default.removeItem(atPath: path)
+                let path: URL = bgDir!.appendingPathComponent(file+fileExt[forType]!)
+                try FileManager.default.removeItem(at: path)
             }
         } else {
             throw "Could not find the background files directory!"
