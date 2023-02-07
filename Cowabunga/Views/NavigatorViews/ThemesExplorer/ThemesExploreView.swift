@@ -158,7 +158,7 @@ struct ThemesExploreView: View {
         .onAppear {
             Task {
                 do {
-                    themes = try await cowabungaAPI.fetchPasscodeThemes()
+                    themes = try await cowabungaAPI.fetchPasscodeThemes().shuffled()
                 } catch {
                     UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
                 }
