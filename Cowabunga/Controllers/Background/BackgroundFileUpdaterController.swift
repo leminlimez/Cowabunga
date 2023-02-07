@@ -59,6 +59,10 @@ class BackgroundFileUpdaterController: ObservableObject {
                 SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folderBG)
             }*/
             
+            if UserDefaults.standard.bool(forKey: "PodBackgroundDisabled") == true {
+                let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "PodBackgroundDisabled", true)
+            }
+            
             // apply the transparent modules
             if UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.cc, fileIdentifier: "CCModuleBackgroundDisabled", true)
