@@ -131,9 +131,11 @@ struct StatusBarView: View {
                     Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
                         StatusManager.sharedInstance().hideWiFi(nv)
                     })
-                    Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
-                        StatusManager.sharedInstance().hideBattery(nv)
-                    })
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
+                            StatusManager.sharedInstance().hideBattery(nv)
+                        })
+                    }
                     Toggle("Hide Bluetooth", isOn: $bluetoothHidden).onChange(of: bluetoothHidden, perform: { nv in
                         StatusManager.sharedInstance().hideBluetooth(nv)
                     })
@@ -158,7 +160,13 @@ struct StatusBarView: View {
                 })
             }
             
-            Section (footer: Text("Using \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
+            if #available(iOS 15.0, *) {
+                Section (footer: Text("Go here if something isn't working correctly.")) {
+                    NavigationLink(destination: SettingsView(), label: { Text("Settings") })
+                }
+            }
+            
+            Section (footer: Text("Your device will respring.\n\n\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
                 Button("Reset All") {
                     if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
                         do {
@@ -173,6 +181,28 @@ struct StatusBarView: View {
             }
         }
         .navigationTitle("Status Bar")
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    openURL(URL(string: "https://github.com/Avangelista/StatusMagic")!)
+                }) {
+                    Image("github")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, height: 20)
+                }
+                Button(action: {
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    openURL(URL(string: "https://ko-fi.com/avangelista")!)
+                }) {
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, height: 20)
+                }
+            }
+        }
     }
 }
 
