@@ -40,5 +40,9 @@
 - (void) hideCarPlay:(bool)hidden;
 - (bool) isVPNHidden;
 - (void) hideVPN:(bool)hidden;
+- (bool) isMicrophoneUseHidden;
+- (void) hideMicrophoneUse:(bool)hidden;
+- (bool) isCameraUseHidden;
+- (void) hideCameraUse:(bool)hidden;
 
 @end

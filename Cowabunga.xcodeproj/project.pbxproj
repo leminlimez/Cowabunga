@@ -38,11 +38,12 @@
 		6F369566298C870F0011ADB8 /* AltIconSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369565298C870F0011ADB8 /* AltIconSelectionView.swift */; };
 		6F369568298C874D0011ADB8 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369567298C874D0011ADB8 /* ThemeView.swift */; };
 		6F429676298DE8D700A96108 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F429675298DE8D700A96108 /* StatusBarView.swift */; };
-		6F429683298DE9A800A96108 /* StatusSetter16_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F42967A298DE9A800A96108 /* StatusSetter16_1.m */; };
-		6F429684298DE9A800A96108 /* StatusSetter14.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F42967B298DE9A800A96108 /* StatusSetter14.m */; };
-		6F429685298DE9A800A96108 /* StatusSetter16.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F429680298DE9A800A96108 /* StatusSetter16.m */; };
-		6F429686298DE9A800A96108 /* StatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F429681298DE9A800A96108 /* StatusManager.m */; };
-		6F429687298DE9A800A96108 /* StatusSetter15.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F429682298DE9A800A96108 /* StatusSetter15.m */; };
+		6F4296AB2991E8E400A96108 /* StatusSetter16_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296A02991E8E400A96108 /* StatusSetter16_1.m */; };
+		6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296A52991E8E400A96108 /* StatusManager.m */; };
+		6F4296AD2991E8E400A96108 /* StatusSetter14.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296A82991E8E400A96108 /* StatusSetter14.m */; };
+		6F4296AE2991E8E400A96108 /* StatusSetter16.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296A92991E8E400A96108 /* StatusSetter16.m */; };
+		6F4296AF2991E8E400A96108 /* StatusSetter15.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296AA2991E8E400A96108 /* StatusSetter15.m */; };
+		6F4296B12991E92B00A96108 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4296B02991E92B00A96108 /* SettingsView.swift */; };
 		6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E72975EF6000DE3146 /* AudioConverter.swift */; };
 		6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38E9297603F700DE3146 /* RegionEncodes.swift */; };
 		6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D38EB2976DEDA00DE3146 /* HomeView.swift */; };
@@ -118,23 +119,24 @@
 		6F429673298DE83000A96108 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-br.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6F429674298DE83000A96108 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-br.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6F429675298DE8D700A96108 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
-		6F429678298DE9A800A96108 /* StatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusManager.h; sourceTree = "<group>"; };
-		6F429679298DE9A800A96108 /* StatusSetter16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter16.h; sourceTree = "<group>"; };
-		6F42967A298DE9A800A96108 /* StatusSetter16_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter16_1.m; sourceTree = "<group>"; };
-		6F42967B298DE9A800A96108 /* StatusSetter14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter14.m; sourceTree = "<group>"; };
-		6F42967C298DE9A800A96108 /* StatusSetter15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter15.h; sourceTree = "<group>"; };
-		6F42967D298DE9A800A96108 /* StatusSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter.h; sourceTree = "<group>"; };
-		6F42967E298DE9A800A96108 /* StatusSetter16_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter16_1.h; sourceTree = "<group>"; };
-		6F42967F298DE9A800A96108 /* StatusSetter14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter14.h; sourceTree = "<group>"; };
-		6F429680298DE9A800A96108 /* StatusSetter16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter16.m; sourceTree = "<group>"; };
-		6F429681298DE9A800A96108 /* StatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusManager.m; sourceTree = "<group>"; };
-		6F429682298DE9A800A96108 /* StatusSetter15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter15.m; sourceTree = "<group>"; };
 		6F42968829907C4800A96108 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-cn.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6F42968929907C4800A96108 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-cn.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6F42968C29907DA800A96108 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F42968D29907DA800A96108 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F42968E29907E6700A96108 /* tr-TR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "tr-TR"; path = "tr-tr.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6F42968F29907E6700A96108 /* tr-TR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "tr-TR"; path = "tr-tr.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6F4296A02991E8E400A96108 /* StatusSetter16_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter16_1.m; sourceTree = "<group>"; };
+		6F4296A12991E8E400A96108 /* StatusSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter.h; sourceTree = "<group>"; };
+		6F4296A22991E8E400A96108 /* StatusSetter14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter14.h; sourceTree = "<group>"; };
+		6F4296A32991E8E400A96108 /* StatusSetter16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter16.h; sourceTree = "<group>"; };
+		6F4296A42991E8E400A96108 /* StatusSetter15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter15.h; sourceTree = "<group>"; };
+		6F4296A52991E8E400A96108 /* StatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusManager.m; sourceTree = "<group>"; };
+		6F4296A62991E8E400A96108 /* StatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusManager.h; sourceTree = "<group>"; };
+		6F4296A72991E8E400A96108 /* StatusSetter16_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter16_1.h; sourceTree = "<group>"; };
+		6F4296A82991E8E400A96108 /* StatusSetter14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter14.m; sourceTree = "<group>"; };
+		6F4296A92991E8E400A96108 /* StatusSetter16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter16.m; sourceTree = "<group>"; };
+		6F4296AA2991E8E400A96108 /* StatusSetter15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter15.m; sourceTree = "<group>"; };
+		6F4296B02991E92B00A96108 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6F6D38E72975EF6000DE3146 /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		6F6D38E9297603F700DE3146 /* RegionEncodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEncodes.swift; sourceTree = "<group>"; };
 		6F6D38EB2976DEDA00DE3146 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -354,17 +356,18 @@
 		6F429677298DE9A800A96108 /* StatusManager */ = {
 			isa = PBXGroup;
 			children = (
-				6F429678298DE9A800A96108 /* StatusManager.h */,
-				6F429679298DE9A800A96108 /* StatusSetter16.h */,
-				6F42967A298DE9A800A96108 /* StatusSetter16_1.m */,
-				6F42967B298DE9A800A96108 /* StatusSetter14.m */,
-				6F42967C298DE9A800A96108 /* StatusSetter15.h */,
-				6F42967D298DE9A800A96108 /* StatusSetter.h */,
-				6F42967E298DE9A800A96108 /* StatusSetter16_1.h */,
-				6F42967F298DE9A800A96108 /* StatusSetter14.h */,
-				6F429680298DE9A800A96108 /* StatusSetter16.m */,
-				6F429681298DE9A800A96108 /* StatusManager.m */,
-				6F429682298DE9A800A96108 /* StatusSetter15.m */,
+				6F4296A62991E8E400A96108 /* StatusManager.h */,
+				6F4296A52991E8E400A96108 /* StatusManager.m */,
+				6F4296A12991E8E400A96108 /* StatusSetter.h */,
+				6F4296A22991E8E400A96108 /* StatusSetter14.h */,
+				6F4296A82991E8E400A96108 /* StatusSetter14.m */,
+				6F4296A42991E8E400A96108 /* StatusSetter15.h */,
+				6F4296AA2991E8E400A96108 /* StatusSetter15.m */,
+				6F4296A72991E8E400A96108 /* StatusSetter16_1.h */,
+				6F4296A02991E8E400A96108 /* StatusSetter16_1.m */,
+				6F4296A32991E8E400A96108 /* StatusSetter16.h */,
+				6F4296A92991E8E400A96108 /* StatusSetter16.m */,
+				6F4296B02991E92B00A96108 /* SettingsView.swift */,
 			);
 			path = StatusManager;
 			sourceTree = "<group>";
@@ -616,7 +619,6 @@
 				6FF21AF5298821290054EBC0 /* BadgeChanger.swift in Sources */,
 				2183C9992987D8EA00AE187C /* MachineName.swift in Sources */,
 				21CD1062298C8540007EE649 /* CatalogThemeManager.swift in Sources */,
-				6F429685298DE9A800A96108 /* StatusSetter16.m in Sources */,
 				2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */,
 				6F429676298DE8D700A96108 /* StatusBarView.swift in Sources */,
 				6F369566298C870F0011ADB8 /* AltIconSelectionView.swift in Sources */,
@@ -637,35 +639,37 @@
 				6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
+				6F4296B12991E92B00A96108 /* SettingsView.swift in Sources */,
 				6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
 				2183C9952987D8C800AE187C /* Alert++.swift in Sources */,
+				6F4296AD2991E8E400A96108 /* StatusSetter14.m in Sources */,
 				6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */,
 				2183C99B2987D8FA00AE187C /* Extensions.swift in Sources */,
 				21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */,
+				6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */,
 				6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */,
 				2183C9972987D8D800AE187C /* Color++.swift in Sources */,
 				6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */,
 				6FF21AFD298827190054EBC0 /* CardView.swift in Sources */,
 				6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */,
-				6F429686298DE9A800A96108 /* StatusManager.m in Sources */,
 				6F369562298C86D80011ADB8 /* ThemesView.swift in Sources */,
 				6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */,
 				6FF21ADB298458910054EBC0 /* PasscodeKeyFaceManager.swift in Sources */,
 				6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */,
 				6F160E732965B2810026D69D /* ToolsManager.swift in Sources */,
-				6F429687298DE9A800A96108 /* StatusSetter15.m in Sources */,
+				6F4296AF2991E8E400A96108 /* StatusSetter15.m in Sources */,
 				6FF21AC829840DC40054EBC0 /* LockView.swift in Sources */,
 				21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */,
-				6F429684298DE9A800A96108 /* StatusSetter14.m in Sources */,
 				21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */,
 				6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */,
 				6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */,
 				6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */,
+				6F4296AE2991E8E400A96108 /* StatusSetter16.m in Sources */,
 				6F7C01D52968E0C500BC427A /* RootView.swift in Sources */,
 				216D5FB6298C5C0700910C67 /* LocString.swift in Sources */,
 				6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */,
-				6F429683298DE9A800A96108 /* StatusSetter16_1.m in Sources */,
+				6F4296AB2991E8E400A96108 /* StatusSetter16_1.m in Sources */,
 				6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */,
 				6FF21AD8298458690054EBC0 /* PasscodeEditorView.swift in Sources */,
 			);

@@ -25,13 +25,13 @@ typedef NS_ENUM(int, StatusBarItem) {
   // 20
   LocationStatusBarItem = 21,
   RotationLockStatusBarItem = 22,
-  // 23
+  CameraUseStatusBarItem = 23,
   AirPlayStatusBarItem = 24,
   AssistantStatusBarItem = 25,
   CarPlayStatusBarItem = 26,
   StudentStatusBarItem = 27,
-  VPNStatusBarItem = 28,
-  // 29
+  MicrophoneUseStatusBarItem = 28,
+  VPNStatusBarItem = 29,
   // 30
   // 31
   // 32
@@ -206,13 +206,18 @@ typedef struct {
 - (void) setCarrier:(NSString*)text {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideServiceString = 1;
+    overrides->overrideSecondaryServiceString = 1;
     strcpy(overrides->values.serviceString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    strcpy(overrides->values.serviceCrossfadeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    strcpy(overrides->values.secondaryServiceString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    strcpy(overrides->values.secondaryServiceCrossfadeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
     [self applyChanges:overrides];
 }
 
 - (void) unsetCarrier {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideServiceString = 0;
+    overrides->overrideSecondaryServiceString = 0;
     [self applyChanges:overrides];
 }
 
@@ -491,6 +496,40 @@ typedef struct {
         overrides->values.itemIsEnabled[VPNStatusBarItem] = 0;
     } else {
         overrides->overrideItemIsEnabled[VPNStatusBarItem] = 0;
+    }
+    
+    [self applyChanges:overrides];
+}
+
+- (bool) isMicrophoneUseHidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[MicrophoneUseStatusBarItem] == 1;
+}
+
+- (void) hideMicrophoneUse:(bool)hidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    if (hidden) {
+        overrides->overrideItemIsEnabled[MicrophoneUseStatusBarItem] = 1;
+        overrides->values.itemIsEnabled[MicrophoneUseStatusBarItem] = 0;
+    } else {
+        overrides->overrideItemIsEnabled[MicrophoneUseStatusBarItem] = 0;
+    }
+    
+    [self applyChanges:overrides];
+}
+
+- (bool) isCameraUseHidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[CameraUseStatusBarItem] == 1;
+}
+
+- (void) hideCameraUse:(bool)hidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    if (hidden) {
+        overrides->overrideItemIsEnabled[CameraUseStatusBarItem] = 1;
+        overrides->values.itemIsEnabled[CameraUseStatusBarItem] = 0;
+    } else {
+        overrides->overrideItemIsEnabled[CameraUseStatusBarItem] = 0;
     }
     
     [self applyChanges:overrides];
