@@ -130,12 +130,14 @@ struct HomeView: View {
                         }.onChange(of: runInBackground) { new in
                             // set the user defaults
                             UserDefaults.standard.set(new, forKey: "BackgroundApply")
+                            var newWord: String = "Enabled"
                             if new == false {
+                                newWord = "Disabled"
                                 ApplicationMonitor.shared.stop()
                             }
-                            Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false) { _ in
+                            UIApplication.shared.confirmAlert(title: "Background Applying \(newWord)", body: "The app needs to restart to apply the change.", onOK: {
                                 exit(0)
-                            }
+                            }, noCancel: true)
                             //BackgroundFileUpdaterController.shared.enabled = new
                         }
                     }
