@@ -130,6 +130,18 @@ struct ThemesExploreView: View {
                         }
                         .padding()
                     }
+                    .refreshable {
+                        // refresh
+                        themes.removeAll()
+                        URLCache.imageCache.removeAllCachedResponses()
+                        Task {
+                            do {
+                                themes = try await cowabungaAPI.fetchPasscodeThemes()
+                            } catch {
+                                UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
+                            }
+                        }
+                    }
                     .navigationTitle("Explore")
                 }
                 .toolbar {
