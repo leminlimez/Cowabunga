@@ -10,6 +10,10 @@ import SwiftUI
 struct EditingOperationView: View {
     var operation: AdvancedObject
     
+    @State var operationName: String = ""
+    @State var filePath: String = ""
+    @State var applyInBackground: Bool = false
+    
     var body: some View {
         VStack {
             List {
@@ -19,12 +23,7 @@ struct EditingOperationView: View {
                         Text("Name:")
                             .bold()
                         Spacer()
-                        Button(action: {
-                            
-                        }) {
-                            Text(operation.operationName)
-                                .foregroundColor(.blue)
-                        }
+                        TextField("Operation Name", text: $operationName)
                     }
                     
                     // MARK: Operation Type
@@ -51,8 +50,41 @@ struct EditingOperationView: View {
                 } header: {
                     Text("Basic Configuration")
                 }
+                
+                Section {
+                    // MARK: File Path
+                    HStack {
+                        Text("Path:")
+                            .bold()
+                        Spacer()
+                        TextField("File Path", text: $filePath)
+                    }
+                    
+                    // MARK: Applying in Background
+                    HStack {
+                        Text("Apply in Background")
+                            .bold()
+                        Spacer()
+                        Toggle(isOn: $applyInBackground) {}
+                    }
+                } header: {
+                    Text("Action")
+                }
+                
+                Section {
+                    // MARK: Save
+                    // button
+                    
+                    // MARK: Delete
+                    // button
+                }
             }
             .navigationTitle("Edit Operation")
+            .onAppear {
+                operationName = operation.operationName
+                filePath = operation.filePath
+                applyInBackground = operation.applyInBackground
+            }
         }
     }
 }
