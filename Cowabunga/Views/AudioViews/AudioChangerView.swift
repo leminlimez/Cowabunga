@@ -161,7 +161,7 @@ struct AudioChangerView: View {
                                 try FileManager.default.removeItem(at: url)
                                 customAudio.remove(at: i)
                             } catch {
-                                UIApplication.shared.alert(body: "Unable to delete audio for audio \"" + customAudio[i].displayName + "\"!")
+                                UIApplication.shared.alert(body: NSLocalizedString("Unable to delete audio for audio", comment: "Cannot delete audio (audio name is after)") + " \"" + customAudio[i].displayName + "\"!")
                             }
                         }
                     }
@@ -170,7 +170,7 @@ struct AudioChangerView: View {
                 }
             }
         }
-        .navigationTitle(SoundIdentifier.rawValue)
+        .navigationTitle(NSLocalizedString(SoundIdentifier.rawValue, comment: "Name of audio being changed"))
         .toolbar {
             Button(action: {
                 // import a custom audio
@@ -221,11 +221,11 @@ struct AudioChangerView: View {
             allowsMultipleSelection: false
         ) { result in
             // user chose a file
-            guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
+            guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
             guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
             
             // ask for a name for the sound
-            let alert = UIAlertController(title: "Enter Name", message: "Choose a name for the sound", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Enter Name", comment: ""), message: NSLocalizedString("Choose a name for the sound", comment: "Entering name for audio"), preferredStyle: .alert)
             
             // bring up the text prompts
             alert.addTextField { (textField) in
@@ -233,7 +233,7 @@ struct AudioChangerView: View {
                 textField.placeholder = "Name"
                 textField.text = url.deletingPathExtension().lastPathComponent
             }
-            alert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
                 // set the name and add the file
                 if alert.textFields?[0].text != nil {
                     // check if it is a valid name
@@ -247,7 +247,7 @@ struct AudioChangerView: View {
                     customaudio(fileURL: url) { audioData in
                         if audioData != nil {
                             // success
-                            UIApplication.shared.alert(title: "Successfully saved audio", body: "The imported audio was successfully encoded and saved.")
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The imported audio was successfully encoded and saved.", comment: "Saving imported audio"))
                             // add to the list
                             customAudio.append(CustomAudioName.init(audioName: "USR_" + fileName, displayName: fileName, checked: false))
                             url.stopAccessingSecurityScopedResource()
@@ -257,7 +257,7 @@ struct AudioChangerView: View {
                     }
                 }
             })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                 // cancel the process
                 url.stopAccessingSecurityScopedResource()
             })

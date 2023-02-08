@@ -70,20 +70,20 @@ struct PasscodeEditorView: View {
                                 if #available(iOS 15, *) {
                                     // ask whether they are importing from file or saved
                                     // create and configure alert controller
-                                    let alert = UIAlertController(title: "Import Passcode Theme", message: "From where do you want to import from?", preferredStyle: .actionSheet)
+                                    let alert = UIAlertController(title: NSLocalizedString("Import Passcode Theme", comment: "Header for importing passcode theme"), message: NSLocalizedString("From where do you want to import from?", comment: "Where to import passcode theme from"), preferredStyle: .actionSheet)
                                     
                                     // create the actions
-                                    let filesAction = UIAlertAction(title: "Files", style: .default) { (action) in
+                                    let filesAction = UIAlertAction(title: NSLocalizedString("Files", comment: "Import passcode theme from files"), style: .default) { (action) in
                                         // open file importer
                                         isImporting = true
                                     }
                                     
-                                    let savedAction = UIAlertAction(title: "Saved", style: .default) { (action) in
+                                    let savedAction = UIAlertAction(title: NSLocalizedString("Saved", comment: "Import passcode theme from saved"), style: .default) { (action) in
                                         // import from saved passcode files
                                         showingSaved = true
                                     }
                                     
-                                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                    let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                         // cancels the action
                                     }
                                     
@@ -123,7 +123,7 @@ struct PasscodeEditorView: View {
                                     avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
                                     UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
                                 } catch {
-                                    UIApplication.shared.alert(body: "An error occured while exporting key face.")
+                                    UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
                                 }
                             }) {
                                 Image(systemName: "square.and.arrow.up")
@@ -172,23 +172,23 @@ struct PasscodeEditorView: View {
                                 try PasscodeKeyFaceManager.reset()
                                 respring()
                             } catch {
-                                UIApplication.shared.alert(body:"An error occured. \(error)")
+                                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
                             }
                         }
                         Spacer()
                         Button("Choose size") {
                             // create and configure alert controller
-                            let alert = UIAlertController(title: "Choose a size", message: "", preferredStyle: .actionSheet)
+                            let alert = UIAlertController(title: NSLocalizedString("Choose a size", comment: "Choose a size for passcode keys"), message: "", preferredStyle: .actionSheet)
                             
                             // create the actions
-                            let defaultAction = UIAlertAction(title: "Default", style: .default) { (action) in
+                            let defaultAction = UIAlertAction(title: NSLocalizedString("Default", comment: "Default passcode size"), style: .default) { (action) in
                                 // set the size back to default
                                 currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
                                 
                                 askToUpdate()
                             }
                             
-                            let smallAction = UIAlertAction(title: "Small", style: .default) { (action) in
+                            let smallAction = UIAlertAction(title: NSLocalizedString("Small", comment: "Small passcode keys"), style: .default) { (action) in
                                 // set the size to small
                                 customSize[0] = String(KeySize.small.rawValue)
                                 customSize[1] = String(KeySize.small.rawValue)
@@ -197,7 +197,7 @@ struct PasscodeEditorView: View {
                                 askToUpdate()
                             }
                             
-                            let bigAction = UIAlertAction(title: "Big", style: .default) { (action) in
+                            let bigAction = UIAlertAction(title: NSLocalizedString("Big", comment: "Big passcode keys"), style: .default) { (action) in
                                 // set the size to big
                                 customSize[0] = String(KeySize.big.rawValue)
                                 customSize[1] = String(KeySize.big.rawValue)
@@ -206,19 +206,19 @@ struct PasscodeEditorView: View {
                                 askToUpdate()
                             }
                             
-                            let customAction = UIAlertAction(title: "Custom", style: .default) { (action) in
+                            let customAction = UIAlertAction(title: NSLocalizedString("Custom", comment: "Custom size for passcode keys"), style: .default) { (action) in
                                 // ask the user for a custom size
-                                let sizeAlert = UIAlertController(title: "Enter Key Dimensions", message: "Min: "+String(sizeLimit[0])+", Max: "+String(sizeLimit[1]), preferredStyle: .alert)
+                                let sizeAlert = UIAlertController(title: NSLocalizedString("Enter Key Dimensions", comment: "dimensions for passcode keys"), message: NSLocalizedString("Min:", comment: "Minimum passcode key size") + "\(sizeLimit[0]), " + NSLocalizedString("Max:", comment: "Maximum passcode key size") + " \(sizeLimit[1])", preferredStyle: .alert)
                                 // bring up the text prompts
                                 sizeAlert.addTextField { (textField) in
                                     // text field for width
-                                    textField.placeholder = "Width"
+                                    textField.placeholder = NSLocalizedString("Width", comment: "Width of passcode keys")
                                 }
                                 sizeAlert.addTextField { (textField) in
                                     // text field for height
-                                    textField.placeholder = "Height"
+                                    textField.placeholder = NSLocalizedString("Height", comment: "Height of passcode keys")
                                 }
-                                sizeAlert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+                                sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
                                     // set the sizes
                                     // check if they entered something and if it is in bounds
                                     let width: Int = Int(sizeAlert.textFields?[0].text! ?? "-1") ?? -1
@@ -232,10 +232,10 @@ struct PasscodeEditorView: View {
                                         askToUpdate()
                                     } else {
                                         // alert that it was not a valid size
-                                        UIApplication.shared.alert(body:"Not a valid size!")
+                                        UIApplication.shared.alert(body: NSLocalizedString("Not a valid size!", comment: "Not a valid size input for passcode keys"))
                                     }
                                 })
-                                sizeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                     // cancel the process
                                 })
                                 UIApplication.shared.windows.first?.rootViewController?.present(sizeAlert, animated: true, completion: nil)
@@ -252,7 +252,7 @@ struct PasscodeEditorView: View {
                                 customAction.setValue(true, forKey: "checked")
                             }
                             
-                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                 // cancels the action
                             }
                             
@@ -277,7 +277,7 @@ struct PasscodeEditorView: View {
                                 try PasscodeKeyFaceManager.removeAllFaces()
                                 faces = try PasscodeKeyFaceManager.getFaces()
                             } catch {
-                                UIApplication.shared.alert(body:"An error occured. \(error)")
+                                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
                             }
                         }
                     }
@@ -295,7 +295,7 @@ struct PasscodeEditorView: View {
                       allowsMultipleSelection: false
         ) { result in
             verifySize()
-            guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
+            guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
             do {
                 // try appying the themes
                 try PasscodeKeyFaceManager.setFacesFromTheme(url, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
@@ -315,7 +315,7 @@ struct PasscodeEditorView: View {
                     changedFaces = faces
                 }
             } catch {
-                UIApplication.shared.alert(body: "An error occured. \(error)")
+                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
             }
         }
         .sheet(isPresented: $showingImagePicker) {
@@ -332,7 +332,7 @@ struct PasscodeEditorView: View {
                     try PasscodeKeyFaceManager.setFace(newValue, for: changingFaceN, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
                     faces[changingFaceN] = try PasscodeKeyFaceManager.getFace(for: changingFaceN)
                 } catch {
-                    UIApplication.shared.alert(body: "An error occured while changing key face. \(error)")
+                    UIApplication.shared.alert(body: NSLocalizedString("An error occured while changing key face.", comment: "") + " \(error)")
                 }
             }
         }
@@ -347,19 +347,19 @@ struct PasscodeEditorView: View {
     }
     
     func askToUpdate() {
-        let updateAlert = UIAlertController(title: "Apply for all?", message: "Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces.", preferredStyle: .alert)
+        let updateAlert = UIAlertController(title: NSLocalizedString("Apply for all?", comment: "Header for apply passcode key size for all"), message: NSLocalizedString("Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces.", comment: "Message for apply passcode key size for all"), preferredStyle: .alert)
         
-        updateAlert.addAction(UIAlertAction(title: "Yes", style: .default) { (action) in
+        updateAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Confirm apply for all (passcode keys)"), style: .default) { (action) in
             // apply to all
             do {
                 try PasscodeKeyFaceManager.setFacesFromTheme(try PasscodeKeyFaceManager.telephonyUIURL(), keySize: CGFloat(-1), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
                 faces = try PasscodeKeyFaceManager.getFaces()
             } catch {
-                UIApplication.shared.alert(body:"An error occured when applying face sizes. \(error)")
+                UIApplication.shared.alert(body: NSLocalizedString("An error occured when applying face sizes.", comment: "") + " \(error)")
             }
         })
         
-        updateAlert.addAction(UIAlertAction(title: "No", style: .cancel) { (action) in
+        updateAlert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Decline apply for all (passcode keys)"), style: .cancel) { (action) in
             // don't apply
         })
         UIApplication.shared.windows.first?.rootViewController?.present(updateAlert, animated: true, completion: nil)

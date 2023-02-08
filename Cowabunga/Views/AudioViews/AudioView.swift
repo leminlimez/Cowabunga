@@ -25,31 +25,31 @@ struct AudioView: View {
     
     @State var audioCategories: [Category] = [
         .init(title: "Device", options: [
-            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.charging, title: "Charging", imageName: "bolt.fill"),
-            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.lock, title: "Lock", imageName: "lock"),
-            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.lowPower, title: "Low Power", imageName: "battery.25"),
-            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.notification, title: "Default Notifications", imageName: "iphone.radiowaves.left.and.right")
+            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.charging, title: NSLocalizedString("Charging", comment: "Audio name"), imageName: "bolt.fill"),
+            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.lock, title: NSLocalizedString("Lock", comment: "Audio name"), imageName: "lock"),
+            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.lowPower, title: NSLocalizedString("Low Power", comment: "Audio name"), imageName: "battery.25"),
+            .init(category: SoundCategory.device, key: AudioFiles.SoundEffect.notification, title: NSLocalizedString("Default Notifications", comment: "Audio name"), imageName: "iphone.radiowaves.left.and.right")
         ]),
         .init(title: "Camera", options: [
-            .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.screenshot, title: "Screenshot", imageName: "photo"),
-            .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.beginRecording, title: "Begin Recording", imageName: "record.circle"),
-            .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.endRecording, title: "End Recording", imageName: "stop")
+            .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.screenshot, title: NSLocalizedString("Screenshot", comment: "Audio name"), imageName: "photo"),
+            .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.beginRecording, title: NSLocalizedString("Begin Recording", comment: "Audio name"), imageName: "record.circle"),
+            .init(category: SoundCategory.camera, key: AudioFiles.SoundEffect.endRecording, title: NSLocalizedString("End Recording", comment: "Audio name"), imageName: "stop")
         ]),
         .init(title: "Messages", options: [
-            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.sentMessage, title: "Sent Message", imageName: "bubble.right.fill"),
-            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.receivedMessage, title: "Received Message", imageName: "bubble.left"),
-            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.sentMail, title: "Sent Mail", imageName: "envelope"),
-            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.newMail, title: "New Mail", imageName: "envelope.badge")
+            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.sentMessage, title: NSLocalizedString("Sent Message", comment: "Audio name"), imageName: "bubble.right.fill"),
+            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.receivedMessage, title: NSLocalizedString("Received Message", comment: "Audio name"), imageName: "bubble.left"),
+            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.sentMail, title: NSLocalizedString("Sent Mail", comment: "Audio name"), imageName: "envelope"),
+            .init(category: SoundCategory.messages, key: AudioFiles.SoundEffect.newMail, title: NSLocalizedString("New Mail", comment: "Audio name"), imageName: "envelope.badge")
         ]),
         .init(title: "Payment", options: [
-            .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentSuccess, title: "Payment Success", imageName: "creditcard"),
-            .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentFailed, title: "Payment Failed", imageName: "creditcard.trianglebadge.exclamationmark"),
-            .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: "Payment Received", imageName: "square.and.arrow.down.on.square")
+            .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentSuccess, title: NSLocalizedString("Payment Success", comment: "Audio name"), imageName: "creditcard"),
+            .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentFailed, title: NSLocalizedString("Payment Failed", comment: "Audio name"), imageName: "creditcard.trianglebadge.exclamationmark"),
+            .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: NSLocalizedString("Payment Received", comment: "Audio name"), imageName: "square.and.arrow.down.on.square")
         ]),
         .init(title: "Keyboard", options: [
-            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: "Keyboard Press Normal", imageName: "square"),
-            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: "Keyboard Press Delete", imageName: "delete.left"),
-            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: "Keyboard Press Clear", imageName: "keyboard.badge.ellipsis")
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: NSLocalizedString("Keyboard Press Normal", comment: "Audio name"), imageName: "square"),
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: NSLocalizedString("Keyboard Press Delete", comment: "Audio name"), imageName: "delete.left"),
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: NSLocalizedString("Ketboard Press Clear", comment: "Audio name"), imageName: "keyboard.badge.ellipsis")
         ])
     ]
     
@@ -76,7 +76,7 @@ struct AudioView: View {
                                 }
                             }
                         } header: {
-                            Text(cat.title.wrappedValue)
+                            Text(NSLocalizedString(cat.title.wrappedValue, comment: "Header of audio"))
                         }
                     }
                     
@@ -84,9 +84,9 @@ struct AudioView: View {
                         // apply the audio
                         let succeeded = AudioFiles.applyAllAudio()
                         if !succeeded {
-                            UIApplication.shared.alert(body: "Failed to apply audio for: " + AudioFiles.applyFailedMessage + ".")
+                            UIApplication.shared.alert(body: NSLocalizedString("Failed to apply audio for:", comment: "Failed to apply audio") + " " + AudioFiles.applyFailedMessage + ".")
                         } else {
-                            UIApplication.shared.alert(title: "Successfully applied audio!", body: "Please respring to hear changes.")
+                            UIApplication.shared.alert(title: NSLocalizedString("Successfully applied audio!", comment: "applying audio succeeded"), body: NSLocalizedString("Please respring to hear changes.", comment: "respring to hear audio changes"))
                         }
                     }) {
                         Text("Apply")
