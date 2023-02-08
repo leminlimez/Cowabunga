@@ -58,7 +58,8 @@ struct ToolsView: View {
         .init(title: "Other", options: [
             .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
-            .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer")
+            .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer"),
+            //.init(key: "AdvancedView", view: AnyView(AdvancedView()), title: "Custom Operations", imageName: "pencil.and.outline")
         ])
     ]
     @State var iOS16: Bool = false
