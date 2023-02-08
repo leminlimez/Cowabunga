@@ -49,11 +49,7 @@ class LockManager {
     ]
     
     static func getLockType() -> String {
-        let model: String = UIDevice().machineName
-        if deviceLockPath[model] != nil {
-            return deviceLockPath[model]!
-        }
-        return ""
+        return UserDefaults.standard.string(forKey: "LockPrefs") ?? globalLockPaths[0]
     }
     
     static func applyLock(lockName: String, lockType: String) -> Bool {
