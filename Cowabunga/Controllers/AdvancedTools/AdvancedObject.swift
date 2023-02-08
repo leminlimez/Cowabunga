@@ -7,6 +7,18 @@
 
 import Foundation
 
+class AdvancedCategory: Identifiable {
+    var id = UUID()
+    
+    var categoryName: String
+    var categoryOperations: [AdvancedObject]
+    
+    init(categoryName: String, categoryOperations: [AdvancedObject]) {
+        self.categoryName = categoryName
+        self.categoryOperations = categoryOperations
+    }
+}
+
 class AdvancedObject: Identifiable {
     var id = UUID()
     
