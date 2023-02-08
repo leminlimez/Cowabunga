@@ -194,8 +194,7 @@ struct HomeView: View {
                 }
                 
                 Section {
-                    LinkCell(imageName: "", url: "", title: "Yan.#0001", contribution: "French")
-                    LinkCell(imageName: "", url: "", title: "sourcelocation", contribution: "Russian")
+                    LinkCell(imageName: "", url: "", title: "Yan.#0001 & c22dev", contribution: "French")
                     LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "Polish")
                     LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "German")
                     LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "Portuguese")
