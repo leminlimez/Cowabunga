@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AdvancedView: View {
     @State private var operations: [AdvancedObject] = [
-        CorruptingObject.init(operationName: "Test Operation", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: false)
+        CorruptingObject.init(operationName: "Test Operation", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: false),
+        ReplacingObject(operationName: "Replace Egg", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: true, overwriteData: Data("#".utf8))
     ]
     
     // lazyvgrid
@@ -22,7 +23,7 @@ struct AdvancedView: View {
                     ForEach(operations) { operation in
                         ZStack {
                             Rectangle()
-                                .foregroundColor(.gray.opacity(0.4))
+                                .foregroundColor(.gray.opacity(0.3))
                                 .cornerRadius(10)
                             
                             VStack {
@@ -54,6 +55,11 @@ struct AdvancedView: View {
                                     Spacer()
                                     if operation is CorruptingObject {
                                         Text("Corrupting")
+                                            .padding(.bottom, 5)
+                                            .padding(.trailing, 10)
+                                            .font(.system(size: 14, weight: .bold))
+                                    } else if operation is ReplacingObject {
+                                        Text("Replacing")
                                             .padding(.bottom, 5)
                                             .padding(.trailing, 10)
                                             .font(.system(size: 14, weight: .bold))
@@ -101,7 +107,7 @@ struct AdvancedView: View {
                             }
                             .padding(10)
                         }
-                        .padding(12)
+                        .padding(.horizontal, 12)
                     }
                 }
             }
