@@ -78,14 +78,14 @@ struct HomeView: View {
                         
                         Button(lockPrefs, action: {
                             // create and configure alert controller
-                            let alert = UIAlertController(title: "Choose a lock preference", message: "If the custom lock does not apply for you, try another option.", preferredStyle: .actionSheet)
+                            let alert = UIAlertController(title: NSLocalizedString("Choose a lock preference", comment: "Title for lock preference"), message: NSLocalizedString("If the custom lock does not apply for you, try another option.", comment: "Description for lock preference"), preferredStyle: .actionSheet)
                             let devModel = UIDevice().machineName
                             
                             // create the actions
                             for (_, title) in LockManager.globalLockPaths.enumerated() {
                                 var rec: String = ""
                                 if LockManager.deviceLockPath[devModel] != nil && LockManager.deviceLockPath[devModel]! == title {
-                                    rec = " (Recommended)"
+                                    rec = " " + NSLocalizedString("(Recommended)", comment: "Recommended lock type")
                                 }
                                 
                                 let newAction = UIAlertAction(title: title+rec, style: .default) { (action) in
@@ -129,11 +129,11 @@ struct HomeView: View {
                         
                         Button(bgUpdateIntervalDisplayTitles[bgUpdateInterval] ?? "Error", action: {
                             // create and configure alert controller
-                            let alert = UIAlertController(title: "Choose an update option", message: "", preferredStyle: .actionSheet)
+                            let alert = UIAlertController(title: NSLocalizedString("Choose an update option", comment: "Title for choosing background update interval"), message: "", preferredStyle: .actionSheet)
                             
                             // create the actions
                             for (t, title) in bgUpdateIntervalDisplayTitles {
-                                let newAction = UIAlertAction(title: title, style: .default) { (action) in
+                                let newAction = UIAlertAction(title: NSLocalizedString(title, comment: "The option title for background frequency"), style: .default) { (action) in
                                     // apply the type
                                     bgUpdateInterval = t
                                     // set the default
@@ -232,15 +232,15 @@ struct HomeView: View {
                 
                 Section {
                     // app credits
-                    LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: "Main Developer", circle: true)
-                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "SourceLocation", contribution: "Co-Developer", circle: true)
-                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: "Included Audio & Credits", circle: true)
-                    LinkCell(imageName: "zhuowei", url: "https://twitter.com/zhuowei/", title: "zhuowei", contribution: "Unsandboxing", circle: true)
+                    LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: NSLocalizedString("Main Developer", comment: "leminlimez's contribution"), circle: true)
+                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "SourceLocation", contribution: NSLocalizedString("Co-Developer", comment: "sourcelocation's contribution"), circle: true)
+                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: NSLocalizedString("Included Audio & Credits", comment: "c22dev's contribution"), circle: true)
+                    LinkCell(imageName: "zhuowei", url: "https://twitter.com/zhuowei/", title: "zhuowei", contribution: NSLocalizedString("Unsandboxing", comment: "zhuowei's contribution"), circle: true)
                     LinkCell(imageName: "haxi0", url: "https://github.com/haxi0", title: "haxi0", contribution: "TrollLock", circle: true)
-                    LinkCell(imageName: "ginsudev", url: "https://github.com/ginsudev/WDBFontOverwrite", title: "ginsudev", contribution: "Exploit Code", circle: true)
-                    LinkCell(imageName: "avangelista", url: "https://github.com/Avangelista", title: "Avangelista", contribution: "Status Bar Mods", circle: true)
-                    LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: "AirPower Audio", circle: true)
-                    LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: "Dynamic Island SubTypes", circle: true)
+                    LinkCell(imageName: "ginsudev", url: "https://github.com/ginsudev/WDBFontOverwrite", title: "ginsudev", contribution: NSLocalizedString("Exploit Code", comment: "ginsudev's contribution"), circle: true)
+                    LinkCell(imageName: "avangelista", url: "https://github.com/Avangelista", title: "Avangelista", contribution: "StatusMagic", circle: true)
+                    LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: NSLocalizedString("AirPower Audio", comment: "BomberFish's contribution"), circle: true)
+                    LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: NSLocalizedString("Dynamic Island SubTypes", comment: "matteozappia's contribution"), circle: true)
                 } header: {
                     Text("Credits")
                 }

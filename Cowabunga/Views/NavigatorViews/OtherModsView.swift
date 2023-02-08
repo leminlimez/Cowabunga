@@ -28,10 +28,10 @@ struct OtherModsView: View {
     
     // list of options
     @State var deviceSubTypes: [DeviceSubType] = [
-        .init(key: getOriginalDeviceSubType(), title: "Default", iOS16Only: false),
-        .init(key: 2436, title: "iPhone X Gestures", iOS16Only: false),
-        .init(key: 2556, title: "Dynamic Island", iOS16Only: true),
-        .init(key: 2796, title: "Dynamic Island Pro Max", iOS16Only: true)
+        .init(key: getOriginalDeviceSubType(), title: NSLocalizedString("Default", comment: "default device subtype"), iOS16Only: false),
+        .init(key: 2436, title: NSLocalizedString("iPhone X Gestures", comment: "x gestures"), iOS16Only: false),
+        .init(key: 2556, title: NSLocalizedString("Dynamic Island", comment: "iPhone 14 Pro SubType"), iOS16Only: true),
+        .init(key: 2796, title: NSLocalizedString("Dynamic Island Pro Max", comment: "iPhone 14 Pro Max SubType"), iOS16Only: true)
     ]
     
     var body: some View {
@@ -78,9 +78,9 @@ struct OtherModsView: View {
                     Button("Enable", action: {
                         let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.modifyAppClips, true)
                         if succeeded {
-                            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to see changes.", comment: ""))
                         } else {
-                            UIApplication.shared.alert(body: "An error occurred while trying to enable appclip icons.")
+                            UIApplication.shared.alert(body: NSLocalizedString("An error occurred while trying to enable appclip icons.", comment: "Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore)"))
                         }
                     })
                     .foregroundColor(.blue)
@@ -103,9 +103,9 @@ struct OtherModsView: View {
                     Button("Disable", action: {
                         let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.modifyAppClips, false)
                         if succeeded {
-                            UIApplication.shared.alert(title: "Success!", body: "Please respring to see changes.")
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to see changes.", comment: ""))
                         } else {
-                            UIApplication.shared.alert(body: "An error occurred while trying to disable appclip cions.")
+                            UIApplication.shared.alert(body: NSLocalizedString("An error occurred while trying to disable appclip icons.", comment: "Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore)"))
                         }
                     })
                     .foregroundColor(.blue)
@@ -138,7 +138,7 @@ struct OtherModsView: View {
                                 UIApplication.shared.open(URL(string: "App-prefs:Photos")!)
                             }
                         } else {
-                            UIApplication.shared.alert(body: "An error occurred while trying to enable default settings.")
+                            UIApplication.shared.alert(body: NSLocalizedString("An error occurred while trying to enable extra settings.", comment: ""))
                         }
                     })
                     .foregroundColor(.blue)
@@ -194,7 +194,7 @@ struct OtherModsView: View {
                         Button(CurrentVersion, action: {
                             let defaults = UserDefaults.standard
                             // create and configure alert controller
-                            let alert = UIAlertController(title: "Input Software Version", message: "No respring required to apply.", preferredStyle: .alert)
+                            let alert = UIAlertController(title: NSLocalizedString("Input Software Version", comment: "Header for inputting custom iOS version"), message: NSLocalizedString("No respring required to apply.", comment: ""), preferredStyle: .alert)
                             // bring up the text prompt
                             alert.addTextField { (textField) in
                                 textField.placeholder = "Version"
@@ -203,7 +203,7 @@ struct OtherModsView: View {
                             }
                             
                             // buttons
-                            alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
                                 // set the version
                                 let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
                                 if newVersion != "" {
@@ -213,11 +213,11 @@ struct OtherModsView: View {
                                         // set the default
                                         defaults.set(newVersion, forKey: "ProductVersion")
                                     } else {
-                                        UIApplication.shared.alert(body: "Failed to apply system version change! The version must be shorter than your current device version.")
+                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply system version change! The version must be shorter than your current device version.", comment: ""))
                                     }
                                 }
                             })
-                            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                 // cancel the process
                             })
                             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
@@ -241,21 +241,21 @@ struct OtherModsView: View {
                         
                         Button("\(Int(deviceRes.0))x\(Int(deviceRes.1))", action: {
                             // ask the user for a custom size
-                            let sizeAlert = UIAlertController(title: "Enter Dimensions", message: "", preferredStyle: .alert)
+                            let sizeAlert = UIAlertController(title: NSLocalizedString("Enter Dimensions", comment: "Entering custom resolution"), message: "", preferredStyle: .alert)
                             // bring up the text prompts
                             sizeAlert.addTextField { (textField) in
                                 // text field for width
-                                textField.placeholder = "Width"
+                                textField.placeholder = NSLocalizedString("Width", comment: "Width of custom resolution")
                                 textField.text = String(Int(deviceRes.0))
                                 textField.keyboardType = .decimalPad
                             }
                             sizeAlert.addTextField { (textField) in
                                 // text field for height
-                                textField.placeholder = "Height"
+                                textField.placeholder = NSLocalizedString("Height", comment: "Height of custom resolution")
                                 textField.text = String(Int(deviceRes.1))
                                 textField.keyboardType = .decimalPad
                             }
-                            sizeAlert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+                            sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
                                 // set the sizes
                                 let first = sizeAlert.textFields![0].text
                                 if first != nil && Double(first!) != nil {
@@ -287,15 +287,15 @@ struct OtherModsView: View {
                                     try? FileManager.default.removeItem(at: aliasURL)
                                     try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
                                     
-                                    UIApplication.shared.confirmAlert(title: "Success!", body: "Please respring to finalize changes. Reboot to revert.", onOK: {
+                                    UIApplication.shared.confirmAlert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finalize changes. Reboot to revert.", comment: "Successfully applying custom resolution"), onOK: {
                                         respringBackboard()
                                     }, noCancel: true)
                                 } catch {
                                     print("An error occurred: \(error.localizedDescription)")
-                                    UIApplication.shared.alert(body: "Failed to apply resolution: \(error.localizedDescription)")
+                                    UIApplication.shared.alert(body: NSLocalizedString("Failed to apply resolution:", comment: "Failing to apply custom resolution") + " \(error.localizedDescription)")
                                 }
                             })
-                            sizeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                 // cancel the process
                             })
                             UIApplication.shared.windows.first?.rootViewController?.present(sizeAlert, animated: true, completion: nil)
@@ -431,7 +431,7 @@ struct OtherModsView: View {
                         
                         Button(CurrentSubTypeDisplay, action: {
                             // create and configure alert controller
-                            let alert = UIAlertController(title: "Choose a device subset", message: "Respring to see changes", preferredStyle: .actionSheet)
+                            let alert = UIAlertController(title: NSLocalizedString("Choose a device subtype", comment: ""), message: NSLocalizedString("Respring to see changes", comment: ""), preferredStyle: .actionSheet)
                             
                             var iOS16 = false
                             if #available(iOS 16, *) {
@@ -448,9 +448,9 @@ struct OtherModsView: View {
                                         if succeeded {
                                             CurrentSubType = type.key
                                             CurrentSubTypeDisplay = type.title
-                                            UIApplication.shared.alert(title: "Success!", body: "Please respring on the SpringBoard Tools page to finish applying changes.")
+                                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finish applying changes.", comment: ""))
                                         } else {
-                                            UIApplication.shared.alert(body: "Failed to apply DeviceSubType!")
+                                            UIApplication.shared.alert(body: NSLocalizedString("Failed to apply Device SubType!", comment: "failed to apply subtype"))
                                         }
                                     }
                                     if CurrentSubType == type.key {
@@ -461,9 +461,9 @@ struct OtherModsView: View {
                                 }
                             }
                             
-                            let resetAction = UIAlertAction(title: "Reset Default SubType", style: .destructive) { (action) in
+                            let resetAction = UIAlertAction(title: NSLocalizedString("Reset Default SubType", comment: ""), style: .destructive) { (action) in
                                 // resets the device subtype
-                                UIApplication.shared.confirmAlert(title: "Are you sure you want to reset the Default SubType?", body: "You should only reset the Default SubType if it is incorrect or stuck on another value.", onOK: {
+                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Are you sure you want to reset the Default SubType?", comment: ""), body: "You should only reset the Default SubType if it is incorrect or stuck on another value.", onOK: {
                                     // reset the subtypes
                                     let succeeded: Bool = resetDeviceSubType()
                                     if succeeded {

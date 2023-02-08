@@ -15,13 +15,13 @@ struct SpringBoardView: View {
     
     // list of options
     @State var tweakOptions: [GeneralOption] = [
-        .init(value: getDefaultBool(forKey: "DockHidden"), key: "DockHidden", title: "Hide Dock", imageName: "dock.rectangle", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "HomeBarHidden"), key: "HomeBarHidden", title: "Hide Home Bar", imageName: "iphone", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: "Disable Folder Background", imageName: "folder", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: "Disable Folder Blur", imageName: "folder.circle", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: "Disable App Switcher Blur", imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
-        .init(value: getDefaultBool(forKey: "CCModuleBackgroundDisabled"), key: "CCModuleBackgroundDisabled", title: " Disable CC Module Background ", imageName: "switch.2", fileType: OverwritingFileTypes.cc),
-        .init(value: getDefaultBool(forKey: "PodBackgroundDisabled"), key: "PodBackgroundDisabled", title: "Disable Library Pods Background", imageName: "square.stack", fileType: OverwritingFileTypes.springboard)
+        .init(value: getDefaultBool(forKey: "DockHidden"), key: "DockHidden", title: NSLocalizedString("Hide Dock", comment: "Springboard tool"), imageName: "dock.rectangle", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "HomeBarHidden"), key: "HomeBarHidden", title: NSLocalizedString("Hide Home Bar", comment: "Springboard tool"), imageName: "iphone", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "FolderBGHidden"), key: "FolderBGHidden", title: NSLocalizedString("Disable Folder Background", comment: "Springboard tool"), imageName: "folder", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: NSLocalizedString("Disable Folder Blur", comment: "Springboard tool"), imageName: "folder.circle", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: NSLocalizedString("Disable App Switcher Blur", comment: "Springboard tool"), imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "CCModuleBackgroundDisabled"), key: "CCModuleBackgroundDisabled", title: NSLocalizedString("Disable CC Module Background", comment: "Springboard tool"), imageName: "switch.2", fileType: OverwritingFileTypes.cc),
+        .init(value: getDefaultBool(forKey: "PodBackgroundDisabled"), key: "PodBackgroundDisabled", title: NSLocalizedString("Disable Library Pods Background", comment: "Springboard tool"), imageName: "square.stack", fileType: OverwritingFileTypes.springboard)
     ]
     
     var body: some View {

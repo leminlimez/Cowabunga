@@ -9,14 +9,6 @@
 import SwiftUI
 
 struct ToolsView: View {
-    struct SpringboardOption: Identifiable {
-        var value: Bool
-        var id = UUID()
-        var key: String
-        var title: String
-        var imageName: String
-    }
-    
     struct GeneralOption: Identifiable {
         var key: String
         var id = UUID()
@@ -33,32 +25,20 @@ struct ToolsView: View {
         var options: [GeneralOption]
     }
     
-    @State var springboardOptions: [SpringboardOption] = [
-        .init(value: false, key: "SBShowRSSI", title: "Numeric Wi-Fi Strength", imageName: "wifi"),
-        .init(value: false, key: "SBShowGSMRSSI", title: "Numeric Cellular Strength", imageName: "antenna.radiowaves.left.and.right"),
-        .init(value: false, key: "SBDontDimOrLockOnAC", title: "Don't dim when charging", imageName: "battery.100.bolt"),
-        .init(value: false, key: "SBHideLowPowerAlerts", title: "No Low Battery alerts", imageName: "battery.25"),
-        .init(value: false, key: "SBDisableHomeButton", title: "Disable Home Button", imageName: "iphone.homebutton"),
-        .init(value: false, key: "SBDontLockEver", title: "Disable Lock Button", imageName: "lock.square"),
-        .init(value: false, key: "SBDisableNotificationCenterBlur", title: "Disable Notif Center Blur", imageName: "app.badge"),
-        .init(value: false, key: "SBControlCenterEnabledInLockScreen", title: "Lock Screen CC", imageName: "square.grid.2x2"),
-        .init(value: false, key: "SBControlCenterDemo", title: "CC AirPlay Radar", imageName: "wifi.circle"),
-    ]
-    
     @State var toolsCategories: [ToolsCategory] = [
-        .init(title: "Home Screen", options: [
-            .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: "Springboard Tools", imageName: "snowflake"),
-            .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: "Springboard Colors", imageName: "square.on.circle")
+        .init(title: NSLocalizedString("Home Screen", comment: "Category of tool"), options: [
+            .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: NSLocalizedString("Springboard Tools", comment: "Title of tool"), imageName: "snowflake"),
+            .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: NSLocalizedString("Springboard Colors", comment: "Title of tool"), imageName: "square.on.circle")
         ]),
-        .init(title: "Lock Screen", options: [
-            .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: "Passcode Faces", imageName: "ellipsis.rectangle"),
-            .init(key: "LockView", view: AnyView(LockView()), title: "Locks", imageName: "lock"),
-            .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: "Lock Screen Footnote", imageName: "iphone")
+        .init(title: NSLocalizedString("Lock Screen", comment: "Category of tool"), options: [
+            .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: NSLocalizedString("Passcode Faces", comment: "Title of tool"), imageName: "ellipsis.rectangle"),
+            .init(key: "LockView", view: AnyView(LockView()), title: NSLocalizedString("Locks", comment: "Title of tool"), imageName: "lock"),
+            .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: NSLocalizedString("Lock Screen Footnote", comment: "Title of tool"), imageName: "iphone")
         ]),
-        .init(title: "Other", options: [
-            .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: "Status Bar", imageName: "wifi"),
-            .init(key: "MainCardView", view: AnyView(MainCardView()), title: "Card Changer", imageName: "creditcard"),
-            .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: "Miscellaneous", imageName: "hammer"),
+        .init(title: NSLocalizedString("Other", comment: "Category of tool"), options: [
+            .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi"),
+            .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
+            .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: NSLocalizedString("Miscellaneous", comment: "Title of tool"), imageName: "hammer"),
             //.init(key: "AdvancedView", view: AnyView(AdvancedView()), title: "Custom Operations", imageName: "pencil.and.outline")
         ])
     ]
@@ -78,7 +58,7 @@ struct ToolsView: View {
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 24, height: 24)
                                             .foregroundColor(.blue)
-                                        Text(option.title.wrappedValue)
+                                        Text(NSLocalizedString(option.title.wrappedValue, comment: "A tools option"))
                                             .padding(.horizontal, 8)
                                     }
                                 }
@@ -121,9 +101,6 @@ struct ToolsView: View {
             .onAppear {
                 if #available(iOS 16, *) {
                     iOS16 = true
-                }
-                for (i, option) in springboardOptions.enumerated() {
-                    springboardOptions[i].value = getSpringboardOption(key: option.key) as? Bool ?? false
                 }
             }
         }

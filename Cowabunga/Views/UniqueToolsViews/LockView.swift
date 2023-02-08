@@ -166,19 +166,19 @@ struct LockView: View {
             allowsMultipleSelection: false
         ) { result in
             // user chose a file
-            guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of folder. Did you select it?"); return }
+            guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of folder. Did you select it?", comment: "")); return }
             guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
             
             // ask for a name for the lock
-            let alert = UIAlertController(title: "Enter Name", message: "Choose a name for the lock", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Enter Name", comment: ""), message: NSLocalizedString("Choose a name for the lock", comment: ""), preferredStyle: .alert)
             
             // bring up the text prompts
             alert.addTextField { (textField) in
                 // text field for width
-                textField.placeholder = "Name"
+                textField.placeholder = NSLocalizedString("Name", comment: "")
                 textField.text = url.deletingPathExtension().lastPathComponent
             }
-            alert.addAction(UIAlertAction(title: "Confirm", style: .default) { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
                 // set the name and add the file
                 if alert.textFields?[0].text != nil {
                     // check if it is a valid name
@@ -194,10 +194,10 @@ struct LockView: View {
                         let icon = try LockManager.addImportedLock(lockName: fileImportName, url: url)
                         let uiIcon = UIImage(data: icon)
                         locks.append(Lock.init(title: fileImportName, icon: uiIcon))
-                        UIApplication.shared.alert(title: "Success!", body: "The imported lock was successfully saved.")
+                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The imported lock was successfully saved.", comment: "Saving imported lock"))
                     } catch {
                         print(error.localizedDescription)
-                        UIApplication.shared.alert(title: "Unable to save imported lock!", body: error.localizedDescription)
+                        UIApplication.shared.alert(title: NSLocalizedString("Unable to save imported lock!", comment: "Failed to import lock"), body: error.localizedDescription)
                     }
                 } else {
                     print("alert textfield is nil!")
@@ -205,7 +205,7 @@ struct LockView: View {
                 }
                 url.stopAccessingSecurityScopedResource()
             })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                 // cancel the process
                 url.stopAccessingSecurityScopedResource()
             })
