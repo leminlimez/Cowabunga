@@ -73,10 +73,16 @@ struct EditingOperationView: View {
                 
                 Section {
                     // MARK: Save
-                    // button
+                    Button("Apply") {
+                        // apply the changes
+                    }
+                    .buttonStyle(FullwidthTintedButton(color: .blue))
                     
                     // MARK: Delete
-                    // button
+                    Button("Delete") {
+                        // delete the
+                    }
+                    .buttonStyle(FullwidthTintedButton(color: .red))
                 }
             }
             .navigationTitle("Edit Operation")
