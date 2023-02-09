@@ -33,10 +33,10 @@ struct RootView: View {
 //                .tabItem {
 //                    Label("SpringBoard", systemImage: "snowflake")
 //                }
-            AudioView()
+            /*AudioView()
                 .tabItem {
                     Label("Audio", systemImage: "speaker.wave.2.fill")
-                }
+                }*/
             if #available(iOS 15.0, *) {
                 ThemesExploreView()
                     .tabItem {

@@ -8,6 +8,23 @@
 import Foundation
 import MacDirtyCowSwift
 
+enum ReplacingObjectType: String {
+    case FilePath = "File Path"
+    case Imported = "Imported"
+}
+
+class AdvancedCategory: Identifiable {
+    var id = UUID()
+    
+    var categoryName: String
+    var categoryOperations: [AdvancedObject]
+    
+    init(categoryName: String, categoryOperations: [AdvancedObject]) {
+        self.categoryName = categoryName
+        self.categoryOperations = categoryOperations
+    }
+}
+
 class AdvancedObject: Identifiable {
     var id = UUID()
     
@@ -60,7 +77,12 @@ class CorruptingObject: AdvancedObject {
 }
 
 class ReplacingObject: AdvancedObject {
-    init(operationName: String, filePath: String, singleApply: Bool, applyInBackground: Bool, overwriteData: Data) {
+    var replacingType: ReplacingObjectType
+    var replacingPath: String
+    
+    init(operationName: String, filePath: String, singleApply: Bool, applyInBackground: Bool, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
+        self.replacingType = replacingType
+        self.replacingPath = replacingPath
         super.init(operationName: operationName, filePath: filePath, singleApply: singleApply, applyInBackground: applyInBackground)
         self.replacementData = overwriteData
     }

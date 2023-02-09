@@ -1,0 +1,21 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "קוואבאנגה";
+
+/* Bundle name */
+"CFBundleName" = "קוואבאנגה";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "תן גישה לסנדבוקס (צריך לעשות את זה בשביל מקשי הקוד ועוד כמה אופציות אחרות)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "קוואבאנגה רץ ברקע כדי לוודא שהשינויים ממשיכים לפעול. בדרך כלל iOS הורג אפליקציות כאלה כל כמה זמן. אבל קוואבאנגה מטעה את iOS בכך שהוע מבקש אישור למיקום וכך מאפשר סשנים ארוכים יותר. מידע אף פעם לא מאוחסן בשום מקום, רק מבוקש";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "קוואבאנגה רץ ברקע כדי לוודא שהשינויים ממשיכים לפעול. בדרך כלל iOS הורג אפליקציות כאלה כל כמה זמן. אבל קוואבאנגה מטעה את iOS בכך שהוע מבקש אישור למיקום וכך מאפשר סשנים ארוכים יותר. מידע אף פעם לא מאוחסן בשום מקום, רק מבוקש";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "תמונות";
+
+/* (No Comment) */
+"Passcode Theme File" = "קובץ עיצוב קוד";
+
