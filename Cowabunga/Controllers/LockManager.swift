@@ -74,8 +74,8 @@ class LockManager {
                 }
             }
             for i in 1 ... 120 {
-                let newFile = folderURL!.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString
-                if !FileManager.default.fileExists(atPath: newFile) {
+                let newFileURL = folderURL!.appendingPathComponent("trollformation" + String(i) + ".png")
+                if !FileManager.default.fileExists(atPath: newFileURL.path) {
                     if i != 1 {
                         break
                     } else {
@@ -83,7 +83,7 @@ class LockManager {
                         return false
                     }
                 }
-                replacingImgs += newLockText.replacingOccurrences(of: "i", with: newFile)
+                replacingImgs += newLockText.replacingOccurrences(of: "i", with: newFileURL.absoluteString)
                 if animPlist != nil {
                     if animPlist![String(i)] != nil {
                         replacingAnim += newAnimText.replacingOccurrences(of: "i", with: String(animPlist![String(i)]!))
@@ -359,11 +359,9 @@ class LockManager {
            <LKStateTransitionElement final=\"false\" key=\"contents\" targetId=\"#1\">\
              <animation type=\"CAKeyframeAnimation\" calculationMode=\"discrete\" keyPath=\"contents\" duration=\"1\" fillMode=\"backwards\" timingFunction=\"linear\">\
                <keyTimes>\
-                     ANIMATION
-               </keyTimes>\
+                     ANIMATION</keyTimes>\
                <values>\
-                     IMAGE_PATHS
-               </values>\
+                     IMAGE_PATHS</values>\
              </animation>\
            </LKStateTransitionElement>\
          </elements>\
