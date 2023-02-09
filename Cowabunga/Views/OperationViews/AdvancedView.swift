@@ -13,7 +13,7 @@ struct AdvancedView: View {
             CorruptingObject.init(operationName: "Test Operation", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: false)
         ]),
         .init(categoryName: "Test Category", categoryOperations: [
-            ReplacingObject(operationName: "Replace Egg", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: true, overwriteData: Data("#".utf8))
+            ReplacingObject(operationName: "Replace Egg", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: true, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/var/mobile/egg.png")
         ])
     ]
     /*@State private var operations: [AdvancedObject] = [

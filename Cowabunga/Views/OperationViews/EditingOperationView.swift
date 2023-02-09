@@ -14,6 +14,9 @@ struct EditingOperationView: View {
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     
+    @State var replacingType: ReplacingObjectType? = nil
+    @State var replacingPath: String = ""
+    
     var body: some View {
         VStack {
             List {
@@ -54,13 +57,28 @@ struct EditingOperationView: View {
                 
                 Section {
                     // MARK: File Path
-                    HStack {
-                        Text("Path:")
-                            .bold()
+                    VStack {
+                        HStack {
+                            Text("Path:")
+                                .bold()
+                            Spacer()
+                            TextEditor(text: $filePath)
+                                .multilineTextAlignment(.trailing)
+                                .frame(maxHeight: 180)
+                        }
                         Spacer()
-                        TextEditor(text: $filePath)
-                            .multilineTextAlignment(.trailing)
-                            .frame(maxHeight: 180)
+                        HStack {
+                            Spacer()
+                            if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                Text("\(fileData.count) bytes")
+                                    .multilineTextAlignment(.trailing)
+                                    .padding(.bottom, 10)
+                            } else {
+                                Text("File not found!")
+                                    .multilineTextAlignment(.trailing)
+                                    .padding(.bottom, 10)
+                            }
+                        }
                     }
                     
                     // MARK: Applying in Background
@@ -72,6 +90,83 @@ struct EditingOperationView: View {
                     }
                 } header: {
                     Text("Action")
+                }
+                
+                if operation is ReplacingObject {
+                    Section {
+                        // MARK: Replacement Type
+                        HStack {
+                            Text("Replace With:")
+                                .bold()
+                            Spacer()
+                            Button(action: {
+                                
+                            }) {
+                                Text(replacingType?.rawValue ?? "Error")
+                                    .multilineTextAlignment(.trailing)
+                            }
+                            .foregroundColor(.blue)
+                        }
+                        
+                        // MARK: Replacement File Path
+                        if replacingType == ReplacingObjectType.FilePath {
+                            VStack {
+                                HStack {
+                                    Text("Path:")
+                                        .bold()
+                                    Spacer()
+                                    TextEditor(text: $replacingPath)
+                                        .multilineTextAlignment(.trailing)
+                                        .frame(maxHeight: 180)
+                                }
+                                Spacer()
+                                HStack {
+                                    Spacer()
+                                    if FileManager.default.fileExists(atPath: replacingPath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: replacingPath)) {
+                                        Text("\(fileData.count) bytes")
+                                            .multilineTextAlignment(.trailing)
+                                            .padding(.bottom, 10)
+                                    } else {
+                                        Text("File not found!")
+                                            .multilineTextAlignment(.trailing)
+                                            .padding(.bottom, 10)
+                                    }
+                                }
+                            }
+                        } else if replacingType == ReplacingObjectType.Imported, let splitted = replacingPath.split(separator: "/") {
+                            VStack {
+                                HStack {
+                                    Text("File:")
+                                        .bold()
+                                    Spacer()
+                                    Text(splitted.last ?? "Error")
+                                        .multilineTextAlignment(.trailing)
+                                }
+                                Spacer()
+                                HStack {
+                                    Spacer()
+                                    if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                        Text("\(fileData.count) bytes")
+                                            .multilineTextAlignment(.trailing)
+                                            .padding(.bottom, 10)
+                                    } else {
+                                        Text("File not found!")
+                                            .multilineTextAlignment(.trailing)
+                                            .padding(.bottom, 10)
+                                    }
+                                }
+                            }
+                            Button(action: {
+                                
+                            }) {
+                                Text("Upload File")
+                                    .foregroundColor(.blue)
+                                    .multilineTextAlignment(.trailing)
+                            }
+                        }
+                    } header: {
+                        Text("Replacement Data")
+                    }
                 }
                 
                 Section {
@@ -97,6 +192,11 @@ struct EditingOperationView: View {
                 operationName = operation.operationName
                 filePath = operation.filePath
                 applyInBackground = operation.applyInBackground
+                
+                if let replacingOperation = operation as? ReplacingObject {
+                    replacingType = replacingOperation.replacingType
+                    replacingPath = replacingOperation.replacingPath
+                }
             }
         }
     }
