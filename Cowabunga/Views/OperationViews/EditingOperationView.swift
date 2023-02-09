@@ -75,17 +75,21 @@ struct EditingOperationView: View {
                 }
                 
                 Section {
-                    // MARK: Save
-                    Button("Apply") {
-                        // apply the changes
+                    VStack {
+                        // MARK: Save
+                        Button("Apply") {
+                            // apply the changes
+                        }
+                        .buttonStyle(FullwidthTintedButton(color: .blue))
+                        
+                        // MARK: Delete
+                        Button("Delete") {
+                            // delete the
+                        }
+                        .buttonStyle(FullwidthTintedButton(color: .red))
                     }
-                    .buttonStyle(FullwidthTintedButton(color: .blue))
-                    
-                    // MARK: Delete
-                    Button("Delete") {
-                        // delete the
-                    }
-                    .buttonStyle(FullwidthTintedButton(color: .red))
+                    .listRowInsets(EdgeInsets())
+                    .padding()
                 }
             }
             .navigationTitle("Edit Operation")
