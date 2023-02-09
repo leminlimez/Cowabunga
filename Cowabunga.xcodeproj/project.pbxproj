@@ -20,11 +20,9 @@
 		21AC8BAD298C07CB000B7E85 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */; };
 		21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D992987CC2F00294DE7 /* LoginView.swift */; };
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
-		21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */ = {isa = PBXBuildFile; productRef = 21C08D9E2987CE3700294DE7 /* HCaptcha */; };
 		21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */; };
 		21CD1051298C8151007EE649 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1053298C8151007EE649 /* Localizable.strings */; };
 		21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1054298C8177007EE649 /* InfoPlist.strings */; };
-		21CD1066298C85FD007EE649 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 21CD1065298C85FD007EE649 /* AssetCatalogWrapper */; };
 		21D76C3F298D380100B3C707 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D76C3E298D380100B3C707 /* ApplicationManager.swift */; };
 		21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */; };
 		21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */; };
@@ -253,8 +251,6 @@
 				6FF21ADE29846A180054EBC0 /* ZIPFoundation in Frameworks */,
 				21AC8BAB298C0736000B7E85 /* CachedAsyncImage in Frameworks */,
 				6FF21B0229882CB70054EBC0 /* ACarousel in Frameworks */,
-				21C08D9F2987CE3700294DE7 /* HCaptcha in Frameworks */,
-				21CD1066298C85FD007EE649 /* AssetCatalogWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,13 +390,6 @@
 			path = OverwriteFiles;
 			sourceTree = "<group>";
 		};
-		21E54B102994060900D5F85A /* CowabungaCatalogThemeManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CowabungaCatalogThemeManager;
-			sourceTree = "<group>";
-		};
 		21E54B202994070200D5F85A /* MacDirtyCowSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,17 +461,17 @@
 		6F6D38ED2976FE6800DE3146 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6F4296B62992CDCC00A96108 /* AdvancedTools */,
+				21D76C3E298D380100B3C707 /* ApplicationManager.swift */,
 				6F6D38E72975EF6000DE3146 /* AudioConverter.swift */,
 				6F7C01E0296B2FB200BC427A /* AudioManager.swift */,
-				21BA5BD5298999620022F814 /* Background */,
 				6FF21AC9298416E90054EBC0 /* LockManager.swift */,
 				6F7C01D82969B5A700BC427A /* MiscModsManager.swift */,
 				21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */,
+				6F160E722965B2810026D69D /* ToolsManager.swift */,
+				6F4296B62992CDCC00A96108 /* AdvancedTools */,
+				21BA5BD5298999620022F814 /* Background */,
 				6F429677298DE9A800A96108 /* StatusManager */,
 				6FF21AD9298458830054EBC0 /* Tools */,
-				6F160E722965B2810026D69D /* ToolsManager.swift */,
-				21D76C3E298D380100B3C707 /* ApplicationManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -490,11 +479,10 @@
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
-				6F721C8E296482C6001CFE46 /* Cowabunga */,
 				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
-				21E54B102994060900D5F85A /* CowabungaCatalogThemeManager */,
-				21E54B202994070200D5F85A /* MacDirtyCowSwift */,
+				6F721C8E296482C6001CFE46 /* Cowabunga */,
 				6FBEDC4F2964E1F10032B1A9 /* Frameworks */,
+				21E54B202994070200D5F85A /* MacDirtyCowSwift */,
 				21E1556A2989C32A00B59658 /* OverwriteFiles */,
 				6F721C8D296482C6001CFE46 /* Products */,
 			);
@@ -653,11 +641,9 @@
 			name = Cowabunga;
 			packageProductDependencies = (
 				6FF21ADD29846A180054EBC0 /* ZIPFoundation */,
-				21C08D9E2987CE3700294DE7 /* HCaptcha */,
 				6FF21AF7298821410054EBC0 /* Dynamic */,
 				6FF21B0129882CB70054EBC0 /* ACarousel */,
 				21AC8BAA298C0736000B7E85 /* CachedAsyncImage */,
-				21CD1065298C85FD007EE649 /* AssetCatalogWrapper */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -704,11 +690,9 @@
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
 				6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
-				21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */,
 				6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */,
 				6FF21B0029882CB70054EBC0 /* XCRemoteSwiftPackageReference "ACarousel" */,
 				21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
-				21CD1064298C85EF007EE649 /* XCRemoteSwiftPackageReference "SantanderWrappers" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -1021,7 +1005,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -1063,7 +1047,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -1136,22 +1120,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hCaptcha/HCaptcha-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		21CD1064298C85EF007EE649 /* XCRemoteSwiftPackageReference "SantanderWrappers" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SerenaKit/SantanderWrappers";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
@@ -1183,16 +1151,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
-		};
-		21C08D9E2987CE3700294DE7 /* HCaptcha */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21C08D9D2987CE3700294DE7 /* XCRemoteSwiftPackageReference "HCaptcha-ios-sdk" */;
-			productName = HCaptcha;
-		};
-		21CD1065298C85FD007EE649 /* AssetCatalogWrapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21CD1064298C85EF007EE649 /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
-			productName = AssetCatalogWrapper;
 		};
 		6FF21ADD29846A180054EBC0 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -22,11 +22,10 @@ struct CowabungaApp: App {
                     // clear image cache
                     //URLCache.imageCache.removeAllCachedResponses()
                     
+#if targetEnvironment(simulator)
+#else
                     if #available(iOS 16.2, *) {
-                        #if targetEnvironment(simulator)
-                        #else
                         UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.")
-                        #endif
                     } else {
                         do {
                             // TrollStore method
@@ -48,6 +47,7 @@ struct CowabungaApp: App {
                             }
                         }
                     }
+#endif
                     // credit: TrollTools
                     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/leminlimez/Cowabunga/releases/latest") {
                         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in

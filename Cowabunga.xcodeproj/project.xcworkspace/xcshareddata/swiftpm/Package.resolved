@@ -19,33 +19,6 @@
       }
     },
     {
-      "identity" : "hcaptcha-ios-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hCaptcha/HCaptcha-ios-sdk",
-      "state" : {
-        "revision" : "1ba616b7f229077e615e2ab13a6a52b56541864d",
-        "version" : "2.4.0"
-      }
-    },
-    {
-      "identity" : "rxswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveX/RxSwift",
-      "state" : {
-        "revision" : "b4307ba0b6425c0ba4178e138799946c3da594f8",
-        "version" : "6.5.0"
-      }
-    },
-    {
-      "identity" : "santanderwrappers",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SerenaKit/SantanderWrappers",
-      "state" : {
-        "branch" : "main",
-        "revision" : "0d01ba8cafe29a97edcbf14094a580f0fe467a8d"
-      }
-    },
-    {
       "identity" : "swiftui-cached-async-image",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
