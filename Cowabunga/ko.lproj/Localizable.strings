@@ -1,0 +1,669 @@
+/* Recommended lock type */
+"(Recommended)" = "(권장)";
+
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*는 통신사 이름도 함께 숨깁니다.\n^는 셀룰러도 함께 숨깁니다.";
+
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* BomberFish's contribution */
+"AirPower Audio" = "AirPower Audio";
+
+/* No comment provided by engineer. */
+"An error occured when applying face sizes." = "크기 변경에 실패했습니다.";
+
+/* No comment provided by engineer. */
+"An error occured while changing key face." = "버튼을 바꾸는것에 실패했습니다.";
+
+/* Passcode export error */
+"An error occured while exporting key face." = "버튼 테마 추출에 실패했습니다.";
+
+/* No comment provided by engineer. */
+"An error occured." = "오류가 발생했습니다.";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to disable appclip icons." = "바로가기 비활성화에 실패했습니다.";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to enable appclip icons." = "바로가기 활성화에 실패했습니다.";
+
+/* No comment provided by engineer. */
+"An error occurred while trying to enable extra settings." = "추가 설정 활성화에 실패했습니다.";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "앱이 작동을 멈췄습니다.";
+
+/* No comment provided by engineer. */
+"App Switcher" = "멀티태스킹";
+
+/* No comment provided by engineer. */
+"Apply" = "적용";
+
+/* Header for apply passcode key size for all */
+"Apply for all?" = "전부 적용하시겠습니까?";
+
+/* No comment provided by engineer. */
+"Are you sure you want to reset the Default SubType?" = "정말로 장치의 형식을 되돌리겠습니까?";
+
+/* Title of tool */
+"Audio" = "소리";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "시스템 소리 변경";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "적용후 자동으로 SpringBoard다시시작";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "내장 오디오 자동 업데이트";
+
+/* No comment provided by engineer. */
+"Background" = "백그라운드";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "백그라운드 업데이트 주기";
+
+/* Audio name */
+"Begin Recording" = "녹화 시작";
+
+/* Big passcode keys */
+"Big" = "크게";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "흐림도:   %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "◂Cowabunga▸";
+
+/* No comment provided by engineer. */
+"Cancel" = "취소";
+
+/* Title of tool */
+"Card Changer" = "카드 커스텀";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "통신사 이름";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "이동 텍스트 변경";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "통신사 이름 변경";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "상단바 시계 텍스트 변경";
+
+/* Audio name */
+"Charging" = "충전";
+
+/* No comment provided by engineer. */
+"Choose a device subtype" = "장치의 형식을 선택하세요.";
+
+/* Title for lock preference */
+"Choose a lock preference" = "자물쇠 아이콘의 형식을 선택하세요.";
+
+/* No comment provided by engineer. */
+"Choose a name for the lock" = "자물쇠 아이콘의 이름을 입력하세요";
+
+/* Entering name for audio */
+"Choose a name for the sound" = "소리의 이름을 입력하세요.";
+
+/* Choose a size for passcode keys */
+"Choose a size" = "크기 설정";
+
+/* Title for choosing background update interval */
+"Choose an update option" = "업데이트 주기를 선택하세요";
+
+/* No comment provided by engineer. */
+"Choose size" = "크기 설정";
+
+/* No comment provided by engineer. */
+"Clear image" = "색깔 사용";
+
+/* sourcelocation's contribution */
+"Co-Developer" = "공동 개발자";
+
+/* No comment provided by engineer. */
+"Confirm" = "확인";
+
+/* No comment provided by engineer. */
+"Corrupting" = "Corrupting";
+
+/* No comment provided by engineer. */
+"Couldn't get url of file. Did you select it?" = "파일의 위치를 가져올 수 없습니다. 파일을 선택하셨나요?";
+
+/* No comment provided by engineer. */
+"Couldn't get url of folder. Did you select it?" = "폴더의 위치를 가져올 수 없습니다. 폴더를 선택하셨나요?";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
+
+/* No comment provided by engineer. */
+"Credits" = "크레딧";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "다른 사람들이 당신의 테마를 사용할 수 있게 하려면 우리의 디스코드 서버의 #showcase 채널에 당신의 테마를 올리세요!";
+
+/* Custom size for passcode keys */
+"Custom" = "커스텀";
+
+/* No comment provided by engineer. */
+"Custom image" = "사진 사용";
+
+/* No comment provided by engineer. */
+"Custom Operations" = "작업 커스텀";
+
+/* default device subtype
+   Default passcode size */
+"Default" = "기본";
+
+/* Audio name */
+"Default Notifications" = "기본 알림 소리";
+
+/* No comment provided by engineer. */
+"Delete" = "제거";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "단축어 배너 제거";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "해상도";
+
+/* No comment provided by engineer. */
+"Disable" = "비활성화";
+
+/* Springboard tool */
+"Disable App Switcher Blur" = "멀티태스킹 흐림도 비활성화";
+
+/* Springboard tool */
+"Disable CC Module Background" = "제어센터 버튼 흐림도 비활성화";
+
+/* Springboard tool */
+"Disable Folder Background" = "폴더 배경 비활성화";
+
+/* Springboard tool */
+"Disable Folder Blur" = "폴더 흐림도 비활성화";
+
+/* Springboard tool */
+"Disable Library Pods Background" = "앱서랍 배경 비활성화";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "단축어 바로가기 비활성화";
+
+/* No comment provided by engineer. */
+"Dock" = "독";
+
+/* iPhone 14 Pro SubType */
+"Dynamic Island" = "다이나믹 아일랜드";
+
+/* iPhone 14 Pro Max SubType */
+"Dynamic Island Pro Max" = "다이나믹 아일랜드 프로 맥스";
+
+/* matteozappia's contribution */
+"Dynamic Island SubTypes" = "다이나믹 아일랜드 장치 유형";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Enable" = "활성화";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "단축어 바로가기 활성화";
+
+/* Audio name */
+"End Recording" = "녹화 종료";
+
+/* Entering custom resolution */
+"Enter Dimensions" = "크기를 입력하세요.";
+
+/* dimensions for passcode keys */
+"Enter Key Dimensions" = "버튼 크기를 입력하세요.";
+
+/* No comment provided by engineer. */
+"Enter Name" = "이름 입력";
+
+/* ginsudev's contribution */
+"Exploit Code" = "익스플로잇 코드";
+
+/* No comment provided by engineer. */
+"Explore" = "탐색";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "Extra Preferences";
+
+/* Failed to apply audio */
+"Failed to apply audio for:" = "오디오 변경에 실패했습니다.:";
+
+/* failed to apply subtype */
+"Failed to apply Device SubType!" = "장치 유형 변경에 실패했습니다.";
+
+/* Failing to apply custom resolution */
+"Failed to apply resolution:" = "해상도 설정에 실패하였습니다.:";
+
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version." = "현제 버전보다 짧아야 합니다.";
+
+/* Import passcode theme from files */
+"Files" = "파일";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "트윅 오류 수정";
+
+/* No comment provided by engineer. */
+"Folder" = "폴더";
+
+/* No comment provided by engineer. */
+"Footnote" = "각주";
+
+/* No comment provided by engineer. */
+"Force MacDirtyCOW" = "MacDirtyCOW 사용";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "비밀번호를 잊으셨나요?";
+
+/* Where to import passcode theme from */
+"From where do you want to import from?" = "어디서 가져오시겠습니까?";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "제스처 / 다이나믹 아일랜드";
+
+/* No comment provided by engineer. */
+"Go here if something isn't working correctly." = "Go here if something isn't working correctly.";
+
+/* Height of custom resolution
+   Height of passcode keys */
+"Height" = "높이";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "비행기모드 숨기기";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "AirPlay 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "알람 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "배터리 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "블루투스 숨기기";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "CarPlay 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "셀룰러 숨기기*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "방해금지모드(집중모드) 숨기기";
+
+/* Springboard tool */
+"Hide Dock" = "독 숨기기";
+
+/* Springboard tool */
+"Hide Home Bar" = "홈바 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Location" = "위치 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "화면 방향 잠금 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Status Bar Time" = "상단바 시계 숨기기";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "VPN 숨기기";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi^" = "와이파이 숨기기^";
+
+/* No comment provided by engineer. */
+"Home" = "홈";
+
+/* Category of tool */
+"Home Screen" = "홈화면";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "로봇이 아닙니다.(캡챠아님)";
+
+/* Description for lock preference */
+"If the custom lock does not apply for you, try another option." = "자물쇠 아이콘이 바뀌지 않으면 다른것을 사용하세요.";
+
+/* Header for importing passcode theme */
+"Import Passcode Theme" = "테마 제출";
+
+/* No comment provided by engineer. */
+"Included" = "내장";
+
+/* c22dev's contribution */
+"Included Audio & Credits" = "Included Audio & Credits";
+
+/* Header for inputting custom iOS version */
+"Input Software Version" = "소프트웨어 버전 입력";
+
+/* x gestures */
+"iPhone X Gestures" = "iPhone X 제스처";
+
+/* No comment provided by engineer. */
+"Join Discord" = "디스코드 가입";
+
+/* Audio name */
+"Ketboard Press Clear" = "스페이스";
+
+/* Audio name */
+"Keyboard Press Delete" = "삭제";
+
+/* Audio name */
+"Keyboard Press Normal" = "키보드";
+
+/* Audio name */
+"Lock" = "잠자기";
+
+/* Category of tool */
+"Lock Screen" = "잠금화면";
+
+/* Title of tool */
+"Lock Screen Footnote" = "잠금화면 각주";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "잠금화면 각주 변경";
+
+/* No comment provided by engineer. */
+"Lock Type" = "자물쇠 유형";
+
+/* Title of tool */
+"Locks" = "자물쇠 아이콘";
+
+/* No comment provided by engineer. */
+"Log in" = "로그인";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "소스에 로그인";
+
+/* Audio name */
+"Low Power" = "배터리 부족";
+
+/* leminlimez's contribution */
+"Main Developer" = "메인 개발자";
+
+/* Maximum passcode key size */
+"Max:" = "최대:";
+
+/* Minimum passcode key size */
+"Min:" = "최소:";
+
+/* Title of tool */
+"Miscellaneous" = "기타";
+
+/* No comment provided by engineer. */
+"More Settings" = "기타";
+
+/* No comment provided by engineer. */
+"Name" = "이름";
+
+/* Audio name */
+"New Mail" = "새로운 메일";
+
+/* Decline apply for all (passcode keys) */
+"No" = "아니요";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "발견된 카드 없음";
+
+/* No comment provided by engineer. */
+"No respring required to apply." = "SpringBoard다시시작이 필요없습니다.";
+
+/* Not a valid size input for passcode keys */
+"Not a valid size!" = "너무 크거나 작습니다.";
+
+/* No comment provided by engineer. */
+"OK" = "확인";
+
+/* No comment provided by engineer. */
+"Open Settings" = "설정 열기";
+
+/* Category of tool */
+"Other" = "기타";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "버튼 편집기";
+
+/* Title of tool */
+"Passcode Faces" = "암호 버튼";
+
+/* No comment provided by engineer. */
+"Password" = "암호";
+
+/* No comment provided by engineer. */
+"Path:" = "위치:";
+
+/* Audio name */
+"Payment Failed" = "결제 실패";
+
+/* Audio name */
+"Payment Received" = "돈을 받음";
+
+/* Audio name */
+"Payment Success" = "결제 성공";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Cowabunga는 트윅을 유지하기 위해 \"항상\" 위치서비스를 필요로 합니다.\n설정앱에서 수정해 주세요.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "계속하려면 Sourced Repo 계정에 로그인하세요";
+
+/* Successfully applying custom resolution */
+"Please respring to finalize changes. Reboot to revert." = "적용하려면 SpringBoard를 재시작 하세요.\n되돌릴려면 재부팅 하세요.";
+
+/* No comment provided by engineer. */
+"Please respring to finish applying changes." = "적용하려면 SpringBoard를 재시작 하세요.";
+
+/* respring to hear audio changes */
+"Please respring to hear changes." = "적용하려면 SpringBoard를 재시작 하세요.";
+
+/* No comment provided by engineer. */
+"Please respring to see changes." = "적용하려면 SpringBoard를 재시작 하세요.";
+
+/* No comment provided by engineer. */
+"Preferences" = "설정";
+
+/* Audio name */
+"Received Message" = "받은 메시지";
+
+/* No comment provided by engineer. */
+"Remove all" = "전부 삭제";
+
+/* No comment provided by engineer. */
+"Replacing" = "적용중";
+
+/* No comment provided by engineer. */
+"Reset All" = "재설정";
+
+/* No comment provided by engineer. */
+"Reset Default SubType" = "재설정";
+
+/* No comment provided by engineer. */
+"Reset faces" = "버튼 초기화";
+
+/* No comment provided by engineer. */
+"Respring" = "SpringBoard 다시시작";
+
+/* No comment provided by engineer. */
+"Respring to see changes" = "적용 하려면 SpringBoard를 다시시작해야합니다.";
+
+/* No comment provided by engineer. */
+"Run in background" = "백그라운드에서 실행";
+
+/* No comment provided by engineer. */
+"Save Settings" = "설정 저장";
+
+/* Import passcode theme from saved */
+"Saved" = "저장된 파일";
+
+/* Audio name */
+"Screenshot" = "스크린샷";
+
+/* Audio name */
+"Sent Mail" = "보낸 메일";
+
+/* Audio name */
+"Sent Message" = "보낸 메시지";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "멀티태스킹 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set badge color" = "알림배지 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set dock color" = "독 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "폴더 배경 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set folder color" = "폴더 색깔 설정";
+
+/* No comment provided by engineer. */
+"Settings" = "설정";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "단축어";
+
+/* No comment provided by engineer. */
+"Sign up" = "회원가입";
+
+/* Small passcode keys */
+"Small" = "작게";
+
+/* No comment provided by engineer. */
+"Software Version" = "소프트웨어 버전";
+
+/* Title of tool */
+"Springboard Colors" = "Springboard 색깔";
+
+/* Title of tool */
+"Springboard Tools" = "Springboard";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "SpringBoard";
+
+/* Title of tool */
+"Status Bar" = "상단바";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "상단바 시간 텍스트";
+
+/* No comment provided by engineer. */
+"Submit themes" = "테마 재출";
+
+/* No comment provided by engineer. */
+"Success!" = "성공!";
+
+/* applying audio succeeded */
+"Successfully applied audio!" = "오디오를 적용하였습니다.";
+
+/* No comment provided by engineer. */
+"Supervised" = "감독모드";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "스와이프하여 다른카드를 선택하세요.";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "카드를 눌러 커스텀하세요.";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "버튼을 눌러 변경하세요.";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "이 알림을 눌러 앱을 활성화 시키세요.";
+
+/* No comment provided by engineer. */
+"The app will quit." = "앱이 종료됩니다.";
+
+/* Saving imported audio */
+"The imported audio was successfully encoded and saved." = "오디오를 성공적으로 불러왔습니다!";
+
+/* Saving imported lock */
+"The imported lock was successfully saved." = "자물쇠 아이콘을 불러왔습니다!";
+
+/* No comment provided by engineer. */
+"Tools" = "도구";
+
+/* No comment provided by engineer. */
+"Translators" = "번역가";
+
+/* No comment provided by engineer. */
+"Tweak Options" = " 트윅 옵션";
+
+/* No comment provided by engineer. */
+"Type:" = "종류:";
+
+/* Cannot delete audio (audio name is after) */
+"Unable to delete audio for audio" = "오디오를 삭제할 수 없습니다.";
+
+/* Failed to import lock */
+"Unable to save imported lock!" = "자물쇠 아이콘을 불러올 수 없습니다.";
+
+/* zhuowei's contribution */
+"Unsandboxing" = "Sandbox 탈출";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "내장 오디오 업데이트";
+
+/* No comment provided by engineer. */
+"Use Alternative Setter" = "Use Alternative Setter";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "본인의 책임하에 사용하세요.";
+
+/* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "작동하지 않을때 활성화 하세요.";
+
+/* No comment provided by engineer. */
+"validate" = "확인";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "버전 %@ (%@)";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 비워두면 통신사 이름을 표시합니다.";
+
+/* Width of custom resolution
+   Width of passcode keys */
+"Width" = "너비";
+
+/* Message for apply passcode key size for all */
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "활성화된 모든 버튼에 적용하시겠습니까?\\n";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* Confirm apply for all (passcode keys) */
+"Yes" = "확인";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭에서 다운로드 하세요.";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "SpringBoard가 재시작 됩니다.";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nUsing %@" = "SpringBoard가 재시작 됩니다.\n\n\n%@사용";
+

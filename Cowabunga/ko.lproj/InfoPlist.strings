@@ -1,0 +1,21 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "암호버튼 수정과 여러가지를 위해 이 권한이 필요합니다.";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로합니다.\n위치정보는 어디에도 저장되지 않습니다.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "사진이 필요합니다.";
+
+/* (No Comment) */
+"Passcode Theme File" = "버튼 테마 파일";
+
