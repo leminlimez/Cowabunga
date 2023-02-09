@@ -73,15 +73,22 @@ class LockManager {
                     replacingAnim = defaultAnimation // fall back
                 }
             }
+            var replacingContents: String = camlFileContents
             for i in 1 ... 120 {
-                let newFileURL = folderURL!.appendingPathComponent("trollformation" + String(i) + ".png")
+                let newFileURL = folderURL!.appendingPathComponent("trollformation\(i).png")
                 if !FileManager.default.fileExists(atPath: newFileURL.path) {
                     if i != 1 {
+                        // set the last image
+                        replacingContents = replacingContents.replacingOccurrences(of: "FINAL", with: newLockLastText.replacingOccurrences(of: "i", with: folderURL!.appendingPathComponent("trollformation\(i-1).png").absoluteString))
                         break
                     } else {
                         print("No lock images?!")
                         return false
                     }
+                }
+                if i == 1 {
+                    // set first image
+                    replacingContents = replacingContents.replacingOccurrences(of: "INITIAL", with: newLockFirstText.replacingOccurrences(of: "i", with: newFileURL.absoluteString))
                 }
                 replacingImgs += newLockText.replacingOccurrences(of: "i", with: newFileURL.absoluteString)
                 if animPlist != nil {
@@ -90,7 +97,7 @@ class LockManager {
                     }
                 }
             }
-            let replacingContents: String = camlFileContents.replacingOccurrences(of: "IMAGE_PATHS", with: replacingImgs).replacingOccurrences(of: "ANIMATION", with: replacingAnim)
+            replacingContents = replacingContents.replacingOccurrences(of: "IMAGE_PATHS", with: replacingImgs).replacingOccurrences(of: "ANIMATION", with: replacingAnim)
             
             // write to the path
             let newData: Data? = replacingContents.data(using: .utf8)
@@ -247,6 +254,8 @@ class LockManager {
     }
     
     private static let newAnimText = "<real value=\"i\"/>\n"
+    private static let newLockFirstText = "<contents type=\"CGImage\" src=\"i\"/>"
+    private static let newLockLastText = "<value type=\"CGImage\" src=\"i\"/>"
     private static let newLockText = "<CGImage src=\"i\"/>\n"
     private static let defaultAnimation = """
                          <real value=\"0\"/>\
@@ -316,7 +325,7 @@ class LockManager {
                  <CALayer id=\"#2\" allowsEdgeAntialiasing=\"1\" allowsGroupOpacity=\"1\" bounds=\"0 0 147.0 132.0\" contentsFormat=\"RGBA8\" name=\"shake\" position=\"73.5 66.0\">\
                    <sublayers>\
                      <CALayer id=\"#1\" allowsEdgeAntialiasing=\"1\" allowsGroupOpacity=\"1\" bounds=\"0 0 147.0 132.0\" contentsFormat=\"RGBA8\" name=\"shackle\" opacity=\"1\" position=\"73.5 66.0\">\
-                       <contents type=\"CGImage\" src=\"trolling1x\"/>\
+                       INITIAL\
                      </CALayer>\
                    </sublayers>\
                  </CALayer>\
@@ -338,7 +347,7 @@ class LockManager {
            <LKState name=\"Unlocked\">\
          <elements>\
            <LKStateSetValue final=\"false\" targetId=\"#1\" keyPath=\"contents\">\
-             <value type=\"CGImage\" src=\"trolling40x\"/>\
+             FINAL\
            </LKStateSetValue>\
          </elements>\
            </LKState>\
