@@ -142,6 +142,7 @@ class LockManager {
             
             // find animation json if exists
             var animData: [Int: Double]? = nil
+            var sumFrames: Double = 0
             var finalAnimData: [String: Double] = [:]
             if FileManager.default.fileExists(atPath: url.appendingPathComponent("animations.json").path) {
                 do {
@@ -175,13 +176,15 @@ class LockManager {
                         if animData != nil {
                             if animData![i] != nil {
                                 lastAnimFrame = i
-                                finalAnimData[String(i)] = animData![i]!
+                                sumFrames += animData![i]!
+                                finalAnimData[String(i)] = sumFrames
                             } else if lastAnimFrame > 0 || i == 1 {
                                 if i == 1 {
                                     lastAnimFrame = i
                                 }
                                 if animData![lastAnimFrame] != nil {
-                                    finalAnimData[String(i)] = animData![lastAnimFrame]!
+                                    sumFrames += animData![lastAnimFrame]!
+                                    finalAnimData[String(i)] = sumFrames
                                 }
                             } else {
                                 // delete the created folder
