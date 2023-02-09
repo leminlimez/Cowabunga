@@ -40,7 +40,7 @@ struct StatusBarView: View {
                         if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing") {
                             do {
                                 _ = try fm.replaceItemAt(URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"), withItemAt: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing"))
-                                respringFrontboard()
+                                restartFrontboard()
                             } catch {
                                 UIApplication.shared.alert(body: "\(error)")
                             }
@@ -171,7 +171,7 @@ struct StatusBarView: View {
                     if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
                         do {
                             try fm.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"))
-                            respringFrontboard()
+                            restartFrontboard()
                         } catch {
                             UIApplication.shared.alert(body: "\(error)")
                         }

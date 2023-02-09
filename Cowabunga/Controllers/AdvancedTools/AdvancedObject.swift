@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MacDirtyCowSwift
 
 enum ReplacingObjectType: String {
     case FilePath = "File Path"
@@ -52,7 +53,7 @@ class AdvancedObject: Identifiable {
                 do {
                     let originalSize = try Data(contentsOf: URL(fileURLWithPath: filePath)).count
                     if originalSize <= replacementData!.count {
-                        let _ = overwriteFileWithDataImpl(originPath: filePath, replacementData: replacementData!)
+                        let _ = MDC.overwriteFile(at: filePath, with: replacementData!)
                     } else {
                         throw "Replacement data is larger than the original file!"
                     }

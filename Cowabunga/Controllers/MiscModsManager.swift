@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import MacDirtyCowSwift
 
 enum SettingsOptionType: String {
     case textbox = "PSEditTextCell"
@@ -42,26 +43,22 @@ let settingsOptions: [SettingsPageOption] = [
 ]
 
 
-func setProductVersion(newVersion: String) -> Bool {
+func setValueInSystemVersionPlist(key: String, value: String) throws -> String {
     // this code is because I nearly bootlooped my phone with the later function
     let filePath: String = "/System/Library/CoreServices/SystemVersion.plist"
     // open plist
-    guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
-        return false
-    }
-    guard var plist = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else {
-        return false
-    }
+    let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+    guard var plist = try PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else { throw "systemversion is corrupted." }
     
     // modify value
-    plist["ProductVersion"] = newVersion
+    guard let oldValue = plist[key] as? String else { throw "no \(key) value?" }
+    plist[key] = value
     
     // overwrite the plist
-    guard let plistData = try? PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0) else {
-        return false
-    }
-    let succeeded = overwriteFileWithDataImpl(originPath: filePath, replacementData: plistData)
-    return succeeded
+    let plistData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+    let succeeded = MDC.overwriteFile(at: filePath, with: plistData)
+    guard succeeded else { throw "mdc exploit did not succeed while setting systemversion"}
+    return oldValue
 }
 
 func getPlistValue(plistPath: String, key: String) -> String {
@@ -152,7 +149,7 @@ func setPlistValue(plistPath: String, key: String, value: String) -> Bool {
         
         if newData.count == originalSize {
             
-            return overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
+            return MDC.overwriteFile(at: plistPath, with: newData)
         } else {
             // temporary to create a log for me to debug
             do {
@@ -195,7 +192,7 @@ func setPlistValueInt(plistPath: String, key: String, value: Int) -> Bool {
     // overwrite the plist
     let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
     if newData.count == stringsData.count {
-        return overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
+        return MDC.overwriteFile(at: plistPath, with: newData)
     } else {
         // too big
         return false
@@ -243,7 +240,7 @@ func setRegion() -> Bool {
             
             // check the size and apply
             if newData.count == originalSize {
-                let succeeded = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
+                let succeeded = MDC.overwriteFile(at: plistPath, with: newData)
                 if succeeded {
                     UIApplication.shared.alert(title: "Successfully applied region", body: "Respring and see if it worked")
                 } else {
@@ -354,7 +351,7 @@ func setCarrierName(newName: String) -> Bool {
             
             if newData.count == originalSize {
                 // apply
-                if overwriteFileWithDataImpl(originPath: url.path, replacementData: newData) == true {
+                if MDC.overwriteFile(at: url.path, with: newData) == true {
                     succeededOnce = true
                 }
             }
@@ -446,7 +443,7 @@ func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool
                     // create the new data
                     let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
                     // apply plist
-                    succeeded = succeeded && overwriteFileWithDataImpl(originPath: plistURL.path, replacementData: newData)
+                    succeeded = succeeded && MDC.overwriteFile(at: plistURL.path, with: newData)
                 } catch {
                     print("Could not replace plist data: \(error.localizedDescription)")
                     succeeded = false
@@ -512,7 +509,7 @@ func createSettingsPage() -> Bool {
         // write to the plist
         let newData = try PropertyListSerialization.data(fromPropertyList: settingsPlist, format: .xml, options: 0)
         // replace the data
-        let _ = overwriteFileWithDataImpl(originPath: plistPath, replacementData: newData)
+        let _ = MDC.overwriteFile(at: plistPath, with: newData)
     } catch {
         print("Could not change labels!")
     }*/
@@ -527,7 +524,7 @@ func createSettingsPage() -> Bool {
         } else {
             path = "/System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist"
         }
-        return overwriteFileWithDataImpl(originPath: path, replacementData: newData)
+        return MDC.overwriteFile(at: path, with: newData)
     } catch {
         print("Could not get the data!")
         return false

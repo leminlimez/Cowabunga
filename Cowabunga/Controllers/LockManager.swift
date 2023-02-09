@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MacDirtyCowSwift
 
 class LockManager {
     static var testingLocks: Bool = false
@@ -94,7 +95,7 @@ class LockManager {
             // write to the path
             let newData: Data? = replacingContents.data(using: .utf8)
             if newData != nil {
-                return overwriteFileWithDataImpl(originPath: originPath + "/main.caml", replacementData: newData!)
+                return MDC.overwriteFile(at: originPath + "/main.caml", with: newData!)
             } else {
                 print("Failed to replace lock: failed to get data")
                 return false
