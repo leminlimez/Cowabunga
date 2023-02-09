@@ -37,7 +37,7 @@ struct PasscodeEditorView: View {
                     .aspectRatio(contentMode: .fill)
                     .scaleEffect(1.5)
                     .frame(width: proxy.size.width, height: proxy.size.height)
-                    .offset(y: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0)
+                    .offset(y: UIApplication.shared.windows[0].safeAreaInsets.top)
                 MaterialView(.light)
                     .brightness(-0.4)
                     .ignoresSafeArea()

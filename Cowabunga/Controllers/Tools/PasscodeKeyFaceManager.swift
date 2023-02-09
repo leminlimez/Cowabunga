@@ -103,7 +103,7 @@ class PasscodeKeyFaceManager {
         }
         for imageURL in (try? fm.contentsOfDirectory(at: finalURL, includingPropertiesForKeys: nil)) ?? [] {
             // determine if it is a number
-            var number: Int = try getNumberFromURL(url: imageURL)
+            let number: Int = try getNumberFromURL(url: imageURL)
             if number != -1 {
                 let img = UIImage(contentsOfFile: imageURL.path)
                 var newSize: [CGFloat] = [CGFloat(Double(img?.size.width ?? 150) * sizeMultiplier), CGFloat(Double(img?.size.height ?? 150) * sizeMultiplier)]
@@ -154,7 +154,7 @@ class PasscodeKeyFaceManager {
         var error: NSError?
         let coordinator = NSFileCoordinator()
         
-        var userSize: String = getDefaultFaceSize() <= KeySize.small.rawValue + 10 ? "small" : "big"
+        let userSize: String = getDefaultFaceSize() <= KeySize.small.rawValue + 10 ? "small" : "big"
         
         // create a file to be exported stating the size
         let sizeFile = teleURL.path + "/_"+userSize
