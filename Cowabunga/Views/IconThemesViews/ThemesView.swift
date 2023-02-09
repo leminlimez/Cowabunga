@@ -150,7 +150,7 @@ struct ThemesView: View {
                     applyChanges()
                 }) {
                     if themes.count > 0 {
-                        Text("Apply changes")
+                        Text("Apply themes")
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.blue)
@@ -190,17 +190,22 @@ struct ThemesView: View {
                     try themeManager.applyChanges(progress: { str in
                         UIApplication.shared.change(title: "In progress", body: str)
                     })
-                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                     
-                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "20B999")
+                    UIApplication.shared.change(title: "In progress", body: "Scheduling icon cache reset...")
+                    
+                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "20B\(Int.random(in: 100...999))")
                     
                     xpc_crash("com.apple.iconservices")
                     
-                    UIApplication.shared.change(title: "Success", body: "Elapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                         do { let _ = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: oldVersion) } catch { UIApplication.shared.change(body: error.localizedDescription) }
-//                        try! FileManager.default.removeItem(atPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.lsd.iconscache/Library/Caches/com.apple.IconsCache")
                         
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                        UIApplication.shared.change(title: "Success", body: "Elapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s\n\nRespringing...")
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            respring()
+                        })
                     })
                 } catch { UIApplication.shared.change(body: error.localizedDescription) }
             }

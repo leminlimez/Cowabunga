@@ -64,7 +64,7 @@ struct SpringboardColorChangerView: View {
                                                 .resizable()
                                                 .frame(width: minSize / 5, height: minSize / 5)
                                         }
-                                        Text("1")
+                                        Text("1", comment: "Notification Badge Bubble text. (1 notification)")
                                             .foregroundColor(.white)
                                             .font(.system(size: 45))
                                     }
