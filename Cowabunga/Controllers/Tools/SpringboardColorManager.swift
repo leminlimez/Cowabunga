@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MacDirtyCowSwift
 
 class SpringboardColorManager {
     enum SpringboardType {
@@ -120,7 +121,7 @@ class SpringboardColorManager {
                     let newData = try Data(contentsOf: bgDir!.appendingPathComponent(file + ".materialrecipe"))
                     // overwrite file
                     let path: String = "\(fileFolders[forType]!)\(file).materialrecipe"
-                    let _ = overwriteFileWithDataImpl(originPath: path, replacementData: newData)
+                    let _ = MDC.overwriteFile(at: path, with: newData)
                 } catch {
                     print(error.localizedDescription)
                 }

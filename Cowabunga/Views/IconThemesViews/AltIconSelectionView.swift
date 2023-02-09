@@ -1,10 +1,10 @@
+////
+////  AltIconSelectionView.swift
+////  TrollTools
+////
+////  Created by exerhythm on 28.10.2022.
+////
 //
-//  AltIconSelectionView.swift
-//  TrollTools
-//
-//  Created by exerhythm on 28.10.2022.
-//
-
 //import SwiftUI
 //
 //struct AltIconSelectionView: View {
@@ -16,7 +16,7 @@
 //    
 //    var onChoose: (String) -> ()
 //    @State var icons: [(UIImage, String)] = []
-//    
+//
 //    var body: some View {
 //        Group {
 //            if icons.count == 0 {
