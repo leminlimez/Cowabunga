@@ -58,11 +58,38 @@ class LockManager {
         
         if folderURL != nil {
             // add to the file contents
-            var replacingContents: String = camlFileContents
-            for i in 1 ... 40 {
-                let newFile = folderURL!.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString
-                replacingContents = replacingContents.replacingOccurrences(of: "trolling" + String(i) + "x", with: newFile)
+            var replacingImgs: String = ""
+            var replacingAnim: String = ""
+            var animPlist: [String: Double]? = nil
+            if !FileManager.default.fileExists(atPath: folderURL!.appendingPathComponent("animations.plist").path) {
+                replacingAnim = defaultAnimation
+            } else {
+                do {
+                    let plistData = try Data(contentsOf: folderURL!.appendingPathComponent("animations.plist"))
+                    animPlist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as? [String: Double]
+                } catch {
+                    print(error.localizedDescription)
+                    replacingAnim = defaultAnimation // fall back
+                }
             }
+            for i in 1 ... 120 {
+                let newFile = folderURL!.appendingPathComponent("trollformation" + String(i) + ".png").absoluteString
+                if !FileManager.default.fileExists(atPath: newFile) {
+                    if i != 1 {
+                        break
+                    } else {
+                        print("No lock images?!")
+                        return false
+                    }
+                }
+                replacingImgs += newLockText.replacingOccurrences(of: "i", with: newFile)
+                if animPlist != nil {
+                    if animPlist![String(i)] != nil {
+                        replacingAnim += newAnimText.replacingOccurrences(of: "i", with: String(animPlist![String(i)]!))
+                    }
+                }
+            }
+            let replacingContents: String = camlFileContents.replacingOccurrences(of: "IMAGE_PATHS", with: replacingImgs).replacingOccurrences(of: "ANIMATION", with: replacingAnim)
             
             // write to the path
             let newData: Data? = replacingContents.data(using: .utf8)
@@ -105,16 +132,22 @@ class LockManager {
                 }
             }
             
+            // find animation json if exists
+            if FileManager.default.fileExists(atPath: url.appendingPathComponent("animation.json").path) {
+                
+            }
+            
             // fill it with files
-            for i in 1 ... 40 {
+            var firstImg: Data? = nil
+            for i in 1 ... 120 {
                 let imgName: String = "trollformation\(i).png"
                 let imgURL = url.appendingPathComponent(imgName)
                 if FileManager.default.fileExists(atPath: imgURL.path) {
                     do {
                         let imgData = try Data(contentsOf: imgURL)
                         try imgData.write(to: newFolder.appendingPathComponent(imgName))
-                        if i == 40 {
-                            return imgData
+                        if i == 1 {
+                            firstImg = imgData
                         }
                     } catch {
                         // delete the created folder
@@ -126,13 +159,18 @@ class LockManager {
                         throw "Could not save image data: \(error.localizedDescription)"
                     }
                 } else {
-                    // delete the created folder
-                    do {
-                        try FileManager.default.removeItem(at: newFolder)
-                    } catch {
-                        print(error.localizedDescription)
+                    if i == 1 {
+                        // delete the created folder
+                        do {
+                            try FileManager.default.removeItem(at: newFolder)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        throw "Missing contents in lock folder!"
+                    } else {
+                        // return the image
+                        return firstImg!
                     }
-                    throw "Missing contents in lock folder!"
                 }
             }
         } else {
@@ -154,6 +192,66 @@ class LockManager {
         }
         return nil
     }
+    
+    private static let newAnimText = "<real value=\"i\"/>\n"
+    private static let newLockText = "<CGImage src=\"i\"/>\n"
+    private static let defaultAnimation = """
+                         <real value=\"0\"/>\
+                         <real value=\"0.01666666666\"/>\
+                         <real value=\"0.03333333333\"/>\
+                         <real value=\"0.05\"/>\
+                         <real value=\"0.06666666666\"/>\
+                         <real value=\"0.08333333333\"/>\
+                         <real value=\"0.1\"/>\
+                         <real value=\"0.116666666667\"/>\
+                         <real value=\"0.133333333333\"/>\
+                         <real value=\"0.15\"/>\
+                         <real value=\"0.166666666667\"/>\
+                         <real value=\"0.183333333333\"/>\
+                         <real value=\"0.2\"/>\
+                         <real value=\"0.216666666667\"/>\
+                         <real value=\"0.233333333333\"/>\
+                         <real value=\"0.25\"/>\
+                         <real value=\"0.266666666667\"/>\
+                         <real value=\"0.283333333333\"/>\
+                         <real value=\"0.3\"/>\
+                         <real value=\"0.316666666667\"/>\
+                         <real value=\"0.333333333333\"/>\
+                         <real value=\"0.35\"/>\
+                         <real value=\"0.366666666667\"/>\
+                         <real value=\"0.383333333333\"/>\
+                         <real value=\"0.4\"/>\
+                         <real value=\"0.416666666667\"/>\
+                         <real value=\"0.433333333333\"/>\
+                         <real value=\"0.45\"/>\
+                         <real value=\"0.466666666667\"/>\
+                         <real value=\"0.483333333333\"/>\
+                         <real value=\"0.5\"/>\
+                         <real value=\"0.516666666667\"/>\
+                         <real value=\"0.533333333333\"/>\
+                         <real value=\"0.55\"/>\
+                         <real value=\"0.566666666667\"/>\
+                         <real value=\"0.583333333333\"/>\
+                         <real value=\"0.6\"/>\
+                         <real value=\"0.616666666667\"/>\
+                         <real value=\"0.633333333333\"/>\
+                         <real value=\"0.65\"/>\
+                         <real value=\"0.666666666667\"/>\
+                         <real value=\"0.683333333333\"/>\
+                         <real value=\"0.7\"/>\
+                         <real value=\"0.716666666667\"/>\
+                         <real value=\"0.733333333333\"/>\
+                         <real value=\"0.75\"/>\
+                         <real value=\"0.766666666667\"/>\
+                         <real value=\"0.783333333333\"/>\
+                         <real value=\"0.8\"/>\
+                         <real value=\"0.816666666667\"/>\
+                         <real value=\"0.833333333333\"/>\
+                         <real value=\"0.85\"/>\
+                         <real value=\"0.866666666667\"/>\
+                         <real value=\"0.883333333333\"/>\
+                         <real value=\"0.9\"/>\n
+    """
     
     private static var camlFileContents = """
     <?xml version=\"1.0\" encoding=\"UTF-8\"?>\
@@ -208,103 +306,10 @@ class LockManager {
            <LKStateTransitionElement final=\"false\" key=\"contents\" targetId=\"#1\">\
              <animation type=\"CAKeyframeAnimation\" calculationMode=\"discrete\" keyPath=\"contents\" duration=\"1\" fillMode=\"backwards\" timingFunction=\"linear\">\
                <keyTimes>\
-                     <real value=\"0\"/>\
-                     <real value=\"0.01666666666\"/>\
-                     <real value=\"0.03333333333\"/>\
-                     <real value=\"0.05\"/>\
-                     <real value=\"0.06666666666\"/>\
-                     <real value=\"0.08333333333\"/>\
-                     <real value=\"0.1\"/>\
-                     <real value=\"0.116666666667\"/>\
-                     <real value=\"0.133333333333\"/>\
-                     <real value=\"0.15\"/>\
-                     <real value=\"0.166666666667\"/>\
-                     <real value=\"0.183333333333\"/>\
-                     <real value=\"0.2\"/>\
-                     <real value=\"0.216666666667\"/>\
-                     <real value=\"0.233333333333\"/>\
-                     <real value=\"0.25\"/>\
-                     <real value=\"0.266666666667\"/>\
-                     <real value=\"0.283333333333\"/>\
-                     <real value=\"0.3\"/>\
-                     <real value=\"0.316666666667\"/>\
-                     <real value=\"0.333333333333\"/>\
-                     <real value=\"0.35\"/>\
-                     <real value=\"0.366666666667\"/>\
-                     <real value=\"0.383333333333\"/>\
-                     <real value=\"0.4\"/>\
-                     <real value=\"0.416666666667\"/>\
-                     <real value=\"0.433333333333\"/>\
-                     <real value=\"0.45\"/>\
-                     <real value=\"0.466666666667\"/>\
-                     <real value=\"0.483333333333\"/>\
-                     <real value=\"0.5\"/>\
-                     <real value=\"0.516666666667\"/>\
-                     <real value=\"0.533333333333\"/>\
-                     <real value=\"0.55\"/>\
-                     <real value=\"0.566666666667\"/>\
-                     <real value=\"0.583333333333\"/>\
-                     <real value=\"0.6\"/>\
-                     <real value=\"0.616666666667\"/>\
-                     <real value=\"0.633333333333\"/>\
-                     <real value=\"0.65\"/>\
-                     <real value=\"0.666666666667\"/>\
-                     <real value=\"0.683333333333\"/>\
-                     <real value=\"0.7\"/>\
-                     <real value=\"0.716666666667\"/>\
-                     <real value=\"0.733333333333\"/>\
-                     <real value=\"0.75\"/>\
-                     <real value=\"0.766666666667\"/>\
-                     <real value=\"0.783333333333\"/>\
-                     <real value=\"0.8\"/>\
-                     <real value=\"0.816666666667\"/>\
-                     <real value=\"0.833333333333\"/>\
-                     <real value=\"0.85\"/>\
-                     <real value=\"0.866666666667\"/>\
-                     <real value=\"0.883333333333\"/>\
-                     <real value=\"0.9\"/>\
+                     ANIMATION
                </keyTimes>\
                <values>\
-                     <CGImage src=\"trolling1x\"/>\
-                     <CGImage src=\"trolling2x\"/>\
-                     <CGImage src=\"trolling3x\"/>\
-                     <CGImage src=\"trolling4x\"/>\
-                     <CGImage src=\"trolling5x\"/>\
-                     <CGImage src=\"trolling6x\"/>\
-                     <CGImage src=\"trolling7x\"/>\
-                     <CGImage src=\"trolling8x\"/>\
-                     <CGImage src=\"trolling9x\"/>\
-                     <CGImage src=\"trolling10x\"/>\
-                     <CGImage src=\"trolling11x\"/>\
-                     <CGImage src=\"trolling12x\"/>\
-                     <CGImage src=\"trolling13x\"/>\
-                     <CGImage src=\"trolling14x\"/>\
-                     <CGImage src=\"trolling15x\"/>\
-                     <CGImage src=\"trolling16x\"/>\
-                     <CGImage src=\"trolling17x\"/>\
-                     <CGImage src=\"trolling18x\"/>\
-                     <CGImage src=\"trolling19x\"/>\
-                     <CGImage src=\"trolling20x\"/>\
-                     <CGImage src=\"trolling21x\"/>\
-                     <CGImage src=\"trolling22x\"/>\
-                     <CGImage src=\"trolling23x\"/>\
-                     <CGImage src=\"trolling24x\"/>\
-                     <CGImage src=\"trolling25x\"/>\
-                     <CGImage src=\"trolling26x\"/>\
-                     <CGImage src=\"trolling27x\"/>\
-                     <CGImage src=\"trolling28x\"/>\
-                     <CGImage src=\"trolling29x\"/>\
-                     <CGImage src=\"trolling30x\"/>\
-                     <CGImage src=\"trolling31x\"/>\
-                     <CGImage src=\"trolling32x\"/>\
-                     <CGImage src=\"trolling33x\"/>\
-                     <CGImage src=\"trolling34x\"/>\
-                     <CGImage src=\"trolling35x\"/>\
-                     <CGImage src=\"trolling36x\"/>\
-                     <CGImage src=\"trolling37x\"/>\
-                     <CGImage src=\"trolling38x\"/>\
-                     <CGImage src=\"trolling39x\"/>\
-                     <CGImage src=\"trolling40x\"/>\
+                     IMAGE_PATHS
                </values>\
              </animation>\
            </LKStateTransitionElement>\
