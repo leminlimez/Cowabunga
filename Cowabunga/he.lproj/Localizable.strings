@@ -14,67 +14,67 @@
 "AirPower Audio" = "שמע כוח-אוויר";
 
 /* No comment provided by engineer. */
-"An error occured when applying face sizes." = "שגיאה התרחשה בישום גודל הפרצופים";
+"An error occured when applying face sizes." = "שגיאה התרחשה ביישום הגודל החיצוני";
 
 /* No comment provided by engineer. */
-"An error occured while changing key face." = "An error occured while changing key face.";
+"An error occured while changing key face." = "שגיאה התרחשה במהלך שינוי בגוגל המקש";
 
 /* Passcode export error */
-"An error occured while exporting key face." = "An error occured while exporting key face.";
+"An error occured while exporting key face." = "שגיאה התרחשה במהלך ייצוא המקשים ";
 
 /* No comment provided by engineer. */
-"An error occured." = "An error occured.";
+"An error occured." = "שגיאה התרחשה";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
-"An error occurred while trying to disable appclip icons." = "An error occurred while trying to disable appclip icons.";
+"An error occurred while trying to disable appclip icons." = "שגיאה התרחשה בניסיון לבטל אייקונים של קליפאפליקציה";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
-"An error occurred while trying to enable appclip icons." = "An error occurred while trying to enable appclip icons.";
+"An error occurred while trying to enable appclip icons." = "שגיאה התרחשה במהלך ניסיון להפעיל אייקונים של קליפאפליקציה";
 
 /* No comment provided by engineer. */
-"An error occurred while trying to enable extra settings." = "An error occurred while trying to enable extra settings.";
+"An error occurred while trying to enable extra settings." = "שגיאה התרחשה בניסיון להפעלי עוד הגדרות";
 
 /* No comment provided by engineer. */
-"App Stopped Running" = "App Stopped Running";
+"App Stopped Running" = "האפליקציה הפסיקה לפעול";
 
 /* No comment provided by engineer. */
-"App Switcher" = "App Switcher";
+"App Switcher" = "מחליף אפליקציות";
 
 /* No comment provided by engineer. */
-"Apply" = "Apply";
+"Apply" = "יישום";
 
 /* Header for apply passcode key size for all */
-"Apply for all?" = "Apply for all?";
+"Apply for all?" = "ליישם להכל?";
 
 /* No comment provided by engineer. */
-"Are you sure you want to reset the Default SubType?" = "Are you sure you want to reset the Default SubType?";
+"Are you sure you want to reset the Default SubType?" = "אתה בטוח שאתה רוצה לשחזר להגדרות הנורמליות של סבטייפ?";
 
 /* Title of tool */
-"Audio" = "Audio";
+"Audio" = "אודיו";
 
 /* No comment provided by engineer. */
-"Audio Changer" = "Audio Changer";
+"Audio Changer" = "משנה אודיו";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "Auto respring after apply";
+"Auto respring after apply" = "תיקון אוטומטי אחרי יישום";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "Auto Update Included Audio";
+"Auto Update Included Audio" = "עדכון אוטומטי כולל אודיו";
 
 /* No comment provided by engineer. */
-"Background" = "Background";
+"Background" = "רקע";
 
 /* No comment provided by engineer. */
-"Background Update Frequency" = "Background Update Frequency";
+"Background Update Frequency" = "תדירות עדכון ברקע";
 
 /* Audio name */
-"Begin Recording" = "Begin Recording";
+"Begin Recording" = "התחל הקלטה";
 
 /* Big passcode keys */
-"Big" = "Big";
+"Big" = "גדול";
 
 /* No comment provided by engineer. */
-"Blur:   %lld" = "Blur:   %lld";
+"Blur:   %lld" = "תשטוש:   %lld";
 
 /* No comment provided by engineer. */
 "Breadcrumb Text" = "Breadcrumb Text";
@@ -247,9 +247,6 @@
 
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "Failed to apply resolution:";
-
-/* No comment provided by engineer. */
-"Failed to apply system version change! The version must be shorter than your current device version." = "Failed to apply system version change! The version must be shorter than your current device version.";
 
 /* Import passcode theme from files */
 "Files" = "Files";

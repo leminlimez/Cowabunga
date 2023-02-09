@@ -1,0 +1,249 @@
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* No comment provided by engineer. */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "L'app non è più in esecuzione ";
+
+/* No comment provided by engineer. */
+"App Switcher" = "App Switcher";
+
+/* No comment provided by engineer. */
+"Apply" = "Applica";
+
+/* Title of tool */
+"Audio" = "Audio";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Audio Changer";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Esegui automaticamente un respring dopo l'applicazione";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Aggiorna automaticamente l'audio incluso";
+
+/* No comment provided by engineer. */
+"Background" = "Background";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Frequenza aggiornamenti in background";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Blur:   %lld";
+
+/* No comment provided by engineer. */
+"Choose size" = "Scegli le dimensioni";
+
+/* No comment provided by engineer. */
+"Clear image" = "Elimina immaigine";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga richiede i permessi di localizzazione su \"sempre\".";
+
+/* No comment provided by engineer. */
+"Credits" = "Crediti";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Al momento, per mandare temi per farli usare al pubblico, vanno revisionati sul nostro discord nel canale #showcase.";
+
+/* Custom size for passcode keys */
+"Custom" = "Custom";
+
+/* No comment provided by engineer. */
+"Custom image" = "Immagine custom";
+
+/* No comment provided by engineer. */
+"Delete" = "Elimina";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Elimina Banner Shortcuts";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "Risoluzione del telefono";
+
+/* No comment provided by engineer. */
+"Disable" = "Disattiva";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Disabilita App Shortcut come Appclips";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Enable" = "Attiva";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Abilita App Shortcut come Appclips";
+
+/* No comment provided by engineer. */
+"Explore" = "Esplora";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = " Preferenze extra";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Aggiusta tweaks";
+
+/* No comment provided by engineer. */
+"Folder" = "Cartella";
+
+/* No comment provided by engineer. */
+"Footnote" = "Nota";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "Dimenticato la password?";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "Gestures / Dynamic Island";
+
+/* No comment provided by engineer. */
+"Home" = "Home";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "non sono un robot (no cap)";
+
+/* No comment provided by engineer. */
+"Included" = "Incluso";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Entra nel server Discord";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Cambio nota della Lock Screen";
+
+/* No comment provided by engineer. */
+"Log in" = "Log in";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Log in Sourced";
+
+/* Title of tool */
+"Miscellaneous" = "Varie";
+
+/* No comment provided by engineer. */
+"More Settings" = "Più impostazioni";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Non sono state trovate carte";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Apri impostazioni";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Passcode Face Editor";
+
+/* No comment provided by engineer. */
+"Password" = "Password";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Garantisci a Cowabunga le impostazioni di localizzazione \"Sempre\" così pio restare nel background.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Fai log in nel tuo account Sourced Repo per continuare";
+
+/* No comment provided by engineer. */
+"Preferences" = "Preferenze";
+
+/* No comment provided by engineer. */
+"Remove all" = "Rimuovi tutto";
+
+/* No comment provided by engineer. */
+"Reset faces" = "Reset facce";
+
+/* No comment provided by engineer. */
+"Respring" = "Respring";
+
+/* No comment provided by engineer. */
+"Run in background" = "esegui in background";
+
+/* Import passcode theme from saved */
+"Saved" = "Salvato";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "Cambia colore dell'app switcher";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Cambia colore dei badge";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Cambia colore del dock";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "Cambia colore delle cartelle aperte";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Cambia colore cartelle";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "App shortcut";
+
+/* No comment provided by engineer. */
+"Sign up" = "Registrati";
+
+/* No comment provided by engineer. */
+"Software Version" = "Versione software";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "Tools SpringBoard";
+
+/* No comment provided by engineer. */
+"Submit themes" = "Manda temi";
+
+/* No comment provided by engineer. */
+"Supervised" = "Supervisionato";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Scorri per vedere diverse carte";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Premi una carta per personalizzare";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Premi su qualsiasi tasto per cambiarne l'aspetto";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Premi questa notifica per riprendere a far funzionare i tweak.";
+
+/* No comment provided by engineer. */
+"Tools" = "Tools";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "Opzioni tweak";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Aggiorna audio incluso";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Usa a tuo rischio e pericolo";
+
+/* No comment provided by engineer. */
+"validate" = "Valida";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "Versione %@ (%@)";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Non hai alcun tema per le passcode. Controlla il tab esplora per trovarli!";
+

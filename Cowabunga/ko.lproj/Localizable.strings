@@ -56,7 +56,7 @@
 "Audio Changer" = "시스템 소리 변경";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "적용후 자동으로 SpringBoard다시시작";
+"Auto respring after apply" = "적용후 자동으로 SpringBoard 다시시작";
 
 /* No comment provided by engineer. */
 "Auto Update Included Audio" = "내장 오디오 자동 업데이트";
@@ -207,7 +207,7 @@
 "Dynamic Island Pro Max" = "다이나믹 아일랜드 프로 맥스";
 
 /* matteozappia's contribution */
-"Dynamic Island SubTypes" = "다이나믹 아일랜드 장치 유형";
+"Dynamic Island SubTypes" = "다이나믹 아일랜드";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -231,13 +231,13 @@
 "Enter Name" = "이름 입력";
 
 /* ginsudev's contribution */
-"Exploit Code" = "익스플로잇 코드";
+"Exploit Code" = "익스플로잇";
 
 /* No comment provided by engineer. */
 "Explore" = "탐색";
 
 /* No comment provided by engineer. */
-"Extra Preferences" = "Extra Preferences";
+"Extra Preferences" = "기타 설정";
 
 /* Failed to apply audio */
 "Failed to apply audio for:" = "오디오 변경에 실패했습니다.:";
@@ -247,9 +247,6 @@
 
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "해상도 설정에 실패하였습니다.:";
-
-/* No comment provided by engineer. */
-"Failed to apply system version change! The version must be shorter than your current device version." = "현제 버전보다 짧아야 합니다.";
 
 /* Import passcode theme from files */
 "Files" = "파일";
@@ -337,7 +334,7 @@
 "I'm not a robot (no cap)" = "로봇이 아닙니다.(캡챠아님)";
 
 /* Description for lock preference */
-"If the custom lock does not apply for you, try another option." = "자물쇠 아이콘이 바뀌지 않으면 다른것을 사용하세요.";
+"If the custom lock does not apply for you, try another option." = "자물쇠 아이콘이 바뀌지 않으면 다른것을 선택하세요.";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "테마 제출";
@@ -364,10 +361,10 @@
 "Keyboard Press Delete" = "삭제";
 
 /* Audio name */
-"Keyboard Press Normal" = "키보드";
+"Keyboard Press Normal" = "키";
 
 /* Audio name */
-"Lock" = "잠자기";
+"Lock" = "잠금";
 
 /* Category of tool */
 "Lock Screen" = "잠금화면";
