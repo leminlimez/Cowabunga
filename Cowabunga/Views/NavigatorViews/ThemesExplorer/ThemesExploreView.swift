@@ -28,7 +28,7 @@ struct ThemesExploreView: View {
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             // refresh
                             themes.removeAll()
-                            URLCache.imageCache.removeAllCachedResponses()
+                            //URLCache.imageCache.removeAllCachedResponses()
                             loadThemes()
                         }
                         LazyVGrid(columns: gridItemLayout) {
