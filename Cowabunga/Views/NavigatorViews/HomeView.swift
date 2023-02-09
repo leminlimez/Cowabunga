@@ -251,8 +251,9 @@ struct HomeView: View {
                     LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "German")
                     LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "Portuguese")
                     LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "Chinese")
-                    LinkCell(imageName: "", url: "", title: "yun#7739", contribution: "Vietnamese")
+                    LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "Vietnamese")
                     LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "Turkish")
+                    LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "Korean")
                 } header: {
                     Text("Translators")
                 }

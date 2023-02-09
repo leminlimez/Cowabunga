@@ -55,7 +55,7 @@ struct AudioView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
+            //NavigationView {
                 List {
                     ForEach($audioCategories) { cat in
                         Section {
@@ -97,7 +97,7 @@ struct AudioView: View {
                 }
                 .navigationTitle("Audio Changer")
             }
-        }
+        //}
     }
 }
 
