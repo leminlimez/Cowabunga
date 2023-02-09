@@ -13,7 +13,7 @@ class CowabungaAPI: ObservableObject {
     var session = URLSession.shared
     
     func fetchPasscodeThemes() async throws -> [DownloadableTheme] {
-        var request = URLRequest(url: .init(string: serverURL + "passcode-themes.json")!)
+        let request = URLRequest(url: .init(string: serverURL + "passcode-themes.json")!)
         
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         guard response.statusCode == 200 else { throw "Could not connect to server" }
@@ -22,7 +22,7 @@ class CowabungaAPI: ObservableObject {
     }
     
     func fetchLockThemes() async throws -> [DownloadableTheme] {
-        var request = URLRequest(url: .init(string: serverURL + "lock-themes.json")!)
+        let request = URLRequest(url: .init(string: serverURL + "lock-themes.json")!)
         
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         guard response.statusCode == 200 else { throw "Could not connect to server" }
@@ -31,7 +31,7 @@ class CowabungaAPI: ObservableObject {
     }
     
     func getCommitHash() async throws -> String {
-        var request = URLRequest(url: .init(string: serverURL + "https://api.github.com/repos/sourcelocation/Cowabunga-theme-repo/commits/main")!)
+        let request = URLRequest(url: .init(string: serverURL + "https://api.github.com/repos/sourcelocation/Cowabunga-theme-repo/commits/main")!)
         
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         guard response.statusCode == 200 else { throw "Could not connect to server" }
