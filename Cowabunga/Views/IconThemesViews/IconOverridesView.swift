@@ -1,10 +1,10 @@
+////
+////  IndividualIconsEditorView.swift
+////  TrollTools
+////
+////  Created by exerhythm on 28.10.2022.
+////
 //
-//  IndividualIconsEditorView.swift
-//  TrollTools
-//
-//  Created by exerhythm on 28.10.2022.
-//
-
 //import SwiftUI
 ////import LaunchServicesBridge
 //import Dynamic
@@ -12,9 +12,9 @@
 //struct IconOverridesView: View {
 //    @EnvironmentObject var themeManager: ThemeManager
 //    var gridItemLayout = [GridItem(.adaptive(minimum: 64, maximum: 64))]
-//
+//    
 //    @State var allApps: [IconOverrideViewApp] = []
-//
+//    
 //    var body: some View {
 //        ScrollView {
 //            LazyVGrid(columns: gridItemLayout, spacing: 14) {
@@ -33,7 +33,7 @@
 //            updateApps()
 //        }
 //    }
-//
+//    
 //    func updateApps() {
 //        let preferedIcons = themeManager.preferedIcons
 //        allApps = LSApplicationWorkspace.default().allApplications().compactMap {
@@ -54,16 +54,16 @@
 //        }
 //        remLog("update")
 //    }
-//
+//    
 //    struct IconEditorAppView: View {
 //        @EnvironmentObject var themeManager: ThemeManager
 //        @State var app: IconOverrideViewApp
 //        @State var edited: Bool
 //        //        @State var actionSheetPresented = false
 //        @State var showsAltSelectionSheet = false
-//
+//        
 //        var updateApps: () -> ()
-//
+//        
 //        var body: some View {
 //            if !edited {
 //                NavigationLink(destination: AltIconSelectionView(bundleID: app.appID, displayName: app.displayName, onChoose: { name in
@@ -91,7 +91,7 @@
 ////                ])
 ////            }
 //        }
-//
+//        
 //        @ViewBuilder
 //        var iconContent: some View {
 //            ZStack(alignment: .topTrailing) {
@@ -111,7 +111,7 @@
 //            }
 //        }
 //    }
-//
+//    
 //    struct IconOverrideViewApp: Hashable {
 //        var appID: String
 //        var icon: UIImage?

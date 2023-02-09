@@ -207,13 +207,13 @@ struct OtherModsView: View {
                                 // set the version
                                 let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
                                 if newVersion != "" {
-                                    let succeeded = setProductVersion(newVersion: newVersion)
-                                    if succeeded {
+                                    do {
+                                        let _ = try setValueInSystemVersionPlist(key: "ProductVersion", value: newVersion)
                                         CurrentVersion = newVersion
                                         // set the default
                                         defaults.set(newVersion, forKey: "ProductVersion")
-                                    } else {
-                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply system version change! The version must be shorter than your current device version.", comment: ""))
+                                    } catch {
+                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply system version change! The version must be shorter than your current device version.\n\n\(error.localizedDescription)", comment: ""))
                                     }
                                 }
                             })
@@ -288,7 +288,7 @@ struct OtherModsView: View {
                                     try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
                                     
                                     UIApplication.shared.confirmAlert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finalize changes. Reboot to revert.", comment: "Successfully applying custom resolution"), onOK: {
-                                        respringBackboard()
+                                        restartBackboard()
                                     }, noCancel: true)
                                 } catch {
                                     print("An error occurred: \(error.localizedDescription)")

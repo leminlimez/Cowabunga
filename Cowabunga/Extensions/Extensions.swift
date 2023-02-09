@@ -24,7 +24,7 @@ extension Bundle {
         return infoDictionary?["CFBundleVersion"] as? String
     }
 }
-
-extension String: LocalizedError {
-    public var errorDescription: String? { return self }
-}
+//
+//extension String: LocalizedError {
+//    public var errorDescription: String? { return self }
+//}
