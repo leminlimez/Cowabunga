@@ -24,6 +24,7 @@ struct EditingOperationView: View {
                             .bold()
                         Spacer()
                         TextField("Operation Name", text: $operationName)
+                            .multilineTextAlignment(.trailing)
                     }
                     
                     // MARK: Operation Type
@@ -57,7 +58,9 @@ struct EditingOperationView: View {
                         Text("Path:")
                             .bold()
                         Spacer()
-                        TextField("File Path", text: $filePath)
+                        TextEditor(text: $filePath)
+                            .multilineTextAlignment(.trailing)
+                            .frame(maxHeight: 180)
                     }
                     
                     // MARK: Applying in Background
