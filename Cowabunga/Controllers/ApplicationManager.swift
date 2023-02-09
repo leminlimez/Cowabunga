@@ -74,4 +74,8 @@ struct SBApp {
     var bundleURL: URL
     
     var pngIconPaths: [String]
+    
+    func originalIconURL(fileName: String) -> URL {
+        originalIconsDir.appendingPathComponent(bundleIdentifier + "----" + fileName)
+    }
 }
