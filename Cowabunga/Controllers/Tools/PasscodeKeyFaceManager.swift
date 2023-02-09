@@ -61,26 +61,6 @@ class PasscodeKeyFaceManager {
         }
     }
     
-    static func getSupportURL() throws -> URL {
-        let fm = FileManager.default
-        
-        lazy var appSupportURL: URL = {
-            let urls = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask)
-            return urls[0]
-        }()
-        
-        var isDir: ObjCBool = false
-        if !fm.fileExists(atPath: appSupportURL.path, isDirectory: &isDir) {
-            do {
-                try fm.createDirectory(atPath: appSupportURL.path, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                print(error)
-            }
-        }
-        
-        return appSupportURL
-    }
-    
     static func getNumberFromURL(url: URL) throws -> Int {
         for i in 0...9 {
             if url.lastPathComponent.contains(String(i)) {
@@ -93,7 +73,6 @@ class PasscodeKeyFaceManager {
     static func setFacesFromTheme(_ url: URL, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
         let fm = FileManager.default
         let teleURL = try telephonyUIURL()
-        let supportURL = try getSupportURL()
         let defaultSize = getDefaultFaceSize()
         
         var finalURL = url
@@ -102,8 +81,10 @@ class PasscodeKeyFaceManager {
         var sizeMultiplier: Double = 1
         
         if url.lastPathComponent.contains(".passthm") {
-            try fm.unzipItem(at: url, to: supportURL)
-            for folder in (try? fm.contentsOfDirectory(at: supportURL, includingPropertiesForKeys: nil)) ?? [] {
+            let unzipURL = fm.temporaryDirectory.appendingPathComponent("passthm_unzip")
+            try? fm.removeItem(at: unzipURL)
+            try fm.unzipItem(at: url, to: unzipURL)
+            for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
                 if folder.lastPathComponent.contains("TelephonyUI") {
                     finalURL = folder
                     isTemp = true
@@ -122,7 +103,7 @@ class PasscodeKeyFaceManager {
         }
         for imageURL in (try? fm.contentsOfDirectory(at: finalURL, includingPropertiesForKeys: nil)) ?? [] {
             // determine if it is a number
-            var number: Int = try getNumberFromURL(url: imageURL)
+            let number: Int = try getNumberFromURL(url: imageURL)
             if number != -1 {
                 let img = UIImage(contentsOfFile: imageURL.path)
                 var newSize: [CGFloat] = [CGFloat(Double(img?.size.width ?? 150) * sizeMultiplier), CGFloat(Double(img?.size.height ?? 150) * sizeMultiplier)]
@@ -173,7 +154,7 @@ class PasscodeKeyFaceManager {
         var error: NSError?
         let coordinator = NSFileCoordinator()
         
-        var userSize: String = getDefaultFaceSize() <= KeySize.small.rawValue + 10 ? "small" : "big"
+        let userSize: String = getDefaultFaceSize() <= KeySize.small.rawValue + 10 ? "small" : "big"
         
         // create a file to be exported stating the size
         let sizeFile = teleURL.path + "/_"+userSize

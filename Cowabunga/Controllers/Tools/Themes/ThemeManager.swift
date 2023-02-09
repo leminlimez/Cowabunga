@@ -86,9 +86,9 @@ class ThemeManager: ObservableObject {
         for app in apps {
             guard app.bundleIdentifier == "com.apple.calculator" else { continue }
             if let themedIcon = preferedIcons[app.bundleIdentifier] {
-                appChanges.append(.init(bundleURL: app.bundleURL, pngIconPaths: app.pngIconPaths, themeIconURL: themedIcon.themeIconURL, bundleIdentifier: app.bundleIdentifier))
+                appChanges.append(.init(app: app, icon: themedIcon))
             } else {
-                appChanges.append(.init(bundleURL: app.bundleURL, pngIconPaths: app.pngIconPaths, themeIconURL: nil, bundleIdentifier: app.bundleIdentifier))
+                appChanges.append(.init(app: app, icon: nil))
             }
         }
         return appChanges
@@ -185,10 +185,10 @@ enum IconThemingMethod: String {
 struct ThemedIcon: Codable {
     var appID: String
     var themeName: String
-    var themeIconURL: URL {
+    var rawThemeIconURL: URL {
         rawThemesDir.appendingPathComponent(themeName).appendingPathComponent(appID + ".png")
     }
-    var cachedThemeIconURL: URL {
-        processedThemesDir.appendingPathComponent(themeName).appendingPathComponent(appID + ".png")
+    func cachedThemeIconURL(fileName: String) -> URL {
+        processedThemesDir.appendingPathComponent(themeName).appendingPathComponent(appID + "----" + fileName)
     }
 }

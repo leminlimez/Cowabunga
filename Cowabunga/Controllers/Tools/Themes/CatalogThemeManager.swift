@@ -16,6 +16,9 @@ public class CatalogThemeManager {
     public init() { }
     
     public func applyChanges(_ changes: [AppIconChange], progress: (Double) -> ()) throws {
+        try? fm.createDirectory(at: originalIconsDir, withIntermediateDirectories: true)
+        
+        
         let changesCount = Double(changes.count)
         for (i,change) in changes.enumerated() {
             try! applyChange(change)
@@ -24,52 +27,60 @@ public class CatalogThemeManager {
     }
     
     private func applyChange(_ change: AppIconChange) throws {
-        backupPNG(bundleURL: change.bundleURL, pngIconPaths: change.pngIconPaths, id: change.bundleIdentifier)
         
-        let appURL = change.bundleURL
+        backupPNGs(app: change.app)
+        
+        let appURL = change.app.bundleURL
         let catalogURL = appURL.appendingPathComponent("Assets.car")
 
-        if let iconURL = change.themeIconURL {
-            // MARK: Apply custom icon
+        if let icon = change.icon {
+            // MARK: set custom icons
             
-//            // Backup ass :troll:
-//            let backupURL = try backupAssetsURL(appURL: appURL)
-            
-//            // Restore broken apps from backup
-//            if !fm.fileExists(atPath: catalogURL.path) {
-//                if fm.fileExists(atPath: backupURL.path) {
-//                    try RootHelper.copy(from: backupURL, to: catalogURL)
-//                } else { return }
-//            }
-            
-//            // Create backup if not made
-//            if !fm.fileExists(atPath: backupURL.path) {
-//                try RootHelper.copy(from: catalogURL, to: backupURL)
-//            }
-            
-            // Get CGImage from icon    
-            let imgData = try Data(contentsOf: iconURL)
-            guard let themeIcon = UIImage(data: imgData) else { return }
-            
-            // Apply new icon
-            try MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: true)
-            
-            for iconName in change.pngIconPaths {
-                let url = change.bundleURL.appendingPathComponent(iconName)
+            try? fm.createDirectory(at: processedThemesDir.appendingPathComponent(icon.themeName), withIntermediateDirectories: true)
+            for iconName in change.app.pngIconPaths {
                 
-                let origImageData = try Data(contentsOf: url)
-                let origImageSize = origImageData.count
+                let iconURL = change.app.bundleURL.appendingPathComponent(iconName)
                 
-                guard let origImage = UIImage(data: origImageData) else { continue }
-                let width = origImage.size.width / UIScreen.main.scale * 1
-                let size = CGSize(width: width, height: width)
+                // optimize icons if not aleady cached
+                let cachedIconURL = icon.cachedThemeIconURL(fileName: iconName)
+                var cachedIcon = try? Data(contentsOf: cachedIconURL)
                 
-                let res = try UIGraphicsImageRenderer(size: size).image { _ in
-                    themeIcon.draw(in: CGRect(origin: .zero, size: size))
-                }.resizeToApprox(allowedSizeInBytes: origImageSize)
-                
-                let success = MDC.overwriteFile(at: url.path, with: res)
+                if cachedIcon == nil {
+                    let imgData = try Data(contentsOf: icon.rawThemeIconURL)
+                    guard let themeIcon = UIImage(data: imgData) else { throw "Could not read image data from icon at path \(icon.rawThemeIconURL.path)" }
+                    
+                    let origImageData = try Data(contentsOf: iconURL)
+                    let origImageSize = origImageData.count
+                    
+                    guard let origImage = UIImage(data: origImageData) else { throw "Could not read image data from original icon at path \(icon.rawThemeIconURL.path)" }
+                    let width = origImage.size.width / 2
+                    let size = CGSize(width: width, height: width)
+                    
+                    cachedIcon = try UIGraphicsImageRenderer(size: size).image { _ in
+                        themeIcon.draw(in: CGRect(origin: .zero, size: size))
+                    }.resizeToApprox(allowedSizeInBytes: origImageSize)
+                    
+                    try! cachedIcon?.write(to: cachedIconURL)
+                }
+#if targetEnvironment(simulator)
+#else
+                let success = MDC.overwriteFile(at: iconURL.path, with: cachedIcon!)
                 print(success)
+                try MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: true)
+#endif
+            }
+        } else {
+            // MARK: restore icons to original
+            
+            for iconName in change.app.pngIconPaths {
+                let iconURL = change.app.bundleURL.appendingPathComponent(iconName)
+                let urlOfOriginal = change.app.originalIconURL(fileName: iconName)
+                let data = try Data(contentsOf: urlOfOriginal)
+#if targetEnvironment(simulator)
+#else
+                let success = MDC.overwriteFile(at: iconURL.path, with: data)
+                print(success)
+#endif
             }
         }
     }
@@ -109,11 +120,10 @@ public class CatalogThemeManager {
 //        }
 //    }
     
-    private func backupPNG(bundleURL: URL, pngIconPaths: [String], id: String) {
-        try? fm.createDirectory(at: originalIconsDir, withIntermediateDirectories: true)
-        for pngIconPath in pngIconPaths {
-            let url = bundleURL.appendingPathComponent(pngIconPath)
-            try? fm.copyItem(at: url, to: originalIconsDir.appendingPathComponent(id + "----" + pngIconPath))
+    private func backupPNGs(app: SBApp) {
+        for pngIconPath in app.pngIconPaths {
+            let url = app.bundleURL.appendingPathComponent(pngIconPath)
+            try? fm.copyItem(at: url, to: app.originalIconURL(fileName: pngIconPath))
         }
     }
     
@@ -144,15 +154,11 @@ public class CatalogThemeManager {
 }
 
 public struct AppIconChange {
-    var bundleURL: URL
-    var pngIconPaths: [String]
-    var themeIconURL: URL?
-    var bundleIdentifier: String
+    var app: SBApp
+    var icon: ThemedIcon?
     
-    public init(bundleURL: URL, pngIconPaths: [String], themeIconURL: URL? = nil, bundleIdentifier: String) {
-        self.bundleURL = bundleURL
-        self.pngIconPaths = pngIconPaths
-        self.themeIconURL = themeIconURL
-        self.bundleIdentifier = bundleIdentifier
+    init(app: SBApp, icon: ThemedIcon?) {
+        self.app = app
+        self.icon = icon
     }
 }
