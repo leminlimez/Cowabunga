@@ -46,10 +46,10 @@ struct LockView: View {
                             .cornerRadius(6, corners: .bottomLeft)
                             .cornerRadius(6, corners: .bottomRight)
                         
-                        Image(systemName: "lock.open.fill")
+                        Image(systemName: "lock.fill")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 40)
                     }
                     .padding(.horizontal)
                     
@@ -235,7 +235,7 @@ struct LockView: View {
                             //if lockName != nil && passcodeImage != nil {
                             let checked: Bool = lockName == currentLock
                             do {
-                                let icon = try Data(contentsOf: lock.appendingPathComponent("trollformation40.png"))
+                                let icon = try Data(contentsOf: lock.appendingPathComponent("trollformation1.png"))
                                 let uiIcon = UIImage(data: icon)
                                 locks.append(Lock.init(title: lockName, icon: uiIcon, checked: checked))
                             } catch {
