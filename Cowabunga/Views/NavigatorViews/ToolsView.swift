@@ -37,9 +37,9 @@ struct ToolsView: View {
         ]),
         .init(title: NSLocalizedString("Control Center", comment: "Category of tool"), options: [
             .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi")
-        ])
+        ]),
         .init(title: NSLocalizedString("Other", comment: "Category of tool"), options: [
-            .init(key: AudioView, view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
+            .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
             .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: NSLocalizedString("Miscellaneous", comment: "Title of tool"), imageName: "hammer"),
             //.init(key: "AdvancedView", view: AnyView(AdvancedView()), title: "Custom Operations", imageName: "pencil.and.outline")
