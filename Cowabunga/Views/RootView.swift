@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RootView: View {
+    @StateObject var themeManager = ThemeManager()
+    
     var body: some View {
         TabView {
             HomeView()
@@ -22,10 +24,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Tools", systemImage: "wrench.and.screwdriver.fill")
                 }
-//            ThemesView()
-//                .tabItem {
-//                    Label("Themes", systemImage: "paintbrush")
-//                }
+            ThemesView()
+                .environmentObject(themeManager)
+                .tabItem {
+                    Label("Themes", systemImage: "paintbrush")
+                }
 //            SpringBoardView()
 //                .tabItem {
 //                    Label("SpringBoard", systemImage: "snowflake")

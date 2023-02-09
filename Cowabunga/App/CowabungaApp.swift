@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Darwin
 
 @main
 struct CowabungaApp: App {

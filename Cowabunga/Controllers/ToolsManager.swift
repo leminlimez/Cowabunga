@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MacDirtyCowSwift
 
 // get the user defaults for a boolean key
 func getDefaultBool(forKey: String, defaultValue: Bool = false) -> Bool {
@@ -36,10 +37,37 @@ func respring() {
     }
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-        respringFrontboard()
+        restartFrontboard()
         exit(0)
     })
 }
+
+//func rebuildIconCache() throws {
+//    let fm = FileManager.default
+//    for path in try! fm.contentsOfDirectory(atPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.lsd.iconscache/Library/Caches/com.apple.IconsCache/") {
+//        print(path)
+//    }
+//    for url in try! fm.contentsOfDirectory(at: URL(fileURLWithPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.lsd.iconscache/Library/Caches/com.apple.IconsCache"), includingPropertiesForKeys: nil) {
+//        let path = url.path
+//        print(path)
+//
+//        let fd = open(path, O_RDONLY | O_CLOEXEC)
+//        let originalFileSize = lseek(fd, 0, SEEK_END)
+//
+//        MDC.overwriteFile(at: path, with: Data(repeating: 11, count: Int(originalFileSize)))
+//
+////        // open and map original font
+////        if fd == -1 {
+////            throw "Could not open target file"
+////        }
+////        defer { close(fd) }
+////
+////        lseek(fd, 0, SEEK_SET)
+////
+////
+////        unaligned_copy_switch_race(fd, 0, Data(repeating: 11, count: Int(originalFileSize - 1)).withUnsafeBytes { p in p.baseAddress }, Int(originalFileSize - 1))
+//    }
+//}
 
 enum SpringBoardOptions: String, CaseIterable {
     case DockHidden = "DockHidden"
@@ -141,7 +169,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
                 let randomGarbage = Data("###".utf8)
-                succeeded = succeeded && overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: randomGarbage)
+                succeeded = succeeded && MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: randomGarbage)
             }
             return succeeded
         }
@@ -153,14 +181,14 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             if value as! String == "Off" {
                 // disable the audio
                 let randomGarbage = Data("###".utf8)
-                return overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: randomGarbage)
+                return MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: randomGarbage)
             } else {
                 // replace the audio data
                 let newData = AudioFiles.getNewAudioData(soundName: value as! String)
                 if newData != nil {
-                    return overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: newData!)
+                    return MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: newData!)
                 } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
-                    return overwriteFileWithDataImpl(originPath: "/System/Library/Audio/" + path!, replacementData: customAudioData)
+                    return MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: customAudioData)
                 }
             }
         }
@@ -215,7 +243,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 }
                 
                 if originalSize == newData.count {
-                    return overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: newData)
+                    return MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
                 } else {
                     print("File sizes didn't match!")
                     return false
@@ -241,7 +269,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             // overwrite the plist
             let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
             
-            return overwriteFileWithDataImpl(originPath: "/System/Library/PrivateFrameworks/" + path, replacementData: newData)
+            return MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
         }
     } else if typeOfFile == OverwritingFileTypes.region {
         let startPath = "/Library/RegionFeatures/RegionFeatures_"
@@ -250,81 +278,10 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         
         for dev in devices {
             let newData: Data = Data(base64Encoded: regionEncodes[dev]!)!
-            succeeded = succeeded && overwriteFileWithDataImpl(originPath: startPath + dev + ".txt", replacementData: newData)
+            succeeded = succeeded && MDC.overwriteFile(at: startPath + dev + ".txt", with: newData)
         }
         return succeeded
     }
     return false
 }
 
-// Overwrite the system font with the given font using CVE-2022-46689.
-// The font must be specially prepared so that it skips past the last byte in every 16KB page.
-// See BrotliPadding.swift for an implementation that adds this padding to WOFF2 fonts.
-// credit: FontOverwrite
-func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Bool {
-#if false
-    let documentDirectory = FileManager.default.urls(
-        for: .documentDirectory,
-        in: .userDomainMask
-    )[0].path
-    
-    let pathToRealTarget = originPath
-    let originPath = documentDirectory + originPath
-    let origData = try! Data(contentsOf: URL(fileURLWithPath: pathToRealTarget))
-    try! origData.write(to: URL(fileURLWithPath: originPath))
-#endif
-    
-    // open and map original font
-    let fd = open(originPath, O_RDONLY | O_CLOEXEC)
-    if fd == -1 {
-        print("Could not open target file")
-        return false
-    }
-    defer { close(fd) }
-    // check size of font
-    let originalFileSize = lseek(fd, 0, SEEK_END)
-    guard originalFileSize >= replacementData.count else {
-        print("Original file: \(originalFileSize)")
-        print("Replacement file: \(replacementData.count)")
-        print("File too big")
-        return false
-    }
-    lseek(fd, 0, SEEK_SET)
-    
-    // Map the font we want to overwrite so we can mlock it
-    let fileMap = mmap(nil, replacementData.count, PROT_READ, MAP_SHARED, fd, 0)
-    if fileMap == MAP_FAILED {
-        print("Failed to map")
-        return false
-    }
-    // mlock so the file gets cached in memory
-    guard mlock(fileMap, replacementData.count) == 0 else {
-        print("Failed to mlock")
-        return true
-    }
-    
-    // for every 16k chunk, rewrite
-    print(Date())
-    for chunkOff in stride(from: 0, to: replacementData.count, by: 0x4000) {
-        print(String(format: "%lx", chunkOff))
-        let dataChunk = replacementData[chunkOff..<min(replacementData.count, chunkOff + 0x4000)]
-        var overwroteOne = false
-        for _ in 0..<2 {
-            let overwriteSucceeded = dataChunk.withUnsafeBytes { dataChunkBytes in
-                return unaligned_copy_switch_race(
-                    fd, Int64(chunkOff), dataChunkBytes.baseAddress, dataChunkBytes.count)
-            }
-            if overwriteSucceeded {
-                overwroteOne = true
-                break
-            }
-            print("try again?!")
-        }
-        guard overwroteOne else {
-            print("Failed to overwrite")
-            return false
-        }
-    }
-    print(Date())
-    return true
-}
