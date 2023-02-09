@@ -134,12 +134,26 @@ class LockManager {
             }
             
             // find animation json if exists
-            if FileManager.default.fileExists(atPath: url.appendingPathComponent("animation.json").path) {
-                
+            var animData: [Int: Double]? = nil
+            var finalAnimData: [String: Double] = [:]
+            if FileManager.default.fileExists(atPath: url.appendingPathComponent("animations.json").path) {
+                do {
+                    let jsonData = try Data(contentsOf: url.appendingPathComponent("animations.json"))
+                    animData = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [Int: Double]
+                } catch {
+                    // delete the created folder
+                    do {
+                        try FileManager.default.removeItem(at: newFolder)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    throw "There was an error parsing animation data! \(error.localizedDescription)"
+                }
             }
             
             // fill it with files
             var firstImg: Data? = nil
+            var lastAnimFrame: Int = 0
             for i in 1 ... 120 {
                 let imgName: String = "trollformation\(i).png"
                 let imgURL = url.appendingPathComponent(imgName)
@@ -149,6 +163,28 @@ class LockManager {
                         try imgData.write(to: newFolder.appendingPathComponent(imgName))
                         if i == 1 {
                             firstImg = imgData
+                        }
+                        
+                        if animData != nil {
+                            if animData![i] != nil {
+                                lastAnimFrame = i
+                                finalAnimData[String(i)] = animData![i]!
+                            } else if lastAnimFrame > 0 || i == 1 {
+                                if i == 1 {
+                                    lastAnimFrame = i
+                                }
+                                if animData![lastAnimFrame] != nil {
+                                    finalAnimData[String(i)] = animData![lastAnimFrame]!
+                                }
+                            } else {
+                                // delete the created folder
+                                do {
+                                    try FileManager.default.removeItem(at: newFolder)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                                throw "No starting frame found for animation!"
+                            }
                         }
                     } catch {
                         // delete the created folder
@@ -169,6 +205,22 @@ class LockManager {
                         }
                         throw "Missing contents in lock folder!"
                     } else {
+                        if animData != nil {
+                            // create the plist of animations
+                            do {
+                                let plistURL: URL = newFolder.appendingPathComponent("animations.plist")
+                                let newPlistData = try PropertyListSerialization.data(fromPropertyList: finalAnimData, format: .xml, options: 0)
+                                try newPlistData.write(to: plistURL)
+                            } catch {
+                                // delete the created folder
+                                do {
+                                    try FileManager.default.removeItem(at: newFolder)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                                throw "Error saving animation data! \(error.localizedDescription)"
+                            }
+                        }
                         // return the image
                         return firstImg!
                     }
