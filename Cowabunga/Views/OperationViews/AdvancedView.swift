@@ -40,7 +40,7 @@ struct AdvancedView: View {
             }
             .toolbar {
                 // create a category
-                Button(action: {
+                /*Button(action: {
                     // ask for a name for the category
                     let alert = UIAlertController(title: NSLocalizedString("Enter Name", comment: ""), message: NSLocalizedString("Choose a name for the category", comment: ""), preferredStyle: .alert)
                     
@@ -76,7 +76,7 @@ struct AdvancedView: View {
                     UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                 }) {
                     Image(systemName: "folder")
-                }
+                }*/
                 
                 // create a new operation
                 NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: "New Operation", filePath: "/var", singleApply: false, applyInBackground: false))) {

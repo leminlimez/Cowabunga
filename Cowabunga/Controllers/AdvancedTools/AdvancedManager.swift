@@ -148,47 +148,53 @@ class AdvancedManager {
         }
     }
     
-    static func saveOperation(operation: AdvancedObject, category: String) throws {
+    static func getOperationFolder(operationName: String, category: String) throws -> URL {
         let savedPath = getSavedOperationsDirectory()
-        if savedPath != nil {
-            let categoryPath = savedPath!.appendingPathComponent(category)
-            if FileManager.default.fileExists(atPath: categoryPath.path) {
-                let operationPath = categoryPath.appendingPathComponent(operation.operationName)
-                if FileManager.default.fileExists(atPath: operationPath.path) {
-                    // delete the file
-                    do {
-                        try FileManager.default.removeItem(at: operationPath)
-                    } catch {
-                        print("Could not delete operation folder: \(error.localizedDescription)")
-                    }
-                }
-                // create the folder
-                try FileManager.default.createDirectory(at: operationPath, withIntermediateDirectories: false)
-                
-                // create the plist
-                var plist: [String: Any] = [
-                    "FilePath": operation.filePath,
-                    "ApplyInBackground": operation.applyInBackground
-                ]
-                
-                // add the operation type
-                if operation is CorruptingObject {
-                    plist["OperationType"] = "Corrupting"
-                } else if operation is ReplacingObject, let replacingOperation = operation as? ReplacingObject {
-                    plist["OperationType"] = "Replacing"
-                    // add the other replacing data
-                    plist["ReplacingType"] = replacingOperation.replacingType.rawValue
-                    plist["ReplacingPath"] = replacingOperation.replacingPath
-                }
-                
-                // serialize and write the plist
-                let plistData: Data = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
-                try plistData.write(to: operationPath.appendingPathComponent("Info.plist"))
-            } else {
-                throw "The category path could not be found!"
-            }
-        } else {
-            throw "No save path found!"
+        if savedPath == nil {
+            throw" No save path found!"
         }
+        let categoryPath = savedPath!.appendingPathComponent(category)
+        if !FileManager.default.fileExists(atPath: categoryPath.path) {
+            throw "The category path could not be found!"
+        }
+        let operationPath = categoryPath.appendingPathComponent(operationName)
+        if !FileManager.default.fileExists(atPath: operationPath.path) {
+            // create the folder
+            try FileManager.default.createDirectory(at: operationPath, withIntermediateDirectories: false)
+        }
+        return operationPath
+    }
+    
+    static func saveOperation(operation: AdvancedObject, category: String, replacingFileData: Data? = nil) throws {
+        let operationPath = try getOperationFolder(operationName: operation.operationName, category: category)
+        if !FileManager.default.fileExists(atPath: operationPath.path) {
+            // create the folder
+            try FileManager.default.createDirectory(at: operationPath, withIntermediateDirectories: false)
+        }
+        
+        // create the plist
+        var plist: [String: Any] = [
+            "FilePath": operation.filePath,
+            "ApplyInBackground": operation.applyInBackground
+        ]
+        
+        // add the operation type
+        if operation is CorruptingObject {
+            plist["OperationType"] = "Corrupting"
+        } else if operation is ReplacingObject, let replacingOperation = operation as? ReplacingObject {
+            plist["OperationType"] = "Replacing"
+            // add the other replacing data
+            plist["ReplacingType"] = replacingOperation.replacingType.rawValue
+            if replacingOperation.replacingType == ReplacingObjectType.Imported {
+                // remove the app path from the info
+                plist["ReplacingPath"] = replacingOperation.replacingPath.replacingOccurrences(of: operationPath.path, with: "")
+            } else {
+                plist["ReplacingPath"] = replacingOperation.replacingPath
+            }
+        }
+        
+        // serialize and write the plist
+        let plistData: Data = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+        try plistData.write(to: operationPath.appendingPathComponent("Info.plist"))
     }
 }

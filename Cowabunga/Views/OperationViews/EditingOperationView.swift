@@ -16,8 +16,14 @@ struct EditingOperationView: View {
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     
+    @State var savedFilePath: String = "/"
+    
     @State var replacingType: ReplacingObjectType = ReplacingObjectType.Imported
     @State var replacingPath: String = ""
+    @State var replacingData: Data? = nil
+    @State var backupData: Data? = nil
+    
+    @State var isImporting: Bool = false
     
     var body: some View {
         VStack {
@@ -141,6 +147,19 @@ struct EditingOperationView: View {
                                 // create the actions
                                 for tp in ReplacingObjectType.allCases {
                                     let newAction = UIAlertAction(title: tp.rawValue, style: .default) { (action) in
+                                        if tp != replacingType {
+                                            let tmp = replacingPath
+                                            replacingPath = savedFilePath
+                                            savedFilePath = replacingPath
+                                            
+                                            if tp == ReplacingObjectType.FilePath {
+                                                backupData = replacingData
+                                                replacingData = nil
+                                            } else if tp == ReplacingObjectType.Imported {
+                                                replacingData = backupData
+                                                backupData = nil
+                                            }
+                                        }
                                         replacingType = tp
                                     }
                                     alert.addAction(newAction)
@@ -216,7 +235,7 @@ struct EditingOperationView: View {
                                 }
                             }
                             Button(action: {
-                                
+                                isImporting.toggle()
                             }) {
                                 Text("Upload File")
                                     .foregroundColor(.blue)
@@ -238,12 +257,12 @@ struct EditingOperationView: View {
                             operation.operationName = operationName
                             operation.filePath = filePath
                             operation.applyInBackground = applyInBackground
-                            if operation is ReplacingObject, var operation = operation as? ReplacingObject {
+                            if operation is ReplacingObject, let operation = operation as? ReplacingObject {
                                 operation.replacingType = replacingType
                                 operation.replacingPath = replacingPath
                             }
                             do {
-                                try AdvancedManager.saveOperation(operation: operation, category: category)
+                                try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
                                 UIApplication.shared.dismissAlert(animated: true)
                                 UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
                             } catch {
@@ -290,6 +309,26 @@ struct EditingOperationView: View {
                 if let replacingOperation = operation as? ReplacingObject {
                     replacingType = replacingOperation.replacingType
                     replacingPath = replacingOperation.replacingPath
+                }
+            }
+            .fileImporter(
+                isPresented: $isImporting,
+                allowedContentTypes: [.data],
+                allowsMultipleSelection: false
+            ) { result in
+                guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
+                guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
+                
+                // save to temp directory
+                do {
+                    let tmp = FileManager.default.temporaryDirectory
+                    replacingData = try Data(contentsOf: url)
+                    let newURL = tmp.appendingPathComponent(url.lastPathComponent)
+                    // write to temp file
+                    try replacingData!.write(to: newURL)
+                    replacingPath = newURL.path
+                } catch {
+                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
                 }
             }
         }
