@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+struct PlistProperty: Identifiable {
+    var id = UUID()
+    var key: String
+    var oldKey: String
+    var value: Any
+}
+
 struct EditingOperationView: View {
     var category: String
     var editing: Bool
@@ -28,6 +35,7 @@ struct EditingOperationView: View {
     // plist properties
     @State var plistType: PropertyListSerialization.PropertyListFormat = .xml
     @State var replacingKeys: [String: Any] = [:]
+    @State var plistKeys: [PlistProperty] = []
     
     @State var isImporting: Bool = false
     @State var pageTitle: String = ""
@@ -91,7 +99,9 @@ struct EditingOperationView: View {
                             // add the actions
                             alert.addAction(corruptingAction)
                             alert.addAction(replacingAction)
-                            //alert.addAction(plistAction)
+                            /*if #available(iOS 15, *) {
+                                alert.addAction(plistAction)
+                            }*/
                             alert.addAction(cancelAction)
                             
                             let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
@@ -333,6 +343,50 @@ struct EditingOperationView: View {
                             .foregroundColor(.blue)
                         }
                     } header: {
+                        Text("Plist Properties")
+                    }
+                    
+                    Section {
+                        // MARK: Add Property Button
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                var newKeyID: Int = 1
+                                while replacingKeys["New Key \(newKeyID)"] != nil {
+                                    newKeyID += 1
+                                }
+                                let kn = "New Key \(newKeyID)"
+                                let nv = "New Value"
+                                replacingKeys[kn] = nv
+                                plistKeys.insert(.init(key: kn, oldKey: kn, value: nv), at: 0)
+                            }) {
+                                Text("Add Value")
+                                    .foregroundColor(.blue)
+                            }
+                            Spacer()
+                        }
+                        
+                        // MARK: List of Properties
+                        if #available(iOS 15, *) {
+                            ForEach($plistKeys) { plist in
+                                NavigationLink(destination: PlistEditView(plistKey: plist.key, plistValue: plist.value)) {
+                                    HStack {
+                                        Text(plist.key.wrappedValue)
+                                            .bold()
+                                        Spacer()
+                                        Text(String(describing: plist.value.wrappedValue))
+                                            .foregroundColor(.secondary)
+                                    }
+                                }
+                            }
+                            .onDelete { indexSet in
+                                indexSet.forEach { i in
+                                    let deletingProperty = plistKeys[i].key
+                                    replacingKeys[deletingProperty] = nil
+                                }
+                            }
+                        }
+                    } header: {
                         Text("Plist Data")
                     }
                 }
@@ -395,6 +449,12 @@ struct EditingOperationView: View {
                 if let replacingOperation = operation as? ReplacingObject {
                     replacingType = replacingOperation.replacingType
                     replacingPath = replacingOperation.replacingPath
+                }
+                
+                replacingKeys.removeAll(keepingCapacity: true)
+                
+                for (_, plist) in plistKeys.enumerated() {
+                    replacingKeys[plist.key] = plist.value
                 }
             }
             .fileImporter(
