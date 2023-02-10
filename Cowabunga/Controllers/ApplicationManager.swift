@@ -52,11 +52,27 @@ class ApplicationManager {
             }
             
             // obtaining png icons inside bundle. defined in info.plist
+            if app.bundleIdentifier == "com.apple.mobiletimer" {
+                // use correct paths for clock, because it has arrows
+                app.pngIconPaths += ["circle_borderless@2x~iphone.png"]
+            }
             if let CFBundleIcons = infoPlist["CFBundleIcons"] {
                 if let CFBundlePrimaryIcon = CFBundleIcons["CFBundlePrimaryIcon"] as? [String : AnyObject] {
                     if let CFBundleIconFiles = CFBundlePrimaryIcon["CFBundleIconFiles"] as? [String] {
                         app.pngIconPaths += CFBundleIconFiles.map { $0 + "@2x.png"}
                     }
+                }
+            }
+            if infoPlist.keys.contains("CFBundleIconFile") {
+                // happens in the case of pseudo-installed apps
+                if let CFBundleIconFile = infoPlist["CFBundleIconFile"] as? String {
+                    app.pngIconPaths.append(CFBundleIconFile + ".png")
+                }
+            }
+            if infoPlist.keys.contains("CFBundleIconFiles") {
+                // only seen this happen in the case of Wallet
+                if let CFBundleIconFiles = infoPlist["CFBundleIconFiles"] as? [String], !CFBundleIconFiles.isEmpty {
+                    app.pngIconPaths += CFBundleIconFiles.map { $0 + ".png" }
                 }
             }
             

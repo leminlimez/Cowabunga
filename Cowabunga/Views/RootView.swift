@@ -24,11 +24,13 @@ struct RootView: View {
                 .tabItem {
                     Label("Tools", systemImage: "wrench.and.screwdriver.fill")
                 }
-            ThemesView()
-                .environmentObject(themeManager)
-                .tabItem {
-                    Label("Themes", systemImage: "paintbrush")
-                }
+            if #available(iOS 15.0, *) {
+                ThemesView()
+                    .environmentObject(themeManager)
+                    .tabItem {
+                        Label("Themes", systemImage: "paintbrush")
+                    }
+            }
 //            SpringBoardView()
 //                .tabItem {
 //                    Label("SpringBoard", systemImage: "snowflake")

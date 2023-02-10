@@ -128,7 +128,16 @@ class ThemeManager: ObservableObject {
         }
         return Theme(name: themeURL.deletingPathExtension().lastPathComponent, iconCount: try fm.contentsOfDirectory(at: themeURL, includingPropertiesForKeys: nil).count)
     }
+    
+    
+    func renameImportedTheme(id: UUID, newName: String) throws {
+        guard let i = themes.firstIndex(where: { t in t.id == id }) else { throw "Theme not found" }
+        try fm.moveItem(at: themes[i].url, to: themes[i].url.deletingLastPathComponent().appendingPathComponent(newName))
+        themes[i].name = newName
+    }
+    
     func removeImportedTheme(theme: Theme) throws {
+        try fm.removeItem(at: theme.cacheURL)
         try fm.removeItem(at: theme.url)
     }
     

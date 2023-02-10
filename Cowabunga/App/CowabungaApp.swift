@@ -14,11 +14,15 @@ struct CowabungaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var cowabungaAPI = CowabungaAPI()
     
+    @State var catalogFixupShown = false
+    
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(cowabungaAPI)
                 .onAppear {
+                    performCatalogFixupIfNeeded()
+                    
                     // clear image cache
                     //URLCache.imageCache.removeAllCachedResponses()
                     
@@ -82,6 +86,17 @@ struct CowabungaApp: App {
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                     }
                 })
+                .sheet(isPresented: $catalogFixupShown) {
+                    if #available(iOS 15.0, *) {
+                        CatalogFixupView()
+                    }
+                }
+        }
+    }
+    
+    func performCatalogFixupIfNeeded() {
+        if UserDefaults.standard.bool(forKey: "shouldPerformCatalogFixup") {
+            catalogFixupShown = true
         }
     }
 }

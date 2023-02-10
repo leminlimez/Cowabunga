@@ -9,7 +9,7 @@ import UIKit
 
 extension UIImage {
     func resizeToApprox(allowedSizeInBytes: Int) throws -> Data {
-
+        print("starting resizeToApprox. max size = \(allowedSizeInBytes)")
         var left:CGFloat = 0.0, right: CGFloat = 1.0
         var mid = (left + right) / 2.0
         
