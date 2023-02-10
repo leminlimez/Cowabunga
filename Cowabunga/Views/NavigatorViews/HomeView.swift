@@ -233,7 +233,7 @@ struct HomeView: View {
                 Section {
                     // app credits
                     LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: NSLocalizedString("Main Developer", comment: "leminlimez's contribution"), circle: true)
-                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "SourceLocation", contribution: NSLocalizedString("Co-Developer", comment: "sourcelocation's contribution"), circle: true)
+                    LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "sourcelocation", contribution: NSLocalizedString("Main Developer", comment: "sourcelocation's contribution"), circle: true)
                     LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: NSLocalizedString("Included Audio & Credits", comment: "c22dev's contribution"), circle: true)
                     LinkCell(imageName: "zhuowei", url: "https://twitter.com/zhuowei/", title: "zhuowei", contribution: NSLocalizedString("Unsandboxing", comment: "zhuowei's contribution"), circle: true)
                     LinkCell(imageName: "haxi0", url: "https://github.com/haxi0", title: "haxi0", contribution: "TrollLock", circle: true)
@@ -246,16 +246,16 @@ struct HomeView: View {
                 }
                 
                 Section {
-                    LinkCell(imageName: "", url: "", title: "Yan.#0001 & c22dev", contribution: "French")
-                    LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "Italian")
-                    LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "Polish")
-                    LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "German")
-                    LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "Portuguese")
-                    LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "Chinese")
-                    LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "Vietnamese")
-                    LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "Vietnamese (Vietnam)")
-                    LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "Turkish")
-                    LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "Korean")
+                    LinkCell(imageName: "", url: "", title: "Yan.#0001 & c22dev", contribution: "🇫🇷 French")
+                    LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "🇮🇹 Italian")
+                    LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "🇵🇱 Polish")
+                    LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "🇩🇪 German")
+                    LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "🇧🇷 Portuguese")
+                    LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "🇨🇳 Chinese")
+                    LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese")
+                    LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)")
+                    LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "🇹🇷 Turkish")
+                    LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "🇰🇷 Korean")
                 } header: {
                     Text("Translators")
                 }
