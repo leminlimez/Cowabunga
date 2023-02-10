@@ -151,6 +151,7 @@ struct LockView: View {
                 }
             }
         }
+        .navigationTitle("Locks")
         .toolbar {
             Button(action: {
                 // import a custom audio
