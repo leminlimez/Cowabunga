@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PlistEditView: View {
+    @State var plistValues: [String: Any]
+    
     var body: some View {
         VStack {
             
