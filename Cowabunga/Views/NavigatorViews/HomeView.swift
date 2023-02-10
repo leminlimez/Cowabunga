@@ -335,6 +335,14 @@ struct HomeView: View {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
         }
         
+        // apply custom operations
+        UIApplication.shared.change(title: "Applying custom operations...", body: "Please wait")
+        do {
+            try AdvancedManager.applyOperations(background: false)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
             let lockName: String = UserDefaults.standard.string(forKey: "Lock")!
             let lockType: String = LockManager.getLockType()
