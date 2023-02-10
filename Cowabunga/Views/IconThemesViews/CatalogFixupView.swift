@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct CatalogFixupView: View {
     @State private var isRotating = 0.0
-    @State var showSuccess = true
+    @State var showSuccess = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
