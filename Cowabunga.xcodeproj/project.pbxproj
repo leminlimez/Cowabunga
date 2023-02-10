@@ -210,6 +210,8 @@
 		6FA660A5297B051E002471FB /* AudioOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOptionsView.swift; sourceTree = "<group>"; };
 		6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		6FBACD552996BDC200302F94 /* PlistEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistEditView.swift; sourceTree = "<group>"; };
+		6FBACD572996F25B00302F94 /* vi-VN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "vi-VN"; path = "vi-vn.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		6FBACD582996F25B00302F94 /* vi-VN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "vi-VN"; path = "vi-vn.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FD9B525296C8AE300121229 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		6FD9B527296C8CBC00121229 /* AudioChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChangerView.swift; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 				ko,
 				fr,
 				it,
+				"vi-VN",
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
@@ -826,6 +829,7 @@
 				6F4296C129952C6700A96108 /* ko */,
 				6F4296C329952E7C00A96108 /* fr */,
 				6F7FC0222995A10B00C9CA2F /* it */,
+				6FBACD582996F25B00302F94 /* vi-VN */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -845,6 +849,7 @@
 				6F4296C029952C6700A96108 /* ko */,
 				6F4296C229952E7B00A96108 /* fr */,
 				6F7FC0212995A10B00C9CA2F /* it */,
+				6FBACD572996F25B00302F94 /* vi-VN */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
