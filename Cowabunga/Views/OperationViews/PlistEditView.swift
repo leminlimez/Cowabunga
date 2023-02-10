@@ -10,11 +10,12 @@ import SwiftUI
 struct PlistModifiable: Identifiable {
     var id = UUID()
     var key: String
+    var oldKey: String
     var value: Any
 }
 
 struct PlistEditView: View {
-    @State var plistValues: [String: Any]
+    @Binding var plistValues: [String: Any]
     @State var plistViews: [PlistModifiable] = []
     
     var body: some View {
@@ -22,13 +23,14 @@ struct PlistEditView: View {
             List {
                 ForEach($plistViews) { property in
                     HStack {
+                        // MARK: Value Type
                         Button(action: {
                             // create and configure alert controller
                             let alert = UIAlertController(title: NSLocalizedString("Choose a value type", comment: ""), message: "", preferredStyle: .actionSheet)
                             
                             func applyType(_ value: Any) {
                                 property.value.wrappedValue = value
-                                plistValues[property.key.wrappedValue] = value
+                                plistValues[property.oldKey.wrappedValue] = value
                             }
                             
                             // create the actions
@@ -67,6 +69,32 @@ struct PlistEditView: View {
                         }) {
                             Text(String(describing: type(of: property.value.wrappedValue)))
                         }
+                        
+                        Spacer()
+                        
+                        // MARK: Key Name
+                        TextField(NSLocalizedString("Key", comment: "key for plist operation"), text: property.key, onCommit: {
+                            if plistValues[property.key.wrappedValue] == nil {
+                                plistValues[property.key.wrappedValue] = property.value.wrappedValue
+                                property.oldKey.wrappedValue = property.key.wrappedValue
+                            } else {
+                                // revert to the old key
+                                property.key.wrappedValue = property.oldKey.wrappedValue
+                            }
+                        })
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        //.bold()
+                        
+                        Spacer()
+                        
+                        // MARK: Value
+                        /*if property.value.wrappedValue is String {
+                            TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: property.value)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }*/
+                        /*TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: property.value, onCommit: {
+                            
+                        })*/
                     }
                 }
             }
@@ -74,7 +102,7 @@ struct PlistEditView: View {
         .navigationTitle(NSLocalizedString("Edit Plist Values", comment: "editing operation plist keys and values"))
         .onAppear {
             for (k, v) in plistValues {
-                plistViews.append(.init(key: k, value: v))
+                plistViews.append(.init(key: k, oldKey: k, value: v))
             }
         }
     }
