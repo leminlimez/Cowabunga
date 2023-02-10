@@ -254,10 +254,10 @@ struct ThemesView: View {
 
                         UIApplication.shared.dismissAlert(animated: false)
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
                             
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            UIApplication.shared.confirmAlert(title: "Success", body: "After the phone resprings, please reopen Cowabunga to fix apps not functioning properly.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", confirmTitle: NSLocalizedString("Respring", comment: "Shown after successful theme set."), onOK: {
+                            UIApplication.shared.confirmAlert(title: "Success", body: "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
                                     respring()
                             }, noCancel: true)
                         })
