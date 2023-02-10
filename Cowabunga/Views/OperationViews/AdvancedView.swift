@@ -30,7 +30,7 @@ struct AdvancedView: View {
                 } else {
                     // it is a category
                     HStack {
-                        Text(operation.name.replacingOccurrences(of: "_", with: " "))
+                        Text("Uncategorized")//operation.name.replacingOccurrences(of: "_", with: " "))
                             .padding(.horizontal, 8)
                     }
                 }
