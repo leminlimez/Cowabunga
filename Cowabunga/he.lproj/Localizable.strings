@@ -7,7 +7,7 @@
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
-/* No comment provided by engineer. */
+/* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
 /* BomberFish's contribution */
@@ -77,501 +77,501 @@
 "Blur:   %lld" = "תשטוש:   %lld";
 
 /* No comment provided by engineer. */
-"Breadcrumb Text" = "Breadcrumb Text";
+"Breadcrumb Text" = "טקסט פירורי לחם";
 
 /* No comment provided by engineer. */
-"Cancel" = "Cancel";
+"Cancel" = "ביטול";
 
 /* Title of tool */
-"Card Changer" = "Card Changer";
+"Card Changer" = "משנה כרטיסים";
 
 /* No comment provided by engineer. */
-"Carrier Text" = "Carrier Text";
+"Carrier Text" = "טקסט הספק";
 
 /* No comment provided by engineer. */
-"Change Breadcrumb Text" = "Change Breadcrumb Text";
+"Change Breadcrumb Text" = "שינוי טקסט פירורי לחם";
 
 /* No comment provided by engineer. */
-"Change Carrier Text" = "Change Carrier Text";
+"Change Carrier Text" = "שינוי טקסט ספק";
 
 /* No comment provided by engineer. */
-"Change Status Bar Time Text" = "Change Status Bar Time Text";
+"Change Status Bar Time Text" = "שינוי סטטוס וטקסט זמן";
 
 /* Audio name */
-"Charging" = "Charging";
+"Charging" = "הטענה";
 
 /* No comment provided by engineer. */
-"Choose a device subtype" = "Choose a device subtype";
+"Choose a device subtype" = "בחר את תת קטגוריית המכשיר";
 
 /* Title for lock preference */
-"Choose a lock preference" = "Choose a lock preference";
+"Choose a lock preference" = "בחר את סוג הנעילה";
 
 /* No comment provided by engineer. */
-"Choose a name for the lock" = "Choose a name for the lock";
+"Choose a name for the lock" = "בחר שם בשביל הנעילה";
 
 /* Entering name for audio */
-"Choose a name for the sound" = "Choose a name for the sound";
+"Choose a name for the sound" = "בחר שם בשביל הסאונד";
 
 /* Choose a size for passcode keys */
-"Choose a size" = "Choose a size";
+"Choose a size" = "בחר גודל";
 
 /* Title for choosing background update interval */
-"Choose an update option" = "Choose an update option";
+"Choose an update option" = "בחר אופציה לעדכון אוטומטי";
 
 /* No comment provided by engineer. */
-"Choose size" = "Choose size";
+"Choose size" = "בחר גודל";
 
 /* No comment provided by engineer. */
-"Clear image" = "Clear image";
+"Clear image" = "אפס תמונה";
 
 /* sourcelocation's contribution */
-"Co-Developer" = "Co-Developer";
+"Co-Developer" = "מפתח שותף";
 
 /* No comment provided by engineer. */
-"Confirm" = "Confirm";
+"Confirm" = "אישור";
+
+/* operation type that corrupts/disables the file */
+"Corrupting" = "משחית";
 
 /* No comment provided by engineer. */
-"Corrupting" = "Corrupting";
+"Couldn't get url of file. Did you select it?" = "לא מצליח להשיג url של קובץ. בחרת אותו?";
 
 /* No comment provided by engineer. */
-"Couldn't get url of file. Did you select it?" = "Couldn't get url of file. Did you select it?";
+"Couldn't get url of folder. Did you select it?" = "לא מצליח להשיג url של תיקייה. בחרת אותה?";
 
 /* No comment provided by engineer. */
-"Couldn't get url of folder. Did you select it?" = "Couldn't get url of folder. Did you select it?";
+"Cowabunga" = "קוואבאנגה";
 
 /* No comment provided by engineer. */
-"Cowabunga" = "Cowabunga";
+"Cowabunga requires “Always” location permission." = "קוואבאנגה מצריך אישור תמידי של מיקום.";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga requires “Always” location permission.";
+"Credits" = "קרדיט";
 
 /* No comment provided by engineer. */
-"Credits" = "Credits";
-
-/* No comment provided by engineer. */
-"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel.";
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "ברגע זה, בשביל להגיש נושאים בשביל אנשים אחרים לראות ולהשתמש בהם, אנחנו צריכים לבדוק אותם בדיסקורד שלנו ב#sowcase ";
 
 /* Custom size for passcode keys */
-"Custom" = "Custom";
+"Custom" = "מעוצב אישית";
 
 /* No comment provided by engineer. */
-"Custom image" = "Custom image";
+"Custom image" = "תמונה בעיצוב אישי";
 
 /* No comment provided by engineer. */
-"Custom Operations" = "Custom Operations";
+"Custom Operations" = "עיצוב פעולות";
 
 /* default device subtype
    Default passcode size */
-"Default" = "Default";
+"Default" = "ברירת מחדל";
 
 /* Audio name */
-"Default Notifications" = "Default Notifications";
+"Default Notifications" = "הודעות ברירת מחדל";
 
 /* No comment provided by engineer. */
-"Delete" = "Delete";
+"Delete" = "מחק";
 
 /* No comment provided by engineer. */
-"Delete Shortcut Banners" = "Delete Shortcut Banners";
+"Delete Shortcut Banners" = "מחק באנר של קיצורים";
 
 /* No comment provided by engineer. */
-"Device Resolution" = "Device Resolution";
+"Device Resolution" = "איכות המכשיר";
 
 /* No comment provided by engineer. */
-"Disable" = "Disable";
+"Disable" = "בטל";
 
 /* Springboard tool */
-"Disable App Switcher Blur" = "Disable App Switcher Blur";
+"Disable App Switcher Blur" = "בטל תשטוש של מחליף אפליקציות";
 
 /* Springboard tool */
-"Disable CC Module Background" = "Disable CC Module Background";
+"Disable CC Module Background" = "בטל רקע של מודול במרכז השליטה";
 
 /* Springboard tool */
-"Disable Folder Background" = "Disable Folder Background";
+"Disable Folder Background" = "בטל רקע של תיקיות";
 
 /* Springboard tool */
-"Disable Folder Blur" = "Disable Folder Blur";
+"Disable Folder Blur" = "בטל תשטוש של תיקיות";
 
 /* Springboard tool */
-"Disable Library Pods Background" = "Disable Library Pods Background";
+"Disable Library Pods Background" = "בטל רקע של תרמיליי ספרייה";
 
 /* No comment provided by engineer. */
-"Disable Shortcut Apps as Appclips" = "Disable Shortcut Apps as Appclips";
+"Disable Shortcut Apps as Appclips" = "בטל אפליקציות קיצור דרך כקליפאפליקציות";
 
 /* No comment provided by engineer. */
-"Dock" = "Dock";
+"Dock" = "דוק";
 
 /* iPhone 14 Pro SubType */
-"Dynamic Island" = "Dynamic Island";
+"Dynamic Island" = "אי דינמי";
 
 /* iPhone 14 Pro Max SubType */
-"Dynamic Island Pro Max" = "Dynamic Island Pro Max";
+"Dynamic Island Pro Max" = "אי דינמי פרו מקס";
 
 /* matteozappia's contribution */
-"Dynamic Island SubTypes" = "Dynamic Island SubTypes";
+"Dynamic Island SubTypes" = "אי דינמי תת קטגוריית מכשיר";
 
 /* No comment provided by engineer. */
-"Email" = "Email";
+"Email" = "אימייל";
 
 /* No comment provided by engineer. */
-"Enable" = "Enable";
+"Enable" = "הפעל";
 
 /* No comment provided by engineer. */
-"Enable Shortcut Apps as Appclips" = "Enable Shortcut Apps as Appclips";
+"Enable Shortcut Apps as Appclips" = "הפעל אפליקציות קיצור דרך כקליפאפליקציות";
 
 /* Audio name */
-"End Recording" = "End Recording";
+"End Recording" = "הפסק הקלטה";
 
 /* Entering custom resolution */
-"Enter Dimensions" = "Enter Dimensions";
+"Enter Dimensions" = "הכנס ממדים";
 
 /* dimensions for passcode keys */
-"Enter Key Dimensions" = "Enter Key Dimensions";
+"Enter Key Dimensions" = "הכנס ממדיי מקש";
 
 /* No comment provided by engineer. */
-"Enter Name" = "Enter Name";
+"Enter Name" = "הכנס שם";
 
 /* ginsudev's contribution */
-"Exploit Code" = "Exploit Code";
+"Exploit Code" = "קוד ניצול חולשות";
 
 /* No comment provided by engineer. */
-"Explore" = "Explore";
+"Explore" = "דף חקירה";
 
 /* No comment provided by engineer. */
-"Extra Preferences" = "Extra Preferences";
+"Extra Preferences" = "אקסטרה הגדרות";
 
 /* Failed to apply audio */
-"Failed to apply audio for:" = "Failed to apply audio for:";
+"Failed to apply audio for:" = "לא הצליח ליישם אודיו בשביל: ";
 
 /* failed to apply subtype */
-"Failed to apply Device SubType!" = "Failed to apply Device SubType!";
+"Failed to apply Device SubType!" = "לא הצליח ליישם תת מכשיר!";
 
 /* Failing to apply custom resolution */
-"Failed to apply resolution:" = "Failed to apply resolution:";
+"Failed to apply resolution:" = "לא הצליח ליישם איכות: ";
 
 /* Import passcode theme from files */
-"Files" = "Files";
+"Files" = "קבצים";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "Fix tweaks";
+"Fix tweaks" = "תקן שיניים";
 
 /* No comment provided by engineer. */
-"Folder" = "Folder";
+"Folder" = "תיקייה";
 
 /* No comment provided by engineer. */
-"Footnote" = "Footnote";
+"Footnote" = "הערת שוליים";
 
 /* No comment provided by engineer. */
-"Force MacDirtyCOW" = "Force MacDirtyCOW";
+"Force MacDirtyCOW" = "אלץ MacDirtyCOW";
 
 /* No comment provided by engineer. */
-"Forgot password?" = "Forgot password?";
+"Forgot password?" = "שכחת סיסמה?";
 
 /* Where to import passcode theme from */
-"From where do you want to import from?" = "From where do you want to import from?";
+"From where do you want to import from?" = "מאיפה אתה רוצה לייבא?";
 
 /* No comment provided by engineer. */
-"Gestures / Dynamic Island" = "Gestures / Dynamic Island";
+"Gestures / Dynamic Island" = "סימנים / אי דינמי";
 
 /* No comment provided by engineer. */
-"Go here if something isn't working correctly." = "Go here if something isn't working correctly.";
+"Go here if something isn't working correctly." = "לך לפה אם משהו לא עובד כמו שצריך.";
 
 /* Height of custom resolution
    Height of passcode keys */
-"Height" = "Height";
+"Height" = "גובה";
 
 /* No comment provided by engineer. */
-"Hide Airplane Mode" = "Hide Airplane Mode";
+"Hide Airplane Mode" = "הסתר מצב טיבה";
 
 /* No comment provided by engineer. */
-"Hide AirPlay" = "Hide AirPlay";
+"Hide AirPlay" = "הסתר ניגון אוויר";
 
 /* No comment provided by engineer. */
-"Hide Alarm" = "Hide Alarm";
+"Hide Alarm" = "הסתר שעון מעורר";
 
 /* No comment provided by engineer. */
-"Hide Battery" = "Hide Battery";
+"Hide Battery" = "הסתר סוללה";
 
 /* No comment provided by engineer. */
-"Hide Bluetooth" = "Hide Bluetooth";
+"Hide Bluetooth" = "הסתר בלוטוט'";
 
 /* No comment provided by engineer. */
-"Hide CarPlay" = "Hide CarPlay";
+"Hide CarPlay" = "הסתר ניגון רכב";
 
 /* No comment provided by engineer. */
-"Hide Cellular*" = "Hide Cellular*";
+"Hide Cellular*" = "הסתר סלולר*";
 
 /* No comment provided by engineer. */
-"Hide Do Not Disturb" = "Hide Do Not Disturb";
+"Hide Do Not Disturb" = "הסתר נא לא להפריע";
 
 /* Springboard tool */
-"Hide Dock" = "Hide Dock";
+"Hide Dock" = "הסתר דוק";
 
 /* Springboard tool */
-"Hide Home Bar" = "Hide Home Bar";
+"Hide Home Bar" = "הסתר פס בית";
 
 /* No comment provided by engineer. */
-"Hide Location" = "Hide Location";
+"Hide Location" = "הסתר מיקום";
 
 /* No comment provided by engineer. */
-"Hide Rotation Lock" = "Hide Rotation Lock";
+"Hide Rotation Lock" = "הסתר נעילת סיבוב";
 
 /* No comment provided by engineer. */
-"Hide Status Bar Time" = "Hide Status Bar Time";
+"Hide Status Bar Time" = "הסתר זמן פס סטטוס";
 
 /* No comment provided by engineer. */
-"Hide VPN" = "Hide VPN";
+"Hide VPN" = "הסתר VPN";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi^" = "Hide Wi-Fi^";
+"Hide Wi-Fi^" = "הסתר וייפיי^";
 
 /* No comment provided by engineer. */
-"Home" = "Home";
+"Home" = "בית";
 
 /* Category of tool */
-"Home Screen" = "Home Screen";
+"Home Screen" = "מסך בית";
 
 /* No comment provided by engineer. */
-"I'm not a robot (no cap)" = "I'm not a robot (no cap)";
+"I'm not a robot (no cap)" = "אני לא רובוט (אין כובע)";
 
 /* Description for lock preference */
-"If the custom lock does not apply for you, try another option." = "If the custom lock does not apply for you, try another option.";
+"If the custom lock does not apply for you, try another option." = "אם נעילה מותאמת לא עובדת בשבילך, נסה אופציה אחרת";
 
 /* Header for importing passcode theme */
-"Import Passcode Theme" = "Import Passcode Theme";
+"Import Passcode Theme" = "ייבא מסך נעילה מותאם אישית";
 
 /* No comment provided by engineer. */
-"Included" = "Included";
+"Included" = "כלול";
 
 /* c22dev's contribution */
-"Included Audio & Credits" = "Included Audio & Credits";
+"Included Audio & Credits" = "שמע וקרדיט כלול";
 
 /* Header for inputting custom iOS version */
-"Input Software Version" = "Input Software Version";
+"Input Software Version" = "ייבא גרסת תוכנה";
 
 /* x gestures */
-"iPhone X Gestures" = "iPhone X Gestures";
+"iPhone X Gestures" = "סימניי אייפון X";
 
 /* No comment provided by engineer. */
-"Join Discord" = "Join Discord";
+"Join Discord" = "הצטרף לדיסקורד";
 
 /* Audio name */
-"Ketboard Press Clear" = "Ketboard Press Clear";
+"Ketboard Press Clear" = "לחץ על ניקוי במקלדת";
 
 /* Audio name */
-"Keyboard Press Delete" = "Keyboard Press Delete";
+"Keyboard Press Delete" = "לחץ על מחק במקלדת";
 
 /* Audio name */
-"Keyboard Press Normal" = "Keyboard Press Normal";
+"Keyboard Press Normal" = "לחיצה נורמלית במקלדת";
 
 /* Audio name */
-"Lock" = "Lock";
+"Lock" = "נעל";
 
 /* Category of tool */
-"Lock Screen" = "Lock Screen";
+"Lock Screen" = "מסך נעילה";
 
 /* Title of tool */
-"Lock Screen Footnote" = "Lock Screen Footnote";
+"Lock Screen Footnote" = "הערת שוליים של מסך הנעילה";
 
 /* No comment provided by engineer. */
-"Lock Screen Footnote Changer" = "Lock Screen Footnote Changer";
+"Lock Screen Footnote Changer" = "שינוי הערת שוליים של מסך הנעילה";
 
 /* No comment provided by engineer. */
-"Lock Type" = "Lock Type";
+"Lock Type" = "סוג נעילה";
 
 /* Title of tool */
-"Locks" = "Locks";
+"Locks" = "נעילות";
 
 /* No comment provided by engineer. */
-"Log in" = "Log in";
+"Log in" = "התחברות";
 
 /* No comment provided by engineer. */
-"Log in Sourced" = "Log in Sourced";
+"Log in Sourced" = "התחברות ממיקום מוגדר";
 
 /* Audio name */
-"Low Power" = "Low Power";
+"Low Power" = "סוללה נמוכה";
 
 /* leminlimez's contribution */
-"Main Developer" = "Main Developer";
+"Main Developer" = "מפתח ראשי";
 
 /* Maximum passcode key size */
-"Max:" = "Max:";
+"Max:" = "מקסימום:";
 
 /* Minimum passcode key size */
-"Min:" = "Min:";
+"Min:" = "מינימום:";
 
 /* Title of tool */
-"Miscellaneous" = "Miscellaneous";
+"Miscellaneous" = "אחר";
 
 /* No comment provided by engineer. */
-"More Settings" = "More Settings";
+"More Settings" = "עוד הגדרות";
 
 /* No comment provided by engineer. */
-"Name" = "Name";
+"Name" = "שם";
 
 /* Audio name */
-"New Mail" = "New Mail";
+"New Mail" = "מייל חדש";
 
 /* Decline apply for all (passcode keys) */
-"No" = "No";
+"No" = "לא";
 
 /* No comment provided by engineer. */
-"No Cards Found" = "No Cards Found";
+"No Cards Found" = "לא נמצאו כרטיסים";
 
 /* No comment provided by engineer. */
-"No respring required to apply." = "No respring required to apply.";
+"No respring required to apply." = "אין צורך לטעון מחדש גרפיקה בשביל ליישם.";
 
 /* Not a valid size input for passcode keys */
-"Not a valid size!" = "Not a valid size!";
+"Not a valid size!" = "גודל לא תקף";
 
 /* No comment provided by engineer. */
-"OK" = "OK";
+"OK" = "אוקיי";
 
 /* No comment provided by engineer. */
-"Open Settings" = "Open Settings";
+"Open Settings" = "פתח הגדרות";
 
 /* Category of tool */
-"Other" = "Other";
+"Other" = "אחר";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Passcode Face Editor";
+"Passcode Face Editor" = "עורך נראות מסך נעילה";
 
 /* Title of tool */
-"Passcode Faces" = "Passcode Faces";
+"Passcode Faces" = "נראות מסך נעילה";
 
 /* No comment provided by engineer. */
-"Password" = "Password";
+"Password" = "סיסמה";
 
 /* No comment provided by engineer. */
-"Path:" = "Path:";
+"Path:" = "נתיב:";
 
 /* Audio name */
-"Payment Failed" = "Payment Failed";
+"Payment Failed" = "תשלום נכשל";
 
 /* Audio name */
-"Payment Received" = "Payment Received";
+"Payment Received" = "תשלום התקבל";
 
 /* Audio name */
-"Payment Success" = "Payment Success";
+"Payment Success" = "שולם בהצלחה";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely.";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "קוואבאנגה מצריך מיקום תמידי בשביל לרוץ ברקע שלי לעצור";
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Please log into your Sourced Repo account to continue";
 
 /* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "Please respring to finalize changes. Reboot to revert.";
+"Please respring to finalize changes. Reboot to revert." = "בבקשה תן למכשיר לעדכן הגדרות עם respring. אתחל את המכשיר בשביל להחזיר למצב הקודם.";
 
 /* No comment provided by engineer. */
-"Please respring to finish applying changes." = "Please respring to finish applying changes.";
+"Please respring to finish applying changes." = "בבקשה תבצע respring בשביל לגמור להגדיר שינויים.";
 
 /* respring to hear audio changes */
-"Please respring to hear changes." = "Please respring to hear changes.";
+"Please respring to hear changes." = "בבקשה תבצע repsring בשביל לשמוע שינויים.";
 
 /* No comment provided by engineer. */
-"Please respring to see changes." = "Please respring to see changes.";
+"Please respring to see changes." = "בבקשה תבצע repsring בשביל לראות שינויים.";
 
 /* No comment provided by engineer. */
-"Preferences" = "Preferences";
+"Preferences" = "הגדקות";
 
 /* Audio name */
-"Received Message" = "Received Message";
+"Received Message" = "הודעה התקבלה";
 
 /* No comment provided by engineer. */
-"Remove all" = "Remove all";
+"Remove all" = "הסר הכל";
+
+/* operation type that replaces a file */
+"Replacing" = "משנה";
 
 /* No comment provided by engineer. */
-"Replacing" = "Replacing";
+"Reset All" = "שחזר הכל";
 
 /* No comment provided by engineer. */
-"Reset All" = "Reset All";
+"Reset Default SubType" = "שחזר subtype ";
 
 /* No comment provided by engineer. */
-"Reset Default SubType" = "Reset Default SubType";
-
-/* No comment provided by engineer. */
-"Reset faces" = "Reset faces";
+"Reset faces" = "שחזר מקשי נעילה";
 
 /* No comment provided by engineer. */
 "Respring" = "Respring";
 
 /* No comment provided by engineer. */
-"Respring to see changes" = "Respring to see changes";
+"Respring to see changes" = "בצע Respring בשביל לראות שינויים";
 
 /* No comment provided by engineer. */
-"Run in background" = "Run in background";
+"Run in background" = "פעולה ברקע";
 
 /* No comment provided by engineer. */
-"Save Settings" = "Save Settings";
+"Save Settings" = "שמור הגדקות";
 
 /* Import passcode theme from saved */
-"Saved" = "Saved";
+"Saved" = "נשמר";
 
 /* Audio name */
-"Screenshot" = "Screenshot";
+"Screenshot" = "צילום מסך";
 
 /* Audio name */
-"Sent Mail" = "Sent Mail";
+"Sent Mail" = "מייל נשלח";
 
 /* Audio name */
-"Sent Message" = "Sent Message";
+"Sent Message" = "הודעה נשלחה";
 
 /* No comment provided by engineer. */
-"Set app switcher color" = "Set app switcher color";
+"Set app switcher color" = "קבע צבע של משנה אפליקציות";
 
 /* No comment provided by engineer. */
-"Set badge color" = "Set badge color";
+"Set badge color" = "קבע צבע בועת הודעות";
 
 /* No comment provided by engineer. */
-"Set dock color" = "Set dock color";
+"Set dock color" = "קבע צבע דוק";
 
 /* No comment provided by engineer. */
 "Set expanded folder background color" = "Set expanded folder background color";
 
 /* No comment provided by engineer. */
-"Set folder color" = "Set folder color";
+"Set folder color" = "קבע צבע תיקיות";
 
 /* No comment provided by engineer. */
-"Settings" = "Settings";
+"Settings" = "הגדרות";
 
 /* No comment provided by engineer. */
-"Shortcut Apps" = "Shortcut Apps";
+"Shortcut Apps" = "אפליקציות קיצורי דרך";
 
 /* No comment provided by engineer. */
-"Sign up" = "Sign up";
+"Sign up" = "הרשם";
 
 /* Small passcode keys */
-"Small" = "Small";
+"Small" = "קטן";
 
 /* No comment provided by engineer. */
-"Software Version" = "Software Version";
+"Software Version" = "גרסת תוכנה";
 
 /* Title of tool */
-"Springboard Colors" = "Springboard Colors";
+"Springboard Colors" = "צבעי Springboard";
 
 /* Title of tool */
-"Springboard Tools" = "Springboard Tools";
+"Springboard Tools" = "כלי Springboard";
 
 /* No comment provided by engineer. */
-"SpringBoard Tools" = "SpringBoard Tools";
+"SpringBoard Tools" = "כלי SpringBoard";
 
 /* Title of tool */
-"Status Bar" = "Status Bar";
+"Status Bar" = "פס סטטוס";
 
 /* No comment provided by engineer. */
-"Status Bar Time Text" = "Status Bar Time Text";
+"Status Bar Time Text" = "טקסט זמן בפס סטטוס";
 
 /* No comment provided by engineer. */
-"Submit themes" = "Submit themes";
+"Submit themes" = "שלח עיצוב";
 
 /* No comment provided by engineer. */
-"Success!" = "Success!";
+"Success!" = "הצלחה!";
 
 /* applying audio succeeded */
-"Successfully applied audio!" = "Successfully applied audio!";
+"Successfully applied audio!" = "יישם סאונד בהצלחה!";
 
 /* No comment provided by engineer. */
-"Supervised" = "Supervised";
+"Supervised" = "מפוקח";
 
 /* No comment provided by engineer. */
 "Swipe to view different cards" = "Swipe to view different cards";
