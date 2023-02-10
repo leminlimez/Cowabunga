@@ -488,7 +488,7 @@ struct OtherModsView: View {
                                 }, noCancel: false)
                             }
                             
-                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                 // cancels the action
                             }
                             

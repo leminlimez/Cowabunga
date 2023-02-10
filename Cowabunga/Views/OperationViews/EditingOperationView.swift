@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct EditingOperationView: View {
-    var operation: AdvancedObject
+    var category: String
+    @State var operation: AdvancedObject
     
     @State var operationName: String = ""
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     
-    @State var replacingType: ReplacingObjectType? = nil
+    @State var replacingType: ReplacingObjectType = ReplacingObjectType.Imported
     @State var replacingPath: String = ""
     
     var body: some View {
@@ -36,7 +37,40 @@ struct EditingOperationView: View {
                             .bold()
                         Spacer()
                         Button(action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Choose an operation type", comment: ""), message: "", preferredStyle: .actionSheet)
                             
+                            // create the actions
+                            let corruptingAction = UIAlertAction(title: NSLocalizedString("Corrupting", comment: "operation type that corrupts/disables the file"), style: .default) { (action) in
+                                // change the type
+                                if !(operation is CorruptingObject) {
+                                    operation = CorruptingObject(operationName: operationName, filePath: filePath, singleApply: false, applyInBackground: applyInBackground)
+                                }
+                            }
+                            
+                            let replacingAction = UIAlertAction(title: NSLocalizedString("Replacing", comment: "operation type that replaces a file"), style: .default) { (action) in
+                                // change the type
+                                if !(operation is ReplacingObject) {
+                                    operation = ReplacingObject(operationName: operationName, filePath: filePath, singleApply: false, applyInBackground: applyInBackground, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/Unknown")
+                                }
+                            }
+                            
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(corruptingAction)
+                            alert.addAction(replacingAction)
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                         }) {
                             // get the type of operation
                             if operation is CorruptingObject {
@@ -100,9 +134,33 @@ struct EditingOperationView: View {
                                 .bold()
                             Spacer()
                             Button(action: {
+                                // create and configure alert controller
+                                let alert = UIAlertController(title: NSLocalizedString("Choose an operation type", comment: ""), message: "", preferredStyle: .actionSheet)
                                 
+                                // create the actions
+                                for tp in ReplacingObjectType.allCases {
+                                    let newAction = UIAlertAction(title: tp.rawValue, style: .default) { (action) in
+                                        replacingType = tp
+                                    }
+                                    alert.addAction(newAction)
+                                }
+                                
+                                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                                    // cancels the action
+                                }
+                                
+                                // add the actions
+                                alert.addAction(cancelAction)
+                                
+                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                // present popover for iPads
+                                alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                
+                                // present the alert
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                             }) {
-                                Text(replacingType?.rawValue ?? "Error")
+                                Text(replacingType.rawValue)
                                     .multilineTextAlignment(.trailing)
                             }
                             .foregroundColor(.blue)
@@ -174,14 +232,25 @@ struct EditingOperationView: View {
                         // MARK: Save
                         Button("Apply") {
                             // apply the changes
+                            UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                            // set the properties of the operation
+                            operation.operationName = operationName
+                            operation.filePath = filePath
+                            operation.applyInBackground = applyInBackground
+                            if operation is ReplacingObject, var operation = operation as? ReplacingObject {
+                                operation.replacingType = replacingType
+                                operation.replacingPath = replacingPath
+                            }
+                            do {
+                                try AdvancedManager.saveOperation(operation: operation, category: category)
+                                UIApplication.shared.dismissAlert(animated: true)
+                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
+                            } catch {
+                                UIApplication.shared.dismissAlert(animated: true)
+                                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
+                            }
                         }
                         .buttonStyle(FullwidthTintedButton(color: .blue))
-                        
-                        // MARK: Delete
-                        Button("Delete") {
-                            // delete the
-                        }
-                        .buttonStyle(FullwidthTintedButton(color: .red))
                     }
                     .listRowInsets(EdgeInsets())
                     .padding()
@@ -199,11 +268,5 @@ struct EditingOperationView: View {
                 }
             }
         }
-    }
-}
-
-struct EditingOperationView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditingOperationView(operation: CorruptingObject.init(operationName: "Test Operation", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: false))
     }
 }
