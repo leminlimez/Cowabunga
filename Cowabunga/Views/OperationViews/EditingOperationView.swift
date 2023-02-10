@@ -68,13 +68,13 @@ struct EditingOperationView: View {
                                 }
                             }
                             
-                            /*let plistAction = UIAlertAction(title: NSLocalizedString("Plist", comment: "operation type that changes plist keys"), style: .default) { (action) in
+                            let plistAction = UIAlertAction(title: NSLocalizedString("Plist", comment: "operation type that changes plist keys"), style: .default) { (action) in
                                 // change the type
                                 if !(operation is PlistObject) {
                                     operation = PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, plistType: plistType, replacingKeys: replacingKeys)
                                     //operation = CorruptingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
                                 }
-                            }*/
+                            }
                             
                             let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                 // cancels the action
@@ -83,7 +83,7 @@ struct EditingOperationView: View {
                             // add the actions
                             alert.addAction(corruptingAction)
                             alert.addAction(replacingAction)
-                            //alert.addAction(plistAction)
+                            alert.addAction(plistAction)
                             alert.addAction(cancelAction)
                             
                             let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
@@ -385,8 +385,10 @@ struct EditingOperationView: View {
                     // write to temp file
                     try replacingData!.write(to: newURL)
                     replacingPath = newURL.path
+                    url.stopAccessingSecurityScopedResource()
                 } catch {
                     UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
+                    url.stopAccessingSecurityScopedResource()
                 }
             }
         }
