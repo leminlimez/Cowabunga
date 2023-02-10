@@ -22,8 +22,8 @@ public class MDC {
         var byteArray = [UInt8](Data(bytes: buffer, count: n))
         
         
-        let treeBytes: [UInt8] = [0,0,0,0, 0x74,0x72,0x65,0x65, 0,0,0,1]
-        let corruptBytes: [UInt8] = [67, 111, 114, 114, 117, 112, 116, 84, 104, 105, 115, 76]
+        let treeBytes: [UInt8] = [0,0,0,0, 0x74,0x72,0x65,0x65, 0,0,0]
+        let corruptBytes: [UInt8] = [67, 111, 114, 114, 117, 112, 116, 84, 104, 105, 76]
         
         let findBytes = corrupt ? treeBytes : corruptBytes
         let replaceBytes = corrupt ? corruptBytes : treeBytes

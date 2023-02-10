@@ -5,8 +5,10 @@
 //  Created by exerhythm on 19.10.2022.
 //
 
+import MacDirtyCowSwift
 import SwiftUI
 
+@available(iOS 15, *)
 struct ThemesView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @State private var isImporting = false
@@ -38,6 +40,26 @@ struct ThemesView: View {
                                 ForEach(themes, id: \.name) { theme in
                                     ThemeView(theme: theme, wallpaper: wallpaper!, defaultWallpaper: defaultWallpaper)
                                         .contextMenu {
+                                            Button {
+                                                
+                                                let alert = UIAlertController(title: NSLocalizedString("Rename theme", comment: "Entering new theme name"), message: "", preferredStyle: .alert)
+                                                alert.addTextField { (textField) in
+                                                    textField.placeholder = NSLocalizedString("New theme name", comment: "")
+                                                }
+                                                alert.addAction(UIAlertAction(title: NSLocalizedString("Rename", comment: ""), style: .default) { (action) in
+                                                    do {
+                                                        guard let name = alert.textFields![0].text else { return }
+                                                        try themeManager.renameImportedTheme(id: theme.id, newName: name)
+                                                    } catch {
+                                                        UIApplication.shared.alert(body: error.localizedDescription)
+                                                    }
+                                                })
+                                                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
+                                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                                            } label: {
+                                                Label("Rename", systemImage: "pencil")
+                                            }
+                                            
                                             Button {
                                                 themes.removeAll { theme1 in theme1.id == theme.id }
                                                 themeManager.themes = themes
@@ -105,15 +127,16 @@ struct ThemesView: View {
                             Image(systemName: "square.and.arrow.down")
                         }
                     }
-//                    ToolbarItem(placement: .navigationBarLeading) {
-//                        Button(action: {
-//                            UIApplication.shared.confirmAlert(title: "Full reset", body: "All app icons will be reverted to their original appearance and WebClips will be deleted. Are you sure you want to continue?", onOK: {
-//                                removeThemes(removeWebClips: true)
-//                            }, noCancel: false)
-//                        }) {
-//                            Image(systemName: "arrow.uturn.backward")
-//                        }
-//                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(role: .destructive, action: {
+                            UIApplication.shared.confirmAlert(title: "Full reset", body: "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)", onOK: {
+                                themeManager.preferedThemes = []
+                                applyChanges()
+                            }, noCancel: false)
+                        }) {
+                            Image(systemName: "arrow.uturn.backward")
+                        }
+                    }
                 }
                 .navigationTitle("Themes")
             }
@@ -155,7 +178,8 @@ struct ThemesView: View {
                             .frame(maxWidth: .infinity)
                             .background(Color.blue)
                             .cornerRadius(8)
-                            .padding()
+                            .padding(.horizontal)
+                            .padding(.vertical, 16)
                             .foregroundColor(.white)
                     }
                 }
@@ -193,18 +217,49 @@ struct ThemesView: View {
                     
                     UIApplication.shared.change(title: "In progress", body: "Scheduling icon cache reset...")
                     
-                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "20B\(Int.random(in: 100...999))")
+//                    let iconservicesagentURL = URL(fileURLWithPath: "/System/Library/CoreServices/iconservicesagent")
+//                    var byteArray = [UInt8](try! Data(contentsOf: iconservicesagentURL))
+//
+//
+//                    let findBytes: [UInt8]    = [UInt8]("/System/Library/CoreServices/SystemVersion.plist".data(using: .utf8)!)
+//                    let replaceBytes: [UInt8] = [UInt8]("/var/mobile/.DO-NOT-DELETE-Cowabunga/dummy.plist".data(using: .utf8)!)
+//
+//                    var startIndex = 0
+//                    while startIndex <= byteArray.count - findBytes.count {
+//                        let endIndex = startIndex + findBytes.count
+//                        let subArray = Array(byteArray[startIndex..<endIndex])
+//
+//                        if subArray == findBytes {
+//                            byteArray.replaceSubrange(startIndex..<endIndex, with: replaceBytes)
+//                            startIndex += replaceBytes.count
+//                        } else {
+//                            startIndex += 1
+//                        }
+//                    }
+//                    let newData = Data(byteArray)
+//
+//                    print(MDC.overwriteFile(at: iconservicesagentURL.path, with: newData))
                     
+                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "21B\(Int.random(in: 100...999))")
+//
                     xpc_crash("com.apple.iconservices")
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                        do { let _ = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: oldVersion) } catch { UIApplication.shared.change(body: error.localizedDescription) }
+//
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        do {
+                            let _ = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: oldVersion)
+                        } catch {
+                            UIApplication.shared.change(body: error.localizedDescription)
+
+                        }
+
+                        UIApplication.shared.dismissAlert(animated: false)
                         
-                        UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        UIApplication.shared.change(title: "Success", body: "Elapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s\n\nRespringing...")
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                            respring()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+                            
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                            UIApplication.shared.confirmAlert(title: "Success", body: "After the phone resprings, please reopen Cowabunga to fix apps not functioning properly.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", confirmTitle: NSLocalizedString("Respring", comment: "Shown after successful theme set."), onOK: {
+                                    respring()
+                            }, noCancel: true)
                         })
                     })
                 } catch { UIApplication.shared.change(body: error.localizedDescription) }
@@ -243,6 +298,7 @@ struct ThemesView: View {
 }
 
 
+@available(iOS 15, *)
 struct ThemesView_Previews: PreviewProvider {
     static var previews: some View {
         ThemesView()

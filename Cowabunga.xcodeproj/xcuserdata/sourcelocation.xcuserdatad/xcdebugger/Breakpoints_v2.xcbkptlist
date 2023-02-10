@@ -36,5 +36,22 @@
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D93CEDB7-0A22-4C1D-8BBB-8B2C46534FE7"
+            shouldBeEnabled = "No"
+            condition = "change.app.bundleIdentifier == &quot;com.apple.Passbook&quot;"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cowabunga/Controllers/Tools/Themes/CatalogThemeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "applyChange(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

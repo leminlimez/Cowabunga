@@ -27,6 +27,8 @@ public class CatalogThemeManager {
     }
     
     private func applyChange(_ change: AppIconChange) throws {
+        let systemAppsWith💀Symlinks = ["com.apple.MBHelperApp"]
+        guard !systemAppsWith💀Symlinks.contains(change.app.bundleIdentifier) else { return }
         
         backupPNGs(app: change.app)
         
@@ -35,6 +37,7 @@ public class CatalogThemeManager {
 
         if let icon = change.icon {
             // MARK: set custom icons
+            print("setting icon")
             
             try? fm.createDirectory(at: processedThemesDir.appendingPathComponent(icon.themeName), withIntermediateDirectories: true)
             for iconName in change.app.pngIconPaths {
@@ -49,39 +52,64 @@ public class CatalogThemeManager {
                     let imgData = try Data(contentsOf: icon.rawThemeIconURL)
                     guard let themeIcon = UIImage(data: imgData) else { throw "Could not read image data from icon at path \(icon.rawThemeIconURL.path)" }
                     
-                    let origImageData = try Data(contentsOf: iconURL)
+                    guard let origImageData = try? Data(contentsOf: iconURL) else { print("icon not found at the specified path. \(iconName)"); continue } // happens for calendar for some reason
                     let origImageSize = origImageData.count
                     
                     guard let origImage = UIImage(data: origImageData) else { throw "Could not read image data from original icon at path \(icon.rawThemeIconURL.path)" }
                     let width = origImage.size.width / 2
-                    let size = CGSize(width: width, height: width)
                     
-                    cachedIcon = try UIGraphicsImageRenderer(size: size).image { _ in
-                        themeIcon.draw(in: CGRect(origin: .zero, size: size))
-                    }.resizeToApprox(allowedSizeInBytes: origImageSize)
+                    var processedImage: Data?
                     
+                    var resScale: CGFloat = 1
+                    while resScale > 0.01 {
+                        let sizeWithAppliedScale = width * resScale
+                        let size = CGSize(width: sizeWithAppliedScale, height: sizeWithAppliedScale)
+                        
+                        processedImage = try? UIGraphicsImageRenderer(size: size).image { _ in themeIcon.draw(in: CGRect(origin: .zero, size: size)) }.resizeToApprox(allowedSizeInBytes: origImageSize)
+                        if processedImage != nil { break }
+                        
+                        resScale *= 0.75
+                    }
+                    
+                    guard let processedImage = processedImage else {
+                        print("could not compress image low enough to fit inside original \(origImageData.count) bytes. path to orig \(iconURL.path), path to theme icon \(iconURL.path)")
+                        continue
+                    }
+                    cachedIcon = processedImage
                     try! cachedIcon?.write(to: cachedIconURL)
                 }
 #if targetEnvironment(simulator)
 #else
                 let success = MDC.overwriteFile(at: iconURL.path, with: cachedIcon!)
                 print(success)
-                try MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: true)
+                try? MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: true)
+                UserDefaults.standard.set(true, forKey: "shouldPerformCatalogFixup")
 #endif
             }
         } else {
             // MARK: restore icons to original
+            print("restoring")
             
             for iconName in change.app.pngIconPaths {
                 let iconURL = change.app.bundleURL.appendingPathComponent(iconName)
                 let urlOfOriginal = change.app.originalIconURL(fileName: iconName)
-                let data = try Data(contentsOf: urlOfOriginal)
+                if let data = try? Data(contentsOf: urlOfOriginal) {
+                    // Has backup
 #if targetEnvironment(simulator)
 #else
-                let success = MDC.overwriteFile(at: iconURL.path, with: data)
-                print(success)
+                    let success = MDC.overwriteFile(at: iconURL.path, with: data)
+                    print(success)
 #endif
+                }
             }
+        }
+    }
+    
+    static func uncorruptCatalogs() throws {
+        for app in try ApplicationManager.getApps() {
+            let catalogURL = app.bundleURL.appendingPathComponent("Assets.car")
+            print(app.bundleIdentifier)
+            try? MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: false)
         }
     }
     

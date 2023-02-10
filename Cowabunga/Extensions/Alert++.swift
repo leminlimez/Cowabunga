@@ -10,32 +10,38 @@ import UIKit
 // credit: sourcelocation & TrollTools
 var currentUIAlertController: UIAlertController?
 
+
+fileprivate let errorString = NSLocalizedString("Error", comment: "")
+fileprivate let okString = NSLocalizedString("OK", comment: "")
+fileprivate let cancelString = NSLocalizedString("Cancel", comment: "")
+
 extension UIApplication {
+    
     func dismissAlert(animated: Bool) {
         DispatchQueue.main.async {
             currentUIAlertController?.dismiss(animated: animated)
         }
     }
-    func alert(title: String = "Error", body: String, animated: Bool = true, withButton: Bool = true) {
+    func alert(title: String = errorString, body: String, animated: Bool = true, withButton: Bool = true) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
-            if withButton { currentUIAlertController?.addAction(.init(title: "OK", style: .cancel)) }
+            if withButton { currentUIAlertController?.addAction(.init(title: okString, style: .cancel)) }
             self.present(alert: currentUIAlertController!)
         }
     }
-    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool) {
+    func confirmAlert(title: String = errorString, body: String, confirmTitle: String = okString, onOK: @escaping () -> (), noCancel: Bool) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if !noCancel {
-                currentUIAlertController?.addAction(.init(title: "Cancel", style: .cancel))
+                currentUIAlertController?.addAction(.init(title: cancelString, style: .cancel))
             }
-            currentUIAlertController?.addAction(.init(title: "Ok", style: noCancel ? .cancel : .default, handler: { _ in
+            currentUIAlertController?.addAction(.init(title: confirmTitle, style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
             }))
             self.present(alert: currentUIAlertController!)
         }
     }
-    func change(title: String = "Error", body: String) {
+    func change(title: String = errorString, body: String) {
         DispatchQueue.main.async {
             currentUIAlertController?.title = title
             currentUIAlertController?.message = body
