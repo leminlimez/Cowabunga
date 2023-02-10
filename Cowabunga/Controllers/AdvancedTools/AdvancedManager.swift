@@ -64,7 +64,7 @@ class AdvancedManager {
         let operationType: String = try getOperationProperty(operationInfo, key: "OperationType") as! String
         if operationType == "Corrupting" {
             // create a corrupting type
-            return CorruptingObject.init(operationName: operationName, filePath: filePath, singleApply: false, applyInBackground: applyInBackground)
+            return CorruptingObject.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
         } else if operationType == "Replacing" {
             let replacingType = try getOperationProperty(operationInfo, key: "ReplacingType") as! String
             var replacingTypeObject: ReplacingObjectType? = nil
@@ -80,7 +80,7 @@ class AdvancedManager {
                 throw "Could not get replacing object type!"
             }
             let replacingData: Data = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
-            return ReplacingObject(operationName: operationName, filePath: filePath, singleApply: false, applyInBackground: applyInBackground, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
+            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
         }
         
         throw "Could not get operation type!"

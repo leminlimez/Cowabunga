@@ -79,7 +79,7 @@ struct AdvancedView: View {
                 }*/
                 
                 // create a new operation
-                NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: "New Operation", filePath: "/var", singleApply: false, applyInBackground: false))) {
+                NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: "New Operation", filePath: "/var", applyInBackground: false))) {
                     Image(systemName: "plus")
                 }
             }

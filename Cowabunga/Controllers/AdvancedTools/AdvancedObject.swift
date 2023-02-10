@@ -31,14 +31,12 @@ class AdvancedObject: Identifiable {
     
     var operationName: String
     var filePath: String
-    var singleApply: Bool
     var replacementData: Data? = nil
     var applyInBackground: Bool
     
-    init(operationName: String, filePath: String, singleApply: Bool, applyInBackground: Bool) {
+    init(operationName: String, filePath: String, applyInBackground: Bool) {
         self.operationName = operationName
         self.filePath = filePath
-        self.singleApply = singleApply
         self.applyInBackground = applyInBackground
     }
     
@@ -82,7 +80,7 @@ class AdvancedObject: Identifiable {
 
 class NullObject: AdvancedObject {
     init() {
-        super.init(operationName: "Null", filePath: "/", singleApply: false, applyInBackground: false)
+        super.init(operationName: "Null", filePath: "/", applyInBackground: false)
     }
 }
 
@@ -106,10 +104,21 @@ class ReplacingObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, singleApply: Bool, applyInBackground: Bool, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
         self.replacingType = replacingType
         self.replacingPath = replacingPath
-        super.init(operationName: operationName, filePath: filePath, singleApply: singleApply, applyInBackground: applyInBackground)
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
         self.replacementData = overwriteData
+    }
+}
+
+class PlistObject: AdvancedObject {
+    var plistType: PropertyListSerialization.PropertyListFormat
+    var replacingKeys: [String: Any] = [:]
+    
+    init(operationName: String, filePath: String, applyInBackground: Bool, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
+        self.plistType = plistType
+        self.replacingKeys = replacingKeys
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
     }
 }
