@@ -10,10 +10,10 @@ import SwiftUI
 struct AdvancedView: View {
     @State private var operations: [AdvancedCategory] = [
         .init(categoryName: "", categoryOperations: [
-            CorruptingObject.init(operationName: "Test Operation", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: false)
+            .init(name: "Test Operation")
         ]),
         .init(categoryName: "Test Category", categoryOperations: [
-            ReplacingObject(operationName: "Replace Egg", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: true, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/var/mobile/egg.png")
+            .init(name: "Replace Egg")
         ])
     ]
     /*@State private var operations: [AdvancedObject] = [
@@ -29,15 +29,15 @@ struct AdvancedView: View {
                 ForEach($operations) { cat in
                     Section {
                         ForEach(cat.categoryOperations) { operation in
-                            NavigationLink(destination: EditingOperationView(operation: operation.wrappedValue)) {
+                            NavigationLink(destination: EditingOperationView(category: cat.categoryName.wrappedValue, operation: try! AdvancedManager.getOperationFromName(operationName: operation.name.wrappedValue))) {
                                 HStack {
-                                    Text(operation.operationName.wrappedValue)
+                                    Text(operation.name.wrappedValue.replacingOccurrences(of: "_", with: " "))
                                         .padding(.horizontal, 8)
                                 }
                             }
                         }
                     } header: {
-                        Text(cat.categoryName.wrappedValue)
+                        Text(cat.categoryName.wrappedValue.replacingOccurrences(of: "_", with: " "))
                     }
                 }
             }

@@ -8,18 +8,23 @@
 import Foundation
 import MacDirtyCowSwift
 
-enum ReplacingObjectType: String {
+enum ReplacingObjectType: String, CaseIterable {
     case FilePath = "File Path"
     case Imported = "Imported"
+}
+
+struct AdvancedOperationName: Identifiable {
+    var id = UUID()
+    var name: String
 }
 
 class AdvancedCategory: Identifiable {
     var id = UUID()
     
     var categoryName: String
-    var categoryOperations: [AdvancedObject]
+    var categoryOperations: [AdvancedOperationName]
     
-    init(categoryName: String, categoryOperations: [AdvancedObject]) {
+    init(categoryName: String, categoryOperations: [AdvancedOperationName]) {
         self.categoryName = categoryName
         self.categoryOperations = categoryOperations
     }
@@ -66,6 +71,12 @@ class AdvancedObject: Identifiable {
         } else {
             throw "Data not parsed before applying!"
         }
+    }
+}
+
+class NullObject: AdvancedObject {
+    init() {
+        super.init(operationName: "Null", filePath: "/", singleApply: false, applyInBackground: false)
     }
 }
 
