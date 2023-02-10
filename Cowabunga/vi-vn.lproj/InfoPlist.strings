@@ -1,0 +1,21 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "Cấp quyền cho Sandbox (Cần thiết cho phím mật khẩu + Vài tính năng khác)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga sẽ chạy nền để chắc chắn rằng các tinh chỉnh tiếp tục được áp dụng. Thông thường iOS sẽ tắt các ứng dụng sau một khoảng thời gian. Nhưng Cowabunga đánh lừa iOS bằng việc yêu cầu sử dụng vị trí để duy trì phiên làm việc. Dữ liệu sẽ không được lưu trữ ở bất kì đâu, chỉ để áp dụng lần đó.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Cowabunga sẽ chạy nền để chắc chắn rằng các tinh chỉnh tiếp tục được áp dụng. Thông thường iOS sẽ tắt các ứng dụng sau một khoảng thời gian. Nhưng Cowabunga đánh lừa iOS bằng việc yêu cầu sử dụng vị trí để duy trì phiên làm việc. Dữ liệu sẽ không được lưu trữ ở bất kì đâu, chỉ để áp dụng lần đó.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Ảnh";
+
+/* (No Comment) */
+"Passcode Theme File" = "File giao diện mật khẩu";
+
