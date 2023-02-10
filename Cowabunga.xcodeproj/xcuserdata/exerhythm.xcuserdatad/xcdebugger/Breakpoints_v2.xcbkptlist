@@ -3,4 +3,23 @@
    uuid = "CDF2B929-71D7-4CA2-9778-01870B72EF36"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "274F2ECC-37A9-49BD-96AC-0DF55414CA12"
+            shouldBeEnabled = "Yes"
+            condition = "change.app.bundleIdentifier == &quot;com.apple.musicrecognition&quot;"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cowabunga/Controllers/Tools/Themes/CatalogThemeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "applyChanges(_:progress:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

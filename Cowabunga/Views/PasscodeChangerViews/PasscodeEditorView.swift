@@ -46,7 +46,8 @@ struct PasscodeEditorView: View {
                 //                    .background(Material.ultraThinMaterial)
                 //                    .ignoresSafeArea()
                 //                    .preferredColorScheme(.dark)
-                VStack {Text("Passcode Face Editor")
+                VStack {
+                    Text("Passcode Face Editor")
                         .foregroundColor(.white)
                         .font(.title2)
                         .padding(1)

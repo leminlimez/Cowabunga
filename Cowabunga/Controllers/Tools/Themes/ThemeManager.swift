@@ -84,7 +84,7 @@ class ThemeManager: ObservableObject {
         let preferedIcons = preferedIcons
         
         for app in apps {
-            guard app.bundleIdentifier == "com.apple.calculator" else { continue }
+//            guard app.bundleIdentifier == "com.apple.calculator" else { continue }
             if let themedIcon = preferedIcons[app.bundleIdentifier] {
                 appChanges.append(.init(app: app, icon: themedIcon))
             } else {
