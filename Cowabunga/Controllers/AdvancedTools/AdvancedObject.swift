@@ -51,15 +51,25 @@ class AdvancedObject: Identifiable {
         if replacementData != nil {
             if FileManager.default.fileExists(atPath: filePath) {
                 // get data of and make sure it is smaller
+                // first try to write normally
                 do {
-                    let originalSize = try Data(contentsOf: URL(fileURLWithPath: filePath)).count
-                    if originalSize <= replacementData!.count {
-                        let _ = MDC.overwriteFile(at: filePath, with: replacementData!)
-                    } else {
-                        throw "Replacement data is larger than the original file!"
-                    }
+                    try replacementData!.write(to: URL(fileURLWithPath: filePath))
                 } catch {
-                    throw error.localizedDescription
+                    // if it fails, revert back to MDC
+                    print("classic write failed... reverting back to MacDirtyCow")
+                    do {
+                        let originalSize = try Data(contentsOf: URL(fileURLWithPath: filePath)).count
+                        if originalSize <= replacementData!.count {
+                            let succeeded = MDC.overwriteFile(at: filePath, with: replacementData!)
+                            if !succeeded {
+                                throw "There was an error trying to write/replace the file."
+                            }
+                        } else {
+                            throw "Replacement data is larger than the original file!"
+                        }
+                    } catch {
+                        throw error.localizedDescription
+                    }
                 }
             } else {
                 throw "No file exists at path!"
