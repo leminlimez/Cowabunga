@@ -57,7 +57,7 @@ class AdvancedObject: Identifiable {
                     print("classic write failed... reverting back to MacDirtyCow")
                     do {
                         let originalSize = try Data(contentsOf: URL(fileURLWithPath: filePath)).count
-                        if originalSize <= replacementData!.count {
+                        if originalSize >= replacementData!.count {
                             let succeeded = MDC.overwriteFile(at: filePath, with: replacementData!)
                             if !succeeded {
                                 throw "There was an error trying to write/replace the file."
@@ -87,7 +87,7 @@ class NullObject: AdvancedObject {
 class CorruptingObject: AdvancedObject {
     override func parseData() throws {
         // create empty data
-        self.replacementData = Data("#".utf8)
+        self.replacementData = Data("###".utf8)
     }
 }
 

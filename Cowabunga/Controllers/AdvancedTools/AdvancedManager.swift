@@ -24,7 +24,9 @@ class AdvancedManager {
     
     private static func createUnnamedFolder(folderURL: URL) {
         do {
-            try createCategory(folderURL: folderURL, categoryName: "None")
+            if !FileManager.default.fileExists(atPath: folderURL.appendingPathComponent("None").path) {
+                try createCategory(folderURL: folderURL, categoryName: "None")
+            }
         } catch {
             print("An error occurred making unnamed directory")
         }

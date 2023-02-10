@@ -30,6 +30,7 @@ struct EditingOperationView: View {
     @State var replacingKeys: [String: Any] = [:]
     
     @State var isImporting: Bool = false
+    @State var pageTitle: String = ""
     
     var body: some View {
         VStack {
@@ -40,8 +41,15 @@ struct EditingOperationView: View {
                         Text("Name:")
                             .bold()
                         Spacer()
-                        TextField("Operation Name", text: $operationName)
-                            .multilineTextAlignment(.trailing)
+                        if #available(iOS 15.0, *) {
+                            TextField("Operation Name", text: $operationName)
+                                .multilineTextAlignment(.trailing)
+                                .submitLabel(.done)
+                        } else {
+                            // Fallback on earlier versions
+                            TextField("Operation Name", text: $operationName)
+                                .multilineTextAlignment(.trailing)
+                        }
                     }
                     
                     // MARK: Operation Type
@@ -118,9 +126,17 @@ struct EditingOperationView: View {
                             Text("Path:")
                                 .bold()
                             Spacer()
-                            TextEditor(text: $filePath)
-                                .multilineTextAlignment(.trailing)
-                                .frame(maxHeight: 180)
+                            if #available(iOS 15.0, *) {
+                                TextEditor(text: $filePath)
+                                    .multilineTextAlignment(.trailing)
+                                    .submitLabel(.done)
+                                    .frame(maxHeight: 180)
+                            } else {
+                                // Fallback on earlier versions
+                                TextEditor(text: $filePath)
+                                    .multilineTextAlignment(.trailing)
+                                    .frame(maxHeight: 180)
+                            }
                         }
                         Spacer()
                         HStack {
@@ -209,9 +225,17 @@ struct EditingOperationView: View {
                                     Text("Path:")
                                         .bold()
                                     Spacer()
-                                    TextEditor(text: $replacingPath)
-                                        .multilineTextAlignment(.trailing)
-                                        .frame(maxHeight: 180)
+                                    if #available(iOS 15.0, *) {
+                                        TextEditor(text: $replacingPath)
+                                            .multilineTextAlignment(.trailing)
+                                            .submitLabel(.done)
+                                            .frame(maxHeight: 180)
+                                    } else {
+                                        // Fallback on earlier versions
+                                        TextEditor(text: $replacingPath)
+                                            .multilineTextAlignment(.trailing)
+                                            .frame(maxHeight: 180)
+                                    }
                                 }
                                 Spacer()
                                 HStack {
@@ -233,14 +257,14 @@ struct EditingOperationView: View {
                                     Text("File:")
                                         .bold()
                                     Spacer()
-                                    Text(splitted.last ?? "Error")
+                                    Text(splitted.last ?? "No file selected!")
                                         .multilineTextAlignment(.trailing)
                                 }
                                 Spacer()
                                 HStack {
                                     Spacer()
-                                    if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-                                        Text("\(fileData.count) bytes")
+                                    if replacingData != nil {
+                                        Text("\(replacingData!.count) bytes")
                                             .multilineTextAlignment(.trailing)
                                             .padding(.bottom, 10)
                                     } else {
@@ -250,12 +274,15 @@ struct EditingOperationView: View {
                                     }
                                 }
                             }
-                            Button(action: {
-                                isImporting.toggle()
-                            }) {
-                                Text("Upload File")
-                                    .foregroundColor(.blue)
-                                    .multilineTextAlignment(.trailing)
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    isImporting.toggle()
+                                }) {
+                                    Text("Upload File")
+                                        .foregroundColor(.blue)
+                                        .multilineTextAlignment(.trailing)
+                                }
                             }
                         }
                     } header: {
@@ -358,8 +385,9 @@ struct EditingOperationView: View {
                     .padding()
                 }
             }
-            .navigationTitle("Edit Operation")
+            .navigationTitle(pageTitle)
             .onAppear {
+                pageTitle = editing ? "Edit Operation": "Create Operation"
                 operationName = operation.operationName
                 filePath = operation.filePath
                 applyInBackground = operation.applyInBackground
