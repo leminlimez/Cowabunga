@@ -83,7 +83,7 @@ struct EditingOperationView: View {
                             // add the actions
                             alert.addAction(corruptingAction)
                             alert.addAction(replacingAction)
-                            alert.addAction(plistAction)
+                            //alert.addAction(plistAction)
                             alert.addAction(cancelAction)
                             
                             let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view

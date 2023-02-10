@@ -18,6 +18,10 @@ struct PlistEditView: View {
     @Binding var plistValues: [String: Any]
     @State var plistViews: [PlistModifiable] = []
     
+    @State var textFieldRawText: String = ""
+    @State var textFieldRawInt: Int = 0
+    @State var textFieldRawDouble: Double = 0
+    
     var body: some View {
         VStack {
             List {
@@ -88,10 +92,17 @@ struct PlistEditView: View {
                         Spacer()
                         
                         // MARK: Value
-                        /*if property.value.wrappedValue is String {
-                            TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: property.value)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }*/
+                        if property.value.wrappedValue is String {
+                            // For strings
+                            Button(action: {
+                                textFieldRawText = property.value.wrappedValue as! String
+                            }) {
+                                TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: $textFieldRawText, onCommit: {
+                                    
+                                })
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                            }
+                        }
                         /*TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: property.value, onCommit: {
                             
                         })*/
