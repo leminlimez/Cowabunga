@@ -83,6 +83,8 @@ class AdvancedManager {
             }
             let replacingData: Data = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
             return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
+        } else if operationType == "P" {
+            
         }
         
         throw "Could not get operation type!"
