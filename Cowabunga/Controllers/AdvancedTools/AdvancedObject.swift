@@ -13,20 +13,16 @@ enum ReplacingObjectType: String, CaseIterable {
     case Imported = "Imported"
 }
 
-struct AdvancedOperationName: Identifiable {
-    var id = UUID()
-    var name: String
-}
-
 class AdvancedCategory: Identifiable {
     var id = UUID()
+    var name: String
+    var operations: [AdvancedCategory]?
+    var categoryName: String?
     
-    var categoryName: String
-    var categoryOperations: [AdvancedOperationName]
-    
-    init(categoryName: String, categoryOperations: [AdvancedOperationName]) {
+    init(name: String, operations: [AdvancedCategory]? = nil, categoryName: String? = nil) {
+        self.name = name
+        self.operations = operations
         self.categoryName = categoryName
-        self.categoryOperations = categoryOperations
     }
 }
 
@@ -46,7 +42,7 @@ class AdvancedObject: Identifiable {
         self.applyInBackground = applyInBackground
     }
     
-    func parseData() {
+    func parseData() throws {
         // parse the data to be replaced
     }
     
@@ -81,7 +77,7 @@ class NullObject: AdvancedObject {
 }
 
 class CorruptingObject: AdvancedObject {
-    override func parseData() {
+    override func parseData() throws {
         // create empty data
         self.replacementData = Data("#".utf8)
     }
@@ -90,6 +86,15 @@ class CorruptingObject: AdvancedObject {
 class ReplacingObject: AdvancedObject {
     var replacingType: ReplacingObjectType
     var replacingPath: String
+    
+    override func parseData() throws {
+        // get the data from the files
+        if FileManager.default.fileExists(atPath: self.replacingPath) {
+            self.replacementData = try Data(contentsOf: URL(fileURLWithPath: self.replacingPath))
+        } else {
+            throw "No file exists at path \(self.replacingPath)!"
+        }
+    }
     
     init(operationName: String, filePath: String, singleApply: Bool, applyInBackground: Bool, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
         self.replacingType = replacingType

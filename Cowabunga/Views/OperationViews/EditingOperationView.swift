@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditingOperationView: View {
     var category: String
+    var editing: Bool
     @State var operation: AdvancedObject
     
     @State var operationName: String = ""
@@ -230,7 +231,7 @@ struct EditingOperationView: View {
                 Section {
                     VStack {
                         // MARK: Save
-                        Button("Apply") {
+                        Button(action: {
                             // apply the changes
                             UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
                             // set the properties of the operation
@@ -247,10 +248,34 @@ struct EditingOperationView: View {
                                 UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
                             } catch {
                                 UIApplication.shared.dismissAlert(animated: true)
-                                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
+                                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to save") + ": \(error.localizedDescription)")
+                            }
+                        }) {
+                            if editing {
+                                Text("Save")
+                            } else {
+                                Text("Create")
                             }
                         }
                         .buttonStyle(FullwidthTintedButton(color: .blue))
+                        
+                        // MARK: Apply Once
+                        if !editing {
+                            Button("Apply Once") {
+                                // apply the operation
+                                UIApplication.shared.alert(title: NSLocalizedString("Applying operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                                do {
+                                    try operation.parseData()
+                                    try operation.applyData()
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully applied! The operation was not saved, only applied.", comment: "when an operation is applied"))
+                                } catch {
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while applying the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
+                                }
+                            }
+                            .buttonStyle(FullwidthTintedButton(color: .blue))
+                        }
                     }
                     .listRowInsets(EdgeInsets())
                     .padding()

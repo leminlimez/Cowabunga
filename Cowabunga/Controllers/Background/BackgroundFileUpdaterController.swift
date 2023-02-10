@@ -84,6 +84,13 @@ class BackgroundFileUpdaterController: ObservableObject {
                 }
             }
             
+            // apply custom operations
+            do {
+                try AdvancedManager.applyOperations(background: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
             // apply to audios
             let _ = AudioFiles.applyAllAudio()
         }
