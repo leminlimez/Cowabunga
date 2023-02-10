@@ -7,7 +7,7 @@
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
-/* No comment provided by engineer. */
+/* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
 /* BomberFish's contribution */
@@ -23,7 +23,7 @@
 "An error occured while exporting key face." = "导出锁屏按钮图片时出现一个错误";
 
 /* No comment provided by engineer. */
-"An error occured." = "A错线一个错误";
+"An error occured." = "出现一个错误";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
 "An error occurred while trying to disable appclip icons." = "尝试禁用轻App图标时出现一个错误";
@@ -107,7 +107,7 @@
 "Choose a lock preference" = "选择一个锁定偏好";
 
 /* No comment provided by engineer. */
-"Choose a name for the lock" = "为锁定选取一个名称";
+"Choose a name for the lock" = "为锁头选取一个名字";
 
 /* Entering name for audio */
 "Choose a name for the sound" = "为声音选择一个名字";
@@ -130,7 +130,7 @@
 /* No comment provided by engineer. */
 "Confirm" = "去人";
 
-/* No comment provided by engineer. */
+/* operation type that corrupts/disables the file */
 "Corrupting" = "损坏";
 
 /* No comment provided by engineer. */
@@ -216,7 +216,7 @@
 "Enable" = "启用";
 
 /* No comment provided by engineer. */
-"Enable Shortcut Apps as Appclips" = "启用将捷径生成的app转换为轻App";
+"Enable Shortcut Apps as Appclips" = "启用将捷径生成的软件转换为轻App";
 
 /* Audio name */
 "End Recording" = "停止录制";
@@ -261,7 +261,7 @@
 "Footnote" = "锁屏底部文字";
 
 /* No comment provided by engineer. */
-"Force MacDirtyCOW" = "强制MacDirtyCOW";
+"Force MacDirtyCOW" = "强制使用MacDirtyCOW漏洞";
 
 /* No comment provided by engineer. */
 "Forgot password?" = "忘记密码?";
@@ -273,7 +273,7 @@
 "Gestures / Dynamic Island" = "手势 / 灵动岛";
 
 /* No comment provided by engineer. */
-"Go here if something isn't working correctly." = "如果有什么东西不能正常运行，请到这里。";
+"Go here if something isn't working correctly." = "如果不能正常运行，请到这。";
 
 /* Height of custom resolution
    Height of passcode keys */
@@ -283,10 +283,10 @@
 "Hide Airplane Mode" = "隐藏飞行模式图标";
 
 /* No comment provided by engineer. */
-"Hide AirPlay" = "隐藏隔空投送";
+"Hide AirPlay" = "隐藏隔空投送图标";
 
 /* No comment provided by engineer. */
-"Hide Alarm" = "隐藏闹钟";
+"Hide Alarm" = "隐藏闹钟图标";
 
 /* No comment provided by engineer. */
 "Hide Battery" = "隐藏电池图标";
@@ -346,7 +346,7 @@
 "Included Audio & Credits" = "内置音效 & 贡献";
 
 /* Header for inputting custom iOS version */
-"Input Software Version" = "输入系统版本号";
+"Input Software Version" = "输入自定义系统版本号";
 
 /* x gestures */
 "iPhone X Gestures" = "iPhone X 手势";
@@ -364,10 +364,10 @@
 "Keyboard Press Normal" = "键盘输入";
 
 /* Audio name */
-"Lock" = "锁定";
+"Lock" = "锁头";
 
 /* Category of tool */
-"Lock Screen" = "锁屏";
+"Lock Screen" = "锁屏界面";
 
 /* Title of tool */
 "Lock Screen Footnote" = "锁屏底部文字";
@@ -439,7 +439,7 @@
 "Passcode Faces" = "锁屏密码按钮";
 
 /* No comment provided by engineer. */
-"Password" = "P密码";
+"Password" = "密码";
 
 /* No comment provided by engineer. */
 "Path:" = "路径:";
@@ -480,8 +480,8 @@
 /* No comment provided by engineer. */
 "Remove all" = "移除所有";
 
-/* No comment provided by engineer. */
-"Replacing" = "替换g";
+/* operation type that replaces a file */
+"Replacing" = "替换中";
 
 /* No comment provided by engineer. */
 "Reset All" = "重置所有";
@@ -544,7 +544,7 @@
 "Small" = "小";
 
 /* No comment provided by engineer. */
-"Software Version" = "S系统版本";
+"Software Version" = "系统版本";
 
 /* Title of tool */
 "Springboard Colors" = "桌面颜色";
@@ -556,7 +556,7 @@
 "SpringBoard Tools" = "桌面工具";
 
 /* Title of tool */
-"Status Bar" = "状态栏r";
+"Status Bar" = "状态栏";
 
 /* No comment provided by engineer. */
 "Status Bar Time Text" = "状态栏时间文字";
