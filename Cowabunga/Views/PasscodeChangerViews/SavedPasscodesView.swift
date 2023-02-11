@@ -76,7 +76,7 @@ struct SavedPasscodesView: View {
                             
                             // delete the file
                             do {
-                                let url = savedPasscodesDir!.appendingPathComponent(deletingPasscodeName.replacingOccurrences(of: " ", with: "_"))
+                                let url = savedPasscodesDir!.appendingPathComponent(deletingPasscodeName)
                                 try FileManager.default.removeItem(at: url)
                                 savedPasscodesList.remove(at: i)
                             } catch {
@@ -95,7 +95,7 @@ struct SavedPasscodesView: View {
                     if numOfSaved > 0 {
                         for passcode in try FileManager.default.contentsOfDirectory(at: savedPasscodesDir!, includingPropertiesForKeys: nil) {
                             let passcodeURL: URL? = passcode.appendingPathComponent("theme.passthm")
-                            let passcodeName: String = passcode.lastPathComponent.replacingOccurrences(of: "_", with: " ")
+                            let passcodeName: String = passcode.lastPathComponent
                             let passcodeImage: URL? = passcode.appendingPathComponent("preview.png")
                             if passcodeURL != nil && passcodeImage != nil {
                                 do {
