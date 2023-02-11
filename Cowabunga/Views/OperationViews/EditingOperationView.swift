@@ -489,6 +489,13 @@ struct EditingOperationView: View {
                             UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
                             applyOperationProperties()
                             do {
+                                if isActive == false {
+                                    do {
+                                        try operation.applyData(fromBackup: true)
+                                    } catch {
+                                        print("Error")
+                                    }
+                                }
                                 if !editing || previousFilePath != filePath {
                                     try operation.backup()
                                 }
@@ -510,23 +517,28 @@ struct EditingOperationView: View {
                         .buttonStyle(FullwidthTintedButton(color: .blue))
                         
                         // MARK: Apply Once
-                        if !editing {
-                            Button("Apply Once") {
-                                // apply the operation
-                                UIApplication.shared.alert(title: NSLocalizedString("Applying operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
-                                applyOperationProperties()
-                                do {
-                                    try operation.parseData()
-                                    try operation.applyData()
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully applied! The operation was not saved, only applied.", comment: "when an operation is applied"))
-                                } catch {
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while applying the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
-                                }
+                        Button(action: {
+                            // apply the operation
+                            UIApplication.shared.alert(title: NSLocalizedString("Applying operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                            applyOperationProperties()
+                            do {
+                                try operation.parseData()
+                                try operation.applyData()
+                                UIApplication.shared.dismissAlert(animated: true)
+                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully applied! The operation was not saved, only applied.", comment: "when an operation is applied"))
+                            } catch {
+                                UIApplication.shared.dismissAlert(animated: true)
+                                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while applying the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
                             }
-                            .buttonStyle(FullwidthTintedButton(color: .blue))
-                        } else {
+                        }) {
+                            if editing {
+                                Text("Apply")
+                            } else {
+                                Text("Apply Once")
+                            }
+                        }
+                        .buttonStyle(FullwidthTintedButton(color: .blue))
+                        if editing {
                             // MARK: Delete
                             Button(action: {
                                 // apply the changes
