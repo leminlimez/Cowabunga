@@ -66,6 +66,9 @@ class CowabungaAPI: ObservableObject {
         switch theme.type {
         case .passcode:
             try? fm.createDirectory(at: saveURL, withIntermediateDirectories: true)
+            if fm.fileExists(atPath: saveURL.appendingPathComponent("\(theme.name).passthm").path) {
+                try? fm.removeItem(at: saveURL.appendingPathComponent("\(theme.name).passthm"))
+            }
             try fm.moveItem(at: tempThemeDownloadURL, to: saveURL.appendingPathComponent("\(theme.name).passthm"))
         case .lock, .icon:
             let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
@@ -76,7 +79,10 @@ class CowabungaAPI: ObservableObject {
                 ThemeManager.shared.themes.append(theme)
             } else if theme.type == .lock {
                 print(saveURL)
-                try! fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name), to: saveURL)
+                if fm.fileExists(atPath: saveURL.path) {
+                    try? fm.removeItem(at: saveURL)
+                }
+                try fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name), to: saveURL)
             }
             
             try fm.removeItem(at: tmpExtract)
