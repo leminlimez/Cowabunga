@@ -25,6 +25,7 @@ struct EditingOperationView: View {
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     @State var previousName: String = ""
+    @State var isActive: Bool = true
     
     // replacing properties
     @State var savedFilePath: String = "/"
@@ -76,21 +77,21 @@ struct EditingOperationView: View {
                             let corruptingAction = UIAlertAction(title: NSLocalizedString("Corrupting", comment: "operation type that corrupts/disables the file"), style: .default) { (action) in
                                 // change the type
                                 if !(operation is CorruptingObject) {
-                                    operation = CorruptingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
+                                    operation = CorruptingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive)
                                 }
                             }
                             
                             let replacingAction = UIAlertAction(title: NSLocalizedString("Replacing", comment: "operation type that replaces a file"), style: .default) { (action) in
                                 // change the type
                                 if !(operation is ReplacingObject) {
-                                    operation = ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/Unknown")
+                                    operation = ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/Unknown")
                                 }
                             }
                             
                             let plistAction = UIAlertAction(title: NSLocalizedString("Plist", comment: "operation type that changes plist keys"), style: .default) { (action) in
                                 // change the type
                                 if !(operation is PlistObject) {
-                                    operation = PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, plistType: plistType, replacingKeys: replacingKeys)
+                                    operation = PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, plistType: plistType, replacingKeys: replacingKeys)
                                     //operation = CorruptingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
                                 }
                             }
@@ -131,6 +132,12 @@ struct EditingOperationView: View {
                             }
                         }
                     }
+                    
+                    // MARK: Enabled
+                    Toggle(isOn: $isActive, label: {
+                        Text("Enabled")
+                            .bold()
+                    })
                 } header: {
                     Text("Basic Configuration")
                 }
@@ -567,6 +574,7 @@ struct EditingOperationView: View {
                     previousName = operationName
                     filePath = operation.filePath
                     applyInBackground = operation.applyInBackground
+                    isActive = operation.isActive
                 }
                 
                 if let replacingOperation = operation as? ReplacingObject {
@@ -619,6 +627,7 @@ struct EditingOperationView: View {
         operation.operationName = operationName
         operation.filePath = filePath
         operation.applyInBackground = applyInBackground
+        operation.isActive = isActive
         if operation is ReplacingObject, let operation = operation as? ReplacingObject {
             operation.replacingType = replacingType
             operation.replacingPath = replacingPath
