@@ -21,6 +21,7 @@ struct EditingOperationView: View {
     
     // basic properties
     @State var operationName: String = ""
+    @State var previousFilePath: String = ""
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     @State var previousName: String = ""
@@ -437,6 +438,9 @@ struct EditingOperationView: View {
                             UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
                             applyOperationProperties()
                             do {
+                                if !editing || previousFilePath != filePath {
+                                    try operation.backup()
+                                }
                                 try AdvancedManager.deleteOperation(operationName: previousName)
                                 try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
                                 UIApplication.shared.dismissAlert(animated: true)
@@ -488,6 +492,23 @@ struct EditingOperationView: View {
                                 Text("Delete")
                             }
                             .buttonStyle(FullwidthTintedButton(color: .red))
+                            
+                            // MARK: Restore
+                            Button(action: {
+                                // apply the changes
+                                UIApplication.shared.alert(title: NSLocalizedString("Restoring original file...", comment: "restore button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                                do {
+                                    try operation.applyData(fromBackup: true)
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The file was successfully restored!", comment: "when an operation is restored"))
+                                } catch {
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while restoring the files", comment: "when an operation fails to restore") + ": \(error.localizedDescription)")
+                                }
+                            }) {
+                                Text("Restore")
+                            }
+                            .buttonStyle(FullwidthTintedButton(color: .green))
                         }
                     }
                     .listRowInsets(EdgeInsets())
@@ -497,10 +518,14 @@ struct EditingOperationView: View {
             .navigationTitle(pageTitle)
             .onAppear {
                 pageTitle = editing ? "Edit Operation": "Create Operation"
-                operationName = operation.operationName
-                previousName = operationName
-                filePath = operation.filePath
-                applyInBackground = operation.applyInBackground
+                
+                if replacingKeys.count == 0 {
+                    previousFilePath = operation.filePath
+                    operationName = operation.operationName
+                    previousName = operationName
+                    filePath = operation.filePath
+                    applyInBackground = operation.applyInBackground
+                }
                 
                 if let replacingOperation = operation as? ReplacingObject {
                     replacingType = replacingOperation.replacingType

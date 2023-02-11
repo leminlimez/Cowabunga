@@ -89,11 +89,21 @@ class AdvancedManager {
         let filePath: String = try getOperationProperty(operationInfo, key: "FilePath") as! String
         let applyInBackground: Bool = try getOperationProperty(operationInfo, key: "ApplyInBackground") as! Bool
         
+        // get the backup data
+        var backupData: Data? = nil
+        if FileManager.default.fileExists(atPath: operationURL.appendingPathComponent(".backup").path) {
+            do {
+                backupData = try Data(contentsOf: operationURL.appendingPathComponent(".backup"))
+            } catch {
+                print("BACKUP DATA FETCHING ERROR: \(error.localizedDescription)")
+            }
+        }
+        
         // get the type
         let operationType: String = try getOperationProperty(operationInfo, key: "OperationType") as! String
         if operationType == "Corrupting" {
             // create a corrupting type
-            return CorruptingObject.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
+            return CorruptingObject.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)
         } else if operationType == "Replacing" {
             let replacingType = try getOperationProperty(operationInfo, key: "ReplacingType") as! String
             var replacingTypeObject: ReplacingObjectType? = nil
@@ -109,7 +119,7 @@ class AdvancedManager {
                 throw "Could not get replacing object type!"
             }
             let replacingData: Data = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
-            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
+            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
         } else if operationType == "Plist" {
             let plistTypeString = try getOperationProperty(operationInfo, key: "PlistType") as! String
             var plistType: PropertyListSerialization.PropertyListFormat
@@ -120,7 +130,7 @@ class AdvancedManager {
             }
             let plistData = try Data(contentsOf: operationURL.appendingPathComponent("SavedValues.plist"))
             let replacementKeys = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
-            return PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, plistType: plistType, replacingKeys: replacementKeys)
+            return PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, plistType: plistType, replacingKeys: replacementKeys)
         }
         
         throw "Could not get operation type!"
@@ -217,6 +227,11 @@ class AdvancedManager {
             "FilePath": operation.filePath,
             "ApplyInBackground": operation.applyInBackground
         ]
+        
+        // create the backup data
+        if operation.backupData != nil {
+            try operation.backupData!.write(to: operationPath.appendingPathComponent(".backup"))
+        }
         
         // add the operation type
         if operation is CorruptingObject {
