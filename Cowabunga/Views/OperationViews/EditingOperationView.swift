@@ -260,6 +260,20 @@ struct EditingOperationView: View {
                                         Text("\(fileData.count) bytes")
                                             .multilineTextAlignment(.trailing)
                                             .padding(.bottom, 10)
+                                        if FileManager.default.isWritableFile(atPath: filePath) {
+                                            Image(systemName: "checkmark.circle")
+                                                .foregroundColor(.green)
+                                        } else {
+                                            if FileManager.default.fileExists(atPath: filePath), let fileData2 = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                                if fileData2.count >= fileData.count {
+                                                    Image(systemName: "checkmark.circle")
+                                                        .foregroundColor(.green)
+                                                } else {
+                                                    Image(systemName: "x.circle")
+                                                        .foregroundColor(.red)
+                                                }
+                                            }
+                                        }
                                     } else {
                                         Text("File not found!")
                                             .multilineTextAlignment(.trailing)
@@ -283,6 +297,20 @@ struct EditingOperationView: View {
                                         Text("\(replacingData!.count) bytes")
                                             .multilineTextAlignment(.trailing)
                                             .padding(.bottom, 10)
+                                        if FileManager.default.isWritableFile(atPath: filePath) {
+                                            Image(systemName: "checkmark.circle")
+                                                .foregroundColor(.green)
+                                        } else {
+                                            if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                                if fileData.count >= replacingData!.count {
+                                                    Image(systemName: "checkmark.circle")
+                                                        .foregroundColor(.green)
+                                                } else {
+                                                    Image(systemName: "x.circle")
+                                                        .foregroundColor(.red)
+                                                }
+                                            }
+                                        }
                                     } else {
                                         Text("File not found!")
                                             .multilineTextAlignment(.trailing)
@@ -355,6 +383,20 @@ struct EditingOperationView: View {
                             if calculatedSize != nil {
                                 Text("\(calculatedSize!) bytes")
                                     .multilineTextAlignment(.trailing)
+                                if FileManager.default.isWritableFile(atPath: filePath) {
+                                    Image(systemName: "checkmark.circle")
+                                        .foregroundColor(.green)
+                                } else {
+                                    if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                        if fileData.count >= calculatedSize! {
+                                            Image(systemName: "checkmark.circle")
+                                                .foregroundColor(.green)
+                                        } else {
+                                            Image(systemName: "x.circle")
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+                                }
                             } else {
                                 Text("Size not calculated")
                                     .multilineTextAlignment(.trailing)
