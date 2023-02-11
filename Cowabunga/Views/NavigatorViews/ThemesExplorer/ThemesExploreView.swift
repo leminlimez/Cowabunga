@@ -19,7 +19,7 @@ struct ThemesExploreView: View {
     @State var submitThemeAlertShown = false
     
     @State var themeTypeSelected = 0
-    @State var themeTypeShown = DownloadableTheme.ThemeType.icon
+    @State var themeTypeShown = DownloadableTheme.ThemeType.lock
     
     var body: some View {
         NavigationView {
@@ -140,7 +140,7 @@ struct ThemesExploreView: View {
     func loadThemes() {
         Task {
             do {
-                themes = try await cowabungaAPI.fetchThemes(type: .passcode).shuffled()
+                themes = try await cowabungaAPI.fetchThemes(type: themeTypeShown).shuffled()
             } catch {
                 UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
             }
@@ -149,61 +149,17 @@ struct ThemesExploreView: View {
     
     func downloadTheme(theme: DownloadableTheme) {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
-        print("Downloading from \(theme.url.absoluteString)")
         UIApplication.shared.alert(title: "Downloading \(theme.name)...", body: "Please wait", animated: false, withButton: false)
         
         // create the folder
-        do {
-            let saveURL = PasscodeKeyFaceManager.getPasscodesDirectory()!.appendingPathComponent(theme.name.replacingOccurrences(of: " ", with: "_"))
-            if !FileManager.default.fileExists(atPath: saveURL.path) {
-                try FileManager.default.createDirectory(at: saveURL, withIntermediateDirectories: false)
+        Task {
+            do {
+                try await cowabungaAPI.downloadTheme(theme: theme)
+            } catch {
+                print("Could not download passcode theme: \(error.localizedDescription)")
+                UIApplication.shared.dismissAlert(animated: true)
+                UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
             }
-            
-            // save the passthm file
-            let themeSaveURL = saveURL.appendingPathComponent("theme.passthm")
-            let themeTask = URLSession.shared.dataTask(with: theme.url) { data, response, error in
-                guard let data = data else {
-                    print("No data found!")
-                    UIApplication.shared.dismissAlert(animated: true)
-                    UIApplication.shared.alert(title: "Could not download passcode theme!", body: error?.localizedDescription ?? "Unknown Error")
-                    return
-                }
-                do {
-                    try data.write(to: themeSaveURL)
-                } catch {
-                    print("Could not save data to theme save url!")
-                    UIApplication.shared.dismissAlert(animated: true)
-                    UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
-                    return
-                }
-                
-                // save the preview file
-                let previewSaveURL = saveURL.appendingPathComponent("preview.png")
-                let task = URLSession.shared.dataTask(with: theme.preview) { prevData, prevResponse, prevError in
-                    guard let prevData = prevData else {
-                        print("No data found!")
-                        UIApplication.shared.dismissAlert(animated: true)
-                        UIApplication.shared.alert(title: "Could not download passcode theme!", body: prevError?.localizedDescription ?? "Unknown Error")
-                        return
-                    }
-                    do {
-                        try prevData.write(to: previewSaveURL)
-                        UIApplication.shared.dismissAlert(animated: true)
-                        UIApplication.shared.alert(title: "Successfully saved passcode theme!", body: "You can use it by tapping the import button in the Passcode Editor and tapping \"Saved\".")
-                    } catch {
-                        print("Could not save data to preview url!")
-                        UIApplication.shared.dismissAlert(animated: true)
-                        UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
-                        return
-                    }
-                }
-                task.resume()
-            }
-            themeTask.resume()
-        } catch {
-            print("Could not download passcode theme: \(error.localizedDescription)")
-            UIApplication.shared.dismissAlert(animated: true)
-            UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
         }
     }
 }

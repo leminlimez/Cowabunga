@@ -28,7 +28,7 @@ struct ThemesView: View {
             NavigationView {
                 Group {
                     if themes.count == 0 {
-                        Text("No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png).")
+                        Text("No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png).")
                             .padding()
                             .background(Color(uiColor14: .secondarySystemBackground))
                             .multilineTextAlignment(.center)
@@ -77,43 +77,59 @@ struct ThemesView: View {
                             }
                             .padding(4)
                             
-                            HStack {
-                                VStack {
-                                    Text(easterEgg ? "Wait, it's all TrollTools?" : "Cowabunga \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")")
-                                    Text(easterEgg ? "Always has been" : "Download themes in Themes tab.")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
+                            VStack {
+                                HStack {
+                                    VStack {
+                                        Text(easterEgg ? "Wait, it's all TrollTools?" : "Cowabunga \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")")
+                                            .multilineTextAlignment(.center)
+                                        Text(easterEgg ? "Always has been" : "Download themes in Themes tab.")
+                                            .font(.caption)
+                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .padding(10)
+                                    .background(Color(uiColor14: .secondarySystemBackground))
+                                    .cornerRadius(16)
+                                    .onTapGesture {
+                                        easterEgg.toggle()
+                                    }
+                                    VStack {
+                                        HStack {
+                                            Text("Alternatives")
+                                                .font(.headline)
+                                                .lineLimit(1)
+                                                .minimumScaleFactor(0.7)
+                                                .padding(4)
+
+                                            Text("· \(themeManager.iconOverrides.count)")
+                                                .font(.headline)
+                                                .foregroundColor(Color.secondary)
+                                            Spacer()
+                                        }
+                                        NavigationLink(destination: IconOverridesView()) {
+                                            Text("Change")
+                                                .frame(maxWidth: .infinity)
+                                                .padding(10)
+                                                .background(Color(uiColor14: UIColor.tertiarySystemBackground))
+                                                .cornerRadius(8)
+                                                .foregroundColor(.init(uiColor14: .label))
+                                        }
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(10)
+                                    .background(Color(uiColor14: .secondarySystemBackground))
+                                    .cornerRadius(16)
+                                }
+                                
+                                
+                                Button("Rebuild Icon Cache") {
+                                    do {
+                                        UIApplication.shared.alert(title: "Scheduling a rebuild", body: "", withButton: false)
+                                        try rebuildIconCache()
+                                    } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .padding(10)
-                                .background(Color(uiColor14: .secondarySystemBackground))
-                                .cornerRadius(16)
-                                .onTapGesture {
-                                    easterEgg.toggle()
-                                }
-                                VStack {
-                                    HStack {
-                                        Text("Alternatives")
-                                            .font(.headline)
-                                            .lineLimit(1)
-                                            .minimumScaleFactor(0.7)
-                                            .padding(4)
-
-                                        Text("· \(themeManager.iconOverrides.count)")
-                                            .font(.headline)
-                                            .foregroundColor(Color.secondary)
-                                        Spacer()
-                                    }
-                                    NavigationLink(destination: IconOverridesView()) {
-                                        Text("Change")
-                                            .frame(maxWidth: .infinity)
-                                            .padding(10)
-                                            .background(Color(uiColor14: UIColor.tertiarySystemBackground))
-                                            .cornerRadius(8)
-                                            .foregroundColor(.init(uiColor14: .label))
-                                    }
-                                }
-                                .frame(maxWidth: .infinity)
                                 .padding(10)
                                 .background(Color(uiColor14: .secondarySystemBackground))
                                 .cornerRadius(16)
@@ -269,36 +285,29 @@ struct ThemesView: View {
                 } catch { UIApplication.shared.change(body: error.localizedDescription) }
             }
         }
-//        var found = false
-//        for app in LSApplicationWorkspace.default().allApplications() ?? [] {
-//            if FileManager.default.fileExists(atPath: app.bundleURL.appendingPathComponent("bak.car").path) {
-//                if !UserDefaults.standard.bool(forKey: "readAltAppsWarning") {
-//                    found = true
-//                    UINotificationFeedbackGenerator().notificationOccurred(.warning)
-//                    UIApplication.shared.confirmAlert(title: "Mugunghwa installed - PLEASE READ.", body: "It seems you've used other theming engines on this device. It is highly recommended resetting all their options to default values and removing the app.", onOK: { UserDefaults.standard.set(true, forKey: "readAltAppsWarning"); apply() }, noCancel: false)
-//                    break
-//                }
-//            }
-//        }
-//        if !found {
+        
         UIImpactFeedbackGenerator(style: .light).impactOccurred(); apply()
-//        }
     }
-//    func removeThemes(removeWebClips: Bool) {
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            UIApplication.shared.alert(title: "Starting", body: "Please wait", animated: false, withButton: false)
-//            try? themeManager.removeCurrentThemes(removeWebClips: removeWebClips, progress: { str in
-//                UIApplication.shared.change(title: "In progress", body: str)
-//            })
-//            DispatchQueue.main.async {
-//                UINotificationFeedbackGenerator().notificationOccurred(.success)
-//                UIApplication.shared.change(title: "Rebuilding Icon Cache...", body: "Device will respring after rebuild")
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-//                    try! RootHelper.rebuildIconCache()
-//                })
-//            }
-//        }
-//    }
+    
+    
+    func rebuildIconCache() throws {
+        let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
+        let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(lengthOfOldVersion == 6 ? Int.random(in: 100000...999999) : Int.random(in: 10000...99999))")
+//
+        xpc_crash("com.apple.iconservices")
+//
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            do {
+                let _ = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: oldVersion)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                    respring()
+                })
+            } catch {
+                UIApplication.shared.change(body: error.localizedDescription)
+
+            }
+        })
+    }
 }
 
 
