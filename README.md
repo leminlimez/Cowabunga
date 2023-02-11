@@ -61,4 +61,4 @@ Just build like a normal Xcode project. Sign using your own team and bundle iden
 - [Evyrest](https://github.com/sourcelocation/Evyrest) for location based background running.
 
 ## Suggestions and support
-You can either create an issue on this GitHub repo, or join our [Discord server](https://discord.gg/VyVcNjRMeg) where us, or other members might help you.
+You can either create an issue on this GitHub repo, or join our [Discord server](https://discord.gg/VyVcNjRMeg) where us, or other members, might help you.
