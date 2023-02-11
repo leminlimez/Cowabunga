@@ -14,6 +14,7 @@ struct ThemesView: View {
     @State private var isImporting = false
     @State var isSelectingCustomIcons = false
     @State var showsSettings = false
+    @State var easterEgg = false
     
     @State var wallpaper: UIImage?
     @State var defaultWallpaper = false
@@ -78,8 +79,8 @@ struct ThemesView: View {
                             
                             HStack {
                                 VStack {
-                                    Text("Cowabunga \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")")
-                                    Text("Download themes in Themes tab.")
+                                    Text(easterEgg ? "Wait, it's all TrollTools?" : "Cowabunga \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")")
+                                    Text(easterEgg ? "Always has been" : "Download themes in Themes tab.")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
@@ -87,32 +88,35 @@ struct ThemesView: View {
                                 .padding(10)
                                 .background(Color(uiColor14: .secondarySystemBackground))
                                 .cornerRadius(16)
-//                                VStack {
-//                                    HStack {
-//                                        Text("Alternatives")
-//                                            .font(.headline)
-//                                            .lineLimit(1)
-//                                            .minimumScaleFactor(0.7)
-//                                            .padding(4)
-//
-//                                        Text("· \(themeManager.iconOverrides.count)")
-//                                            .font(.headline)
-//                                            .foregroundColor(Color.secondary)
-//                                        Spacer()
-//                                    }
-//                                    NavigationLink(destination: IconOverridesView()) {
-//                                        Text("Change")
-//                                            .frame(maxWidth: .infinity)
-//                                            .padding(10)
-//                                            .background(Color(uiColor14: UIColor.tertiarySystemBackground))
-//                                            .cornerRadius(8)
-//                                            .foregroundColor(.init(uiColor14: .label))
-//                                    }
-//                                }
-//                                .frame(maxWidth: .infinity)
-//                                .padding(10)
-//                                .background(Color(uiColor14: .secondarySystemBackground))
-//                                .cornerRadius(16)
+                                .onTapGesture {
+                                    easterEgg.toggle()
+                                }
+                                VStack {
+                                    HStack {
+                                        Text("Alternatives")
+                                            .font(.headline)
+                                            .lineLimit(1)
+                                            .minimumScaleFactor(0.7)
+                                            .padding(4)
+
+                                        Text("· \(themeManager.iconOverrides.count)")
+                                            .font(.headline)
+                                            .foregroundColor(Color.secondary)
+                                        Spacer()
+                                    }
+                                    NavigationLink(destination: IconOverridesView()) {
+                                        Text("Change")
+                                            .frame(maxWidth: .infinity)
+                                            .padding(10)
+                                            .background(Color(uiColor14: UIColor.tertiarySystemBackground))
+                                            .cornerRadius(8)
+                                            .foregroundColor(.init(uiColor14: .label))
+                                    }
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(10)
+                                .background(Color(uiColor14: .secondarySystemBackground))
+                                .cornerRadius(16)
                             }
                             .padding(.bottom, 80)
                         }
@@ -239,8 +243,8 @@ struct ThemesView: View {
 //                    let newData = Data(byteArray)
 //
 //                    print(MDC.overwriteFile(at: iconservicesagentURL.path, with: newData))
-                    
-                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "21B\(Int.random(in: 100...999))")
+                    let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
+                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(lengthOfOldVersion == 6 ? Int.random(in: 100000...999999) : Int.random(in: 10000...99999))")
 //
                     xpc_crash("com.apple.iconservices")
 //
