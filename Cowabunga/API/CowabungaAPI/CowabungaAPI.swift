@@ -63,12 +63,25 @@ class CowabungaAPI: ObservableObject {
         guard response1.statusCode == 200 else { throw "Could not connect to server" }
         try data1.write(to: tempThemeDownloadURL)
         
-        let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
-        try fm.unzipItem(at: tempThemeDownloadURL, to: tmpExtract)
-        
-        let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(theme.name))
-        ThemeManager.shared.themes.append(theme)
-        try fm.removeItem(at: tmpExtract)
+        switch theme.type {
+        case .passcode:
+            try? fm.createDirectory(at: saveURL, withIntermediateDirectories: true)
+            try fm.moveItem(at: tempThemeDownloadURL, to: saveURL.appendingPathComponent("\(theme.name).passthm"))
+        case .lock, .icon:
+            let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
+            try fm.unzipItem(at: tempThemeDownloadURL, to: tmpExtract)
+            
+            if theme.type == .icon {
+                let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(theme.name))
+                ThemeManager.shared.themes.append(theme)
+            } else if theme.type == .lock {
+                try? fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name), to: saveURL.appendingPathComponent(theme.name))
+            }
+            
+            try fm.removeItem(at: tmpExtract)
+        default:
+            throw "unknown theme type"
+        }
         
         let request2 = URLRequest(url: previewURL)
         let previewSaveURL = saveURL.appendingPathComponent("preview.png")
@@ -76,7 +89,7 @@ class CowabungaAPI: ObservableObject {
         guard response2.statusCode == 200 else { throw "Could not connect to server" }
         try data2.write(to: previewSaveURL)
         
-        
+        try? fm.removeItem(at: tempThemeDownloadURL)
         
         
         //            let saveURL = PasscodeKeyFaceManager.getPasscodesDirectory()!
