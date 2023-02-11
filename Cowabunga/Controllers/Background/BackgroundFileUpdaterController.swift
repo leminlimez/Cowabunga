@@ -64,6 +64,12 @@ class BackgroundFileUpdaterController: ObservableObject {
                 SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
             }
             
+            if UserDefaults.standard.bool(forKey: "NotifBackgroundDisabled") == true {
+                let _ = overwriteFile(typeOfFile: OverwritingFileTypes.springboard, fileIdentifier: "NotifBackgroundDisabled", true)
+            } else {
+                SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.notif)
+            }
+            
             // apply the transparent modules
             if UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.cc, fileIdentifier: "CCModuleBackgroundDisabled", true)
