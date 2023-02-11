@@ -116,6 +116,22 @@ class PlistObject: AdvancedObject {
     var plistType: PropertyListSerialization.PropertyListFormat
     var replacingKeys: [String: Any] = [:]
     
+    override func parseData() throws {
+        // get the original plist file
+        let plistData = try Data(contentsOf: URL(fileURLWithPath: filePath))
+        let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+        var newPlist = plist
+        for (k, v) in replacingKeys {
+            newPlist = AdvancedManager.changeDictValue(newPlist, k, v)
+        }
+        // add empty data if binary
+        if plistType == PropertyListSerialization.PropertyListFormat.binary {
+            replacementData = try addEmptyData(matchingSize: plistData.count, to: newPlist)
+        } else {
+            replacementData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: plistType, options: 0)
+        }
+    }
+    
     init(operationName: String, filePath: String, applyInBackground: Bool, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
         self.plistType = plistType
         self.replacingKeys = replacingKeys

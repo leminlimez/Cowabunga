@@ -8,6 +8,18 @@
 import Foundation
 
 class AdvancedManager {
+    static func changeDictValue(_ dict: [String: Any], _ key: String, _ value: Any) -> [String: Any] {
+        var newDict = dict
+        for (k, v) in dict {
+            if k == key {
+                newDict[k] = value
+            } else if let subDict = v as? [String: Any] {
+                newDict[k] = changeDictValue(subDict, key, value)
+            }
+        }
+        return newDict
+    }
+    
     static func getSavedOperationsDirectory() -> URL? {
         do {
             let newURL: URL = URL.documents.appendingPathComponent("Saved_Operations")
@@ -20,6 +32,21 @@ class AdvancedManager {
             print("An error occurred getting/making the saved operations directory")
         }
         return nil
+    }
+    
+    static func deleteOperation(operationName: String) throws {
+        let savedPath = getSavedOperationsDirectory()
+        if savedPath != nil {
+            for cat in try FileManager.default.contentsOfDirectory(at: savedPath!, includingPropertiesForKeys: nil) {
+                let operation = cat.appendingPathComponent(operationName)
+                if FileManager.default.fileExists(atPath: operation.path) {
+                    try FileManager.default.removeItem(at: operation)
+                    return
+                }
+            }
+        } else {
+            throw "No save path found!"
+        }
     }
     
     private static func createUnnamedFolder(folderURL: URL) {
@@ -83,8 +110,17 @@ class AdvancedManager {
             }
             let replacingData: Data = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
             return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
-        } else if operationType == "P" {
-            
+        } else if operationType == "Plist" {
+            let plistTypeString = try getOperationProperty(operationInfo, key: "PlistType") as! String
+            var plistType: PropertyListSerialization.PropertyListFormat
+            if plistTypeString == "xml" {
+                plistType = PropertyListSerialization.PropertyListFormat.xml
+            } else {
+                plistType = PropertyListSerialization.PropertyListFormat.binary
+            }
+            let plistData = try Data(contentsOf: operationURL.appendingPathComponent("SavedValues.plist"))
+            let replacementKeys = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+            return PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, plistType: plistType, replacingKeys: replacementKeys)
         }
         
         throw "Could not get operation type!"
@@ -195,6 +231,17 @@ class AdvancedManager {
             } else {
                 plist["ReplacingPath"] = replacingOperation.replacingPath
             }
+        } else if operation is PlistObject, let plistOperation = operation as? PlistObject {
+            plist["OperationType"] = "Plist"
+            // set the plist type
+            if plistOperation.plistType == PropertyListSerialization.PropertyListFormat.xml {
+                plist["PlistType"] = "xml"
+            } else {
+                plist["PlistType"] = "binary"
+            }
+            // save the plist file
+            let plistData = try PropertyListSerialization.data(fromPropertyList: plistOperation.replacingKeys, format: plistOperation.plistType, options: 0)
+            try plistData.write(to: operationPath.appendingPathComponent("SavedValues.plist"))
         }
         
         // serialize and write the plist
