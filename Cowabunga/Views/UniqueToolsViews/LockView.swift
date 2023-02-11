@@ -227,6 +227,7 @@ struct LockView: View {
             
             do {
                 if locksDir != nil {
+                    locks.removeAll(keepingCapacity: true)
                     let numOfSaved = try FileManager.default.contentsOfDirectory(at: locksDir!, includingPropertiesForKeys: nil).count
                     
                     if numOfSaved > 0 {
