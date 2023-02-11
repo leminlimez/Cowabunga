@@ -242,7 +242,7 @@ struct EditingOperationView: View {
                                         .bold()
                                     Spacer()
                                     if #available(iOS 15.0, *) {
-                                        TextEditor(text: $replacingPath)
+                                        TextField("Path", text: $replacingPath)
                                             .multilineTextAlignment(.trailing)
                                             .submitLabel(.done)
                                             .frame(maxHeight: 180)
