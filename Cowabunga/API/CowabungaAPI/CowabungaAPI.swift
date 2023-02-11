@@ -9,8 +9,13 @@ import UIKit
 
 class CowabungaAPI: ObservableObject {
     
+    static let shared = CowabungaAPI()
+    
     var serverURL = ""
     var session = URLSession.shared
+    
+    #warning("If we are modifying files, it's no longer an API. Needs refactoring")
+    let fm = FileManager.default
     
     func fetchThemes(type: DownloadableTheme.ThemeType) async throws -> [DownloadableTheme] {
         let request = URLRequest(url: .init(string: serverURL + "\(type.rawValue)-themes.json")!)
@@ -27,7 +32,13 @@ class CowabungaAPI: ObservableObject {
     }
     
     func downloadTheme(theme: DownloadableTheme) async throws {
-        print("Downloading from \(theme.url.absoluteString)")
+        let tempThemeDownloadURL = fm.temporaryDirectory.appendingPathComponent("theme.zip")
+        try? fm.removeItem(at: tempThemeDownloadURL)
+        
+        let downloadURL = getDownloadURLForTheme(theme: theme)
+        let previewURL = getPreviewURLForTheme(theme: theme)
+        
+        print("Downloading from \(downloadURL)")
         
         var saveURL = URL.documents
         
@@ -43,20 +54,28 @@ class CowabungaAPI: ObservableObject {
         }
         saveURL.appendPathComponent(theme.name)
         
-        try? FileManager.default.createDirectory(at: saveURL, withIntermediateDirectories: true)
+//        try? FileManager.default.createDirectory(at: saveURL, withIntermediateDirectories: true)
         
         
-        let request = URLRequest(url: theme.url)
+        let request1 = URLRequest(url: downloadURL)
             
-        let (data1,response1) = try await session.data(for: request) as! (Data, HTTPURLResponse)
+        let (data1,response1) = try await session.data(for: request1) as! (Data, HTTPURLResponse)
         guard response1.statusCode == 200 else { throw "Could not connect to server" }
-        try data1.write(to: saveURL)
+        try data1.write(to: tempThemeDownloadURL)
         
+        let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
+        try fm.unzipItem(at: tempThemeDownloadURL, to: tmpExtract)
         
+        let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(theme.name))
+        ThemeManager.shared.themes.append(theme)
+        try fm.removeItem(at: tmpExtract)
+        
+        let request2 = URLRequest(url: previewURL)
         let previewSaveURL = saveURL.appendingPathComponent("preview.png")
-        let (data2,response2) = try await session.data(for: request) as! (Data, HTTPURLResponse)
+        let (data2,response2) = try await session.data(for: request2) as! (Data, HTTPURLResponse)
         guard response2.statusCode == 200 else { throw "Could not connect to server" }
         try data2.write(to: previewSaveURL)
+        
         
         
         
@@ -116,6 +135,14 @@ class CowabungaAPI: ObservableObject {
         return hash
     }
     
+    func getDownloadURLForTheme(theme: DownloadableTheme) -> URL {
+        URL(string: serverURL + theme.url)!
+    }
+    
+    func getPreviewURLForTheme(theme: DownloadableTheme) -> URL {
+        URL(string: serverURL + theme.preview)!
+    }
+    
     init() {
         Task {
             do {
@@ -131,13 +158,13 @@ class CowabungaAPI: ObservableObject {
 class DownloadableTheme: Identifiable, Codable {
     var name: String
     var description: String
-    var url: URL
-    var preview: URL
+    var url: String
+    var preview: String
     var contact: [String: String]
     var type: ThemeType?
     var version: String
 
-    init(name: String, description: String, contact: [String : String], preview: URL, url: URL, version: String) {
+    init(name: String, description: String, contact: [String : String], preview: String, url: String, version: String) {
         self.name = name
         self.description = description
         self.contact = contact

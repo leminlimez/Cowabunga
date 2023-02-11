@@ -32,6 +32,9 @@ var originalIconsDir: URL = {
 }()
 
 class ThemeManager: ObservableObject {
+    
+    static let shared = ThemeManager()
+    
     let fm = FileManager.default
     
     var catalogThemeManager = CatalogThemeManager()
@@ -124,6 +127,7 @@ class ThemeManager: ObservableObject {
         try fm.createDirectory(at: themeURL, withIntermediateDirectories: true)
         
         for icon in (try? fm.contentsOfDirectory(at: importURL, includingPropertiesForKeys: nil)) ?? [] {
+            guard !icon.lastPathComponent.contains(".DS_Store") else { continue }
             try? fm.copyItem(at: icon, to: themeURL.appendingPathComponent(appIDFromIcon(url: icon) + ".png"))
         }
         return Theme(name: themeURL.deletingPathExtension().lastPathComponent, iconCount: try fm.contentsOfDirectory(at: themeURL, includingPropertiesForKeys: nil).count)
@@ -137,7 +141,7 @@ class ThemeManager: ObservableObject {
     }
     
     func removeImportedTheme(theme: Theme) throws {
-        try fm.removeItem(at: theme.cacheURL)
+        try? fm.removeItem(at: theme.cacheURL)
         try fm.removeItem(at: theme.url)
     }
     
@@ -147,7 +151,7 @@ class ThemeManager: ObservableObject {
             return "-large"
         } else if iconFilename.contains("@2x.png") {
             return"@2x"
-        } else if iconFilename.contains("@23.png") {
+        } else if iconFilename.contains("@3x.png") {
             return "@3x"
         } else {
             return ""

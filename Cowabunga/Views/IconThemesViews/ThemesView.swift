@@ -10,7 +10,7 @@ import SwiftUI
 
 @available(iOS 15, *)
 struct ThemesView: View {
-    @EnvironmentObject var themeManager: ThemeManager
+    @ObservedObject var themeManager = ThemeManager.shared
     @State private var isImporting = false
     @State var isSelectingCustomIcons = false
     @State var showsSettings = false

@@ -11,15 +11,16 @@ import CachedAsyncImage
 @available(iOS 15.0, *)
 struct ThemesExploreView: View {
     
-    @EnvironmentObject var cowabungaAPI: CowabungaAPI
+    @ObservedObject var cowabungaAPI = CowabungaAPI.shared
+    
     // lazyvgrid
-    private var gridItemLayout = [GridItem(.adaptive(minimum: 150))]
+    @State private var gridItemLayout = [GridItem(.adaptive(minimum: 250))]
     @State private var themes: [DownloadableTheme] = []
     
     @State var submitThemeAlertShown = false
     
     @State var themeTypeSelected = 0
-    @State var themeTypeShown = DownloadableTheme.ThemeType.lock
+    @State var themeTypeShown = DownloadableTheme.ThemeType.icon
     
     var body: some View {
         NavigationView {
@@ -54,6 +55,8 @@ struct ThemesExploreView: View {
                                 
                                 themes.removeAll()
                                 loadThemes()
+                                
+                                gridItemLayout = [GridItem(.adaptive(minimum: themeTypeShown == .icon ? 250 : 150))]
                             }
                             
                             LazyVGrid(columns: gridItemLayout) {
@@ -62,11 +65,11 @@ struct ThemesExploreView: View {
                                         downloadTheme(theme: theme)
                                     } label: {
                                         VStack(spacing: 0) {
-                                            CachedAsyncImage(url: theme.preview, urlCache: .imageCache) { image in
+                                            CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
                                                 image
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fill)
-                                                    .frame(width: 170, height: 250)
+                                                    .frame(width: themeTypeShown == .icon ? 250 : 150, height: 250)
                                                     .cornerRadius(10, corners: .topLeft)
                                                     .cornerRadius(10, corners: .topRight)
                                             } placeholder: {
@@ -132,9 +135,11 @@ struct ThemesExploreView: View {
                 Text("Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel.")
                 
             })
+            
         //            .sheet(isPresented: $showLogin, content: { LoginView() })
         // maybe later
         }
+        .navigationViewStyle(.stack)
     }
     
     func loadThemes() {
@@ -155,6 +160,7 @@ struct ThemesExploreView: View {
         Task {
             do {
                 try await cowabungaAPI.downloadTheme(theme: theme)
+                UIApplication.shared.dismissAlert(animated: true)
             } catch {
                 print("Could not download passcode theme: \(error.localizedDescription)")
                 UIApplication.shared.dismissAlert(animated: true)
