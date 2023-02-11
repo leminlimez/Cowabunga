@@ -41,7 +41,7 @@ class ApplicationManager {
             guard let infoPlist = NSDictionary(contentsOf: infoPlistUrl) as? [String:AnyObject] else { throw "Error opening info.plist for \(bundleUrl.absoluteString)" }
             guard let CFBundleIdentifier = infoPlist["CFBundleIdentifier"] as? String else { throw "No bundle ID for \(bundleUrl.absoluteString)" }
             
-            var app = SBApp(bundleIdentifier: CFBundleIdentifier, name: "Unknown", bundleURL: bundleUrl, pngIconPaths: [])
+            var app = SBApp(bundleIdentifier: CFBundleIdentifier, name: "Unknown", bundleURL: bundleUrl, pngIconPaths: [], hiddenFromSpringboard: false)
             
             if infoPlist.keys.contains("CFBundleDisplayName") {
                 guard let CFBundleDisplayName = infoPlist["CFBundleDisplayName"] as? String else { throw "Error reading display name for \(bundleUrl.absoluteString)" }
@@ -90,6 +90,7 @@ struct SBApp {
     var bundleURL: URL
     
     var pngIconPaths: [String]
+    var hiddenFromSpringboard: Bool
     
     func originalIconURL(fileName: String) -> URL {
         originalIconsDir.appendingPathComponent(bundleIdentifier + "----" + fileName)

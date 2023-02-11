@@ -400,9 +400,9 @@
 			isa = PBXGroup;
 			children = (
 				21E54B282994083C00D5F85A /* MacDirtyCowSwift-Bridging-Header.h */,
-				2183C99C2987D91600AE187C /* Exploit */,
 				21E54B212994070200D5F85A /* MacDirtyCowSwift.swift */,
 				21E54B2A29940A6700D5F85A /* Wrappers.swift */,
+				2183C99C2987D91600AE187C /* Exploit */,
 			);
 			path = MacDirtyCowSwift;
 			sourceTree = "<group>";
@@ -556,8 +556,8 @@
 				6F6D38EB2976DEDA00DE3146 /* HomeView.swift */,
 				6F7C01D6296924F500BC427A /* OtherModsView.swift */,
 				6F721C91296482C6001CFE46 /* SpringBoardView.swift */,
-				2183C99F2987E06400AE187C /* ThemesExplorer */,
 				6FF21ACF298449F30054EBC0 /* ToolsView.swift */,
+				2183C99F2987E06400AE187C /* ThemesExplorer */,
 			);
 			path = NavigatorViews;
 			sourceTree = "<group>";
@@ -1017,8 +1017,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -1059,8 +1059,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
