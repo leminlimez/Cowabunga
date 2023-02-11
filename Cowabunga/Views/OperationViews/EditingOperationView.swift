@@ -23,6 +23,7 @@ struct EditingOperationView: View {
     @State var operationName: String = ""
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
+    @State var previousName: String = ""
     
     // replacing properties
     @State var savedFilePath: String = "/"
@@ -36,6 +37,7 @@ struct EditingOperationView: View {
     @State var plistType: PropertyListSerialization.PropertyListFormat = .xml
     @State var replacingKeys: [String: Any] = [:]
     @State var plistKeys: [PlistProperty] = []
+    @State var calculatedSize: Int? = nil
     
     @State var isImporting: Bool = false
     @State var pageTitle: String = ""
@@ -99,9 +101,9 @@ struct EditingOperationView: View {
                             // add the actions
                             alert.addAction(corruptingAction)
                             alert.addAction(replacingAction)
-                            /*if #available(iOS 15, *) {
+                            if #available(iOS 15, *) {
                                 alert.addAction(plistAction)
-                            }*/
+                            }
                             alert.addAction(cancelAction)
                             
                             let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
@@ -118,6 +120,9 @@ struct EditingOperationView: View {
                                     .foregroundColor(.blue)
                             } else if operation is ReplacingObject {
                                 Text("Replacing")
+                                    .foregroundColor(.blue)
+                            } else if operation is PlistObject {
+                                Text("Plist")
                                     .foregroundColor(.blue)
                             } else {
                                 Text("????")
@@ -137,7 +142,7 @@ struct EditingOperationView: View {
                                 .bold()
                             Spacer()
                             if #available(iOS 15.0, *) {
-                                TextEditor(text: $filePath)
+                                TextField("Path", text: $filePath)
                                     .multilineTextAlignment(.trailing)
                                     .submitLabel(.done)
                                     .frame(maxHeight: 180)
@@ -337,10 +342,42 @@ struct EditingOperationView: View {
                                 // present the alert
                                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                             }) {
-                                Text(replacingType.rawValue)
+                                Text((plistType == PropertyListSerialization.PropertyListFormat.xml) ? "xml": "binary")
                                     .multilineTextAlignment(.trailing)
                             }
                             .foregroundColor(.blue)
+                        }
+                        
+                        // MARK: Plist Size
+                        HStack {
+                            Spacer()
+                            if calculatedSize != nil {
+                                Text("\(calculatedSize!) bytes")
+                                    .multilineTextAlignment(.trailing)
+                            } else {
+                                Text("Size not calculated")
+                                    .multilineTextAlignment(.trailing)
+                            }
+                        }
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                if let plistOperation = operation as? PlistObject {
+                                    plistOperation.filePath = filePath
+                                    plistOperation.plistType = plistType
+                                    plistOperation.replacingKeys = replacingKeys
+                                    do {
+                                        try plistOperation.parseData()
+                                        calculatedSize = plistOperation.replacementData!.count
+                                    } catch {
+                                        UIApplication.shared.alert(title: NSLocalizedString("Could not calculate plist size!", comment: ""), body: error.localizedDescription)
+                                    }
+                                }
+                            }) {
+                                Text("Calculate Size")
+                                    .foregroundColor(.blue)
+                                    .multilineTextAlignment(.trailing)
+                            }
                         }
                     } header: {
                         Text("Plist Properties")
@@ -400,6 +437,7 @@ struct EditingOperationView: View {
                             UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
                             applyOperationProperties()
                             do {
+                                try AdvancedManager.deleteOperation(operationName: previousName)
                                 try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
                                 UIApplication.shared.dismissAlert(animated: true)
                                 UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
@@ -433,6 +471,23 @@ struct EditingOperationView: View {
                                 }
                             }
                             .buttonStyle(FullwidthTintedButton(color: .blue))
+                        } else {
+                            // MARK: Delete
+                            Button(action: {
+                                // apply the changes
+                                UIApplication.shared.alert(title: NSLocalizedString("Deleting operation...", comment: "delete button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                                do {
+                                    try AdvancedManager.deleteOperation(operationName: previousName)
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully deleted!", comment: "when an operation is deleted"))
+                                } catch {
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while deleting the operation", comment: "when an operation fails to delete") + ": \(error.localizedDescription)")
+                                }
+                            }) {
+                                Text("Delete")
+                            }
+                            .buttonStyle(FullwidthTintedButton(color: .red))
                         }
                     }
                     .listRowInsets(EdgeInsets())
@@ -443,12 +498,22 @@ struct EditingOperationView: View {
             .onAppear {
                 pageTitle = editing ? "Edit Operation": "Create Operation"
                 operationName = operation.operationName
+                previousName = operationName
                 filePath = operation.filePath
                 applyInBackground = operation.applyInBackground
                 
                 if let replacingOperation = operation as? ReplacingObject {
                     replacingType = replacingOperation.replacingType
                     replacingPath = replacingOperation.replacingPath
+                } else if let plistOperation = operation as? PlistObject {
+                    plistType = plistOperation.plistType
+                    if replacingKeys.count == 0 {
+                        // populate plist
+                        replacingKeys = plistOperation.replacingKeys
+                        for (k, v) in replacingKeys {
+                            plistKeys.append(.init(key: k, oldKey: k, value: v))
+                        }
+                    }
                 }
                 
                 replacingKeys.removeAll(keepingCapacity: true)
@@ -490,6 +555,9 @@ struct EditingOperationView: View {
         if operation is ReplacingObject, let operation = operation as? ReplacingObject {
             operation.replacingType = replacingType
             operation.replacingPath = replacingPath
+        } else if operation is PlistObject, let operation = operation as? PlistObject {
+            operation.replacingKeys = replacingKeys
+            operation.plistType = plistType
         }
     }
 }
