@@ -23,6 +23,10 @@ struct AdvancedView: View {
                     // it is an operation
                     NavigationLink(destination: EditingOperationView(category: operation.categoryName!, editing: true, operation: try! AdvancedManager.getOperationFromName(operationName: operation.name))) {
                         HStack {
+                            if !operation.isActive {
+                                Image(systemName: "xmark.seal.fill")
+                                    .foregroundColor(.red)
+                            }
                             Text(operation.name.replacingOccurrences(of: "_", with: " "))
                                 .padding(.horizontal, 8)
                         }

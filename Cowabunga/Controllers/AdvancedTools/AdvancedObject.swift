@@ -16,11 +16,13 @@ enum ReplacingObjectType: String, CaseIterable {
 class AdvancedCategory: Identifiable {
     var id = UUID()
     var name: String
+    var isActive: Bool
     var operations: [AdvancedCategory]?
     var categoryName: String?
     
-    init(name: String, operations: [AdvancedCategory]? = nil, categoryName: String? = nil) {
+    init(name: String, isActive: Bool = true, operations: [AdvancedCategory]? = nil, categoryName: String? = nil) {
         self.name = name
+        self.isActive = isActive
         self.operations = operations
         self.categoryName = categoryName
     }
@@ -34,12 +36,14 @@ class AdvancedObject: Identifiable {
     var replacementData: Data? = nil
     var backupData: Data? = nil
     var applyInBackground: Bool
+    var isActive: Bool = true
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true) {
         self.operationName = operationName
         self.filePath = filePath
         self.applyInBackground = applyInBackground
         self.backupData = backupData
+        self.isActive = active
     }
     
     func backup() throws {
@@ -121,10 +125,10 @@ class ReplacingObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
         self.replacingType = replacingType
         self.replacingPath = replacingPath
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
         self.replacementData = overwriteData
     }
 }
@@ -149,7 +153,7 @@ class PlistObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
         self.plistType = plistType
         self.replacingKeys = replacingKeys
         super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)

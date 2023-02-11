@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"????" = "????";
+
 /* Recommended lock type */
 "(Recommended)" = "(Önerilen)";
 
@@ -5,10 +8,19 @@
 "*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Ayrıca operatör adınıda gizleyecektir\n^Ayrıca mobil veri göstergesinide gizleyecektir";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"%lld bytes" = "%lld bit";
 
 /* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
+
+/* No comment provided by engineer. */
+"Action" = "Hareket";
+
+/* No comment provided by engineer. */
+"Add Value" = "Değer Ekle";
 
 /* BomberFish's contribution */
 "AirPower Audio" = "AirPower Sesi";
@@ -24,6 +36,18 @@
 
 /* No comment provided by engineer. */
 "An error occured." = "Bir hata meydana geldi.";
+
+/* No comment provided by engineer. */
+"An error occurred" = "Bir hata meydana geldi.";
+
+/* when an operation fails to apply */
+"An error occurred while applying the operation" = "Operasyonu uygularken bir hata meydana geldi";
+
+/* when an operation fails to delete */
+"An error occurred while deleting the operation" = "Operasyonu silerken bir hata meydana geldi";
+
+/* when an operation fails to save */
+"An error occurred while saving the operation" = "Operasyonu kayıt ederken bit hata meydana geldi";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
 "An error occurred while trying to disable appclip icons." = "Appclip ikonlarını devre dışı bırakırken bir hata meydana geldi.";
@@ -47,6 +71,18 @@
 "Apply for all?" = "Hepsi için uygula?";
 
 /* No comment provided by engineer. */
+"Apply in Background" = "Arkaplanda uygula";
+
+/* No comment provided by engineer. */
+"Apply Once" = "Bir defa uygula";
+
+/* No comment provided by engineer. */
+"Apply themes" = "Temaları uygula";
+
+/* apply button on custom operations */
+"Applying operation..." = "Operasyon uygulanıyor...";
+
+/* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "Default SubTyoe'ı sıfırlamak istediğine eminmisin?";
 
 /* Title of tool */
@@ -67,6 +103,9 @@
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Arkaplanda Gücelleme Sıklığı";
 
+/* No comment provided by engineer. */
+"Basic Configuration" = "Basit konfigürasyon";
+
 /* Audio name */
 "Begin Recording" = "Kayda Başla";
 
@@ -78,6 +117,9 @@
 
 /* No comment provided by engineer. */
 "Breadcrumb Text" = "Operatör Adı Şekli";
+
+/* No comment provided by engineer. */
+"Calculate Size" = "Hesaplama Boyutu";
 
 /* No comment provided by engineer. */
 "Cancel" = "İptal et";
@@ -107,13 +149,25 @@
 "Choose a lock preference" = "Bir kilit tercihi seç";
 
 /* No comment provided by engineer. */
+"Choose a name for the category" = "Katagori için bir isim seç";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "Kilit için bir isim seç";
 
 /* Entering name for audio */
 "Choose a name for the sound" = "Ses için bir isim seç";
 
+/* No comment provided by engineer. */
+"Choose a plist type" = "Bir plist tipi seç";
+
 /* Choose a size for passcode keys */
 "Choose a size" = "Boyut Seç";
+
+/* No comment provided by engineer. */
+"Choose a value type" = "Bir değer tipi seç";
+
+/* No comment provided by engineer. */
+"Choose an operation type" = "Operasyon tipi seç";
 
 /* Title for choosing background update interval */
 "Choose an update option" = "Güncelleme seçeneği seç";
@@ -124,14 +178,20 @@
 /* No comment provided by engineer. */
 "Clear image" = "Resmi temizle";
 
-/* sourcelocation's contribution */
-"Co-Developer" = "Yardımcı Yapımcı";
+/* No comment provided by engineer. */
+"Close" = "Kapat";
 
 /* No comment provided by engineer. */
 "Confirm" = "Onayla";
 
-/* No comment provided by engineer. */
+/* Category of tool */
+"Control Center" = "Denetim Merkezi";
+
+/* operation type that corrupts/disables the file */
 "Corrupting" = "Ayartıcı";
+
+/* No comment provided by engineer. */
+"Could not calculate plist size!" = "Plist boyutu hesaplanamadı!";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "Dosyanın urlsini alamadım. Seçmişmiydin?";
@@ -143,7 +203,13 @@
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
+"Cowabunga %@" = "Cowabunga %@";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga \"Herzaman\" konum izni gerektirir.";
+
+/* No comment provided by engineer. */
+"Create" = "Oluştur";
 
 /* No comment provided by engineer. */
 "Credits" = "Yapımcılar";
@@ -173,6 +239,9 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "Kestirme bildirimini sil";
 
+/* delete button on custom operations */
+"Deleting operation..." = "Operasyon siliniyor...";
+
 /* No comment provided by engineer. */
 "Device Resolution" = "Cihaz Çözünürlüğü";
 
@@ -200,6 +269,9 @@
 /* No comment provided by engineer. */
 "Dock" = "Yuva";
 
+/* No comment provided by engineer. */
+"Download themes in Themes tab." = "Temalar kısmından tema yükle";
+
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "Dinamik Ada";
 
@@ -208,6 +280,9 @@
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "Dinamik Ada Tipi";
+
+/* No comment provided by engineer. */
+"Editing %@" = "Editleniyor %@";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -230,6 +305,9 @@
 /* No comment provided by engineer. */
 "Enter Name" = "Adı Gir";
 
+/* No comment provided by engineer. */
+"Error" = "Hata";
+
 /* ginsudev's contribution */
 "Exploit Code" = "Kodu Kullan";
 
@@ -248,11 +326,29 @@
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "Çözünürlüğü uygularken başarısız oldu:";
 
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "Sistem versiyon değişikliği başarısız oldu! Versiyon mutlaka cihazınızın versiyonundan kısa olması.\n\n(eror.localizedDescription)";
+
+/* when the category cannot be created */
+"Failed to create category" = "Katagori oluşuturmak başarısız oldu!";
+
+/* No comment provided by engineer. */
+"Failed to load operations." = "Operasyonları yüklemek başarısız oldu.";
+
+/* No comment provided by engineer. */
+"File not found!" = "Dosya Bulunamadı!";
+
+/* No comment provided by engineer. */
+"File:" = "Dosya:";
+
 /* Import passcode theme from files */
 "Files" = "Dosyalar";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "Tweakları düzelt";
+
+/* No comment provided by engineer. */
+"Fixing apps..." = "Uygulamalar düzeltiliyor...";
 
 /* No comment provided by engineer. */
 "Folder" = "Klasör";
@@ -339,6 +435,9 @@
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "Kilit Ekranı Temasını İçe Aktar";
 
+/* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
+"In the meantime you can ..." = "Sende bu arada ...";
+
 /* No comment provided by engineer. */
 "Included" = "Dahil Edilen";
 
@@ -390,7 +489,8 @@
 /* Audio name */
 "Low Power" = "Düşük Güç Modu";
 
-/* leminlimez's contribution */
+/* leminlimez's contribution
+   sourcelocation's contribution */
 "Main Developer" = "Ana Yapımcı";
 
 /* Maximum passcode key size */
@@ -408,8 +508,17 @@
 /* No comment provided by engineer. */
 "Name" = "İsim";
 
+/* No comment provided by engineer. */
+"Name:" = "İsim:";
+
+/* No comment provided by engineer. */
+"New Category" = "Yeni katagori";
+
 /* Audio name */
 "New Mail" = "Yeni Mail";
+
+/* No comment provided by engineer. */
+"New theme name" = "Yeni tema adı";
 
 /* Decline apply for all (passcode keys) */
 "No" = "Hayır";
@@ -420,6 +529,9 @@
 /* No comment provided by engineer. */
 "No respring required to apply." = "Uygulamak için respringe gerek yok.";
 
+/* No comment provided by engineer. */
+"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Hiç tema içeri aktarılmadı.\nOnları sağ üst köşedeki butondan içeri aktae (Temalar <id>.png şeklinde olmak zorundadır)";
+
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Geçerli bir boyut değil!";
 
@@ -428,6 +540,9 @@
 
 /* No comment provided by engineer. */
 "Open Settings" = "Ayarları Aç";
+
+/* No comment provided by engineer. */
+"Operation Name" = "Operasyon Adı";
 
 /* Category of tool */
 "Other" = "Diğer";
@@ -442,6 +557,9 @@
 "Password" = "Şifre";
 
 /* No comment provided by engineer. */
+"Path" = "Dizin";
+
+/* No comment provided by engineer. */
 "Path:" = "Dizin:";
 
 /* Audio name */
@@ -452,6 +570,9 @@
 
 /* Audio name */
 "Payment Success" = "Ödeme Başarılı";
+
+/* when user enters a category name that cannot be used */
+"Please enter a valid category name!" = "Lütfen geçerli katagori adı girin!";
 
 /* No comment provided by engineer. */
 "Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Lütfen Cowabunga'ya \"Herzaman\" konum iznini ayarlardan verinki arka planda çalışabilsin.";
@@ -472,6 +593,24 @@
 "Please respring to see changes." = "Değişiklikleri görmek için lütfen respring yapın.";
 
 /* No comment provided by engineer. */
+"Please wait" = "Lütfen bekleyin";
+
+/* No comment provided by engineer. */
+"Please wait for Cowabunga to finish theming..." = "Lütfen Cowabunga'nın temaları bitirmesini bekletin...";
+
+/* operation type that changes plist keys */
+"Plist" = "Plist";
+
+/* No comment provided by engineer. */
+"Plist Data" = "Plist Verisi";
+
+/* No comment provided by engineer. */
+"Plist Properties" = "Plist Özellikleri";
+
+/* No comment provided by engineer. */
+"Plist Type:" = "Plist Tipi:";
+
+/* No comment provided by engineer. */
 "Preferences" = "Tercihler";
 
 /* Audio name */
@@ -481,6 +620,21 @@
 "Remove all" = "Hepsini sil";
 
 /* No comment provided by engineer. */
+"Remove theme" = "Temayı sil";
+
+/* No comment provided by engineer. */
+"Rename" = "Yeniden adlandır";
+
+/* Entering new theme name */
+"Rename theme" = "Temayı yeniden adlandır";
+
+/* No comment provided by engineer. */
+"Replace With:" = "İle Yerine Koy:";
+
+/* No comment provided by engineer. */
+"Replacement Data" = "Yedek Veri";
+
+/* operation type that replaces a file */
 "Replacing" = "Yeniden yerleştirme";
 
 /* No comment provided by engineer. */
@@ -502,13 +656,25 @@
 "Run in background" = "Arka planda çalışma";
 
 /* No comment provided by engineer. */
+"Save" = "Kaydet";
+
+/* No comment provided by engineer. */
 "Save Settings" = "Ayarları kaydet";
 
 /* Import passcode theme from saved */
 "Saved" = "Kaydedildi";
 
+/* apply button on custom operations */
+"Saving operation..." = "Operasyon kayıt ediliyor...";
+
 /* Audio name */
 "Screenshot" = "Ekran Görüntüsü";
+
+/* No comment provided by engineer. */
+"Select" = "Seç";
+
+/* No comment provided by engineer. */
+"Selected" = "Seçildi";
 
 /* Audio name */
 "Sent Mail" = "Mail Gönder";
@@ -540,6 +706,9 @@
 /* No comment provided by engineer. */
 "Sign up" = "Kayıt ol";
 
+/* No comment provided by engineer. */
+"Size not calculated" = "Boyut hesaplanamadı";
+
 /* Small passcode keys */
 "Small" = "Küçük";
 
@@ -563,6 +732,9 @@
 
 /* No comment provided by engineer. */
 "Submit themes" = "Tema yolla";
+
+/* No comment provided by engineer. */
+"Success" = "Başarılı";
 
 /* No comment provided by engineer. */
 "Success!" = "Başarılı!";
@@ -594,6 +766,18 @@
 /* Saving imported lock */
 "The imported lock was successfully saved." = "İçeri aktarılan kilit başarı ile kaydedildi.";
 
+/* when an operation is applied */
+"The operation was successfully applied! The operation was not saved, only applied." = "Operasyon başarı ile uygulandı! Operasyon kayıt edilmedi, sadece uygulandı.";
+
+/* when an operation is deleted */
+"The operation was successfully deleted!" = "Operasyon başarı ile silindi!";
+
+/* when an operation is saved */
+"The operation was successfully saved!" = "Operasyon başarı ile kayıt edildi";
+
+/* No comment provided by engineer. */
+"Themes" = "Temalar";
+
 /* No comment provided by engineer. */
 "Tools" = "Araçlar";
 
@@ -612,11 +796,20 @@
 /* Failed to import lock */
 "Unable to save imported lock!" = "İçeri aktarılan kilit başarılı olmadı!";
 
+/* No comment provided by engineer. */
+"Uncategorized" = "Katagorize edilmemiş";
+
+/* Shown after successful theme set. */
+"Understood, Respring" = "Anladım, Respring yap";
+
 /* zhuowei's contribution */
 "Unsandboxing" = "Unsandbox etme";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "Dahil Edilen Sesleri Güncelle";
+
+/* No comment provided by engineer. */
+"Upload File" = "Dosya Yükle";
 
 /* No comment provided by engineer. */
 "Use Alternative Setter" = "Altarnatif Ayarlayıcıyı Kullan";
@@ -632,6 +825,9 @@
 
 /* No comment provided by engineer. */
 "validate" = "geçerlilik";
+
+/* value for plist operation */
+"Value" = "Değer";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Versiyon %@ (%@)";
@@ -660,6 +856,9 @@
 
 /* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "Hiç kaydedilmiş kilit ekranı teman yok. Hadi git ve keşfet sayfasından biraz bul!";
+
+/* No comment provided by engineer. */
+"Your apps should now function properly" = "Uygulamalarınız artık düzgün çalışmaya başlayacaktır";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "Cihazınız respring edilecektir.";

@@ -5,10 +5,19 @@
 "*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Cũng sẽ đồng thời giấu đi tên nhà mạng";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"%lld bytes" = "%lld bytes";
 
 /* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
+
+/* No comment provided by engineer. */
+"Action" = "Hành động";
+
+/* No comment provided by engineer. */
+"Add Value" = "Thêm giá trị";
 
 /* BomberFish's contribution */
 "AirPower Audio" = "Âm thanh của AirPower";
@@ -24,6 +33,18 @@
 
 /* No comment provided by engineer. */
 "An error occured." = "Có lỗi xảy ra.";
+
+/* No comment provided by engineer. */
+"An error occurred" = "Có lỗi xảy ra";
+
+/* when an operation fails to apply */
+"An error occurred while applying the operation" = "Có lỗi xảy ra trong khi đang áp dụng thao tác";
+
+/* when an operation fails to delete */
+"An error occurred while deleting the operation" = "Có lỗi xảy ra trong khi đang xóa thao tác";
+
+/* when an operation fails to save */
+"An error occurred while saving the operation" = "Có lỗi xảy ra trong khi đang lưu thao tác";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
 "An error occurred while trying to disable appclip icons." = "Có lỗi xảy ra khi đang cố gắng vô hiệu hóa biểu tượng appclip.";
@@ -47,6 +68,18 @@
 "Apply for all?" = "Áp dụng cho tất cả?";
 
 /* No comment provided by engineer. */
+"Apply in Background" = "Áp dụng trong nền";
+
+/* No comment provided by engineer. */
+"Apply Once" = "Áp dụng một lần";
+
+/* No comment provided by engineer. */
+"Apply themes" = "Áp dụng chủ đề";
+
+/* apply button on custom operations */
+"Applying operation..." = "Đang áp dụng thao tác...";
+
+/* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "Bạn có chắc bạn muốn đặt SubType về mặc định?";
 
 /* Title of tool */
@@ -67,6 +100,9 @@
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Tần số cập nhật trong nền";
 
+/* No comment provided by engineer. */
+"Basic Configuration" = "Cài đặt cơ bản";
+
 /* Audio name */
 "Begin Recording" = "Bắt đầu ghi âm";
 
@@ -74,13 +110,19 @@
 "Big" = "Lớn";
 
 /* No comment provided by engineer. */
+"binary" = "nhị phân";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Mờ:   %lld";
 
 /* No comment provided by engineer. */
 "Breadcrumb Text" = "Chữ breadcrumb";
 
+/* No comment provided by engineer. */
+"Calculate Size" = "Tính kích thước";
+
 /* Title of tool */
-"Card Changer" = "Bộ thay đổi giao diện thẻ";
+"Card Changer" = "Bộ thay đổi chủ đề thẻ";
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Tên nhà mạng";
@@ -104,13 +146,25 @@
 "Choose a lock preference" = "Chọn một biểu tượng khóa bất kỳ";
 
 /* No comment provided by engineer. */
+"Choose a name for the category" = "Đặt tên cho danh mục";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "Đặt tên cho biểu tượng khóa";
 
 /* Entering name for audio */
 "Choose a name for the sound" = "Đặt tên cho âm thanh";
 
+/* No comment provided by engineer. */
+"Choose a plist type" = "Chọn một loại plist bất kỳ";
+
 /* Choose a size for passcode keys */
 "Choose a size" = "Chọn kích thước bất kỳ";
+
+/* No comment provided by engineer. */
+"Choose a value type" = "Chọn một loại giá trị bất kỳ";
+
+/* No comment provided by engineer. */
+"Choose an operation type" = "Chọn một loại thao tác bất kỳ";
 
 /* Title for choosing background update interval */
 "Choose an update option" = "Chọn phương thức để cập nhật trong nền";
@@ -121,14 +175,17 @@
 /* No comment provided by engineer. */
 "Clear image" = "Cài lại ảnh";
 
-/* sourcelocation's contribution */
-"Co-Developer" = "Đồng lập trình viên";
+/* No comment provided by engineer. */
+"Close" = "Đóng";
 
 /* No comment provided by engineer. */
 "Confirm" = "Xác nhận";
 
-/* No comment provided by engineer. */
-"Corrupting" = "Đang phá hỏng tệp";
+/* Category of tool */
+"Control Center" = "Trung tâm điều khiển";
+
+/* operation type that corrupts/disables the file */
+"Corrupting" = "Đang phá hỏng/vô hiệu hóa tệp";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "Không thể lấy url của tệp. Bạn đã chọn nó chưa?";
@@ -140,7 +197,13 @@
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
+"Cowabunga %@" = "Cowabunga %@";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga cần quyền vị trí “Luôn luôn”.";
+
+/* No comment provided by engineer. */
+"Create" = "Tạo";
 
 /* No comment provided by engineer. */
 "Credits" = "Tác giả";
@@ -170,6 +233,9 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "Xóa thông báo của Shortcut";
 
+/* delete button on custom operations */
+"Deleting operation..." = "Đang xóa thao tác...";
+
 /* No comment provided by engineer. */
 "Device Resolution" = "Độ phân giải thiết bị";
 
@@ -197,6 +263,9 @@
 /* No comment provided by engineer. */
 "Dock" = "Dock";
 
+/* No comment provided by engineer. */
+"Download themes in Themes tab." = "Tải chủ đề trong tab Chủ đề.";
+
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "Dynamic Island";
 
@@ -205,6 +274,9 @@
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "Dynamic Island SubTypes";
+
+/* No comment provided by engineer. */
+"Editing %@" = "Đang chỉnh sửa %@";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -227,6 +299,9 @@
 /* No comment provided by engineer. */
 "Enter Name" = "Nhập tên";
 
+/* No comment provided by engineer. */
+"Error" = "Lỗi";
+
 /* ginsudev's contribution */
 "Exploit Code" = "Mã khai thác";
 
@@ -246,13 +321,28 @@
 "Failed to apply resolution:" = "Không thể áp dụng độ phân giải:";
 
 /* No comment provided by engineer. */
-"Failed to apply system version change! The version must be shorter than your current device version." = "Không thể áp dụng thay đổi phiên bản của iOS! Phiên bản iOS phải ngắn hơn phiên bản hiện tại của thiết bị.";
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "Không thể áp dụng thay đổi phiên bản của iOS! Phiên bản iOS phải ngắn hơn phiên bản hiện tại của thiết bị.\n\n(error.localizedDescription)";
+
+/* when the category cannot be created */
+"Failed to create category" = "Không thể tạo danh mục";
+
+/* No comment provided by engineer. */
+"Failed to load operations." = "Chạy thao tác thất bại.";
+
+/* No comment provided by engineer. */
+"File not found!" = "Không tìm thấy Tệp!";
+
+/* No comment provided by engineer. */
+"File:" = "Tệp:";
 
 /* Import passcode theme from files */
-"Files" = "Tệpk";
+"Files" = "Tệp";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "Sửa các tùy chỉnh";
+
+/* No comment provided by engineer. */
+"Fixing apps..." = "Đang sửa ứng dụng...";
 
 /* No comment provided by engineer. */
 "Folder" = "Thư mục";
@@ -265,6 +355,9 @@
 
 /* No comment provided by engineer. */
 "Forgot password?" = "Quên mật khẩu?";
+
+/* Where to import passcode theme from */
+"From where do you want to import from?" = "Chọn nguồn mà bạn muốn nhập chủ đề vào:";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Cử chỉ / Dynamic Island";
@@ -334,7 +427,10 @@
 "If the custom lock does not apply for you, try another option." = "Nếu biểu tượng khóa không được áp dụng, hãy thử lựa chọn khác.";
 
 /* Header for importing passcode theme */
-"Import Passcode Theme" = "Nhập vào giao diện cho màn hình khóa";
+"Import Passcode Theme" = "Nhập vào chủ đề cho màn hình khóa";
+
+/* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
+"In the meantime you can ..." = "Trong lúc đó bạn có thể ...";
 
 /* No comment provided by engineer. */
 "Included" = "Đã kèm sẵn";
@@ -353,6 +449,9 @@
 
 /* Audio name */
 "Ketboard Press Clear" = "Bàn phím xóa tất cả";
+
+/* key for plist operation */
+"Key" = "Khóa";
 
 /* Audio name */
 "Keyboard Press Delete" = "Bàn phím xóa";
@@ -387,7 +486,8 @@
 /* Audio name */
 "Low Power" = "Pin yếu";
 
-/* leminlimez's contribution */
+/* leminlimez's contribution
+   sourcelocation's contribution */
 "Main Developer" = "Lập trình viên chính";
 
 /* Maximum passcode key size */
@@ -405,14 +505,29 @@
 /* No comment provided by engineer. */
 "Name" = "Tên";
 
+/* No comment provided by engineer. */
+"Name:" = "Tên:";
+
+/* No comment provided by engineer. */
+"New Category" = "Danh mục mới";
+
 /* Audio name */
 "New Mail" = "Thư mới";
+
+/* No comment provided by engineer. */
+"New theme name" = "Tên chủ đề mới";
 
 /* Decline apply for all (passcode keys) */
 "No" = "Không";
 
 /* No comment provided by engineer. */
 "No Cards Found" = "Không tìm thấy thẻ";
+
+/* No comment provided by engineer. */
+"No respring required to apply." = "Không cần khởi động lại màn hình để áp dụng.";
+
+/* No comment provided by engineer. */
+"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Không có chủ đề nào được nhập vào.\n Thêm chủ đề tùy chỉnh bằng cách sử dụng nút ở góc phải trên cùng (chủ đề phải chứa các biểu tượng theo định dạng <id>.png).";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Không phải là kích thước hợp lệ!";
@@ -422,6 +537,9 @@
 
 /* No comment provided by engineer. */
 "Open Settings" = "Mở cài đặt";
+
+/* No comment provided by engineer. */
+"Operation Name" = "Tên thao tác";
 
 /* Category of tool */
 "Other" = "khác";
@@ -436,6 +554,9 @@
 "Password" = "Mật khẩu";
 
 /* No comment provided by engineer. */
+"Path" = "Đường dẫn";
+
+/* No comment provided by engineer. */
 "Path:" = "Đường dẫn:";
 
 /* Audio name */
@@ -446,6 +567,9 @@
 
 /* Audio name */
 "Payment Success" = "Thanh toán thành công";
+
+/* when user enters a category name that cannot be used */
+"Please enter a valid category name!" = "Vui lòng nhập tên danh mục hợp lệ!";
 
 /* No comment provided by engineer. */
 "Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Xin hãy cho phép Cowabunga quyền \"Luôn luôn\" ở trong cài đặt để nó chạy vô thời hạn trong nền.";
@@ -466,6 +590,21 @@
 "Please respring to see changes." = "Vui lòng khởi động lại màn hình để thấy sự thay đổi.";
 
 /* No comment provided by engineer. */
+"Please wait" = "Vui lòng đợi";
+
+/* No comment provided by engineer. */
+"Please wait for Cowabunga to finish theming..." = "Vui lòng đợi Cowabunga hoàn thành việc áp dụng chủ đề...";
+
+/* operation type that changes plist keys */
+"Plist" = "Plist";
+
+/* No comment provided by engineer. */
+"Plist Data" = "Dữ liệu Plist";
+
+/* No comment provided by engineer. */
+"Plist Type:" = "Loại plist:";
+
+/* No comment provided by engineer. */
 "Preferences" = "Tùy chọn";
 
 /* Audio name */
@@ -475,13 +614,28 @@
 "Remove all" = "Xóa tất cả";
 
 /* No comment provided by engineer. */
-"Replacing" = "Đang thay th";
+"Remove theme" = "Xóa chủ đề";
+
+/* No comment provided by engineer. */
+"Rename" = "Đổi tên";
+
+/* Entering new theme name */
+"Rename theme" = "Đổi tên chủ đề";
+
+/* No comment provided by engineer. */
+"Replace With:" = "Thay thế bằng:";
+
+/* No comment provided by engineer. */
+"Replacement Data" = "Dữ liệu thay thế";
+
+/* operation type that replaces a file */
+"Replacing" = "Đang thay thế";
 
 /* No comment provided by engineer. */
 "Reset All" = "Cài lại tất cả";
 
 /* No comment provided by engineer. */
-"Reset Default SubType" = "Đặt SubType về lại mặc đ";
+"Reset Default SubType" = "Đặt SubType về lại mặc định";
 
 /* No comment provided by engineer. */
 "Reset faces" = "Cài lại hình";
@@ -496,13 +650,25 @@
 "Run in background" = "Chạy trong nền";
 
 /* No comment provided by engineer. */
+"Save" = "Lưu";
+
+/* No comment provided by engineer. */
 "Save Settings" = "Lưu lại cài đặt";
 
 /* Import passcode theme from saved */
 "Saved" = "Đã lưu";
 
+/* apply button on custom operations */
+"Saving operation..." = "Đang lưu lại thao tác...";
+
 /* Audio name */
 "Screenshot" = "Chụp màn hình";
+
+/* No comment provided by engineer. */
+"Select" = "Chọn";
+
+/* No comment provided by engineer. */
+"Selected" = "Đã chọn";
 
 /* Audio name */
 "Sent Mail" = "Mail đã gửi";
@@ -534,8 +700,11 @@
 /* No comment provided by engineer. */
 "Sign up" = "Đăng ký";
 
+/* No comment provided by engineer. */
+"Size not calculated" = "Kích thước chưa được tính";
+
 /* Small passcode keys */
-"Small" = "Nh";
+"Small" = "Nhỏ";
 
 /* No comment provided by engineer. */
 "Software Version" = "Phiên bản hệ điều hành";
@@ -559,6 +728,9 @@
 "Submit themes" = "Đăng chủ đề";
 
 /* No comment provided by engineer. */
+"Success" = "Thành công";
+
+/* No comment provided by engineer. */
 "Success!" = "Thành công!";
 
 /* applying audio succeeded */
@@ -579,11 +751,26 @@
 /* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "Nhấn vào thông báo này để tiếp tục chạy các tùy chỉnh.";
 
+/* No comment provided by engineer. */
+"The app will quit." = "Ứng dụng sẽ thoát.";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "Âm thanh tùy chỉnh đã được lưu thành công.";
 
 /* Saving imported lock */
 "The imported lock was successfully saved." = "Khóa tùy chỉnh đã được lưu thành công.";
+
+/* when an operation is applied */
+"The operation was successfully applied! The operation was not saved, only applied." = "Thao tác đã được áp dụng thành công! Thao tác này không được lưu, chỉ được áp dụng.";
+
+/* when an operation is deleted */
+"The operation was successfully deleted!" = "Thao tác đã được xóa thành công!";
+
+/* when an operation is saved */
+"The operation was successfully saved!" = "Thao tác đã được lưu thành công!";
+
+/* No comment provided by engineer. */
+"Themes" = "Chủ đề";
 
 /* No comment provided by engineer. */
 "Tools" = "Công cụ";
@@ -603,11 +790,20 @@
 /* Failed to import lock */
 "Unable to save imported lock!" = "Không thể lưu khóa tùy chỉnh!";
 
+/* No comment provided by engineer. */
+"Uncategorized" = "Chưa phân loại";
+
+/* Shown after successful theme set. */
+"Understood, Respring" = "Tôi đã hiểu, hãy khởi động lại màn hình";
+
 /* zhuowei's contribution */
 "Unsandboxing" = "Đang thoát khỏi môi trường sandbox";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "Cập nhật âm thanh kèm sẵn";
+
+/* No comment provided by engineer. */
+"Upload File" = "Tải tệp lên";
 
 /* No comment provided by engineer. */
 "Use Alternative Setter" = "Dùng Setter thay thế";
@@ -623,6 +819,9 @@
 
 /* No comment provided by engineer. */
 "validate" = "xác thực";
+
+/* value for plist operation */
+"Value" = "Giá trị";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Phiên bản %@ (%@)";
@@ -651,6 +850,9 @@
 
 /* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "Bạn chưa có lưu hình mật khẩu nào hết. Hãy vào phần Khám phá để tìm thêm!";
+
+/* No comment provided by engineer. */
+"Your apps should now function properly" = "Ứng dụng của bạn bây giờ sẽ hoạt động bình thường";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "Thiết bị của bạn sẽ khởi động lại màn hình.";
