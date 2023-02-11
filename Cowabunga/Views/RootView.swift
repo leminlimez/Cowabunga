@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct RootView: View {
-    @StateObject var themeManager = ThemeManager()
-    
     var body: some View {
         TabView {
             HomeView()
@@ -26,7 +24,6 @@ struct RootView: View {
                 }
             if #available(iOS 15.0, *) {
                 ThemesView()
-                    .environmentObject(themeManager)
                     .tabItem {
                         Label("Themes", systemImage: "paintbrush")
                     }
