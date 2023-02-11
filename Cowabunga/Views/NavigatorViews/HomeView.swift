@@ -234,7 +234,7 @@ struct HomeView: View {
                     // app credits
                     LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: NSLocalizedString("Main Developer", comment: "leminlimez's contribution"), circle: true)
                     LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "sourcelocation", contribution: NSLocalizedString("Main Developer", comment: "sourcelocation's contribution"), circle: true)
-                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: NSLocalizedString("Included Audio & Credits", comment: "c22dev's contribution"), circle: true)
+                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: NSLocalizedString("Included Audio, Credits, and Card Changer", comment: "c22dev's contribution"), circle: true)
                     LinkCell(imageName: "zhuowei", url: "https://twitter.com/zhuowei/", title: "zhuowei", contribution: NSLocalizedString("Unsandboxing", comment: "zhuowei's contribution"), circle: true)
                     LinkCell(imageName: "haxi0", url: "https://github.com/haxi0", title: "haxi0", contribution: "TrollLock", circle: true)
                     LinkCell(imageName: "ginsudev", url: "https://github.com/ginsudev/WDBFontOverwrite", title: "ginsudev", contribution: NSLocalizedString("Exploit Code", comment: "ginsudev's contribution"), circle: true)
@@ -246,7 +246,7 @@ struct HomeView: View {
                 }
                 
                 Section {
-                    LinkCell(imageName: "", url: "", title: "Yan.#0001 & c22dev", contribution: "🇫🇷 French")
+                    LinkCell(imageName: "", url: "", title: "c22dev & Yan.#0001", contribution: "🇫🇷 French")
                     LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "🇮🇹 Italian")
                     LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "🇵🇱 Polish")
                     LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "🇩🇪 German")
