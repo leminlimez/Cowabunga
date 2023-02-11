@@ -238,6 +238,7 @@ struct LockView: View {
                             do {
                                 let icon = try Data(contentsOf: lock.appendingPathComponent("trollformation1.png"))
                                 let uiIcon = UIImage(data: icon)
+                                locks = []
                                 locks.append(Lock.init(title: lockName, icon: uiIcon, checked: checked))
                             } catch {
                                 print(error.localizedDescription)
