@@ -260,7 +260,7 @@ struct ThemesView: View {
 //
 //                    print(MDC.overwriteFile(at: iconservicesagentURL.path, with: newData))
                     let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
-                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(lengthOfOldVersion == 6 ? Int.random(in: 100000...999999) : Int.random(in: 10000...99999))")
+                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(Int.random(in: (10^^(lengthOfOldVersion - 1))...(10^^lengthOfOldVersion - 1)))")
 //
                     xpc_crash("com.apple.iconservices")
 //
