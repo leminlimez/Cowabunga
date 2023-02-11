@@ -37,6 +37,7 @@ struct ThemesExploreView: View {
                 }
                 if themes.isEmpty {
                     ProgressView()
+                        .scaleEffect(1.75)
                         .navigationTitle("Explore")
                 } else {
                     ZStack {
@@ -44,6 +45,7 @@ struct ThemesExploreView: View {
                             PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                                 // refresh
                                 themes.removeAll()
+                                Haptic.shared.play(.light)
                                 //URLCache.imageCache.removeAllCachedResponses()
                                 loadThemes()
                             }
@@ -52,6 +54,7 @@ struct ThemesExploreView: View {
                                 let map = [0: DownloadableTheme.ThemeType.icon, 1: .passcode, 2: .lock]
                                 themeTypeShown = map[newValue]!
                                 
+                                Haptic.shared.play(.light)
                                 themes.removeAll()
                                 loadThemes()
                             }
@@ -141,8 +144,10 @@ struct ThemesExploreView: View {
         Task {
             do {
                 themes = try await cowabungaAPI.fetchThemes(type: .passcode).shuffled()
+                Haptic.shared.notify(.success)
             } catch {
                 UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
+                Haptic.shared.notify(.error)
             }
         }
     }
@@ -234,6 +239,10 @@ struct PullToRefresh: View {
                 Spacer()
                 if needRefresh {
                     ProgressView()
+                        .scaleEffect(1.75)
+                        .onAppear {
+                            Haptic.shared.play(.light)
+                        }
                 } else {
                     Text("")
                 }
