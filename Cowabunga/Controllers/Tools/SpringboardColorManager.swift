@@ -15,6 +15,7 @@ class SpringboardColorManager {
         case folderBG
         case libraryFolder
         case switcher
+        case notif
     }
     
     private static let finalFiles: [SpringboardType: [String]] = [
@@ -22,7 +23,8 @@ class SpringboardColorManager {
         SpringboardType.libraryFolder: ["podBackgroundViewDark", "podBackgroundViewLight"],
         SpringboardType.dock: ["dockDark", "dockLight"],
         SpringboardType.folderBG: ["folderExpandedBackgroundHome", "homeScreenOverlay", "homeScreenOverlay-iPad"],
-        SpringboardType.switcher: ["homeScreenBackdrop-application"]
+        SpringboardType.switcher: ["homeScreenBackdrop-application"],
+        SpringboardType.notif: ["platterDark", "platter"]
     ]
     
     private static let fileFolders: [SpringboardType: String] = [
@@ -30,7 +32,8 @@ class SpringboardColorManager {
         SpringboardType.libraryFolder: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
         SpringboardType.dock: "/System/Library/PrivateFrameworks/CoreMaterial.framework/",
         SpringboardType.folderBG: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/",
-        SpringboardType.switcher: "/System/Library/PrivateFrameworks/SpringBoard.framework/"
+        SpringboardType.switcher: "/System/Library/PrivateFrameworks/SpringBoard.framework/",
+        SpringboardType.notif: "/System/Library/PrivateFrameworks/CoreMaterial.framework/"
     ]
     
     private static let fileExt: [SpringboardType: String] = [
@@ -38,7 +41,8 @@ class SpringboardColorManager {
         SpringboardType.libraryFolder: ".visualstyleset",
         SpringboardType.dock: ".materialrecipe",
         SpringboardType.folderBG: ".materialrecipe",
-        SpringboardType.switcher: ".materialrecipe"
+        SpringboardType.switcher: ".materialrecipe",
+        SpringboardType.notif: ".materialrecipe"
     ]
     
     static func createColor(forType: SpringboardType, color: CIColor, blur: Int) throws {

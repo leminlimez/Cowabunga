@@ -336,6 +336,9 @@ struct HomeView: View {
         if !UserDefaults.standard.bool(forKey: "PodBackgroundDisabled") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
         }
+        if !UserDefaults.standard.bool(forKey: "NotifBackgroundDisabled") {
+            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.notif)
+        }
         
         // apply custom operations
         UIApplication.shared.change(title: "Applying custom operations...", body: "Please wait")
