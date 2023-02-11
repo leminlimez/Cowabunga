@@ -42,9 +42,16 @@ let settingsOptions: [SettingsPageOption] = [
     //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowGSMRSSI", label: "Numeric Cellular Strength", editingFilePath: "com.apple.springboard")
 ]
 
+func getValueInSystemVersionPlist(key: String) throws -> Any? {
+    let filePath: String = "/System/Library/CoreServices/SystemVersion.plist"
+    // open plist
+    let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+    guard var plist = try PropertyListSerialization.propertyList(from: data, format: nil) as? [String:Any] else { throw "systemversion is corrupted." }
+    guard let value = plist[key] else { throw "key \(key) not found in systemversion plist" }
+    return value
+}
 
 func setValueInSystemVersionPlist(key: String, value: String) throws -> String {
-    // this code is because I nearly bootlooped my phone with the later function
     let filePath: String = "/System/Library/CoreServices/SystemVersion.plist"
     // open plist
     let data = try Data(contentsOf: URL(fileURLWithPath: filePath))

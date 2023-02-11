@@ -12,17 +12,8 @@ class CowabungaAPI: ObservableObject {
     var serverURL = ""
     var session = URLSession.shared
     
-    func fetchPasscodeThemes() async throws -> [DownloadableTheme] {
-        let request = URLRequest(url: .init(string: serverURL + "passcode-themes.json")!)
-        
-        let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
-        guard response.statusCode == 200 else { throw "Could not connect to server" }
-        let themes = try JSONDecoder().decode([DownloadableTheme].self, from: data)
-        return themes
-    }
-    
-    func fetchLockThemes() async throws -> [DownloadableTheme] {
-        let request = URLRequest(url: .init(string: serverURL + "lock-themes.json")!)
+    func fetchThemes(type: DownloadableTheme.ThemeType) async throws -> [DownloadableTheme] {
+        let request = URLRequest(url: .init(string: serverURL + "\(type.rawValue)-themes.json")!)
         
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         guard response.statusCode == 200 else { throw "Could not connect to server" }
@@ -65,5 +56,9 @@ class DownloadableTheme: Identifiable, Codable {
         self.contact = contact
         self.preview = preview
         self.url = url
+    }
+    
+    enum ThemeType: String {
+        case passcode, lock, icon
     }
 }
