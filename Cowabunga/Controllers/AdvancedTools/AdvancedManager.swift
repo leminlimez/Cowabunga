@@ -85,6 +85,11 @@ class AdvancedManager {
         let plistData = try Data(contentsOf: plistPath)
         let operationInfo = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
         
+        var active: Bool = true
+        if FileManager.default.fileExists(atPath: operationURL.appendingPathComponent(".disabled").path) {
+            active = false
+        }
+        
         // get the basic global properties
         let filePath: String = try getOperationProperty(operationInfo, key: "FilePath") as! String
         let applyInBackground: Bool = try getOperationProperty(operationInfo, key: "ApplyInBackground") as! Bool
@@ -103,7 +108,7 @@ class AdvancedManager {
         let operationType: String = try getOperationProperty(operationInfo, key: "OperationType") as! String
         if operationType == "Corrupting" {
             // create a corrupting type
-            return CorruptingObject.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)
+            return CorruptingObject.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
         } else if operationType == "Replacing" {
             let replacingType = try getOperationProperty(operationInfo, key: "ReplacingType") as! String
             var replacingTypeObject: ReplacingObjectType? = nil
@@ -119,7 +124,7 @@ class AdvancedManager {
                 throw "Could not get replacing object type!"
             }
             let replacingData: Data = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
-            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
+            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
         } else if operationType == "Plist" {
             let plistTypeString = try getOperationProperty(operationInfo, key: "PlistType") as! String
             var plistType: PropertyListSerialization.PropertyListFormat
@@ -130,7 +135,7 @@ class AdvancedManager {
             }
             let plistData = try Data(contentsOf: operationURL.appendingPathComponent("SavedValues.plist"))
             let replacementKeys = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
-            return PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, plistType: plistType, replacingKeys: replacementKeys)
+            return PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active, plistType: plistType, replacingKeys: replacementKeys)
         }
         
         throw "Could not get operation type!"
@@ -162,7 +167,11 @@ class AdvancedManager {
                 let categoryName = cat.lastPathComponent
                 var categoryOperations: [AdvancedCategory] = []
                 for operation in try FileManager.default.contentsOfDirectory(at: cat, includingPropertiesForKeys: nil) {
-                    categoryOperations.append(.init(name: operation.lastPathComponent, categoryName: categoryName))
+                    var isActive = true
+                    if FileManager.default.fileExists(atPath: operation.appendingPathComponent(".disabled").path) {
+                        isActive = false
+                    }
+                    categoryOperations.append(.init(name: operation.lastPathComponent, isActive: isActive, categoryName: categoryName))
                 }
                 operations.append(.init(name: categoryName, operations: categoryOperations))
             } catch {
@@ -181,12 +190,14 @@ class AdvancedManager {
             do {
                 for operation in try FileManager.default.contentsOfDirectory(at: cat, includingPropertiesForKeys: nil) {
                     do {
-                        let operationObj = try createOperationFromURL(operationURL: operation)
-                        if background == false || operationObj.applyInBackground == true {
-                            // parse the data
-                            try operationObj.parseData()
-                            // apply
-                            try operationObj.applyData()
+                        if !FileManager.default.fileExists(atPath: operation.appendingPathComponent(".disabled").path) {
+                            let operationObj = try createOperationFromURL(operationURL: operation)
+                            if background == false || operationObj.applyInBackground == true {
+                                // parse the data
+                                try operationObj.parseData()
+                                // apply
+                                try operationObj.applyData()
+                            }
                         }
                     } catch {
                         print(error.localizedDescription)
@@ -231,6 +242,10 @@ class AdvancedManager {
         // create the backup data
         if operation.backupData != nil {
             try operation.backupData!.write(to: operationPath.appendingPathComponent(".backup"))
+        }
+        
+        if !operation.isActive {
+            try Data("#".utf8).write(to: operationPath.appendingPathComponent(".disabled"))
         }
         
         // add the operation type

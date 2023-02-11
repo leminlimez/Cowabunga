@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"· %lld" = "· %lld";
+
 /* Recommended lock type */
 "(Recommended)" = "(권장)";
 
@@ -7,8 +10,11 @@
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
-/* No comment provided by engineer. */
+/* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
+
+/* No comment provided by engineer. */
+"Add Value" = "값 추가";
 
 /* BomberFish's contribution */
 "AirPower Audio" = "AirPower Audio";
@@ -24,6 +30,18 @@
 
 /* No comment provided by engineer. */
 "An error occured." = "오류가 발생했습니다.";
+
+/* No comment provided by engineer. */
+"An error occurred" = "오류가 발생했습니다";
+
+/* when an operation fails to apply */
+"An error occurred while applying the operation" = "작업을 하는중 오류가 발생했습니다.";
+
+/* when an operation fails to delete */
+"An error occurred while deleting the operation" = "작업을 ㅈ거하는중 오류가 발생했습니다.";
+
+/* when an operation fails to save */
+"An error occurred while saving the operation" = "작업을 저장하는중 오류가 발생했습니ek";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
 "An error occurred while trying to disable appclip icons." = "바로가기 비활성화에 실패했습니다.";
@@ -47,6 +65,18 @@
 "Apply for all?" = "전부 적용하시겠습니까?";
 
 /* No comment provided by engineer. */
+"Apply in Background" = "백그라운드에서 적용";
+
+/* No comment provided by engineer. */
+"Apply Once" = "한번만 적용";
+
+/* No comment provided by engineer. */
+"Apply themes" = "태마 적용";
+
+/* apply button on custom operations */
+"Applying operation..." = "테마 적용중...";
+
+/* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "정말로 장치의 형식을 되돌리겠습니까?";
 
 /* Title of tool */
@@ -67,6 +97,9 @@
 /* No comment provided by engineer. */
 "Background Update Frequency" = "백그라운드 업데이트 주기";
 
+/* No comment provided by engineer. */
+"Basic Configuration" = "기본 구성";
+
 /* Audio name */
 "Begin Recording" = "녹화 시작";
 
@@ -74,10 +107,16 @@
 "Big" = "크게";
 
 /* No comment provided by engineer. */
+"binary" = "바이너리";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "흐림도:   %lld";
 
 /* No comment provided by engineer. */
 "Breadcrumb Text" = "◂Cowabunga▸";
+
+/* No comment provided by engineer. */
+"Calculate Size" = "계산기 크기";
 
 /* No comment provided by engineer. */
 "Cancel" = "취소";
@@ -107,6 +146,9 @@
 "Choose a lock preference" = "자물쇠 아이콘의 형식을 선택하세요.";
 
 /* No comment provided by engineer. */
+"Choose a name for the category" = "카테고라의 이름을 입력하세요.";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "자물쇠 아이콘의 이름을 입력하세요";
 
 /* Entering name for audio */
@@ -114,6 +156,12 @@
 
 /* Choose a size for passcode keys */
 "Choose a size" = "크기 설정";
+
+/* No comment provided by engineer. */
+"Choose a value type" = "값 유형 선택";
+
+/* No comment provided by engineer. */
+"Choose an operation type" = "작업 형식을 선택하세요";
 
 /* Title for choosing background update interval */
 "Choose an update option" = "업데이트 주기를 선택하세요";
@@ -124,14 +172,20 @@
 /* No comment provided by engineer. */
 "Clear image" = "색깔 사용";
 
-/* sourcelocation's contribution */
-"Co-Developer" = "공동 개발자";
+/* No comment provided by engineer. */
+"Close" = "닫기";
 
 /* No comment provided by engineer. */
 "Confirm" = "확인";
 
-/* No comment provided by engineer. */
+/* Category of tool */
+"Control Center" = "제어센터";
+
+/* operation type that corrupts/disables the file */
 "Corrupting" = "Corrupting";
+
+/* No comment provided by engineer. */
+"Could not calculate plist size!" = "plist의 크기를 계산할 수 없습니다!";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "파일의 위치를 가져올 수 없습니다. 파일을 선택하셨나요?";
@@ -143,7 +197,13 @@
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
+"Cowabunga %@" = "Cowabunga %@";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
+
+/* No comment provided by engineer. */
+"Create" = "제작";
 
 /* No comment provided by engineer. */
 "Credits" = "크레딧";
@@ -158,7 +218,7 @@
 "Custom image" = "사진 사용";
 
 /* No comment provided by engineer. */
-"Custom Operations" = "작업 커스텀";
+"Custom Operations" = "커스텀 작업";
 
 /* default device subtype
    Default passcode size */
@@ -200,14 +260,20 @@
 /* No comment provided by engineer. */
 "Dock" = "독";
 
+/* No comment provided by engineer. */
+"Download themes in Themes tab." = "테마 탭에서 태마를 다운로드 하세요.";
+
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "다이나믹 아일랜드";
 
 /* iPhone 14 Pro Max SubType */
-"Dynamic Island Pro Max" = "다이나믹 아일랜드 프로 맥스";
+"Dynamic Island Pro Max" = "다이나믹 아일랜드 맥스";
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "다이나믹 아일랜드";
+
+/* No comment provided by engineer. */
+"Editing %@" = "%@ 수정중";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -230,6 +296,9 @@
 /* No comment provided by engineer. */
 "Enter Name" = "이름 입력";
 
+/* No comment provided by engineer. */
+"Error" = "오류";
+
 /* ginsudev's contribution */
 "Exploit Code" = "익스플로잇";
 
@@ -248,11 +317,26 @@
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "해상도 설정에 실패하였습니다.:";
 
+/* when the category cannot be created */
+"Failed to create category" = "카테고리 생성에 실패했습니다.";
+
+/* No comment provided by engineer. */
+"Failed to load operations." = "작업을 불러오는데 실패했습니다.";
+
+/* No comment provided by engineer. */
+"File not found!" = "파일이 없습니다!";
+
+/* No comment provided by engineer. */
+"File:" = "파일:";
+
 /* Import passcode theme from files */
 "Files" = "파일";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "트윅 오류 수정";
+
+/* No comment provided by engineer. */
+"Fixing apps..." = "앱 고치는중...";
 
 /* No comment provided by engineer. */
 "Folder" = "폴더";
@@ -273,7 +357,7 @@
 "Gestures / Dynamic Island" = "제스처 / 다이나믹 아일랜드";
 
 /* No comment provided by engineer. */
-"Go here if something isn't working correctly." = "Go here if something isn't working correctly.";
+"Go here if something isn't working correctly." = "정상적으로 작동하지 않으면 여기로 오세요.";
 
 /* Height of custom resolution
    Height of passcode keys */
@@ -339,11 +423,14 @@
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "테마 제출";
 
+/* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
+"In the meantime you can ..." = "그동안 할 수 있습니다.";
+
 /* No comment provided by engineer. */
 "Included" = "내장";
 
 /* c22dev's contribution */
-"Included Audio & Credits" = "Included Audio & Credits";
+"Included Audio & Credits" = "내장오디오 & 크레딧";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "소프트웨어 버전 입력";
@@ -390,7 +477,8 @@
 /* Audio name */
 "Low Power" = "배터리 부족";
 
-/* leminlimez's contribution */
+/* leminlimez's contribution
+   sourcelocation's contribution */
 "Main Developer" = "메인 개발자";
 
 /* Maximum passcode key size */
@@ -408,8 +496,14 @@
 /* No comment provided by engineer. */
 "Name" = "이름";
 
+/* No comment provided by engineer. */
+"Name:" = "이름:";
+
 /* Audio name */
 "New Mail" = "새로운 메일";
+
+/* No comment provided by engineer. */
+"New theme name" = "테마 이름";
 
 /* Decline apply for all (passcode keys) */
 "No" = "아니요";
@@ -418,7 +512,10 @@
 "No Cards Found" = "발견된 카드 없음";
 
 /* No comment provided by engineer. */
-"No respring required to apply." = "SpringBoard다시시작이 필요없습니다.";
+"No respring required to apply." = "SpringBoard 다시시작이 필요없습니다.";
+
+/* No comment provided by engineer. */
+"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 삽입되지 않았습니다.\n오른쪽 위에 있는 버튼을 눌러 테마를 삽입하세요.\n아이콘 테마는 <id>.png 형식입니다.";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "너무 크거나 작습니다.";
@@ -428,6 +525,9 @@
 
 /* No comment provided by engineer. */
 "Open Settings" = "설정 열기";
+
+/* No comment provided by engineer. */
+"Operation Name" = "작업 이름";
 
 /* Category of tool */
 "Other" = "기타";
@@ -442,6 +542,9 @@
 "Password" = "암호";
 
 /* No comment provided by engineer. */
+"Path" = "위치";
+
+/* No comment provided by engineer. */
 "Path:" = "위치:";
 
 /* Audio name */
@@ -452,6 +555,9 @@
 
 /* Audio name */
 "Payment Success" = "결제 성공";
+
+/* when user enters a category name that cannot be used */
+"Please enter a valid category name!" = "유효한 카테고리 이름을 입력하세요!";
 
 /* No comment provided by engineer. */
 "Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Cowabunga는 트윅을 유지하기 위해 \"항상\" 위치서비스를 필요로 합니다.\n설정앱에서 수정해 주세요.";
@@ -472,6 +578,24 @@
 "Please respring to see changes." = "적용하려면 SpringBoard를 재시작 하세요.";
 
 /* No comment provided by engineer. */
+"Please wait" = "잠시만 기다려 주세요.";
+
+/* No comment provided by engineer. */
+"Please wait for Cowabunga to finish theming..." = "테마 작업이 끝날때까지 기다려 주세요.";
+
+/* operation type that changes plist keys */
+"Plist" = "Plist";
+
+/* No comment provided by engineer. */
+"Plist Data" = "Plist 자료";
+
+/* No comment provided by engineer. */
+"Plist Properties" = "Plist 성질";
+
+/* No comment provided by engineer. */
+"Plist Type:" = "Plist 유형:";
+
+/* No comment provided by engineer. */
 "Preferences" = "설정";
 
 /* Audio name */
@@ -481,7 +605,22 @@
 "Remove all" = "전부 삭제";
 
 /* No comment provided by engineer. */
-"Replacing" = "적용중";
+"Remove theme" = "테마 삭제";
+
+/* No comment provided by engineer. */
+"Rename" = "이름 바꾸기";
+
+/* Entering new theme name */
+"Rename theme" = "테마 이름 바꾸기";
+
+/* No comment provided by engineer. */
+"Replace With:" = "교체:";
+
+/* No comment provided by engineer. */
+"Replacement Data" = "교체할 자료";
+
+/* operation type that replaces a file */
+"Replacing" = "변경중";
 
 /* No comment provided by engineer. */
 "Reset All" = "재설정";
@@ -502,13 +641,25 @@
 "Run in background" = "백그라운드에서 실행";
 
 /* No comment provided by engineer. */
+"Save" = "저장";
+
+/* No comment provided by engineer. */
 "Save Settings" = "설정 저장";
 
 /* Import passcode theme from saved */
 "Saved" = "저장된 파일";
 
+/* apply button on custom operations */
+"Saving operation..." = "작업 저장중...";
+
 /* Audio name */
 "Screenshot" = "스크린샷";
+
+/* No comment provided by engineer. */
+"Select" = "선택";
+
+/* No comment provided by engineer. */
+"Selected" = "선택됨";
 
 /* Audio name */
 "Sent Mail" = "보낸 메일";
@@ -540,6 +691,9 @@
 /* No comment provided by engineer. */
 "Sign up" = "회원가입";
 
+/* No comment provided by engineer. */
+"Size not calculated" = "크기를 계산할 수 없습니다.";
+
 /* Small passcode keys */
 "Small" = "작게";
 
@@ -563,6 +717,9 @@
 
 /* No comment provided by engineer. */
 "Submit themes" = "테마 재출";
+
+/* No comment provided by engineer. */
+"Success" = "성공";
 
 /* No comment provided by engineer. */
 "Success!" = "성공!";
@@ -594,6 +751,18 @@
 /* Saving imported lock */
 "The imported lock was successfully saved." = "자물쇠 아이콘을 불러왔습니다!";
 
+/* when an operation is applied */
+"The operation was successfully applied! The operation was not saved, only applied." = "작업내용이 적용되었습니다!\n작업이 저장되진 않고 적용만 됩습니다.";
+
+/* when an operation is deleted */
+"The operation was successfully deleted!" = "작업이 성공적으로 제거되었습니다!";
+
+/* when an operation is saved */
+"The operation was successfully saved!" = "작업이 성공적으로 저장되었습니다!";
+
+/* No comment provided by engineer. */
+"Themes" = "테마";
+
 /* No comment provided by engineer. */
 "Tools" = "도구";
 
@@ -612,6 +781,12 @@
 /* Failed to import lock */
 "Unable to save imported lock!" = "자물쇠 아이콘을 불러올 수 없습니다.";
 
+/* No comment provided by engineer. */
+"Uncategorized" = "분류되지 않은";
+
+/* Shown after successful theme set. */
+"Understood, Respring" = "이해했습니다.\nSpringBoard 다시시작";
+
 /* zhuowei's contribution */
 "Unsandboxing" = "Sandbox 탈출";
 
@@ -619,16 +794,25 @@
 "Update Included Audio" = "내장 오디오 업데이트";
 
 /* No comment provided by engineer. */
-"Use Alternative Setter" = "Use Alternative Setter";
+"Upload File" = "파일 업로드";
+
+/* No comment provided by engineer. */
+"Use Alternative Setter" = "대체 가능한 세터 사용";
 
 /* No comment provided by engineer. */
 "Use at your own risk" = "본인의 책임하에 사용하세요.";
+
+/* No comment provided by engineer. */
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "통신사 이름과 시계 택스트가 적용되지 않으면 재설정후 다시 하는걸 추천합니다.";
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "작동하지 않을때 활성화 하세요.";
 
 /* No comment provided by engineer. */
 "validate" = "확인";
+
+/* value for plist operation */
+"Value" = "Value";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "버전 %@ (%@)";
@@ -648,6 +832,9 @@
 
 /* No comment provided by engineer. */
 "X" = "X";
+
+/* No comment provided by engineer. */
+"xml" = "xml";
 
 /* No comment provided by engineer. */
 "Y" = "Y";
