@@ -60,7 +60,7 @@ class CowabungaAPI: ObservableObject {
         let request1 = URLRequest(url: downloadURL)
             
         let (data1,response1) = try await session.data(for: request1) as! (Data, HTTPURLResponse)
-        guard response1.statusCode == 200 else { throw "Could not connect to server" }
+        guard response1.statusCode == 200 else { throw "Could not connect to server while downloading theme" }
         try data1.write(to: tempThemeDownloadURL)
         
         switch theme.type {
@@ -75,7 +75,8 @@ class CowabungaAPI: ObservableObject {
                 let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(theme.name))
                 ThemeManager.shared.themes.append(theme)
             } else if theme.type == .lock {
-                try? fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name), to: saveURL.appendingPathComponent(theme.name))
+                print(saveURL)
+                try! fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name), to: saveURL)
             }
             
             try fm.removeItem(at: tmpExtract)
@@ -86,7 +87,8 @@ class CowabungaAPI: ObservableObject {
         let request2 = URLRequest(url: previewURL)
         let previewSaveURL = saveURL.appendingPathComponent("preview.png")
         let (data2,response2) = try await session.data(for: request2) as! (Data, HTTPURLResponse)
-        guard response2.statusCode == 200 else { throw "Could not connect to server" }
+        guard response2.statusCode == 200 else { throw "Could not connect to server while downloading preview" }
+        print(previewSaveURL)
         try data2.write(to: previewSaveURL)
         
         try? fm.removeItem(at: tempThemeDownloadURL)
