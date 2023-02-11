@@ -32,33 +32,46 @@ class AdvancedObject: Identifiable {
     var operationName: String
     var filePath: String
     var replacementData: Data? = nil
+    var backupData: Data? = nil
     var applyInBackground: Bool
     
-    init(operationName: String, filePath: String, applyInBackground: Bool) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil) {
         self.operationName = operationName
         self.filePath = filePath
         self.applyInBackground = applyInBackground
+        self.backupData = backupData
+    }
+    
+    func backup() throws {
+        // back up the data at the file path
+        backupData = try Data(contentsOf: URL(fileURLWithPath: filePath))
     }
     
     func parseData() throws {
         // parse the data to be replaced
     }
     
-    func applyData() throws {
+    func applyData(fromBackup: Bool = false) throws {
+        var newData: Data? = nil
+        if fromBackup {
+            newData = backupData
+        } else {
+            newData = replacementData
+        }
         // applies the data only if it was parsed
-        if replacementData != nil {
+        if newData != nil {
             if FileManager.default.fileExists(atPath: filePath) {
                 // get data of and make sure it is smaller
                 // first try to write normally
                 do {
-                    try replacementData!.write(to: URL(fileURLWithPath: filePath))
+                    try newData!.write(to: URL(fileURLWithPath: filePath))
                 } catch {
                     // if it fails, revert back to MDC
                     print("classic write failed... reverting back to MacDirtyCow")
                     do {
                         let originalSize = try Data(contentsOf: URL(fileURLWithPath: filePath)).count
-                        if originalSize >= replacementData!.count {
-                            let succeeded = MDC.overwriteFile(at: filePath, with: replacementData!)
+                        if originalSize >= newData!.count {
+                            let succeeded = MDC.overwriteFile(at: filePath, with: newData!)
                             if !succeeded {
                                 throw "There was an error trying to write/replace the file."
                             }
@@ -73,7 +86,11 @@ class AdvancedObject: Identifiable {
                 throw "No file exists at path!"
             }
         } else {
-            throw "Data not parsed before applying!"
+            if fromBackup {
+                throw "No backup data was found!"
+            } else {
+                throw "Data not parsed before applying!"
+            }
         }
     }
 }
@@ -104,10 +121,10 @@ class ReplacingObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
         self.replacingType = replacingType
         self.replacingPath = replacingPath
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)
         self.replacementData = overwriteData
     }
 }
@@ -132,9 +149,9 @@ class PlistObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
         self.plistType = plistType
         self.replacingKeys = replacingKeys
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)
     }
 }
