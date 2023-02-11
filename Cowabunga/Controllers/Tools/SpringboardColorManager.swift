@@ -71,7 +71,7 @@ class SpringboardColorManager {
                         }
                         
                         secondLevel["tintColor"] = thirdLevel
-                        secondLevel["tintAlpha"] = color.alpha*0.3
+                        secondLevel["tintAlpha"] = color.alpha*( (forType == SpringboardType.notif) ? 0.8: 0.3)
                         firstLevel["tinting"] = secondLevel
                         plist["baseMaterial"] = firstLevel
                     }

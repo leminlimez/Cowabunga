@@ -111,7 +111,7 @@ struct SpringboardColorChangerView: View {
                         
                         // MARK: Notif Banner
                         VStack {
-                            let iconColors: [Color] = [.blue, .orange.opacity(0), .green.opacity(0), .purple.opacity(0)]
+                            let iconColors: [Color] = [.orange, .blue.opacity(0), .green.opacity(0), .purple.opacity(0)]
                             ZStack {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: minSize / 15)
@@ -119,7 +119,7 @@ struct SpringboardColorChangerView: View {
                                         .frame(maxWidth: .infinity)
                                         .frame(height: minSize / 4)
                                         .padding(.horizontal)
-                                        .opacity(0.3)
+                                        .opacity(0.6)
                                 }
                                 HStack(spacing: 20) {
                                     ForEach(0...3, id: \.self) { i1 in
