@@ -21,7 +21,8 @@ struct SpringBoardView: View {
         .init(value: getDefaultBool(forKey: "FolderBlurDisabled"), key: "FolderBlurDisabled", title: NSLocalizedString("Disable Folder Blur", comment: "Springboard tool"), imageName: "folder.circle", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "SwitcherBlurDisabled"), key: "SwitcherBlurDisabled", title: NSLocalizedString("Disable App Switcher Blur", comment: "Springboard tool"), imageName: "apps.iphone", fileType: OverwritingFileTypes.springboard),
         .init(value: getDefaultBool(forKey: "CCModuleBackgroundDisabled"), key: "CCModuleBackgroundDisabled", title: NSLocalizedString("Disable CC Module Background", comment: "Springboard tool"), imageName: "switch.2", fileType: OverwritingFileTypes.cc),
-        .init(value: getDefaultBool(forKey: "PodBackgroundDisabled"), key: "PodBackgroundDisabled", title: NSLocalizedString("Disable Library Pods Background", comment: "Springboard tool"), imageName: "square.stack", fileType: OverwritingFileTypes.springboard)
+        .init(value: getDefaultBool(forKey: "PodBackgroundDisabled"), key: "PodBackgroundDisabled", title: NSLocalizedString("Disable Library Pods Background", comment: "Springboard tool"), imageName: "square.stack", fileType: OverwritingFileTypes.springboard),
+        .init(value: getDefaultBool(forKey: "NotifBackgroundDisabled"), key: "NotifBackgroundDisabled", title: NSLocalizedString("Hide Notification Banner Background", comment: "Springboard tool"), imageName: "platter.filled.top.iphone", fileType: OverwritingFileTypes.springboard)
     ]
     
     var body: some View {
