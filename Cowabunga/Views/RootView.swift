@@ -42,7 +42,7 @@ struct RootView: View {
             if #available(iOS 15.0, *) {
                 ThemesExploreView()
                     .tabItem {
-                        Label("Explore", systemImage: "sparkles")
+                        Label("Explore", systemImage: "safari")
                     }
             }
 //            PasscodeEditorView()
