@@ -32,8 +32,12 @@ struct SavedPasscodesView: View {
                 .font(.largeTitle)
             if numOfSaved == 0 {
                 Text("You do not have any saved passcode themes. Check out the explore tab to find some!")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    .padding(30)
+                    .padding()
+                    .background(Color(uiColor14: .secondarySystemBackground))
+                    .multilineTextAlignment(.center)
+                    .cornerRadius(16)
+                    .font(.footnote)
+                    .foregroundColor(Color(uiColor14: .secondaryLabel))
             } else {
                 List {
                     ForEach($savedPasscodesList) { passcode in
