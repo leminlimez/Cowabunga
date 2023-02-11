@@ -35,7 +35,10 @@ extension UIImage {
             }
             newResImage = newData
         }
-        guard closestImage != nil else { throw "could not compress image low enough to fit inside original \(allowedSizeInBytes) bytes"}
-        return closestImage!
+        if let closestImage = closestImage {
+            return closestImage
+        } else {
+            throw "Could not compress image low enough to fit inside the original \(allowedSizeInBytes) bytes"
+        }
     }
 }

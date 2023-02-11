@@ -25,102 +25,90 @@ struct ThemesExploreView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack {
-                    Picker("", selection: $themeTypeSelected) {
-                        Text("Icons").tag(0)
-                        Text("Passcodes").tag(1)
-                        Text("Locks").tag(2)
+                ScrollView {
+                    PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                        // refresh
+                        themes.removeAll()
+                        //URLCache.imageCache.removeAllCachedResponses()
+                        loadThemes()
                     }
-                    .pickerStyle(.segmented)
-                    .padding(24)
-                    Spacer()
+                    VStack {
+                        Picker("", selection: $themeTypeSelected) {
+                            Text("Icons").tag(0)
+                            Text("Passcodes").tag(1)
+                            Text("Locks").tag(2)
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .padding(.horizontal, 24)
                     
-                }
-                if themes.isEmpty {
-                    ProgressView()
-                        .navigationTitle("Explore")
-                } else {
-                    ZStack {
-                        ScrollView {
-                            PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                                // refresh
-                                themes.removeAll()
-                                //URLCache.imageCache.removeAllCachedResponses()
-                                loadThemes()
-                            }
-                            .pickerStyle(.segmented)
-                            .onChange(of: themeTypeSelected) { newValue in
-                                let map = [0: DownloadableTheme.ThemeType.icon, 1: .passcode, 2: .lock]
-                                themeTypeShown = map[newValue]!
-                                
-                                themes.removeAll()
-                                loadThemes()
-                                
-                                gridItemLayout = [GridItem(.adaptive(minimum: themeTypeShown == .icon ? 250 : 150))]
-                            }
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(themes) { theme in
-                                    Button {
-                                        downloadTheme(theme: theme)
-                                    } label: {
-                                        VStack(spacing: 0) {
-                                            CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
-                                                image
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: themeTypeShown == .icon ? 250 : 150, height: 250)
-                                                    .cornerRadius(10, corners: .topLeft)
-                                                    .cornerRadius(10, corners: .topRight)
-                                            } placeholder: {
-                                                Color.gray
-                                            }
-                                            HStack {
-                                                VStack(spacing: 4) {
-                                                    HStack {
-                                                        Text(theme.name)
-                                                            .foregroundColor(Color(uiColor14: .label))
-                                                            .minimumScaleFactor(0.5)
-                                                        Spacer()
-                                                    }
-                                                    HStack {
-                                                        Text(theme.contact.values.first ?? "Unknown author")
-                                                            .foregroundColor(.secondary)
-                                                            .font(.caption)
-                                                            .minimumScaleFactor(0.5)
-                                                        Spacer()
-                                                    }
-                                                }
-                                                .lineLimit(1)
-                                                Spacer()
-                                                Image(systemName: "arrow.down.circle")
-                                                    .foregroundColor(.blue)
-                                            }
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 8)
-                                            .frame(height: 58)
+                    if themes.isEmpty {
+                        ProgressView()
+                            .navigationTitle("Explore")
+                    } else {
+                        LazyVGrid(columns: gridItemLayout) {
+                            ForEach(themes) { theme in
+                                Button {
+                                    downloadTheme(theme: theme)
+                                } label: {
+                                    VStack(spacing: 0) {
+                                        CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(maxWidth: .infinity)
+                                                .cornerRadius(10, corners: .topLeft)
+                                                .cornerRadius(10, corners: .topRight)
+                                        } placeholder: {
+                                            Color.gray
+                                                .frame(height: 192)
                                         }
+                                        HStack {
+                                            VStack(spacing: 4) {
+                                                HStack {
+                                                    Text(theme.name)
+                                                        .foregroundColor(Color(uiColor14: .label))
+                                                        .minimumScaleFactor(0.5)
+                                                    Spacer()
+                                                }
+                                                HStack {
+                                                    Text(theme.contact.values.first ?? "Unknown author")
+                                                        .foregroundColor(.secondary)
+                                                        .font(.caption)
+                                                        .minimumScaleFactor(0.5)
+                                                    Spacer()
+                                                }
+                                            }
+                                            .lineLimit(1)
+                                            Spacer()
+                                            Image(systemName: "arrow.down.circle")
+                                                .foregroundColor(.blue)
+                                        }
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 8)
+                                        .frame(height: 58)
                                     }
-                                    .background(Color(uiColor14: .secondarySystemBackground))
-                                    .cornerRadius(10)
-                                    .padding(4)
                                 }
-                            }
-                            .padding()
-                        }
-                        .coordinateSpace(name: "pullToRefresh")
-                        .navigationTitle("Explore")
-                    }
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                submitThemeAlertShown = true
-                            } label: {
-                                Image(systemName: "paperplane")
+                                .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
+//                                .frame(height: 250)
+                                .background(Color(uiColor14: .secondarySystemBackground))
+                                .cornerRadius(10)
+                                .padding(4)
                             }
                         }
+                        .padding()
                     }
-                    .padding(.top, 48)
+                }
+                .coordinateSpace(name: "pullToRefresh")
+                .navigationTitle("Explore")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            submitThemeAlertShown = true
+                        } label: {
+                            Image(systemName: "paperplane")
+                        }
+                    }
                 }
             }
             .onAppear {
@@ -136,8 +124,18 @@ struct ThemesExploreView: View {
                 
             })
             
-        //            .sheet(isPresented: $showLogin, content: { LoginView() })
-        // maybe later
+            //            .sheet(isPresented: $showLogin, content: { LoginView() })
+            // maybe later
+            
+            .onChange(of: themeTypeSelected) { newValue in
+                let map = [0: DownloadableTheme.ThemeType.icon, 1: .passcode, 2: .lock]
+                themeTypeShown = map[newValue]!
+                
+                themes.removeAll()
+                loadThemes()
+                
+                gridItemLayout = [GridItem(.adaptive(minimum: themeTypeShown == .icon ? 250 : 150))]
+            }
         }
         .navigationViewStyle(.stack)
     }
