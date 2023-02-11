@@ -156,6 +156,6 @@ class PlistObject: AdvancedObject {
     init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
         self.plistType = plistType
         self.replacingKeys = replacingKeys
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData)
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
     }
 }

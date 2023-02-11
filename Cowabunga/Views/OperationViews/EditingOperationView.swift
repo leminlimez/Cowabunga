@@ -25,7 +25,7 @@ struct EditingOperationView: View {
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     @State var previousName: String = ""
-    @State var isActive: Bool = true
+    @State var isActive: Bool = false
     
     // replacing properties
     @State var savedFilePath: String = "/"
@@ -134,10 +134,12 @@ struct EditingOperationView: View {
                     }
                     
                     // MARK: Enabled
-                    Toggle(isOn: $isActive, label: {
+                    HStack {
                         Text("Enabled")
                             .bold()
-                    })
+                        Spacer()
+                        Toggle(isOn: $isActive) {}
+                    }
                 } header: {
                     Text("Basic Configuration")
                 }
@@ -569,12 +571,12 @@ struct EditingOperationView: View {
                 pageTitle = editing ? "Edit Operation": "Create Operation"
                 
                 if replacingKeys.count == 0 {
+                    isActive = operation.isActive
                     previousFilePath = operation.filePath
                     operationName = operation.operationName
                     previousName = operationName
                     filePath = operation.filePath
                     applyInBackground = operation.applyInBackground
-                    isActive = operation.isActive
                 }
                 
                 if let replacingOperation = operation as? ReplacingObject {
