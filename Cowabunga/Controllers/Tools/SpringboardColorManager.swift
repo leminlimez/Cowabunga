@@ -24,7 +24,7 @@ class SpringboardColorManager {
         SpringboardType.dock: ["dockDark", "dockLight"],
         SpringboardType.folderBG: ["folderExpandedBackgroundHome", "homeScreenOverlay", "homeScreenOverlay-iPad"],
         SpringboardType.switcher: ["homeScreenBackdrop-application"],
-        SpringboardType.notif: ["platterDark", "platter"]
+        SpringboardType.notif: ["plattersDark", "platters"]
     ]
     
     private static let fileFolders: [SpringboardType: String] = [
