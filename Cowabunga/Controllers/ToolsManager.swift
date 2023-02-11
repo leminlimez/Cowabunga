@@ -77,6 +77,7 @@ enum SpringBoardOptions: String, CaseIterable {
     case SwitcherBlurDisabled = "SwitcherBlurDisabled"
     case CCModuleBackgroundDisabled = "CCModuleBackgroundDisabled"
     case PodBackgroundDisabled = "PodBackgroundDisabled"
+    case NotifBackgroundDisabled = "NotifBackgroundDisabled"
 }
 
 let replacementPaths: [String: [String]] = [
@@ -86,7 +87,8 @@ let replacementPaths: [String: [String]] = [
     SpringBoardOptions.FolderBlurDisabled.rawValue: ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
     SpringBoardOptions.SwitcherBlurDisabled.rawValue: ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
     SpringBoardOptions.CCModuleBackgroundDisabled.rawValue: ["CoreMaterial.framework/modules.materialrecipe"],
-    SpringBoardOptions.PodBackgroundDisabled.rawValue: ["SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", "SpringBoardHome.framework/podBackgroundViewDark.visualstyleset"]
+    SpringBoardOptions.PodBackgroundDisabled.rawValue: ["SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", "SpringBoardHome.framework/podBackgroundViewDark.visualstyleset"],
+    SpringBoardOptions.NotifBackgroundDisabled.rawValue: ["CoreMaterial.framework/plattersDark.materialrecipe", "CoreMaterial.framework/platters.materialrecipe"]
 ]
 
 enum OverwritingFileTypes {
