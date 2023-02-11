@@ -6,7 +6,7 @@ Enable Notifications and set Location Services to **Always** to keep the app run
 
 Warning: Some changes are permanent on iOS 14.0-14.8.1
 
-IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases) section.
+IPA available in the [Releases](https://github.com/leminlimez/Cowabunga/releases/latest) section.
 
 ## Features
 - Running in the background to keep some changes from reverting
