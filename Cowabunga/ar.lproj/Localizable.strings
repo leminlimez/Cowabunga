@@ -62,22 +62,22 @@
 "App Stopped Running" = "تم إيقاف تشغيل التطبيق";
 
 /* No comment provided by engineer. */
-"App Switcher" = "App Switche r";
+"App Switcher" = "مبدل التطبيقات";
 
 /* No comment provided by engineer. */
 "Apply" = "تطبيق";
 
 /* Header for apply passcode key size for all */
-"Apply for all?" = "التقدم بطلب للجميع ؟";
+"Apply for all?" = "تطبيق للجميع؟";
 
 /* No comment provided by engineer. */
-"Apply in Background" = "التقديم في الخلفية";
+"Apply in Background" = "تطبيق في الخلفية";
 
 /* No comment provided by engineer. */
-"Apply Once" = "تقديم الطلب مرة واحدة";
+"Apply Once" = "تطبيق مرة واحدة";
 
 /* No comment provided by engineer. */
-"Apply themes" = "تطبيق القوالب";
+"Apply themes" = "تطبيق السمات";
 
 /* apply button on custom operations */
 "Applying operation..." = "جارٍ تطبيق العملية...";
@@ -218,7 +218,7 @@
 "Credits" = "أرصدة";
 
 /* No comment provided by engineer. */
-"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "في الوقت الحالي لإرسال القوالب إلى أشخاص آخرين لمشاهدتها واستخدامها، يتعين علينا مراجعتها على Discord في #showcase channel.";
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "في الوقت الحالي لإرسال السمات إلى أشخاص آخرين لمشاهدتها واستخدامها، يتعين علينا مراجعتها على Discord في #showcase channel.";
 
 /* Custom size for passcode keys */
 "Custom" = "مخصص";
@@ -252,7 +252,7 @@
 "Disable" = "تعطيل";
 
 /* Springboard tool */
-"Disable App Switcher Blur" = "تعطيل ضبابية مبدل التطبيق";
+"Disable App Switcher Blur" = "تعطيل ضبابية مبدل التطبيقات";
 
 /* Springboard tool */
 "Disable CC Module Background" = "تعطيل خلفية وحدة CC";
@@ -273,7 +273,7 @@
 "Dock" = "البار السفلي";
 
 /* No comment provided by engineer. */
-"Download themes in Themes tab." = "قم بتنزيل القوالب في علامة تبويب القوالب.";
+"Download themes in Themes tab." = "قم بتنزيل السمات في علامة تبويب السمات.";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "جزيرة ديناميكية";
@@ -312,7 +312,7 @@
 "Error" = "خطأ";
 
 /* ginsudev's contribution */
-"Exploit Code" = "كود الاستغلال";
+"Exploit Code" = "كود الثغره";
 
 /* No comment provided by engineer. */
 "Explore" = "استكشف";
@@ -327,7 +327,7 @@
 "Failed to apply Device SubType!" = "فشل تطبيق النوع الفرعي للجهاز!";
 
 /* Failing to apply custom resolution */
-"Failed to apply resolution:" = "فشل في تطبيق القرار:";
+"Failed to apply resolution:" = "فشل في تطبيق الدقة:";
 
 /* when the category cannot be created */
 "Failed to create category" = "فشل إنشاء الفئة";
@@ -408,6 +408,9 @@
 /* No comment provided by engineer. */
 "Hide Location" = "إخفاء الموقع";
 
+/* Springboard tool */
+"Hide Notification Banner Background" = "إخفاء خلفية لافتة الإشعارات";
+
 /* No comment provided by engineer. */
 "Hide Rotation Lock" = "إخفاء قفل الدوران";
 
@@ -425,6 +428,9 @@
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "أنا لست روبوتًا (بدون غطاء)";
+
+/* No comment provided by engineer. */
+"Icons" = "أيقونات";
 
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "إذا كان القفل المخصص لا ينطبق عليك، فجرّب خيارًا آخر.";
@@ -523,8 +529,14 @@
 /* No comment provided by engineer. */
 "No respring required to apply." = "لا يوجد أعادة التشغيل السريع المطلوبة لتطبيق.";
 
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "لم يتم العثور على السمات. قم بتنزيل السمات في علامة التبويب \"استكشاف\" ،أو قم باستيرادها باستخدام الزر الموجود في الزاوية اليمنى العليا (يجب أن تحتوي السمات على رموز بتنسيق <id>.png).";
+
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "حجم غير صالح!";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "لافتة الإشعارات";
 
 /* No comment provided by engineer. */
 "OK" = "موافق";
@@ -543,6 +555,9 @@
 
 /* Title of tool */
 "Passcode Faces" = "وجوه رمز المرور";
+
+/* No comment provided by engineer. */
+"Passcodes" = "رموز المرور";
 
 /* No comment provided by engineer. */
 "Password" = "كلمة المرور";
@@ -575,13 +590,13 @@
 "Please respring to finalize changes. Reboot to revert." = "يرجى الرد لوضع اللمسات الأخيرة على التغييرات. أعد التشغيل للرجوع.";
 
 /* No comment provided by engineer. */
-"Please respring to finish applying changes." = "يرجى الرد لإنهاء تطبيق التغييرات.";
+"Please respring to finish applying changes." = "يرجى أعادة التشغيل السريع لإنهاء تطبيق التغييرات.";
 
 /* respring to hear audio changes */
-"Please respring to hear changes." = "يرجى الرد لسماع التغييرات.";
+"Please respring to hear changes." = "يرجى أعادة التشغيل السريع لسماع التغييرات.";
 
 /* No comment provided by engineer. */
-"Please respring to see changes." = "يرجى الرد لمشاهدة التغييرات.";
+"Please respring to see changes." = "يرجى أعادة التشغيل السريع لمشاهدة التغييرات.";
 
 /* No comment provided by engineer. */
 "Please wait" = "يرجى الانتظار";
@@ -674,7 +689,7 @@
 "Sent Message" = "تم إرسال الرسالة";
 
 /* No comment provided by engineer. */
-"Set app switcher color" = "تعيين لون مبدل التطبيق";
+"Set app switcher color" = "تعيين لون مبدل التطبيقات";
 
 /* No comment provided by engineer. */
 "Set badge color" = "تعيين لون الشارة";
@@ -722,7 +737,7 @@
 "Status Bar Time Text" = "نص وقت شريط الحالة";
 
 /* No comment provided by engineer. */
-"Submit themes" = "إرسال القوالب";
+"Submit themes" = "إرسال السمات";
 
 /* No comment provided by engineer. */
 "Success" = "تم بنجاح";
@@ -748,6 +763,9 @@
 /* No comment provided by engineer. */
 "The app will quit." = "سيتم إنهاء التطبيق.";
 
+/* when an operation is restored */
+"The file was successfully restored!" = "!تمت استعادة الملف بنجاح";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "تم ترميز الصوت المستورد وحفظه بنجاح.";
 
@@ -764,7 +782,7 @@
 "The operation was successfully saved!" = "تم حفظ العملية بنجاح!";
 
 /* No comment provided by engineer. */
-"Themes" = "القوالب";
+"Themes" = "السمات";
 
 /* No comment provided by engineer. */
 "Tools" = "الأدوات";
