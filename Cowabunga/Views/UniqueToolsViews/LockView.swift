@@ -141,7 +141,7 @@ struct LockView: View {
                         
                         // delete the file
                         do {
-                            let url = locksDir!.appendingPathComponent(deletingLockName.replacingOccurrences(of: " ", with: "_"))
+                            let url = locksDir!.appendingPathComponent(deletingLockName)
                             try FileManager.default.removeItem(at: url)
                             locks.remove(at: i)
                         } catch {
