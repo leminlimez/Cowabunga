@@ -16,29 +16,29 @@ class AudioFiles {
         // Device Sounds
         case charging = "Charging"
         case lock = "Lock"
-        case lowPower = "LowPower"
+        case lowPower = "Low Power"
         case notification = "Notification"
         
         // Camera Sounds
         case screenshot = "Screenshot"
-        case beginRecording = "BeginRecording"
-        case endRecording = "EndRecording"
+        case beginRecording = "Begin Recording"
+        case endRecording = "End Recording"
         
         // Messages Sounds
-        case sentMessage = "SentMessage"
-        case receivedMessage = "ReceivedMessage"
-        case sentMail = "SentMail"
-        case newMail = "NewMail"
+        case sentMessage = "Sent Message"
+        case receivedMessage = "Received Message"
+        case sentMail = "Sent Mail"
+        case newMail = "New Mail"
         
         // Payment Sounds
-        case paymentSuccess = "PaymentSuccess"
-        case paymentFailed = "PaymentFailed"
-        case paymentReceived = "PaymentReceived"
+        case paymentSuccess = "Payment Success"
+        case paymentFailed = "Payment Failed"
+        case paymentReceived = "Payment Received"
         
         // Keyboard Sounds
-        case kbKeyClick = "KeyClick"
-        case kbKeyDel = "KeyDelete"
-        case kbKeyMod = "KeyModifier"
+        case kbKeyClick = "Key Click"
+        case kbKeyDel = "Key Delete"
+        case kbKeyMod = "Key Modifier"
     }
     
     static var ListOfAudio: [String: [String]] = [:]
