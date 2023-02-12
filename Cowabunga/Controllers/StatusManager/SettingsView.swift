@@ -33,7 +33,7 @@ struct SettingsView: View {
                     }
                 }
                 if #available(iOS 15.0, *) {
-                    Section(footer: Text("Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic.")) {
+                    Section(footer: Text("Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page.")) {
                         Toggle(isOn: $forceMDC) {
                             Text("Force MacDirtyCOW")
                         }

@@ -135,7 +135,7 @@ struct SpringboardColorChangerView: View {
                             
                             VStack{
                                 HStack {
-                                    Text("Notif Banner")
+                                    Text("Notification Banner")
                                         .font(.title)
                                         .foregroundColor(.white)
                                         .fontWeight(.medium)

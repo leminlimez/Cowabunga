@@ -93,6 +93,7 @@ struct ThemesView: View {
                                     .cornerRadius(16)
                                     .onTapGesture {
                                         easterEgg.toggle()
+                                        Haptic.shared.notify(.success)
                                     }
                                     VStack {
                                         HStack {
@@ -138,7 +139,7 @@ struct ThemesView: View {
                         }
                         .padding(.horizontal, 6)
                     }
-                }
+                }.padding()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
@@ -154,7 +155,7 @@ struct ThemesView: View {
                                 applyChanges()
                             }, noCancel: false)
                         }) {
-                            Image(systemName: "arrow.uturn.backward")
+                            Image(systemName: "arrow.counterclockwise")
                         }
                     }
                 }
