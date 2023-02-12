@@ -49,7 +49,7 @@ struct AudioView: View {
         .init(title: "Keyboard", options: [
             .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: NSLocalizedString("Keyboard Press Normal", comment: "Audio name"), imageName: "square"),
             .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: NSLocalizedString("Keyboard Press Delete", comment: "Audio name"), imageName: "delete.left"),
-            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: NSLocalizedString("Ketboard Press Clear", comment: "Audio name"), imageName: "keyboard.badge.ellipsis")
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: NSLocalizedString("Keyboard Press Clear", comment: "Audio name"), imageName: "keyboard.badge.ellipsis")
         ])
     ]
     

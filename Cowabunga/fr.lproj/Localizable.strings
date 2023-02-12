@@ -448,7 +448,7 @@
 "Join Discord" = "Rejoindre le serveur Discord";
 
 /* Audio name */
-"Ketboard Press Clear" = "Touche effacer du clavier";
+"Keyboard Press Clear" = "Touche effacer du clavier";
 
 /* key for plist operation */
 "Key" = "Touche";
