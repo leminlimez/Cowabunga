@@ -105,3 +105,6 @@ Just build like a normal Xcode project. Sign using your own team and bundle iden
 - [c22dev](https://github.com/c22dev) for fixing AirPower and some included audios.
 - [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function.
 - [Evyrest](https://github.com/sourcelocation/Evyrest) for location based background running.
+
+## Suggestions and support
+You can either create an issue on this GitHub repo, or join our [Discord server](https://discord.gg/VyVcNjRMeg) where us, or other members, might help you.
