@@ -1,6 +1,7 @@
 name: Build Cowabunga
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "gh-actions" ]
 
