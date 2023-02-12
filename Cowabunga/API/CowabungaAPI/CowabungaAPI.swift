@@ -79,10 +79,13 @@ class CowabungaAPI: ObservableObject {
                 ThemeManager.shared.themes.append(theme)
             } else if theme.type == .lock {
                 print(saveURL)
+                if fm.fileExists(atPath: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("_MACOSX").path) {
+                    try? fm.removeItem(at: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("_MACOSX"))
+                }
                 if fm.fileExists(atPath: saveURL.path) {
                     try? fm.removeItem(at: saveURL)
                 }
-                try fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name), to: saveURL)
+                try fm.moveItem(at: tmpExtract.appendingPathComponent(theme.name.replacingOccurrences(of: " ", with: "_")), to: saveURL)
             }
             
             try fm.removeItem(at: tmpExtract)
