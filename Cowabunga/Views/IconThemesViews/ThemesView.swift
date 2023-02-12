@@ -138,7 +138,7 @@ struct ThemesView: View {
                         }
                         .padding(.horizontal, 6)
                     }
-                }
+                }.padding()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
