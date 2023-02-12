@@ -21,6 +21,27 @@ struct HomeView: View {
         .init(key: "NotifBackgroundDisabled", fileType: OverwritingFileTypes.springboard)
     ]
     
+    struct Translator: Identifiable {
+        var id = UUID()
+        var names: String
+        var contribution: String
+    }
+    
+    // list of translators
+    @State private var translators: [Translator] = [
+        .init(names: "c22dev & Yan.#0001", contribution: "🇫🇷 French"),
+        .init(names: "Mattia#6297", contribution: "🇮🇹 Italian"),
+        .init(names: "Abbyy#2820", contribution: "🇵🇱 Polish"),
+        .init(names: "Maxiwee#9333", contribution: "🇩🇪 German"),
+        .init(names: "kylak#5621", contribution: "🇧🇷 Portuguese"),
+        .init(names: "Skyfall#5572", contribution: "🇨🇳 Chinese"),
+        .init(names: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese"),
+        .init(names: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)"),
+        .init(names: "iwishkem.#3116", contribution: "🇹🇷 Turkish"),
+        .init(names: "TaekyungAncal#7857", contribution: "🇰🇷 Korean"),
+        .init(names: "Aru Pro#2789", contribution: "🇦🇪 Arabic")
+    ]
+    
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
@@ -247,20 +268,8 @@ struct HomeView: View {
                 }
                 
                 Section {
-                    Group {
-                        LinkCell(imageName: "", url: "", title: "c22dev & Yan.#0001", contribution: "🇫🇷 French")
-                        LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "🇮🇹 Italian")
-                        LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "🇵🇱 Polish")
-                        LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "🇩🇪 German")
-                        LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "🇧🇷 Portuguese")
-                        LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "🇨🇳 Chinese")
-                        LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese")
-                        LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)")
-                        LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "🇹🇷 Turkish")
-                        LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "🇰🇷 Korean")
-                    }
-                    Group {
-                        LinkCell(imageName: "", url: "", title: "Aru Pro#2789", contribution: "Arabic")
+                    ForEach(translators) { translator in
+                        LinkCell(imageName: "", url: "", title: translator.names, contribution: translator.contribution)
                     }
                 } header: {
                     Text("Translators")
