@@ -106,6 +106,7 @@ struct MainCardView: View {
                 }
             }
         }
+        .navigationTitle("Card Changer")
     }
 }
 
