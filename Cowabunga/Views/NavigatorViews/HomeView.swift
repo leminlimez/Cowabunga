@@ -247,17 +247,21 @@ struct HomeView: View {
                 }
                 
                 Section {
-                    LinkCell(imageName: "", url: "", title: "c22dev & Yan.#0001", contribution: "🇫🇷 French")
-                    LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "🇮🇹 Italian")
-                    LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "🇵🇱 Polish")
-                    LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "🇩🇪 German")
-                    LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "🇧🇷 Portuguese")
-                    LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "🇨🇳 Chinese")
-                    LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese")
-                    LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)")
-                    LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "🇹🇷 Turkish")
-                    LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "🇰🇷 Korean")
-                    //LinkCell(imageName: "", url: "", title: "Aru Pro#2789", contribution: "Arabic")
+                    Group {
+                        LinkCell(imageName: "", url: "", title: "c22dev & Yan.#0001", contribution: "🇫🇷 French")
+                        LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "🇮🇹 Italian")
+                        LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "🇵🇱 Polish")
+                        LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "🇩🇪 German")
+                        LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "🇧🇷 Portuguese")
+                        LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "🇨🇳 Chinese")
+                        LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese")
+                        LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)")
+                        LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "🇹🇷 Turkish")
+                        LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "🇰🇷 Korean")
+                    }
+                    Group {
+                        LinkCell(imageName: "", url: "", title: "Aru Pro#2789", contribution: "Arabic")
+                    }
                 } header: {
                     Text("Translators")
                 }
