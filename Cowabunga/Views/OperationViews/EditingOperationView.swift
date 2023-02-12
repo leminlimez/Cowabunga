@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FilePicker
 
 struct PlistProperty: Identifiable {
     var id = UUID()
@@ -41,7 +42,6 @@ struct EditingOperationView: View {
     @State var plistKeys: [PlistProperty] = []
     @State var calculatedSize: Int? = nil
     
-    @State var isImporting: Bool = false
     @State var pageTitle: String = ""
     
     var body: some View {
@@ -329,9 +329,25 @@ struct EditingOperationView: View {
                             }
                             HStack {
                                 Spacer()
-                                Button(action: {
-                                    isImporting.toggle()
-                                }) {
+                                FilePicker(types: [.data], allowMultiple: false, asCopy: false) { result in
+                                    if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
+                                    let url: URL = result.first!
+                                    guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
+                                    
+                                    // save to temp directory
+                                    do {
+                                        let tmp = FileManager.default.temporaryDirectory
+                                        replacingData = try Data(contentsOf: url)
+                                        let newURL = tmp.appendingPathComponent(url.lastPathComponent)
+                                        // write to temp file
+                                        try replacingData!.write(to: newURL)
+                                        replacingPath = newURL.path
+                                        url.stopAccessingSecurityScopedResource()
+                                    } catch {
+                                        UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
+                                        url.stopAccessingSecurityScopedResource()
+                                    }
+                                } label: {
                                     Text("Upload File")
                                         .foregroundColor(.blue)
                                         .multilineTextAlignment(.trailing)
@@ -611,28 +627,6 @@ struct EditingOperationView: View {
                 
                 for (_, plist) in plistKeys.enumerated() {
                     replacingKeys[plist.key] = plist.value
-                }
-            }
-            .fileImporter(
-                isPresented: $isImporting,
-                allowedContentTypes: [.data],
-                allowsMultipleSelection: false
-            ) { result in
-                guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
-                guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
-                
-                // save to temp directory
-                do {
-                    let tmp = FileManager.default.temporaryDirectory
-                    replacingData = try Data(contentsOf: url)
-                    let newURL = tmp.appendingPathComponent(url.lastPathComponent)
-                    // write to temp file
-                    try replacingData!.write(to: newURL)
-                    replacingPath = newURL.path
-                    url.stopAccessingSecurityScopedResource()
-                } catch {
-                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
-                    url.stopAccessingSecurityScopedResource()
                 }
             }
         }

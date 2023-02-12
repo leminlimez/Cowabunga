@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "filepicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jbmorley/FilePicker/",
+      "state" : {
+        "branch" : "jbmorley/add-as-copy",
+        "revision" : "ebfcbec2523209604cee1abeed582a06b7104698"
+      }
+    },
+    {
       "identity" : "swiftui-cached-async-image",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
