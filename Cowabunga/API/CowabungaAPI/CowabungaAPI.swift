@@ -72,6 +72,9 @@ class CowabungaAPI: ObservableObject {
             try fm.moveItem(at: tempThemeDownloadURL, to: saveURL.appendingPathComponent("\(theme.name).passthm"))
         case .lock, .icon:
             let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
+            if FileManager.default.fileExists(atPath: tmpExtract.path) {
+                try? FileManager.default.removeItem(at: tmpExtract)
+            }
             try fm.unzipItem(at: tempThemeDownloadURL, to: tmpExtract)
             
             if theme.type == .icon {
@@ -79,8 +82,8 @@ class CowabungaAPI: ObservableObject {
                 ThemeManager.shared.themes.append(theme)
             } else if theme.type == .lock {
                 print(saveURL)
-                if fm.fileExists(atPath: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("_MACOSX").path) {
-                    try? fm.removeItem(at: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("_MACOSX"))
+                if fm.fileExists(atPath: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("__MACOSX").path) {
+                    try? fm.removeItem(at: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("__MACOSX"))
                 }
                 if fm.fileExists(atPath: saveURL.path) {
                     try? fm.removeItem(at: saveURL)
