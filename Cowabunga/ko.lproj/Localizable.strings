@@ -116,7 +116,7 @@
 "Breadcrumb Text" = "◂Cowabunga▸";
 
 /* No comment provided by engineer. */
-"Calculate Size" = "계산기 크기";
+"Calculate Size" = "파일 크기";
 
 /* No comment provided by engineer. */
 "Cancel" = "취소";
@@ -182,7 +182,7 @@
 "Control Center" = "제어센터";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "Corrupting";
+"Corrupting" = "비활성화";
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "plist의 크기를 계산할 수 없습니다!";
@@ -203,7 +203,7 @@
 "Cowabunga requires “Always” location permission." = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
 
 /* No comment provided by engineer. */
-"Create" = "제작";
+"Create" = "저장";
 
 /* No comment provided by engineer. */
 "Credits" = "크레딧";
@@ -429,9 +429,6 @@
 /* No comment provided by engineer. */
 "Included" = "내장";
 
-/* c22dev's contribution */
-"Included Audio & Credits" = "내장오디오 & 크레딧";
-
 /* Header for inputting custom iOS version */
 "Input Software Version" = "소프트웨어 버전 입력";
 
@@ -513,9 +510,6 @@
 
 /* No comment provided by engineer. */
 "No respring required to apply." = "SpringBoard 다시시작이 필요없습니다.";
-
-/* No comment provided by engineer. */
-"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 삽입되지 않았습니다.\n오른쪽 위에 있는 버튼을 눌러 테마를 삽입하세요.\n아이콘 테마는 <id>.png 형식입니다.";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "너무 크거나 작습니다.";
@@ -617,10 +611,10 @@
 "Replace With:" = "교체:";
 
 /* No comment provided by engineer. */
-"Replacement Data" = "교체할 자료";
+"Replacement Data" = "교체할 데이터";
 
 /* operation type that replaces a file */
-"Replacing" = "변경중";
+"Replacing" = "변경";
 
 /* No comment provided by engineer. */
 "Reset All" = "재설정";
@@ -782,10 +776,10 @@
 "Unable to save imported lock!" = "자물쇠 아이콘을 불러올 수 없습니다.";
 
 /* No comment provided by engineer. */
-"Uncategorized" = "분류되지 않은";
+"Uncategorized" = "분류되지 않음";
 
 /* Shown after successful theme set. */
-"Understood, Respring" = "이해했습니다.\nSpringBoard 다시시작";
+"Understood, Respring" = "이해했습니다.";
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Sandbox 탈출";
