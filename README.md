@@ -18,17 +18,46 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
     - Hide folder backgrounds
     - Disable folder background blur
     - Disable app switcher blur
+    - Hide CC Module Backgrounds
+    - Hide Notification Banner Background
+
+- App Icon Themes
+    - Importing folders of app icons
+    - No WebClips!
+    - Disclaimer: Some apps may look highly compressed. This may be fixed in the future. You could use shortcuts and disable app banner for those apps instead.
 
 - Audio
     - Custom sound effects
     - Upload your own sounds (nearly every audio format allowed!)
+    - Max upload audio size of 150 kb, but will not apply for audio if too big!
 
 - Passcode
     - Customize passcode keys
     - Import passcode keys files (.passthm) from TrollTools
+    
+- Locks
+    - Importing locks from TrollLock
+    - Custom number of frames + custom animation speeds (see below)
+
+- Explore
+    - Find and download themes for passcodes, locks, and app icons!
+    - If you would like to submit your own works, please [join the discord](https://discord.gg/VyVcNjRMeg)
+
+- Status Bar
+    - Change carrier name
+    - Change time text
+    - Change breadcrumb text
+    - Hide many icons in the status bar
+
+- Other Tools
+    - Lock Screen Footnote
+    - Notification Badges Changer (iOS 14-15 ONLY)
+    - Springboard Colors
 
 - Misc
-    - Custom carrier name
+    - Disable shortcut banners
+    - Turn shortcuts into app clips
+    - Supervise Device
     Warning: Use the features below at your own risk!
     - Change system version (shows in settings, iOS 15+)
     - Enable iPhone X Gestures
@@ -36,10 +65,8 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
 
 - Extra Tools
     - Lock Screen Footnote
-    - Supervise Device
-    - Device Organization Name
     - No Lock On Respring
-    - Numeric Wi-Fi/Cellular Strength
+    - Numeric Wi-Fi Strength
 
 ## Screenshots
 <img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/Tools.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/>
@@ -47,6 +74,25 @@ IPA available in the [Releases](https://github.com/leminlimez/DockHider/releases
 
 ## Installing
 You can install through AltStore, Sideloadly, Xcode, or TrollStore (if your device supports it)
+
+## Creating Custom Lock Animations
+Lock animations are very simple to make. For the frames, each image must be named "trollformation" with a number afterwards (ie. trollformation1.png, trollformation2.png, trollformation3.png...). You can use up to 120 frames, though I am not sure of the exact size limit, which is probably much less.
+**If your animation is not exactly 40 frames or you want to customize the display length of each frame, you need to define the animations.** This is very simple to do:
+1. Create a json file named `animations.json`
+2. Define the values. Format: `"Frame Number": Time Interval`
+Example:
+```
+{
+    "1": 0,
+    "2": 0.025,
+    "10": 0.01,
+    "15": 0.025
+}
+```
+**Explanation:**
+You do not need to state the length of each frame. The only time that absolutely needs to be defined is the first frame. If you did not set a time for the frame, Cowabunga will use the time from the last frame.
+The `Time Interval` is how long the frame stays on the screen for.
+**Important:** The frame number must be a string (meaning in quotes) because of how json decoding works.
 
 ## Building
 Just build like a normal Xcode project. Sign using your own team and bundle identifier. You can also build the IPA file with `ipabuild.sh`.
