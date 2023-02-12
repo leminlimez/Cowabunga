@@ -22,6 +22,7 @@
 		21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D992987CC2F00294DE7 /* LoginView.swift */; };
 		21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */; };
 		21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */; };
+		21CB2B4F29982F3400188303 /* pow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CB2B4E29982F3400188303 /* pow.swift */; };
 		21CD1051298C8151007EE649 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1053298C8151007EE649 /* Localizable.strings */; };
 		21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1054298C8177007EE649 /* InfoPlist.strings */; };
 		21D76C3F298D380100B3C707 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D76C3E298D380100B3C707 /* ApplicationManager.swift */; };
@@ -38,6 +39,7 @@
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
+		6F29C220299853E700A80CBC /* banner_replacement.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F29C21F299853E700A80CBC /* banner_replacement.materialrecipe */; };
 		6F369562298C86D80011ADB8 /* ThemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369561298C86D80011ADB8 /* ThemesView.swift */; };
 		6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369563298C86FC0011ADB8 /* IconOverridesView.swift */; };
 		6F369566298C870F0011ADB8 /* AltIconSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369565298C870F0011ADB8 /* AltIconSelectionView.swift */; };
@@ -131,6 +133,7 @@
 		21C08D992987CC2F00294DE7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21C08D9B2987CC3500294DE7 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		21C08DA02987CF5300294DE7 /* ThemesExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExploreView.swift; sourceTree = "<group>"; };
+		21CB2B4E29982F3400188303 /* pow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pow.swift; sourceTree = "<group>"; };
 		21CD1052298C8151007EE649 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21CD1055298C8177007EE649 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21CD1057298C8177007EE649 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
 		6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasscodesView.swift; sourceTree = "<group>"; };
+		6F29C21F299853E700A80CBC /* banner_replacement.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = banner_replacement.materialrecipe; sourceTree = "<group>"; };
 		6F369561298C86D80011ADB8 /* ThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesView.swift; sourceTree = "<group>"; };
 		6F369563298C86FC0011ADB8 /* IconOverridesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconOverridesView.swift; sourceTree = "<group>"; };
 		6F369565298C870F0011ADB8 /* AltIconSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltIconSelectionView.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 		216D5FB2298C574000910C67 /* SpringboardFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6F29C21F299853E700A80CBC /* banner_replacement.materialrecipe */,
 				216D5FB3298C574000910C67 /* replacement.materialrecipe */,
 			);
 			path = SpringboardFiles;
@@ -283,6 +288,7 @@
 				21D76C42298D43AB00B3C707 /* UIImage+resizeToApprox.swift */,
 				21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */,
 				21E54B40299413B800D5F85A /* Device+xpc_crash.swift */,
+				21CB2B4E29982F3400188303 /* pow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -722,6 +728,7 @@
 				21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */,
+				6F29C220299853E700A80CBC /* banner_replacement.materialrecipe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +798,7 @@
 				6FF21AFD298827190054EBC0 /* CardView.swift in Sources */,
 				6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */,
 				6F369562298C86D80011ADB8 /* ThemesView.swift in Sources */,
+				21CB2B4F29982F3400188303 /* pow.swift in Sources */,
 				6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */,
 				6FF21ADB298458910054EBC0 /* PasscodeKeyFaceManager.swift in Sources */,
 				6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */,
@@ -1017,8 +1025,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = 92S6JX27W2;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -1059,8 +1067,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = 92S6JX27W2;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;

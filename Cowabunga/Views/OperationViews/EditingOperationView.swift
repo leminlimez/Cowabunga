@@ -25,7 +25,7 @@ struct EditingOperationView: View {
     @State var filePath: String = ""
     @State var applyInBackground: Bool = false
     @State var previousName: String = ""
-    @State var isActive: Bool = true
+    @State var isActive: Bool = false
     
     // replacing properties
     @State var savedFilePath: String = "/"
@@ -134,10 +134,12 @@ struct EditingOperationView: View {
                     }
                     
                     // MARK: Enabled
-                    Toggle(isOn: $isActive, label: {
+                    HStack {
                         Text("Enabled")
                             .bold()
-                    })
+                        Spacer()
+                        Toggle(isOn: $isActive) {}
+                    }
                 } header: {
                     Text("Basic Configuration")
                 }
@@ -487,6 +489,20 @@ struct EditingOperationView: View {
                             UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
                             applyOperationProperties()
                             do {
+                                if isActive {
+                                    do {
+                                        try operation.parseData()
+                                        try operation.applyData()
+                                    } catch {
+                                        print(error.localizedDescription)
+                                    }
+                                } else {
+                                    do {
+                                        try operation.applyData(fromBackup: true)
+                                    } catch {
+                                        print(error.localizedDescription)
+                                    }
+                                }
                                 if !editing || previousFilePath != filePath {
                                     try operation.backup()
                                 }
@@ -569,12 +585,12 @@ struct EditingOperationView: View {
                 pageTitle = editing ? "Edit Operation": "Create Operation"
                 
                 if replacingKeys.count == 0 {
+                    isActive = operation.isActive
                     previousFilePath = operation.filePath
                     operationName = operation.operationName
                     previousName = operationName
                     filePath = operation.filePath
                     applyInBackground = operation.applyInBackground
-                    isActive = operation.isActive
                 }
                 
                 if let replacingOperation = operation as? ReplacingObject {
