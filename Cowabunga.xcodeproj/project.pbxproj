@@ -37,6 +37,7 @@
 		21E54B41299413B800D5F85A /* Device+xpc_crash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E54B40299413B800D5F85A /* Device+xpc_crash.swift */; };
 		21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED3C7929884AAD00135B50 /* CornerRadius++.swift */; };
 		6F07AB922998744100076436 /* Haptic++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07AB912998744100076436 /* Haptic++.swift */; };
+		6F07AB982999954500076436 /* FilePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 6F07AB972999954500076436 /* FilePicker */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
@@ -256,6 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F07AB982999954500076436 /* FilePicker in Frameworks */,
 				21E54B272994079700D5F85A /* libMacDirtyCowSwift.a in Frameworks */,
 				6FF21AF8298821410054EBC0 /* Dynamic in Frameworks */,
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
@@ -661,6 +663,7 @@
 				6FF21AF7298821410054EBC0 /* Dynamic */,
 				6FF21B0129882CB70054EBC0 /* ACarousel */,
 				21AC8BAA298C0736000B7E85 /* CachedAsyncImage */,
+				6F07AB972999954500076436 /* FilePicker */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -711,6 +714,7 @@
 				6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */,
 				6FF21B0029882CB70054EBC0 /* XCRemoteSwiftPackageReference "ACarousel" */,
 				21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				6F07AB962999954500076436 /* XCRemoteSwiftPackageReference "FilePicker" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -1029,7 +1033,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1071,7 +1075,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1145,6 +1149,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		6F07AB962999954500076436 /* XCRemoteSwiftPackageReference "FilePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jbmorley/FilePicker/";
+			requirement = {
+				branch = "jbmorley/add-as-copy";
+				kind = branch;
+			};
+		};
 		6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
@@ -1176,6 +1188,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		6F07AB972999954500076436 /* FilePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F07AB962999954500076436 /* XCRemoteSwiftPackageReference "FilePicker" */;
+			productName = FilePicker;
 		};
 		6FF21ADD29846A180054EBC0 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

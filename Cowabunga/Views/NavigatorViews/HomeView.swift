@@ -354,11 +354,6 @@ struct HomeView: View {
             print("applying lock")
             if lockType != "" {
                 let _ = LockManager.applyLock(lockName: lockName, lockType: lockType)
-            } else {
-                // just apply all of them lol
-                for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
-                    let _ = LockManager.applyLock(lockName: lockName, lockType: lockPath)
-                }
             }
         }
         

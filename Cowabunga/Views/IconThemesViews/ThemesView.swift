@@ -7,11 +7,11 @@
 
 import MacDirtyCowSwift
 import SwiftUI
+import FilePicker
 
 @available(iOS 15, *)
 struct ThemesView: View {
     @ObservedObject var themeManager = ThemeManager.shared
-    @State private var isImporting = false
     @State var isSelectingCustomIcons = false
     @State var showsSettings = false
     @State var easterEgg = false
@@ -142,9 +142,21 @@ struct ThemesView: View {
                 }.padding()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            isImporting = true
-                        }) {
+                        FilePicker(types: [.folder], allowMultiple: false, asCopy: false) { result in
+                            if result.first == nil { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
+                            let url: URL = result.first!
+                            if themes.contains(where: { t in
+                                t.name == url.deletingPathExtension().lastPathComponent
+                            }) {
+                                UIApplication.shared.alert(body: "Theme with the name \(url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder.")
+                                return
+                            }
+                            do {
+                                let theme = try themeManager.importTheme(from: url)
+                                themes.append(theme)
+                                themeManager.themes = themes
+                            } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                        } label: {
                             Image(systemName: "square.and.arrow.down")
                         }
                     }
@@ -207,24 +219,6 @@ struct ThemesView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .fileImporter(
-            isPresented: $isImporting,
-            allowedContentTypes: [.folder],
-            allowsMultipleSelection: false
-        ) { result in
-            guard let url = try? result.get().first else { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
-            if themes.contains(where: { t in
-                t.name == url.deletingPathExtension().lastPathComponent
-            }) {
-                UIApplication.shared.alert(body: "Theme with the name \(url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder.")
-                return
-            }
-            do {
-                let theme = try themeManager.importTheme(from: url)
-                themes.append(theme)
-                themeManager.themes = themes
-            } catch { UIApplication.shared.alert(body: error.localizedDescription) }
-        }
     }
     func applyChanges() {
         func apply() {
