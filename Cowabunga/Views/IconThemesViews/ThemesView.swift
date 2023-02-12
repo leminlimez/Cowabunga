@@ -155,7 +155,7 @@ struct ThemesView: View {
                                 applyChanges()
                             }, noCancel: false)
                         }) {
-                            Image(systemName: "arrow.uturn.backward")
+                            Image(systemName: "arrow.counterclockwise")
                         }
                     }
                 }
