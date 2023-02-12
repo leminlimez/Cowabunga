@@ -277,7 +277,7 @@ struct ThemesView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
                             
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            UIApplication.shared.confirmAlert(title: "Success", body: "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
+                            UIApplication.shared.confirmAlert(title: "Success", body: "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
                                     respring()
                             }, noCancel: true)
                         })

@@ -29,6 +29,7 @@ struct ThemesExploreView: View {
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         // refresh
                         themes.removeAll()
+                        Haptic.shared.play(.light)
                         //URLCache.imageCache.removeAllCachedResponses()
                         loadThemes()
                     }
@@ -44,6 +45,7 @@ struct ThemesExploreView: View {
                     
                     if themes.isEmpty {
                         ProgressView()
+                            .scaleEffect(1.75)
                             .navigationTitle("Explore")
                     } else {
                         LazyVGrid(columns: gridItemLayout) {
@@ -158,11 +160,14 @@ struct ThemesExploreView: View {
         Task {
             do {
                 try await cowabungaAPI.downloadTheme(theme: theme)
+                Haptic.shared.notify(.success)
                 UIApplication.shared.dismissAlert(animated: true)
+                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: "The theme was successfully downloaded and saved!")
             } catch {
                 print("Could not download passcode theme: \(error.localizedDescription)")
+                Haptic.shared.notify(.error)
                 UIApplication.shared.dismissAlert(animated: true)
-                UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
+                UIApplication.shared.alert(title: "Could not download theme!", body: error.localizedDescription)
             }
         }
     }
@@ -194,6 +199,10 @@ struct PullToRefresh: View {
                 Spacer()
                 if needRefresh {
                     ProgressView()
+                        .scaleEffect(1.75)
+                        .onAppear {
+                            Haptic.shared.play(.light)
+                        }
                 } else {
                     Text("")
                 }
