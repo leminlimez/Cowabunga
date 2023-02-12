@@ -288,20 +288,22 @@ struct PasscodeEditorView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .fileImporter(isPresented: $isImporting,
-                      allowedContentTypes: [
-                        //.folder
-                        UTType(filenameExtension: "passthm") ?? .zip
-                      ],
-                      allowsMultipleSelection: false
-        ) { result in
-            verifySize()
-            guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
-            do {
-                // try appying the themes
-                try PasscodeKeyFaceManager.setFacesFromTheme(url, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
-                faces = try PasscodeKeyFaceManager.getFaces()
-            } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+        .sheet(isPresented: $isImporting) {
+            DocumentPicker(
+                types: [
+                    //.folder
+                    UTType(filenameExtension: "passthm") ?? .zip
+                ]
+            ) { result in
+                verifySize()
+                if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
+                let url: URL = result.first!
+                do {
+                    // try appying the themes
+                    try PasscodeKeyFaceManager.setFacesFromTheme(url, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
+                    faces = try PasscodeKeyFaceManager.getFaces()
+                } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+            }
         }
         .sheet(isPresented: $showingSaved) {
             SavedPasscodesView(isVisible: $showingSaved, faces: $faces)

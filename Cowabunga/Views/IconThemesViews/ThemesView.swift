@@ -7,11 +7,11 @@
 
 import MacDirtyCowSwift
 import SwiftUI
-import FilePicker
 
 @available(iOS 15, *)
 struct ThemesView: View {
     @ObservedObject var themeManager = ThemeManager.shared
+    @State private var isImporting = false
     @State var isSelectingCustomIcons = false
     @State var showsSettings = false
     @State var easterEgg = false
@@ -126,7 +126,7 @@ struct ThemesView: View {
                                 
                                 Button("Rebuild Icon Cache") {
                                     do {
-                                        UIApplication.shared.alert(title: "Scheduling a rebuild", body: "", withButton: false)
+                                        UIApplication.shared.alert(title: NSLocalizedString("Scheduling a rebuild", comment: "rebuilding icon cache"), body: "", withButton: false)
                                         try rebuildIconCache()
                                     } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                                 }
@@ -142,27 +142,15 @@ struct ThemesView: View {
                 }.padding()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        FilePicker(types: [.folder], allowMultiple: false, asCopy: false) { result in
-                            if result.first == nil { UIApplication.shared.alert(body: "Couldn't get url of file. Did you select it?"); return }
-                            let url: URL = result.first!
-                            if themes.contains(where: { t in
-                                t.name == url.deletingPathExtension().lastPathComponent
-                            }) {
-                                UIApplication.shared.alert(body: "Theme with the name \(url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder.")
-                                return
-                            }
-                            do {
-                                let theme = try themeManager.importTheme(from: url)
-                                themes.append(theme)
-                                themeManager.themes = themes
-                            } catch { UIApplication.shared.alert(body: error.localizedDescription) }
-                        } label: {
+                        Button(action: {
+                            isImporting = true
+                        }) {
                             Image(systemName: "square.and.arrow.down")
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(role: .destructive, action: {
-                            UIApplication.shared.confirmAlert(title: "Full reset", body: "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)", onOK: {
+                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Full reset", comment: "header for resetting all icons"), body: NSLocalizedString("All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)", comment: "resetting all icons"), onOK: {
                                 themeManager.preferedThemes = []
                                 applyChanges()
                             }, noCancel: false)
@@ -174,6 +162,23 @@ struct ThemesView: View {
                 .navigationTitle("Themes")
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .sheet(isPresented: $isImporting) {
+                DocumentPicker(types: [.folder]) { result in
+                    if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
+                    let url: URL = result.first!
+                    if themes.contains(where: { t in
+                        t.name == url.deletingPathExtension().lastPathComponent
+                    }) {
+                        UIApplication.shared.alert(body: NSLocalizedString("Theme with the name \(url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder.", comment: "failed to select icon"))
+                        return
+                    }
+                    do {
+                        let theme = try themeManager.importTheme(from: url)
+                        themes.append(theme)
+                        themeManager.themes = themes
+                    } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                }
+            }
             .onAppear {
                 wallpaper = UIImage(named: "wallpaper")!
                 defaultWallpaper = true
@@ -224,13 +229,13 @@ struct ThemesView: View {
         func apply() {
             let timeStart = Date()
             DispatchQueue.global(qos: .userInitiated).async {
-                UIApplication.shared.alert(title: "Starting", body: "Please wait", animated: false, withButton: false)
+                UIApplication.shared.alert(title: NSLocalizedString("Starting...", comment: ""), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
                 do {
                     try themeManager.applyChanges(progress: { str in
-                        UIApplication.shared.change(title: "In progress", body: str)
+                        UIApplication.shared.change(title: NSLocalizedString("In progress...", comment: ""), body: str)
                     })
                     
-                    UIApplication.shared.change(title: "In progress", body: "Scheduling icon cache reset...")
+                    UIApplication.shared.change(title: NSLocalizedString("In progress...", comment: ""), body: NSLocalizedString("Scheduling icon cache reset...", comment: ""))
                     
 //                    let iconservicesagentURL = URL(fileURLWithPath: "/System/Library/CoreServices/iconservicesagent")
 //                    var byteArray = [UInt8](try! Data(contentsOf: iconservicesagentURL))
@@ -272,7 +277,7 @@ struct ThemesView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
                             
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            UIApplication.shared.confirmAlert(title: "Success", body: "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
+                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", comment: "IMPORTANT alert when icons finish applying"), confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
                                     respring()
                             }, noCancel: true)
                         })
