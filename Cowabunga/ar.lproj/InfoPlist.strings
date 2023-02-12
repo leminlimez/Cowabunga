@@ -1,0 +1,21 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "منح الإذن لصندوق الرمل (يحتاجه لمفاتيح رمز المرور + بعض الخيارات الأخرى)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "يتم تشغيل Cowabunga في الخلفية للتأكد من استمرار تطبيق الأدوات. عادة ما يقتل iOS مثل هذه التطبيقات بعد فترة من الزمن. لكن Cowabunga يخدع iOS من خلال طلب بيانات الموقع وبالتالي السماح بجلسات أطول بكثير. لا يتم تخزين البيانات في أي مكان، يتم جلبها فقط.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "يتم تشغيل Cowabunga في الخلفية للتأكد من استمرار تطبيق الأدوات. عادة ما يقتل iOS مثل هذه التطبيقات بعد فترة من الزمن. لكن Cowabunga يخدع iOS من خلال طلب بيانات الموقع وبالتالي السماح بجلسات أطول بكثير. لا يتم تخزين البيانات في أي مكان، يتم جلبها فقط.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "الصور";
+
+/* (No Comment) */
+"Passcode Theme File" = "ملف سمة رمز المرور";
+

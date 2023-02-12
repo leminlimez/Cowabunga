@@ -257,6 +257,7 @@ struct HomeView: View {
                     LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)")
                     LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "🇹🇷 Turkish")
                     LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "🇰🇷 Korean")
+                    //LinkCell(imageName: "", url: "", title: "Aru Pro#2789", contribution: "Arabic")
                 } header: {
                     Text("Translators")
                 }
