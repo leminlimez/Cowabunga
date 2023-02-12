@@ -11,9 +11,10 @@ import CachedAsyncImage
 @available(iOS 15.0, *)
 struct ThemesExploreView: View {
     
-    @EnvironmentObject var cowabungaAPI: CowabungaAPI
+    @ObservedObject var cowabungaAPI = CowabungaAPI.shared
+    
     // lazyvgrid
-    private var gridItemLayout = [GridItem(.adaptive(minimum: 150))]
+    @State private var gridItemLayout = [GridItem(.adaptive(minimum: 250))]
     @State private var themes: [DownloadableTheme] = []
     
     @State var submitThemeAlertShown = false
@@ -24,100 +25,90 @@ struct ThemesExploreView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack {
-                    Picker("", selection: $themeTypeSelected) {
-                        Text("Icons").tag(0)
-                        Text("Passcodes").tag(1)
-                        Text("Locks").tag(2)
+                ScrollView {
+                    PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                        // refresh
+                        themes.removeAll()
+                        //URLCache.imageCache.removeAllCachedResponses()
+                        loadThemes()
                     }
-                    .pickerStyle(.segmented)
-                    .padding(24)
-                    Spacer()
+                    VStack {
+                        Picker("", selection: $themeTypeSelected) {
+                            Text("Icons").tag(0)
+                            Text("Passcodes").tag(1)
+                            Text("Locks").tag(2)
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .padding(.horizontal, 24)
                     
-                }
-                if themes.isEmpty {
-                    ProgressView()
-                        .navigationTitle("Explore")
-                } else {
-                    ZStack {
-                        ScrollView {
-                            PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                                // refresh
-                                themes.removeAll()
-                                //URLCache.imageCache.removeAllCachedResponses()
-                                loadThemes()
-                            }
-                            .pickerStyle(.segmented)
-                            .onChange(of: themeTypeSelected) { newValue in
-                                let map = [0: DownloadableTheme.ThemeType.icon, 1: .passcode, 2: .lock]
-                                themeTypeShown = map[newValue]!
-                                
-                                themes.removeAll()
-                                loadThemes()
-                            }
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(themes) { theme in
-                                    Button {
-                                        downloadTheme(theme: theme)
-                                    } label: {
-                                        VStack(spacing: 0) {
-                                            CachedAsyncImage(url: theme.preview, urlCache: .imageCache) { image in
-                                                image
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: 170, height: 250)
-                                                    .cornerRadius(10, corners: .topLeft)
-                                                    .cornerRadius(10, corners: .topRight)
-                                            } placeholder: {
-                                                Color.gray
-                                            }
-                                            HStack {
-                                                VStack(spacing: 4) {
-                                                    HStack {
-                                                        Text(theme.name)
-                                                            .foregroundColor(Color(uiColor14: .label))
-                                                            .minimumScaleFactor(0.5)
-                                                        Spacer()
-                                                    }
-                                                    HStack {
-                                                        Text(theme.contact.values.first ?? "Unknown author")
-                                                            .foregroundColor(.secondary)
-                                                            .font(.caption)
-                                                            .minimumScaleFactor(0.5)
-                                                        Spacer()
-                                                    }
-                                                }
-                                                .lineLimit(1)
-                                                Spacer()
-                                                Image(systemName: "arrow.down.circle")
-                                                    .foregroundColor(.blue)
-                                            }
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 8)
-                                            .frame(height: 58)
+                    if themes.isEmpty {
+                        ProgressView()
+                            .navigationTitle("Explore")
+                    } else {
+                        LazyVGrid(columns: gridItemLayout) {
+                            ForEach(themes) { theme in
+                                Button {
+                                    downloadTheme(theme: theme)
+                                } label: {
+                                    VStack(spacing: 0) {
+                                        CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(maxWidth: .infinity)
+                                                .cornerRadius(10, corners: .topLeft)
+                                                .cornerRadius(10, corners: .topRight)
+                                        } placeholder: {
+                                            Color.gray
+                                                .frame(height: 192)
                                         }
+                                        HStack {
+                                            VStack(spacing: 4) {
+                                                HStack {
+                                                    Text(theme.name)
+                                                        .foregroundColor(Color(uiColor14: .label))
+                                                        .minimumScaleFactor(0.5)
+                                                    Spacer()
+                                                }
+                                                HStack {
+                                                    Text(theme.contact.values.first ?? "Unknown author")
+                                                        .foregroundColor(.secondary)
+                                                        .font(.caption)
+                                                        .minimumScaleFactor(0.5)
+                                                    Spacer()
+                                                }
+                                            }
+                                            .lineLimit(1)
+                                            Spacer()
+                                            Image(systemName: "arrow.down.circle")
+                                                .foregroundColor(.blue)
+                                        }
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 8)
+                                        .frame(height: 58)
                                     }
-                                    .background(Color(uiColor14: .secondarySystemBackground))
-                                    .cornerRadius(10)
-                                    .padding(4)
                                 }
-                            }
-                            .padding()
-                        }
-                        .coordinateSpace(name: "pullToRefresh")
-                        .navigationTitle("Explore")
-                    }
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                submitThemeAlertShown = true
-                            } label: {
-                                Image(systemName: "paperplane")
+                                .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
+//                                .frame(height: 250)
+                                .background(Color(uiColor14: .secondarySystemBackground))
+                                .cornerRadius(10)
+                                .padding(4)
                             }
                         }
+                        .padding()
                     }
-                    .padding(.top, 48)
+                }
+                .coordinateSpace(name: "pullToRefresh")
+                .navigationTitle("Explore")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            submitThemeAlertShown = true
+                        } label: {
+                            Image(systemName: "paperplane")
+                        }
+                    }
                 }
             }
             .onAppear {
@@ -132,15 +123,27 @@ struct ThemesExploreView: View {
                 Text("Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel.")
                 
             })
-        //            .sheet(isPresented: $showLogin, content: { LoginView() })
-        // maybe later
+            
+            //            .sheet(isPresented: $showLogin, content: { LoginView() })
+            // maybe later
+            
+            .onChange(of: themeTypeSelected) { newValue in
+                let map = [0: DownloadableTheme.ThemeType.icon, 1: .passcode, 2: .lock]
+                themeTypeShown = map[newValue]!
+                
+                themes.removeAll()
+                loadThemes()
+                
+                gridItemLayout = [GridItem(.adaptive(minimum: themeTypeShown == .icon ? 250 : 150))]
+            }
         }
+        .navigationViewStyle(.stack)
     }
     
     func loadThemes() {
         Task {
             do {
-                themes = try await cowabungaAPI.fetchThemes(type: .passcode).shuffled()
+                themes = try await cowabungaAPI.fetchThemes(type: themeTypeShown).shuffled()
             } catch {
                 UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
             }
@@ -149,61 +152,18 @@ struct ThemesExploreView: View {
     
     func downloadTheme(theme: DownloadableTheme) {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
-        print("Downloading from \(theme.url.absoluteString)")
         UIApplication.shared.alert(title: "Downloading \(theme.name)...", body: "Please wait", animated: false, withButton: false)
         
         // create the folder
-        do {
-            let saveURL = PasscodeKeyFaceManager.getPasscodesDirectory()!.appendingPathComponent(theme.name.replacingOccurrences(of: " ", with: "_"))
-            if !FileManager.default.fileExists(atPath: saveURL.path) {
-                try FileManager.default.createDirectory(at: saveURL, withIntermediateDirectories: false)
+        Task {
+            do {
+                try await cowabungaAPI.downloadTheme(theme: theme)
+                UIApplication.shared.dismissAlert(animated: true)
+            } catch {
+                print("Could not download passcode theme: \(error.localizedDescription)")
+                UIApplication.shared.dismissAlert(animated: true)
+                UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
             }
-            
-            // save the passthm file
-            let themeSaveURL = saveURL.appendingPathComponent("theme.passthm")
-            let themeTask = URLSession.shared.dataTask(with: theme.url) { data, response, error in
-                guard let data = data else {
-                    print("No data found!")
-                    UIApplication.shared.dismissAlert(animated: true)
-                    UIApplication.shared.alert(title: "Could not download passcode theme!", body: error?.localizedDescription ?? "Unknown Error")
-                    return
-                }
-                do {
-                    try data.write(to: themeSaveURL)
-                } catch {
-                    print("Could not save data to theme save url!")
-                    UIApplication.shared.dismissAlert(animated: true)
-                    UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
-                    return
-                }
-                
-                // save the preview file
-                let previewSaveURL = saveURL.appendingPathComponent("preview.png")
-                let task = URLSession.shared.dataTask(with: theme.preview) { prevData, prevResponse, prevError in
-                    guard let prevData = prevData else {
-                        print("No data found!")
-                        UIApplication.shared.dismissAlert(animated: true)
-                        UIApplication.shared.alert(title: "Could not download passcode theme!", body: prevError?.localizedDescription ?? "Unknown Error")
-                        return
-                    }
-                    do {
-                        try prevData.write(to: previewSaveURL)
-                        UIApplication.shared.dismissAlert(animated: true)
-                        UIApplication.shared.alert(title: "Successfully saved passcode theme!", body: "You can use it by tapping the import button in the Passcode Editor and tapping \"Saved\".")
-                    } catch {
-                        print("Could not save data to preview url!")
-                        UIApplication.shared.dismissAlert(animated: true)
-                        UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
-                        return
-                    }
-                }
-                task.resume()
-            }
-            themeTask.resume()
-        } catch {
-            print("Could not download passcode theme: \(error.localizedDescription)")
-            UIApplication.shared.dismissAlert(animated: true)
-            UIApplication.shared.alert(title: "Could not download passcode theme!", body: error.localizedDescription)
         }
     }
 }

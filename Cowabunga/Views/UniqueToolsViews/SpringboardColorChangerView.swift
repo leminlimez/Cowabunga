@@ -24,6 +24,9 @@ struct SpringboardColorChangerView: View {
     @State private var dockColor = Color.gray//.opacity(0.2)
     @State private var dockBlur: Double = 30
     
+    @State private var notifColor = Color.gray
+    @State private var notifBlur: Double = 30
+    
     @State private var switcherColor = Color.gray//.opacity(0.2)
     @State private var switcherBlur: Double = 30
     
@@ -105,6 +108,78 @@ struct SpringboardColorChangerView: View {
                             
                             divider
                         }
+                        
+                        // MARK: Notif Banner
+                        VStack {
+                            let iconColors: [Color] = [.orange, .blue.opacity(0), .green.opacity(0), .purple.opacity(0)]
+                            ZStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: minSize / 15)
+                                        .fill(notifColor)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: minSize / 4)
+                                        .padding(.horizontal)
+                                        .opacity(0.6)
+                                }
+                                HStack(spacing: 20) {
+                                    ForEach(0...3, id: \.self) { i1 in
+                                        RoundedRectangle(cornerRadius: minSize / 24)
+                                            .fill(iconColors[i1])
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: minSize / 7)
+                                    }
+                                }
+                                .padding(24)
+                            }
+                            .padding(.bottom, 20)
+                            
+                            VStack{
+                                HStack {
+                                    Text("Notif Banner")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                        .fontWeight(.medium)
+                                        .padding(.horizontal, 25)
+                                    Spacer()
+                                    ColorPicker("Set notification banner color", selection: $notifColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding(.horizontal, 50)
+                                }
+                                HStack {
+                                    Text("Blur:   \(Int(notifBlur))")
+                                        .foregroundColor(.white)
+                                        .frame(width: 125)
+                                    Spacer()
+                                    Slider(value: $notifBlur, in: 0...150, step: 1.0)
+                                        .padding(.horizontal)
+                                }
+                            }
+                            .padding(.bottom, 20)
+                            
+                            HStack {
+                                Button("Apply", action: {
+                                    apply(.notif, notifColor, Int(notifBlur))
+                                })
+                                .buttonStyle(TintedButton(color: .blue))
+                                .padding(4)
+                                
+                                Button(action: {
+                                    do {
+                                        try SpringboardColorManager.deteleColor(forType: .notif)
+                                        UIApplication.shared.alert(title: "Success!", body: "Successfully deleted color files.")
+                                    } catch {
+                                        UIApplication.shared.alert(title: "Error deleting color files!", body: error.localizedDescription)
+                                    }
+                                }) {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(TintedButton(color: .red))
+                                .padding(4)
+                            }
+                        }
+                        
+                        divider
                         
                         // MARK: Folder
                         VStack {

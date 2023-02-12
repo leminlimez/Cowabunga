@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AltIconSelectionView: View {
-    @EnvironmentObject var themeManager: ThemeManager
+    @ObservedObject var themeManager = ThemeManager.shared
     @State var bundleID: String
     @State var displayName: String
     @Environment(\.presentationMode) var presentation

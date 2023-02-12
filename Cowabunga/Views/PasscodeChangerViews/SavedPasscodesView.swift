@@ -32,8 +32,12 @@ struct SavedPasscodesView: View {
                 .font(.largeTitle)
             if numOfSaved == 0 {
                 Text("You do not have any saved passcode themes. Check out the explore tab to find some!")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    .padding(30)
+                    .padding()
+                    .background(Color(uiColor14: .secondarySystemBackground))
+                    .multilineTextAlignment(.center)
+                    .cornerRadius(16)
+                    .font(.footnote)
+                    .foregroundColor(Color(uiColor14: .secondaryLabel))
             } else {
                 List {
                     ForEach($savedPasscodesList) { passcode in
@@ -72,7 +76,7 @@ struct SavedPasscodesView: View {
                             
                             // delete the file
                             do {
-                                let url = savedPasscodesDir!.appendingPathComponent(deletingPasscodeName.replacingOccurrences(of: " ", with: "_"))
+                                let url = savedPasscodesDir!.appendingPathComponent(deletingPasscodeName)
                                 try FileManager.default.removeItem(at: url)
                                 savedPasscodesList.remove(at: i)
                             } catch {
@@ -91,7 +95,7 @@ struct SavedPasscodesView: View {
                     if numOfSaved > 0 {
                         for passcode in try FileManager.default.contentsOfDirectory(at: savedPasscodesDir!, includingPropertiesForKeys: nil) {
                             let passcodeURL: URL? = passcode.appendingPathComponent("theme.passthm")
-                            let passcodeName: String = passcode.lastPathComponent.replacingOccurrences(of: "_", with: " ")
+                            let passcodeName: String = passcode.lastPathComponent
                             let passcodeImage: URL? = passcode.appendingPathComponent("preview.png")
                             if passcodeURL != nil && passcodeImage != nil {
                                 do {

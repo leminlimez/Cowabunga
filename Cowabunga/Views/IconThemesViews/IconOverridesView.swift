@@ -10,7 +10,7 @@ import SwiftUI
 import Dynamic
 
 struct IconOverridesView: View {
-    @EnvironmentObject var themeManager: ThemeManager
+    @ObservedObject var themeManager = ThemeManager.shared
     var gridItemLayout = [GridItem(.adaptive(minimum: 64, maximum: 64))]
     
     @State var allApps: [IconOverrideViewApp] = []
@@ -47,7 +47,7 @@ struct IconOverridesView: View {
     }
     
     struct IconEditorAppView: View {
-        @EnvironmentObject var themeManager: ThemeManager
+        @ObservedObject var themeManager = ThemeManager.shared
         @State var app: IconOverrideViewApp
         @State var edited: Bool
         //        @State var actionSheetPresented = false

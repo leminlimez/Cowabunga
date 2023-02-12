@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct ThemeView: View {
-    @EnvironmentObject var themeManager: ThemeManager
+    @ObservedObject var themeManager = ThemeManager.shared
     @State var theme: Theme
     var wallpaper: UIImage
     var defaultWallpaper: Bool = false
