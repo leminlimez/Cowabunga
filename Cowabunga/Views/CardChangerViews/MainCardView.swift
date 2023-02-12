@@ -81,8 +81,8 @@ struct MainCardView: View {
     {
         ZStack
         {
-            Text("Tap a card to customize").font(.system(size: 25)).foregroundColor(.white).padding(.bottom, 350 )
-            Text("Swipe to view different cards").font(.system(size: 15)).foregroundColor(.white).padding(.bottom, 300 )
+            Text("Tap a card to customize").font(.system(size: 25)).foregroundColor(Color(UIColor.label)).padding(.bottom, 350 )
+            Text("Swipe to view different cards").font(.system(size: 15)).foregroundColor(Color(UIColor.label)).padding(.bottom, 300 )
 
             VStack
             {
