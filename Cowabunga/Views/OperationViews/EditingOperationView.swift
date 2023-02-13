@@ -656,13 +656,3 @@ struct EditingOperationView: View {
         }
     }
 }
-
-struct PlistPropertiesView: View {
-    var plistKeys: PlistProperty
-    
-    var body: some View {
-        VStack {
-            
-        }
-    }
-}
