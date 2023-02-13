@@ -94,28 +94,6 @@
 		6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFA298826FF0054EBC0 /* MainCardView.swift */; };
 		6FF21AFD298827190054EBC0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFC298827190054EBC0 /* CardView.swift */; };
 		6FF21B0229882CB70054EBC0 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF21B0129882CB70054EBC0 /* ACarousel */; };
-		F1B1B7352999C14C00A3DB20 /* FCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B71D2999C14900A3DB20 /* FCView.swift */; };
-		F1B1B7362999C14C00A3DB20 /* FCView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B71E2999C14900A3DB20 /* FCView.ViewModel.swift */; };
-		F1B1B7372999C14C00A3DB20 /* OverwriteFontImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B71F2999C14900A3DB20 /* OverwriteFontImpl.swift */; };
-		F1B1B7382999C14C00A3DB20 /* Go-Mono.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7212999C14A00A3DB20 /* Go-Mono.woff2 */; };
-		F1B1B7392999C14C00A3DB20 /* segoeui.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7222999C14A00A3DB20 /* segoeui.woff2 */; };
-		F1B1B73A2999C14C00A3DB20 /* DejaVuSansCondensed.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7232999C14A00A3DB20 /* DejaVuSansCondensed.woff2 */; };
-		F1B1B73B2999C14C00A3DB20 /* Chococooky.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7242999C14A00A3DB20 /* Chococooky.woff2 */; };
-		F1B1B73C2999C14C00A3DB20 /* Go-Regular.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7252999C14A00A3DB20 /* Go-Regular.woff2 */; };
-		F1B1B73D2999C14C00A3DB20 /* FiraSans-Regular.2048.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7262999C14A00A3DB20 /* FiraSans-Regular.2048.woff2 */; };
-		F1B1B73E2999C14C00A3DB20 /* DejaVuSerif.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7272999C14A00A3DB20 /* DejaVuSerif.woff2 */; };
-		F1B1B73F2999C14C00A3DB20 /* DejaVuSansMono.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7282999C14A00A3DB20 /* DejaVuSansMono.woff2 */; };
-		F1B1B7402999C14C00A3DB20 /* Comic Sans MS.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7292999C14A00A3DB20 /* Comic Sans MS.woff2 */; };
-		F1B1B7412999C14C00A3DB20 /* docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B72A2999C14A00A3DB20 /* docs.swift */; };
-		F1B1B7422999C14C00A3DB20 /* Go-Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B72C2999C14C00A3DB20 /* Go-Mono.ttf */; };
-		F1B1B7432999C14C00A3DB20 /* DejaVuSansCondensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B72D2999C14C00A3DB20 /* DejaVuSansCondensed.ttf */; };
-		F1B1B7442999C14C00A3DB20 /* DejaVuSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B72E2999C14C00A3DB20 /* DejaVuSerif.ttf */; };
-		F1B1B7452999C14C00A3DB20 /* Go-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B72F2999C14C00A3DB20 /* Go-Regular.ttf */; };
-		F1B1B7462999C14C00A3DB20 /* Chococooky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7302999C14C00A3DB20 /* Chococooky.ttf */; };
-		F1B1B7472999C14C00A3DB20 /* DejaVuSansMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7312999C14C00A3DB20 /* DejaVuSansMono.ttf */; };
-		F1B1B7482999C14C00A3DB20 /* Comic Sans MS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7322999C14C00A3DB20 /* Comic Sans MS.ttf */; };
-		F1B1B7492999C14C00A3DB20 /* FiraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7332999C14C00A3DB20 /* FiraSans-Regular.ttf */; };
-		F1B1B74A2999C14C00A3DB20 /* segoeui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B1B7342999C14C00A3DB20 /* segoeui.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -266,28 +244,6 @@
 		6FF21AFA298826FF0054EBC0 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FF21AFC298827190054EBC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6FF21AFF29882C020054EBC0 /* CoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
-		F1B1B71D2999C14900A3DB20 /* FCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCView.swift; sourceTree = "<group>"; };
-		F1B1B71E2999C14900A3DB20 /* FCView.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCView.ViewModel.swift; sourceTree = "<group>"; };
-		F1B1B71F2999C14900A3DB20 /* OverwriteFontImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwriteFontImpl.swift; sourceTree = "<group>"; };
-		F1B1B7212999C14A00A3DB20 /* Go-Mono.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Go-Mono.woff2"; sourceTree = "<group>"; };
-		F1B1B7222999C14A00A3DB20 /* segoeui.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.woff2; sourceTree = "<group>"; };
-		F1B1B7232999C14A00A3DB20 /* DejaVuSansCondensed.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSansCondensed.woff2; sourceTree = "<group>"; };
-		F1B1B7242999C14A00A3DB20 /* Chococooky.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chococooky.woff2; sourceTree = "<group>"; };
-		F1B1B7252999C14A00A3DB20 /* Go-Regular.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Go-Regular.woff2"; sourceTree = "<group>"; };
-		F1B1B7262999C14A00A3DB20 /* FiraSans-Regular.2048.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.2048.woff2"; sourceTree = "<group>"; };
-		F1B1B7272999C14A00A3DB20 /* DejaVuSerif.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSerif.woff2; sourceTree = "<group>"; };
-		F1B1B7282999C14A00A3DB20 /* DejaVuSansMono.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSansMono.woff2; sourceTree = "<group>"; };
-		F1B1B7292999C14A00A3DB20 /* Comic Sans MS.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Sans MS.woff2"; sourceTree = "<group>"; };
-		F1B1B72A2999C14A00A3DB20 /* docs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = docs.swift; sourceTree = "<group>"; };
-		F1B1B72C2999C14C00A3DB20 /* Go-Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Go-Mono.ttf"; sourceTree = "<group>"; };
-		F1B1B72D2999C14C00A3DB20 /* DejaVuSansCondensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSansCondensed.ttf; sourceTree = "<group>"; };
-		F1B1B72E2999C14C00A3DB20 /* DejaVuSerif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSerif.ttf; sourceTree = "<group>"; };
-		F1B1B72F2999C14C00A3DB20 /* Go-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Go-Regular.ttf"; sourceTree = "<group>"; };
-		F1B1B7302999C14C00A3DB20 /* Chococooky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chococooky.ttf; sourceTree = "<group>"; };
-		F1B1B7312999C14C00A3DB20 /* DejaVuSansMono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DejaVuSansMono.ttf; sourceTree = "<group>"; };
-		F1B1B7322999C14C00A3DB20 /* Comic Sans MS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Sans MS.ttf"; sourceTree = "<group>"; };
-		F1B1B7332999C14C00A3DB20 /* FiraSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.ttf"; sourceTree = "<group>"; };
-		F1B1B7342999C14C00A3DB20 /* segoeui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,7 +541,6 @@
 				6F7C01D42968E0C500BC427A /* RootView.swift */,
 				6FF21ABB298050340054EBC0 /* AudioViews */,
 				6FF21AF9298826F00054EBC0 /* CardChangerViews */,
-				F1B1B71C2999C12E00A3DB20 /* FontChangeView */,
 				6F369560298C86990011ADB8 /* IconThemesViews */,
 				6FF21ABA298050150054EBC0 /* NavigatorViews */,
 				6F4296BF299407F200A96108 /* OperationViews */,
@@ -667,51 +622,6 @@
 				6FF21AFA298826FF0054EBC0 /* MainCardView.swift */,
 			);
 			path = CardChangerViews;
-			sourceTree = "<group>";
-		};
-		F1B1B71C2999C12E00A3DB20 /* FontChangeView */ = {
-			isa = PBXGroup;
-			children = (
-				F1B1B72A2999C14A00A3DB20 /* docs.swift */,
-				F1B1B71D2999C14900A3DB20 /* FCView.swift */,
-				F1B1B71E2999C14900A3DB20 /* FCView.ViewModel.swift */,
-				F1B1B71F2999C14900A3DB20 /* OverwriteFontImpl.swift */,
-				F1B1B72B2999C14C00A3DB20 /* PreviewFonts */,
-				F1B1B7202999C14A00A3DB20 /* RepackedFonts */,
-			);
-			path = FontChangeView;
-			sourceTree = "<group>";
-		};
-		F1B1B7202999C14A00A3DB20 /* RepackedFonts */ = {
-			isa = PBXGroup;
-			children = (
-				F1B1B7212999C14A00A3DB20 /* Go-Mono.woff2 */,
-				F1B1B7222999C14A00A3DB20 /* segoeui.woff2 */,
-				F1B1B7232999C14A00A3DB20 /* DejaVuSansCondensed.woff2 */,
-				F1B1B7242999C14A00A3DB20 /* Chococooky.woff2 */,
-				F1B1B7252999C14A00A3DB20 /* Go-Regular.woff2 */,
-				F1B1B7262999C14A00A3DB20 /* FiraSans-Regular.2048.woff2 */,
-				F1B1B7272999C14A00A3DB20 /* DejaVuSerif.woff2 */,
-				F1B1B7282999C14A00A3DB20 /* DejaVuSansMono.woff2 */,
-				F1B1B7292999C14A00A3DB20 /* Comic Sans MS.woff2 */,
-			);
-			path = RepackedFonts;
-			sourceTree = "<group>";
-		};
-		F1B1B72B2999C14C00A3DB20 /* PreviewFonts */ = {
-			isa = PBXGroup;
-			children = (
-				F1B1B72C2999C14C00A3DB20 /* Go-Mono.ttf */,
-				F1B1B72D2999C14C00A3DB20 /* DejaVuSansCondensed.ttf */,
-				F1B1B72E2999C14C00A3DB20 /* DejaVuSerif.ttf */,
-				F1B1B72F2999C14C00A3DB20 /* Go-Regular.ttf */,
-				F1B1B7302999C14C00A3DB20 /* Chococooky.ttf */,
-				F1B1B7312999C14C00A3DB20 /* DejaVuSansMono.ttf */,
-				F1B1B7322999C14C00A3DB20 /* Comic Sans MS.ttf */,
-				F1B1B7332999C14C00A3DB20 /* FiraSans-Regular.ttf */,
-				F1B1B7342999C14C00A3DB20 /* segoeui.ttf */,
-			);
-			path = PreviewFonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -820,28 +730,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B1B73E2999C14C00A3DB20 /* DejaVuSerif.woff2 in Resources */,
-				F1B1B7482999C14C00A3DB20 /* Comic Sans MS.ttf in Resources */,
-				F1B1B73C2999C14C00A3DB20 /* Go-Regular.woff2 in Resources */,
-				F1B1B7392999C14C00A3DB20 /* segoeui.woff2 in Resources */,
-				F1B1B7442999C14C00A3DB20 /* DejaVuSerif.ttf in Resources */,
-				F1B1B7432999C14C00A3DB20 /* DejaVuSansCondensed.ttf in Resources */,
-				F1B1B7462999C14C00A3DB20 /* Chococooky.ttf in Resources */,
 				21CD1051298C8151007EE649 /* Localizable.strings in Resources */,
-				F1B1B73D2999C14C00A3DB20 /* FiraSans-Regular.2048.woff2 in Resources */,
-				F1B1B7402999C14C00A3DB20 /* Comic Sans MS.woff2 in Resources */,
-				F1B1B74A2999C14C00A3DB20 /* segoeui.ttf in Resources */,
 				21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */,
-				F1B1B73B2999C14C00A3DB20 /* Chococooky.woff2 in Resources */,
-				F1B1B7382999C14C00A3DB20 /* Go-Mono.woff2 in Resources */,
-				F1B1B7422999C14C00A3DB20 /* Go-Mono.ttf in Resources */,
-				F1B1B7492999C14C00A3DB20 /* FiraSans-Regular.ttf in Resources */,
-				F1B1B7472999C14C00A3DB20 /* DejaVuSansMono.ttf in Resources */,
-				F1B1B7452999C14C00A3DB20 /* Go-Regular.ttf in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
 				216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */,
-				F1B1B73A2999C14C00A3DB20 /* DejaVuSansCondensed.woff2 in Resources */,
-				F1B1B73F2999C14C00A3DB20 /* DejaVuSansMono.woff2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,7 +753,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B1B7412999C14C00A3DB20 /* docs.swift in Sources */,
 				2183C99E2987DA6800AE187C /* AppIcon.swift in Sources */,
 				21E54B3E2994133F00D5F85A /* CatalogThemeManager.swift in Sources */,
 				6F4296B52992CCB500A96108 /* AdvancedManager.swift in Sources */,
@@ -902,12 +793,9 @@
 				2183C9952987D8C800AE187C /* Alert++.swift in Sources */,
 				6F4296AD2991E8E400A96108 /* StatusSetter14.m in Sources */,
 				6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */,
-				F1B1B7352999C14C00A3DB20 /* FCView.swift in Sources */,
 				2183C99B2987D8FA00AE187C /* Extensions.swift in Sources */,
-				F1B1B7372999C14C00A3DB20 /* OverwriteFontImpl.swift in Sources */,
 				21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */,
 				6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */,
-				F1B1B7362999C14C00A3DB20 /* FCView.ViewModel.swift in Sources */,
 				6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */,
 				6F4296B82992CDDE00A96108 /* AdvancedObject.swift in Sources */,
 				2183C9972987D8D800AE187C /* Color++.swift in Sources */,
