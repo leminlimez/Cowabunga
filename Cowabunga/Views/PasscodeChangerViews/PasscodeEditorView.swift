@@ -25,6 +25,7 @@ struct PasscodeEditorView: View {
     @State private var showingSaved = false
     
     @State private var directoryType: TelephonyDirType = TelephonyDirType.passcode
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State private var sizeLimit: [Int] = [PasscodeSizeLimit.min.rawValue, PasscodeSizeLimit.max.rawValue] // the limits of the custom size (max, min)
     
@@ -236,7 +237,7 @@ struct PasscodeEditorView: View {
                         Button("Remove all") {
                             do {
                                 try PasscodeKeyFaceManager.removeAllFaces(directoryType)
-                                faces = try PasscodeKeyFaceManager.getFaces(directoryType)
+                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                             } catch {
                                 UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
                             }
@@ -255,7 +256,7 @@ struct PasscodeEditorView: View {
                             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
                             currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
                             do {
-                                faces = try PasscodeKeyFaceManager.getFaces(directoryType)
+                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                                 
                                 if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
                                     changedFaces = faces
@@ -276,7 +277,7 @@ struct PasscodeEditorView: View {
                             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
                             currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
                             do {
-                                faces = try PasscodeKeyFaceManager.getFaces(directoryType)
+                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                                 
                                 if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
                                     changedFaces = faces
@@ -337,7 +338,7 @@ struct PasscodeEditorView: View {
                 }) {
                     Image(systemName: "square.and.arrow.down")
                 }
-                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.blue)
                 
                 // export key
                 Button(action: {
@@ -355,7 +356,7 @@ struct PasscodeEditorView: View {
                 }) {
                     Image(systemName: "square.and.arrow.up")
                 }
-                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.blue)
             }
         }
         .sheet(isPresented: $isImporting) {
@@ -371,7 +372,7 @@ struct PasscodeEditorView: View {
                 do {
                     // try appying the themes
                     try PasscodeKeyFaceManager.setFacesFromTheme(url, directoryType, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
-                    faces = try PasscodeKeyFaceManager.getFaces(directoryType)
+                    faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                 } catch { UIApplication.shared.alert(body: error.localizedDescription) }
             }
         }
@@ -382,7 +383,7 @@ struct PasscodeEditorView: View {
             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
             currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
             do {
-                faces = try PasscodeKeyFaceManager.getFaces(directoryType)
+                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                 
                 if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
                     changedFaces = faces
@@ -402,7 +403,7 @@ struct PasscodeEditorView: View {
                 verifySize()
                 
                 do {
-                    try PasscodeKeyFaceManager.setFace(newValue, for: PasscodeKeyFaceManager.CharacterTable[changingFaceN], directoryType, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
+                    try PasscodeKeyFaceManager.setFace(newValue, for: PasscodeKeyFaceManager.CharacterTable[changingFaceN], directoryType, colorScheme: colorScheme, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
                     faces[changingFaceN] = try PasscodeKeyFaceManager.getFace(for: PasscodeKeyFaceManager.CharacterTable[changingFaceN], directoryType)
                 } catch {
                     UIApplication.shared.alert(body: NSLocalizedString("An error occured while changing key face.", comment: "") + " \(error)")
@@ -426,7 +427,7 @@ struct PasscodeEditorView: View {
             // apply to all
             do {
                 try PasscodeKeyFaceManager.setFacesFromTheme(try PasscodeKeyFaceManager.telephonyUIURL(directoryType), directoryType, keySize: CGFloat(-1), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
-                faces = try PasscodeKeyFaceManager.getFaces(directoryType)
+                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
             } catch {
                 UIApplication.shared.alert(body: NSLocalizedString("An error occured when applying face sizes.", comment: "") + " \(error)")
             }

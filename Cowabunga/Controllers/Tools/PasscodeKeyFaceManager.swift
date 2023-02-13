@@ -7,6 +7,7 @@
 
 import UIKit
 import ZIPFoundation
+import SwiftUI
 
 enum KeySizeState: String {
     case small = "Small"
@@ -33,7 +34,7 @@ class PasscodeKeyFaceManager {
     private static var savedDialerURL: String = ""
     public static let CharacterTable: [Character] = ["0","1","2","3","4","5","6","7","8","9", "*", "#"]
 
-    static func setFace(_ image: UIImage, for n: Character, _ dir: TelephonyDirType, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
+    static func setFace(_ image: UIImage, for n: Character, _ dir: TelephonyDirType, colorScheme: ColorScheme, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
         // this part could be cleaner
         var usesCustomSize = true
         var sizeToUse: CGFloat = 0
@@ -48,7 +49,7 @@ class PasscodeKeyFaceManager {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let url = try getURL(for: n, dir)
+        let url = try getURL(for: n, mask: (colorScheme == .light), dir)
         guard let png = newImage?.pngData() else { throw "No png data" }
         try png.write(to: url)
     }
@@ -75,6 +76,20 @@ class PasscodeKeyFaceManager {
             }
         }
         return "h"
+    }
+    
+    static func themeHasMasks(_ url: URL) -> Bool {
+        let fm = FileManager.default
+        do {
+            for img in (try fm.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)) {
+                if img.lastPathComponent.contains("mask") {
+                    return true
+                }
+            }
+            return false
+        } catch {
+            return false
+        }
     }
     
     static func setFacesFromTheme(_ url: URL, _ dir: TelephonyDirType, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
@@ -204,18 +219,18 @@ class PasscodeKeyFaceManager {
         }
     }
     
-    static func getFaces(_ dir: TelephonyDirType) throws -> [UIImage?] {
+    static func getFaces(_ dir: TelephonyDirType, colorScheme: ColorScheme) throws -> [UIImage?] {
         if dir == .passcode {
             return try ["0","1","2","3","4","5","6","7","8","9", "9", "9"].map { try getFace(for: $0, dir) }
         } else if dir == .dialer {
-            return try ["0","1","2","3","4","5","6","7","8","9", "*", "#"].map { try getFace(for: $0, dir) }
+            return try ["0","1","2","3","4","5","6","7","8","9", "*", "#"].map { try getFace(for: $0, mask: (colorScheme == .light), dir) }
         } else {
             throw "Incorrect directory type"
         }
     }
     
-    static func getFace(for n: Character, _ dir: TelephonyDirType) throws -> UIImage? {
-        return UIImage(data: try Data(contentsOf: getURL(for: n, dir)))
+    static func getFace(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> UIImage? {
+        return UIImage(data: try Data(contentsOf: getURL(for: n, mask: mask, dir)))
     }
     
     static func getURL(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> URL { // O(n^2), but works
