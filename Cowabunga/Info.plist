@@ -2,20 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>PreviewFonts/Chococooky.ttf</string>
-		<string>PreviewFonts/Comic Sans MS.ttf</string>
-		<string>PreviewFonts/DejaVuSansCondensed.ttf</string>
-		<string>PreviewFonts/DejaVuSansMono.ttf</string>
-		<string>PreviewFonts/DejaVuSerif.ttf</string>
-		<string>PreviewFonts/FiraSans-Regular.ttf</string>
-		<string>PreviewFonts/Go-Mono.ttf</string>
-		<string>PreviewFonts/Go-Regular.ttf</string>
-		<string>PreviewFonts/segoeui.ttf</string>
-	</array>
-	<key>UIFileSharingEnabled</key>
-	<true/>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -69,11 +55,25 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PreviewFonts/Chococooky.ttf</string>
+		<string>PreviewFonts/Comic Sans MS.ttf</string>
+		<string>PreviewFonts/DejaVuSansCondensed.ttf</string>
+		<string>PreviewFonts/DejaVuSansMono.ttf</string>
+		<string>PreviewFonts/DejaVuSerif.ttf</string>
+		<string>PreviewFonts/FiraSans-Regular.ttf</string>
+		<string>PreviewFonts/Go-Mono.ttf</string>
+		<string>PreviewFonts/Go-Regular.ttf</string>
+		<string>PreviewFonts/segoeui.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
 		<string>processing</string>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
