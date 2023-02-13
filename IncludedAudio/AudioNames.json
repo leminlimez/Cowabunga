@@ -45,6 +45,14 @@
             "name": "Star_Wars_Blaster",
             "attachments": ["Screenshot"]
         },
+        {
+            "name": "Piano_Key",
+            "attachments": ["Key_Click"]
+        },
+        {
+            "name": "Piano_Delete",
+            "attachments": ["Key Delete", "Key Modifier"]
+        },
 		{
 			"name": "Slip",
 			"attachments": ["SentMessage"]
