@@ -85,6 +85,28 @@ struct CowabungaApp: App {
                             UIApplication.shared.alert(title: "Success!", body: "Successfully imported and applied passcode theme!")
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                     }
+                    
+                    // for opening zips of app themes
+                    if url.pathExtension.lowercased() == "zip" {
+                        let themeName = url.deletingPathExtension().lastPathComponent
+                        let saveURL = rawThemesDir.appendingPathComponent(themeName)
+                        
+                        do {
+                            let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
+                            if FileManager.default.fileExists(atPath: tmpExtract.path) {
+                                try? FileManager.default.removeItem(at: tmpExtract)
+                            }
+                            try FileManager.default.unzipItem(at: url, to: tmpExtract)
+                            
+                            let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(themeName))
+                            ThemeManager.shared.themes.append(theme)
+                            
+                            try FileManager.default.removeItem(at: tmpExtract)
+                            UIApplication.shared.alert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("App theme was successfully saved!", comment: ""))
+                        } catch {
+                            UIApplication.shared.alert(title: NSLocalizedString("Failed to save theme!", comment: ""), body: error.localizedDescription)
+                        }
+                    }
                 })
                 .sheet(isPresented: $catalogFixupShown) {
                     if #available(iOS 15.0, *) {
