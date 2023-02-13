@@ -371,7 +371,7 @@ struct PasscodeEditorView: View {
                 let url: URL = result.first!
                 do {
                     // try appying the themes
-                    try PasscodeKeyFaceManager.setFacesFromTheme(url, directoryType, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
+                    try PasscodeKeyFaceManager.setFacesFromTheme(url, directoryType, colorScheme: colorScheme, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
                     faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                 } catch { UIApplication.shared.alert(body: error.localizedDescription) }
             }
@@ -404,7 +404,7 @@ struct PasscodeEditorView: View {
                 
                 do {
                     try PasscodeKeyFaceManager.setFace(newValue, for: PasscodeKeyFaceManager.CharacterTable[changingFaceN], directoryType, colorScheme: colorScheme, keySize: CGFloat(currentSize), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
-                    faces[changingFaceN] = try PasscodeKeyFaceManager.getFace(for: PasscodeKeyFaceManager.CharacterTable[changingFaceN], directoryType)
+                    faces[changingFaceN] = try PasscodeKeyFaceManager.getFace(for: PasscodeKeyFaceManager.CharacterTable[changingFaceN], mask: (colorScheme == .light), directoryType)
                 } catch {
                     UIApplication.shared.alert(body: NSLocalizedString("An error occured while changing key face.", comment: "") + " \(error)")
                 }
@@ -426,7 +426,7 @@ struct PasscodeEditorView: View {
         updateAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Confirm apply for all (passcode keys)"), style: .default) { (action) in
             // apply to all
             do {
-                try PasscodeKeyFaceManager.setFacesFromTheme(try PasscodeKeyFaceManager.telephonyUIURL(directoryType), directoryType, keySize: CGFloat(-1), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
+                try PasscodeKeyFaceManager.setFacesFromTheme(try PasscodeKeyFaceManager.telephonyUIURL(directoryType), directoryType, colorScheme: colorScheme, keySize: CGFloat(-1), customX: CGFloat(Int(customSize[0]) ?? 150), customY: CGFloat(Int(customSize[1]) ?? 150))
                 faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
             } catch {
                 UIApplication.shared.alert(body: NSLocalizedString("An error occured when applying face sizes.", comment: "") + " \(error)")
