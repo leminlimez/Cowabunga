@@ -10,6 +10,7 @@ import SwiftUI
 struct SavedPasscodesView: View {
     @Binding var isVisible: Bool
     @Binding var faces: [UIImage?]
+    @State var dir: TelephonyDirType
     @State private var savedPasscodesDir = PasscodeKeyFaceManager.getPasscodesDirectory()
     @State private var numOfSaved = 0
     
@@ -55,8 +56,8 @@ struct SavedPasscodesView: View {
                             Button(action: {
                                 // apply passcode file when tapped
                                 do {
-                                    try PasscodeKeyFaceManager.setFacesFromTheme(passcode.passcodeFile.wrappedValue, keySize: CGFloat(PasscodeKeyFaceManager.getDefaultFaceSize()), customX: 150, customY: 150)
-                                    faces = try PasscodeKeyFaceManager.getFaces()
+                                    try PasscodeKeyFaceManager.setFacesFromTheme(passcode.passcodeFile.wrappedValue, dir, keySize: CGFloat(PasscodeKeyFaceManager.getDefaultFaceSize()), customX: 150, customY: 150)
+                                    faces = try PasscodeKeyFaceManager.getFaces(dir)
                                     isVisible = false
                                 } catch {
                                     print("There was an error applying passcode keys: \(error.localizedDescription)")

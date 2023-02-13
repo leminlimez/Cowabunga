@@ -1,11 +1,17 @@
 /* No comment provided by engineer. */
+"????" = "?????";
+
+/* No comment provided by engineer. */
 "· %lld" = "· %lld";
 
 /* Recommended lock type */
 "(Recommended)" = "(권장)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*는 통신사 이름도 함께 숨깁니다.\n^는 셀룰러도 함께 숨깁니다.";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*는 통신사 이름도 함께 숨깁니다.\n**는 셀룰러 인디게이터도 함꼐 숨깁니다.";
+
+/* No comment provided by engineer. */
+"%lld bytes" = "%lld bytes";
 
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
@@ -14,10 +20,19 @@
 "1" = "1";
 
 /* No comment provided by engineer. */
+"Action" = "동작";
+
+/* No comment provided by engineer. */
 "Add Value" = "값 추가";
 
 /* BomberFish's contribution */
 "AirPower Audio" = "AirPower Audio";
+
+/* No comment provided by engineer. */
+"Alternatives" = "대안";
+
+/* No comment provided by engineer. */
+"Always has been" = "항상 그래왔어.";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "크기 변경에 실패했습니다.";
@@ -38,10 +53,13 @@
 "An error occurred while applying the operation" = "작업을 하는중 오류가 발생했습니다.";
 
 /* when an operation fails to delete */
-"An error occurred while deleting the operation" = "작업을 ㅈ거하는중 오류가 발생했습니다.";
+"An error occurred while deleting the operation" = "작업을 제거하는중 오류가 발생했습니다.";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "파일을 복구하는중 오류가 발생했습니다.";
 
 /* when an operation fails to save */
-"An error occurred while saving the operation" = "작업을 저장하는중 오류가 발생했습니ek";
+"An error occurred while saving the operation" = "작업을 저장하는중 오류가 발생했습니다.";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
 "An error occurred while trying to disable appclip icons." = "바로가기 비활성화에 실패했습니다.";
@@ -128,6 +146,9 @@
 "Carrier Text" = "통신사 이름";
 
 /* No comment provided by engineer. */
+"Change" = "변경";
+
+/* No comment provided by engineer. */
 "Change Breadcrumb Text" = "이동 텍스트 변경";
 
 /* No comment provided by engineer. */
@@ -154,8 +175,11 @@
 /* Entering name for audio */
 "Choose a name for the sound" = "소리의 이름을 입력하세요.";
 
+/* No comment provided by engineer. */
+"Choose a plist type" = "plist 형식을 선택하세요.";
+
 /* Choose a size for passcode keys */
-"Choose a size" = "크기 설정";
+"Choose a size" = "크기 선택";
 
 /* No comment provided by engineer. */
 "Choose a value type" = "값 유형 선택";
@@ -233,6 +257,9 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "단축어 배너 제거";
 
+/* delete button on custom operations */
+"Deleting operation..." = "작업 제거중..";
+
 /* No comment provided by engineer. */
 "Device Resolution" = "해상도";
 
@@ -284,6 +311,9 @@
 /* No comment provided by engineer. */
 "Enable Shortcut Apps as Appclips" = "단축어 바로가기 활성화";
 
+/* No comment provided by engineer. */
+"Enabled" = "활성화됨";
+
 /* Audio name */
 "End Recording" = "녹화 종료";
 
@@ -309,13 +339,16 @@
 "Extra Preferences" = "기타 설정";
 
 /* Failed to apply audio */
-"Failed to apply audio for:" = "오디오 변경에 실패했습니다.:";
+"Failed to apply audio for:" = "오디오 변경에 실패했습니다:";
 
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "장치 유형 변경에 실패했습니다.";
 
 /* Failing to apply custom resolution */
-"Failed to apply resolution:" = "해상도 설정에 실패하였습니다.:";
+"Failed to apply resolution:" = "해상도 설정에 실패하였습니다:";
+
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "시스템 버전을 변경하는중 오류가 발생했습니다.\n시스템 버전의 길이는 현재보다 짧아야 합니다.\n\n\n(error.localizedDescription)";
 
 /* when the category cannot be created */
 "Failed to create category" = "카테고리 생성에 실패했습니다.";
@@ -396,6 +429,9 @@
 /* No comment provided by engineer. */
 "Hide Location" = "위치 숨기기";
 
+/* Springboard tool */
+"Hide Notification Banner Background" = "알림 배너 배경 비활성화";
+
 /* No comment provided by engineer. */
 "Hide Rotation Lock" = "화면 방향 잠금 숨기기";
 
@@ -406,7 +442,7 @@
 "Hide VPN" = "VPN 숨기기";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi^" = "와이파이 숨기기^";
+"Hide Wi-Fi**" = "와이파이 숨기기**";
 
 /* No comment provided by engineer. */
 "Home" = "홈";
@@ -416,6 +452,12 @@
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "로봇이 아닙니다.(캡챠아님)";
+
+/* No comment provided by engineer. */
+"Icons" = "아이콘";
+
+/* No comment provided by engineer. */
+"Icons override" = "아이콘 커스텀";
 
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "자물쇠 아이콘이 바뀌지 않으면 다른것을 선택하세요.";
@@ -429,6 +471,9 @@
 /* No comment provided by engineer. */
 "Included" = "내장";
 
+/* c22dev's contribution */
+"Included Audio, Credits, and Card Changer" = "내장 오디오, 크레딧, 카드 커스텀";
+
 /* Header for inputting custom iOS version */
 "Input Software Version" = "소프트웨어 버전 입력";
 
@@ -437,6 +482,9 @@
 
 /* No comment provided by engineer. */
 "Join Discord" = "디스코드 가입";
+
+/* key for plist operation */
+"Key" = "키";
 
 /* Audio name */
 "Keyboard Press Clear" = "스페이스";
@@ -496,6 +544,9 @@
 /* No comment provided by engineer. */
 "Name:" = "이름:";
 
+/* No comment provided by engineer. */
+"New Category" = "새로운 카테고리";
+
 /* Audio name */
 "New Mail" = "새로운 메일";
 
@@ -511,8 +562,17 @@
 /* No comment provided by engineer. */
 "No respring required to apply." = "SpringBoard 다시시작이 필요없습니다.";
 
+/* No comment provided by engineer. */
+"No themes containing icons for %@ (%@) have been found." = "%@ (%@) 의 아이콘이 발견되지 않았습니다.";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 없습니다.\n탐색의 아이콘 탭에서 다운로드할 수 있습니다.\n(테마는 <id>.png 형식입니다.)";
+
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "너무 크거나 작습니다.";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "알림 배너";
 
 /* No comment provided by engineer. */
 "OK" = "확인";
@@ -531,6 +591,9 @@
 
 /* Title of tool */
 "Passcode Faces" = "암호 버튼";
+
+/* No comment provided by engineer. */
+"Passcodes" = "암호 버튼";
 
 /* No comment provided by engineer. */
 "Password" = "암호";
@@ -584,13 +647,16 @@
 "Plist Data" = "Plist 자료";
 
 /* No comment provided by engineer. */
-"Plist Properties" = "Plist 성질";
+"Plist Properties" = "Plist 유형";
 
 /* No comment provided by engineer. */
 "Plist Type:" = "Plist 유형:";
 
 /* No comment provided by engineer. */
 "Preferences" = "설정";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "아이콘 캐시 새로고침";
 
 /* Audio name */
 "Received Message" = "받은 메시지";
@@ -630,6 +696,12 @@
 
 /* No comment provided by engineer. */
 "Respring to see changes" = "적용 하려면 SpringBoard를 다시시작해야합니다.";
+
+/* No comment provided by engineer. */
+"Restore" = "복구";
+
+/* restore button on custom operations */
+"Restoring original file..." = "기존 파일로 복구하는 중...";
 
 /* No comment provided by engineer. */
 "Run in background" = "백그라운드에서 실행";
@@ -675,6 +747,9 @@
 
 /* No comment provided by engineer. */
 "Set folder color" = "폴더 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "알림 배너 색깔";
 
 /* No comment provided by engineer. */
 "Settings" = "설정";
@@ -739,6 +814,9 @@
 /* No comment provided by engineer. */
 "The app will quit." = "앱이 종료됩니다.";
 
+/* when an operation is restored */
+"The file was successfully restored!" = "파일이 성공적으로 복구 되었습니다!";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "오디오를 성공적으로 불러왔습니다!";
 
@@ -746,7 +824,7 @@
 "The imported lock was successfully saved." = "자물쇠 아이콘을 불러왔습니다!";
 
 /* when an operation is applied */
-"The operation was successfully applied! The operation was not saved, only applied." = "작업내용이 적용되었습니다!\n작업이 저장되진 않고 적용만 됩습니다.";
+"The operation was successfully applied! The operation was not saved, only applied." = "작업내용이 적용되었습니다!\n작업이 저장되진 않고 적용만 되었습니다.";
 
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "작업이 성공적으로 제거되었습니다!";
@@ -800,16 +878,19 @@
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "통신사 이름과 시계 택스트가 적용되지 않으면 재설정후 다시 하는걸 추천합니다.";
 
 /* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "작동하지 않을때 활성화 하세요.";
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "작동되지 않을때 활성화 하세요.";
 
 /* No comment provided by engineer. */
 "validate" = "확인";
 
 /* value for plist operation */
-"Value" = "Value";
+"Value" = "값";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "버전 %@ (%@)";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "잠깐, 그거 전부 TrollTools인가요?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 비워두면 통신사 이름을 표시합니다.";
@@ -819,7 +900,7 @@
 "Width" = "너비";
 
 /* Message for apply passcode key size for all */
-"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "활성화된 모든 버튼에 적용하시겠습니까?\\n";
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "활성화된 모든 버튼에 적용하시겠습니까?";
 
 /* No comment provided by engineer. */
 "x" = "x";
@@ -837,11 +918,14 @@
 "Yes" = "확인";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭에서 다운로드 하세요.";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 암호버튼 탭에서 다운로드 하세요.";
+
+/* No comment provided by engineer. */
+"Your apps should now function properly" = "이제 앱이 정상적으로 작동 할겁니다.";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "SpringBoard가 재시작 됩니다.";
 
 /* No comment provided by engineer. */
-"Your device will respring.\n\n\nUsing %@" = "SpringBoard가 재시작 됩니다.\n\n\n%@사용";
+"Your device will respring.\n\n\nApplying using %@." = "SpringBoard가 재시작 됩니다.\n\n\n%@를 사용해 적용합니다.";
 

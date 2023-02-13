@@ -79,7 +79,7 @@ struct CowabungaApp: App {
                         let defaultKeySize = PasscodeKeyFaceManager.getDefaultFaceSize()
                         do {
                             // try appying the themes
-                            try PasscodeKeyFaceManager.setFacesFromTheme(url, keySize: CGFloat(defaultKeySize), customX: CGFloat(150), customY: CGFloat(150))
+                            try PasscodeKeyFaceManager.setFacesFromTheme(url, TelephonyDirType.passcode, keySize: CGFloat(defaultKeySize), customX: CGFloat(150), customY: CGFloat(150))
                             // show the passcode screen
                             //PasscodeEditorView()
                             UIApplication.shared.alert(title: "Success!", body: "Successfully imported and applied passcode theme!")
