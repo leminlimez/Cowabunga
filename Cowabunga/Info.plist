@@ -24,16 +24,6 @@
 				<string>com.leemin.themezip</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Theme Folder</string>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.leemin.themefolder</string>
-			</array>
-		</dict>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
@@ -118,26 +108,6 @@
 				</array>
 			</dict>
 		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.directory</string>
-				<string>public.folder</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Theme Folder</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
-			<key>UTTypeIdentifier</key>
-			<string>com.leemin.themefolder</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>directory</string>
-				</array>
-			</dict>
-		</dict>
 	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
@@ -180,26 +150,6 @@
 				<array>
 					<string>zip</string>
 					<string>ZIP</string>
-				</array>
-			</dict>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.directory</string>
-				<string>public.folder</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Theme Folder</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
-			<key>UTTypeIdentifier</key>
-			<string>com.leemin.themefolder</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>directory</string>
 				</array>
 			</dict>
 		</dict>
