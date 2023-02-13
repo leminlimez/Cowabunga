@@ -33,7 +33,7 @@
             "name": "Samsung",
             "attachments": ["Notification"]
         },
-	{
+        {
             "name": "Discord",
             "attachments": ["Notification"]
         },
@@ -47,7 +47,7 @@
         },
         {
             "name": "Piano_Key",
-            "attachments": ["Key_Click"]
+            "attachments": ["Key Click"]
         },
         {
             "name": "Piano_Delete",
@@ -55,15 +55,15 @@
         },
 		{
 			"name": "Slip",
-			"attachments": ["SentMessage"]
+			"attachments": ["Sent Message"]
 		},
 		{
 			"name": "Crash",
-			"attachments": ["ReceivedMessage"]
+			"attachments": ["Received Message"]
 		},
         {
             "name": "Coin",
-            "attachments": ["PaymentSuccess"]
+            "attachments": ["Payment Success"]
         }
 	]
 }
