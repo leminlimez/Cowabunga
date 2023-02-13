@@ -92,7 +92,7 @@ class PasscodeKeyFaceManager {
         }
     }
     
-    static func setFacesFromTheme(_ url: URL, _ dir: TelephonyDirType, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
+    static func setFacesFromTheme(_ url: URL, _ dir: TelephonyDirType, colorScheme: ColorScheme, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
         let fm = FileManager.default
         let teleURL = try telephonyUIURL(dir)
         let defaultSize = getDefaultFaceSize()
@@ -123,6 +123,7 @@ class PasscodeKeyFaceManager {
                 }
             }
         }
+        let applyToMasks: Bool = ((colorScheme == .light) && !themeHasMasks(finalURL))
         for imageURL in (try? fm.contentsOfDirectory(at: finalURL, includingPropertiesForKeys: nil)) ?? [] {
             // determine if it is a number
             let char: Character = try getCharacterFromURL(url: imageURL)
@@ -156,7 +157,7 @@ class PasscodeKeyFaceManager {
                 let newImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 
-                let isMask: Bool = imageURL.path.contains("mask")
+                let isMask: Bool = (applyToMasks || imageURL.path.contains("mask"))
                 
                 var newURL: URL
                 do {
