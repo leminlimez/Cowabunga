@@ -2,16 +2,34 @@
 "(Recommended)" = "(מומלץ)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*גם יסתיר את שם הספק\n^גם יסתיר את סימן הגלישה ";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*גם יסתיר את שם הספק\n**גם יסתיר את סמן הגלישה הסלולרית";
+
+/* No comment provided by engineer. */
+"%lld bytes" = "%lld ביטים";
 
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️נא לקרוא⚠️\nאחרי שהטלפון מבצע respring, בבקשה *לפתוח מחדש את קוואבאנגה* בשביל לתקן אפליקציות שלא עובדות נכון\n\nחשוב מאוד: אם אתה רואה סמל של אפל ופס טעינה, אל תדאג, המכשיר שלך בסדר. אל תנסה לאתחל את המכשיר בכוח\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
+
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
+/* No comment provided by engineer. */
+"Action" = "פעולה";
+
+/* No comment provided by engineer. */
+"Add Value" = "הוסף ערך";
+
 /* BomberFish's contribution */
 "AirPower Audio" = "שמע כוח-אוויר";
+
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "כל האייקונים של האפליקציות יחזרו לנראות המקורית שלהם. אתה בטוח שאת רוצה להמשיך? (יכול להיות שצריך אתחול)";
+
+/* No comment provided by engineer. */
+"Alternatives" = "אלטרנטיבות";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "שגיאה התרחשה ביישום הגודל החיצוני";
@@ -123,9 +141,6 @@
 
 /* No comment provided by engineer. */
 "Clear image" = "אפס תמונה";
-
-/* sourcelocation's contribution */
-"Co-Developer" = "מפתח שותף";
 
 /* No comment provided by engineer. */
 "Confirm" = "אישור";
@@ -322,9 +337,6 @@
 "Hide VPN" = "הסתר VPN";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi^" = "הסתר וייפיי^";
-
-/* No comment provided by engineer. */
 "Home" = "בית";
 
 /* Category of tool */
@@ -341,9 +353,6 @@
 
 /* No comment provided by engineer. */
 "Included" = "כלול";
-
-/* c22dev's contribution */
-"Included Audio & Credits" = "שמע וקרדיט כלול";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "ייבא גרסת תוכנה";
@@ -390,7 +399,8 @@
 /* Audio name */
 "Low Power" = "סוללה נמוכה";
 
-/* leminlimez's contribution */
+/* leminlimez's contribution
+   sourcelocation's contribution */
 "Main Developer" = "מפתח ראשי";
 
 /* Maximum passcode key size */
@@ -574,77 +584,77 @@
 "Supervised" = "מפוקח";
 
 /* No comment provided by engineer. */
-"Swipe to view different cards" = "Swipe to view different cards";
+"Swipe to view different cards" = "תחליק בשביל לראות קלפים אחרים";
 
 /* No comment provided by engineer. */
-"Tap a card to customize" = "Tap a card to customize";
+"Tap a card to customize" = "תלחץ על קלף בשביל לעצב אותו";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Tap on any key to edit \nits appearance";
+"Tap on any key to edit \nits appearance" = "תלחץ על כל מקש בשביל לערוך את הנראות שלו";
 
 /* No comment provided by engineer. */
-"Tap this notification to resume tweak applications." = "Tap this notification to resume tweak applications.";
+"Tap this notification to resume tweak applications." = "תלחץ על ההודעה הזאת בשביל להמשיך תיקון אפליקציות.";
 
 /* No comment provided by engineer. */
-"The app will quit." = "The app will quit.";
+"The app will quit." = "האפליקציה תסגר.";
+
+/* when an operation is restored */
+"The file was successfully restored!" = "הקובץ שוחזר בהצלחה!";
 
 /* Saving imported audio */
-"The imported audio was successfully encoded and saved." = "The imported audio was successfully encoded and saved.";
+"The imported audio was successfully encoded and saved." = "הסאונד המיובא הוצפן ונשמר בהצלחה.";
 
 /* Saving imported lock */
-"The imported lock was successfully saved." = "The imported lock was successfully saved.";
+"The imported lock was successfully saved." = "מסך הנעילה המיובא נשמר בהצלחה";
 
 /* No comment provided by engineer. */
-"Tools" = "Tools";
+"Tools" = "כלים";
 
 /* No comment provided by engineer. */
-"Translators" = "Translators";
+"Translators" = "מתרגמים";
 
 /* No comment provided by engineer. */
-"Tweak Options" = "Tweak Options";
+"Tweak Options" = "אופציות תיקונים";
 
 /* No comment provided by engineer. */
-"Type:" = "Type:";
+"Type:" = "סוג:";
 
 /* Cannot delete audio (audio name is after) */
-"Unable to delete audio for audio" = "Unable to delete audio for audio";
+"Unable to delete audio for audio" = "לא הצליח למחוק את הסאונד";
 
 /* Failed to import lock */
-"Unable to save imported lock!" = "Unable to save imported lock!";
+"Unable to save imported lock!" = "לא הצליח לשמור את מסך הנעילה המיובא!";
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Unsandboxing";
 
 /* No comment provided by engineer. */
-"Update Included Audio" = "Update Included Audio";
+"Update Included Audio" = "העדכון כולל סאונד";
 
 /* No comment provided by engineer. */
-"Use Alternative Setter" = "Use Alternative Setter";
+"Use Alternative Setter" = "תשתמש במיישם אלטרנטיבי";
 
 /* No comment provided by engineer. */
-"Use at your own risk" = "Use at your own risk";
+"Use at your own risk" = "השימוש על אחריותך בלבד";
 
 /* No comment provided by engineer. */
-"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving.";
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "תשתמש בזה אם טקסט הספק/הזמן לא מיושם. אני ממליץ לאתחל להגדרות הראשוניות אחרי שמפעילים ושומרים";
 
 /* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic.";
+"validate" = "אמת";
 
 /* No comment provided by engineer. */
-"validate" = "validate";
+"Version %@ (%@)" = "גירסה %@ (%@)";
 
 /* No comment provided by engineer. */
-"Version %@ (%@)" = "Version %@ (%@)";
-
-/* No comment provided by engineer. */
-"When set to blank on notched devices, this will display the carrier name." = "When set to blank on notched devices, this will display the carrier name.";
+"When set to blank on notched devices, this will display the carrier name." = "כשנקבע בלי ערך במכשירים עם notch, זה יראה את השם של הספק";
 
 /* Width of custom resolution
    Width of passcode keys */
-"Width" = "Width";
+"Width" = "רוחב";
 
 /* Message for apply passcode key size for all */
-"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces.";
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "האם ברצונך ליישם את הגודל הזה לכל המקשים הפעילים? אם לא, זה ייושם רק למקשים החדשים";
 
 /* No comment provided by engineer. */
 "x" = "x";
@@ -656,14 +666,11 @@
 "Y" = "Y";
 
 /* Confirm apply for all (passcode keys) */
-"Yes" = "Yes";
+"Yes" = "כן";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "You do not have any saved passcode themes. Check out the explore tab to find some!";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "אין לך שום עיצובים של מסכי נעילה שמורים. תראה את דף החקירה בשביל למצוא כמה!";
 
 /* No comment provided by engineer. */
-"Your device will respring." = "Your device will respring.";
-
-/* No comment provided by engineer. */
-"Your device will respring.\n\n\nUsing %@" = "Your device will respring.\n\n\nUsing %@";
+"Your device will respring." = "המכשיר שלך יבצע respring";
 
