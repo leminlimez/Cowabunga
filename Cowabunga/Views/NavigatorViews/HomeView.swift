@@ -51,6 +51,7 @@ struct HomeView: View {
     @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
     @State private var autoFetchLocks: Bool = UserDefaults.standard.bool(forKey: "AutoFetchLocks")
     @State private var lockPrefs: String = UserDefaults.standard.string(forKey: "LockPrefs") ?? LockManager.globalLockPaths[0]
+    private var deviceType = UIDevice().machineName
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
         120.0: "Frequent",
@@ -92,54 +93,56 @@ struct HomeView: View {
                 Section {
                     // app preferences
                     // lock type prefs
-                    HStack {
-                        Text("Lock Type")
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                        
-                        Button(lockPrefs, action: {
-                            // create and configure alert controller
-                            let alert = UIAlertController(title: NSLocalizedString("Choose a lock preference", comment: "Title for lock preference"), message: NSLocalizedString("If the custom lock does not apply for you, try another option.", comment: "Description for lock preference"), preferredStyle: .actionSheet)
-                            let devModel = UIDevice().machineName
+                    if LockManager.deviceLockPath[deviceType] != nil {
+                        HStack {
+                            Text("Lock Type")
+                                .minimumScaleFactor(0.5)
                             
-                            // create the actions
-                            for (_, title) in LockManager.globalLockPaths.enumerated() {
-                                var rec: String = ""
-                                if LockManager.deviceLockPath[devModel] != nil && LockManager.deviceLockPath[devModel]! == title {
-                                    rec = " " + NSLocalizedString("(Recommended)", comment: "Recommended lock type")
+                            Spacer()
+                            
+                            Button(lockPrefs, action: {
+                                // create and configure alert controller
+                                let alert = UIAlertController(title: NSLocalizedString("Choose a lock preference", comment: "Title for lock preference"), message: NSLocalizedString("If the custom lock does not apply for you, try another option.", comment: "Description for lock preference"), preferredStyle: .actionSheet)
+                                let devModel = UIDevice().machineName
+                                
+                                // create the actions
+                                for (_, title) in LockManager.globalLockPaths.enumerated() {
+                                    var rec: String = ""
+                                    if LockManager.deviceLockPath[devModel] != nil && LockManager.deviceLockPath[devModel]! == title {
+                                        rec = " " + NSLocalizedString("(Recommended)", comment: "Recommended lock type")
+                                    }
+                                    
+                                    let newAction = UIAlertAction(title: title+rec, style: .default) { (action) in
+                                        // apply the type
+                                        lockPrefs = title
+                                        // set the default
+                                        UserDefaults.standard.set(title, forKey: "LockPrefs")
+                                    }
+                                    if lockPrefs == title {
+                                        // add a check mark if selected
+                                        newAction.setValue(true, forKey: "checked")
+                                    }
+                                    alert.addAction(newAction)
                                 }
                                 
-                                let newAction = UIAlertAction(title: title+rec, style: .default) { (action) in
-                                    // apply the type
-                                    lockPrefs = title
-                                    // set the default
-                                    UserDefaults.standard.set(title, forKey: "LockPrefs")
+                                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                    // cancels the action
                                 }
-                                if lockPrefs == title {
-                                    // add a check mark if selected
-                                    newAction.setValue(true, forKey: "checked")
-                                }
-                                alert.addAction(newAction)
-                            }
-                            
-                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                                // cancels the action
-                            }
-                            
-                            // add the actions
-                            alert.addAction(cancelAction)
-                            
-                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                            // present popover for iPads
-                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                            
-                            // present the alert
-                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
-                        })
-                        .foregroundColor(.blue)
-                        .padding(.leading, 10)
+                                
+                                // add the actions
+                                alert.addAction(cancelAction)
+                                
+                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                // present popover for iPads
+                                alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                
+                                // present the alert
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                            })
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        }
                     }
                     
                     // background run frequency
