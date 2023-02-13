@@ -94,10 +94,6 @@
 		6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFA298826FF0054EBC0 /* MainCardView.swift */; };
 		6FF21AFD298827190054EBC0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFC298827190054EBC0 /* CardView.swift */; };
 		6FF21B0229882CB70054EBC0 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF21B0129882CB70054EBC0 /* ACarousel */; };
-		F1B1B7182999C0FD00A3DB20 /* BrotliPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B7122999C0FC00A3DB20 /* BrotliPadding.swift */; };
-		F1B1B7192999C0FD00A3DB20 /* woff2_wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B7142999C0FC00A3DB20 /* woff2_wrapper.cpp */; };
-		F1B1B71A2999C0FD00A3DB20 /* stripttc.c in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B7162999C0FD00A3DB20 /* stripttc.c */; };
-		F1B1B71B2999C0FD00A3DB20 /* ttcpad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B7172999C0FD00A3DB20 /* ttcpad.m */; };
 		F1B1B7352999C14C00A3DB20 /* FCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B71D2999C14900A3DB20 /* FCView.swift */; };
 		F1B1B7362999C14C00A3DB20 /* FCView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B71E2999C14900A3DB20 /* FCView.ViewModel.swift */; };
 		F1B1B7372999C14C00A3DB20 /* OverwriteFontImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1B71F2999C14900A3DB20 /* OverwriteFontImpl.swift */; };
@@ -270,13 +266,6 @@
 		6FF21AFA298826FF0054EBC0 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FF21AFC298827190054EBC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6FF21AFF29882C020054EBC0 /* CoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
-		F1B1B7112999C0FB00A3DB20 /* woff2_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = woff2_wrapper.h; sourceTree = "<group>"; };
-		F1B1B7122999C0FC00A3DB20 /* BrotliPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrotliPadding.swift; sourceTree = "<group>"; };
-		F1B1B7132999C0FC00A3DB20 /* ttcpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ttcpad.h; sourceTree = "<group>"; };
-		F1B1B7142999C0FC00A3DB20 /* woff2_wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = woff2_wrapper.cpp; sourceTree = "<group>"; };
-		F1B1B7152999C0FC00A3DB20 /* stripttc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stripttc.h; sourceTree = "<group>"; };
-		F1B1B7162999C0FD00A3DB20 /* stripttc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stripttc.c; sourceTree = "<group>"; };
-		F1B1B7172999C0FD00A3DB20 /* ttcpad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ttcpad.m; sourceTree = "<group>"; };
 		F1B1B71D2999C14900A3DB20 /* FCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCView.swift; sourceTree = "<group>"; };
 		F1B1B71E2999C14900A3DB20 /* FCView.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCView.ViewModel.swift; sourceTree = "<group>"; };
 		F1B1B71F2999C14900A3DB20 /* OverwriteFontImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwriteFontImpl.swift; sourceTree = "<group>"; };
@@ -544,7 +533,6 @@
 				6F160E722965B2810026D69D /* ToolsManager.swift */,
 				6F4296B62992CDCC00A96108 /* AdvancedTools */,
 				21BA5BD5298999620022F814 /* Background */,
-				F1B1B70F2999C0DF00A3DB20 /* FontChanger */,
 				6F429677298DE9A800A96108 /* StatusManager */,
 				6FF21AD9298458830054EBC0 /* Tools */,
 			);
@@ -679,20 +667,6 @@
 				6FF21AFA298826FF0054EBC0 /* MainCardView.swift */,
 			);
 			path = CardChangerViews;
-			sourceTree = "<group>";
-		};
-		F1B1B70F2999C0DF00A3DB20 /* FontChanger */ = {
-			isa = PBXGroup;
-			children = (
-				F1B1B7122999C0FC00A3DB20 /* BrotliPadding.swift */,
-				F1B1B7162999C0FD00A3DB20 /* stripttc.c */,
-				F1B1B7152999C0FC00A3DB20 /* stripttc.h */,
-				F1B1B7132999C0FC00A3DB20 /* ttcpad.h */,
-				F1B1B7172999C0FD00A3DB20 /* ttcpad.m */,
-				F1B1B7142999C0FC00A3DB20 /* woff2_wrapper.cpp */,
-				F1B1B7112999C0FB00A3DB20 /* woff2_wrapper.h */,
-			);
-			path = FontChanger;
 			sourceTree = "<group>";
 		};
 		F1B1B71C2999C12E00A3DB20 /* FontChangeView */ = {
@@ -898,7 +872,6 @@
 				6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */,
 				6F6D38EC2976DEDA00DE3146 /* HomeView.swift in Sources */,
 				6FF21AF5298821290054EBC0 /* BadgeChanger.swift in Sources */,
-				F1B1B71A2999C0FD00A3DB20 /* stripttc.c in Sources */,
 				2183C9992987D8EA00AE187C /* MachineName.swift in Sources */,
 				2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */,
 				6FBACD562996BDC200302F94 /* PlistEditView.swift in Sources */,
@@ -923,7 +896,6 @@
 				6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
-				F1B1B7192999C0FD00A3DB20 /* woff2_wrapper.cpp in Sources */,
 				6F4296B12991E92B00A96108 /* SettingsView.swift in Sources */,
 				6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
@@ -935,7 +907,6 @@
 				F1B1B7372999C14C00A3DB20 /* OverwriteFontImpl.swift in Sources */,
 				21C08DA12987CF5300294DE7 /* ThemesExploreView.swift in Sources */,
 				6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */,
-				F1B1B7182999C0FD00A3DB20 /* BrotliPadding.swift in Sources */,
 				F1B1B7362999C14C00A3DB20 /* FCView.ViewModel.swift in Sources */,
 				6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */,
 				6F4296B82992CDDE00A96108 /* AdvancedObject.swift in Sources */,
@@ -946,7 +917,6 @@
 				6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */,
 				6F369562298C86D80011ADB8 /* ThemesView.swift in Sources */,
 				21CB2B4F29982F3400188303 /* pow.swift in Sources */,
-				F1B1B71B2999C0FD00A3DB20 /* ttcpad.m in Sources */,
 				6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */,
 				6FF21ADB298458910054EBC0 /* PasscodeKeyFaceManager.swift in Sources */,
 				6F6D38E82975EF6000DE3146 /* AudioConverter.swift in Sources */,
