@@ -70,72 +70,8 @@ struct PasscodeEditorView: View {
                                 }
                             }
                             HStack(spacing: 22) {
-                                // import button
-                                Button(action: {
-                                    if #available(iOS 15, *) {
-                                        // ask whether they are importing from file or saved
-                                        // create and configure alert controller
-                                        let alert = UIAlertController(title: NSLocalizedString("Import Passcode Theme", comment: "Header for importing passcode theme"), message: NSLocalizedString("From where do you want to import from?", comment: "Where to import passcode theme from"), preferredStyle: .actionSheet)
-                                        
-                                        // create the actions
-                                        let filesAction = UIAlertAction(title: NSLocalizedString("Files", comment: "Import passcode theme from files"), style: .default) { (action) in
-                                            // open file importer
-                                            isImporting = true
-                                        }
-                                        
-                                        let savedAction = UIAlertAction(title: NSLocalizedString("Saved", comment: "Import passcode theme from saved"), style: .default) { (action) in
-                                            // import from saved passcode files
-                                            showingSaved = true
-                                        }
-                                        
-                                        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                                            // cancels the action
-                                        }
-                                        
-                                        // add the actions
-                                        alert.addAction(filesAction)
-                                        alert.addAction(savedAction)
-                                        alert.addAction(cancelAction)
-                                        
-                                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                                        // present popover for iPads
-                                        alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                                        alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                                        
-                                        // present the alert
-                                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
-                                    } else {
-                                        isImporting = true
-                                    }
-                                }) {
-                                    Image(systemName: "square.and.arrow.down")
-                                }
-                                .frame(width: 80, height: 80)
-                                .font(.system(size: 40))
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
-                                
                                 // zero key
                                 PasscodeKeyView(face: faces[0], action: { showPicker(0) }, ipadView: ipadView)
-                                
-                                // export key
-                                Button(action: {
-                                    do {
-                                        let archiveURL: URL? = try PasscodeKeyFaceManager.exportFaceTheme(directoryType)
-                                        // show share menu
-                                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
-                                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
-                                    } catch {
-                                        UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
-                                    }
-                                }) {
-                                    Image(systemName: "square.and.arrow.up")
-                                }
-                                .frame(width: 80, height: 80)
-                                .font(.system(size: 40))
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                             }
                         } else {
                             ForEach((0...3), id: \.self) { y in
@@ -359,6 +295,69 @@ struct PasscodeEditorView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            // import button
+            HStack {
+                Button(action: {
+                    if #available(iOS 15, *) {
+                        // ask whether they are importing from file or saved
+                        // create and configure alert controller
+                        let alert = UIAlertController(title: NSLocalizedString("Import Passcode Theme", comment: "Header for importing passcode theme"), message: NSLocalizedString("From where do you want to import from?", comment: "Where to import passcode theme from"), preferredStyle: .actionSheet)
+                        
+                        // create the actions
+                        let filesAction = UIAlertAction(title: NSLocalizedString("Files", comment: "Import passcode theme from files"), style: .default) { (action) in
+                            // open file importer
+                            isImporting = true
+                        }
+                        
+                        let savedAction = UIAlertAction(title: NSLocalizedString("Saved", comment: "Import passcode theme from saved"), style: .default) { (action) in
+                            // import from saved passcode files
+                            showingSaved = true
+                        }
+                        
+                        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                            // cancels the action
+                        }
+                        
+                        // add the actions
+                        alert.addAction(filesAction)
+                        alert.addAction(savedAction)
+                        alert.addAction(cancelAction)
+                        
+                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                        // present popover for iPads
+                        alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                        alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                        
+                        // present the alert
+                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                    } else {
+                        isImporting = true
+                    }
+                }) {
+                    Image(systemName: "square.and.arrow.down")
+                }
+                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                
+                // export key
+                Button(action: {
+                    do {
+                        let archiveURL: URL? = try PasscodeKeyFaceManager.exportFaceTheme(directoryType)
+                        // show share menu
+                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
+                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
+                    } catch {
+                        UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
+                    }
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+            }
+        }
         .sheet(isPresented: $isImporting) {
             DocumentPicker(
                 types: [
