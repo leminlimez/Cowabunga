@@ -13,6 +13,7 @@ struct SavedPasscodesView: View {
     @State var dir: TelephonyDirType
     @State private var savedPasscodesDir = PasscodeKeyFaceManager.getPasscodesDirectory()
     @State private var numOfSaved = 0
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     // passcode file
     struct PasscodeFile: Identifiable {
@@ -57,7 +58,7 @@ struct SavedPasscodesView: View {
                                 // apply passcode file when tapped
                                 do {
                                     try PasscodeKeyFaceManager.setFacesFromTheme(passcode.passcodeFile.wrappedValue, dir, keySize: CGFloat(PasscodeKeyFaceManager.getDefaultFaceSize()), customX: 150, customY: 150)
-                                    faces = try PasscodeKeyFaceManager.getFaces(dir)
+                                    faces = try PasscodeKeyFaceManager.getFaces(dir, colorScheme: colorScheme)
                                     isVisible = false
                                 } catch {
                                     print("There was an error applying passcode keys: \(error.localizedDescription)")
