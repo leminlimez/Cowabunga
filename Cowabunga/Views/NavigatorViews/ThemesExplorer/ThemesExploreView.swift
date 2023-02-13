@@ -37,7 +37,9 @@ struct ThemesExploreView: View {
                         Picker("", selection: $themeTypeSelected) {
                             Text("Icons").tag(0)
                             Text("Passcodes").tag(1)
-                            Text("Locks").tag(2)
+                            if LockManager.deviceLockPath[UIDevice().machineName] != nil {
+                                Text("Locks").tag(2)
+                            }
                         }
                         .pickerStyle(.segmented)
                     }
