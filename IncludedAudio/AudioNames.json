@@ -14,7 +14,7 @@
         },
         {
             "name": "Cow",
-            "attachments": ["Charging"]
+            "attachments": ["Charging"],
             "isBeta": "true"
         },
         {
