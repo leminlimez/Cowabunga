@@ -55,15 +55,15 @@ class AudioFiles {
                 for attachment in SoundEffect.allCases {
                     plist[attachment.rawValue] = ["Default"]
                 }
-                let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
                 try newData.write(to: newURL)
                 return plist
             } else {
                 // get the existing plist
-                let plistData = try! Data(contentsOf: newURL)
+                let plistData = try Data(contentsOf: newURL)
                 
                 // open plist
-                let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: [String]]
+                let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: [String]]
                 return plist
             }
         } catch {
@@ -82,7 +82,7 @@ class AudioFiles {
         // write to the plist
         do {
             let newURL: URL = getIncludedAudioDirectory()!.appendingPathComponent("AudioNames.plist")
-            let newData = try! PropertyListSerialization.data(fromPropertyList: ListOfAudio, format: .xml, options: 0)
+            let newData = try PropertyListSerialization.data(fromPropertyList: ListOfAudio, format: .xml, options: 0)
             try newData.write(to: newURL)
         } catch {
             print("error adding the audio to the file")
