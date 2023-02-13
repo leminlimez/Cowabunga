@@ -107,29 +107,15 @@ struct LockView: View {
                             lock.checked.wrappedValue = true
                             currentLock = lock.title.wrappedValue
                             UserDefaults.standard.set(lock.title.wrappedValue, forKey: "CurrentLock")
-                            let lockType: String = LockManager.getLockType()
                             print("applying lock")
-                            if lockType != "" {
-                                let succeeded = LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockType)
-                                if succeeded {
-                                    UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
-                                } else {
-                                    UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
-                                }
+                            let succeeded = LockManager.applyLock(lockName: lock.title.wrappedValue)
+                            if succeeded {
+                                UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
                             } else {
-                                // just apply all of them lol
-                                var succeeded: Bool = true
-                                for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
-                                    succeeded = succeeded && LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockPath)
-                                }
-                                if succeeded {
-                                    UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
-                                } else {
-                                    UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
-                                }
+                                UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
                             }
                         }) {
-                            Text(lock.title.wrappedValue.replacingOccurrences(of: "_", with: " "))
+                            Text(lock.title.wrappedValue)
                         }
                     }
                 }

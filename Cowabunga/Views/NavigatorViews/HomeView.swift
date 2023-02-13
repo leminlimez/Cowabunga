@@ -367,11 +367,8 @@ struct HomeView: View {
         
         if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
             let lockName: String = UserDefaults.standard.string(forKey: "Lock")!
-            let lockType: String = LockManager.getLockType()
             print("applying lock")
-            if lockType != "" {
-                let _ = LockManager.applyLock(lockName: lockName, lockType: lockType)
-            }
+            let _ = LockManager.applyLock(lockName: lockName)
         }
         
         if failedSB && failedAudio {
