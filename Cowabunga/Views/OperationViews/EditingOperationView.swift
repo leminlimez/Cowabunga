@@ -207,7 +207,7 @@ struct EditingOperationView: View {
                                         if tp != replacingType {
                                             let tmp = replacingPath
                                             replacingPath = savedFilePath
-                                            savedFilePath = replacingPath
+                                            savedFilePath = tmp
                                             
                                             if tp == ReplacingObjectType.FilePath {
                                                 backupData = replacingData
@@ -653,6 +653,16 @@ struct EditingOperationView: View {
         } else if operation is PlistObject, let operation = operation as? PlistObject {
             operation.replacingKeys = replacingKeys
             operation.plistType = plistType
+        }
+    }
+}
+
+struct PlistPropertiesView: View {
+    var plistKeys: PlistProperty
+    
+    var body: some View {
+        VStack {
+            
         }
     }
 }
