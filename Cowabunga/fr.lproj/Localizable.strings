@@ -5,7 +5,7 @@
 "(Recommended)" = "(Recommandé)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Cachera aussi le nom d'opérateur\n^Cachera aussi l'indicateur de données cellulaire";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Cachera aussi le nom de l'opérateur\n**Cachera aussi l'indicateur de données cellulaires";
 
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
@@ -21,6 +21,12 @@
 
 /* BomberFish's contribution */
 "AirPower Audio" = "Audio d'AirPower";
+
+/* No comment provided by engineer. */
+"Alternatives" = "Alternatives";
+
+/* No comment provided by engineer. */
+"Always has been" = "L'as toujours été";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "Une erreur s'est produite quand les tailles ont du être appliquées";
@@ -42,6 +48,9 @@
 
 /* when an operation fails to delete */
 "An error occurred while deleting the operation" = "Une erreur s'est produite lors de la suppression de l'opération";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "Une erreur s'est produite lors que les fichiers ont du être restauré";
 
 /* when an operation fails to save */
 "An error occurred while saving the operation" = "Une erreur s'est produite lors de l'enregistrement de l'opération";
@@ -129,6 +138,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Texte d'opérateur";
+
+/* No comment provided by engineer. */
+"Change" = "Changer";
 
 /* No comment provided by engineer. */
 "Change Breadcrumb Text" = "Changer le texte de barre de statut";
@@ -287,6 +299,9 @@
 /* No comment provided by engineer. */
 "Enable Shortcut Apps as Appclips" = "Re-convertir les apps Raccourci comme des App Clip";
 
+/* No comment provided by engineer. */
+"Enabled" = "Activé";
+
 /* Audio name */
 "End Recording" = "Stopper l'enregistrement";
 
@@ -402,6 +417,9 @@
 /* No comment provided by engineer. */
 "Hide Location" = "Cacher la localisation";
 
+/* Springboard tool */
+"Hide Notification Banner Background" = "Cacher l'arrière plan des bannières de notification";
+
 /* No comment provided by engineer. */
 "Hide Rotation Lock" = "Cacher le verrouillage de l'orientation";
 
@@ -412,7 +430,7 @@
 "Hide VPN" = "Cacher le VPN";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi^" = "Cacher le Wi-Fi^";
+"Hide Wi-Fi**" = "Cacher le Wi-Fi**";
 
 /* No comment provided by engineer. */
 "Home" = "Accueil";
@@ -422,6 +440,12 @@
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "Je ne suis pas un robot";
+
+/* No comment provided by engineer. */
+"Icons" = "Icônes";
+
+/* No comment provided by engineer. */
+"Icons override" = "Remplacer des icônes";
 
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "Si le verrouillage personnalisé ne s'applique pas, essayez une autre option.";
@@ -436,7 +460,7 @@
 "Included" = "Inclus";
 
 /* c22dev's contribution */
-"Included Audio & Credits" = "Crédits & Audio pré-inclus";
+"Included Audio, Credits, and Card Changer" = "Audio pré-inclus, crédits, et le changeur de cartes";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Entrez la version du système";
@@ -447,11 +471,11 @@
 /* No comment provided by engineer. */
 "Join Discord" = "Rejoindre le serveur Discord";
 
-/* Audio name */
-"Ketboard Press Clear" = "Touche effacer du clavier";
-
 /* key for plist operation */
 "Key" = "Touche";
+
+/* Audio name */
+"Keyboard Press Clear" = "Touche effacer du clavier";
 
 /* Audio name */
 "Keyboard Press Delete" = "Touche supprimer du clavier";
@@ -491,10 +515,10 @@
 "Main Developer" = "Développeur principal";
 
 /* Maximum passcode key size */
-"Max:" = "";
+"Max:" = "Max:";
 
 /* Minimum passcode key size */
-"Min:" = "";
+"Min:" = "Min:";
 
 /* Title of tool */
 "Miscellaneous" = "Divers";
@@ -527,10 +551,16 @@
 "No respring required to apply." = "Il n'est pas nécessaire de respring pour appliquer";
 
 /* No comment provided by engineer. */
-"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Aucun thème importé.\nImportez des thèmes en utilisant le bouton en haut à droite (Vos thèmes doivent contenir des icônes avec le nom <id>.png)";
+"No themes containing icons for %@ (%@) have been found." = "Aucun thèmes comprennent des icônes pour %@ (%@) n'as été trouvé.";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Aucun thème n'as été trouvé. Téléchargez des thèmes dans l'onglet Découvrir, ou importez les en utilisant le bouton en haut a droite (vos thèmes doivent contenir les icônes sous ce format : <bundle.id>.png";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Taille non valide!";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "Bannière de notification";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -549,6 +579,9 @@
 
 /* Title of tool */
 "Passcode Faces" = "Touches du mot de passe";
+
+/* No comment provided by engineer. */
+"Passcodes" = "Mots de passes";
 
 /* No comment provided by engineer. */
 "Password" = "Mot de passe";
@@ -610,6 +643,9 @@
 /* No comment provided by engineer. */
 "Preferences" = "Réglages";
 
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "Rafraichir le cache d'icône";
+
 /* Audio name */
 "Received Message" = "Message reçu";
 
@@ -648,6 +684,12 @@
 
 /* No comment provided by engineer. */
 "Respring to see changes" = "Veuillez respring pour voir les changements";
+
+/* No comment provided by engineer. */
+"Restore" = "Restaurer";
+
+/* restore button on custom operations */
+"Restoring original file..." = "Restauration du fichier original...";
 
 /* No comment provided by engineer. */
 "Run in background" = "Actualiser en arrière-plan";
@@ -693,6 +735,9 @@
 
 /* No comment provided by engineer. */
 "Set folder color" = "Définissez la couleur des dossiers";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "Définir la couleur des bannières de notification";
 
 /* No comment provided by engineer. */
 "Settings" = "Paramètres";
@@ -757,6 +802,9 @@
 /* No comment provided by engineer. */
 "The app will quit." = "L'application va se fermer.";
 
+/* when an operation is restored */
+"The file was successfully restored!" = "Le fichier à bien été restauré";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "L'audio importé à bien été encodé et sauvegardé.";
 
@@ -818,7 +866,7 @@
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Utilisez cela si les textes d'opérateur ou d'heure ne se sont pas appliqués.";
 
 /* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "Utilisez cela si votre appareil détecte que TrollStore est installé, et que vous n'avez pas le bouton d'application en haut de StatusMagic";
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Utilisez cela uniquement si l'app détecte TrollStore, et que vous n'avez de bouton appliquer en haut de la page de modification de la barre de statut.";
 
 /* No comment provided by engineer. */
 "validate" = "valider";
@@ -828,6 +876,9 @@
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Version %@ (%@)";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "Hen ?? C'est TrollTools ?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Si vous ne mettez rien sur les appareils avec un notch, cela affichera le nom de l'opérateur";
@@ -864,5 +915,5 @@
 "Your device will respring." = "Votre appareil va respring.";
 
 /* No comment provided by engineer. */
-"Your device will respring.\n\n\nUsing %@" = "Votre appareil va respring.\n\n\nEn utilisant %@";
+"Your device will respring.\n\n\nApplying using %@." = "L'appareil respringera.\n\n\nEn cours d'application utilisant %@.";
 

@@ -32,17 +32,23 @@ struct IconOverridesView: View {
     }
     
     func updateApps() {
-        let preferedIcons = themeManager.preferedIcons
-        allApps = try! ApplicationManager.getApps().filter({ !$0.hiddenFromSpringboard }).map {
-            if let themedIcon = preferedIcons[$0.bundleIdentifier] {
-                return IconOverrideViewApp(appID: $0.bundleIdentifier,
-                                           icon: UIImage(contentsOfFile: themedIcon.rawThemeIconURL.path), displayName: $0.name)
-            } else {
-                return IconOverrideViewApp(appID: $0.bundleIdentifier,
-                             icon: Dynamic(UIImage.self)._applicationIconImage(forBundleIdentifier: $0.bundleIdentifier,
-                                                                               format: 1,
-                                                                               scale: 4.0).asAnyObject as? UIImage, displayName: $0.name)
+        do {
+            let preferedIcons = themeManager.preferedIcons
+            allApps = try ApplicationManager.getApps().filter({ !$0.hiddenFromSpringboard }).map {
+                if let themedIcon = preferedIcons[$0.bundleIdentifier] {
+                    return IconOverrideViewApp(appID: $0.bundleIdentifier,
+                                               icon: UIImage(contentsOfFile: themedIcon.rawThemeIconURL.path), displayName: $0.name)
+                } else {
+                    return IconOverrideViewApp(appID: $0.bundleIdentifier,
+                                               icon: Dynamic(UIImage.self)._applicationIconImage(forBundleIdentifier: $0.bundleIdentifier,
+                                                                                                 format: 1,
+                                                                                                 scale: 4.0).asAnyObject as? UIImage, displayName: $0.name)
+                }
             }
+        } catch {
+            UIApplication.shared.confirmAlert(title: "Fatal Error!", body: "The apps could not be found! \(error.localizedDescription)", onOK: {
+                exit(0)
+            }, noCancel: true)
         }
     }
     

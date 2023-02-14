@@ -13,6 +13,7 @@ struct CowabungaApp: App {
     //let locationManager = LocationManager()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var cowabungaAPI = CowabungaAPI()
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State var catalogFixupShown = false
     
@@ -79,11 +80,33 @@ struct CowabungaApp: App {
                         let defaultKeySize = PasscodeKeyFaceManager.getDefaultFaceSize()
                         do {
                             // try appying the themes
-                            try PasscodeKeyFaceManager.setFacesFromTheme(url, keySize: CGFloat(defaultKeySize), customX: CGFloat(150), customY: CGFloat(150))
+                            try PasscodeKeyFaceManager.setFacesFromTheme(url, TelephonyDirType.passcode, colorScheme: colorScheme, keySize: CGFloat(defaultKeySize), customX: CGFloat(150), customY: CGFloat(150))
                             // show the passcode screen
                             //PasscodeEditorView()
                             UIApplication.shared.alert(title: "Success!", body: "Successfully imported and applied passcode theme!")
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                    }
+                    
+                    // for opening zips of app themes
+                    if url.pathExtension.lowercased() == "zip" {
+                        let themeName = url.deletingPathExtension().lastPathComponent
+                        let saveURL = rawThemesDir.appendingPathComponent(themeName)
+                        
+                        do {
+                            let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
+                            if FileManager.default.fileExists(atPath: tmpExtract.path) {
+                                try? FileManager.default.removeItem(at: tmpExtract)
+                            }
+                            try FileManager.default.unzipItem(at: url, to: tmpExtract)
+                            
+                            let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(themeName))
+                            ThemeManager.shared.themes.append(theme)
+                            
+                            try FileManager.default.removeItem(at: tmpExtract)
+                            UIApplication.shared.alert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("App theme was successfully saved!", comment: ""))
+                        } catch {
+                            UIApplication.shared.alert(title: NSLocalizedString("Failed to save theme!", comment: ""), body: error.localizedDescription)
+                        }
                     }
                 })
                 .sheet(isPresented: $catalogFixupShown) {

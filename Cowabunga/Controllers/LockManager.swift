@@ -53,8 +53,8 @@ class LockManager {
         return UserDefaults.standard.string(forKey: "LockPrefs") ?? globalLockPaths[0]
     }
     
-    static func applyLock(lockName: String, lockType: String) -> Bool {
-        let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + lockType + ".ca"
+    static func applyLock(lockName: String) -> Bool {
+        let originPath: String = "/System/Library/PrivateFrameworks/SpringBoardUIServices.framework/lock@" + getLockType() + ".ca"
         let folderURL: URL? = getLockFolder(lockName: lockName)
         
         if folderURL != nil {

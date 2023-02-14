@@ -1,6 +1,11 @@
 {
 	"audio_files": [
         {
+            "name": "Version",
+            "version": "1.1",
+            "attachments": ["Oopsie"]
+        },
+        {
             "name": "Old_Charging",
             "attachments": ["Charging"]
         },
@@ -13,7 +18,7 @@
             "attachments": ["Charging"]
         },
         {
-            "name": "Cow",
+            "name": "Mooh",
             "attachments": ["Charging"]
         },
         {
@@ -28,7 +33,7 @@
             "name": "Samsung",
             "attachments": ["Notification"]
         },
-	{
+        {
             "name": "Discord",
             "attachments": ["Notification"]
         },
@@ -40,17 +45,25 @@
             "name": "Star_Wars_Blaster",
             "attachments": ["Screenshot"]
         },
+        {
+            "name": "Piano_Key",
+            "attachments": ["Key Click"]
+        },
+        {
+            "name": "Piano_Delete",
+            "attachments": ["Key Delete", "Key Modifier"]
+        },
 		{
 			"name": "Slip",
-			"attachments": ["SentMessage"]
+			"attachments": ["Sent Message"]
 		},
 		{
 			"name": "Crash",
-			"attachments": ["ReceivedMessage"]
+			"attachments": ["Received Message"]
 		},
         {
             "name": "Coin",
-            "attachments": ["PaymentSuccess"]
+            "attachments": ["Payment Success"]
         }
 	]
 }

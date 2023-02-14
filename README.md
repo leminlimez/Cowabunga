@@ -10,7 +10,7 @@ IPA available in the [Releases](https://github.com/leminlimez/Cowabunga/releases
 
 ## Features
 - Running in the background to keep some changes from reverting
-    - From running tests, battery loss is negligible (~1% per day on frequent), but that may very
+    - From running tests, battery loss is negligible (~1% per day on frequent), but that may vary
 
 - Springboard
     - Hide dock

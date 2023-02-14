@@ -78,16 +78,8 @@ class BackgroundFileUpdaterController: ObservableObject {
             // apply lock
             if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
                 let lockName: String = UserDefaults.standard.string(forKey: "Lock")!
-                let lockType: String = LockManager.getLockType()
                 print("applying lock")
-                if lockType != "" {
-                    let _ = LockManager.applyLock(lockName: lockName, lockType: lockType)
-                } else {
-                    // just apply all of them lol
-                    for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
-                        let _ = LockManager.applyLock(lockName: lockName, lockType: lockPath)
-                    }
-                }
+                let _ = LockManager.applyLock(lockName: lockName)
             }
             
             // apply custom operations

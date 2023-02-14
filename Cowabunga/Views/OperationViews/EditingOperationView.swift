@@ -207,7 +207,7 @@ struct EditingOperationView: View {
                                         if tp != replacingType {
                                             let tmp = replacingPath
                                             replacingPath = savedFilePath
-                                            savedFilePath = replacingPath
+                                            savedFilePath = tmp
                                             
                                             if tp == ReplacingObjectType.FilePath {
                                                 backupData = replacingData
@@ -487,32 +487,36 @@ struct EditingOperationView: View {
                         Button(action: {
                             // apply the changes
                             UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
-                            applyOperationProperties()
-                            do {
-                                if isActive {
-                                    do {
-                                        try operation.parseData()
-                                        try operation.applyData()
-                                    } catch {
-                                        print(error.localizedDescription)
+                            if operation is ReplacingObject && replacingType == .Imported && replacingData == nil {
+                                UIApplication.shared.alert(body: NSLocalizedString("Please select a file to import!", comment: ""))
+                            } else {
+                                applyOperationProperties()
+                                do {
+                                    if isActive {
+                                        do {
+                                            try operation.parseData()
+                                            try operation.applyData()
+                                        } catch {
+                                            print(error.localizedDescription)
+                                        }
+                                    } else {
+                                        do {
+                                            try operation.applyData(fromBackup: true)
+                                        } catch {
+                                            print(error.localizedDescription)
+                                        }
                                     }
-                                } else {
-                                    do {
-                                        try operation.applyData(fromBackup: true)
-                                    } catch {
-                                        print(error.localizedDescription)
+                                    if !editing || previousFilePath != filePath {
+                                        try operation.backup()
                                     }
+                                    try AdvancedManager.deleteOperation(operationName: previousName)
+                                    try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
+                                } catch {
+                                    UIApplication.shared.dismissAlert(animated: true)
+                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to save") + ": \(error.localizedDescription)")
                                 }
-                                if !editing || previousFilePath != filePath {
-                                    try operation.backup()
-                                }
-                                try AdvancedManager.deleteOperation(operationName: previousName)
-                                try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
-                                UIApplication.shared.dismissAlert(animated: true)
-                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
-                            } catch {
-                                UIApplication.shared.dismissAlert(animated: true)
-                                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to save") + ": \(error.localizedDescription)")
                             }
                         }) {
                             if editing {
@@ -580,6 +584,27 @@ struct EditingOperationView: View {
                     .padding()
                 }
             }
+            .sheet(isPresented: $isImporting) {
+                DocumentPicker(types: [.data]) { result in
+                    if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
+                    let url: URL = result.first!
+                    guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
+                    
+                    // save to temp directory
+                    do {
+                        let tmp = FileManager.default.temporaryDirectory
+                        replacingData = try Data(contentsOf: url)
+                        let newURL = tmp.appendingPathComponent(url.lastPathComponent)
+                        // write to temp file
+                        try replacingData!.write(to: newURL)
+                        replacingPath = newURL.path
+                        url.stopAccessingSecurityScopedResource()
+                    } catch {
+                        UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
+                        url.stopAccessingSecurityScopedResource()
+                    }
+                }
+            }
             .navigationTitle(pageTitle)
             .onAppear {
                 pageTitle = editing ? "Edit Operation": "Create Operation"
@@ -611,28 +636,6 @@ struct EditingOperationView: View {
                 
                 for (_, plist) in plistKeys.enumerated() {
                     replacingKeys[plist.key] = plist.value
-                }
-            }
-            .fileImporter(
-                isPresented: $isImporting,
-                allowedContentTypes: [.data],
-                allowsMultipleSelection: false
-            ) { result in
-                guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
-                guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
-                
-                // save to temp directory
-                do {
-                    let tmp = FileManager.default.temporaryDirectory
-                    replacingData = try Data(contentsOf: url)
-                    let newURL = tmp.appendingPathComponent(url.lastPathComponent)
-                    // write to temp file
-                    try replacingData!.write(to: newURL)
-                    replacingPath = newURL.path
-                    url.stopAccessingSecurityScopedResource()
-                } catch {
-                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
-                    url.stopAccessingSecurityScopedResource()
                 }
             }
         }
