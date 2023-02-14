@@ -5,9 +5,6 @@
 "(Recommended)" = "(Önerilen)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Ayrıca operatör adınıda gizleyecektir\n^Ayrıca mobil veri göstergesinide gizleyecektir";
-
-/* No comment provided by engineer. */
 "%lld bytes" = "%lld bit";
 
 /* No comment provided by engineer. */
@@ -21,9 +18,6 @@
 
 /* No comment provided by engineer. */
 "Add Value" = "Değer Ekle";
-
-/* BomberFish's contribution */
-"AirPower Audio" = "AirPower Sesi";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "Yüz boyutlarını uygularken bir hata meydana geldi.";
@@ -68,7 +62,7 @@
 "Apply" = "Uygula";
 
 /* Header for apply passcode key size for all */
-"Apply for all?" = "Hepsi için uygula?";
+"Apply for all?" = "Hepsi için uygulansın mı?";
 
 /* No comment provided by engineer. */
 "Apply in Background" = "Arkaplanda uygula";
@@ -83,7 +77,7 @@
 "Applying operation..." = "Operasyon uygulanıyor...";
 
 /* No comment provided by engineer. */
-"Are you sure you want to reset the Default SubType?" = "Default SubTyoe'ı sıfırlamak istediğine eminmisin?";
+"Are you sure you want to reset the Default SubType?" = "Default SubType'ı sıfırlamak istediğine emin misin?";
 
 /* Title of tool */
 "Audio" = "Ses";
@@ -92,7 +86,7 @@
 "Audio Changer" = "Ses Değiştirici";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "Uyguladıktan sonra otomatik respring at";
+"Auto respring after apply" = "Uyguladıktan sonra SpringBoard'ı yeniden başlat";
 
 /* No comment provided by engineer. */
 "Auto Update Included Audio" = "Dahil Edilen Sesleri Güncelle";
@@ -104,7 +98,7 @@
 "Background Update Frequency" = "Arkaplanda Gücelleme Sıklığı";
 
 /* No comment provided by engineer. */
-"Basic Configuration" = "Basit konfigürasyon";
+"Basic Configuration" = "Basit Konfigürasyon";
 
 /* Audio name */
 "Begin Recording" = "Kayda Başla";
@@ -119,7 +113,7 @@
 "Breadcrumb Text" = "Operatör Adı Şekli";
 
 /* No comment provided by engineer. */
-"Calculate Size" = "Hesaplama Boyutu";
+"Calculate Size" = "Boyutu Hesapla";
 
 /* No comment provided by engineer. */
 "Cancel" = "İptal et";
@@ -188,16 +182,16 @@
 "Control Center" = "Denetim Merkezi";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "Ayartıcı";
+"Corrupting" = "Bozucu";
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "Plist boyutu hesaplanamadı!";
 
 /* No comment provided by engineer. */
-"Couldn't get url of file. Did you select it?" = "Dosyanın urlsini alamadım. Seçmişmiydin?";
+"Couldn't get url of file. Did you select it?" = "Dosyanın urlsini alamadım. Seçmiş miydin?";
 
 /* No comment provided by engineer. */
-"Couldn't get url of folder. Did you select it?" = "Klasörün urlsini alamadım. Seçmişmiydin?";
+"Couldn't get url of folder. Did you select it?" = "Klasörün urlsini alamadım. Seçmiş miydin?";
 
 /* No comment provided by engineer. */
 "Cowabunga" = "Cowabunga";
@@ -206,7 +200,7 @@
 "Cowabunga %@" = "Cowabunga %@";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga \"Herzaman\" konum izni gerektirir.";
+"Cowabunga requires “Always” location permission." = "Cowabunga \"Her zaman\" konum izni gerektirir.";
 
 /* No comment provided by engineer. */
 "Create" = "Oluştur";
@@ -215,7 +209,7 @@
 "Credits" = "Yapımcılar";
 
 /* No comment provided by engineer. */
-"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Şimdilik diğer insanlarım görüp kullanabilmesi için tema paylaşabilirsin, buraya ekleyebilmek için discordumuzun #showcase kanalında incelememiz gerekicek.";
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Şimdilik diğer insanların görüp kullanabilmesi için tema paylaşabilirsin, buraya ekleyebilmek için discordumuzun #showcase kanalında incelememiz gerekecek.";
 
 /* Custom size for passcode keys */
 "Custom" = "Özel";
@@ -223,7 +217,7 @@
 /* No comment provided by engineer. */
 "Custom image" = "Özel resim";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "Özel Operasyonlar";
 
 /* default device subtype
@@ -267,10 +261,10 @@
 "Disable Shortcut Apps as Appclips" = "Kestirmeler Uygulamasını Appclips Olarak Devre Dışı Bırak";
 
 /* No comment provided by engineer. */
-"Dock" = "Yuva";
+"Dock" = "Dock";
 
 /* No comment provided by engineer. */
-"Download themes in Themes tab." = "Temalar kısmından tema yükle";
+"Download themes in Themes tab." = "Temalar sekmesinden tema yükle";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "Dinamik Ada";
@@ -282,10 +276,10 @@
 "Dynamic Island SubTypes" = "Dinamik Ada Tipi";
 
 /* No comment provided by engineer. */
-"Editing %@" = "Editleniyor %@";
+"Editing %@" = "Düzenleniyor %@";
 
 /* No comment provided by engineer. */
-"Email" = "Email";
+"Email" = "E-posta";
 
 /* No comment provided by engineer. */
 "Enable" = "Aktif Et";
@@ -300,7 +294,7 @@
 "Enter Dimensions" = "Boyutları Gir";
 
 /* dimensions for passcode keys */
-"Enter Key Dimensions" = "Tuş Boyutunu Gir";
+"Enter Key Dimensions" = "Tuş Boyutlarını Gir";
 
 /* No comment provided by engineer. */
 "Enter Name" = "Adı Gir";
@@ -309,7 +303,7 @@
 "Error" = "Hata";
 
 /* ginsudev's contribution */
-"Exploit Code" = "Kodu Kullan";
+"Exploit Code" = "Koddaki Açığı Kullan";
 
 /* No comment provided by engineer. */
 "Explore" = "Keşfet";
@@ -318,22 +312,22 @@
 "Extra Preferences" = "Ekstra Özellikler";
 
 /* Failed to apply audio */
-"Failed to apply audio for:" = "Şunun için sesi uygulamak başarısız oldu:";
+"Failed to apply audio for:" = "Şunun için sesi uygulama başarısız oldu:";
 
 /* failed to apply subtype */
-"Failed to apply Device SubType!" = "Cihaz tipini uygularken başarısız oldu!";
+"Failed to apply Device SubType!" = "Cihaz tipini uygulama başarısız oldu!";
 
 /* Failing to apply custom resolution */
-"Failed to apply resolution:" = "Çözünürlüğü uygularken başarısız oldu:";
+"Failed to apply resolution:" = "Çözünürlüğü uygulama başarısız oldu:";
 
 /* No comment provided by engineer. */
-"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "Sistem versiyon değişikliği başarısız oldu! Versiyon mutlaka cihazınızın versiyonundan kısa olması.\n\n(eror.localizedDescription)";
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "Sistem versiyonu değişikliği başarısız oldu! Versiyon mutlaka cihazınızın versiyonundan kısa olmalı.\n\n(eror.localizedDescription)";
 
 /* when the category cannot be created */
-"Failed to create category" = "Katagori oluşuturmak başarısız oldu!";
+"Failed to create category" = "Katagori oluşuturma başarısız oldu!";
 
 /* No comment provided by engineer. */
-"Failed to load operations." = "Operasyonları yüklemek başarısız oldu.";
+"Failed to load operations." = "Operasyonları yükleme başarısız oldu.";
 
 /* No comment provided by engineer. */
 "File not found!" = "Dosya Bulunamadı!";
@@ -345,7 +339,7 @@
 "Files" = "Dosyalar";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "Tweakları düzelt";
+"Fix tweaks" = "Tweakleri düzelt";
 
 /* No comment provided by engineer. */
 "Fixing apps..." = "Uygulamalar düzeltiliyor...";
@@ -360,7 +354,7 @@
 "Force MacDirtyCOW" = "MacDirtyCOW'u Zorla";
 
 /* No comment provided by engineer. */
-"Forgot password?" = "Şifrenimi Unuttun?";
+"Forgot password?" = "Şifreni mi Unuttun?";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "Nereden içeri aktarmak istersin?";
@@ -369,7 +363,7 @@
 "Gestures / Dynamic Island" = "Hareketler / Dinamik Ada";
 
 /* No comment provided by engineer. */
-"Go here if something isn't working correctly." = "Birşeyler Doğrı Değilse Buraya Gel.";
+"Go here if something isn't working correctly." = "Bir Şeyler Doğru Değilse Buraya Gel.";
 
 /* Height of custom resolution
    Height of passcode keys */
@@ -400,7 +394,7 @@
 "Hide Do Not Disturb" = "Rahatsız Etme'yi Gizle";
 
 /* Springboard tool */
-"Hide Dock" = "Yuva'yı Gizle";
+"Hide Dock" = "Dock'u Gizle";
 
 /* Springboard tool */
 "Hide Home Bar" = "Home Bar'ı Gizle";
@@ -418,9 +412,6 @@
 "Hide VPN" = "VPN'i Gizle";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi^" = "Wi-Fi'yi Gizle^";
-
-/* No comment provided by engineer. */
 "Home" = "Ana";
 
 /* Category of tool */
@@ -436,13 +427,10 @@
 "Import Passcode Theme" = "Kilit Ekranı Temasını İçe Aktar";
 
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
-"In the meantime you can ..." = "Sende bu arada ...";
+"In the meantime you can ..." = "Sen de bu arada ...";
 
 /* No comment provided by engineer. */
 "Included" = "Dahil Edilen";
-
-/* c22dev's contribution */
-"Included Audio & Credits" = "Dahil Ediled Ses & Yapımcıları";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Yazılım Sürümünü Gir";
@@ -451,7 +439,7 @@
 "iPhone X Gestures" = "iPhone X Hareketleri";
 
 /* No comment provided by engineer. */
-"Join Discord" = "Discord'a Katıl";
+"Join Discord" = "Discord'a Katılabilirsin";
 
 /* Audio name */
 "Keyboard Press Clear" = "Temiz Klavye Basışı";
@@ -527,10 +515,7 @@
 "No Cards Found" = "Hiç Kart Bulunmadı";
 
 /* No comment provided by engineer. */
-"No respring required to apply." = "Uygulamak için respringe gerek yok.";
-
-/* No comment provided by engineer. */
-"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Hiç tema içeri aktarılmadı.\nOnları sağ üst köşedeki butondan içeri aktae (Temalar <id>.png şeklinde olmak zorundadır)";
+"No respring required to apply." = "Uygulamak için SpringBoard'u yeniden başlatmaya gerek yok.";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Geçerli bir boyut değil!";
@@ -572,31 +557,31 @@
 "Payment Success" = "Ödeme Başarılı";
 
 /* when user enters a category name that cannot be used */
-"Please enter a valid category name!" = "Lütfen geçerli katagori adı girin!";
+"Please enter a valid category name!" = "Lütfen geçerli bir katagori adı gir!";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Lütfen Cowabunga'ya \"Herzaman\" konum iznini ayarlardan verinki arka planda çalışabilsin.";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Lütfen Cowabunga'ya ayarlardan \"Her zaman\" konum iznini verin. Böylelikle arka planda çalışabilir.";
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Lütfen devam etmek için kaynak repo adresine giriş yapın";
 
 /* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "Lütfen ayarları uygulamak için respring yapın. Yeniden başlatma normale çeviricektir.";
+"Please respring to finalize changes. Reboot to revert." = "Lütfen ayarları uygulamak için SpringBoard'u yeniden başlat. Tersine çevirmek için cihazı yeniden başlat..";
 
 /* No comment provided by engineer. */
-"Please respring to finish applying changes." = "Lütfen ugylanan değişiklerin tamamlanması için respring yapın";
+"Please respring to finish applying changes." = "Lütfen uygulanan değişiklerin tamamlanması için SpringBoard'u yeniden başlat.";
 
 /* respring to hear audio changes */
-"Please respring to hear changes." = "Değişiklikleri duymak için lütfen respring yapın.";
+"Please respring to hear changes." = "Değişiklikleri duymak için lütfen SpringBoard'u yeniden başlat.";
 
 /* No comment provided by engineer. */
-"Please respring to see changes." = "Değişiklikleri görmek için lütfen respring yapın.";
+"Please respring to see changes." = "Değişiklikleri görmek için lütfen SpringBoard'u yeniden başlat.";
 
 /* No comment provided by engineer. */
 "Please wait" = "Lütfen bekleyin";
 
 /* No comment provided by engineer. */
-"Please wait for Cowabunga to finish theming..." = "Lütfen Cowabunga'nın temaları bitirmesini bekletin...";
+"Please wait for Cowabunga to finish theming..." = "Lütfen Cowabunga'nın temaları bitirmesini bekle...";
 
 /* operation type that changes plist keys */
 "Plist" = "Plist";
@@ -629,7 +614,7 @@
 "Rename theme" = "Temayı yeniden adlandır";
 
 /* No comment provided by engineer. */
-"Replace With:" = "İle Yerine Koy:";
+"Replace With:" = "İle Değiştir:";
 
 /* No comment provided by engineer. */
 "Replacement Data" = "Yedek Veri";
@@ -647,13 +632,13 @@
 "Reset faces" = "Temayı sıfırla";
 
 /* No comment provided by engineer. */
-"Respring" = "Respring";
+"Respring" = "SpringBoard'u Yeniden Başlat";
 
 /* No comment provided by engineer. */
-"Respring to see changes" = "Değişiklikleri görmek için respring yapın";
+"Respring to see changes" = "Değişiklikleri görmek için SpringBoard'u yeniden başlat.";
 
 /* No comment provided by engineer. */
-"Run in background" = "Arka planda çalışma";
+"Run in background" = "Arka planda çalış";
 
 /* No comment provided by engineer. */
 "Save" = "Kaydet";
@@ -683,13 +668,13 @@
 "Sent Message" = "Mesaj Gönder";
 
 /* No comment provided by engineer. */
-"Set app switcher color" = "Uygulama Değiştiric Rengini Seç";
+"Set app switcher color" = "Uygulama Değiştiricisi Rengini Seç";
 
 /* No comment provided by engineer. */
 "Set badge color" = "Bildirim işareti rengini seç";
 
 /* No comment provided by engineer. */
-"Set dock color" = "Yuva rengini seç";
+"Set dock color" = "Dock rengini seç";
 
 /* No comment provided by engineer. */
 "Set expanded folder background color" = "Genişletilmiş klasör arkaplan rengini seç";
@@ -713,7 +698,7 @@
 "Small" = "Küçük";
 
 /* No comment provided by engineer. */
-"Software Version" = "Yazılım Versiyonu";
+"Software Version" = "Yazılım Sürümü";
 
 /* Title of tool */
 "Springboard Colors" = "Springboard Renkleri";
@@ -752,13 +737,13 @@
 "Tap a card to customize" = "Özelleştirmek için bir karta tılka";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Görünümü değiştmek istediğin tuşa\nbas";
+"Tap on any key to edit \nits appearance" = "Görünümü değiştirmek istediğin tuşa\nbas";
 
 /* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "Bu bildirime tıklayarak arka planda çalışmaya devam ettir.";
 
 /* No comment provided by engineer. */
-"The app will quit." = "Uygulama atıcaktır.";
+"The app will quit." = "Uygulama kapanacaktır.";
 
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "İçe aktarılan ses başarı ile şifrelendi ve kaydedildi.";
@@ -794,13 +779,13 @@
 "Unable to delete audio for audio" = "Ses için sesi silemezsin";
 
 /* Failed to import lock */
-"Unable to save imported lock!" = "İçeri aktarılan kilit başarılı olmadı!";
+"Unable to save imported lock!" = "İçeri aktarılan kilit kaydedilemedi!";
 
 /* No comment provided by engineer. */
 "Uncategorized" = "Katagorize edilmemiş";
 
 /* Shown after successful theme set. */
-"Understood, Respring" = "Anladım, Respring yap";
+"Understood, Respring" = "Anladım, SpringBoard'u yeniden başlat";
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Unsandbox etme";
@@ -812,16 +797,13 @@
 "Upload File" = "Dosya Yükle";
 
 /* No comment provided by engineer. */
-"Use Alternative Setter" = "Altarnatif Ayarlayıcıyı Kullan";
+"Use Alternative Setter" = "Alternatif Ayarlayıcıyı Kullan";
 
 /* No comment provided by engineer. */
-"Use at your own risk" = "Kendi Riskiniz Altında Kullanın";
+"Use at your own risk" = "Kendi Sorumluluğunda Kullan";
 
 /* No comment provided by engineer. */
-"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Bunu operatör/saat yazıları uygulanmıyorsa kullanın. Açtıktan sonra varsayılan'a sıfırlamayı öneririm.";
-
-/* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "Bunu cihazınız yanlışlıkla TrollStore'u algıladıysa kullanın, ve StatusMagic'in tepesindeki Uygula butonuna basmanıza gerek yok.";
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Bunu operatör/saat yazıları uygulanmıyorsa kullan. Açtıktan sonra varsayılana sıfırlamayı öneririm.";
 
 /* No comment provided by engineer. */
 "validate" = "geçerlilik";
@@ -833,14 +815,14 @@
 "Version %@ (%@)" = "Versiyon %@ (%@)";
 
 /* No comment provided by engineer. */
-"When set to blank on notched devices, this will display the carrier name." = "Çentikli cihazlar için boş bırakın, bu operatör adını gösterecektir.";
+"When set to blank on notched devices, this will display the carrier name." = "Çentikli cihazlar için boş bırakıldığında operatör adını gösterecek.";
 
 /* Width of custom resolution
    Width of passcode keys */
 "Width" = "Genişlik";
 
 /* Message for apply passcode key size for all */
-"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Tüm tuşlara uygulamak istermisin? Aksi halde sadece yeni yüzler için uygulanacaktır.";
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Tüm tuşlara uygulamak ister misin? Aksi halde sadece yeni yüzler için uygulanacaktır.";
 
 /* No comment provided by engineer. */
 "x" = "x";
@@ -855,14 +837,11 @@
 "Yes" = "Evet";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Hiç kaydedilmiş kilit ekranı teman yok. Hadi git ve keşfet sayfasından biraz bul!";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Hiç kaydedilmiş kilit ekranı teman yok. Hadi git ve keşfet sekmesinden biraz bul!";
 
 /* No comment provided by engineer. */
-"Your apps should now function properly" = "Uygulamalarınız artık düzgün çalışmaya başlayacaktır";
+"Your apps should now function properly" = "Uygulamaların artık düzgün çalışmalı";
 
 /* No comment provided by engineer. */
-"Your device will respring." = "Cihazınız respring edilecektir.";
-
-/* No comment provided by engineer. */
-"Your device will respring.\n\n\nUsing %@" = "Cihazınız respring edilicektir.\n\n\nKullanılan %@";
+"Your device will respring." = "SpringBoard yeniden başlatılacaktır.";
 

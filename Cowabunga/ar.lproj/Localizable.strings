@@ -8,10 +8,16 @@
 "(Recommended)" = "(مستحسن)";
 
 /* No comment provided by engineer. */
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "سيخفي أيضا اسم الناقل *\n** سيخفي أيضا مؤشر البيانات الخلوية";
+
+/* No comment provided by engineer. */
 "%lld bytes" = "%lld بايت";
 
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
+
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ من فضلك اقرأ ⬇⚠️\n\n بعد إعادة تشغيل الهاتف ، يرجى * إعادة فتح Cowabunga * لإصلاح التطبيقات التي لا تعمل بشكل صحيح\n\nمهم جدًا: إذا رأيت شعار Apple وشريط التقدم ، فلا تقلق ، جهازك على ما يرام. من فضلك لا تحاول فرض إعادة تشغيله.\n\nالوقت المنقضي: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -22,8 +28,14 @@
 /* No comment provided by engineer. */
 "Add Value" = "إضافة قيمة";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "AirPower Audio";
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "ستتم إعادة جميع أيقونات التطبيقات إلى مظهرها الأصلي. هل أنت متأكد من أنك تريد المتابعة؟ (قد تكون إعادة التشغيل مطلوبة)";
+
+/* No comment provided by engineer. */
+"Alternatives" = "البدائل";
+
+/* No comment provided by engineer. */
+"Always has been" = "لقد كان دائما";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "حدث خطأ عند تطبيق أحجام الوجه.";
@@ -46,6 +58,9 @@
 /* when an operation fails to delete */
 "An error occurred while deleting the operation" = "حدث خطأ أثناء حذف العملية";
 
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "حدث خطأ أثناء استعادة الملفات";
+
 /* when an operation fails to save */
 "An error occurred while saving the operation" = "حدث خطأ أثناء حفظ العملية";
 
@@ -63,6 +78,9 @@
 
 /* No comment provided by engineer. */
 "App Switcher" = "مبدل التطبيقات";
+
+/* No comment provided by engineer. */
+"App theme was successfully saved!" = "!تم حفظ سمة التطبيق بنجاح";
 
 /* No comment provided by engineer. */
 "Apply" = "تطبيق";
@@ -132,6 +150,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "نص الناقل";
+
+/* No comment provided by engineer. */
+"Change" = "تغيير";
 
 /* No comment provided by engineer. */
 "Change Breadcrumb Text" = "تغيير نص مسار التنقل";
@@ -226,7 +247,7 @@
 /* No comment provided by engineer. */
 "Custom image" = "صورة مخصصة";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "عمليات مخصصة";
 
 /* default device subtype
@@ -247,6 +268,12 @@
 
 /* No comment provided by engineer. */
 "Device Resolution" = "دقة الجهاز";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "محرر وجه مفاتيح الاتصال";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "!تم مسح مفاتيح الاتصال بنجاح";
 
 /* No comment provided by engineer. */
 "Disable" = "تعطيل";
@@ -296,6 +323,9 @@
 /* No comment provided by engineer. */
 "Enable Shortcut Apps as Appclips" = "تمكين اختصار التطبيقات كما Appclips";
 
+/* No comment provided by engineer. */
+"Enabled" = "تم التمكين";
+
 /* Audio name */
 "End Recording" = "إنهاء التسجيل";
 
@@ -327,13 +357,19 @@
 "Failed to apply Device SubType!" = "فشل تطبيق النوع الفرعي للجهاز!";
 
 /* Failing to apply custom resolution */
-"Failed to apply resolution:" = "فشل في تطبيق الدقة:";
+"Failed to apply resolution:" = ":فشل في تطبيق الدقة:";
+
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "فشل في تطبيق تغيير إصدار النظام! يجب أن يكون الإصدار أقصر من إصدار جهازك الحالي.\n\n(error.localizedDescription)";
 
 /* when the category cannot be created */
 "Failed to create category" = "فشل إنشاء الفئة";
 
 /* No comment provided by engineer. */
 "Failed to load operations." = "فشل تحميل العمليات.";
+
+/* No comment provided by engineer. */
+"Failed to save theme!" = "!فشل في حفظ السمة";
 
 /* No comment provided by engineer. */
 "File not found!" = "لم يتم العثور على الملف!";
@@ -364,6 +400,9 @@
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "من أين تريد الاستيراد ؟";
+
+/* header for resetting all icons */
+"Full reset" = "إعادة تعيين كاملة";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "الإيماءات /الجزيرة الديناميكية";
@@ -421,6 +460,9 @@
 "Hide VPN" = "إخفاء VPN";
 
 /* No comment provided by engineer. */
+"Hide Wi-Fi**" = "**Wi-Fi إخفاء شبكة";
+
+/* No comment provided by engineer. */
 "Home" = "الصفحة الرئيسية";
 
 /* Category of tool */
@@ -432,11 +474,17 @@
 /* No comment provided by engineer. */
 "Icons" = "أيقونات";
 
+/* No comment provided by engineer. */
+"Icons override" = "تجاوز الأيقونات";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "إذا كان القفل المخصص لا ينطبق عليك، فجرّب خيارًا آخر.";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "استيراد سمة رمز المرور";
+
+/* No comment provided by engineer. */
+"In progress..." = "...قيد التقدم";
 
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "في هذه الأثناء أنت يُمْكِنُ أَنْ ...";
@@ -444,8 +492,11 @@
 /* No comment provided by engineer. */
 "Included" = "مشمول";
 
+/* c22dev's contribution */
+"Included Audio, Credits, and Card Changer" = "متضمن الصوت والاعتمادات ومبدل البطاقة";
+
 /* Header for inputting custom iOS version */
-"Input Software Version" = "إصدار برنامج الإدخال";
+"Input Software Version" = "أدخل رقم الإصدار";
 
 /* x gestures */
 "iPhone X Gestures" = "إيماءات iPhone X";
@@ -457,10 +508,13 @@
 "Key" = "مفتاح";
 
 /* Audio name */
-"Keyboard Press Delete" = "لوحة المفاتيح اضغط حذف";
+"Keyboard Press Clear" = "لوحة المفاتيح ضغطه المسح";
 
 /* Audio name */
-"Keyboard Press Normal" = "لوحة المفاتيح اضغط عادي";
+"Keyboard Press Delete" = "لوحة المفاتيح ضغطه الحذف";
+
+/* Audio name */
+"Keyboard Press Normal" = "لوحة المفاتيح ضغطه العادي";
 
 /* Audio name */
 "Lock" = "قفل";
@@ -530,6 +584,9 @@
 "No respring required to apply." = "لا يوجد أعادة التشغيل السريع المطلوبة لتطبيق.";
 
 /* No comment provided by engineer. */
+"No themes containing icons for %@ (%@) have been found." = "%@ (%@)لم يتم العثور على سمات تحتوي على أيقونات ل";
+
+/* No comment provided by engineer. */
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "لم يتم العثور على السمات. قم بتنزيل السمات في علامة التبويب \"استكشاف\" ،أو قم باستيرادها باستخدام الزر الموجود في الزاوية اليمنى العليا (يجب أن تحتوي السمات على رموز بتنسيق <id>.png).";
 
 /* Not a valid size input for passcode keys */
@@ -577,6 +634,9 @@
 /* Audio name */
 "Payment Success" = "تم الدفع بنجاح";
 
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = ".الرجاء إغلاق وإعادة فتح تطبيق الهاتف";
+
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "الرجاء إدخال اسم فئة صالح!";
 
@@ -599,6 +659,9 @@
 "Please respring to see changes." = "يرجى أعادة التشغيل السريع لمشاهدة التغييرات.";
 
 /* No comment provided by engineer. */
+"Please select a file to import!" = "!الرجاء تحديد ملف للاستيراد";
+
+/* No comment provided by engineer. */
 "Please wait" = "يرجى الانتظار";
 
 /* No comment provided by engineer. */
@@ -618,6 +681,9 @@
 
 /* No comment provided by engineer. */
 "Preferences" = "التفضيلات";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "إعادة إنشاء التخزين المؤقت للأيقونة";
 
 /* Audio name */
 "Received Message" = "الرسالة المستلمة";
@@ -659,6 +725,12 @@
 "Respring to see changes" = "إعادة التشغيل لمشاهدة التغييرات";
 
 /* No comment provided by engineer. */
+"Restore" = "استعادة";
+
+/* restore button on custom operations */
+"Restoring original file..." = "...استعادة الملف الأصلي";
+
+/* No comment provided by engineer. */
 "Run in background" = "تشغيل في الخلفية";
 
 /* No comment provided by engineer. */
@@ -672,6 +744,12 @@
 
 /* apply button on custom operations */
 "Saving operation..." = "جارٍ حفظ العملية...";
+
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "جدولة إعادة البناء";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "Scheduling icon cache reset...";
 
 /* Audio name */
 "Screenshot" = "لقطة شاشة";
@@ -704,6 +782,9 @@
 "Set folder color" = "تعيين لون المجلد";
 
 /* No comment provided by engineer. */
+"Set notification banner color" = "تعيين لون شعار الإشعارات";
+
+/* No comment provided by engineer. */
 "Settings" = "الإعدادات";
 
 /* No comment provided by engineer. */
@@ -729,6 +810,9 @@
 
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "أدوات SpringBoard";
+
+/* No comment provided by engineer. */
+"Starting..." = "...جاري البدء";
 
 /* Title of tool */
 "Status Bar" = "شريط الحالة";
@@ -758,6 +842,9 @@
 "Tap a card to customize" = "اضغط على بطاقة للتخصيص";
 
 /* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "اضغط على أي مفتاح لتعديل مظهره";
+
+/* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "اضغط على هذا الإشعار لاستئناف تعديل التطبيقات.";
 
 /* No comment provided by engineer. */
@@ -780,6 +867,9 @@
 
 /* when an operation is saved */
 "The operation was successfully saved!" = "تم حفظ العملية بنجاح!";
+
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = ".السمة التي تحمل الاسم (url.deletingPathExtension().lastPathComponent) موجودة بالفعل. الرجاء إعادة تسمية المجلد";
 
 /* No comment provided by engineer. */
 "Themes" = "السمات";
@@ -827,6 +917,9 @@
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "استخدم هذا إذا كان نص الناقل/الوقت لا ينطبق. أنصحك بإعادة التعيين إلى الإعدادات الافتراضية بعد التشغيل والحفظ.";
 
 /* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "استخدم هذا إذا كان جهازك يكتشف عن طريق الخطأ تثبيت TrollStore، وليس لديك زر تطبيق في الجزء العلوي من صفحة شريط الحالة.";
+
+/* No comment provided by engineer. */
 "validate" = "التحقق من الصحة";
 
 /* value for plist operation */
@@ -834,6 +927,9 @@
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "الإصدار %@ (%@)";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "؟TrollTools انتظر، كل شيء";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "عند تركه فارغا على الأجهزة أكس و فوق، سيعرض هذا اسم الناقل.";
@@ -868,4 +964,7 @@
 
 /* No comment provided by engineer. */
 "Your device will respring." = "سوف يتم أعادة التشغيل السريع.";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nApplying using %@." = "سيتم إعادة التشغيل السريع.\n\n\nتطبيق باستخدام %@.";
 

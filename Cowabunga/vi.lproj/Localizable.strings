@@ -10,6 +10,9 @@
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ VUI LÒNG ĐỌC ⬇⚠️\n\n  Sau khi điện thoại khởi động lại màn hình, vui lòng *mở lại Cowabunga* để sửa lại các ứng dụng không hoạt động bình thường\n\nRẤT QUAN TRỌNG: Nếu bạn thấy logo táo và thanh tiến trình, đừng lo lắng, thiết bị của bạn vẫn hoạt động bình thường. VUI LÒNG KHÔNG THỬ KHỞI ĐỘNG LẠI NÓ.\n\nThời gian đã qua: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
+
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
@@ -19,11 +22,14 @@
 /* No comment provided by engineer. */
 "Add Value" = "Thêm giá trị";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "Âm thanh của AirPower";
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Tất cả các biểu tượng ứng dụng sẽ được đặt lại về mặc định. Bạn có chắc chắn muốn tiếp tục? (Có thể cần khởi động lại)";
 
 /* No comment provided by engineer. */
 "Alternatives" = "Lựa chọn thay thế";
+
+/* No comment provided by engineer. */
+"Always has been" = "Luôn luôn là như thế";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "Có lỗi xảy ra trong lúc đang áp dụng kích thước của hình.";
@@ -66,6 +72,9 @@
 
 /* No comment provided by engineer. */
 "App Switcher" = "Bộ chuyển đổi ứng dụng";
+
+/* No comment provided by engineer. */
+"App theme was successfully saved!" = "Giao diện biểu tượng ứng dụng đã được lưu thành công!";
 
 /* No comment provided by engineer. */
 "Apply" = "Áp dụng";
@@ -226,7 +235,7 @@
 /* No comment provided by engineer. */
 "Custom image" = "Ảnh tự chọn";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "Vận hành tùy chỉnh";
 
 /* default device subtype
@@ -247,6 +256,12 @@
 
 /* No comment provided by engineer. */
 "Device Resolution" = "Độ phân giải thiết bị";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "Trình chỉnh sửa hình số điện thoại";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "Hình phím điện thoại đã được xóa thành công";
 
 /* No comment provided by engineer. */
 "Disable" = "Vô hiệu hóa";
@@ -342,6 +357,9 @@
 "Failed to load operations." = "Chạy thao tác thất bại.";
 
 /* No comment provided by engineer. */
+"Failed to save theme!" = "Không thể lưu giao diện!";
+
+/* No comment provided by engineer. */
 "File not found!" = "Không tìm thấy Tệp!";
 
 /* No comment provided by engineer. */
@@ -370,6 +388,9 @@
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "Chọn nguồn mà bạn muốn nhập chủ đề vào:";
+
+/* header for resetting all icons */
+"Full reset" = "Buộc khôi phục lại";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Cử chỉ / Dynamic Island";
@@ -449,6 +470,9 @@
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "Nhập vào chủ đề cho màn hình khóa";
+
+/* No comment provided by engineer. */
+"In progress..." = "Đang tiến hành...";
 
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "Trong lúc đó bạn có thể ...";
@@ -598,6 +622,9 @@
 /* Audio name */
 "Payment Success" = "Thanh toán thành công";
 
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "Vui lòng đóng và mở lại ứng dụng Điện thoại.";
+
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "Vui lòng nhập tên danh mục hợp lệ!";
 
@@ -618,6 +645,9 @@
 
 /* No comment provided by engineer. */
 "Please respring to see changes." = "Vui lòng khởi động lại màn hình để thấy sự thay đổi.";
+
+/* No comment provided by engineer. */
+"Please select a file to import!" = "Vui lòng chọn một tệp để nhập vào!";
 
 /* No comment provided by engineer. */
 "Please wait" = "Vui lòng đợi";
@@ -703,6 +733,12 @@
 /* apply button on custom operations */
 "Saving operation..." = "Đang lưu lại thao tác...";
 
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "Đang chuẩn bị xây dựng lại";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "Đang chuẩn bị cài lại bộ nhớ đệm biểu tượng...";
+
 /* Audio name */
 "Screenshot" = "Chụp màn hình";
 
@@ -763,6 +799,9 @@
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "Công cụ SpringBoard";
 
+/* No comment provided by engineer. */
+"Starting..." = "Đang bắt đầu...";
+
 /* Title of tool */
 "Status Bar" = "Thanh trạng thái";
 
@@ -816,6 +855,9 @@
 
 /* when an operation is saved */
 "The operation was successfully saved!" = "Thao tác đã được lưu thành công!";
+
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "Chủ đề với tên (url.deletingPathExtension().lastPathComponent) đã tồn tại. Vui lòng đổi tên thư mục.";
 
 /* No comment provided by engineer. */
 "Themes" = "Chủ đề";
