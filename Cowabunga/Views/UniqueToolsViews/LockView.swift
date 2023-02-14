@@ -23,8 +23,7 @@ struct LockView: View {
     
     @State private var currentLock: String = "Default"
     @State private var locksDir = LockManager.getLocksDirectory()
-    
-    @State private var isImporting = false
+    @State private var isImporting: Bool = false
     
     var body: some View {
         VStack {
@@ -108,29 +107,15 @@ struct LockView: View {
                             lock.checked.wrappedValue = true
                             currentLock = lock.title.wrappedValue
                             UserDefaults.standard.set(lock.title.wrappedValue, forKey: "CurrentLock")
-                            let lockType: String = LockManager.getLockType()
                             print("applying lock")
-                            if lockType != "" {
-                                let succeeded = LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockType)
-                                if succeeded {
-                                    UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
-                                } else {
-                                    UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
-                                }
+                            let succeeded = LockManager.applyLock(lockName: lock.title.wrappedValue)
+                            if succeeded {
+                                UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
                             } else {
-                                // just apply all of them lol
-                                var succeeded: Bool = true
-                                for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
-                                    succeeded = succeeded && LockManager.applyLock(lockName: lock.title.wrappedValue, lockType: lockPath)
-                                }
-                                if succeeded {
-                                    UIApplication.shared.alert(title: "Successfully applied lock!", body: "Respring needed to finish applying.")
-                                } else {
-                                    UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
-                                }
+                                UIApplication.shared.alert(body: "An error occurred while trying to apply the lock.")
                             }
                         }) {
-                            Text(lock.title.wrappedValue.replacingOccurrences(of: "_", with: " "))
+                            Text(lock.title.wrappedValue)
                         }
                     }
                 }
@@ -154,63 +139,12 @@ struct LockView: View {
         .navigationTitle("Locks")
         .toolbar {
             Button(action: {
-                // import a custom audio
+                // import a custom lock
                 // allow the user to choose the file
                 isImporting.toggle()
-            }, label: {
+            }) {
                 Image(systemName: "square.and.arrow.down")
-            })
-        }
-        .fileImporter(
-            isPresented: $isImporting,
-            allowedContentTypes: [.folder],
-            allowsMultipleSelection: false
-        ) { result in
-            // user chose a file
-            guard let url = try? result.get().first else { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of folder. Did you select it?", comment: "")); return }
-            guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
-            
-            // ask for a name for the lock
-            let alert = UIAlertController(title: NSLocalizedString("Enter Name", comment: ""), message: NSLocalizedString("Choose a name for the lock", comment: ""), preferredStyle: .alert)
-            
-            // bring up the text prompts
-            alert.addTextField { (textField) in
-                // text field for width
-                textField.placeholder = NSLocalizedString("Name", comment: "")
-                textField.text = url.deletingPathExtension().lastPathComponent
             }
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
-                // set the name and add the file
-                if alert.textFields?[0].text != nil {
-                    // check if it is a valid name
-                    let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.")
-                    var fileName: String = (alert.textFields?[0].text ?? "Unnamed").filter{validChars.contains($0)}
-                    if fileName == "" {
-                        // set to unnamed
-                        fileName = "Unnamed"
-                    }
-                    // save the folder
-                    do {
-                        let fileImportName: String = fileName.replacingOccurrences(of: " ", with: "_")
-                        let icon = try LockManager.addImportedLock(lockName: fileImportName, url: url)
-                        let uiIcon = UIImage(data: icon)
-                        locks.append(Lock.init(title: fileImportName, icon: uiIcon))
-                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The imported lock was successfully saved.", comment: "Saving imported lock"))
-                    } catch {
-                        print(error.localizedDescription)
-                        UIApplication.shared.alert(title: NSLocalizedString("Unable to save imported lock!", comment: "Failed to import lock"), body: error.localizedDescription)
-                    }
-                } else {
-                    print("alert textfield is nil!")
-                    UIApplication.shared.alert(body: "Unexpected error with textfield")
-                }
-                url.stopAccessingSecurityScopedResource()
-            })
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                // cancel the process
-                url.stopAccessingSecurityScopedResource()
-            })
-            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
         .onAppear {
             currentLock = UserDefaults.standard.string(forKey: "CurrentLock") ?? "Default"
@@ -260,6 +194,57 @@ struct LockView: View {
             } catch {
                 print("Error getting contents of directory")
             }
+        }
+        .sheet(isPresented: $isImporting) {
+            DocumentPicker(
+                types: [.folder]) { result in
+                    // user chose a file
+                    if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of folder. Did you select it?", comment: "")); return }
+                    let url: URL = result.first!
+                    guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
+                    
+                    // ask for a name for the lock
+                    let alert = UIAlertController(title: NSLocalizedString("Enter Name", comment: ""), message: NSLocalizedString("Choose a name for the lock", comment: ""), preferredStyle: .alert)
+                    
+                    // bring up the text prompts
+                    alert.addTextField { (textField) in
+                        // text field for width
+                        textField.placeholder = NSLocalizedString("Name", comment: "")
+                        textField.text = url.deletingPathExtension().lastPathComponent
+                    }
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
+                        // set the name and add the file
+                        if alert.textFields?[0].text != nil {
+                            // check if it is a valid name
+                            let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890._")
+                            var fileName: String = (alert.textFields?[0].text ?? "Unnamed").filter{validChars.contains($0)}
+                            if fileName == "" {
+                                // set to unnamed
+                                fileName = "Unnamed"
+                            }
+                            // save the folder
+                            do {
+                                let fileImportName: String = fileName
+                                let icon = try LockManager.addImportedLock(lockName: fileImportName, url: url)
+                                let uiIcon = UIImage(data: icon)
+                                locks.append(Lock.init(title: fileImportName, icon: uiIcon))
+                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The imported lock was successfully saved.", comment: "Saving imported lock"))
+                            } catch {
+                                print(error.localizedDescription)
+                                UIApplication.shared.alert(title: NSLocalizedString("Unable to save imported lock!", comment: "Failed to import lock"), body: error.localizedDescription)
+                            }
+                        } else {
+                            print("alert textfield is nil!")
+                            UIApplication.shared.alert(body: "Unexpected error with textfield")
+                        }
+                        url.stopAccessingSecurityScopedResource()
+                    })
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                        // cancel the process
+                        url.stopAccessingSecurityScopedResource()
+                    })
+                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
         }
     }
 }

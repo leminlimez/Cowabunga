@@ -21,6 +21,27 @@ struct HomeView: View {
         .init(key: "NotifBackgroundDisabled", fileType: OverwritingFileTypes.springboard)
     ]
     
+    struct Translator: Identifiable {
+        var id = UUID()
+        var names: String
+        var contribution: String
+    }
+    
+    // list of translators
+    @State private var translators: [Translator] = [
+        .init(names: "c22dev", contribution: "🇫🇷 French"),
+        .init(names: "Mattia#6297", contribution: "🇮🇹 Italian"),
+        .init(names: "Abbyy#2820", contribution: "🇵🇱 Polish"),
+        .init(names: "Maxiwee#9333", contribution: "🇩🇪 German"),
+        .init(names: "kylak#5621", contribution: "🇧🇷 Portuguese"),
+        .init(names: "Skyfall#5572", contribution: "🇨🇳 Chinese"),
+        .init(names: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese"),
+        .init(names: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)"),
+        .init(names: "iwishkem.#3116", contribution: "🇹🇷 Turkish"),
+        .init(names: "TaekyungAncal#7857", contribution: "🇰🇷 Korean"),
+        .init(names: "Aru Pro#2789", contribution: "🇦🇪 Arabic")
+    ]
+    
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
@@ -30,6 +51,7 @@ struct HomeView: View {
     @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
     @State private var autoFetchLocks: Bool = UserDefaults.standard.bool(forKey: "AutoFetchLocks")
     @State private var lockPrefs: String = UserDefaults.standard.string(forKey: "LockPrefs") ?? LockManager.globalLockPaths[0]
+    private var deviceType = UIDevice().machineName
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
         120.0: "Frequent",
@@ -71,54 +93,56 @@ struct HomeView: View {
                 Section {
                     // app preferences
                     // lock type prefs
-                    HStack {
-                        Text("Lock Type")
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                        
-                        Button(lockPrefs, action: {
-                            // create and configure alert controller
-                            let alert = UIAlertController(title: NSLocalizedString("Choose a lock preference", comment: "Title for lock preference"), message: NSLocalizedString("If the custom lock does not apply for you, try another option.", comment: "Description for lock preference"), preferredStyle: .actionSheet)
-                            let devModel = UIDevice().machineName
+                    if LockManager.deviceLockPath[deviceType] != nil {
+                        HStack {
+                            Text("Lock Type")
+                                .minimumScaleFactor(0.5)
                             
-                            // create the actions
-                            for (_, title) in LockManager.globalLockPaths.enumerated() {
-                                var rec: String = ""
-                                if LockManager.deviceLockPath[devModel] != nil && LockManager.deviceLockPath[devModel]! == title {
-                                    rec = " " + NSLocalizedString("(Recommended)", comment: "Recommended lock type")
+                            Spacer()
+                            
+                            Button(lockPrefs, action: {
+                                // create and configure alert controller
+                                let alert = UIAlertController(title: NSLocalizedString("Choose a lock preference", comment: "Title for lock preference"), message: NSLocalizedString("If the custom lock does not apply for you, try another option.", comment: "Description for lock preference"), preferredStyle: .actionSheet)
+                                let devModel = UIDevice().machineName
+                                
+                                // create the actions
+                                for (_, title) in LockManager.globalLockPaths.enumerated() {
+                                    var rec: String = ""
+                                    if LockManager.deviceLockPath[devModel] != nil && LockManager.deviceLockPath[devModel]! == title {
+                                        rec = " " + NSLocalizedString("(Recommended)", comment: "Recommended lock type")
+                                    }
+                                    
+                                    let newAction = UIAlertAction(title: title+rec, style: .default) { (action) in
+                                        // apply the type
+                                        lockPrefs = title
+                                        // set the default
+                                        UserDefaults.standard.set(title, forKey: "LockPrefs")
+                                    }
+                                    if lockPrefs == title {
+                                        // add a check mark if selected
+                                        newAction.setValue(true, forKey: "checked")
+                                    }
+                                    alert.addAction(newAction)
                                 }
                                 
-                                let newAction = UIAlertAction(title: title+rec, style: .default) { (action) in
-                                    // apply the type
-                                    lockPrefs = title
-                                    // set the default
-                                    UserDefaults.standard.set(title, forKey: "LockPrefs")
+                                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                    // cancels the action
                                 }
-                                if lockPrefs == title {
-                                    // add a check mark if selected
-                                    newAction.setValue(true, forKey: "checked")
-                                }
-                                alert.addAction(newAction)
-                            }
-                            
-                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                                // cancels the action
-                            }
-                            
-                            // add the actions
-                            alert.addAction(cancelAction)
-                            
-                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                            // present popover for iPads
-                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                            
-                            // present the alert
-                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
-                        })
-                        .foregroundColor(.blue)
-                        .padding(.leading, 10)
+                                
+                                // add the actions
+                                alert.addAction(cancelAction)
+                                
+                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                // present popover for iPads
+                                alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                
+                                // present the alert
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                            })
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        }
                     }
                     
                     // background run frequency
@@ -248,16 +272,9 @@ struct HomeView: View {
                 }
                 
                 Section {
-                    LinkCell(imageName: "", url: "", title: "c22dev & Yan.#0001", contribution: "🇫🇷 French")
-                    LinkCell(imageName: "", url: "", title: "Mattia#6297", contribution: "🇮🇹 Italian")
-                    LinkCell(imageName: "", url: "", title: "Abbyy#2820", contribution: "🇵🇱 Polish")
-                    LinkCell(imageName: "", url: "", title: "Maxiwee#9333", contribution: "🇩🇪 German")
-                    LinkCell(imageName: "", url: "", title: "kylak#5621", contribution: "🇧🇷 Portuguese")
-                    LinkCell(imageName: "", url: "", title: "Skyfall#5572", contribution: "🇨🇳 Chinese")
-                    LinkCell(imageName: "", url: "", title: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese")
-                    LinkCell(imageName: "", url: "", title: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)")
-                    LinkCell(imageName: "", url: "", title: "iwishkem.#3116", contribution: "🇹🇷 Turkish")
-                    LinkCell(imageName: "", url: "", title: "TaekyungAncal#7857", contribution: "🇰🇷 Korean")
+                    ForEach(translators) { translator in
+                        LinkCell(imageName: "", url: "", title: translator.names, contribution: translator.contribution)
+                    }
                 } header: {
                     Text("Translators")
                 }
@@ -351,16 +368,8 @@ struct HomeView: View {
         
         if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
             let lockName: String = UserDefaults.standard.string(forKey: "Lock")!
-            let lockType: String = LockManager.getLockType()
             print("applying lock")
-            if lockType != "" {
-                let _ = LockManager.applyLock(lockName: lockName, lockType: lockType)
-            } else {
-                // just apply all of them lol
-                for (_, lockPath) in LockManager.globalLockPaths.enumerated() {
-                    let _ = LockManager.applyLock(lockName: lockName, lockType: lockPath)
-                }
-            }
+            let _ = LockManager.applyLock(lockName: lockName)
         }
         
         if failedSB && failedAudio {

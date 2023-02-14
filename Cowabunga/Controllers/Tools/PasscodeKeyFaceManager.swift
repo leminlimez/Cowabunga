@@ -7,6 +7,7 @@
 
 import UIKit
 import ZIPFoundation
+import SwiftUI
 
 enum KeySizeState: String {
     case small = "Small"
@@ -24,9 +25,16 @@ enum PasscodeSizeLimit: Int { // the limits of the custom size
     case max = 2500
 }
 
-class PasscodeKeyFaceManager {
+enum TelephonyDirType {
+    case passcode
+    case dialer
+}
 
-    static func setFace(_ image: UIImage, for n: Int, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
+class PasscodeKeyFaceManager {
+    private static var savedDialerURL: String = ""
+    public static let CharacterTable: [Character] = ["0","1","2","3","4","5","6","7","8","9", "*", "#"]
+
+    static func setFace(_ image: UIImage, for n: Character, _ dir: TelephonyDirType, colorScheme: ColorScheme, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
         // this part could be cleaner
         var usesCustomSize = true
         var sizeToUse: CGFloat = 0
@@ -41,15 +49,15 @@ class PasscodeKeyFaceManager {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let url = try getURL(for: n)
+        let url = try getURL(for: n, mask: (colorScheme == .light), dir)
         guard let png = newImage?.pngData() else { throw "No png data" }
         try png.write(to: url)
     }
     
-    static func removeAllFaces() throws {
+    static func removeAllFaces(_ dir: TelephonyDirType) throws {
         let fm = FileManager.default
         
-        for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(), includingPropertiesForKeys: nil) {
+        for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(dir), includingPropertiesForKeys: nil) {
             let size = CGSize(width: KeySize.small.rawValue, height: KeySize.small.rawValue)
             UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
             UIImage().draw(in: CGRect(origin: .zero, size: size))
@@ -61,18 +69,32 @@ class PasscodeKeyFaceManager {
         }
     }
     
-    static func getNumberFromURL(url: URL) throws -> Int {
-        for i in 0...9 {
-            if url.lastPathComponent.contains(String(i)) {
-                return i
+    static func getCharacterFromURL(url: URL) throws -> Character {
+        for (_, c) in CharacterTable.enumerated() {
+            if url.lastPathComponent.contains(c) {
+                return c
             }
         }
-        return -1
+        return "h"
     }
     
-    static func setFacesFromTheme(_ url: URL, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
+    static func themeHasMasks(_ url: URL) -> Bool {
         let fm = FileManager.default
-        let teleURL = try telephonyUIURL()
+        do {
+            for img in (try fm.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)) {
+                if img.lastPathComponent.contains("mask") {
+                    return true
+                }
+            }
+            return false
+        } catch {
+            return false
+        }
+    }
+    
+    static func setFacesFromTheme(_ url: URL, _ dir: TelephonyDirType, colorScheme: ColorScheme, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
+        let fm = FileManager.default
+        let teleURL = try telephonyUIURL(dir)
         let defaultSize = getDefaultFaceSize()
         
         var finalURL = url
@@ -101,10 +123,11 @@ class PasscodeKeyFaceManager {
                 }
             }
         }
+        let applyToMasks: Bool = ((colorScheme == .light) && !themeHasMasks(finalURL))
         for imageURL in (try? fm.contentsOfDirectory(at: finalURL, includingPropertiesForKeys: nil)) ?? [] {
             // determine if it is a number
-            let number: Int = try getNumberFromURL(url: imageURL)
-            if number != -1 {
+            let char: Character = try getCharacterFromURL(url: imageURL)
+            if char != "h" {
                 let img = UIImage(contentsOfFile: imageURL.path)
                 var newSize: [CGFloat] = [CGFloat(Double(img?.size.width ?? 150) * sizeMultiplier), CGFloat(Double(img?.size.height ?? 150) * sizeMultiplier)]
                 // check the sizes and set it
@@ -134,7 +157,15 @@ class PasscodeKeyFaceManager {
                 let newImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 
-                let newURL = try getURL(for: number)
+                let isMask: Bool = (applyToMasks || imageURL.path.contains("mask"))
+                
+                var newURL: URL
+                do {
+                    // guard let errored here for some reason, so i need this
+                    newURL = try getURL(for: char, mask: isMask, dir)
+                } catch {
+                    continue
+                }
                 guard let png = newImage?.pngData() else { continue }
                 try png.write(to: teleURL.appendingPathComponent(newURL.lastPathComponent))
             }
@@ -146,9 +177,9 @@ class PasscodeKeyFaceManager {
         }
     }
     
-    static func exportFaceTheme() throws -> URL? {
+    static func exportFaceTheme(_ dir: TelephonyDirType) throws -> URL? {
         let fm = FileManager.default
-        let teleURL = try telephonyUIURL()
+        let teleURL = try telephonyUIURL(dir)
         
         var archiveURL: URL?
         var error: NSError?
@@ -180,40 +211,75 @@ class PasscodeKeyFaceManager {
         }
     }
     
-    static func reset() throws {
+    static func reset(_ dir: TelephonyDirType) throws {
         let fm = FileManager.default
         let defaults = UserDefaults.standard
-        for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches/"), includingPropertiesForKeys: nil) {
-            if url.lastPathComponent.contains("TelephonyUI") {
-                try fm.removeItem(at: url)
-                // reset default size
-                defaults.removeObject(forKey: "passcodeFaceSize")
-            }
+        try fm.removeItem(at: try telephonyUIURL(dir))
+        if dir == .passcode {
+            defaults.removeObject(forKey: "passcodeFaceSize")
         }
     }
     
-    static func getFaces() throws -> [UIImage?] {
-        return try [0,1,2,3,4,5,6,7,8,9].map { try getFace(for: $0) }
+    static func getFaces(_ dir: TelephonyDirType, colorScheme: ColorScheme) throws -> [UIImage?] {
+        if dir == .passcode {
+            return try ["0","1","2","3","4","5","6","7","8","9", "9", "9"].map { try getFace(for: $0, dir) }
+        } else if dir == .dialer {
+            return try ["0","1","2","3","4","5","6","7","8","9", "*", "#"].map { try getFace(for: $0, mask: (colorScheme == .light), dir) }
+        } else {
+            throw "Incorrect directory type"
+        }
     }
     
-    static func getFace(for n: Int) throws -> UIImage? {
-        return UIImage(data: try Data(contentsOf: getURL(for: n)))
+    static func getFace(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> UIImage? {
+        return UIImage(data: try Data(contentsOf: getURL(for: n, mask: mask, dir)))
     }
     
-    static func getURL(for n: Int) throws -> URL { // O(n^2), but works
+    static func getURL(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> URL { // O(n^2), but works
         let fm = FileManager.default
-        for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(), includingPropertiesForKeys: nil) {
-            if imageURL.path.contains("-\(n)-") {
+        for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(dir), includingPropertiesForKeys: nil) {
+            if imageURL.path.contains("-\(n)-") && ((mask && imageURL.path.contains("mask")) || (!mask && !imageURL.path.contains("mask"))) {
                 return imageURL
             }
         }
         throw "Passcode face #\(n) couldn't be found."
     }
     
-    static func telephonyUIURL() throws -> URL {
-        guard let url = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches/"), includingPropertiesForKeys: nil)
-            .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Have the caches been generated? Reset faces in app and try again." }
-                   return url
+    static func getDialerDataURL() throws -> URL {
+        if savedDialerURL != "" {
+            return URL(fileURLWithPath: savedDialerURL)
+        }
+        /*let library = FBSApplicationLibrary()
+        let info = library.applicationInfo(forBundleIdentifier: "com.hammerandchisel.discord")
+        let containerPath = info?.dataContainerURL.resourceSpecifier*/
+        
+        let appDataPath = "/var/mobile/Containers/Data/Application"
+        for url in try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: appDataPath), includingPropertiesForKeys: []) {
+            do {
+                let plist = try PropertyListSerialization.propertyList(from: try Data(contentsOf: url.appendingPathComponent(".com.apple.mobile_container_manager.metadata.plist")), options: [], format: nil) as! [String: Any]
+                if plist["MCMMetadataIdentifier"] != nil && plist["MCMMetadataIdentifier"]! as! String == "com.apple.mobilephone" {
+                    savedDialerURL = url.path
+                    return url
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        throw "Could not find mobile phone url"
+    }
+    
+    static func telephonyUIURL(_ dir: TelephonyDirType) throws -> URL {
+        if dir == .passcode {
+            guard let url = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches/"), includingPropertiesForKeys: nil)
+                .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Have the caches been generated? Reset faces in app and try again." }
+            return url
+        } else if dir == .dialer {
+            let dialerURL = try getDialerDataURL()
+            guard let url = try FileManager.default.contentsOfDirectory(at: dialerURL.appendingPathComponent("Library/Caches"), includingPropertiesForKeys: nil)
+                .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Have the caches been generated? Reset faces in app and try again." }
+            return url
+        } else {
+            throw "Incorrect directory type"
+        }
     }
     
     // user defaults stuff
@@ -228,7 +294,7 @@ class PasscodeKeyFaceManager {
         
         // if it doesn't, create it
         do {
-            let teleURL = try telephonyUIURL()
+            let teleURL = try telephonyUIURL(TelephonyDirType.passcode)
             let fm = FileManager.default
             size = Int(UIImage(contentsOfFile: try fm.contentsOfDirectory(at: teleURL, includingPropertiesForKeys: nil)[0].path)?.size.height ?? 150)
             // set the value and return

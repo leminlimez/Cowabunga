@@ -2,7 +2,7 @@
 "(Recommended)" = "(Khuyến nghị)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Cũng sẽ đồng thời giấu đi tên nhà mạng";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Sẽ ẩn tên nhà mạng\n**Sẽ ẩn luôn cả biểu tượng dữ liệu di động";
 
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld bytes";
@@ -21,6 +21,9 @@
 
 /* BomberFish's contribution */
 "AirPower Audio" = "Âm thanh của AirPower";
+
+/* No comment provided by engineer. */
+"Alternatives" = "Lựa chọn thay thế";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "Có lỗi xảy ra trong lúc đang áp dụng kích thước của hình.";
@@ -42,6 +45,9 @@
 
 /* when an operation fails to delete */
 "An error occurred while deleting the operation" = "Có lỗi xảy ra trong khi đang xóa thao tác";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "Có lỗi xảy ra trong khi đang khôi phục các tệp";
 
 /* when an operation fails to save */
 "An error occurred while saving the operation" = "Có lỗi xảy ra trong khi đang lưu thao tác";
@@ -126,6 +132,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Tên nhà mạng";
+
+/* No comment provided by engineer. */
+"Change" = "Thay đổi";
 
 /* No comment provided by engineer. */
 "Change Breadcrumb Text" = "Thay đổi chữ Breadcrumb";
@@ -287,6 +296,9 @@
 /* No comment provided by engineer. */
 "Enable Shortcut Apps as Appclips" = "Kích hoạt ứng dụng Shortcut thành Appclips";
 
+/* No comment provided by engineer. */
+"Enabled" = "Đã kích hoạt";
+
 /* Audio name */
 "End Recording" = "Kết thúc ghi âm";
 
@@ -402,6 +414,9 @@
 /* No comment provided by engineer. */
 "Hide Location" = "Giấu vị trí";
 
+/* Springboard tool */
+"Hide Notification Banner Background" = "Ẩn nền thông báo";
+
 /* No comment provided by engineer. */
 "Hide Rotation Lock" = "Giấu khóa quay màn hình";
 
@@ -412,7 +427,7 @@
 "Hide VPN" = "Giấu VPN";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi^" = "Giấu Wi-Fi^";
+"Hide Wi-Fi**" = "Giấu Wi-Fi**";
 
 /* No comment provided by engineer. */
 "Home" = "Nhà";
@@ -422,6 +437,12 @@
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "Tôi không phải là robot (thiệt mà)";
+
+/* No comment provided by engineer. */
+"Icons" = "Biểu tượng";
+
+/* No comment provided by engineer. */
+"Icons override" = "Ghi đè biểu tượng";
 
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "Nếu biểu tượng khóa không được áp dụng, hãy thử lựa chọn khác.";
@@ -436,7 +457,7 @@
 "Included" = "Đã kèm sẵn";
 
 /* c22dev's contribution */
-"Included Audio & Credits" = "Âm thanh có sẵn & Tác giả";
+"Included Audio, Credits, and Card Changer" = "Đã thêm âm thanh,mục Tác giả và bộ thay đổi giao diện thẻ";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Nhập phiên bản iOS bất kỳ";
@@ -447,11 +468,11 @@
 /* No comment provided by engineer. */
 "Join Discord" = "Tham gia Discord";
 
-/* Audio name */
-"Ketboard Press Clear" = "Bàn phím xóa tất cả";
-
 /* key for plist operation */
 "Key" = "Khóa";
+
+/* Audio name */
+"Keyboard Press Clear" = "Bàn phím xóa tất cả";
 
 /* Audio name */
 "Keyboard Press Delete" = "Bàn phím xóa";
@@ -527,10 +548,16 @@
 "No respring required to apply." = "Không cần khởi động lại màn hình để áp dụng.";
 
 /* No comment provided by engineer. */
-"No themes imported. \nImport them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Không có chủ đề nào được nhập vào.\n Thêm chủ đề tùy chỉnh bằng cách sử dụng nút ở góc phải trên cùng (chủ đề phải chứa các biểu tượng theo định dạng <id>.png).";
+"No themes containing icons for %@ (%@) have been found." = "Không tìm thấy chủ đề chứa biểu tượng cho %@ (%@).";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Không tìm thấy chủ đề. Vui lòng tải chủ đề trong tab Khám phá,\nhoặc thêm chủ đề tùy chỉnh bằng cách sử dụng nút ở góc phải trên cùng (Chủ đề phải chứa biểu tượng theo định dạng <id>.png).";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Không phải là kích thước hợp lệ!";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "Thông báo";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -549,6 +576,9 @@
 
 /* Title of tool */
 "Passcode Faces" = "Hình mật khẩu";
+
+/* No comment provided by engineer. */
+"Passcodes" = "Mật khẩu";
 
 /* No comment provided by engineer. */
 "Password" = "Mật khẩu";
@@ -602,10 +632,16 @@
 "Plist Data" = "Dữ liệu Plist";
 
 /* No comment provided by engineer. */
+"Plist Properties" = "Thuộc tính Plist";
+
+/* No comment provided by engineer. */
 "Plist Type:" = "Loại plist:";
 
 /* No comment provided by engineer. */
 "Preferences" = "Tùy chọn";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "Xây dựng lại cache biểu tượng";
 
 /* Audio name */
 "Received Message" = "Tin nhắn nhận được";
@@ -645,6 +681,12 @@
 
 /* No comment provided by engineer. */
 "Respring to see changes" = "Khởi động lại màn hình để thấy những thay đổi.";
+
+/* No comment provided by engineer. */
+"Restore" = "Khôi phục";
+
+/* restore button on custom operations */
+"Restoring original file..." = "Đang khôi phục lại tệp gốc...";
 
 /* No comment provided by engineer. */
 "Run in background" = "Chạy trong nền";
@@ -690,6 +732,9 @@
 
 /* No comment provided by engineer. */
 "Set folder color" = "Chọn màu thư mục";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "Chọn màu thông báo";
 
 /* No comment provided by engineer. */
 "Settings" = "Cài đặt";
@@ -754,6 +799,9 @@
 /* No comment provided by engineer. */
 "The app will quit." = "Ứng dụng sẽ thoát.";
 
+/* when an operation is restored */
+"The file was successfully restored!" = "Tập tin đã được khôi phục thành công!";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "Âm thanh tùy chỉnh đã được lưu thành công.";
 
@@ -815,7 +863,7 @@
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Dùng cái này nếu tên nhà mạng/chữ thay thế đồng hồ không hoạt động. Tôi khuyến khích bạn đặt lại về mặc định sau khi bật lên và lưu lại.";
 
 /* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "Dùng nếu thiết bị bạn đang nhận diện nhầm rằng TrollStore đã được cài đặt, và bạn không có nút Áp dụng ở trang đầu của StatusMagic.";
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Dùng cái này nếu thiết bị của bạn báo lỗi TrollStore đã được cài đặt, và bạn không có nút Áp dụng ở đầu trang Thanh trạng thái.";
 
 /* No comment provided by engineer. */
 "validate" = "xác thực";
@@ -825,6 +873,9 @@
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Phiên bản %@ (%@)";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "Khoan đã, tất cả đều là TrollTools ư?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Khi để trống trên các thiết bị có tai thỏ nó sẽ hiển thị tên nhà mạng.";
@@ -858,5 +909,5 @@
 "Your device will respring." = "Thiết bị của bạn sẽ khởi động lại màn hình.";
 
 /* No comment provided by engineer. */
-"Your device will respring.\n\n\nUsing %@" = "Thiết bị của bạn sẽ khởi động lại màn hình.\n\n\nĐang sử dụng %@";
+"Your device will respring.\n\n\nApplying using %@." = "Thiết bị của bạn sẽ khởi động lại màn hình.\n\n\nĐang áp dụng bằng %@.";
 

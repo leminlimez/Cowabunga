@@ -16,29 +16,29 @@ class AudioFiles {
         // Device Sounds
         case charging = "Charging"
         case lock = "Lock"
-        case lowPower = "LowPower"
+        case lowPower = "Low Power"
         case notification = "Notification"
         
         // Camera Sounds
         case screenshot = "Screenshot"
-        case beginRecording = "BeginRecording"
-        case endRecording = "EndRecording"
+        case beginRecording = "Begin Recording"
+        case endRecording = "End Recording"
         
         // Messages Sounds
-        case sentMessage = "SentMessage"
-        case receivedMessage = "ReceivedMessage"
-        case sentMail = "SentMail"
-        case newMail = "NewMail"
+        case sentMessage = "Sent Message"
+        case receivedMessage = "Received Message"
+        case sentMail = "Sent Mail"
+        case newMail = "New Mail"
         
         // Payment Sounds
-        case paymentSuccess = "PaymentSuccess"
-        case paymentFailed = "PaymentFailed"
-        case paymentReceived = "PaymentReceived"
+        case paymentSuccess = "Payment Success"
+        case paymentFailed = "Payment Failed"
+        case paymentReceived = "Payment Received"
         
         // Keyboard Sounds
-        case kbKeyClick = "KeyClick"
-        case kbKeyDel = "KeyDelete"
-        case kbKeyMod = "KeyModifier"
+        case kbKeyClick = "Key Click"
+        case kbKeyDel = "Key Delete"
+        case kbKeyMod = "Key Modifier"
     }
     
     static var ListOfAudio: [String: [String]] = [:]
@@ -55,15 +55,16 @@ class AudioFiles {
                 for attachment in SoundEffect.allCases {
                     plist[attachment.rawValue] = ["Default"]
                 }
-                let newData = try! PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                plist["Version"] = ["0"]
+                let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
                 try newData.write(to: newURL)
                 return plist
             } else {
                 // get the existing plist
-                let plistData = try! Data(contentsOf: newURL)
+                let plistData = try Data(contentsOf: newURL)
                 
                 // open plist
-                let plist = try! PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: [String]]
+                let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: [String]]
                 return plist
             }
         } catch {
@@ -76,13 +77,15 @@ class AudioFiles {
         for attachment in attachments {
             if ListOfAudio[attachment] != nil {
                 ListOfAudio[attachment]?.append(audioName)
+            } else {
+                ListOfAudio[attachment] = [audioName]
             }
         }
         
         // write to the plist
         do {
             let newURL: URL = getIncludedAudioDirectory()!.appendingPathComponent("AudioNames.plist")
-            let newData = try! PropertyListSerialization.data(fromPropertyList: ListOfAudio, format: .xml, options: 0)
+            let newData = try PropertyListSerialization.data(fromPropertyList: ListOfAudio, format: .xml, options: 0)
             try newData.write(to: newURL)
         } catch {
             print("error adding the audio to the file")
@@ -212,9 +215,26 @@ class AudioFiles {
                 // check if all the files exist
                 if  let audioFileData = audioFileData as? Dictionary<String, AnyObject>, let audioFiles = audioFileData["audio_files"] as? [[String: Any]], let includedAudioDirectory: URL = getIncludedAudioDirectory() {
                     
+                    if let dc = audioFiles[0] as? [String: [String: String]] {
+                        if dc["Version"] != nil && dc["Version"]!["version"] != nil {
+                            if ListOfAudio["Version"] == nil || ListOfAudio["Version"]![0].compare(dc["Version"]!["version"]!, options: .numeric) == .orderedAscending {
+                                ListOfAudio.removeAll()
+                                ListOfAudio["Version"] = [dc["Version"]!["version"]!]
+                                do {
+                                    try FileManager.default.removeItem(at: getIncludedAudioDirectory()!)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        }
+                    }
+                    
                     for audioTitle in audioFiles {
                         do {
                             let audioFileName: String = audioTitle["name"] as! String
+                            if audioFileName == "Version" {
+                                continue
+                            }
                             let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
                             let isBeta: String? = audioTitle["isBeta"] as? String
                             if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") && (isBeta == nil || testingAudio == true) {
@@ -244,6 +264,9 @@ class AudioFiles {
                                     print("There was an error removing the file")
                                 }
                             }
+                        } catch {
+                            print(error.localizedDescription)
+                            return
                         }
                     }
                 }
@@ -261,7 +284,7 @@ class AudioFiles {
             }
             return newURL
         } catch {
-            print("An error occurred getting/making the included audio directory")
+            print("An error occurred getting/making the included audio directory: \(error.localizedDescription)")
         }
         return nil
     }

@@ -113,7 +113,7 @@ struct StatusBarView: View {
                 })
             }
 
-            Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular data indicator")) {
+            Section (footer: Text("*Will also hide carrier name\n**Will also hide cellular data indicator")) {
                 // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
                 Group {
                     Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
@@ -128,7 +128,7 @@ struct StatusBarView: View {
                     Toggle("Hide Cellular*", isOn: $cellHidden).onChange(of: cellHidden, perform: { nv in
                         StatusManager.sharedInstance().hideCell(nv)
                     })
-                    Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
+                    Toggle("Hide Wi-Fi**", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
                         StatusManager.sharedInstance().hideWiFi(nv)
                     })
                     if UIDevice.current.userInterfaceIdiom != .pad {
@@ -166,7 +166,7 @@ struct StatusBarView: View {
                 }
             }
             
-            Section (footer: Text("Your device will respring.\n\n\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
+            Section (footer: Text("Your device will respring.\n\n\nApplying using \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore").")) {
                 Button("Reset All") {
                     if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
                         do {

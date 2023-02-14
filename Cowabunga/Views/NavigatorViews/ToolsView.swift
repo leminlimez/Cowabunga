@@ -25,6 +25,8 @@ struct ToolsView: View {
         var options: [GeneralOption]
     }
     
+    private var machineName = UIDevice().machineName
+    
     @State var toolsCategories: [ToolsCategory] = [
         .init(title: NSLocalizedString("Home Screen", comment: "Category of tool"), options: [
             .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: NSLocalizedString("Springboard Tools", comment: "Title of tool"), imageName: "snowflake"),
@@ -54,7 +56,7 @@ struct ToolsView: View {
                 ForEach($toolsCategories) { cat in
                     Section {
                         ForEach(cat.options) { option in
-                            if !option.ios15Only.wrappedValue || !iOS16 {
+                            if (!option.ios15Only.wrappedValue || !iOS16) && (!(option.key.wrappedValue == "LockView") || LockManager.deviceLockPath[machineName] != nil) {
                                 NavigationLink(destination: option.view.wrappedValue, isActive: option.active) {
                                     HStack {
                                         Image(systemName: option.imageName.wrappedValue)
