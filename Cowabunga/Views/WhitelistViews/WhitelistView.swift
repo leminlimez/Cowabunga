@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: Translate
+
 struct WhitelistView: View {
     @State var blacklist = true
     @State var banned = true
