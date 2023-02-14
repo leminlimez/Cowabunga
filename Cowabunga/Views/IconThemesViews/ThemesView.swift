@@ -93,7 +93,11 @@ struct ThemesView: View {
                                     .cornerRadius(16)
                                     .onTapGesture {
                                         easterEgg.toggle()
-                                        Haptic.shared.notify(.success)
+                                        if easterEgg {
+                                            Haptic.shared.notify(.warning)
+                                        } else {
+                                            Haptic.shared.notify(.success)
+                                        }
                                     }
                                     VStack {
                                         HStack {
