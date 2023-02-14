@@ -5,14 +5,17 @@
 "CFBundleName" = "Cowabunga";
 
 /* Privacy - Media Library Usage Description */
-"NSAppleMusicUsageDescription" = "Предоставьте разрешение эксплоиту (требуется для клавиш код-пароля + некоторые другие параметры)";
+"NSAppleMusicUsageDescription" = "Для использования некоторых твиков (например, темы клавиш код-пароля) требуется разрешение на выход из Sandbox.";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga работает в фоновом режиме, чтобы твики оставались примененными. Обычно iOS убивает такие приложения через некоторое время. Но Cowabunga обманывает iOS, запрашивая данные о местоположении, что позволяет проводить более длительные сеансы. Данные нигде не хранятся, только извлекаются.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga работает в фоновом режиме, чтобы поддерживать работу твиков. Обычно iOS убивает фоновые процессы спустя некоторое время, но Cowabunga может периодически запрашивать данные о геолокации, что позволяет обойти это ограничение. Эти данные нигде не хранятся и никуда не отправляются.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga работает в фоновом режиме, чтобы твики оставались примененными. Обычно iOS убивает такие приложения через некоторое время. Но Cowabunga обманывает iOS, запрашивая данные о местоположении, что позволяет проводить более длительные сеансы. Данные нигде не хранятся, только извлекаются.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga работает в фоновом режиме, чтобы поддерживать работу твиков. Обычно iOS убивает фоновые процессы спустя некоторое время, но Cowabunga может периодически запрашивать данные о геолокации, что позволяет обойти это ограничение. Эти данные нигде не хранятся и никуда не отправляются.";
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Фото";
+
+/* (No Comment) */
+"Passcode Theme File" = "Файл с темой клавиш";
 
