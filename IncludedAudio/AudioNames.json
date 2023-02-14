@@ -2,7 +2,8 @@
 	"audio_files": [
         {
             "name": "Version",
-            "version": "1.0"
+            "version": "1.0",
+            "attachments": ["Oopsie"]
         },
         {
             "name": "Old_Charging",
