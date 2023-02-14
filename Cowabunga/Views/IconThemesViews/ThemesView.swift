@@ -284,6 +284,12 @@ struct ThemesView: View {
                             UIApplication.shared.confirmAlert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", comment: "IMPORTANT alert when icons finish applying"), confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
                                     respring()
                             }, noCancel: true)
+                            
+                            for err in themeManager.catalogThemeManager.errors {
+                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Errors occurred while setting some icons", comment: ""), body: err, onOK: {
+                                    
+                                }, noCancel: true)
+                            }
                         })
                     })
                 } catch { UIApplication.shared.change(body: error.localizedDescription) }
