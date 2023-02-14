@@ -94,6 +94,9 @@
 		6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFA298826FF0054EBC0 /* MainCardView.swift */; };
 		6FF21AFD298827190054EBC0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF21AFC298827190054EBC0 /* CardView.swift */; };
 		6FF21B0229882CB70054EBC0 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 6FF21B0129882CB70054EBC0 /* ACarousel */; };
+		D60A489729995D830013F066 /* WhitelistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A489629995D830013F066 /* WhitelistView.swift */; };
+		D60A489929995DAD0013F066 /* FileContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A489829995DAD0013F066 /* FileContentsView.swift */; };
+		D60A489C29995DDC0013F066 /* WhitelistFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -246,6 +249,9 @@
 		6FF21AFA298826FF0054EBC0 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FF21AFC298827190054EBC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6FF21AFF29882C020054EBC0 /* CoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
+		D60A489629995D830013F066 /* WhitelistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistView.swift; sourceTree = "<group>"; };
+		D60A489829995DAD0013F066 /* FileContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentsView.swift; sourceTree = "<group>"; };
+		D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +546,7 @@
 		6F721CAE2964A72D001CFE46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D60A489529995C4D0013F066 /* WhitelistViews */,
 				6F7C01D42968E0C500BC427A /* RootView.swift */,
 				6FF21ABB298050340054EBC0 /* AudioViews */,
 				6FF21AF9298826F00054EBC0 /* CardChangerViews */,
@@ -624,6 +631,16 @@
 				6FF21AFA298826FF0054EBC0 /* MainCardView.swift */,
 			);
 			path = CardChangerViews;
+			sourceTree = "<group>";
+		};
+		D60A489529995C4D0013F066 /* WhitelistViews */ = {
+			isa = PBXGroup;
+			children = (
+				D60A489629995D830013F066 /* WhitelistView.swift */,
+				D60A489829995DAD0013F066 /* FileContentsView.swift */,
+				D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */,
+			);
+			path = WhitelistViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -781,6 +798,7 @@
 				6FA660A6297B051E002471FB /* AudioOptionsView.swift in Sources */,
 				6F6D38F32976FE6800DE3146 /* LocationManager.swift in Sources */,
 				21D76C3F298D380100B3C707 /* ApplicationManager.swift in Sources */,
+				D60A489C29995DDC0013F066 /* WhitelistFunctions.swift in Sources */,
 				6FF21AE6298479BD0054EBC0 /* LSFootnoteChangerView.swift in Sources */,
 				6FF21AD52984513A0054EBC0 /* helpers.m in Sources */,
 				6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */,
@@ -790,6 +808,7 @@
 				6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
+				D60A489729995D830013F066 /* WhitelistView.swift in Sources */,
 				6F4296B12991E92B00A96108 /* SettingsView.swift in Sources */,
 				6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
@@ -824,6 +843,7 @@
 				6F4296AE2991E8E400A96108 /* StatusSetter16.m in Sources */,
 				6F7C01D52968E0C500BC427A /* RootView.swift in Sources */,
 				216D5FB6298C5C0700910C67 /* LocString.swift in Sources */,
+				D60A489929995DAD0013F066 /* FileContentsView.swift in Sources */,
 				6F6D38F72977303600DE3146 /* BackgroundFileUpdaterController.swift in Sources */,
 				21E54B41299413B800D5F85A /* Device+xpc_crash.swift in Sources */,
 				6F4296AB2991E8E400A96108 /* StatusSetter16_1.m in Sources */,
