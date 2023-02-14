@@ -294,14 +294,14 @@
 				2183C99D2987DA6800AE187C /* AppIcon.swift */,
 				2183C9962987D8D800AE187C /* Color++.swift */,
 				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
+				21E54B40299413B800D5F85A /* Device+xpc_crash.swift */,
 				2183C99A2987D8FA00AE187C /* Extensions.swift */,
+				6F07AB9B29999DB400076436 /* FilePickerViewControllerDelegate.swift */,
 				6F07AB912998744100076436 /* Haptic++.swift */,
 				2183C9982987D8EA00AE187C /* MachineName.swift */,
+				21CB2B4E29982F3400188303 /* pow.swift */,
 				21D76C42298D43AB00B3C707 /* UIImage+resizeToApprox.swift */,
 				21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */,
-				21E54B40299413B800D5F85A /* Device+xpc_crash.swift */,
-				21CB2B4E29982F3400188303 /* pow.swift */,
-				6F07AB9B29999DB400076436 /* FilePickerViewControllerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -393,8 +393,8 @@
 		21CD105A298C8540007EE649 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				21CD105C298C8540007EE649 /* ThemeManager.swift */,
 				21CD105D298C8540007EE649 /* CatalogThemeManager.swift */,
+				21CD105C298C8540007EE649 /* ThemeManager.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -546,7 +546,6 @@
 		6F721CAE2964A72D001CFE46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D60A489529995C4D0013F066 /* WhitelistViews */,
 				6F7C01D42968E0C500BC427A /* RootView.swift */,
 				6FF21ABB298050340054EBC0 /* AudioViews */,
 				6FF21AF9298826F00054EBC0 /* CardChangerViews */,
@@ -556,6 +555,7 @@
 				6FF21ADF29846AA60054EBC0 /* OtherViews */,
 				6F247A5A298888B4007BD53A /* PasscodeChangerViews */,
 				6FF21AC629840D300054EBC0 /* UniqueToolsViews */,
+				D60A489529995C4D0013F066 /* WhitelistViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
