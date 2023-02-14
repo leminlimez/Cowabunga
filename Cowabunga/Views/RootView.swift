@@ -41,7 +41,7 @@ struct RootView: View {
                     .tabItem {
                         Label("Explore", systemImage: "sparkles")
                     }
-            }
+            } 
 //            PasscodeEditorView()
 //                .tabItem {
 //                    Label("Passcode", systemImage: "key")
