@@ -226,6 +226,8 @@ class AudioFiles {
                                     fetchIncludedAudio()
                                     return
                                 }
+                            } else {
+                                continue
                             }
                             let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
                             let isBeta: String? = audioTitle["isBeta"] as? String
