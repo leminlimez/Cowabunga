@@ -94,6 +94,7 @@ class AudioFiles {
         print("setting up audio")
         // fetch new audio if needed
         if fetchingNewAudio == true {
+            //if !FileManager.default.fileExists(atPath: getIncludedAudioDirectory()?.appendingPathComponent(<#T##pathComponent: String##String#>))
             fetchIncludedAudio()
         }
         
