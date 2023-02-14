@@ -1,0 +1,21 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "獲取存取沙盒的權限（需要套用在鎖定數字盤與其他功能上）";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "卡哇邦嘎在背景運行以保證其效果持續作用。通常iOS會定期清理背景程序。但卡哇邦嘎利用請求定位數據的方式來欺騙iOS，因此可以維持更久的效果。定位數據不會儲存在任何地方, only fetched.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "卡哇邦嘎在背景運行以保證其效果持續作用。通常iOS會定期清理背景程序。但卡哇邦嘎利用請求定位數據的方式來欺騙iOS，因此可以維持更久的效果。定位數據不會儲存在任何地方, only fetched.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "照片";
+
+/* (No Comment) */
+"Passcode Theme File" = "鎖定數字盤主題檔案";
+

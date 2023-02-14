@@ -12,7 +12,7 @@ struct OtherModsView: View {
     @State private var CurrentModel: String = getPlistValue(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceProductDescription")
     @State private var CurrentCarrier: String = UserDefaults.standard.string(forKey: "CarrierName") ?? ""
     
-    @State private var deviceRes = (UIScreen.main.nativeBounds.width, UIScreen.main.nativeBounds.height)
+    @State private var deviceRes = (Int(UIScreen.main.nativeBounds.width), Int(UIScreen.main.nativeBounds.height))
     
     @State private var CurrentSubType: Int = getCurrentDeviceSubType()
     @State private var CurrentSubTypeDisplay: String = "nil"
@@ -239,39 +239,39 @@ struct OtherModsView: View {
                         
                         Spacer()
                         
-                        Button("\(Int(deviceRes.0))x\(Int(deviceRes.1))", action: {
+                        Button("\(deviceRes.0)x\(deviceRes.1)", action: {
                             // ask the user for a custom size
                             let sizeAlert = UIAlertController(title: NSLocalizedString("Enter Dimensions", comment: "Entering custom resolution"), message: "", preferredStyle: .alert)
                             // bring up the text prompts
                             sizeAlert.addTextField { (textField) in
                                 // text field for width
                                 textField.placeholder = NSLocalizedString("Width", comment: "Width of custom resolution")
-                                textField.text = String(Int(deviceRes.0))
+                                textField.text = String(deviceRes.0)
                                 textField.keyboardType = .decimalPad
                             }
                             sizeAlert.addTextField { (textField) in
                                 // text field for height
                                 textField.placeholder = NSLocalizedString("Height", comment: "Height of custom resolution")
-                                textField.text = String(Int(deviceRes.1))
+                                textField.text = String(deviceRes.1)
                                 textField.keyboardType = .decimalPad
                             }
                             sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
                                 // set the sizes
                                 let first = sizeAlert.textFields![0].text
-                                if first != nil && Double(first!) != nil {
-                                    deviceRes.0 = Double(first!)!
+                                if first != nil && Int(first!) != nil {
+                                    deviceRes.0 = Int(first!)!
                                 }
                                 
                                 let second = sizeAlert.textFields![1].text
-                                if second != nil && Double(second!) != nil {
-                                    deviceRes.1 = Double(second!)!
+                                if second != nil && Int(second!) != nil {
+                                    deviceRes.1 = Int(second!)!
                                 }
                                 
                                 // credit:
                                 func createPlist(at url: URL) throws {
                                     let 💀 : [String: Any] = [
-                                        "canvas_height": Int(deviceRes.0),
-                                        "canvas_width": Int(deviceRes.1),
+                                        "canvas_height": deviceRes.0,
+                                        "canvas_width": deviceRes.1,
                                     ]
                                     let data = NSDictionary(dictionary: 💀)
                                     data.write(toFile: url.path, atomically: true)
@@ -288,7 +288,8 @@ struct OtherModsView: View {
                                     try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
                                     
                                     UIApplication.shared.confirmAlert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finalize changes. Reboot to revert.", comment: "Successfully applying custom resolution"), onOK: {
-                                        restartBackboard()
+                                        xpc_crash("com.apple.cfprefsd.daemon")
+                                        xpc_crash("com.apple.backboard.TouchDeliveryPolicyServer")
                                     }, noCancel: true)
                                 } catch {
                                     print("An error occurred: \(error.localizedDescription)")

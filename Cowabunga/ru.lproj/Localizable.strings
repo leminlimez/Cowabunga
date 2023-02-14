@@ -1,68 +1,264 @@
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"????" = "????";
 
 /* No comment provided by engineer. */
+"· %lld" = "· %lld";
+
+/* Recommended lock type */
+"(Recommended)" = "(рекомендуется)";
+
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Также скроет название оператора\n**Также скроет значок сотовых данных";
+
+/* No comment provided by engineer. */
+"%lld bytes" = "%lld байт";
+
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
 /* No comment provided by engineer. */
-"App Stopped Running" = "Приложение закрылось";
+"Action" = "Действие";
+
+/* No comment provided by engineer. */
+"Add Value" = "Добавить значение";
+
+/* BomberFish's contribution */
+"AirPower Audio" = "Звук AirPower";
+
+/* No comment provided by engineer. */
+"Alternatives" = "Другие иконки";
+
+/* No comment provided by engineer. */
+"Always has been" = "Всегда был";
+
+/* No comment provided by engineer. */
+"An error occured when applying face sizes." = "При применении размеров темы клавиш произошла ошибка.";
+
+/* No comment provided by engineer. */
+"An error occured while changing key face." = "При изменении темы клавиш произошла ошибка.";
+
+/* Passcode export error */
+"An error occured while exporting key face." = "При экспорте темы клавиш произошла ошибка.";
+
+/* No comment provided by engineer. */
+"An error occured." = "Произошла ошибка.";
+
+/* No comment provided by engineer. */
+"An error occurred" = "Произошла ошибка";
+
+/* when an operation fails to apply */
+"An error occurred while applying the operation" = "При применении этой операции произошла ошибка.";
+
+/* when an operation fails to delete */
+"An error occurred while deleting the operation" = "При удалении этой операции произошла ошибка.";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "При восстановлении файлов произошла ошибка.";
+
+/* when an operation fails to save */
+"An error occurred while saving the operation" = "При сохранении операции произошла ошибка.";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to disable appclip icons." = "При отключении значков блиц-приложений произошла ошибка.";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to enable appclip icons." = "При включении значков блиц-приложений произошла ошибка.";
+
+/* No comment provided by engineer. */
+"An error occurred while trying to enable extra settings." = "При включении дополнительных настроек произошла ошибка.";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "Приложение остановилось";
+
+/* No comment provided by engineer. */
+"App Switcher" = "Многозадачность";
 
 /* No comment provided by engineer. */
 "Apply" = "Применить";
 
-/* No comment provided by engineer. */
-"Audio" = "Аудио";
+/* Header for apply passcode key size for all */
+"Apply for all?" = "Применить для всех клавиш?";
 
 /* No comment provided by engineer. */
-"Audio Changer" = "Редактор аудио";
+"Apply in Background" = "Применять в фоновом режиме";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "Авто респринг после применения ";
+"Apply Once" = "Применить один раз";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "Авто-обновлять включенное аудио";
+"Apply themes" = "Применить темы";
+
+/* apply button on custom operations */
+"Applying operation..." = "Применение операции...";
 
 /* No comment provided by engineer. */
-"Background Update Frequency" = "Частота обновления в фоне";
+"Are you sure you want to reset the Default SubType?" = "Вы уверены, что хотите сбросить подтип?";
+
+/* Title of tool */
+"Audio" = "Звуки";
 
 /* No comment provided by engineer. */
-"Basic Modifications" = "Обычные настройки";
+"Audio Changer" = "Редактор звуков";
 
 /* No comment provided by engineer. */
-"Carrier Name" = "Имя оператора";
+"Auto respring after apply" = "Перезапускать SpringBoard автоматически";
 
 /* No comment provided by engineer. */
-"Categories" = "Категории";
+"Auto Update Included Audio" = "Обновлять звуки автоматически";
 
 /* No comment provided by engineer. */
-"Choose size" = "Выбрать размер";
+"Background" = "Фон";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Частота обновления в фоновом режиме";
+
+/* No comment provided by engineer. */
+"Basic Configuration" = "Основные параметры";
+
+/* Audio name */
+"Begin Recording" = "Начало записи";
+
+/* Big passcode keys */
+"Big" = "Большой";
+
+/* No comment provided by engineer. */
+"binary" = "бинарный";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Размытие:  %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "Текст навигации";
+
+/* No comment provided by engineer. */
+"Calculate Size" = "Вычислить размер";
+
+/* No comment provided by engineer. */
+"Cancel" = "Отменить";
+
+/* Title of tool */
+"Card Changer" = "Редактор карты";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "Название оператора";
+
+/* No comment provided by engineer. */
+"Change" = "Изменить";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "Изменить текст навигации";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "Изменить название оператора";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "Изменить время в строке состояния";
+
+/* Audio name */
+"Charging" = "Зарядка";
+
+/* No comment provided by engineer. */
+"Choose a device subtype" = "Выберите подтип устройства";
+
+/* Title for lock preference */
+"Choose a lock preference" = "Выберите параметр значка замка";
+
+/* No comment provided by engineer. */
+"Choose a name for the category" = "Выберите имя категории";
+
+/* No comment provided by engineer. */
+"Choose a name for the lock" = "Выберите имя для значка замка";
+
+/* Entering name for audio */
+"Choose a name for the sound" = "Выберите имя звука";
+
+/* No comment provided by engineer. */
+"Choose a plist type" = "Выберите тип файла plist";
+
+/* Choose a size for passcode keys */
+"Choose a size" = "Изменить размер";
+
+/* No comment provided by engineer. */
+"Choose a value type" = "Выберите тип значения";
+
+/* No comment provided by engineer. */
+"Choose an operation type" = "Выберите тип операции";
+
+/* Title for choosing background update interval */
+"Choose an update option" = "Выберите частоту обновления в фоновом режиме";
+
+/* No comment provided by engineer. */
+"Choose size" = "Изменить размер";
 
 /* No comment provided by engineer. */
 "Clear image" = "Убрать фото";
 
 /* No comment provided by engineer. */
+"Close" = "Закрыть";
+
+/* No comment provided by engineer. */
+"Confirm" = "Подтвердить";
+
+/* Category of tool */
+"Control Center" = "Центр управления";
+
+/* operation type that corrupts/disables the file */
+"Corrupting" = "Повреждение файла";
+
+/* No comment provided by engineer. */
+"Could not calculate plist size!" = "Не удалось вычислить размер файла plist!";
+
+/* No comment provided by engineer. */
+"Couldn't get url of file. Did you select it?" = "Не удалось получить путь к файлу. Вы файл-то выбрали?";
+
+/* No comment provided by engineer. */
+"Couldn't get url of folder. Did you select it?" = "Не удалось получить путь к папке. Вы папку-то выбрали?";
+
+/* No comment provided by engineer. */
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga нужно разрешение \"Всегда\".";
+"Cowabunga %@" = "Cowabunga %@";
 
 /* No comment provided by engineer. */
-"Credits" = "Благодарности";
+"Cowabunga requires “Always” location permission." = "Cowabunga требуется постоянный доступ к геолокации.";
 
 /* No comment provided by engineer. */
-"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "В данный момент чтобы отправить темы для отображения у других людей, нам нужно их проверять на нашем сервере Дискорд в канале #showcase.";
+"Create" = "Создать";
 
 /* No comment provided by engineer. */
-"Custom" = "Собственные";
+"Credits" = "Авторы";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Чтобы отправить тему, нам нужно проверить ее в канале #showcase на сервере Discord.";
+
+/* Custom size for passcode keys */
+"Custom" = "Собственный";
 
 /* No comment provided by engineer. */
 "Custom image" = "Выбрать фото";
 
 /* No comment provided by engineer. */
+"Custom Operations" = "Собственные операции";
+
+/* default device subtype
+   Default passcode size */
+"Default" = "По умолчанию";
+
+/* Audio name */
+"Default Notifications" = "Стандартные уведомления";
+
+/* No comment provided by engineer. */
 "Delete" = "Удалить";
 
 /* No comment provided by engineer. */
-"Delete Shortcut Banners" = "Убрать баннер приложений из Команды";
+"Delete Shortcut Banners" = "Убрать баннер быстрой команды";
+
+/* delete button on custom operations */
+"Deleting operation..." = "Удаление операции...";
 
 /* No comment provided by engineer. */
 "Device Resolution" = "Разрешение устройства";
@@ -70,26 +266,71 @@
 /* No comment provided by engineer. */
 "Disable" = "Отключить";
 
-/* No comment provided by engineer. */
-"Disable Shortcut Apps as Appclips" = "Убрать приложения Команды как App Clip";
+/* Springboard tool */
+"Disable App Switcher Blur" = "Отключить размытие многозадачности";
+
+/* Springboard tool */
+"Disable CC Module Background" = "Отключить размытие ЦУ";
+
+/* Springboard tool */
+"Disable Folder Background" = "Отключить размытие фона папки";
+
+/* Springboard tool */
+"Disable Folder Blur" = "Отключить размытие папки";
+
+/* Springboard tool */
+"Disable Library Pods Background" = "Отключить фон библиотеки приложений";
 
 /* No comment provided by engineer. */
-"Dock" = "Dock";
+"Disable Shortcut Apps as Appclips" = "Отключить приложения быстрых команд как блиц-приложения";
 
 /* No comment provided by engineer. */
-"Edit" = "Редактировать";
+"Dock" = "Панель Dock";
+
+/* No comment provided by engineer. */
+"Download themes in Themes tab." = "Скачайте темы во вкладке Темы.";
+
+/* iPhone 14 Pro SubType */
+"Dynamic Island" = "Динамический остров";
+
+/* iPhone 14 Pro Max SubType */
+"Dynamic Island Pro Max" = "Динамический остров Pro Max";
+
+/* matteozappia's contribution */
+"Dynamic Island SubTypes" = "Подтипы динамического острова";
+
+/* No comment provided by engineer. */
+"Editing %@" = "Редактирование %@";
 
 /* No comment provided by engineer. */
 "Email" = "Почта";
 
 /* No comment provided by engineer. */
-"Enable" = "Включить\n";
+"Enable" = "Включить";
 
 /* No comment provided by engineer. */
-"Enable Shortcut Apps as Appclips" = "Сделать приложения Команды как App Clip";
+"Enable Shortcut Apps as Appclips" = "Включить приложения быстрых команд как блиц-приложения";
 
 /* No comment provided by engineer. */
-"Error Occured" = "Произошла ошибка";
+"Enabled" = "Включено";
+
+/* Audio name */
+"End Recording" = "Окончание записи";
+
+/* Entering custom resolution */
+"Enter Dimensions" = "Введите разрешение";
+
+/* dimensions for passcode keys */
+"Enter Key Dimensions" = "Введите разрешение клавиши";
+
+/* No comment provided by engineer. */
+"Enter Name" = "Введите имя";
+
+/* No comment provided by engineer. */
+"Error" = "Ошибка";
+
+/* ginsudev's contribution */
+"Exploit Code" = "Код эксплойта";
 
 /* No comment provided by engineer. */
 "Explore" = "Обзор";
@@ -97,8 +338,38 @@
 /* No comment provided by engineer. */
 "Extra Preferences" = "Дополнительные настройки";
 
+/* Failed to apply audio */
+"Failed to apply audio for:" = "Не удалось применить звуки для:";
+
+/* failed to apply subtype */
+"Failed to apply Device SubType!" = "Не удалось применить подтип устройства!";
+
+/* Failing to apply custom resolution */
+"Failed to apply resolution:" = "Не удалось применить разрешение:";
+
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "Не удалось изменить версию iOS. Она должна быть ниже, чем текущая.\n\n(error.localizedDescription)";
+
+/* when the category cannot be created */
+"Failed to create category" = "Не удалось создать категорию";
+
+/* No comment provided by engineer. */
+"Failed to load operations." = "Не удалось загрузить операции.";
+
+/* No comment provided by engineer. */
+"File not found!" = "Файл не найден!";
+
+/* No comment provided by engineer. */
+"File:" = "Файл:";
+
+/* Import passcode theme from files */
+"Files" = "Файлы";
+
 /* No comment provided by engineer. */
 "Fix tweaks" = "Исправить твики";
+
+/* No comment provided by engineer. */
+"Fixing apps..." = "Исправление приложений...";
 
 /* No comment provided by engineer. */
 "Folder" = "Папка";
@@ -107,28 +378,140 @@
 "Footnote" = "Сноска";
 
 /* No comment provided by engineer. */
-"Forgot password?" = "Забыли пароль?";
+"Force MacDirtyCOW" = "Принудительно использовать MacDirtyCOW";
 
 /* No comment provided by engineer. */
-"General" = "Основные";
+"Forgot password?" = "Забыли пароль?";
+
+/* Where to import passcode theme from */
+"From where do you want to import from?" = "Выберите источник импорта";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Жесты / Динамический остров";
 
 /* No comment provided by engineer. */
+"Go here if something isn't working correctly." = "Зайди сюда, если что-то не работает.";
+
+/* Height of custom resolution
+   Height of passcode keys */
+"Height" = "Высота";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "Скрыть значок авиарежима";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "Скрыть значок AirPlay";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "Скрыть значок будильника";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "Скрыть значок батареи";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "Скрыть значок Bluetooth";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "Скрыть значок CarPlay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "Скрыть значок сотовых данных*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "Скрыть значок Не беспокоить";
+
+/* Springboard tool */
+"Hide Dock" = "Скрыть панель Dock";
+
+/* Springboard tool */
+"Hide Home Bar" = "Скрыть полоску";
+
+/* No comment provided by engineer. */
+"Hide Location" = "Скрыть значок геолокации";
+
+/* Springboard tool */
+"Hide Notification Banner Background" = "Скрыть фон уведомления";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "Скрыть значок ориентации";
+
+/* No comment provided by engineer. */
+"Hide Status Bar Time" = "Скрыть время в строке состояния";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "Скрыть значок VPN";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi**" = "Скрыть значок Wi-Fi**";
+
+/* No comment provided by engineer. */
 "Home" = "Главная";
+
+/* Category of tool */
+"Home Screen" = "Экран Домой";
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "Я не робот (без б)";
 
 /* No comment provided by engineer. */
-"Included" = "Включенные";
+"Icons" = "Иконки";
 
 /* No comment provided by engineer. */
-"Join Discord" = "Присоединиться в Discord";
+"Icons override" = "Изменение иконок";
+
+/* Description for lock preference */
+"If the custom lock does not apply for you, try another option." = "Если смена значка замка не работает, выберите другой пункт.";
+
+/* Header for importing passcode theme */
+"Import Passcode Theme" = "Импортировать тему клавиш";
+
+/* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
+"In the meantime you can ..." = "А пока Вы можете...";
+
+/* No comment provided by engineer. */
+"Included" = "Встроенные";
+
+/* c22dev's contribution */
+"Included Audio, Credits, and Card Changer" = "Звуки, авторы, редактор карты";
+
+/* Header for inputting custom iOS version */
+"Input Software Version" = "Введите версию iOS";
+
+/* x gestures */
+"iPhone X Gestures" = "Жесты iPhone X";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Перейти в Discord";
+
+/* key for plist operation */
+"Key" = "Ключ";
+
+/* Audio name */
+"Keyboard Press Clear" = "Клавиша Clear клавиатуры";
+
+/* Audio name */
+"Keyboard Press Delete" = "Клавиша Delete клавиатуры";
+
+/* Audio name */
+"Keyboard Press Normal" = "Стандартная клавиша клавиатуры";
+
+/* Audio name */
+"Lock" = "Блокировка";
+
+/* Category of tool */
+"Lock Screen" = "Экран блокировки";
+
+/* Title of tool */
+"Lock Screen Footnote" = "Сноска на экране блокировки";
 
 /* No comment provided by engineer. */
 "Lock Screen Footnote Changer" = "Сноска на экране блокировки";
+
+/* No comment provided by engineer. */
+"Lock Type" = "Тип значка замка";
+
+/* Title of tool */
+"Locks" = "Замки";
 
 /* No comment provided by engineer. */
 "Log in" = "Войти";
@@ -136,17 +519,60 @@
 /* No comment provided by engineer. */
 "Log in Sourced" = "Войти в Sourced";
 
-/* No comment provided by engineer. */
-"Miscellaneous" = "Разное";
+/* Audio name */
+"Low Power" = "Низкий уровень заряда";
+
+/* leminlimez's contribution
+   sourcelocation's contribution */
+"Main Developer" = "Главный разработчик";
+
+/* Maximum passcode key size */
+"Max:" = "Максимум:";
+
+/* Minimum passcode key size */
+"Min:" = "Минимум:";
+
+/* Title of tool */
+"Miscellaneous" = "Разные приколы";
 
 /* No comment provided by engineer. */
 "More Settings" = "Больше настроек";
 
 /* No comment provided by engineer. */
+"Name" = "Имя";
+
+/* No comment provided by engineer. */
+"Name:" = "Имя:";
+
+/* No comment provided by engineer. */
+"New Category" = "Новая категория";
+
+/* Audio name */
+"New Mail" = "Новое письмо";
+
+/* No comment provided by engineer. */
+"New theme name" = "Название темы";
+
+/* Decline apply for all (passcode keys) */
+"No" = "Нет";
+
+/* No comment provided by engineer. */
 "No Cards Found" = "Карт не найдено";
 
 /* No comment provided by engineer. */
-"No Cards Were Found" = "Карт не найдено";
+"No respring required to apply." = "Перезапуск SpringBoard не требуется.";
+
+/* No comment provided by engineer. */
+"No themes containing icons for %@ (%@) have been found." = "Тем, которые содержат иконки для %@ (%@), не найдено.";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Темы не найдены. Скачайте темы во вкладке Обзор\nили импортируйте их при помощи кнопки в правом верхнем углу (Темы должны содержать иконки в формате <id>.png).";
+
+/* Not a valid size input for passcode keys */
+"Not a valid size!" = "Неправильный размер!";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "Баннер уведомлений";
 
 /* No comment provided by engineer. */
 "OK" = "ОК";
@@ -155,97 +581,326 @@
 "Open Settings" = "Открыть Настройки";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Редактор клавиш пин-кода";
+"Operation Name" = "Имя операции";
+
+/* Category of tool */
+"Other" = "Другое";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Редактор тем клавиш";
+
+/* Title of tool */
+"Passcode Faces" = "Темы клавиш";
+
+/* No comment provided by engineer. */
+"Passcodes" = "Темы клавиш";
 
 /* No comment provided by engineer. */
 "Password" = "Пароль";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Пожалуйста нажмите на \"Всегда\" в настройках чтобы Cowabunga могло работать без перерыва.";
+"Path" = "Путь";
 
 /* No comment provided by engineer. */
-"Please log into your Sourced Repo account to continue" = "Пожалуйста войдите в ваш аккаунт Sourced чтобы продолжить";
+"Path:" = "Путь:";
+
+/* Audio name */
+"Payment Failed" = "Ошибка оплаты";
+
+/* Audio name */
+"Payment Received" = "Оплата принята";
+
+/* Audio name */
+"Payment Success" = "Успешная оплата";
+
+/* when user enters a category name that cannot be used */
+"Please enter a valid category name!" = "Введите допустимое имя категории!";
 
 /* No comment provided by engineer. */
-"Preferences" = "Настройки";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Разрешите Cowabunga постоянный доступ к геолокации, чтобы она могла работать в фоновом режиме.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Войдите в аккаунт Sourced для продолжения";
+
+/* Successfully applying custom resolution */
+"Please respring to finalize changes. Reboot to revert." = "Перезапустите SpringBoard для применения изменений. Перезагрузите устройство для отмены изменений.";
+
+/* No comment provided by engineer. */
+"Please respring to finish applying changes." = "Перезапустите SpringBoard для применения изменений.";
+
+/* respring to hear audio changes */
+"Please respring to hear changes." = "Перезапустите SpringBoard для применения изменений.";
+
+/* No comment provided by engineer. */
+"Please respring to see changes." = "Перезапустите SpringBoard для применения изменений.";
+
+/* No comment provided by engineer. */
+"Please wait" = "Пожалуйста, подождите";
+
+/* No comment provided by engineer. */
+"Please wait for Cowabunga to finish theming..." = "Подождите завершения применения темы...";
+
+/* operation type that changes plist keys */
+"Plist" = "Изменение файла Plist";
+
+/* No comment provided by engineer. */
+"Plist Data" = "Данные файла Plist";
+
+/* No comment provided by engineer. */
+"Plist Properties" = "Параметры файла Plist";
+
+/* No comment provided by engineer. */
+"Plist Type:" = "Тип файла Plist:";
+
+/* No comment provided by engineer. */
+"Preferences" = "Параметры";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "Пересобрать кэш иконок";
+
+/* Audio name */
+"Received Message" = "Новое сообщение";
 
 /* No comment provided by engineer. */
 "Remove all" = "Скрыть все";
 
 /* No comment provided by engineer. */
+"Remove theme" = "Удалить тему";
+
+/* No comment provided by engineer. */
+"Rename" = "Переименовать";
+
+/* Entering new theme name */
+"Rename theme" = "Переименовать тему";
+
+/* No comment provided by engineer. */
+"Replace With:" = "Заменить на:";
+
+/* No comment provided by engineer. */
+"Replacement Data" = "Данные для замены";
+
+/* operation type that replaces a file */
+"Replacing" = "Замена файла";
+
+/* No comment provided by engineer. */
+"Reset All" = "Сбросить все";
+
+/* No comment provided by engineer. */
+"Reset Default SubType" = "Сбросить подтип";
+
+/* No comment provided by engineer. */
 "Reset faces" = "Сбросить клавиши";
 
 /* No comment provided by engineer. */
-"Respring" = "Респринг";
+"Respring" = "Перезапустить SpringBoard";
 
 /* No comment provided by engineer. */
-"Run in background" = "Работать в фоне";
+"Respring to see changes" = "Перезапустите SpringBoard для применеия изменений";
 
 /* No comment provided by engineer. */
+"Restore" = "Восстановить";
+
+/* restore button on custom operations */
+"Restoring original file..." = "Восстановить оригинальный файл...";
+
+/* No comment provided by engineer. */
+"Run in background" = "Обновлять в фоновом режиме";
+
+/* No comment provided by engineer. */
+"Save" = "Сохранить";
+
+/* No comment provided by engineer. */
+"Save Settings" = "Сохранить настройки";
+
+/* Import passcode theme from saved */
 "Saved" = "Сохраненные";
 
-/* No comment provided by engineer. */
-"Set badge color" = "Установить цвет наклеек";
+/* apply button on custom operations */
+"Saving operation..." = "Сохранение операции...";
+
+/* Audio name */
+"Screenshot" = "Снимок экрана";
 
 /* No comment provided by engineer. */
-"Set dock color" = "Установить цвет Dock";
+"Select" = "Выбрать";
 
 /* No comment provided by engineer. */
-"Set folder color" = "Установить цвет папки";
+"Selected" = "Выбранное";
+
+/* Audio name */
+"Sent Mail" = "Письмо отправлено";
+
+/* Audio name */
+"Sent Message" = "Сообщение отправлено";
 
 /* No comment provided by engineer. */
-"Shortcut Apps" = "Приложения из Команды";
+"Set app switcher color" = "Цвет многозадачности";
 
 /* No comment provided by engineer. */
-"Sign up" = "Зарегестрироваться";
+"Set badge color" = "Цвет наклеек";
 
 /* No comment provided by engineer. */
-"Software Version" = "Версия ОС";
+"Set dock color" = "Цвет панели Dock";
 
 /* No comment provided by engineer. */
-"SpringBoard Tools" = "Твики SpringBoard";
+"Set expanded folder background color" = "Цвет фона папки";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Цвет папки";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "Цвет баннера уведомления";
+
+/* No comment provided by engineer. */
+"Settings" = "Настройки";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Приложения Команд";
+
+/* No comment provided by engineer. */
+"Sign up" = "Зарегистрироваться";
+
+/* No comment provided by engineer. */
+"Size not calculated" = "Размер не вычислен";
+
+/* Small passcode keys */
+"Small" = "Маленький";
+
+/* No comment provided by engineer. */
+"Software Version" = "Версия iOS";
+
+/* Title of tool */
+"Springboard Colors" = "Цвета SpringBoard";
+
+/* Title of tool */
+"Springboard Tools" = "Инструменты SpringBoard";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "Инструменты SpringBoard";
+
+/* Title of tool */
+"Status Bar" = "Строка состояния";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "Время в строке состояния";
 
 /* No comment provided by engineer. */
 "Submit themes" = "Отправить темы";
 
 /* No comment provided by engineer. */
-"Supervised" = "\"Под наблюдением\"";
+"Success" = "Успешно";
 
 /* No comment provided by engineer. */
-"Swipe to view different cards" = "Смахните чтобы просмотреть разные карты";
+"Success!" = "Успешно!";
+
+/* applying audio succeeded */
+"Successfully applied audio!" = "Звук успешно применен!";
 
 /* No comment provided by engineer. */
-"Tap a card to customize" = "Нажмите на карту чтобы настроить ";
+"Supervised" = "Сделать устройство Supervised (обычно для Delay OTA)";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Нажмите на любую клавишу чтобы ее изменить";
+"Swipe to view different cards" = "Смахните, чтобы просмотреть разные карты";
 
 /* No comment provided by engineer. */
-"Tap this notification to resume tweak applications." = "Нажмите на это уведомление чтобы продолжить работу приложения.";
+"Tap a card to customize" = "Нажмите на карту, чтобы ее изменить";
 
 /* No comment provided by engineer. */
-"Test" = "Тест";
+"Tap on any key to edit \nits appearance" = "Нажмите на клавишу, чтобы ее изменить";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Нажмите на это уведомление, чтобы продолжить работу приложения.";
+
+/* No comment provided by engineer. */
+"The app will quit." = "Приложение будет закрыто.";
+
+/* when an operation is restored */
+"The file was successfully restored!" = "Файл успешно восстановлен!";
+
+/* Saving imported audio */
+"The imported audio was successfully encoded and saved." = "Импортированный звук успешно сохранен.";
+
+/* Saving imported lock */
+"The imported lock was successfully saved." = "Импортированный значок замка успешно сохранен.";
+
+/* when an operation is applied */
+"The operation was successfully applied! The operation was not saved, only applied." = "Операция успешно применена! Только применена, не сохранена.";
+
+/* when an operation is deleted */
+"The operation was successfully deleted!" = "Операция успешно удалена!";
+
+/* when an operation is saved */
+"The operation was successfully saved!" = "Операция успешно сохранена!";
 
 /* No comment provided by engineer. */
 "Themes" = "Темы";
 
 /* No comment provided by engineer. */
-"Tools" = "Твики";
+"Tools" = "Инструменты";
+
+/* No comment provided by engineer. */
+"Translators" = "Переводчики";
 
 /* No comment provided by engineer. */
 "Tweak Options" = "Опции твиков";
 
 /* No comment provided by engineer. */
-"Update Included Audio" = "Обновить включенное в приложение аудио";
+"Type:" = "Тип:";
+
+/* Cannot delete audio (audio name is after) */
+"Unable to delete audio for audio" = "Не удалось удалить звук для";
+
+/* Failed to import lock */
+"Unable to save imported lock!" = "Не удалось сохранить импортированный значок замка!";
 
 /* No comment provided by engineer. */
-"Use at your own risk" = "Используйте на свой риск";
+"Uncategorized" = "Без категории";
+
+/* Shown after successful theme set. */
+"Understood, Respring" = "Я понял, перезапустить SpringBoard";
+
+/* zhuowei's contribution */
+"Unsandboxing" = "Выход из Sandbox";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Обновить список звуков";
+
+/* No comment provided by engineer. */
+"Upload File" = "Загрузить файл";
+
+/* No comment provided by engineer. */
+"Use Alternative Setter" = "Использовать другой способ установки";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Используйте на свой страх и риск";
+
+/* No comment provided by engineer. */
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Используйте это, если название оператора/текст часов не изменяется. Я рекомендую вернуть стандартные настройки после применения этой.";
+
+/* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки Применить во вкладке Строка состояния.";
 
 /* No comment provided by engineer. */
 "validate" = "Проверить";
 
+/* value for plist operation */
+"Value" = "Значение";
+
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Версия %@ (%@)";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "Погоди, это все TrollTools?";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "Пустая строка на устройствах с челкой приведет к отображению названия оператора.";
+
+/* Width of custom resolution
+   Width of passcode keys */
+"Width" = "Ширина";
+
+/* Message for apply passcode key size for all */
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Вы хотите применить этот размер для всех клавиш? В противном случае он будет применен только для новых.";
 
 /* No comment provided by engineer. */
 "x" = "x";
@@ -254,8 +909,23 @@
 "X" = "X";
 
 /* No comment provided by engineer. */
-"Y" = "Y";
+"xml" = "xml";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "У Вас нет сохранённых тем код-паролей. Загляните во вкладку \"Темы\" чтобы их найти!";
+"Y" = "Y";
+
+/* Confirm apply for all (passcode keys) */
+"Yes" = "Да";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "У Вас нет сохраненных тем клавиш. Загляните во вкладку Темы, чтобы их найти!";
+
+/* No comment provided by engineer. */
+"Your apps should now function properly" = "Сейчас приложения должны работать нормально";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "SpringBoard перезапустится.";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nApplying using %@." = "SpringBoard перезапустится.\n\n\nПрименение при помощи %@.";
 

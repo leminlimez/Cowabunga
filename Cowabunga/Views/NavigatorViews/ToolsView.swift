@@ -43,9 +43,9 @@ struct ToolsView: View {
         .init(title: NSLocalizedString("Other", comment: "Category of tool"), options: [
             .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
+            .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: NSLocalizedString("Whitelist", comment: "Title of tool"), imageName: "app.badge.checkmark"),
             .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: NSLocalizedString("Miscellaneous", comment: "Title of tool"), imageName: "hammer"),
-            .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: "Whitelist", imageName: "app.badge.checkmark"),
-            .init(key: "AdvancedView", view: AnyView(AdvancedView()), title: "Custom Operations", imageName: "pencil.and.outline")
+            .init(key: "AdvancedView", view: AnyView(AdvancedView()), title: NSLocalizedString("Custom Operations", comment: "Title of tool"), imageName: "pencil.and.outline")
         ])
     ]
     @State var iOS16: Bool = false

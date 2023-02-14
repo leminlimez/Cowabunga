@@ -1,0 +1,922 @@
+/* Recommended lock type */
+"(Recommended)" = "(推薦)";
+
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*將會同時隱藏電信商名稱\n**將會同時隱藏電信商訊號強度";
+
+/* No comment provided by engineer. */
+"%lldx%lld" = "%lldx%lld";
+
+/* Notification Badge Bubble text. (1 notification) */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"Action" = "動作";
+
+/* No comment provided by engineer. */
+"Add Value" = "輸入數值";
+
+/* BomberFish's contribution */
+"AirPower Audio" = "AirPower 音效";
+
+/* No comment provided by engineer. */
+"Alternatives" = "替代";
+
+/* No comment provided by engineer. */
+"Always has been" = "總是如此";
+
+/* No comment provided by engineer. */
+"An error occured when applying face sizes." = "套用鎖定數字盤按鈕大小時發生錯誤。";
+
+/* No comment provided by engineer. */
+"An error occured while changing key face." = "更換鎖定數字盤圖案時發生錯誤。";
+
+/* Passcode export error */
+"An error occured while exporting key face." = "導出鎖定數字盤圖案時發生錯誤。";
+
+/* No comment provided by engineer. */
+"An error occured." = "發生錯誤。";
+
+/* No comment provided by engineer. */
+"An error occurred" = "發生錯誤。";
+
+/* when an operation fails to apply */
+"An error occurred while applying the operation" = "套用使用者操作時發生錯誤。";
+
+/* when an operation fails to delete */
+"An error occurred while deleting the operation" = "刪除此操作時發生錯誤。";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "復原檔案時發生錯誤。";
+
+/* when an operation fails to save */
+"An error occurred while saving the operation" = "儲存此操作時發生錯誤。";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to disable appclip icons." = "嘗試停用Appclip圖標時出現錯誤。";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to enable appclip icons." = "嘗試啟用Appclip圖標時出現錯誤。";
+
+/* No comment provided by engineer. */
+"An error occurred while trying to enable extra settings." = "嘗試啟用額外設定時出現錯誤。";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "應用程式已停止運作。";
+
+/* No comment provided by engineer. */
+"App Switcher" = "多工任務中心";
+
+/* No comment provided by engineer. */
+"Apply" = "套用";
+
+/* Header for apply passcode key size for all */
+"Apply for all?" = "要全部套用此大小嗎？";
+
+/* No comment provided by engineer. */
+"Apply in Background" = "在背景套用";
+
+/* No comment provided by engineer. */
+"Apply Once" = "套用一次";
+
+/* No comment provided by engineer. */
+"Apply themes" = "套用主題";
+
+/* apply button on custom operations */
+"Applying operation..." = "套用自定義操作";
+
+/* No comment provided by engineer. */
+"Are you sure you want to reset the Default SubType?" = "您確定想要重置為預設的裝置類型？";
+
+/* Title of tool */
+"Audio" = "音效";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "音效更改器";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "套用後自動重新載入主畫面";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "自動升級內建音效";
+
+/* No comment provided by engineer. */
+"Background" = "背景";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "背景更新頻率";
+
+/* No comment provided by engineer. */
+"Basic Configuration" = "基礎設定";
+
+/* Audio name */
+"Begin Recording" = "開始錄製";
+
+/* Big passcode keys */
+"Big" = "大";
+
+/* No comment provided by engineer. */
+"binary" = "二進制的";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "模糊程度:   %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "左上角返回上個App文字";
+
+/* No comment provided by engineer. */
+"Calculate Size" = "計算大小";
+
+/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* Title of tool */
+"Card Changer" = "卡片美化器";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "電信商名稱";
+
+/* No comment provided by engineer. */
+"Change" = "修改";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "修改左上角返回文字";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "修改電信商名稱";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "修改狀態欄時間文字";
+
+/* Audio name */
+"Charging" = "充電聲";
+
+/* No comment provided by engineer. */
+"Choose a device subtype" = "選擇想套用的裝置類型";
+
+/* Title for lock preference */
+"Choose a lock preference" = "請選擇一個鎖頭尺寸";
+
+/* No comment provided by engineer. */
+"Choose a name for the category" = "為此類別選擇一個名稱";
+
+/* No comment provided by engineer. */
+"Choose a name for the lock" = "為此鎖頭選擇一個名稱";
+
+/* Entering name for audio */
+"Choose a name for the sound" = "為此音效選擇一個名稱";
+
+/* No comment provided by engineer. */
+"Choose a plist type" = "請選擇plist的類型";
+
+/* Choose a size for passcode keys */
+"Choose a size" = "請選擇一個尺寸";
+
+/* No comment provided by engineer. */
+"Choose a value type" = "請選擇數值的類型";
+
+/* No comment provided by engineer. */
+"Choose an operation type" = "請選擇操作的類型";
+
+/* Title for choosing background update interval */
+"Choose an update option" = "請選擇適合您的背景更新頻率";
+
+/* No comment provided by engineer. */
+"Choose size" = "選擇尺寸";
+
+/* No comment provided by engineer. */
+"Clear image" = "清除自定義圖片";
+
+/* No comment provided by engineer. */
+"Close" = "關閉";
+
+/* No comment provided by engineer. */
+"Confirm" = "確認";
+
+/* Category of tool */
+"Control Center" = "控制中心";
+
+/* operation type that corrupts/disables the file */
+"Corrupting" = "檔案損壞";
+
+/* No comment provided by engineer. */
+"Could not calculate plist size!" = "無法計算此plist的大小！";
+
+/* No comment provided by engineer. */
+"Couldn't get url of file. Did you select it?" = "無法取得檔案的url。您是否已選擇好該檔案？";
+
+/* No comment provided by engineer. */
+"Couldn't get url of folder. Did you select it?" = "無法取得資料夾的url。您是否已選擇好該資料夾？";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "卡哇邦嘎";
+
+/* No comment provided by engineer. */
+"Cowabunga %@" = "卡哇邦嘎 %@";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "卡哇邦嘎拜偷您給予「總是」的定位權限。";
+
+/* No comment provided by engineer. */
+"Create" = "創建";
+
+/* No comment provided by engineer. */
+"Credits" = "鳴謝";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "近期請提交您的主题至Discord的 #showcase頻道進行審核，我們將會在審核通過後给其他用戶預覽和試用。";
+
+/* Custom size for passcode keys */
+"Custom" = "自定義大小";
+
+/* No comment provided by engineer. */
+"Custom image" = "自定義圖片";
+
+/* No comment provided by engineer. */
+"Custom Operations" = "自定義檔案替換操作";
+
+/* default device subtype
+   Default passcode size */
+"Default" = "預設";
+
+/* Audio name */
+"Default Notifications" = "預設通知聲";
+
+/* No comment provided by engineer. */
+"Delete" = "刪除";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "删除捷徑的橫幅通知";
+
+/* delete button on custom operations */
+"Deleting operation..." = "正在刪除此操作";
+
+/* No comment provided by engineer. */
+"Device Resolution" = "裝置解析度";
+
+/* No comment provided by engineer. */
+"Disable" = "停用";
+
+/* Springboard tool */
+"Disable App Switcher Blur" = "移除多工任務中心背景模糊";
+
+/* Springboard tool */
+"Disable CC Module Background" = "移除控制中心開關背景";
+
+/* Springboard tool */
+"Disable Folder Background" = "移除資料夾背景";
+
+/* Springboard tool */
+"Disable Folder Blur" = "移除資料夾模糊";
+
+/* Springboard tool */
+"Disable Library Pods Background" = "移除App資料庫背景";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "禁止將捷徑製作的應用程式視為Appclips";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Download themes in Themes tab." = "在主題區塊中下載主題";
+
+/* iPhone 14 Pro SubType */
+"Dynamic Island" = "動態島";
+
+/* iPhone 14 Pro Max SubType */
+"Dynamic Island Pro Max" = "動態島Pro Max";
+
+/* matteozappia's contribution */
+"Dynamic Island SubTypes" = "動態島型號";
+
+/* No comment provided by engineer. */
+"Editing %@" = "編輯中 %@";
+
+/* No comment provided by engineer. */
+"Email" = "電子信箱";
+
+/* No comment provided by engineer. */
+"Enable" = "啟用";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "准許將捷徑製作的應用程式視為Appclips";
+
+/* No comment provided by engineer. */
+"Enabled" = "已啟用";
+
+/* Audio name */
+"End Recording" = "結束錄製";
+
+/* Entering custom resolution */
+"Enter Dimensions" = "請輸入解析度尺寸";
+
+/* dimensions for passcode keys */
+"Enter Key Dimensions" = "請輸入按鈕尺寸";
+
+/* No comment provided by engineer. */
+"Enter Name" = "請輸入名稱";
+
+/* No comment provided by engineer. */
+"Error" = "錯誤";
+
+/* ginsudev's contribution */
+"Exploit Code" = "漏洞原始碼";
+
+/* No comment provided by engineer. */
+"Explore" = "探索";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "額外設定頁面";
+
+/* Failed to apply audio */
+"Failed to apply audio for:" = "套用音效失敗:";
+
+/* failed to apply subtype */
+"Failed to apply Device SubType!" = "套用裝置類型失敗！";
+
+/* Failing to apply custom resolution */
+"Failed to apply resolution:" = "套用解析度失敗:";
+
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "套用iOS系統版本失敗! 自定義版本必須低於您的實際版本。";
+
+/* when the category cannot be created */
+"Failed to create category" = "創建類別失敗";
+
+/* No comment provided by engineer. */
+"Failed to load operations." = "載入操作失敗";
+
+/* No comment provided by engineer. */
+"File not found!" = "找不到檔案";
+
+/* No comment provided by engineer. */
+"File:" = "檔案:";
+
+/* Import passcode theme from files */
+"Files" = "檔案";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "修復插體";
+
+/* No comment provided by engineer. */
+"Fixing apps..." = "修復應用程式中...";
+
+/* No comment provided by engineer. */
+"Folder" = "資料夾";
+
+/* No comment provided by engineer. */
+"Footnote" = "鎖定畫面底部註腳";
+
+/* No comment provided by engineer. */
+"Force MacDirtyCOW" = "強制使用MacDirtyCow漏洞";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "忘記密碼？";
+
+/* Where to import passcode theme from */
+"From where do you want to import from?" = "您想要從何處導入鎖定數字盤主題？";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "滑動手勢 / 動態島";
+
+/* No comment provided by engineer. */
+"Go here if something isn't working correctly." = "如果有功能不能正常運作，請到此處。";
+
+/* Height of custom resolution
+   Height of passcode keys */
+"Height" = "高度";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "隱藏飛行模式圖標";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "隱藏AirDrop圖標";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "隱藏鬧鐘圖標";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "隱藏電池圖標";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "隱藏藍牙圖標";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "隱藏CarPlay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "隱藏行動數據*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "隱藏勿擾模式圖標";
+
+/* Springboard tool */
+"Hide Dock" = "隱藏Dock";
+
+/* Springboard tool */
+"Hide Home Bar" = "隱藏Home Bar(底部手勢白條)";
+
+/* No comment provided by engineer. */
+"Hide Location" = "隱藏定位圖標";
+
+/* Springboard tool */
+"Hide Notification Banner Background" = "隱藏通知背景";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "隱藏直向鎖定圖標";
+
+/* No comment provided by engineer. */
+"Hide Status Bar Time" = "隱藏狀態欄時間";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "隱藏VPN圖標";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi**" = "隱藏Wi-Fi**";
+
+/* No comment provided by engineer. */
+"Home" = "首頁";
+
+/* Category of tool */
+"Home Screen" = "主畫面";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "我不是機器人（真沒騙你）";
+
+/* No comment provided by engineer. */
+"Icons" = "圖標";
+
+/* No comment provided by engineer. */
+"Icons override" = "取代圖標";
+
+/* Description for lock preference */
+"If the custom lock does not apply for you, try another option." = "如果您的自定義鎖頭沒有成功套用，請嘗試其他選項。";
+
+/* Header for importing passcode theme */
+"Import Passcode Theme" = "導入鎖定數字盤主題";
+
+/* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
+"In the meantime you can ..." = "在此期間您可以加入我們的Discord伺服器 :)";
+
+/* No comment provided by engineer. */
+"Included" = "內建";
+
+/* c22dev's contribution */
+"Included Audio, Credits, and Card Changer" = "包含音效、翻譯與卡片美化器";
+
+/* Header for inputting custom iOS version */
+"Input Software Version" = "請輸入自定義iOS系統版本(譯者註：改這功能百害無一利，千萬小心...)";
+
+/* x gestures */
+"iPhone X Gestures" = "iPhone X的滑動手勢";
+
+/* No comment provided by engineer. */
+"Join Discord" = "加入我們的Discord伺服器 :)";
+
+/* key for plist operation */
+"Key" = "Key";
+
+/* Audio name */
+"Keyboard Press Clear" = "鍵盤清除聲";
+
+/* Audio name */
+"Keyboard Press Delete" = "鍵盤刪除按鍵聲";
+
+/* Audio name */
+"Keyboard Press Normal" = "鍵盤按鍵輸入聲";
+
+/* Audio name */
+"Lock" = "裝置鎖定聲";
+
+/* Category of tool */
+"Lock Screen" = "鎖定畫面";
+
+/* Title of tool */
+"Lock Screen Footnote" = "鎖定畫面底部註腳";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "註腳更改器";
+
+/* No comment provided by engineer. */
+"Lock Type" = "鎖頭尺寸調整";
+
+/* Title of tool */
+"Locks" = "鎖頭主題";
+
+/* No comment provided by engineer. */
+"Log in" = "登入";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "登入源";
+
+/* Audio name */
+"Low Power" = "低電量提示聲";
+
+/* leminlimez's contribution
+   sourcelocation's contribution */
+"Main Developer" = "主要開發者";
+
+/* Maximum passcode key size */
+"Max:" = "最大：";
+
+/* Minimum passcode key size */
+"Min:" = "最小：";
+
+/* Title of tool */
+"Miscellaneous" = "五花八門";
+
+/* No comment provided by engineer. */
+"More Settings" = "更多設定";
+
+/* No comment provided by engineer. */
+"Name" = "名稱";
+
+/* No comment provided by engineer. */
+"Name:" = "名稱：";
+
+/* No comment provided by engineer. */
+"New Category" = "新類別";
+
+/* Audio name */
+"New Mail" = "新郵件提示聲";
+
+/* No comment provided by engineer. */
+"New theme name" = "新主題名稱";
+
+/* Decline apply for all (passcode keys) */
+"No" = "不惹";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "沒有找到您的卡片";
+
+/* No comment provided by engineer. */
+"No respring required to apply." = "不需重新載入主畫面即可套用。";
+
+/* No comment provided by engineer. */
+"No themes containing icons for %@ (%@) have been found." = "在您的當前主題中沒有找到 %@ (%@) 的圖標。";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "沒有找到主題。請在「探索」區塊中下載或使用右上角的按鈕導入您的主題。（主題內必須包含<id>.png格式的圖標）";
+
+/* Not a valid size input for passcode keys */
+"Not a valid size!" = "此尺寸無效！";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "通知橫幅";
+
+/* No comment provided by engineer. */
+"OK" = "好的";
+
+/* No comment provided by engineer. */
+"Open Settings" = "打開設定";
+
+/* No comment provided by engineer. */
+"Operation Name" = "操作名稱";
+
+/* Category of tool */
+"Other" = "其他";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "鎖定數字盤編輯器";
+
+/* Title of tool */
+"Passcode Faces" = "鎖定數字盤";
+
+/* No comment provided by engineer. */
+"Passcodes" = "密碼盤";
+
+/* No comment provided by engineer. */
+"Password" = "密碼";
+
+/* No comment provided by engineer. */
+"Path" = "路徑";
+
+/* No comment provided by engineer. */
+"Path:" = "路徑：";
+
+/* Audio name */
+"Payment Failed" = "付款失敗聲";
+
+/* Audio name */
+"Payment Received" = "收到付款聲";
+
+/* Audio name */
+"Payment Success" = "付款成功聲";
+
+/* when user enters a category name that cannot be used */
+"Please enter a valid category name!" = "請輸入一個有效的類別名稱！";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "請在設定中准許卡哇邦嘎「總是」 的定位權限以讓其持續在背景運行。";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Please log into your Sourced Repo account to continue";
+
+/* Successfully applying custom resolution */
+"Please respring to finalize changes. Reboot to revert." = "請重新載入主畫面以套用自定義解析度。重開機後將自動恢復預設解析度。";
+
+/* No comment provided by engineer. */
+"Please respring to finish applying changes." = "請重新載入主畫面以完成套用。";
+
+/* respring to hear audio changes */
+"Please respring to hear changes." = "請重新載入主畫面以套用新音效。";
+
+/* No comment provided by engineer. */
+"Please respring to see changes." = "請重新載入主畫面以套用修改。";
+
+/* No comment provided by engineer. */
+"Please wait" = "請耐心等待";
+
+/* No comment provided by engineer. */
+"Please wait for Cowabunga to finish theming..." = "請耐心等待卡哇邦嘎完成主題套用";
+
+/* operation type that changes plist keys */
+"Plist" = "plist";
+
+/* No comment provided by engineer. */
+"Plist Data" = "plist 資料";
+
+/* No comment provided by engineer. */
+"Plist Properties" = "plist 屬性";
+
+/* No comment provided by engineer. */
+"Plist Type:" = "plist 類別：";
+
+/* No comment provided by engineer. */
+"Preferences" = "偏好設置";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "重建圖標緩存(Rebuild icon cache)";
+
+/* Audio name */
+"Received Message" = "收到訊息聲";
+
+/* No comment provided by engineer. */
+"Remove all" = "移除所有";
+
+/* No comment provided by engineer. */
+"Remove theme" = "移除主題";
+
+/* No comment provided by engineer. */
+"Rename" = "重新命名";
+
+/* Entering new theme name */
+"Rename theme" = "重新命名主題";
+
+/* No comment provided by engineer. */
+"Replace With:" = "以此檔案取代:";
+
+/* No comment provided by engineer. */
+"Replacement Data" = "取代資料";
+
+/* operation type that replaces a file */
+"Replacing" = "取代中";
+
+/* No comment provided by engineer. */
+"Reset All" = "重置所有";
+
+/* No comment provided by engineer. */
+"Reset Default SubType" = "重置為預設裝置型號";
+
+/* No comment provided by engineer. */
+"Reset faces" = "重置鎖定數字盤按鈕";
+
+/* No comment provided by engineer. */
+"Respring" = "重新載入主畫面";
+
+/* No comment provided by engineer. */
+"Respring to see changes" = "請重新載入主畫面以套用修改。";
+
+/* No comment provided by engineer. */
+"Restore" = "復原";
+
+/* restore button on custom operations */
+"Restoring original file..." = "復原原始檔案中...";
+
+/* No comment provided by engineer. */
+"Run in background" = "保持卡哇邦嘎在背景運行";
+
+/* No comment provided by engineer. */
+"Save" = "儲存";
+
+/* No comment provided by engineer. */
+"Save Settings" = "儲存設定";
+
+/* Import passcode theme from saved */
+"Saved" = "已儲存";
+
+/* apply button on custom operations */
+"Saving operation..." = "儲存操作中...";
+
+/* Audio name */
+"Screenshot" = "螢幕截圖聲";
+
+/* No comment provided by engineer. */
+"Select" = "選擇";
+
+/* No comment provided by engineer. */
+"Selected" = "已選擇";
+
+/* Audio name */
+"Sent Mail" = "寄出郵件聲";
+
+/* Audio name */
+"Sent Message" = "送出訊息聲";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "設定多工任務中心顏色";
+
+/* No comment provided by engineer. */
+"Set badge color" = "設定角標顏色";
+
+/* No comment provided by engineer. */
+"Set dock color" = "設定Dock顏色";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "設定資料夾展開後背景顏色";
+
+/* No comment provided by engineer. */
+"Set folder color" = "設定資料夾顏色";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "設定通知橫幅顏色";
+
+/* No comment provided by engineer. */
+"Settings" = "設定";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "捷徑應用程式";
+
+/* No comment provided by engineer. */
+"Sign up" = "註冊";
+
+/* No comment provided by engineer. */
+"Size not calculated" = "大小未計算";
+
+/* Small passcode keys */
+"Small" = "小";
+
+/* No comment provided by engineer. */
+"Software Version" = "iOS系统版本";
+
+/* Title of tool */
+"Springboard Colors" = "主畫面顏色";
+
+/* Title of tool */
+"Springboard Tools" = "主畫面小工具";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "主畫面小工具";
+
+/* Title of tool */
+"Status Bar" = "狀態欄";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "狀態欄時間文字";
+
+/* No comment provided by engineer. */
+"Submit themes" = "提交主題";
+
+/* No comment provided by engineer. */
+"Success" = "成功";
+
+/* No comment provided by engineer. */
+"Success!" = "成功!";
+
+/* applying audio succeeded */
+"Successfully applied audio!" = "成功套用音效!";
+
+/* No comment provided by engineer. */
+"Supervised" = "監管模式";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "滑動以查看不同卡片";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "點擊卡片以啟用自定義功能";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "點擊任意數字鍵以修改其外觀";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "點擊此通知以繼續插體應用程式。";
+
+/* No comment provided by engineer. */
+"The app will quit." = "應用程式將會關閉。";
+
+/* when an operation is restored */
+"The file was successfully restored!" = "檔案已成功復原！";
+
+/* Saving imported audio */
+"The imported audio was successfully encoded and saved." = "導入音效編碼成功，已儲存。";
+
+/* Saving imported lock */
+"The imported lock was successfully saved." = "導入鎖頭儲存成功。";
+
+/* when an operation is applied */
+"The operation was successfully applied! The operation was not saved, only applied." = "已成功套用此操作！（但尚未儲存）";
+
+/* when an operation is deleted */
+"The operation was successfully deleted!" = "已成功刪除此操作！";
+
+/* when an operation is saved */
+"The operation was successfully saved!" = "已成功儲存此操作！";
+
+/* No comment provided by engineer. */
+"Themes" = "主題";
+
+/* No comment provided by engineer. */
+"Tools" = "工具";
+
+/* No comment provided by engineer. */
+"Translators" = "翻譯者";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "插體選項";
+
+/* No comment provided by engineer. */
+"Type:" = "類型：";
+
+/* Cannot delete audio (audio name is after) */
+"Unable to delete audio for audio" = "無法刪除音效：";
+
+/* Failed to import lock */
+"Unable to save imported lock!" = "無法儲存導入的鎖頭！";
+
+/* No comment provided by engineer. */
+"Uncategorized" = "尚未被分類";
+
+/* Shown after successful theme set. */
+"Understood, Respring" = "我了解惹，重新載入主畫面。";
+
+/* zhuowei's contribution */
+"Unsandboxing" = "解封沙盒中...";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "升級內建音效";
+
+/* No comment provided by engineer. */
+"Upload File" = "上傳檔案";
+
+/* No comment provided by engineer. */
+"Use Alternative Setter" = "使用替代的設定器";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "個人造業個人擔，小叮做事小叮噹";
+
+/* No comment provided by engineer. */
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "在電信商/狀態欄時間文字沒有被套用成功的情況下使用此功能，推薦您在此功能開啟並成功套用儲存後將其重置為預設狀態。";
+
+/* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "在您的裝置錯誤地偵測到您已安裝TrollStore且您的狀態欄設定頁面內部上方沒有套用按鈕的情況下使用此功能。";
+
+/* No comment provided by engineer. */
+"validate" = "驗證";
+
+/* value for plist operation */
+"Value" = "數值";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "版本 %@ (%@)";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "等等，這些都是TrollTools功能!?";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "在瀏海機種上設定為空白便可以顯示電信商名稱。";
+
+/* Width of custom resolution
+   Width of passcode keys */
+"Width" = "寬度";
+
+/* Message for apply passcode key size for all */
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "您是否想要將此尺寸套用在所有使用中的按鍵上？否則此尺寸只會套用在新按鍵上。";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"xml" = "xml";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* Confirm apply for all (passcode keys) */
+"Yes" = "是的";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "您沒有任何已儲存的數字盤主題。請點擊下方「探索」區塊來發現更多！";
+
+/* No comment provided by engineer. */
+"Your apps should now function properly" = "您的應用程式應已正常運作";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "您的裝置將會重新載入主畫面";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nApplying using %@." = "您的裝置將會重新載入主畫面\n\n\n %@套用中...";
+

@@ -9,7 +9,7 @@ import SwiftUI
 import MacDirtyCowSwift
 
 class SpringboardColorManager {
-    enum SpringboardType {
+    enum SpringboardType: CaseIterable {
         case dock
         case folder
         case folderBG
@@ -44,6 +44,48 @@ class SpringboardColorManager {
         SpringboardType.switcher: ".materialrecipe",
         SpringboardType.notif: ".materialrecipe"
     ]
+    
+    static func getColor(forType: SpringboardType) -> Color {
+        let bgDir = getBackgroundDirectory()
+        if bgDir == nil || finalFiles[forType] == nil || !FileManager.default.fileExists(atPath: (bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe").path)) {
+            return Color.gray
+        }
+        do {
+            let newData = try Data(contentsOf: bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe"))
+            let plist = try PropertyListSerialization.propertyList(from: newData, options: [], format: nil) as! [String: Any]
+            // get the color
+            if let firstLevel = plist["baseMaterial"] as? [String : Any], let secondLevel = firstLevel["tinting"] as? [String: Any], let thirdLevel = secondLevel["tintColor"] as? [String: Any] {
+                let r = thirdLevel["red"] as? Double ?? CIColor.gray.red
+                let g = thirdLevel["green"] as? Double ?? CIColor.gray.green
+                let b = thirdLevel["blue"] as? Double ?? CIColor.gray.blue
+                let mFactor = ((forType == SpringboardType.notif) ? 0.8: 0.3)
+                let a = (secondLevel["tintAlpha"] as? Double ?? mFactor)/mFactor
+                
+                return Color.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b)).opacity(a)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return Color.gray
+    }
+    
+    static func getBlur(forType: SpringboardType) -> Double {
+        let bgDir = getBackgroundDirectory()
+        if bgDir == nil || finalFiles[forType] == nil || !FileManager.default.fileExists(atPath: (bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe").path)) {
+            return 30
+        }
+        do {
+            let newData = try Data(contentsOf: bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe"))
+            let plist = try PropertyListSerialization.propertyList(from: newData, options: [], format: nil) as! [String: Any]
+            // get the blur
+            if let firstLevel = plist["baseMaterial"] as? [String: Any], let secondLevel = firstLevel["materialFiltering"] as? [String: Any], let thirdLevel = secondLevel["blurRadius"] as? Int {
+                return Double(thirdLevel)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return 30
+    }
     
     static func createColor(forType: SpringboardType, color: CIColor, blur: Int) throws {
         let bgDir = getBackgroundDirectory()
