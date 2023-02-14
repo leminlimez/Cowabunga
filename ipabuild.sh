@@ -43,6 +43,5 @@ mkdir Payload
 cp -r Cowabunga.app Payload/Cowabunga.app
 zip -vr Cowabunga.ipa Payload
 rm -rf Cowabunga.app
-rm -rf DerivedDataApp
 rm -rf Payload
-zip -vr share.zip Cowabunga.ipa
+
