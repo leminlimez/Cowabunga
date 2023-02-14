@@ -16,19 +16,19 @@ struct SpringboardColorChangerView: View {
     @State private var didChangeBadge: Bool = false
     
     
-    @State private var folderColor = Color.gray//.opacity(0.2)
-    @State private var folderBlur: Double = 30
-    @State private var folderBGColor = Color.gray//.opacity(0.2)
-    @State private var folderBGBlur: Double = 30
+    @State private var folderColor = SpringboardColorManager.getColor(forType: .folder)
+    @State private var folderBlur: Double = SpringboardColorManager.getBlur(forType: .folder)
+    @State private var folderBGColor = SpringboardColorManager.getColor(forType: .folderBG)
+    @State private var folderBGBlur: Double = SpringboardColorManager.getBlur(forType: .folderBG)
     
-    @State private var dockColor = Color.gray//.opacity(0.2)
-    @State private var dockBlur: Double = 30
+    @State private var dockColor = SpringboardColorManager.getColor(forType: .dock)
+    @State private var dockBlur: Double = SpringboardColorManager.getBlur(forType: .dock)
     
-    @State private var notifColor = Color.gray
-    @State private var notifBlur: Double = 30
+    @State private var notifColor = SpringboardColorManager.getColor(forType: .notif)
+    @State private var notifBlur: Double = SpringboardColorManager.getBlur(forType: .notif)
     
-    @State private var switcherColor = Color.gray//.opacity(0.2)
-    @State private var switcherBlur: Double = 30
+    @State private var switcherColor = SpringboardColorManager.getColor(forType: .switcher)
+    @State private var switcherBlur: Double = SpringboardColorManager.getBlur(forType: .switcher)
     
     
     var body: some View {
