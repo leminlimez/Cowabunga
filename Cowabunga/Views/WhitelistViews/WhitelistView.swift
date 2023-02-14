@@ -48,10 +48,14 @@ struct WhitelistView: View {
                             }
                             if cdHash {
                                 hash_success = Whitelist.overwriteCdHashes()
+                            } else {
+                                banned_success = false
+                                hash_success = false
                             }
                             success = Whitelist.overwriteBlacklist()
                             
                             // FIXME: Bad.
+                            
                             if banned_success && hash_success {
                                 success_message = "Successfully removed: Blacklist, Banned Apps, CDHashes\nDidn't overwrite: none"
                             } else if !banned_success && hash_success {
