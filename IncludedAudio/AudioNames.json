@@ -1,6 +1,10 @@
 {
 	"audio_files": [
         {
+            "name": "Version",
+            "version": "1.0"
+        },
+        {
             "name": "Old_Charging",
             "attachments": ["Charging"]
         },
@@ -11,11 +15,6 @@
         {
             "name": "MagSafe",
             "attachments": ["Charging"]
-        },
-        {
-            "name": "Cow",
-            "attachments": ["Charging"],
-            "isBeta": "true"
         },
         {
             "name": "Mooh",
