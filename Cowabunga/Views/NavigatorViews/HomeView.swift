@@ -265,7 +265,7 @@ struct HomeView: View {
                     LinkCell(imageName: "ginsudev", url: "https://github.com/ginsudev/WDBFontOverwrite", title: "ginsudev", contribution: NSLocalizedString("Exploit Code", comment: "ginsudev's contribution"), circle: true)
                     LinkCell(imageName: "avangelista", url: "https://github.com/Avangelista", title: "Avangelista", contribution: "StatusMagic", circle: true)
                     // FIXME: Breaks Translations!
-                    LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: NSLocalizedString("AirPower Audio, Whitelist", comment: "BomberFish's contribution"), circle: true)
+                    LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: NSLocalizedString("Whitelist, AirPower Audio, Various fixes", comment: "BomberFish's contribution"), circle: true)
                     LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: NSLocalizedString("Dynamic Island SubTypes", comment: "matteozappia's contribution"), circle: true)
                 } header: {
                     Text("Credits")
