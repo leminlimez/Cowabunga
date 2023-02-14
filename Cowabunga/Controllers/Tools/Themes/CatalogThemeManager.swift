@@ -13,15 +13,22 @@ public class CatalogThemeManager {
     
     var fm = FileManager.default
     
+    var errors: [String] = []
+    
     public init() { }
     
     public func applyChanges(_ changes: [AppIconChange], progress: (Double) -> ()) throws {
+        errors.removeAll()
         try? fm.createDirectory(at: originalIconsDir, withIntermediateDirectories: true)
         
         
         let changesCount = Double(changes.count)
         for (i,change) in changes.enumerated() {
-            try! applyChange(change)
+            do {
+                try applyChange(change)
+            } catch {
+                errors.append(error.localizedDescription)
+            }
             progress(Double(i) / changesCount)
         }
     }
