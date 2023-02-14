@@ -24,6 +24,6 @@ public struct Whitelist {
     }
     
     public static func readFile(path: String) -> String? {
-        return (try? String?(String(contentsOfFile: path)) ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?")
+        return (try? String?(String(contentsOfFile: path)) ?? "ERROR: Could not read from file! Does it even exist?")
     }
 }
