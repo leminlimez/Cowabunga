@@ -44,12 +44,12 @@ struct WhitelistView: View {
                             inProgress = true
                             
                             if banned {
-                                banned_success = overwriteBannedApps()
+                                banned_success = Whitelist.overwriteBannedApps()
                             }
                             if cdHash {
-                                hash_success = overwriteCdHashes()
+                                hash_success = Whitelist.overwriteCdHashes()
                             }
-                            success = overwriteBlacklist()
+                            success = Whitelist.overwriteBlacklist()
                             
                             // FIXME: Bad.
                             if banned_success && hash_success {
@@ -86,6 +86,7 @@ struct WhitelistView: View {
                 } header : {
                     Label("Advanced", systemImage: "wrench.and.screwdriver")
                 }
+                Section{}header:{Text("")}
             }
         
         .navigationTitle("Whitelist")
