@@ -77,6 +77,8 @@ class AudioFiles {
         for attachment in attachments {
             if ListOfAudio[attachment] != nil {
                 ListOfAudio[attachment]?.append(audioName)
+            } else {
+                ListOfAudio[attachment] = [audioName]
             }
         }
         
@@ -94,7 +96,6 @@ class AudioFiles {
         print("setting up audio")
         // fetch new audio if needed
         if fetchingNewAudio == true {
-            //if !FileManager.default.fileExists(atPath: getIncludedAudioDirectory()?.appendingPathComponent(<#T##pathComponent: String##String#>))
             fetchIncludedAudio()
         }
         
@@ -214,20 +215,24 @@ class AudioFiles {
                 // check if all the files exist
                 if  let audioFileData = audioFileData as? Dictionary<String, AnyObject>, let audioFiles = audioFileData["audio_files"] as? [[String: Any]], let includedAudioDirectory: URL = getIncludedAudioDirectory() {
                     
+                    if let dc = audioFiles[0] as? [String: [String: String]] {
+                        if dc["Version"] != nil && dc["Version"]!["version"] != nil {
+                            if ListOfAudio["Version"] == nil || ListOfAudio["Version"]![0].compare(dc["Version"]!["version"]!, options: .numeric) == .orderedAscending {
+                                ListOfAudio.removeAll()
+                                ListOfAudio["Version"] = [dc["Version"]!["version"]!]
+                                do {
+                                    try FileManager.default.removeItem(at: getIncludedAudioDirectory()!)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        }
+                    }
+                    
                     for audioTitle in audioFiles {
                         do {
                             let audioFileName: String = audioTitle["name"] as! String
                             if audioFileName == "Version" {
-                                let newVer: String = audioTitle["version"] as! String
-                                if ListOfAudio["Version"] == nil || ListOfAudio["Version"]![0].compare(newVer, options: .numeric) == .orderedAscending {
-                                    ListOfAudio.removeAll()
-                                    ListOfAudio["Version"] = [newVer]
-                                    try FileManager.default.removeItem(at: getIncludedAudioDirectory()!)
-                                    // refetch included audio
-                                    fetchIncludedAudio()
-                                    return
-                                }
-                            } else {
                                 continue
                             }
                             let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
@@ -279,7 +284,7 @@ class AudioFiles {
             }
             return newURL
         } catch {
-            print("An error occurred getting/making the included audio directory")
+            print("An error occurred getting/making the included audio directory: \(error.localizedDescription)")
         }
         return nil
     }
