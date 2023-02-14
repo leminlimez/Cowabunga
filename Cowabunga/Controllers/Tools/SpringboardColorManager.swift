@@ -47,11 +47,11 @@ class SpringboardColorManager {
     
     static func getColor(forType: SpringboardType) -> Color {
         let bgDir = getBackgroundDirectory()
-        if bgDir == nil || finalFiles[forType] == nil || !FileManager.default.fileExists(atPath: (bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe").path)) {
+        if bgDir == nil || finalFiles[forType] == nil || !FileManager.default.fileExists(atPath: (bgDir!.appendingPathComponent("\(finalFiles[forType]![0]).materialrecipe").path)) {
             return Color.gray
         }
         do {
-            let newData = try Data(contentsOf: bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe"))
+            let newData = try Data(contentsOf: bgDir!.appendingPathComponent("\(finalFiles[forType]![0]).materialrecipe"))
             let plist = try PropertyListSerialization.propertyList(from: newData, options: [], format: nil) as! [String: Any]
             // get the color
             if let firstLevel = plist["baseMaterial"] as? [String : Any], let secondLevel = firstLevel["tinting"] as? [String: Any], let thirdLevel = secondLevel["tintColor"] as? [String: Any] {
