@@ -55,6 +55,7 @@ class AudioFiles {
                 for attachment in SoundEffect.allCases {
                     plist[attachment.rawValue] = ["Default"]
                 }
+                plist["Version"] = ["0"]
                 let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
                 try newData.write(to: newURL)
                 return plist
@@ -215,6 +216,17 @@ class AudioFiles {
                     for audioTitle in audioFiles {
                         do {
                             let audioFileName: String = audioTitle["name"] as! String
+                            if audioFileName == "Version" {
+                                let newVer: String = audioTitle["version"] as! String
+                                if ListOfAudio["Version"] == nil || ListOfAudio["Version"]![0].compare(newVer, options: .numeric) == .orderedAscending {
+                                    ListOfAudio.removeAll()
+                                    ListOfAudio["Version"] = [newVer]
+                                    try FileManager.default.removeItem(at: getIncludedAudioDirectory()!)
+                                    // refetch included audio
+                                    fetchIncludedAudio()
+                                    return
+                                }
+                            }
                             let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
                             let isBeta: String? = audioTitle["isBeta"] as? String
                             if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") && (isBeta == nil || testingAudio == true) {
@@ -244,6 +256,9 @@ class AudioFiles {
                                     print("There was an error removing the file")
                                 }
                             }
+                        } catch {
+                            print(error.localizedDescription)
+                            return
                         }
                     }
                 }
