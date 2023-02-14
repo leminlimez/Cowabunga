@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct FileContentsView: View {
-    @State var blacklistContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-    @State var bannedAppsContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-    @State var cdHashesContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
+    @State var blacklistContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Does it even exist?"
+    @State var bannedAppsContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Does it even exist?"
+    @State var cdHashesContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Does it even exist?"
     
     var body: some View {
         if #available(iOS 15.0, *) {
@@ -130,9 +130,9 @@ struct FileContentsView: View {
         blacklistContent = ""
         bannedAppsContent = ""
         cdHashesContent = ""
-        blacklistContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-        bannedAppsContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-        cdHashesContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
+        blacklistContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Does it even exist?"
+        bannedAppsContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Does it even exist?"
+        cdHashesContent = Whitelist.readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Does it even exist?"
         print("Files updated!")
     }
         
