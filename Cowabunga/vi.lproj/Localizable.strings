@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"· %lld" = ". %lld";
+
 /* Recommended lock type */
 "(Recommended)" = "(Khuyến nghị)";
 
@@ -136,6 +139,9 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Tính kích thước";
 
+/* No comment provided by engineer. */
+"Cancel" = "Hủy";
+
 /* Title of tool */
 "Card Changer" = "Bộ thay đổi chủ đề thẻ";
 
@@ -204,6 +210,9 @@
 
 /* operation type that corrupts/disables the file */
 "Corrupting" = "Đang phá hỏng/vô hiệu hóa tệp";
+
+/* No comment provided by engineer. */
+"Could not calculate plist size!" = "Không thể tính toán kích thước plist!";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "Không thể lấy url của tệp. Bạn đã chọn nó chưa?";
@@ -934,6 +943,9 @@
 
 /* No comment provided by engineer. */
 "X" = "X";
+
+/* No comment provided by engineer. */
+"xml" = "xml";
 
 /* No comment provided by engineer. */
 "Y" = "Y";

@@ -2,10 +2,16 @@
 "(Recommended)" = "(推薦)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*將會同時隱藏電信商名稱\n**將會同時隱藏電信商訊號強度";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*註：將會同時隱藏電信商名稱\n**註：將會同時隱藏電信商訊號強度";
+
+/* No comment provided by engineer. */
+"%lld bytes" = "%lld 位元組";
 
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
+
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 請「仔細」閱讀⬇⚠️\n\n- 在您的裝置重新載入主畫面之後，請「重新開啟」卡哇邦嘎來修復一些應用程式無法正常運作的問題。\n\n- 非常非常嚴肅的提醒您，如果您看到了蘋果標誌+進度條畫面，不用擔心，您的裝置沒有遇到問題。請不要在遇到此現象時嘗試強制重開機!!!!!!!!!!\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -16,8 +22,8 @@
 /* No comment provided by engineer. */
 "Add Value" = "輸入數值";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "AirPower 音效";
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "所有的應用程式圖標將會被復原為原始圖標。您確定想要繼續此操作嗎？（您可能需要重開機一次來成功套用)";
 
 /* No comment provided by engineer. */
 "Alternatives" = "替代";
@@ -68,6 +74,9 @@
 "App Switcher" = "多工任務中心";
 
 /* No comment provided by engineer. */
+"App theme was successfully saved!" = "已成功儲存應用程式主題！";
+
+/* No comment provided by engineer. */
 "Apply" = "套用";
 
 /* Header for apply passcode key size for all */
@@ -110,10 +119,10 @@
 "Basic Configuration" = "基礎設定";
 
 /* Audio name */
-"Begin Recording" = "開始錄製";
+"Begin Recording" = "開始錄製聲";
 
 /* Big passcode keys */
-"Big" = "大";
+"Big" = "較大";
 
 /* No comment provided by engineer. */
 "binary" = "二進制的";
@@ -197,7 +206,7 @@
 "Control Center" = "控制中心";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "檔案損壞";
+"Corrupting" = "破壞檔案";
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "無法計算此plist的大小！";
@@ -221,7 +230,7 @@
 "Create" = "創建";
 
 /* No comment provided by engineer. */
-"Credits" = "鳴謝";
+"Credits" = "鳴謝貢獻與協力開發";
 
 /* No comment provided by engineer. */
 "Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "近期請提交您的主题至Discord的 #showcase頻道進行審核，我們將會在審核通過後给其他用戶預覽和試用。";
@@ -232,7 +241,7 @@
 /* No comment provided by engineer. */
 "Custom image" = "自定義圖片";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "自定義檔案替換操作";
 
 /* default device subtype
@@ -253,6 +262,12 @@
 
 /* No comment provided by engineer. */
 "Device Resolution" = "裝置解析度";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "撥號數字盤修改器";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "已成功清除撥號數字按鍵！";
 
 /* No comment provided by engineer. */
 "Disable" = "停用";
@@ -288,7 +303,7 @@
 "Dynamic Island Pro Max" = "動態島Pro Max";
 
 /* matteozappia's contribution */
-"Dynamic Island SubTypes" = "動態島型號";
+"Dynamic Island SubTypes" = "動態島裝置型號";
 
 /* No comment provided by engineer. */
 "Editing %@" = "編輯中 %@";
@@ -306,7 +321,7 @@
 "Enabled" = "已啟用";
 
 /* Audio name */
-"End Recording" = "結束錄製";
+"End Recording" = "結束錄製聲";
 
 /* Entering custom resolution */
 "Enter Dimensions" = "請輸入解析度尺寸";
@@ -348,6 +363,9 @@
 "Failed to load operations." = "載入操作失敗";
 
 /* No comment provided by engineer. */
+"Failed to save theme!" = "儲存主題失敗！";
+
+/* No comment provided by engineer. */
 "File not found!" = "找不到檔案";
 
 /* No comment provided by engineer. */
@@ -357,7 +375,7 @@
 "Files" = "檔案";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "修復插體";
+"Fix tweaks" = "按此修復插體(Tweaks)";
 
 /* No comment provided by engineer. */
 "Fixing apps..." = "修復應用程式中...";
@@ -366,7 +384,7 @@
 "Folder" = "資料夾";
 
 /* No comment provided by engineer. */
-"Footnote" = "鎖定畫面底部註腳";
+"Footnote" = "按此修改註腳";
 
 /* No comment provided by engineer. */
 "Force MacDirtyCOW" = "強制使用MacDirtyCow漏洞";
@@ -376,6 +394,9 @@
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "您想要從何處導入鎖定數字盤主題？";
+
+/* header for resetting all icons */
+"Full reset" = "重置所有圖標";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "滑動手勢 / 動態島";
@@ -406,7 +427,7 @@
 "Hide CarPlay" = "隱藏CarPlay";
 
 /* No comment provided by engineer. */
-"Hide Cellular*" = "隱藏行動數據*";
+"Hide Cellular*" = "隱藏行動數據圖標 *註";
 
 /* No comment provided by engineer. */
 "Hide Do Not Disturb" = "隱藏勿擾模式圖標";
@@ -415,7 +436,7 @@
 "Hide Dock" = "隱藏Dock";
 
 /* Springboard tool */
-"Hide Home Bar" = "隱藏Home Bar(底部手勢白條)";
+"Hide Home Bar" = "隱藏底部手勢白條";
 
 /* No comment provided by engineer. */
 "Hide Location" = "隱藏定位圖標";
@@ -433,7 +454,7 @@
 "Hide VPN" = "隱藏VPN圖標";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi**" = "隱藏Wi-Fi**";
+"Hide Wi-Fi**" = "隱藏WiFi圖標 **註";
 
 /* No comment provided by engineer. */
 "Home" = "首頁";
@@ -456,6 +477,9 @@
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "導入鎖定數字盤主題";
 
+/* No comment provided by engineer. */
+"In progress..." = "正在處理中...";
+
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "在此期間您可以加入我們的Discord伺服器 :)";
 
@@ -463,7 +487,7 @@
 "Included" = "內建";
 
 /* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "包含音效、翻譯與卡片美化器";
+"Included Audio, Credits, and Card Changer" = "音效、翻譯與卡片美化器";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "請輸入自定義iOS系統版本(譯者註：改這功能百害無一利，千萬小心...)";
@@ -604,6 +628,9 @@
 /* Audio name */
 "Payment Success" = "付款成功聲";
 
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "請關閉並重新開啟電話應用程式。";
+
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "請輸入一個有效的類別名稱！";
 
@@ -611,7 +638,7 @@
 "Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "請在設定中准許卡哇邦嘎「總是」 的定位權限以讓其持續在背景運行。";
 
 /* No comment provided by engineer. */
-"Please log into your Sourced Repo account to continue" = "Please log into your Sourced Repo account to continue";
+"Please log into your Sourced Repo account to continue" = "請登入您的源帳號以繼續";
 
 /* Successfully applying custom resolution */
 "Please respring to finalize changes. Reboot to revert." = "請重新載入主畫面以套用自定義解析度。重開機後將自動恢復預設解析度。";
@@ -624,6 +651,9 @@
 
 /* No comment provided by engineer. */
 "Please respring to see changes." = "請重新載入主畫面以套用修改。";
+
+/* No comment provided by engineer. */
+"Please select a file to import!" = "請選擇一個檔案來導入！";
 
 /* No comment provided by engineer. */
 "Please wait" = "請耐心等待";
@@ -653,7 +683,7 @@
 "Received Message" = "收到訊息聲";
 
 /* No comment provided by engineer. */
-"Remove all" = "移除所有";
+"Remove all" = "移除所有外觀";
 
 /* No comment provided by engineer. */
 "Remove theme" = "移除主題";
@@ -671,7 +701,7 @@
 "Replacement Data" = "取代資料";
 
 /* operation type that replaces a file */
-"Replacing" = "取代中";
+"Replacing" = "取代檔案";
 
 /* No comment provided by engineer. */
 "Reset All" = "重置所有";
@@ -708,6 +738,12 @@
 
 /* apply button on custom operations */
 "Saving operation..." = "儲存操作中...";
+
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "重建排程中...";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "重置圖標緩存排程中...";
 
 /* Audio name */
 "Screenshot" = "螢幕截圖聲";
@@ -755,7 +791,7 @@
 "Size not calculated" = "大小未計算";
 
 /* Small passcode keys */
-"Small" = "小";
+"Small" = "較小";
 
 /* No comment provided by engineer. */
 "Software Version" = "iOS系统版本";
@@ -768,6 +804,9 @@
 
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "主畫面小工具";
+
+/* No comment provided by engineer. */
+"Starting..." = "啟動中...";
 
 /* Title of tool */
 "Status Bar" = "狀態欄";
@@ -788,7 +827,7 @@
 "Successfully applied audio!" = "成功套用音效!";
 
 /* No comment provided by engineer. */
-"Supervised" = "監管模式";
+"Supervised" = "啟用監管模式";
 
 /* No comment provided by engineer. */
 "Swipe to view different cards" = "滑動以查看不同卡片";
@@ -800,7 +839,7 @@
 "Tap on any key to edit \nits appearance" = "點擊任意數字鍵以修改其外觀";
 
 /* No comment provided by engineer. */
-"Tap this notification to resume tweak applications." = "點擊此通知以繼續插體應用程式。";
+"Tap this notification to resume tweak applications." = "點擊此通知以繼續調整、修改應用程式。";
 
 /* No comment provided by engineer. */
 "The app will quit." = "應用程式將會關閉。";
@@ -823,6 +862,9 @@
 /* when an operation is saved */
 "The operation was successfully saved!" = "已成功儲存此操作！";
 
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "名為：(url.deletingPathExtension().lastPathComponent) 的主題已經存在。請重新命名此資料夾。";
+
 /* No comment provided by engineer. */
 "Themes" = "主題";
 
@@ -833,7 +875,7 @@
 "Translators" = "翻譯者";
 
 /* No comment provided by engineer. */
-"Tweak Options" = "插體選項";
+"Tweak Options" = "插體(Tweak)選項";
 
 /* No comment provided by engineer. */
 "Type:" = "類型：";
@@ -851,7 +893,7 @@
 "Understood, Respring" = "我了解惹，重新載入主畫面。";
 
 /* zhuowei's contribution */
-"Unsandboxing" = "解封沙盒中...";
+"Unsandboxing" = "沙盒解封";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "升級內建音效";
@@ -918,5 +960,5 @@
 "Your device will respring." = "您的裝置將會重新載入主畫面";
 
 /* No comment provided by engineer. */
-"Your device will respring.\n\n\nApplying using %@." = "您的裝置將會重新載入主畫面\n\n\n %@套用中...";
+"Your device will respring.\n\n\nApplying using %@." = "您的裝置將會重新載入主畫面\n\n此區使用%@套用";
 
