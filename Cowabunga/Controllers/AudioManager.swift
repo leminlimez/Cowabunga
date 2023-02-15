@@ -230,43 +230,38 @@ class AudioFiles {
                     }
                     
                     for audioTitle in audioFiles {
-                        do {
-                            let audioFileName: String = audioTitle["name"] as! String
-                            if audioFileName == "Version" {
-                                continue
-                            }
-                            let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
-                            let isBeta: String? = audioTitle["isBeta"] as? String
-                            if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") && (isBeta == nil || testingAudio == true) {
-                                // fetch the file and add it to path
-                                let audioURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/" + audioFileName + ".m4a")
-                                if audioURL != nil {
-                                    let audio_task = URLSession.shared.dataTask(with: audioURL!) { audio_data, audio_response, audio_error in
-                                        if audio_data != nil {
-                                            // write the audio file
-                                            do {
-                                                addIncludedAudioFile(audioName: audioFileName, attachments: audioFileAttachments)
-                                                try audio_data!.write(to: includedAudioDirectory.appendingPathComponent(audioFileName + ".m4a"))
-                                            } catch {
-                                                print("Error writing included audio data to directory")
-                                            }
-                                        } else {
-                                            print("No audio data")
+                        let audioFileName: String = audioTitle["name"] as! String
+                        if audioFileName == "Version" {
+                            continue
+                        }
+                        let audioFileAttachments: [String] = audioTitle["attachments"] as! [String]
+                        let isBeta: String? = audioTitle["isBeta"] as? String
+                        if !FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") && (isBeta == nil || testingAudio == true) {
+                            // fetch the file and add it to path
+                            let audioURL: URL? = URL(string: "https://raw.githubusercontent.com/leminlimez/Cowabunga/main/IncludedAudio/" + audioFileName + ".m4a")
+                            if audioURL != nil {
+                                let audio_task = URLSession.shared.dataTask(with: audioURL!) { audio_data, audio_response, audio_error in
+                                    if audio_data != nil {
+                                        // write the audio file
+                                        do {
+                                            addIncludedAudioFile(audioName: audioFileName, attachments: audioFileAttachments)
+                                            try audio_data!.write(to: includedAudioDirectory.appendingPathComponent(audioFileName + ".m4a"))
+                                        } catch {
+                                            print("Error writing included audio data to directory")
                                         }
+                                    } else {
+                                        print("No audio data")
                                     }
-                                    audio_task.resume()
                                 }
-                            } else if isBeta != nil && testingAudio == false && FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
-                                // delete the file
-                                do {
-                                    try FileManager.default.removeItem(at: includedAudioDirectory.appendingPathComponent(audioFileName+".m4a"))
-                                } catch {
-                                    print("There was an error removing the file")
-                                }
+                                audio_task.resume()
                             }
-                        } catch {
-                            print(error.localizedDescription)
-                            return
+                        } else if isBeta != nil && testingAudio == false && FileManager.default.fileExists(atPath: includedAudioDirectory.path + "/" + audioFileName + ".m4a") {
+                            // delete the file
+                            do {
+                                try FileManager.default.removeItem(at: includedAudioDirectory.appendingPathComponent(audioFileName+".m4a"))
+                            } catch {
+                                print("There was an error removing the file")
+                            }
                         }
                     }
                 }

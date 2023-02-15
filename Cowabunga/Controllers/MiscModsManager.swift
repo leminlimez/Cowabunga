@@ -338,8 +338,8 @@ func setCarrierName(newName: String) -> Bool {
             let originalSize = plistData.count
             // modify values
             if var images = plist["StatusBarImages"] as? [[String: Any]] {
-                for var (i, image) in images.enumerated() {
-                    image["StatusBarCarrierName"] = newName
+                for (i, image) in images.enumerated() {
+                    images[i]["StatusBarCarrierName"] = newName
                     
                     images[i] = image
                 }
