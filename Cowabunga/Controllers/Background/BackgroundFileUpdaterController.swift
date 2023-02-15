@@ -76,8 +76,8 @@ class BackgroundFileUpdaterController: ObservableObject {
             }
             
             // apply lock
-            if UserDefaults.standard.string(forKey: "Lock") ?? "Default" != "Default" {
-                let lockName: String = UserDefaults.standard.string(forKey: "Lock")!
+            if UserDefaults.standard.string(forKey: "CurrentLock") ?? "Default" != "Default" {
+                let lockName: String = UserDefaults.standard.string(forKey: "CurrentLock")!
                 print("applying lock")
                 let _ = LockManager.applyLock(lockName: lockName)
             }
