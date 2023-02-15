@@ -110,13 +110,13 @@
 "Audio Changer" = "مبدل الصوت";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "الرد التلقائي بعد تطبيق";
+"Auto respring after apply" = "إعادة التشغيل التلقائي بعد التطبيق";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "التحديث التلقائي للصوت المضمن";
+"Auto Update Included Audio" = "التحديث التلقائي يشمل الصوت";
 
 /* No comment provided by engineer. */
-"Background" = "الخلفية التقنية للاختراع";
+"Background" = "الخلفية";
 
 /* No comment provided by engineer. */
 "Background Update Frequency" = "تكرار تحديث الخلفية";
@@ -236,7 +236,7 @@
 "Create" = "إنشاء";
 
 /* No comment provided by engineer. */
-"Credits" = "أرصدة";
+"Credits" = "الاعتمادات";
 
 /* No comment provided by engineer. */
 "Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "في الوقت الحالي لإرسال السمات إلى أشخاص آخرين لمشاهدتها واستخدامها، يتعين علينا مراجعتها على Discord في #showcase channel.";
@@ -282,13 +282,13 @@
 "Disable App Switcher Blur" = "تعطيل ضبابية مبدل التطبيقات";
 
 /* Springboard tool */
-"Disable CC Module Background" = "تعطيل خلفية وحدة CC";
+"Disable CC Module Background" = "تعطيل خلفية مركز التحكم";
 
 /* Springboard tool */
 "Disable Folder Background" = "تعطيل خلفية المجلد";
 
 /* Springboard tool */
-"Disable Folder Blur" = "تعطيل طمس المجلد";
+"Disable Folder Blur" = "تعطيل ضبابية المجلد";
 
 /* Springboard tool */
 "Disable Library Pods Background" = "تعطيل خلفية مكتبة التطبيقات";
@@ -357,7 +357,7 @@
 "Failed to apply Device SubType!" = "فشل تطبيق النوع الفرعي للجهاز!";
 
 /* Failing to apply custom resolution */
-"Failed to apply resolution:" = ":فشل في تطبيق الدقة:";
+"Failed to apply resolution:" = ":فشل في تطبيق الدقة";
 
 /* No comment provided by engineer. */
 "Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "فشل في تطبيق تغيير إصدار النظام! يجب أن يكون الإصدار أقصر من إصدار جهازك الحالي.\n\n(error.localizedDescription)";
@@ -415,25 +415,25 @@
 "Height" = "الارتفاع";
 
 /* No comment provided by engineer. */
-"Hide Airplane Mode" = "إخفاء وضع الطائرة";
+"Hide Airplane Mode" = "إخفاء وضع الطيران";
 
 /* No comment provided by engineer. */
-"Hide AirPlay" = "إخفاء البث";
+"Hide AirPlay" = " إخفاء AirPlay";
 
 /* No comment provided by engineer. */
-"Hide Alarm" = "إخفاء التنبيه";
+"Hide Alarm" = "إخفاء المنبه";
 
 /* No comment provided by engineer. */
 "Hide Battery" = "إخفاء البطارية";
 
 /* No comment provided by engineer. */
-"Hide Bluetooth" = "إخفاء البلوتوث";
+"Hide Bluetooth" = "إخفاء Bluetooth";
 
 /* No comment provided by engineer. */
 "Hide CarPlay" = "إخفاء CarPlay";
 
 /* No comment provided by engineer. */
-"Hide Cellular*" = "إخفاء الهاتف الخلوي*";
+"Hide Cellular*" = "إخفاء الإشارة الخلوية*";
 
 /* No comment provided by engineer. */
 "Hide Do Not Disturb" = "إخفاء عدم الإزعاج";
@@ -451,7 +451,7 @@
 "Hide Notification Banner Background" = "إخفاء خلفية لافتة الإشعارات";
 
 /* No comment provided by engineer. */
-"Hide Rotation Lock" = "إخفاء قفل الدوران";
+"Hide Rotation Lock" = "إخفاء قفل الاتجاه الرأسي";
 
 /* No comment provided by engineer. */
 "Hide Status Bar Time" = "إخفاء وقت شريط الحالة";
@@ -508,13 +508,13 @@
 "Key" = "مفتاح";
 
 /* Audio name */
-"Keyboard Press Clear" = "لوحة المفاتيح ضغطه المسح";
+"Keyboard Press Clear" = "لوحة المفاتيح زر المسح";
 
 /* Audio name */
-"Keyboard Press Delete" = "لوحة المفاتيح ضغطه الحذف";
+"Keyboard Press Delete" = "لوحة المفاتيح زر الحذف";
 
 /* Audio name */
-"Keyboard Press Normal" = "لوحة المفاتيح ضغطه العادي";
+"Keyboard Press Normal" = "لوحة المفاتيح زر عادي";
 
 /* Audio name */
 "Lock" = "قفل";
@@ -523,10 +523,10 @@
 "Lock Screen" = "قفل الشاشة";
 
 /* Title of tool */
-"Lock Screen Footnote" = "قفل الحاشية السفلية للشاشة";
+"Lock Screen Footnote" = "تعليق سفلي لشاشة القفل";
 
 /* No comment provided by engineer. */
-"Lock Screen Footnote Changer" = "قفل شاشة الحاشية السفلية مبدل";
+"Lock Screen Footnote Changer" = "مبدل التعليق السفلي لشاشة القفل";
 
 /* No comment provided by engineer. */
 "Lock Type" = "نوع القفل";
@@ -572,7 +572,7 @@
 "New Mail" = "بريد جديد";
 
 /* No comment provided by engineer. */
-"New theme name" = "اسم القالب الجديد";
+"New theme name" = "اسم السمة الجديد";
 
 /* Decline apply for all (passcode keys) */
 "No" = "لا";
@@ -581,7 +581,7 @@
 "No Cards Found" = "لم يتم العثور على بطاقات";
 
 /* No comment provided by engineer. */
-"No respring required to apply." = "لا يوجد أعادة التشغيل السريع المطلوبة لتطبيق.";
+"No respring required to apply." = "لا يلزم إعادة التشغيل السريع للتطبيق.";
 
 /* No comment provided by engineer. */
 "No themes containing icons for %@ (%@) have been found." = "%@ (%@)لم يتم العثور على سمات تحتوي على أيقونات ل";
@@ -647,16 +647,16 @@
 "Please log into your Sourced Repo account to continue" = "يرجى تسجيل الدخول إلى حساب Sourced Repo للمتابعة";
 
 /* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "يرجى الرد لوضع اللمسات الأخيرة على التغييرات. أعد التشغيل للرجوع.";
+"Please respring to finalize changes. Reboot to revert." = "يرجى إعادة التشغيل السريع لوضع اللمسات الأخيرة على التغييرات. أعد التشغيل للرجوع.";
 
 /* No comment provided by engineer. */
-"Please respring to finish applying changes." = "يرجى أعادة التشغيل السريع لإنهاء تطبيق التغييرات.";
+"Please respring to finish applying changes." = "يرجى إعادة التشغيل السريع لإنهاء تطبيق التغييرات.";
 
 /* respring to hear audio changes */
-"Please respring to hear changes." = "يرجى أعادة التشغيل السريع لسماع التغييرات.";
+"Please respring to hear changes." = "يرجى إعادة التشغيل السريع لسماع التغييرات.";
 
 /* No comment provided by engineer. */
-"Please respring to see changes." = "يرجى أعادة التشغيل السريع لمشاهدة التغييرات.";
+"Please respring to see changes." = "يرجى إعادة التشغيل السريع لمشاهدة التغييرات.";
 
 /* No comment provided by engineer. */
 "Please select a file to import!" = "!الرجاء تحديد ملف للاستيراد";
@@ -692,13 +692,13 @@
 "Remove all" = "إزالة الكل";
 
 /* No comment provided by engineer. */
-"Remove theme" = "إزالة القالب";
+"Remove theme" = "إزالة السمة";
 
 /* No comment provided by engineer. */
 "Rename" = "إعادة تسمية";
 
 /* Entering new theme name */
-"Rename theme" = "إعادة تسمية القالب";
+"Rename theme" = "إعادة تسمية السمة";
 
 /* No comment provided by engineer. */
 "Replace With:" = "استبدل بـ:";
@@ -719,7 +719,7 @@
 "Reset faces" = "إعادة تعيين الوجوه";
 
 /* No comment provided by engineer. */
-"Respring" = "أعادة التشغيل السريع";
+"Respring" = "إعادة التشغيل السريع";
 
 /* No comment provided by engineer. */
 "Respring to see changes" = "إعادة التشغيل لمشاهدة التغييرات";
@@ -761,7 +761,7 @@
 "Selected" = "مختار";
 
 /* Audio name */
-"Sent Mail" = "البريد المرسل";
+"Sent Mail" = "تم إرسال البريد";
 
 /* Audio name */
 "Sent Message" = "تم إرسال الرسالة";
@@ -803,10 +803,10 @@
 "Software Version" = "إصدار البرنامج";
 
 /* Title of tool */
-"Springboard Colors" = "ألوان سبرينج بورد";
+"Springboard Colors" = "ألوان SpringBoard";
 
 /* Title of tool */
-"Springboard Tools" = "أدوات سبرينج بورد";
+"Springboard Tools" = "أدوات SpringBoard";
 
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "أدوات SpringBoard";
@@ -896,13 +896,13 @@
 "Uncategorized" = "غير مصنف";
 
 /* Shown after successful theme set. */
-"Understood, Respring" = "فهمت، أعادة التشغيل السريع";
+"Understood, Respring" = "فهمت، إعادة التشغيل السريع";
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Unsandboxing";
 
 /* No comment provided by engineer. */
-"Update Included Audio" = "تحديث الصوت المضمن";
+"Update Included Audio" = "تحديث يشمل الصوت";
 
 /* No comment provided by engineer. */
 "Upload File" = "تحميل الملف";
@@ -963,7 +963,7 @@
 "Your apps should now function properly" = "يجب أن تعمل تطبيقاتك الآن بشكل صحيح";
 
 /* No comment provided by engineer. */
-"Your device will respring." = "سوف يتم أعادة التشغيل السريع.";
+"Your device will respring." = "سيتم إعادة التشغيل السريع.";
 
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nApplying using %@." = "سيتم إعادة التشغيل السريع.\n\n\nتطبيق باستخدام %@.";

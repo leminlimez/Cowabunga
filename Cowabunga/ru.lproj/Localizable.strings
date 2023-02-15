@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabanga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\nПрошло (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
+
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
@@ -25,8 +28,8 @@
 /* No comment provided by engineer. */
 "Add Value" = "Добавить значение";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "Звук AirPower";
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Все иконки будут возвращены к оригиналам. Вы уверены, что хотите продолжить? (возможно, потребуется перезагрузка)";
 
 /* No comment provided by engineer. */
 "Alternatives" = "Другие иконки";
@@ -50,22 +53,22 @@
 "An error occurred" = "Произошла ошибка";
 
 /* when an operation fails to apply */
-"An error occurred while applying the operation" = "При применении этой операции произошла ошибка.";
+"An error occurred while applying the operation" = "При применении операции произошла ошибка";
 
 /* when an operation fails to delete */
-"An error occurred while deleting the operation" = "При удалении этой операции произошла ошибка.";
+"An error occurred while deleting the operation" = "При удалении операции произошла ошибка";
 
 /* when an operation fails to restore */
-"An error occurred while restoring the files" = "При восстановлении файлов произошла ошибка.";
+"An error occurred while restoring the files" = "При восстановлении файлов произошла ошибка";
 
 /* when an operation fails to save */
-"An error occurred while saving the operation" = "При сохранении операции произошла ошибка.";
+"An error occurred while saving the operation" = "При сохранении операции произошла ошибка";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
-"An error occurred while trying to disable appclip icons." = "При отключении значков блиц-приложений произошла ошибка.";
+"An error occurred while trying to disable appclip icons." = "При отключении иконок блиц-приложений произошла ошибка.";
 
 /* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
-"An error occurred while trying to enable appclip icons." = "При включении значков блиц-приложений произошла ошибка.";
+"An error occurred while trying to enable appclip icons." = "При включении иконок блиц-приложений произошла ошибка.";
 
 /* No comment provided by engineer. */
 "An error occurred while trying to enable extra settings." = "При включении дополнительных настроек произошла ошибка.";
@@ -75,6 +78,9 @@
 
 /* No comment provided by engineer. */
 "App Switcher" = "Многозадачность";
+
+/* No comment provided by engineer. */
+"App theme was successfully saved!" = "Тема приложения успешно сохранена!";
 
 /* No comment provided by engineer. */
 "Apply" = "Применить";
@@ -104,10 +110,10 @@
 "Audio Changer" = "Редактор звуков";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "Перезапускать SpringBoard автоматически";
+"Auto respring after apply" = "Перезапускать SpringBoard автоматически после применения твиков";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "Обновлять звуки автоматически";
+"Auto Update Included Audio" = "Обновлять список звуков автоматически";
 
 /* No comment provided by engineer. */
 "Background" = "Фон";
@@ -158,13 +164,13 @@
 "Change Status Bar Time Text" = "Изменить время в строке состояния";
 
 /* Audio name */
-"Charging" = "Зарядка";
+"Charging" = "Подключение зарядного устройства";
 
 /* No comment provided by engineer. */
 "Choose a device subtype" = "Выберите подтип устройства";
 
 /* Title for lock preference */
-"Choose a lock preference" = "Выберите параметр значка замка";
+"Choose a lock preference" = "Выберите тип значка замка";
 
 /* No comment provided by engineer. */
 "Choose a name for the category" = "Выберите имя категории";
@@ -241,7 +247,7 @@
 /* No comment provided by engineer. */
 "Custom image" = "Выбрать фото";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "Собственные операции";
 
 /* default device subtype
@@ -262,6 +268,12 @@
 
 /* No comment provided by engineer. */
 "Device Resolution" = "Разрешение устройства";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "Редактор тем клавиш звонилки";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "Клавиши звонилки успешно сброшены!";
 
 /* No comment provided by engineer. */
 "Disable" = "Отключить";
@@ -357,6 +369,9 @@
 "Failed to load operations." = "Не удалось загрузить операции.";
 
 /* No comment provided by engineer. */
+"Failed to save theme!" = "Не удалось сохранить тему!";
+
+/* No comment provided by engineer. */
 "File not found!" = "Файл не найден!";
 
 /* No comment provided by engineer. */
@@ -385,6 +400,9 @@
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "Выберите источник импорта";
+
+/* header for resetting all icons */
+"Full reset" = "Полный сброс";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Жесты / Динамический остров";
@@ -463,7 +481,10 @@
 "If the custom lock does not apply for you, try another option." = "Если смена значка замка не работает, выберите другой пункт.";
 
 /* Header for importing passcode theme */
-"Import Passcode Theme" = "Импортировать тему клавиш";
+"Import Passcode Theme" = "Импорт темы клавиш";
+
+/* No comment provided by engineer. */
+"In progress..." = "Подождите...";
 
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "А пока Вы можете...";
@@ -524,7 +545,7 @@
 
 /* leminlimez's contribution
    sourcelocation's contribution */
-"Main Developer" = "Главный разработчик";
+"Main Developer" = "Один из главных разработчиков";
 
 /* Maximum passcode key size */
 "Max:" = "Максимум:";
@@ -563,7 +584,7 @@
 "No respring required to apply." = "Перезапуск SpringBoard не требуется.";
 
 /* No comment provided by engineer. */
-"No themes containing icons for %@ (%@) have been found." = "Тем, которые содержат иконки для %@ (%@), не найдено.";
+"No themes containing icons for %@ (%@) have been found." = "Тем, содержащих иконки для %@ (%@), не найдено.";
 
 /* No comment provided by engineer. */
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Темы не найдены. Скачайте темы во вкладке Обзор\nили импортируйте их при помощи кнопки в правом верхнем углу (Темы должны содержать иконки в формате <id>.png).";
@@ -587,7 +608,7 @@
 "Other" = "Другое";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Редактор тем клавиш";
+"Passcode Face Editor" = "Редактор тем клавиш код-пароля";
 
 /* Title of tool */
 "Passcode Faces" = "Темы клавиш";
@@ -613,6 +634,9 @@
 /* Audio name */
 "Payment Success" = "Успешная оплата";
 
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "Закройте и откройте заново приложение Телефон.";
+
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "Введите допустимое имя категории!";
 
@@ -633,6 +657,9 @@
 
 /* No comment provided by engineer. */
 "Please respring to see changes." = "Перезапустите SpringBoard для применения изменений.";
+
+/* No comment provided by engineer. */
+"Please select a file to import!" = "Выберите файл для импорта!";
 
 /* No comment provided by engineer. */
 "Please wait" = "Пожалуйста, подождите";
@@ -695,16 +722,16 @@
 "Respring" = "Перезапустить SpringBoard";
 
 /* No comment provided by engineer. */
-"Respring to see changes" = "Перезапустите SpringBoard для применеия изменений";
+"Respring to see changes" = "Перезапустите SpringBoard для применения изменений";
 
 /* No comment provided by engineer. */
 "Restore" = "Восстановить";
 
 /* restore button on custom operations */
-"Restoring original file..." = "Восстановить оригинальный файл...";
+"Restoring original file..." = "Восстановление оригинального файла...";
 
 /* No comment provided by engineer. */
-"Run in background" = "Обновлять в фоновом режиме";
+"Run in background" = "Поддерживать работу твиков в фоновом режиме";
 
 /* No comment provided by engineer. */
 "Save" = "Сохранить";
@@ -713,10 +740,16 @@
 "Save Settings" = "Сохранить настройки";
 
 /* Import passcode theme from saved */
-"Saved" = "Сохраненные";
+"Saved" = "Сохраненные темы";
 
 /* apply button on custom operations */
 "Saving operation..." = "Сохранение операции...";
+
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "Пересборка...";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "Сброс кэша иконок...";
 
 /* Audio name */
 "Screenshot" = "Снимок экрана";
@@ -773,10 +806,13 @@
 "Springboard Colors" = "Цвета SpringBoard";
 
 /* Title of tool */
-"Springboard Tools" = "Инструменты SpringBoard";
+"Springboard Tools" = "Твики SpringBoard";
 
 /* No comment provided by engineer. */
-"SpringBoard Tools" = "Инструменты SpringBoard";
+"SpringBoard Tools" = "Твики SpringBoard";
+
+/* No comment provided by engineer. */
+"Starting..." = "Запуск...";
 
 /* Title of tool */
 "Status Bar" = "Строка состояния";
@@ -832,11 +868,14 @@
 /* when an operation is saved */
 "The operation was successfully saved!" = "Операция успешно сохранена!";
 
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "Тема с именем (url.deletingPathExtension().lastPathComponent) уже существует. Выберите другое имя.";
+
 /* No comment provided by engineer. */
 "Themes" = "Темы";
 
 /* No comment provided by engineer. */
-"Tools" = "Инструменты";
+"Tools" = "Твики";
 
 /* No comment provided by engineer. */
 "Translators" = "Переводчики";
@@ -875,7 +914,7 @@
 "Use at your own risk" = "Используйте на свой страх и риск";
 
 /* No comment provided by engineer. */
-"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Используйте это, если название оператора/текст часов не изменяется. Я рекомендую вернуть стандартные настройки после применения этой.";
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Используйте это, если название оператора/текст часов не изменяется. Рекомендуется вернуть стандартные настройки после применения этой.";
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки Применить во вкладке Строка состояния.";

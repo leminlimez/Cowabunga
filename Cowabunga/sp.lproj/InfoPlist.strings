@@ -1,0 +1,24 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "Para usar Cowabunga, necesita permiso para poder hacer las modificaciones (obligatorio para los cambios)";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga sigue activo de fondo para que los cambios sigan aplicados. Usualmente iOS cierra las aplicaciones después de un tiempo. Pero Cowabunga evade iOS pidiendo datos de localización para así este seguir activo por mas tiempo. Los datos nunca son guardados en otras partes o usados de manera maliciosa.";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Cowabunga sigue activo de fondo para que los cambios sigan aplicados. Usualmente iOS cierra las aplicaciones después de un tiempo. Pero Cowabunga evade iOS pidiendo datos de localización para así este seguir activo por mas tiempo. Los datos nunca son guardados en otras partes o usados de manera maliciosa.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Fotos";
+
+/* (No Comment) */
+"Passcode Theme File" = "Tema de contraseña File";
+
+/* (No Comment) */
+"Theme Archive File" = "Archivo del Tema";
+
