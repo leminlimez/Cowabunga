@@ -40,7 +40,7 @@ struct HomeView: View {
         .init(names: "@CySxL", contribution: "🇹🇼 Chinese (Taiwan)"),
         .init(names: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese"),
         .init(names: "JameSpace#5649", contribution: "🇻🇳 Vietnamese (Vietnam)"),
-        .init(names: "iwishkem.#3116", contribution: "🇹🇷 Turkish"),
+        .init(names: "crimeboss#6704 & meliherdem#0001", contribution: "🇹🇷 Turkish"),
         .init(names: "TaekyungAncal#7857", contribution: "🇰🇷 Korean"),
         .init(names: "Aru Pro#2789", contribution: "🇦🇪 Arabic")
     ]
