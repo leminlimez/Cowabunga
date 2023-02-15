@@ -525,7 +525,7 @@ struct EditingOperationView: View {
                                 Text("Create")
                             }
                         }
-                        .buttonStyle(FullwidthTintedButton(color: .blue))
+                        .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                         
                         // MARK: Apply Once
                         if !editing {
@@ -543,7 +543,7 @@ struct EditingOperationView: View {
                                     UIApplication.shared.alert(body: NSLocalizedString("An error occurred while applying the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
                                 }
                             }
-                            .buttonStyle(FullwidthTintedButton(color: .blue))
+                            .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                         } else {
                             // MARK: Delete
                             Button(action: {
@@ -560,7 +560,7 @@ struct EditingOperationView: View {
                             }) {
                                 Text("Delete")
                             }
-                            .buttonStyle(FullwidthTintedButton(color: .red))
+                            .buttonStyle(TintedButton(color: .red, fullwidth: true))
                             
                             // MARK: Restore
                             Button(action: {
@@ -577,7 +577,7 @@ struct EditingOperationView: View {
                             }) {
                                 Text("Restore")
                             }
-                            .buttonStyle(FullwidthTintedButton(color: .green))
+                            .buttonStyle(TintedButton(color: .green, fullwidth: true))
                         }
                     }
                     .listRowInsets(EdgeInsets())

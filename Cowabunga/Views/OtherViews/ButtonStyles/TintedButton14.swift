@@ -7,18 +7,27 @@
 
 import SwiftUI
 
-struct FullwidthTintedButton: ButtonStyle {
+struct TintedButton: ButtonStyle {
     var color: Color
+    var fullwidth: Bool = false
     var info: String?
     
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
-            configuration.label
-                .padding(15)
-                .frame(maxWidth: .infinity)
-                .background(color.opacity(0.2))
-                .cornerRadius(8)
-                .foregroundColor(color)
+            if fullwidth {
+                configuration.label
+                    .padding(15)
+                    .frame(maxWidth: .infinity)
+                    .background(color.opacity(0.2))
+                    .cornerRadius(8)
+                    .foregroundColor(color)
+            } else {
+                configuration.label
+                    .padding(15)
+                    .background(color.opacity(0.2))
+                    .cornerRadius(8)
+                    .foregroundColor(color)
+            }
             
             if let info = info {
                 HStack {
@@ -39,18 +48,6 @@ struct FullwidthTintedButton: ButtonStyle {
     }
 }
 
-struct TintedButton: ButtonStyle {
-    var color: Color
-    
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding(15)
-            .background(color.opacity(0.2))
-            .cornerRadius(8)
-            .foregroundColor(color)
-    }
-}
-
 
 #if DEBUG
 @available(iOS 15, *)
@@ -59,7 +56,7 @@ struct FullwidthTintedButton_Previews: PreviewProvider {
         Button("Exaple") {
             
         }
-        .buttonStyle( FullwidthTintedButton(color: .red, info: "Test info"))
+        .buttonStyle(TintedButton(color: .red, info: "Test info"))
         .padding()
     }
 }

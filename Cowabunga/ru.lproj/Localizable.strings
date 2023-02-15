@@ -17,7 +17,7 @@
 "%lldx%lld" = "%lldx%lld";
 
 /* IMPORTANT alert when icons finish applying */
-"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabanga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\nПрошло (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabanga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\Время: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";

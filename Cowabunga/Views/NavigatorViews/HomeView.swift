@@ -70,12 +70,12 @@ struct HomeView: View {
                         Button("Fix tweaks") {
                             applyTweaks()
                         }
-                        .buttonStyle(FullwidthTintedButton(color: .blue))
+                        .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                         
                         Button("Respring") {
                             respring()
                         }
-                        .buttonStyle(FullwidthTintedButton(color: .red))
+                        .buttonStyle(TintedButton(color: .red, fullwidth: true))
                     }
                     .listRowInsets(EdgeInsets())
                     .padding()

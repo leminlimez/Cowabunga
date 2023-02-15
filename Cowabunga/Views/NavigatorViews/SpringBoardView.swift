@@ -63,7 +63,7 @@ struct SpringBoardView: View {
                     Button("Apply") {
                         applyTweaks()
                     }
-                    .buttonStyle(FullwidthTintedButton(color: .blue))
+                    .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                     
                     Spacer()
                 }
