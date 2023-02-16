@@ -254,7 +254,8 @@ class AdvancedManager {
             plist["ReplacingType"] = replacingOperation.replacingType.rawValue
             if replacingOperation.replacingType == ReplacingObjectType.Imported {
                 // remove the app path from the info
-                plist["ReplacingPath"] = replacingOperation.replacingPath.replacingOccurrences(of: operationPath.path, with: "")
+                try replacingOperation.replacementData!.write(to: operationPath.appendingPathComponent(".rawData"))
+                plist["ReplacingPath"] = operationPath.appendingPathComponent(".rawData").path
             } else {
                 plist["ReplacingPath"] = replacingOperation.replacingPath
             }
