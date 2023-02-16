@@ -28,6 +28,9 @@
 /* No comment provided by engineer. */
 "Add Value" = "إضافة قيمة";
 
+/* No comment provided by engineer. */
+"Advanced" = "متقدم";
+
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "ستتم إعادة جميع أيقونات التطبيقات إلى مظهرها الأصلي. هل أنت متأكد من أنك تريد المتابعة؟ (قد تكون إعادة التشغيل مطلوبة)";
 
@@ -122,6 +125,9 @@
 "Background Update Frequency" = "تكرار تحديث الخلفية";
 
 /* No comment provided by engineer. */
+"Banned Apps" = "التطبيقات المحظورة";
+
+/* No comment provided by engineer. */
 "Basic Configuration" = "التكوين الأساسي";
 
 /* Audio name */
@@ -134,15 +140,21 @@
 "binary" = "ثنائي";
 
 /* No comment provided by engineer. */
-"Blur:   %lld" = "طمس:   %lld";
+"Blacklist" = "القائمة السوداء";
 
 /* No comment provided by engineer. */
-"Breadcrumb Text" = "Breadcrumb Text";
+"Blacklist File Contents" = "محتويات ملف القائمة السوداء";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "الضبابية:   %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "نص مسار التنقل";
 
 /* No comment provided by engineer. */
 "Calculate Size" = "حساب الحجم";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "إلغاء";
 
 /* Title of tool */
@@ -150,6 +162,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "نص الناقل";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "CD Hashes";
 
 /* No comment provided by engineer. */
 "Change" = "تغيير";
@@ -185,7 +200,7 @@
 "Choose a plist type" = "اختر نوع plist";
 
 /* Choose a size for passcode keys */
-"Choose a size" = "اختر مقاسًا";
+"Choose a size" = "اختر المقاس";
 
 /* No comment provided by engineer. */
 "Choose a value type" = "اختر نوع القيمة";
@@ -197,7 +212,7 @@
 "Choose an update option" = "اختر خيار التحديث";
 
 /* No comment provided by engineer. */
-"Choose size" = "اختيار الحجم";
+"Choose size" = "اختر الحجم";
 
 /* No comment provided by engineer. */
 "Clear image" = "مسح الصورة";
@@ -212,16 +227,16 @@
 "Control Center" = "مركز التحكم";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "مفسد، مفسد";
+"Corrupting" = "تلف";
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "تعذر حساب حجم plist!";
 
 /* No comment provided by engineer. */
-"Couldn't get url of file. Did you select it?" = "تعذر الحصول على عنوان URL للملف. هل قمت باختياره ؟";
+"Couldn't get url of file. Did you select it?" = "تعذر الحصول على عنوان URL للملف. هل قمت بتحديده؟";
 
 /* No comment provided by engineer. */
-"Couldn't get url of folder. Did you select it?" = "تعذر الحصول على عنوان URL للمجلد. هل قمت باختياره ؟";
+"Couldn't get url of folder. Did you select it?" = "تعذر الحصول على عنوان URL للمجلد. هل قمت بتحديده؟";
 
 /* No comment provided by engineer. */
 "Cowabunga" = "Cowabunga";
@@ -341,6 +356,15 @@
 /* No comment provided by engineer. */
 "Error" = "خطأ";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "حدث خطأ أثناء جلب السمات";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "حدثت أخطاء أثناء تعيين بعض الأيقونات";
+
+/* No comment provided by engineer. */
+"Exaple" = "مثال";
+
 /* ginsudev's contribution */
 "Exploit Code" = "كود الثغره";
 
@@ -397,6 +421,9 @@
 
 /* No comment provided by engineer. */
 "Forgot password?" = "هل نسيت كلمة المرور ؟";
+
+/* Frequent */
+"Frequent" = "متكرر";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "من أين تريد الاستيراد ؟";
@@ -547,6 +574,9 @@
    sourcelocation's contribution */
 "Main Developer" = "المطور الرئيسي";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "اجعلها كذلك ، رقم واحد";
+
 /* Maximum passcode key size */
 "Max:" = "الحد الأقصى:";
 
@@ -604,8 +634,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "اسم العملية";
 
+/* No comment provided by engineer. */
+"Options" = "خيارات";
+
 /* Category of tool */
 "Other" = "غير ذلك";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "الكتابة فوق التطبيقات المحظورة";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "الكتابة فوق القائمة السوداء";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "الكتابة فوق CDHashes";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "محرر وجه رمز المرور";
@@ -668,10 +710,10 @@
 "Please wait for Cowabunga to finish theming..." = "يرجى الانتظار حتى تنتهي Cowabunga من وضعهم...";
 
 /* operation type that changes plist keys */
-"Plist" = "PLIST";
+"Plist" = "Plist";
 
 /* No comment provided by engineer. */
-"Plist Data" = "Plist Data";
+"Plist Data" = "بيانات Plist";
 
 /* No comment provided by engineer. */
 "Plist Properties" = "خصائص بليست";
@@ -679,11 +721,14 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "نوع بلست:";
 
+/* Power Saving */
+"Power Saving" = "توفير الطاقة";
+
 /* No comment provided by engineer. */
 "Preferences" = "التفضيلات";
 
 /* No comment provided by engineer. */
-"Rebuild Icon Cache" = "إعادة إنشاء التخزين المؤقت للأيقونة";
+"Rebuild Icon Cache" = "إعادة بناء التخزين المؤقت للأيقونة";
 
 /* Audio name */
 "Received Message" = "الرسالة المستلمة";
@@ -721,7 +766,7 @@
 /* No comment provided by engineer. */
 "Respring" = "إعادة التشغيل السريع";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "إعادة التشغيل لمشاهدة التغييرات";
 
 /* No comment provided by engineer. */
@@ -746,10 +791,10 @@
 "Saving operation..." = "جارٍ حفظ العملية...";
 
 /* rebuilding icon cache */
-"Scheduling a rebuild" = "جدولة إعادة البناء";
+"Scheduling a rebuild" = "جدولة إعادة بناء الأيقونات";
 
 /* No comment provided by engineer. */
-"Scheduling icon cache reset..." = "Scheduling icon cache reset...";
+"Scheduling icon cache reset..." = "إعادة تعيين التخزين المؤقت للأيقونة...";
 
 /* Audio name */
 "Screenshot" = "لقطة شاشة";
@@ -831,6 +876,9 @@
 
 /* applying audio succeeded */
 "Successfully applied audio!" = "تم تطبيق الصوت بنجاح!";
+
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "تم تطبيق التعديلات بنجاح";
 
 /* No comment provided by engineer. */
 "Supervised" = "خاضع للإشراف";
@@ -929,10 +977,19 @@
 "Version %@ (%@)" = "الإصدار %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "عرض محتويات القائمة السوداء";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "؟TrollTools انتظر، كل شيء";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "عند تركه فارغا على الأجهزة أكس و فوق، سيعرض هذا اسم الناقل.";
+
+/* Title of tool */
+"Whitelist" = "القائمة البيضاء";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "القائمة البيضاء، صوت AirPower، إصلاحات مختلفة";
 
 /* Width of custom resolution
    Width of passcode keys */
