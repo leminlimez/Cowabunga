@@ -38,6 +38,8 @@
 		21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED3C7929884AAD00135B50 /* CornerRadius++.swift */; };
 		6F07AB922998744100076436 /* Haptic++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07AB912998744100076436 /* Haptic++.swift */; };
 		6F07AB9C29999DB400076436 /* FilePickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07AB9B29999DB400076436 /* FilePickerViewControllerDelegate.swift */; };
+		6F07ABA7299EB63900076436 /* ChangeAppIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABA6299EB63900076436 /* ChangeAppIconViewModel.swift */; };
+		6F07ABA9299EB67100076436 /* ChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
@@ -162,6 +164,8 @@
 		6F07AB9E299BCC6B00076436 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6F07ABA3299DC22000076436 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F07ABA4299DC22000076436 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6F07ABA6299EB63900076436 /* ChangeAppIconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconViewModel.swift; sourceTree = "<group>"; };
+		6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
@@ -292,8 +296,8 @@
 		2183C9932987D8B400AE187C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6F07ABA5299EB62700076436 /* AppIcon */,
 				2183C9942987D8C800AE187C /* Alert++.swift */,
-				2183C99D2987DA6800AE187C /* AppIcon.swift */,
 				2183C9962987D8D800AE187C /* Color++.swift */,
 				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
 				21E54B40299413B800D5F85A /* Device+xpc_crash.swift */,
@@ -428,6 +432,15 @@
 			path = MacDirtyCowSwift;
 			sourceTree = "<group>";
 		};
+		6F07ABA5299EB62700076436 /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				2183C99D2987DA6800AE187C /* AppIcon.swift */,
+				6F07ABA6299EB63900076436 /* ChangeAppIconViewModel.swift */,
+			);
+			path = AppIcon;
+			sourceTree = "<group>";
+		};
 		6F247A5A298888B4007BD53A /* PasscodeChangerViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +571,7 @@
 				6F247A5A298888B4007BD53A /* PasscodeChangerViews */,
 				6FF21AC629840D300054EBC0 /* UniqueToolsViews */,
 				D60A489529995C4D0013F066 /* WhitelistViews */,
+				6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -815,6 +829,7 @@
 				6F4296B12991E92B00A96108 /* SettingsView.swift in Sources */,
 				6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
+				6F07ABA7299EB63900076436 /* ChangeAppIconViewModel.swift in Sources */,
 				2183C9952987D8C800AE187C /* Alert++.swift in Sources */,
 				6F4296AD2991E8E400A96108 /* StatusSetter14.m in Sources */,
 				6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */,
@@ -838,6 +853,7 @@
 				6FF21AC829840DC40054EBC0 /* LockView.swift in Sources */,
 				21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */,
 				21ED3C7A29884AAD00135B50 /* CornerRadius++.swift in Sources */,
+				6F07ABA9299EB67100076436 /* ChangeAppIconView.swift in Sources */,
 				6F07AB9C29999DB400076436 /* FilePickerViewControllerDelegate.swift in Sources */,
 				6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */,
 				6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */,
@@ -1059,6 +1075,7 @@
 		6F721C9B296482C7001CFE46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIconOSX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -1104,6 +1121,7 @@
 		6F721C9C296482C7001CFE46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIconOSX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
