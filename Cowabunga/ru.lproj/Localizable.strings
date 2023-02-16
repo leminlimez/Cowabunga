@@ -17,7 +17,7 @@
 "%lldx%lld" = "%lldx%lld";
 
 /* IMPORTANT alert when icons finish applying */
-"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabanga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\Время: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabanga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\nЗатраченное время: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -27,6 +27,9 @@
 
 /* No comment provided by engineer. */
 "Add Value" = "Добавить значение";
+
+/* No comment provided by engineer. */
+"Advanced" = "Расширенные опции";
 
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Все иконки будут возвращены к оригиналам. Вы уверены, что хотите продолжить? (возможно, потребуется перезагрузка)";
@@ -122,6 +125,9 @@
 "Background Update Frequency" = "Частота обновления в фоновом режиме";
 
 /* No comment provided by engineer. */
+"Banned Apps" = "Banned Apps";
+
+/* No comment provided by engineer. */
 "Basic Configuration" = "Основные параметры";
 
 /* Audio name */
@@ -134,6 +140,12 @@
 "binary" = "бинарный";
 
 /* No comment provided by engineer. */
+"Blacklist" = "Blacklist";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "Содержание файлов черных списков";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Размытие:  %lld";
 
 /* No comment provided by engineer. */
@@ -142,7 +154,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Вычислить размер";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "Отменить";
 
 /* Title of tool */
@@ -150,6 +162,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Название оператора";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "CD Hashes";
 
 /* No comment provided by engineer. */
 "Change" = "Изменить";
@@ -341,6 +356,15 @@
 /* No comment provided by engineer. */
 "Error" = "Ошибка";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "При получении тем произошла ошибка";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "При применении некоторых иконок произошла ошибка";
+
+/* No comment provided by engineer. */
+"Exaple" = "Пример";
+
 /* ginsudev's contribution */
 "Exploit Code" = "Код эксплойта";
 
@@ -397,6 +421,9 @@
 
 /* No comment provided by engineer. */
 "Forgot password?" = "Забыли пароль?";
+
+/* Frequent */
+"Frequent" = "Часто";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "Выберите источник импорта";
@@ -547,6 +574,9 @@
    sourcelocation's contribution */
 "Main Developer" = "Один из главных разработчиков";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Давай, нажми \"Применить\"";
+
 /* Maximum passcode key size */
 "Max:" = "Максимум:";
 
@@ -604,8 +634,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "Имя операции";
 
+/* No comment provided by engineer. */
+"Options" = "Опции";
+
 /* Category of tool */
 "Other" = "Другое";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "Перезаписать Banned Apps";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "Перезаписать Blacklist";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "Перезаписать CDHashes";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "Редактор тем клавиш код-пароля";
@@ -679,6 +721,9 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Тип файла Plist:";
 
+/* Power Saving */
+"Power Saving" = "Редко (режим энергосбережения)";
+
 /* No comment provided by engineer. */
 "Preferences" = "Параметры";
 
@@ -721,7 +766,7 @@
 /* No comment provided by engineer. */
 "Respring" = "Перезапустить SpringBoard";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "Перезапустите SpringBoard для применения изменений";
 
 /* No comment provided by engineer. */
@@ -832,6 +877,9 @@
 /* applying audio succeeded */
 "Successfully applied audio!" = "Звук успешно применен!";
 
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "Твики успешно применены";
+
 /* No comment provided by engineer. */
 "Supervised" = "Сделать устройство Supervised (обычно для Delay OTA)";
 
@@ -917,7 +965,7 @@
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Используйте это, если название оператора/текст часов не изменяется. Рекомендуется вернуть стандартные настройки после применения этой.";
 
 /* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки Применить во вкладке Строка состояния.";
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки \"Применить\" во вкладке Строка состояния.";
 
 /* No comment provided by engineer. */
 "validate" = "Проверить";
@@ -929,10 +977,19 @@
 "Version %@ (%@)" = "Версия %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "Показать содержание файлов черных списков";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "Погоди, это все TrollTools?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Пустая строка на устройствах с челкой приведет к отображению названия оператора.";
+
+/* Title of tool */
+"Whitelist" = "Whitelist";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "Whitelist, звук AirPower, различные исправления";
 
 /* Width of custom resolution
    Width of passcode keys */
@@ -966,5 +1023,5 @@
 "Your device will respring." = "SpringBoard перезапустится.";
 
 /* No comment provided by engineer. */
-"Your device will respring.\n\n\nApplying using %@." = "SpringBoard перезапустится.\n\n\nПрименение при помощи %@.";
+"Your device will respring.\n\n\nApplying using %@." = "SpringBoard перезапустится.\n\nСейчас используется %@.";
 
