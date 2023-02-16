@@ -96,7 +96,7 @@ struct SpringBoardView: View {
                 if failed {
                     UIApplication.shared.alert(body: "An error occurred when applying tweaks")
                 } else {
-                    UIApplication.shared.alert(title: "Successfully applied tweaks!", body: "Respring to see changes.")
+                    UIApplication.shared.alert(title: NSLocalizedString("Successfully applied tweaks", comment: "Successfully applied tweaks"), body: NSLocalizedString("Respring to see changes", comment: "Respring to see changes"))
                 }
             }
         }
