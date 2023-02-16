@@ -128,7 +128,7 @@
 "Co-Developer" = "核心开发者";
 
 /* No comment provided by engineer. */
-"Confirm" = "去人";
+"Confirm" = "确认";
 
 /* operation type that corrupts/disables the file */
 "Corrupting" = "损坏";
@@ -352,7 +352,7 @@
 "iPhone X Gestures" = "iPhone X 手势";
 
 /* No comment provided by engineer. */
-"Join Discord" = "假如Discord";
+"Join Discord" = "加入Discord";
 
 /* Audio name */
 "Keyboard Press Clear" = "键盘清除按键声";
@@ -382,7 +382,7 @@
 "Locks" = "锁定";
 
 /* No comment provided by engineer. */
-"Log in" = "登陆";
+"Log in" = "登录";
 
 /* No comment provided by engineer. */
 "Log in Sourced" = "Log in Sourced";
@@ -412,7 +412,7 @@
 "New Mail" = "新邮件提醒";
 
 /* Decline apply for all (passcode keys) */
-"No" = "不";
+"No" = "否";
 
 /* No comment provided by engineer. */
 "No Cards Found" = "没有找到卡片";
@@ -472,7 +472,7 @@
 "Please respring to see changes." = "请注销以查看调整的效果";
 
 /* No comment provided by engineer. */
-"Preferences" = "偏好";
+"Preferences" = "偏好设置";
 
 /* Audio name */
 "Received Message" = "收到信息";
@@ -538,7 +538,7 @@
 "Shortcut Apps" = "捷径软件";
 
 /* No comment provided by engineer. */
-"Sign up" = "登陆";
+"Sign up" = "注册";
 
 /* Small passcode keys */
 "Small" = "小";
