@@ -120,8 +120,13 @@ class AdvancedManager {
             if replacingTypeObject == nil {
                 throw "Could not get replacing object type!"
             }
-            let replacingData: Data = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
-            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: isActive, overwriteData: replacingData, replacingType: replacingTypeObject!, replacingPath: replacingPath)
+            var replacingData: Data? = nil
+            do {
+                replacingData = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
+            } catch {
+                print(error.localizedDescription)
+            }
+            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: isActive, overwriteData: replacingData ?? Data("#".utf8), replacingType: replacingTypeObject!, replacingPath: replacingPath)
         } else if operationType == "Plist" {
             let plistTypeString = try getOperationProperty(operationInfo, key: "PlistType") as! String
             var plistType: PropertyListSerialization.PropertyListFormat
@@ -254,8 +259,9 @@ class AdvancedManager {
             plist["ReplacingType"] = replacingOperation.replacingType.rawValue
             if replacingOperation.replacingType == ReplacingObjectType.Imported {
                 // remove the app path from the info
-                try replacingOperation.replacementData!.write(to: operationPath.appendingPathComponent(".rawData"))
-                plist["ReplacingPath"] = operationPath.appendingPathComponent(".rawData").path
+                let repFileName = replacingOperation.replacingPath.replacingOccurrences(of: FileManager.default.temporaryDirectory.path + "/", with: "").replacingOccurrences(of: operationPath.path + "/", with: "")
+                try operation.replacementData?.write(to: operationPath.appendingPathComponent(repFileName))
+                plist["ReplacingPath"] = repFileName
             } else {
                 plist["ReplacingPath"] = replacingOperation.replacingPath
             }

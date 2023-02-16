@@ -621,6 +621,9 @@ struct EditingOperationView: View {
                 if let replacingOperation = operation as? ReplacingObject {
                     replacingType = replacingOperation.replacingType
                     replacingPath = replacingOperation.replacingPath
+                    if replacingOperation.replacingType == .Imported && operation.replacementData != Data("#".utf8) {
+                        replacingData = operation.replacementData
+                    }
                 } else if let plistOperation = operation as? PlistObject {
                     plistType = plistOperation.plistType
                     if replacingKeys.count == 0 {
