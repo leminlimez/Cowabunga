@@ -1,3 +1,9 @@
+/* No comment provided by engineer. */
+"????" = "????";
+
+/* No comment provided by engineer. */
+"· %lld" = "· %lld";
+
 /* Recommended lock type */
 "(Recommended)" = "(מומלץ)";
 
@@ -22,14 +28,17 @@
 /* No comment provided by engineer. */
 "Add Value" = "הוסף ערך";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "שמע כוח-אוויר";
+/* No comment provided by engineer. */
+"Advanced" = "מתקדם";
 
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "כל האייקונים של האפליקציות יחזרו לנראות המקורית שלהם. אתה בטוח שאת רוצה להמשיך? (יכול להיות שצריך אתחול)";
 
 /* No comment provided by engineer. */
 "Alternatives" = "אלטרנטיבות";
+
+/* No comment provided by engineer. */
+"Always has been" = "Always has been";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "שגיאה התרחשה ביישום הגודל החיצוני";
@@ -116,6 +125,9 @@
 "Background Update Frequency" = "תדירות עדכון ברקע";
 
 /* No comment provided by engineer. */
+"Banned Apps" = "אפליקציות אסורות";
+
+/* No comment provided by engineer. */
 "Basic Configuration" = "סידור בסיסי";
 
 /* Audio name */
@@ -125,7 +137,13 @@
 "Big" = "גדול";
 
 /* No comment provided by engineer. */
-"binary" = "בינארית";
+"binary" = "binary";
+
+/* No comment provided by engineer. */
+"Blacklist" = "רשימה שחורה";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "הרשימה השחורה של תוכן הקבצים";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "תשטוש:   %lld";
@@ -136,7 +154,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "חשב גודל";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "ביטול";
 
 /* Title of tool */
@@ -335,6 +353,15 @@
 /* No comment provided by engineer. */
 "Error" = "שגיאה";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "שגיאה התרחשה בזמן ייבוא העיצוב";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "שגיאה התרחשה בזמן יישום האייקונים";
+
+/* No comment provided by engineer. */
+"Exaple" = "דוגמה";
+
 /* ginsudev's contribution */
 "Exploit Code" = "קוד ניצול חולשות";
 
@@ -391,6 +418,9 @@
 
 /* No comment provided by engineer. */
 "Forgot password?" = "שכחת סיסמה?";
+
+/* Frequent */
+"Frequent" = "שכיח";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "מאיפה אתה רוצה לייבא?";
@@ -541,6 +571,9 @@
    sourcelocation's contribution */
 "Main Developer" = "מפתח ראשי";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Make It So, Number One";
+
 /* Maximum passcode key size */
 "Max:" = "מקסימום:";
 
@@ -598,8 +631,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "שם הפעולה";
 
+/* No comment provided by engineer. */
+"Options" = "אופציות";
+
 /* Category of tool */
 "Other" = "אחר";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "תחליף אפליקציות אסורות";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "תחליף את הרשימה השחורה";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "תחליף את הCDHashes";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "עורך נראות מסך נעילה";
@@ -673,6 +718,9 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "סוג רשימה התכונות:";
 
+/* Power Saving */
+"Power Saving" = "חיסכון בסוללה";
+
 /* No comment provided by engineer. */
 "Preferences" = "הגדקות";
 
@@ -715,7 +763,7 @@
 /* No comment provided by engineer. */
 "Respring" = "Respring";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "בצע Respring בשביל לראות שינויים";
 
 /* No comment provided by engineer. */
@@ -826,6 +874,9 @@
 /* applying audio succeeded */
 "Successfully applied audio!" = "יישם סאונד בהצלחה!";
 
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "tweaks ייושמו בהצלחה";
+
 /* No comment provided by engineer. */
 "Supervised" = "מפוקח";
 
@@ -923,10 +974,19 @@
 "Version %@ (%@)" = "גירסה %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "תראה את התוכן של הרשימה השחורה";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "רגע, זה הכל TrollTools?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "כשנקבע בלי ערך במכשירים עם notch, זה יראה את השם של הספק";
+
+/* Title of tool */
+"Whitelist" = "הרשימה הלבנה";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "הרשימה הלבנה, סאונד כוח אוויר, הרבה תיקונים";
 
 /* Width of custom resolution
    Width of passcode keys */
@@ -940,6 +1000,9 @@
 
 /* No comment provided by engineer. */
 "X" = "X";
+
+/* No comment provided by engineer. */
+"xml" = "xml";
 
 /* No comment provided by engineer. */
 "Y" = "Y";
