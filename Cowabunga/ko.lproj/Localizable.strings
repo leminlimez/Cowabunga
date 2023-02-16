@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
 
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 제발 읽어주세요. ⬇⚠️\n\nSpringBoard가 재시작된 후 \n\"Cowabunga를 다시 열어주세요.\"\n몇몇 앱들의 기능을 수리해야합니다.\n\n매우 중요함\n애플로고가 표시되도 괜찮습니다.\n폰에는 아무런 문제가 없습니다.\n제발 강제로 다시시작 하지 마세요.\n\n소요된 시간 :  (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)초";
+
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
 
@@ -25,8 +28,8 @@
 /* No comment provided by engineer. */
 "Add Value" = "값 추가";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "AirPower Audio";
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "모든 앱 아이콘이 복구됩니다.\n진짜로 원하십니까?\n(다시시작이 필요합니다.)";
 
 /* No comment provided by engineer. */
 "Alternatives" = "대안";
@@ -77,6 +80,9 @@
 "App Switcher" = "멀티태스킹";
 
 /* No comment provided by engineer. */
+"App theme was successfully saved!" = "테마가 성공적으로 저장되었습니다!";
+
+/* No comment provided by engineer. */
 "Apply" = "적용";
 
 /* Header for apply passcode key size for all */
@@ -89,7 +95,7 @@
 "Apply Once" = "한번만 적용";
 
 /* No comment provided by engineer. */
-"Apply themes" = "태마 적용";
+"Apply themes" = "테마 적용";
 
 /* apply button on custom operations */
 "Applying operation..." = "테마 적용중...";
@@ -136,7 +142,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "파일 크기";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "취소";
 
 /* Title of tool */
@@ -241,7 +247,7 @@
 /* No comment provided by engineer. */
 "Custom image" = "사진 사용";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "커스텀 작업";
 
 /* default device subtype
@@ -262,6 +268,12 @@
 
 /* No comment provided by engineer. */
 "Device Resolution" = "해상도";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "다이얼 버튼 편집기";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "다이얼 버튼이 저장되었습니다!";
 
 /* No comment provided by engineer. */
 "Disable" = "비활성화";
@@ -288,7 +300,7 @@
 "Dock" = "독";
 
 /* No comment provided by engineer. */
-"Download themes in Themes tab." = "테마 탭에서 태마를 다운로드 하세요.";
+"Download themes in Themes tab." = "탐색 탭의 아이콘 탭에서 테마를 다운로드 하세요.";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "다이나믹 아일랜드";
@@ -357,6 +369,9 @@
 "Failed to load operations." = "작업을 불러오는데 실패했습니다.";
 
 /* No comment provided by engineer. */
+"Failed to save theme!" = "테마를 저장하는데 실패했습니다!";
+
+/* No comment provided by engineer. */
 "File not found!" = "파일이 없습니다!";
 
 /* No comment provided by engineer. */
@@ -385,6 +400,9 @@
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "어디서 가져오시겠습니까?";
+
+/* header for resetting all icons */
+"Full reset" = "초기화";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "제스처 / 다이나믹 아일랜드";
@@ -464,6 +482,9 @@
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "테마 제출";
+
+/* No comment provided by engineer. */
+"In progress..." = "작업중...";
 
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "그동안 할 수 있습니다.";
@@ -587,7 +608,7 @@
 "Other" = "기타";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "버튼 편집기";
+"Passcode Face Editor" = "암호 버튼 편집기";
 
 /* Title of tool */
 "Passcode Faces" = "암호 버튼";
@@ -613,6 +634,9 @@
 /* Audio name */
 "Payment Success" = "결제 성공";
 
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "앱을 종료한 다음에 다시 열어주세요.";
+
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "유효한 카테고리 이름을 입력하세요!";
 
@@ -633,6 +657,9 @@
 
 /* No comment provided by engineer. */
 "Please respring to see changes." = "적용하려면 SpringBoard를 재시작 하세요.";
+
+/* No comment provided by engineer. */
+"Please select a file to import!" = "삽입할 파일을 선택해주세요.";
 
 /* No comment provided by engineer. */
 "Please wait" = "잠시만 기다려 주세요.";
@@ -694,7 +721,7 @@
 /* No comment provided by engineer. */
 "Respring" = "SpringBoard 다시시작";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "적용 하려면 SpringBoard를 다시시작해야합니다.";
 
 /* No comment provided by engineer. */
@@ -717,6 +744,12 @@
 
 /* apply button on custom operations */
 "Saving operation..." = "작업 저장중...";
+
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "캐시 재설정중...";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "캐시 초기화중...";
 
 /* Audio name */
 "Screenshot" = "스크린샷";
@@ -778,6 +811,9 @@
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "SpringBoard";
 
+/* No comment provided by engineer. */
+"Starting..." = "시작중...";
+
 /* Title of tool */
 "Status Bar" = "상단바";
 
@@ -832,6 +868,9 @@
 /* when an operation is saved */
 "The operation was successfully saved!" = "작업이 성공적으로 저장되었습니다!";
 
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "(url.deletingPathExtension().lastPathComponent)라는 이름의 테마가 이미 존재합니다.\n폴더이름을 바꿔주세요.";
+
 /* No comment provided by engineer. */
 "Themes" = "테마";
 
@@ -842,7 +881,7 @@
 "Translators" = "번역가";
 
 /* No comment provided by engineer. */
-"Tweak Options" = " 트윅 옵션";
+"Tweak Options" = "트윅 옵션";
 
 /* No comment provided by engineer. */
 "Type:" = "종류:";
@@ -890,7 +929,7 @@
 "Version %@ (%@)" = "버전 %@ (%@)";
 
 /* No comment provided by engineer. */
-"Wait, it's all TrollTools?" = "잠깐, 그거 전부 TrollTools인가요?";
+"Wait, it's all TrollTools?" = "잠깐, 그거 전부 TrollTools야?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 비워두면 통신사 이름을 표시합니다.";
@@ -918,7 +957,7 @@
 "Yes" = "확인";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 암호버튼 탭에서 다운로드 하세요.";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 암호 버튼 탭에서 다운로드 하세요.";
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "이제 앱이 정상적으로 작동 할겁니다.";
