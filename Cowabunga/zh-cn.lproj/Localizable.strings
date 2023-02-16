@@ -146,7 +146,7 @@
 "Cowabunga requires “Always” location permission." = "Cowabunga想请求“总是”的定位权限。";
 
 /* No comment provided by engineer. */
-"Credits" = "Credits";
+"Credits" = "鸣谢";
 
 /* No comment provided by engineer. */
 "Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "近期请提交主题以给其他用户预览和使用，我们需要在Discord的#showcase 频道进行审核。";
@@ -667,3 +667,44 @@
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nUsing %@" = "你的设备将会注销。\n\n\n使用 %@";
 
+/* Category of tool */
+"Control Center" = "控制中心";
+
+/* Springboard tool */
+"Hide Notification Banner Background" = "隐藏顶部通知背景";
+
+/* Alert tool */
+"Successfully applied tweaks" = "应用已调整成功";
+"Respring to see changes" = "注销后以查看更改";
+
+/* Themes by chihaodong (twitter) */
+"Themes" = "主题";
+
+"Frequent" = "正常模式";
+"Power Saving" = "节能模式";
+"Apply themes" = "应用主题";
+"Icons" = "图标";
+"Passcodes" = "密码";
+"Error occured while fetching themes" = "提取主题时出错.";
+"Error" = "错误";
+"Rebuild Icon Cache" = "重建图标缓存";
+"Hide Wi-Fi**" = "隐藏WIFI**";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*还将隐藏运营商名称\n**还将隐藏蜂窝数据指示器";
+"Your device will respring." = "您的设备将重新启动。";
+"Your device will respring.\n\n\nApplying using %@." = "您的设备将重新启动。\n\n\n本软件使用 %@ 漏洞。";
+"Select" = "选择";
+"Selected" = "已选择";
+"Change" = "更改";
+"Notification Banner" = "顶部通知";
+"Whitelist" = "白名单";
+"Overwrite Blacklist" = "覆盖黑名单";
+"Overwrite CDHashes" = "覆盖CDHashes";
+"Overwrite Banned Apps" = "覆盖禁用应用程序";
+"Options" = "选项";
+"Make It So, Number One" = "确认设置";
+"View contents of blacklist files" = "查看黑名单文件内容";
+"Blacklist File Contents" = "黑名单文件内容";
+"Blacklist" = "黑名单";
+"Banned Apps" = "禁用的应用程序";
+"CD Hashes" = "CD哈希";
+"Advanced" = "高级";
