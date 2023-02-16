@@ -109,7 +109,12 @@ func resetDeviceSubType() -> Bool {
         "iPhone9,1": 569,
         "iPhone9,3": 569,
         "iPhone9,2": 570,
-        "iPhone9,4": 570
+        "iPhone9,4": 570,
+        "iPhone10,1": 569,
+        "iPhone10,4": 569,
+        "iPhone10,2": 570,
+        "iPhone10,5": 570,
+        "iPhone14,6": 569
     ]
     for (i, v) in canUseStandardMethod.enumerated() {
         canUseStandardMethod[i] = "iPhone" + v
