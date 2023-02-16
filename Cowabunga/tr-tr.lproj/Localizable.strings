@@ -23,6 +23,18 @@
 "Add Value" = "Değer Ekle";
 
 /* No comment provided by engineer. */
+"Advanced" = "Gelişmiş";
+
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Tüm uygulama simgeleri orijinal görünümlerine geri döndürülecektir. Devam etmek istediğine emin misin? (Yeniden başlatma gerekebilir)";
+
+/* No comment provided by engineer. */
+"Alternatives" = "Alternatifler";
+
+/* No comment provided by engineer. */
+"Always has been" = "Her zaman oluştur";
+
+/* No comment provided by engineer. */
 "An error occured when applying face sizes." = "Yüz boyutlarını uygularken bir hata meydana geldi.";
 
 /* No comment provided by engineer. */
@@ -42,6 +54,9 @@
 
 /* when an operation fails to delete */
 "An error occurred while deleting the operation" = "Operasyonu silerken bir hata meydana geldi";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "Dosyalar geri yüklenirken bir hata oluştu";
 
 /* when an operation fails to save */
 "An error occurred while saving the operation" = "Operasyonu kayıt ederken bir hata meydana geldi";
@@ -98,7 +113,10 @@
 "Background" = "Arka plan";
 
 /* No comment provided by engineer. */
-"Background Update Frequency" = "Arkap landa Gücelleme Sıklığı";
+"Background Update Frequency" = "Arka planda Gücelleme Sıklığı";
+
+/* No comment provided by engineer. */
+"Banned Apps" = "Yasaklı Uygulamalar";
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "Basit konfigürasyon";
@@ -110,6 +128,15 @@
 "Big" = "Büyük";
 
 /* No comment provided by engineer. */
+"binary" = "ikili";
+
+/* No comment provided by engineer. */
+"Blacklist" = "Karaliste";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "Kara Liste Dosya İçeriği";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Bulanıklılık:   %lld";
 
 /* No comment provided by engineer. */
@@ -118,7 +145,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Hesaplama Boyutu";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "İptal et";
 
 /* Title of tool */
@@ -126,6 +153,12 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Operatör Adı";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "CD Hash'leri";
+
+/* No comment provided by engineer. */
+"Change" = "Değiştir";
 
 /* No comment provided by engineer. */
 "Change Breadcrumb Text" = "Operatör altı metni Değiştir";
@@ -246,6 +279,9 @@
 "Dialer Face Editor" = "Arama Ekranı Tema Düzenleyici";
 
 /* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "Arama anahtarları başarıyla temizlendi!";
+
+/* No comment provided by engineer. */
 "Disable" = "Devre Dışı Bırak";
 
 /* Springboard tool */
@@ -267,10 +303,10 @@
 "Disable Shortcut Apps as Appclips" = "Kestirmeler Uygulamasını Appclips Olarak Devre Dışı Bırak";
 
 /* No comment provided by engineer. */
-"Dock" = "Yuva";
+"Dock" = "Dock";
 
 /* No comment provided by engineer. */
-"Download themes in Themes tab." = "Temalar kısmından tema yükle";
+"Download themes in Themes tab." = "Temalar kısmından tema yükle.";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "Dinamik Ada";
@@ -293,6 +329,9 @@
 /* No comment provided by engineer. */
 "Enable Shortcut Apps as Appclips" = "Kestirmeler Uygulamasını Appclips Olarak Aktif Et";
 
+/* No comment provided by engineer. */
+"Enabled" = "Aktif Et";
+
 /* Audio name */
 "End Recording" = "Kaydı Bitirme Sesi";
 
@@ -307,6 +346,15 @@
 
 /* No comment provided by engineer. */
 "Error" = "Hata";
+
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "Temalar getirilirken hata oluştu";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "Bazı simgeler ayarlanırken hatalar oluştu";
+
+/* No comment provided by engineer. */
+"Exaple" = "Örnek";
 
 /* ginsudev's contribution */
 "Exploit Code" = "Kodu Kullan";
@@ -336,6 +384,9 @@
 "Failed to load operations." = "Operasyonları yüklemek başarısız oldu.";
 
 /* No comment provided by engineer. */
+"Failed to save theme!" = "Tema kaydedilemedi!";
+
+/* No comment provided by engineer. */
 "File not found!" = "Dosya Bulunamadı!";
 
 /* No comment provided by engineer. */
@@ -362,14 +413,20 @@
 /* No comment provided by engineer. */
 "Forgot password?" = "Parolanızı mı unuttunuz?";
 
+/* Frequent */
+"Frequent" = "Sıklıkla";
+
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "Nereden içeri aktarmak istersin?";
+
+/* header for resetting all icons */
+"Full reset" = "Tam sıfırlama";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Hareketler / Dinamik Ada";
 
 /* No comment provided by engineer. */
-"Go here if something isn't working correctly." = "Birşeyler Doğru Değilse Buraya Gel.";
+"Go here if something isn't working correctly." = "Bir şeyler Doğru Değilse Buraya Gel.";
 
 /* Height of custom resolution
    Height of passcode keys */
@@ -400,7 +457,7 @@
 "Hide Do Not Disturb" = "Rahatsız Etme'yi Gizle";
 
 /* Springboard tool */
-"Hide Dock" = "Yuva'yı Gizle";
+"Hide Dock" = "Dock'u Gizle";
 
 /* Springboard tool */
 "Hide Home Bar" = "Home Bar'ı Gizle";
@@ -432,17 +489,29 @@
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "Ben robot değilim (şakasız)";
 
+/* No comment provided by engineer. */
+"Icons" = "İkonlar";
+
+/* No comment provided by engineer. */
+"Icons override" = "Simgeleri geçersiz kılar";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "Özel kilit senin için çalışmıyorsa, diğer seçenekleri dene.";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "Kilit Ekranı Temasını İçe Aktar";
 
+/* No comment provided by engineer. */
+"In progress..." = "Devam etmekte...";
+
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "Sende bu arada ...";
 
 /* No comment provided by engineer. */
 "Included" = "Dahil Edilen";
+
+/* c22dev's contribution */
+"Included Audio, Credits, and Card Changer" = "Dahil Ses, Kredi ve Kart Değiştirici";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Yazılım Sürümünü Gir";
@@ -452,6 +521,9 @@
 
 /* No comment provided by engineer. */
 "Join Discord" = "Discord'a Katıl";
+
+/* key for plist operation */
+"Key" = "Anahtar";
 
 /* Audio name */
 "Keyboard Press Clear" = "Temiz Klavye Basma Sesi";
@@ -463,7 +535,7 @@
 "Keyboard Press Normal" = "Temiz Klavye Sesi";
 
 /* Audio name */
-"Lock" = "Kilit";
+"Lock" = "Kilit Sesi";
 
 /* Category of tool */
 "Lock Screen" = "Kilit Ekranı";
@@ -492,6 +564,9 @@
 /* leminlimez's contribution
    sourcelocation's contribution */
 "Main Developer" = "Ana Yapımcı";
+
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Bir Numara Yap";
 
 /* Maximum passcode key size */
 "Max:" = "Maksimum:";
@@ -530,10 +605,16 @@
 "No respring required to apply." = "Uygulamak için respringe gerek yok.";
 
 /* No comment provided by engineer. */
-"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Tema bulunamadı. Keşfet sekmesinden temaları indirin,\nveya sağ üst köşedeki düğmeyi kullanarak içe aktarın (Temalar biçimde simgeler içermesi gerekir. <id>.png).";
+"No themes containing icons for %@ (%@) have been found." = "%@ (%@) için simge içeren tema bulunamadı.";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Tema bulunamadı. Keşfet sekmesinden temaları indirin,\nveya sağ üst köşedeki düğmeyi kullanarak içe aktarın (Temalar <id>.png biçiminde simgeler içermesi gerekir.).";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Geçerli bir boyut değil!";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "Bildirim Başlığı";
 
 /* No comment provided by engineer. */
 "OK" = "Tamam";
@@ -544,8 +625,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "Operasyon Adı";
 
+/* No comment provided by engineer. */
+"Options" = "Ayarlar";
+
 /* Category of tool */
 "Other" = "Diğer";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "Yasaklı Uygulamaların Üzerine Yaz";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "Kara Listenin Üzerine Yaz";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "CDHashes'in üzerine yaz";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "Kilit Ekranı Tema Düzenleyici";
@@ -554,7 +647,10 @@
 "Passcode Faces" = "Kilit Ekranı Teması";
 
 /* No comment provided by engineer. */
-"Password" = "Şifre";
+"Passcodes" = "Parolalar";
+
+/* No comment provided by engineer. */
+"Password" = "Parola";
 
 /* No comment provided by engineer. */
 "Path" = "Dizin";
@@ -570,6 +666,9 @@
 
 /* Audio name */
 "Payment Success" = "Ödeme Başarılı Sesi";
+
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "Lütfen Telefon uygulamasını kapatıp yeniden açın.";
 
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "Lütfen geçerli katagori adı girin!";
@@ -593,6 +692,9 @@
 "Please respring to see changes." = "Değişiklikleri görmek için lütfen respring yapın.";
 
 /* No comment provided by engineer. */
+"Please select a file to import!" = "Lütfen içe aktarılacak bir dosya seçin!";
+
+/* No comment provided by engineer. */
 "Please wait" = "Lütfen bekleyin";
 
 /* No comment provided by engineer. */
@@ -610,8 +712,14 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Plist Tipi:";
 
+/* Power Saving */
+"Power Saving" = "Güç tasarrufu";
+
 /* No comment provided by engineer. */
 "Preferences" = "Tercihler";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "Simge Önbelleğini Yeniden Oluştur";
 
 /* Audio name */
 "Received Message" = "Alınan Mesaj Sesi";
@@ -649,11 +757,17 @@
 /* No comment provided by engineer. */
 "Respring" = "Respring";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "Değişiklikleri görmek için respring yapın";
 
 /* No comment provided by engineer. */
-"Run in background" = "Arka planda çalışma";
+"Restore" = "Restore";
+
+/* restore button on custom operations */
+"Restoring original file..." = "Orijinal dosya geri yükleniyor...";
+
+/* No comment provided by engineer. */
+"Run in background" = "Arka planda Çalıştır";
 
 /* No comment provided by engineer. */
 "Save" = "Kaydet";
@@ -666,6 +780,12 @@
 
 /* apply button on custom operations */
 "Saving operation..." = "Operasyon kayıt ediliyor...";
+
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "Yeniden oluşturmayı planla";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "Simge önbelleği sıfırlanıyor...";
 
 /* Audio name */
 "Screenshot" = "Ekran Görüntüsü Sesi";
@@ -689,13 +809,16 @@
 "Set badge color" = "Bildirim işareti rengini seç";
 
 /* No comment provided by engineer. */
-"Set dock color" = "Yuva rengini seç";
+"Set dock color" = "Dock rengini seç";
 
 /* No comment provided by engineer. */
 "Set expanded folder background color" = "Genişletilmiş klasör arka plan rengini seç";
 
 /* No comment provided by engineer. */
 "Set folder color" = "Klasör rengini seç";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "Bildirim başlığı rengini ayarla";
 
 /* No comment provided by engineer. */
 "Settings" = "Ayarlar";
@@ -724,6 +847,9 @@
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "SpringBoard Araçları";
 
+/* No comment provided by engineer. */
+"Starting..." = "Başlatılıyor...";
+
 /* Title of tool */
 "Status Bar" = "Durum Çubuğu";
 
@@ -742,6 +868,9 @@
 /* applying audio succeeded */
 "Successfully applied audio!" = "Ses başarı ile uygulandı!";
 
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "İnce ayarlar başarı ile uygulandı";
+
 /* No comment provided by engineer. */
 "Supervised" = "Supervised";
 
@@ -759,6 +888,9 @@
 
 /* No comment provided by engineer. */
 "The app will quit." = "Uygulama yenilenecektir.";
+
+/* when an operation is restored */
+"The file was successfully restored!" = "Dosya başarıyla geri yüklendi!";
 
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "İçe aktarılan ses başarı ile şifrelendi ve kaydedildi.";
@@ -833,7 +965,19 @@
 "Version %@ (%@)" = "Versiyon %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "Kara liste dosyalarının içeriğini görüntüleyin";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "Bekle, hepsi TrollTools mu?";
+
+/* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Çentikli cihazlar için boş bırakın, bu operatör adını gösterecektir.";
+
+/* Title of tool */
+"Whitelist" = "Beyaz Liste";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "Beyaz Liste, AirPower Audio, Çeşitli düzeltmeler";
 
 /* Width of custom resolution
    Width of passcode keys */
