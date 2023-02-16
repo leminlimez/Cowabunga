@@ -21,6 +21,7 @@ extension Bundle {
 
 enum AppIcon: String, CaseIterable, Identifiable {
     case primary = "AppIcon"
+    case osx = "AppIconOSX"
 
     var id: String { rawValue }
     var iconName: String? {
@@ -35,12 +36,14 @@ enum AppIcon: String, CaseIterable, Identifiable {
 
     var description: String {
         switch self {
-        case .primary:
-            return "Default"
+            case .primary:
+                return "Default"
+            case .osx:
+                return "Mac OS X"
         }
     }
 
     var preview: UIImage {
-        UIImage(named: rawValue + "-Preview") ?? UIImage()
+        UIImage(named: rawValue) ?? UIImage()
     }
 }
