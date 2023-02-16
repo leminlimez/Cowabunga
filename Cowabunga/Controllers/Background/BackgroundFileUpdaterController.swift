@@ -73,6 +73,8 @@ class BackgroundFileUpdaterController: ObservableObject {
             // apply the transparent modules
             if UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") == true {
                 let _ = overwriteFile(typeOfFile: OverwritingFileTypes.cc, fileIdentifier: "CCModuleBackgroundDisabled", true)
+            } else {
+                SpringboardColorManager.applyColor(forType: .module)
             }
             
             // apply lock

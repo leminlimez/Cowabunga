@@ -360,6 +360,9 @@ struct HomeView: View {
         if !UserDefaults.standard.bool(forKey: "NotifBackgroundDisabled") {
             SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.notif)
         }
+        if !UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") {
+            SpringboardColorManager.applyColor(forType: .module)
+        }
         
         // apply custom operations
         UIApplication.shared.change(title: "Applying custom operations...", body: "Please wait")
