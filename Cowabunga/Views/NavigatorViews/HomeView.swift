@@ -57,8 +57,8 @@ struct HomeView: View {
     private var deviceType = UIDevice().machineName
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
-        120.0: "Frequent",
-        600.0: "Power Saving"
+        120.0: NSLocalizedString("Frequent", comment: "Frequent"),
+        600.0: NSLocalizedString("Power Saving", comment: "Power Saving")
     ]
     
     var body: some View {
@@ -128,7 +128,7 @@ struct HomeView: View {
                                     alert.addAction(newAction)
                                 }
                                 
-                                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
                                     // cancels the action
                                 }
                                 
@@ -176,7 +176,7 @@ struct HomeView: View {
                                 alert.addAction(newAction)
                             }
                             
-                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
                                 // cancels the action
                             }
                             

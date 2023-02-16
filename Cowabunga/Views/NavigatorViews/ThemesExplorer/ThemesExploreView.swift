@@ -149,7 +149,7 @@ struct ThemesExploreView: View {
             do {
                 themes = try await cowabungaAPI.fetchThemes(type: themeTypeShown).shuffled()
             } catch {
-                UIApplication.shared.alert(body: "Error occured while fetching themes. \(error.localizedDescription)")
+                UIApplication.shared.alert(body: NSLocalizedString("Error occured while fetching themes", comment: "Error occured while fetching themes") + "\(error.localizedDescription)")
             }
         }
     }
