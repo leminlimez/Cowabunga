@@ -71,11 +71,11 @@ class SpringboardColorManager {
     
     static func getBlur(forType: SpringboardType) -> Double {
         let bgDir = getBackgroundDirectory()
-        if bgDir == nil || finalFiles[forType] == nil || !FileManager.default.fileExists(atPath: (bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe").path)) {
+        if bgDir == nil || finalFiles[forType] == nil || !FileManager.default.fileExists(atPath: (bgDir!.appendingPathComponent("\(finalFiles[forType]![0]).materialrecipe").path)) {
             return 30
         }
         do {
-            let newData = try Data(contentsOf: bgDir!.appendingPathComponent("\(finalFiles[forType]!).materialrecipe"))
+            let newData = try Data(contentsOf: bgDir!.appendingPathComponent("\(finalFiles[forType]![0]).materialrecipe"))
             let plist = try PropertyListSerialization.propertyList(from: newData, options: [], format: nil) as! [String: Any]
             // get the blur
             if let firstLevel = plist["baseMaterial"] as? [String: Any], let secondLevel = firstLevel["materialFiltering"] as? [String: Any], let thirdLevel = secondLevel["blurRadius"] as? Int {
