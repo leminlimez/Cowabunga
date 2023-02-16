@@ -21,6 +21,9 @@ struct SpringboardColorChangerView: View {
     @State private var folderBGColor = SpringboardColorManager.getColor(forType: .folderBG)
     @State private var folderBGBlur: Double = SpringboardColorManager.getBlur(forType: .folderBG)
     
+    @State private var moduleColor = SpringboardColorManager.getColor(forType: .module)
+    @State private var moduleBlur: Double = SpringboardColorManager.getBlur(forType: .module)
+    
     @State private var dockColor = SpringboardColorManager.getColor(forType: .dock)
     @State private var dockBlur: Double = SpringboardColorManager.getBlur(forType: .dock)
     
@@ -280,6 +283,84 @@ struct SpringboardColorChangerView: View {
                                         try SpringboardColorManager.deteleColor(forType: .folderBG)
                                         try SpringboardColorManager.deteleColor(forType: .libraryFolder)
                                         UIApplication.shared.alert(title: "Success!", body: "Successfully deleted color files.")
+                                    } catch {
+                                        UIApplication.shared.alert(title: "Error deleting color files!", body: error.localizedDescription)
+                                    }
+                                }) {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(TintedButton(color: .red))
+                                .padding(4)
+                            }
+                        }
+                        
+                        divider
+                        
+                        // MARK: CC Modulea
+                        VStack {
+                            let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
+                            ZStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: minSize / 24)
+                                        .fill(.gray)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: minSize / 3, height: minSize / 3)
+                                        .opacity(0.3)
+                                }
+                                VStack(spacing: minSize / 32) {
+                                    ForEach(0...1, id: \.self) { i1 in
+                                        HStack(spacing: minSize / 32) {
+                                            ForEach(0...2, id: \.self) { i2 in
+                                                RoundedRectangle(cornerRadius: minSize / 60)
+                                                    .fill(moduleColor)
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: minSize / 15, height: minSize / 15)
+                                                    //.frame(width: minSize / 15, height: (i1 == 0 && i2 == 2 ? minSize / 5 : minSize / 15))
+                                                    .opacity(i1 == 1 && i2 == 2 ? 0 : 0.8)
+                                            }
+                                        }
+                                    }
+                                    Spacer()
+                                }
+                                .padding(.top, minSize*0.05)
+                            }
+                            .padding(.bottom, 20)
+                            
+                            VStack{
+                                HStack {
+                                    Text("CC Modules")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                        .fontWeight(.medium)
+                                        .padding(.horizontal, 25)
+                                    Spacer()
+                                    ColorPicker("Set cc module color", selection: $moduleColor)
+                                        .labelsHidden()
+                                        .scaleEffect(1.5)
+                                        .padding(.horizontal, 50)
+                                }
+                                HStack {
+                                    Text("Blur:   \(Int(moduleBlur))")
+                                        .foregroundColor(.white)
+                                        .frame(width: 125)
+                                    Spacer()
+                                    Slider(value: $moduleBlur, in: 0...150, step: 1.0)
+                                        .padding(.horizontal)
+                                }
+                            }
+                            .padding(.bottom, 20)
+                            
+                            HStack {
+                                Button("Apply", action: {
+                                    apply(.module, moduleColor, Int(moduleBlur))
+                                })
+                                .buttonStyle(TintedButton(color: .blue))
+                                .padding(4)
+                                
+                                Button(action: {
+                                    do {
+                                        try SpringboardColorManager.deteleColor(forType: .module)
+                                        UIApplication.shared.alert(title: "Success!", body: "Successfully deleted module files.")
                                     } catch {
                                         UIApplication.shared.alert(title: "Error deleting color files!", body: error.localizedDescription)
                                     }
