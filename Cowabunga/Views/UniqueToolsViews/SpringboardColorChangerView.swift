@@ -298,7 +298,6 @@ struct SpringboardColorChangerView: View {
                         
                         // MARK: CC Modulea
                         VStack {
-                            let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
                             ZStack {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: minSize / 24)
