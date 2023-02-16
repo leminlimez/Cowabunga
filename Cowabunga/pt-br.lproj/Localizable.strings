@@ -32,7 +32,7 @@
 "Always has been" = "Sempre foi";
 
 /* No comment provided by engineer. */
-"An error occured when applying face sizes." = "Ocorreu um erro ao aplicar o tamanho da imagem";
+"An error occured when applying face sizes." = "Ocorreu um erro ao aplicar o tamanho da imagem.";
 
 /* No comment provided by engineer. */
 "An error occured while changing key face." = "Ocorreu um erro ao aplicar o tamanho do código";
@@ -68,6 +68,9 @@
 "An error occurred while trying to enable extra settings." = "Ocorreu um erro ao tentar ativar Preferências extras";
 
 /* No comment provided by engineer. */
+"App Stopped Running" = "O aplicativo parou de funcionar";
+
+/* No comment provided by engineer. */
 "App Switcher" = "Troca de aplicativos";
 
 /* No comment provided by engineer. */
@@ -98,7 +101,7 @@
 "Audio" = "Sons";
 
 /* No comment provided by engineer. */
-"Audio Changer" = "Modificador de Sons";
+"Audio Changer" = "Modificador dos Sons";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "Respring automático ao aplicar";
@@ -107,10 +110,13 @@
 "Auto Update Included Audio" = "Atualização automática também com os sons incluídos";
 
 /* No comment provided by engineer. */
-"Background" = "Fundo";
+"Background" = "Segundo plano";
 
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Frequência de atualização em segundo plano";
+
+/* No comment provided by engineer. */
+"Banned Apps" = "Aplicativos Banidos";
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "Configuração básica";
@@ -125,6 +131,12 @@
 "binary" = "Binário";
 
 /* No comment provided by engineer. */
+"Blacklist" = "Lista Negra";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "Arquivos com conteúdos na Lista Negra";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Blur:   %lld";
 
 /* No comment provided by engineer. */
@@ -133,11 +145,11 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Calcular Tamanho";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "Cancelar";
 
 /* Title of tool */
-"Card Changer" = "Trocar o cartão";
+"Card Changer" = "Modificar o cartão";
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Texto da Operadora";
@@ -188,6 +200,9 @@
 "Choose an update option" = "Selecione uma opção para atualizar";
 
 /* No comment provided by engineer. */
+"Choose size" = "Escolha um Tamanho";
+
+/* No comment provided by engineer. */
 "Clear image" = "Remover imagem";
 
 /* No comment provided by engineer. */
@@ -215,7 +230,10 @@
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga requer “Sempre” a permissão de localização.";
+"Cowabunga %@" = "Cowabunga %@";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga requer “Sempre” ativo a permissão de localização.";
 
 /* No comment provided by engineer. */
 "Create" = "Criar";
@@ -249,16 +267,16 @@
 "Delete Shortcut Banners" = "Remove o banner do app Atalhos";
 
 /* delete button on custom operations */
-"Deleting operation..." = "Deletando a operação...";
+"Deleting operation..." = "Deletando essa operação...";
 
 /* No comment provided by engineer. */
 "Device Resolution" = "Resolução do dispositivo";
 
 /* No comment provided by engineer. */
-"Dialer Face Editor" = "Editar imagem do código";
+"Dialer Face Editor" = "Editor de imagem dos dígitos";
 
 /* No comment provided by engineer. */
-"Dialer keys successfully cleared!" = "imagem dos códigos foram apagadas com sucessos!";
+"Dialer keys successfully cleared!" = "imagem dos dígitos foram apagadas com sucessos!";
 
 /* No comment provided by engineer. */
 "Disable" = "Desativar";
@@ -326,6 +344,15 @@
 /* No comment provided by engineer. */
 "Error" = "Erro";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "Ocorreu um erro ao buscar os Temas";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "Ocorreu um erro durante a configuração de alguns ícones";
+
+/* No comment provided by engineer. */
+"Exaple" = "Exemplo";
+
 /* ginsudev's contribution */
 "Exploit Code" = "Código da Falha";
 
@@ -375,13 +402,16 @@
 "Folder" = "Pasta";
 
 /* No comment provided by engineer. */
-"Footnote" = "Nome no rodapé";
+"Footnote" = "Nome do rodapé";
 
 /* No comment provided by engineer. */
 "Force MacDirtyCOW" = "Forçar o MacDirtyCOW";
 
 /* No comment provided by engineer. */
 "Forgot password?" = "Esqueceu a senha?";
+
+/* Frequent */
+"Frequent" = "Freqüente";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "De onde você quer importar?";
@@ -532,6 +562,9 @@
    sourcelocation's contribution */
 "Main Developer" = "Desenvolvedor Principal";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Faça Assim, Número Um";
+
 /* Maximum passcode key size */
 "Max:" = "Máximo:";
 
@@ -589,14 +622,26 @@
 /* No comment provided by engineer. */
 "Operation Name" = "Nome da opereção";
 
+/* No comment provided by engineer. */
+"Options" = "Opções";
+
 /* Category of tool */
 "Other" = "Outros";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Altere a Imagem do Código da Tela de Bloqueio";
+"Overwrite Banned Apps" = "Subscrever Aplicativos Banidos";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "Subscrever a Lista Negra";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "Subscrever CDHashes";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Editor de imagem do Código";
 
 /* Title of tool */
-"Passcode Faces" = "Imagens do código da tela de bloqueio";
+"Passcode Faces" = "Editor de Código";
 
 /* No comment provided by engineer. */
 "Passcodes" = "Códigos";
@@ -605,10 +650,10 @@
 "Password" = "Senha";
 
 /* No comment provided by engineer. */
-"Path" = "Caminho";
+"Path" = "Diretório";
 
 /* No comment provided by engineer. */
-"Path:" = "Caminho:";
+"Path:" = "Diretório:";
 
 /* Audio name */
 "Payment Failed" = "Pagamento recusado";
@@ -656,13 +701,16 @@
 "Plist" = "Plist";
 
 /* No comment provided by engineer. */
-"Plist Data" = "Plist Dados";
+"Plist Data" = "Dados da Plist";
 
 /* No comment provided by engineer. */
-"Plist Properties" = "Plist Propriedades";
+"Plist Properties" = "Propriedades da Plist";
 
 /* No comment provided by engineer. */
-"Plist Type:" = "Plist Tipo:";
+"Plist Type:" = "Tipo da Plist:";
+
+/* Power Saving */
+"Power Saving" = "Economia de Energia";
 
 /* No comment provided by engineer. */
 "Preferences" = "Preferências";
@@ -691,6 +739,9 @@
 /* No comment provided by engineer. */
 "Replacement Data" = "Dados de Substituição";
 
+/* operation type that replaces a file */
+"Replacing" = "Substituindo";
+
 /* No comment provided by engineer. */
 "Reset All" = "Resetar Tudo";
 
@@ -703,7 +754,7 @@
 /* No comment provided by engineer. */
 "Respring" = "Respring";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "Respring para ver as alterações";
 
 /* No comment provided by engineer. */
@@ -812,7 +863,10 @@
 "Success!" = "Sucesso!";
 
 /* applying audio succeeded */
-"Successfully applied audio!" = "Sucesso ao aplicar os sons!";
+"Successfully applied audio!" = "Sucesso ao aplicar os Sons!";
+
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "Sucesso ao aplicar os Ajustes!";
 
 /* No comment provided by engineer. */
 "Supervised" = "Supervisionar";
@@ -911,13 +965,26 @@
 "Version %@ (%@)" = "Versão %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "Ver os arquivos na Lista Negra";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "Espera, é tudo TrollTools?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Caso definido em branco em dispositivos com o Notch, o nome da operadora sera exibido.";
 
+/* Title of tool */
+"Whitelist" = "Lista Branca";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "WhiteList, Airpower som e várias correções";
+
+/* Width of custom resolution
+   Width of passcode keys */
+"Width" = "Largura";
+
 /* Message for apply passcode key size for all */
-"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Você quer aplicar este tamanho para todas os Códigos atualmente ativos? Caso contrário, só se aplicará a novas Imagens.";
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Você quer aplicar esse tamanho para todas os Códigos atualmente ativos? Caso contrário, só se aplicará a novas Imagens.";
 
 /* No comment provided by engineer. */
 "x" = "x";
