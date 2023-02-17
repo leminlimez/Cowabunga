@@ -31,6 +31,15 @@ final class ChangeAppIconViewModel: ObservableObject {
                     return "Mac OS X"
             }
         }
+        
+        var author: String {
+            switch self {
+            case .primary:
+                return "@LeminLimez"
+            case .osx:
+                return "@i forgogt"
+            }
+        }
 
         var preview: UIImage {
             UIImage(named: rawValue) ?? UIImage()
