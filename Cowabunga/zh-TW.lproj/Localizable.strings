@@ -22,6 +22,9 @@
 /* No comment provided by engineer. */
 "Add Value" = "輸入數值";
 
+/* No comment provided by engineer. */
+"Advanced" = "進階";
+
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "所有的應用程式圖標將會被復原為原始圖標。您確定想要繼續此操作嗎？（您可能需要重開機一次來成功套用)";
 
@@ -116,6 +119,9 @@
 "Background Update Frequency" = "背景更新頻率";
 
 /* No comment provided by engineer. */
+"Banned Apps" = "您被封鎖的應用程式";
+
+/* No comment provided by engineer. */
 "Basic Configuration" = "基礎設定";
 
 /* Audio name */
@@ -128,6 +134,12 @@
 "binary" = "二進制的";
 
 /* No comment provided by engineer. */
+"Blacklist" = "黑名單";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "黑名單檔案內容";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "模糊程度:   %lld";
 
 /* No comment provided by engineer. */
@@ -136,7 +148,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "計算大小";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "取消";
 
 /* Title of tool */
@@ -335,6 +347,15 @@
 /* No comment provided by engineer. */
 "Error" = "錯誤";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "獲取主題時發生錯誤";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "設定部分圖標時發生錯誤";
+
+/* No comment provided by engineer. */
+"Exaple" = "範例";
+
 /* ginsudev's contribution */
 "Exploit Code" = "漏洞原始碼";
 
@@ -375,7 +396,7 @@
 "Files" = "檔案";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "按此修復插體(Tweaks)";
+"Fix tweaks" = "按此修復插體";
 
 /* No comment provided by engineer. */
 "Fixing apps..." = "修復應用程式中...";
@@ -391,6 +412,9 @@
 
 /* No comment provided by engineer. */
 "Forgot password?" = "忘記密碼？";
+
+/* Frequent */
+"Frequent" = "頻繁更新";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "您想要從何處導入鎖定數字盤主題？";
@@ -541,6 +565,9 @@
    sourcelocation's contribution */
 "Main Developer" = "主要開發者";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "出發吧！大副！- 星際爭霸戰";
+
 /* Maximum passcode key size */
 "Max:" = "最大：";
 
@@ -598,8 +625,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "操作名稱";
 
+/* No comment provided by engineer. */
+"Options" = "選項";
+
 /* Category of tool */
 "Other" = "其他";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "覆寫您被封鎖的應用程式";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "覆寫黑名單";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "覆寫CDHashes";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "鎖定數字盤編輯器";
@@ -673,8 +712,11 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "plist 類別：";
 
+/* Power Saving */
+"Power Saving" = "較為省電 ";
+
 /* No comment provided by engineer. */
-"Preferences" = "偏好設置";
+"Preferences" = "基本偏好設置";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "重建圖標緩存(Rebuild icon cache)";
@@ -710,12 +752,12 @@
 "Reset Default SubType" = "重置為預設裝置型號";
 
 /* No comment provided by engineer. */
-"Reset faces" = "重置鎖定數字盤按鈕";
+"Reset faces" = "重置數字盤按鈕";
 
 /* No comment provided by engineer. */
 "Respring" = "重新載入主畫面";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "請重新載入主畫面以套用修改。";
 
 /* No comment provided by engineer. */
@@ -734,7 +776,7 @@
 "Save Settings" = "儲存設定";
 
 /* Import passcode theme from saved */
-"Saved" = "已儲存";
+"Saved" = "已儲存的主題";
 
 /* apply button on custom operations */
 "Saving operation..." = "儲存操作中...";
@@ -825,6 +867,9 @@
 
 /* applying audio succeeded */
 "Successfully applied audio!" = "成功套用音效!";
+
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "成功套用插體！";
 
 /* No comment provided by engineer. */
 "Supervised" = "啟用監管模式";
@@ -923,10 +968,19 @@
 "Version %@ (%@)" = "版本 %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "查看黑名單檔案內容";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "等等，這些都是TrollTools功能!?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "在瀏海機種上設定為空白便可以顯示電信商名稱。";
+
+/* Title of tool */
+"Whitelist" = "白名單";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "白名單、AirPower音效";
 
 /* Width of custom resolution
    Width of passcode keys */
