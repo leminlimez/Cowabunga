@@ -10,7 +10,6 @@ import UIKit
 final class ChangeAppIconViewModel: ObservableObject {
     enum AppIcon: String, CaseIterable, Identifiable {
         case primary = "AppIcon"
-        case osx = "AppIconOSX"
 
         var id: String { rawValue }
         var iconName: String? {
@@ -27,8 +26,6 @@ final class ChangeAppIconViewModel: ObservableObject {
             switch self {
                 case .primary:
                     return "Default"
-                case .osx:
-                    return "Mac OS X"
             }
         }
         
@@ -36,8 +33,6 @@ final class ChangeAppIconViewModel: ObservableObject {
             switch self {
             case .primary:
                 return "@LeminLimez"
-            case .osx:
-                return "@i forgogt"
             }
         }
 
