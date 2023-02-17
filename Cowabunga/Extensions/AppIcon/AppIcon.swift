@@ -18,32 +18,3 @@ extension Bundle {
         return nil
     }
 }
-
-enum AppIcon: String, CaseIterable, Identifiable {
-    case primary = "AppIcon"
-    case osx = "AppIconOSX"
-
-    var id: String { rawValue }
-    var iconName: String? {
-        switch self {
-        case .primary:
-            /// `nil` is used to reset the app icon back to its primary icon.
-            return nil
-        default:
-            return rawValue
-        }
-    }
-
-    var description: String {
-        switch self {
-            case .primary:
-                return "Default"
-            case .osx:
-                return "Mac OS X"
-        }
-    }
-
-    var preview: UIImage {
-        UIImage(named: rawValue) ?? UIImage()
-    }
-}
