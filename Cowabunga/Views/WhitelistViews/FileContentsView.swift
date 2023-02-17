@@ -164,6 +164,7 @@ struct FileContentsView: View {
     func paintedEggs() {
         eggCount += 1
         if eggCount == 5 {
+            Haptic.shared.notify(.success)
             UIApplication.shared.alert(title:"Wisdom of the Day", body: wisdom.randomElement()!)
             eggCount = 0
         }
