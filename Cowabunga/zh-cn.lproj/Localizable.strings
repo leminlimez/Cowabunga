@@ -664,9 +664,6 @@
 /* No comment provided by engineer. */
 "Your device will respring." = "你的设备将会注销";
 
-/* No comment provided by engineer. */
-"Your device will respring.\n\n\nUsing %@" = "你的设备将会注销。\n\n\n使用 %@";
-
 /* Category of tool */
 "Control Center" = "控制中心";
 
@@ -690,8 +687,7 @@
 "Rebuild Icon Cache" = "重建图标缓存";
 "Hide Wi-Fi**" = "隐藏WIFI**";
 "*Will also hide carrier name\n**Will also hide cellular data indicator" = "*还将隐藏运营商名称\n**还将隐藏蜂窝数据指示器";
-"Your device will respring." = "您的设备将重新启动。";
-"Your device will respring.\n\n\nApplying using %@." = "您的设备将重新启动。\n\n\n本软件使用 %@ 漏洞。";
+"Your device will respring.\n\n\nApplying using %@." = "你的设备将会注销。\n\n\n本软件使用 %@ 漏洞。";
 "Select" = "选择";
 "Selected" = "已选择";
 "Change" = "更改";
@@ -708,3 +704,14 @@
 "Banned Apps" = "禁用的应用程序";
 "CD Hashes" = "CD哈希";
 "Advanced" = "高级";
+/* 8.0.4 */
+"Device" = "设备";
+"Camera" = "相机";
+"Messages" = "信息";
+"Payment" = "支付";
+"Keyboard" = "键盘";
+"Cowabunga App Icon" = "Cowabunga 图标";
+"Choose app Icon" = "选择App图标";
+"Included Audio, Credits, and Card Changer" = "包括音频、信用卡和换卡器";
+"Whitelist, AirPower Audio, Various fixes" = "白名单，AirPower音频，问题修复";
+"CC Modules" = "控制中心";
