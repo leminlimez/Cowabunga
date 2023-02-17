@@ -14,7 +14,7 @@ struct ChangeAppIconView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 11) {
-                    ForEach(ChangeAppIconViewModel.AppIcon.allCases) { appIcon in
+                    ForEach(AppIcon.allCases) { appIcon in
                         HStack(spacing: 16) {
                             Image(uiImage: appIcon.preview)
                                 .resizable()
