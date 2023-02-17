@@ -97,6 +97,7 @@ final class ChangeAppIconViewModel: ObservableObject {
                 /// We're only logging the error here and not actively handling the app icon failure
                 /// since it's very unlikely to fail.
                 print("Updating icon to \(String(describing: icon.iconName)) failed.")
+                print(error.localizedDescription)
 
                 /// Restore previous app icon
                 selectedAppIcon = previousAppIcon

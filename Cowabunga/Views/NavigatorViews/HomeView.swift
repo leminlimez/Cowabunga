@@ -75,7 +75,7 @@ struct HomeView: View {
                             }
                             .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                             Button {
-                                UIApplication.shared.alert(title: "Info", body: "Respring is an action that allows restarting your Home Screen without rebooting your device.")
+                                UIApplication.shared.alert(title: NSLocalizedString("Info", comment: "respring info header"), body: NSLocalizedString("Respring is an action that allows restarting your Home Screen without rebooting your device.", comment: "respring info"))
                             } label: {
                                 Image(systemName: "info")
                             }
@@ -89,7 +89,7 @@ struct HomeView: View {
                             }
                             .buttonStyle(TintedButton(color: .red, fullwidth: true))
                             Button {
-                                UIApplication.shared.alert(title: "Info", body: "Respring is an action that allows restarting your Home Screen without rebooting your device.")
+                                UIApplication.shared.alert(title: NSLocalizedString("Info", comment: "respring info header"), body: NSLocalizedString("Respring is an action that allows restarting your Home Screen without rebooting your device.", comment: "respring info"))
                             } label: {
                                 Image(systemName: "info")
                             }
