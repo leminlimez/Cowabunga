@@ -10,6 +10,12 @@ import UIKit
 final class ChangeAppIconViewModel: ObservableObject {
     enum AppIcon: String, CaseIterable, Identifiable {
         case primary = "AppIcon"
+        case ios6 = "AppIcon-iOS6"
+        case pixel = "AppIcon-Pixel"
+        case minecraft = "AppIcon-Minecraft"
+        case cowtools = "AppIcon-CowTools"
+        case glitch = "AppIcon-Glitch"
+        case vector = "AppIcon-Vector"
 
         var id: String { rawValue }
         var iconName: String? {
@@ -25,14 +31,38 @@ final class ChangeAppIconViewModel: ObservableObject {
         var description: String {
             switch self {
                 case .primary:
-                    return "Default"
+                    return NSLocalizedString("Default", comment: "App icon name")
+            case .ios6:
+                return NSLocalizedString("iOS 6", comment: "App icon name")
+            case .pixel:
+                return NSLocalizedString("Pixel Art", comment: "App icon name")
+            case .minecraft:
+                return NSLocalizedString("Minecraft", comment: "App icon name")
+            case .cowtools:
+                return NSLocalizedString("CowTools", comment: "App icon name")
+            case .glitch:
+                return NSLocalizedString("Glitch", comment: "App icon name")
+            case .vector:
+                return NSLocalizedString("Vector", comment: "App icon name - vector graphics")
             }
         }
         
         var author: String {
             switch self {
             case .primary:
-                return "@LeminLimez"
+                return ""
+            case .ios6:
+                return "@asev#2089"
+            case .pixel:
+                return "@AIslayer#7438"
+            case .minecraft:
+                return "@Kalphalus#5952"
+            case .cowtools:
+                return "@NoW4U2Kid#9010"
+            case .glitch:
+                return "@NoW4U2Kid#9010"
+            case .vector:
+                return "@AIslayer#7438"
             }
         }
 

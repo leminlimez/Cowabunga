@@ -21,12 +21,17 @@ struct ChangeAppIconView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 60, height: 60)
                                 .cornerRadius(12)
-                            VStack (alignment: .leading) {
+                            if appIcon.author == "" {
                                 Text(appIcon.description)
                                     .bold()
-                                    .padding(.bottom, 2)
-                                Text(appIcon.author)
-                                    .font(.caption)
+                            } else {
+                                VStack (alignment: .leading) {
+                                    Text(appIcon.description)
+                                        .bold()
+                                        .padding(.bottom, 2)
+                                    Text(appIcon.author)
+                                        .font(.caption)
+                                }
                             }
                             Spacer()
                             Image(systemName: "checkmark")

@@ -25,6 +25,9 @@
 /* No comment provided by engineer. */
 "Add Value" = "Thêm giá trị";
 
+/* No comment provided by engineer. */
+"Advanced" = "Nâng cao";
+
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Tất cả các biểu tượng ứng dụng sẽ được đặt lại về mặc định. Bạn có chắc chắn muốn tiếp tục? (Có thể cần khởi động lại)";
 
@@ -119,6 +122,9 @@
 "Background Update Frequency" = "Tần số cập nhật trong nền";
 
 /* No comment provided by engineer. */
+"Banned Apps" = "Các ứng dụng bị cấm trên thiết bị";
+
+/* No comment provided by engineer. */
 "Basic Configuration" = "Cài đặt cơ bản";
 
 /* Audio name */
@@ -131,6 +137,12 @@
 "binary" = "nhị phân";
 
 /* No comment provided by engineer. */
+"Blacklist" = "Danh sách chứng chỉ bị cấm";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "Nội dung danh sách chứng chỉ bị cấm";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Mờ:   %lld";
 
 /* No comment provided by engineer. */
@@ -139,7 +151,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Tính kích thước";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "Hủy";
 
 /* Title of tool */
@@ -147,6 +159,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Tên nhà mạng";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "CD Hashes";
 
 /* No comment provided by engineer. */
 "Change" = "Thay đổi";
@@ -338,6 +353,15 @@
 /* No comment provided by engineer. */
 "Error" = "Lỗi";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "Có lỗi xảy ra trong khi tải giao diện";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "Có lỗi xảy ra trong khi thiết lập một số biểu tượng";
+
+/* No comment provided by engineer. */
+"Exaple" = "Ví dụ";
+
 /* ginsudev's contribution */
 "Exploit Code" = "Mã khai thác";
 
@@ -394,6 +418,9 @@
 
 /* No comment provided by engineer. */
 "Forgot password?" = "Quên mật khẩu?";
+
+/* Frequent */
+"Frequent" = "Thường xuyên";
 
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "Chọn nguồn mà bạn muốn nhập chủ đề vào:";
@@ -544,6 +571,9 @@
    sourcelocation's contribution */
 "Main Developer" = "Lập trình viên chính";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Hãy làm như vậy, số một";
+
 /* Maximum passcode key size */
 "Max:" = "Tối đa:";
 
@@ -601,8 +631,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "Tên thao tác";
 
+/* No comment provided by engineer. */
+"Options" = "Tùy chọn";
+
 /* Category of tool */
 "Other" = "khác";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "Ghi đè ứng dụng bị cấm";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "Ghi đè danh sách chứng chỉ bị cấm";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "Ghi đè CDHashes";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "Chỉnh sửa hình mật khẩu";
@@ -676,6 +718,9 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Loại plist:";
 
+/* Power Saving */
+"Power Saving" = "Tiết kiệm pin";
+
 /* No comment provided by engineer. */
 "Preferences" = "Tùy chọn";
 
@@ -718,7 +763,7 @@
 /* No comment provided by engineer. */
 "Respring" = "Khởi động lại màn hình";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "Khởi động lại màn hình để thấy những thay đổi.";
 
 /* No comment provided by engineer. */
@@ -829,6 +874,9 @@
 /* applying audio succeeded */
 "Successfully applied audio!" = "Áp dụng âm thanh thành công!";
 
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "Áp dụng tinh chỉnh thành công";
+
 /* No comment provided by engineer. */
 "Supervised" = "Đã ở chế độ giám sát";
 
@@ -926,10 +974,19 @@
 "Version %@ (%@)" = "Phiên bản %@ (%@)";
 
 /* No comment provided by engineer. */
+"View contents of blacklist files" = "Xem nội dung của các tệp danh sách chứng chỉ bị cấm";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "Khoan đã, tất cả đều là TrollTools ư?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Khi để trống trên các thiết bị có tai thỏ nó sẽ hiển thị tên nhà mạng.";
+
+/* Title of tool */
+"Whitelist" = "Whitelist";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "Whitelist, âm thanh AirPower, sửa lỗi";
 
 /* Width of custom resolution
    Width of passcode keys */
