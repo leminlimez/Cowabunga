@@ -1132,7 +1132,7 @@
 				);
 				MARKETING_VERSION = 8.0.4;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1178,7 +1178,7 @@
 				);
 				MARKETING_VERSION = 8.0.4;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
