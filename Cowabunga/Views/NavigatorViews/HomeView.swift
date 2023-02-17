@@ -46,6 +46,7 @@ struct HomeView: View {
     ]
     
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
+    @StateObject var appIconViewModel = ChangeAppIconViewModel()
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
@@ -235,25 +236,24 @@ struct HomeView: View {
                         }
                     }
                     
-                    // auto fetch locks updates toggle
-                    /*HStack {
-                        Toggle(isOn: $autoFetchLocks) {
-                            HStack {
-                                Text("Auto Update Included Locks")
-                                    .minimumScaleFactor(0.5)
-                            }
-                        }.onChange(of: autoFetchLocks) { new in
-                            // set the user defaults
-                            UserDefaults.standard.set(new, forKey: "AutoFetchLocks")
-                        }
-                        .padding(.leading, 10)
-                    }*/
-                    
                     // button to update included files
                     Button("Update Included Audio", action: {
                         AudioFiles.setup(fetchingNewAudio: true)
                         //LockManager.setup(fetchingNewLocks: true)
                     })
+                    
+                    // app icon changer
+                    NavigationLink(destination: ChangeAppIconView()) {
+                        HStack {
+                            Image(uiImage: appIconViewModel.selectedAppIcon.preview)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(12)
+                                .frame(width: 60, height: 60)
+                                .padding(.trailing, 10)
+                            Text("Cowabunga App Icon")
+                        }
+                    }
                 } header: {
                     Text("Preferences")
                 }

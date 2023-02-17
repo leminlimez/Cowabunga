@@ -21,12 +21,21 @@ struct ChangeAppIconView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 60, height: 60)
                                 .cornerRadius(12)
-                            Text(appIcon.description)
+                            VStack (alignment: .leading) {
+                                Text(appIcon.description)
+                                    .bold()
+                                    .padding(.bottom, 2)
+                                Text(appIcon.author)
+                                    .font(.caption)
+                            }
                             Spacer()
-                            CheckboxView(isSelected: viewModel.selectedAppIcon == appIcon)
+                            Image(systemName: "checkmark")
+                                .opacity(viewModel.selectedAppIcon == appIcon ? 1 : 0)
+                                .padding(10)
+                                .font(.system(size: 20))
                         }
                         .padding(EdgeInsets(top: 14, leading: 16, bottom: 14, trailing: 16))
-                        .background(Color.gray)
+                        .background(Color(uiColor14: .secondarySystemBackground))
                         .cornerRadius(20)
                         .onTapGesture {
                             withAnimation {
@@ -38,24 +47,12 @@ struct ChangeAppIconView: View {
                     .padding(.vertical, 40)
             }
         }
+        .navigationTitle("Choose app Icon")
     }
 }
 
 struct ChangeAppIconView_Previews: PreviewProvider {
     static var previews: some View {
         ChangeAppIconView()
-    }
-}
-
-struct CheckboxView: View {
-    let isSelected: Bool
-
-    private var image: UIImage {
-        let imageName = isSelected ? "icon-checked" : "icon-unchecked"
-        return UIImage(imageLiteralResourceName: imageName)
-    }
-
-    var body: some View {
-        Image(uiImage: image)
     }
 }
