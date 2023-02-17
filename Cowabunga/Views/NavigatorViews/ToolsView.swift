@@ -22,25 +22,26 @@ struct ToolsView: View {
     struct ToolsCategory: Identifiable {
         var id = UUID()
         var title: String
+        var systemImage: String
         var options: [GeneralOption]
     }
     
     private var machineName = UIDevice().machineName
     
     @State var toolsCategories: [ToolsCategory] = [
-        .init(title: NSLocalizedString("Home Screen", comment: "Category of tool"), options: [
+        .init(title: NSLocalizedString("Home Screen", comment: "Category of tool"), systemImage: "square.grid.2x2", options: [
             .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: NSLocalizedString("Springboard Tools", comment: "Title of tool"), imageName: "snowflake"),
             .init(key: "SpringboardColorChangerView", view: AnyView(SpringboardColorChangerView()), title: NSLocalizedString("Springboard Colors", comment: "Title of tool"), imageName: "square.on.circle")
         ]),
-        .init(title: NSLocalizedString("Lock Screen", comment: "Category of tool"), options: [
+        .init(title: NSLocalizedString("Lock Screen", comment: "Category of tool"), systemImage: "lock", options: [
             .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: NSLocalizedString("Passcode Faces", comment: "Title of tool"), imageName: "ellipsis.rectangle"),
             .init(key: "LockView", view: AnyView(LockView()), title: NSLocalizedString("Locks", comment: "Title of tool"), imageName: "lock"),
             .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: NSLocalizedString("Lock Screen Footnote", comment: "Title of tool"), imageName: "iphone")
         ]),
-        .init(title: NSLocalizedString("Control Center", comment: "Category of tool"), options: [
+        .init(title: NSLocalizedString("Control Center", comment: "Category of tool"), systemImage: "switch.2", options: [
             .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi")
         ]),
-        .init(title: NSLocalizedString("Other", comment: "Category of tool"), options: [
+        .init(title: NSLocalizedString("Other", comment: "Category of tool"), systemImage: "ellipsis", options: [
             .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
             .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: NSLocalizedString("Whitelist", comment: "Title of tool"), imageName: "app.badge.checkmark"),
@@ -71,7 +72,7 @@ struct ToolsView: View {
                             }
                         }
                     } header: {
-                        Text(cat.title.wrappedValue)
+                        Label(cat.title.wrappedValue, systemImage: cat.systemImage.wrappedValue)
                     }
                 }
                 

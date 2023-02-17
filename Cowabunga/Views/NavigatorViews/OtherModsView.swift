@@ -112,7 +112,7 @@ struct OtherModsView: View {
                     .padding(.leading, 10)
                 }
             } header: {
-                Text("Shortcut Apps")
+                Label("Shortcut Apps", systemImage: "square.stack.3d.up")
             }
             
             Section {
@@ -173,7 +173,7 @@ struct OtherModsView: View {
                     .padding(.leading, 10)
                 }
             } header: {
-                Text("More Settings")
+                Label("More Settings", systemImage: "gearshape")
             }
             
             Section {
@@ -431,86 +431,14 @@ struct OtherModsView: View {
                         Spacer()
                         
                         Button(CurrentSubTypeDisplay, action: {
-                            // create and configure alert controller
-                            let alert = UIAlertController(title: NSLocalizedString("Choose a device subtype", comment: ""), message: NSLocalizedString("Respring to see changes", comment: ""), preferredStyle: .actionSheet)
-                            
-                            var iOS16 = false
-                            if #available(iOS 16, *) {
-                                iOS16 = true
-                            }
-                            
-                            // create the actions
-                            
-                            for type in deviceSubTypes {
-                                if !type.iOS16Only ||  iOS16 {
-                                    let newAction = UIAlertAction(title: type.title + " (" + String(type.key) + ")", style: .default) { (action) in
-                                        // apply the type
-                                        let succeeded = setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key)
-                                        if succeeded {
-                                            CurrentSubType = type.key
-                                            CurrentSubTypeDisplay = type.title
-                                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finish applying changes.", comment: ""))
-                                        } else {
-                                            UIApplication.shared.alert(body: NSLocalizedString("Failed to apply Device SubType!", comment: "failed to apply subtype"))
-                                        }
-                                    }
-                                    if CurrentSubType == type.key {
-                                        // add a check mark
-                                        newAction.setValue(true, forKey: "checked")
-                                    }
-                                    alert.addAction(newAction)
-                                }
-                            }
-                            
-                            let resetAction = UIAlertAction(title: NSLocalizedString("Reset Default SubType", comment: ""), style: .destructive) { (action) in
-                                // resets the device subtype
-                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Are you sure you want to reset the Default SubType?", comment: ""), body: "You should only reset the Default SubType if it is incorrect or stuck on another value.", onOK: {
-                                    // reset the subtypes
-                                    let succeeded: Bool = resetDeviceSubType()
-                                    if succeeded {
-                                        // successfully reset
-                                        UIApplication.shared.alert(title: "Successfully reset the Default SubType!", body: "The Default SubType should now be accurate to your device.")
-                                        // set the new
-                                        for (i, v) in deviceSubTypes.enumerated() {
-                                            if v.title == "Default" {
-                                                deviceSubTypes[i].key = getOriginalDeviceSubType()
-                                            }
-                                        }
-                                    } else {
-                                        // failed to apply
-                                        let newUIAlert = UIAlertController(title: "Failed to determine Default SubType!", message: "Please submit an issue on github and include your device model: \(UIDevice().machineName).", preferredStyle: .alert)
-                                        newUIAlert.addAction(.init(title: "Cancel", style: .cancel))
-                                        newUIAlert.addAction(.init(title: "Submit Issue", style: .default, handler: { _ in
-                                            // send them to the issues page
-                                            UIApplication.shared.open(URL(string: "https://github.com/leminlimez/Cowabunga/issues")!)
-                                        }))
-                                        UIApplication.shared.present(alert: newUIAlert)
-                                    }
-                                }, noCancel: false)
-                            }
-                            
-                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                                // cancels the action
-                            }
-                            
-                            // add the actions
-                            alert.addAction(resetAction)
-                            alert.addAction(cancelAction)
-                            
-                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                            // present popover for iPads
-                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                            
-                            // present the alert
-                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                            showSubTypeChangerPopup()
                         })
                         .foregroundColor(.blue)
                         .padding(.leading, 10)
                     }
                 }
             } header: {
-                Text("Use at your own risk")
+                Label("Use at your own risk", systemImage: "exclamationmark.triangle")
             }
         }
         .navigationTitle("Miscellaneous")
@@ -523,6 +451,82 @@ struct OtherModsView: View {
                 }
             }
         }
+    }
+    
+    func showSubTypeChangerPopup() {
+        // create and configure alert controller
+        let alert = UIAlertController(title: NSLocalizedString("Choose a device subtype", comment: ""), message: NSLocalizedString("Respring to see changes", comment: ""), preferredStyle: .actionSheet)
+        
+        var iOS16 = false
+        if #available(iOS 16, *) {
+            iOS16 = true
+        }
+        
+        // create the actions
+        
+        for type in deviceSubTypes {
+            if !type.iOS16Only ||  iOS16 {
+                let newAction = UIAlertAction(title: type.title + " (" + String(type.key) + ")", style: .default) { (action) in
+                    // apply the type
+                    let succeeded = setPlistValueInt(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", key: "ArtworkDeviceSubType", value: type.key)
+                    if succeeded {
+                        CurrentSubType = type.key
+                        CurrentSubTypeDisplay = type.title
+                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finish applying changes.", comment: ""))
+                    } else {
+                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply Device SubType!", comment: "failed to apply subtype"))
+                    }
+                }
+                if CurrentSubType == type.key {
+                    // add a check mark
+                    newAction.setValue(true, forKey: "checked")
+                }
+                alert.addAction(newAction)
+            }
+        }
+        
+        let resetAction = UIAlertAction(title: NSLocalizedString("Reset Default SubType", comment: ""), style: .destructive) { (action) in
+            // resets the device subtype
+            UIApplication.shared.confirmAlert(title: NSLocalizedString("Are you sure you want to reset the Default SubType?", comment: ""), body: "You should only reset the Default SubType if it is incorrect or stuck on another value.", onOK: {
+                // reset the subtypes
+                let succeeded: Bool = resetDeviceSubType()
+                if succeeded {
+                    // successfully reset
+                    UIApplication.shared.alert(title: "Successfully reset the Default SubType!", body: "The Default SubType should now be accurate to your device.")
+                    // set the new
+                    for (i, v) in deviceSubTypes.enumerated() {
+                        if v.title == "Default" {
+                            deviceSubTypes[i].key = getOriginalDeviceSubType()
+                        }
+                    }
+                } else {
+                    // failed to apply
+                    let newUIAlert = UIAlertController(title: "Failed to determine Default SubType!", message: "Please submit an issue on github and include your device model: \(UIDevice().machineName).", preferredStyle: .alert)
+                    newUIAlert.addAction(.init(title: "Cancel", style: .cancel))
+                    newUIAlert.addAction(.init(title: "Submit Issue", style: .default, handler: { _ in
+                        // send them to the issues page
+                        UIApplication.shared.open(URL(string: "https://github.com/leminlimez/Cowabunga/issues")!)
+                    }))
+                    UIApplication.shared.present(alert: newUIAlert)
+                }
+            }, noCancel: false)
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+            // cancels the action
+        }
+        
+        // add the actions
+        alert.addAction(resetAction)
+        alert.addAction(cancelAction)
+        
+        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+        // present popover for iPads
+        alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+        alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+        
+        // present the alert
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
     }
 }
 

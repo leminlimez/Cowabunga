@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TintedButton: ButtonStyle {
     var color: Color
+    var material: UIBlurEffect.Style?
     var fullwidth: Bool = false
-    var info: String?
     
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
@@ -18,33 +18,27 @@ struct TintedButton: ButtonStyle {
                 configuration.label
                     .padding(15)
                     .frame(maxWidth: .infinity)
-                    .background(color.opacity(0.2))
+                    .background(material == nil ? AnyView(color.opacity(0.2)) : AnyView(MaterialView(material!)))
                     .cornerRadius(8)
                     .foregroundColor(color)
             } else {
                 configuration.label
                     .padding(15)
-                    .background(color.opacity(0.2))
+                    .background(material == nil ? AnyView(color.opacity(0.2)) : AnyView(MaterialView(material!)))
                     .cornerRadius(8)
                     .foregroundColor(color)
             }
-            
-            if let info = info {
-                HStack {
-                    Spacer()
-                    Button {
-                        UIApplication.shared.alert(title: "Info", body: info)
-                    } label: {
-                        Image(systemName: "info")
-                            .frame(width: 32, height: 32)
-                            .background(MaterialView(.systemChromeMaterial))
-                            .cornerRadius(10)
-                            .foregroundColor(color)
-                    }
-                }
-                .padding(.horizontal, 10)
-            }
         }
+    }
+    
+    init(color: Color = .blue, fullwidth: Bool = false) {
+        self.color = color
+        self.fullwidth = fullwidth
+    }
+    init(color: Color = .blue, material: UIBlurEffect.Style, fullwidth: Bool = false) {
+        self.color = color
+        self.material = material
+        self.fullwidth = fullwidth
     }
 }
 
@@ -56,7 +50,7 @@ struct FullwidthTintedButton_Previews: PreviewProvider {
         Button("Exaple") {
             
         }
-        .buttonStyle(TintedButton(color: .red, info: "Test info"))
+        .buttonStyle(TintedButton(color: .red, fullwidth: true))
         .padding()
     }
 }
