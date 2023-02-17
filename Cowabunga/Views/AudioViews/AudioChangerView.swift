@@ -92,7 +92,7 @@ struct AudioChangerView: View {
                         }
                     }
                 } header: {
-                    Text("Included")
+                    Label("Included", systemImage: "case")
                 }
                 
                 Section {
@@ -166,7 +166,7 @@ struct AudioChangerView: View {
                         }
                     }
                 } header: {
-                    Text("Custom")
+                    Label("Custom", systemImage: "square.and.arrow.down")
                 }
             }
         }

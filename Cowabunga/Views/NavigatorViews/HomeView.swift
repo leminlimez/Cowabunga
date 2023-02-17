@@ -68,15 +68,33 @@ struct HomeView: View {
                 Section {
                     VStack {
                         // apply all tweaks button
-                        Button("Fix tweaks") {
-                            applyTweaks()
+                        // "Applies all tweaks which were applied before."
+                        HStack {
+                            Button("Fix tweaks") {
+                                applyTweaks()
+                            }
+                            .buttonStyle(TintedButton(color: .blue, fullwidth: true))
+                            Button {
+                                UIApplication.shared.alert(title: "Info", body: "Respring is an action that allows restarting your Home Screen without rebooting your device.")
+                            } label: {
+                                Image(systemName: "info")
+                            }
+                            .buttonStyle(TintedButton(material: .systemMaterial, fullwidth: false))
                         }
-                        .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                         
-                        Button("Respring") {
-                            respring()
+                        //"Respring is an action that allows restarting your Home Screen without rebooting your device."
+                        HStack {
+                            Button("Respring") {
+                                respring()
+                            }
+                            .buttonStyle(TintedButton(color: .red, fullwidth: true))
+                            Button {
+                                UIApplication.shared.alert(title: "Info", body: "Respring is an action that allows restarting your Home Screen without rebooting your device.")
+                            } label: {
+                                Image(systemName: "info")
+                            }
+                            .buttonStyle(TintedButton(material: .systemMaterial, fullwidth: false))
                         }
-                        .buttonStyle(TintedButton(color: .red, fullwidth: true))
                     }
                     .listRowInsets(EdgeInsets())
                     .padding()
@@ -91,7 +109,7 @@ struct HomeView: View {
                         }
                     }
                 } header: {
-                    Text("Tweak Options")
+                    Label("Tweak Options", systemImage: "hammer")
                 }
                 
                 Section {
@@ -255,7 +273,7 @@ struct HomeView: View {
                         }
                     }
                 } header: {
-                    Text("Preferences")
+                    Label("Preferences", systemImage: "gearshape")
                 }
                 
                 Section {
@@ -271,7 +289,7 @@ struct HomeView: View {
                     LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: NSLocalizedString("Whitelist, AirPower Audio, Various fixes", comment: "BomberFish's contribution"), circle: true)
                     LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: NSLocalizedString("Dynamic Island SubTypes", comment: "matteozappia's contribution"), circle: true)
                 } header: {
-                    Text("Credits")
+                    Label("Credits", systemImage: "heart")
                 }
                 
                 Section {
@@ -279,13 +297,13 @@ struct HomeView: View {
                         LinkCell(imageName: "", url: "", title: translator.names, contribution: translator.contribution)
                     }
                 } header: {
-                    Text("Translators")
+                    Label("Translators", systemImage: "character.bubble")
                 }
                 
                 Section {
                     
                 } header: {
-                    Text("Version \(Bundle.main.releaseVersionNumber ?? "UNKNOWN") (\(versionBuildString ?? "Release"))")
+                    Label("Version \(Bundle.main.releaseVersionNumber ?? "UNKNOWN") (\(versionBuildString ?? "Release"))", systemImage: "info")
                 }
             }
             .navigationTitle("Cowabunga")
