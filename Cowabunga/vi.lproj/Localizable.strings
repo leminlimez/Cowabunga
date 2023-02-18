@@ -161,6 +161,9 @@
 "Carrier Text" = "Tên nhà mạng";
 
 /* No comment provided by engineer. */
+"CC Modules" = "Biểu tượng trung tâm điều khiển";
+
+/* No comment provided by engineer. */
 "CD Hashes" = "CD Hashes";
 
 /* No comment provided by engineer. */
@@ -209,6 +212,9 @@
 "Choose an update option" = "Chọn phương thức để cập nhật trong nền";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "Chọn biểu tượng ứng dụng bất kỳ";
+
+/* No comment provided by engineer. */
 "Choose size" = "Chọn kích thước";
 
 /* No comment provided by engineer. */
@@ -242,7 +248,13 @@
 "Cowabunga %@" = "Cowabunga %@";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "Biểu tượng ứng dụng Cowabunga";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga cần quyền vị trí “Luôn luôn”.";
+
+/* App icon name */
+"CowTools" = "CowTools";
 
 /* No comment provided by engineer. */
 "Create" = "Tạo";
@@ -262,7 +274,8 @@
 /* Title of tool */
 "Custom Operations" = "Vận hành tùy chỉnh";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "Mặc định";
 
@@ -431,6 +444,9 @@
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Cử chỉ / Dynamic Island";
 
+/* App icon name */
+"Glitch" = "Hiệu ứng trục trặc";
+
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "Đến đây nếu có gì đó không hoạt động đúng cách.";
 
@@ -519,8 +535,14 @@
 /* c22dev's contribution */
 "Included Audio, Credits, and Card Changer" = "Đã thêm âm thanh,mục Tác giả và bộ thay đổi giao diện thẻ";
 
+/* respring info header */
+"Info" = "Thông tin";
+
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Nhập phiên bản iOS bất kỳ";
+
+/* App icon name */
+"iOS 6" = "iOS 6";
 
 /* x gestures */
 "iPhone X Gestures" = "Cử chỉ iPhone X";
@@ -579,6 +601,9 @@
 
 /* Minimum passcode key size */
 "Min:" = "Tối thiểu:";
+
+/* App icon name */
+"Minecraft" = "Minecraft";
 
 /* Title of tool */
 "Miscellaneous" = "Khác";
@@ -673,6 +698,9 @@
 /* Audio name */
 "Payment Success" = "Thanh toán thành công";
 
+/* App icon name */
+"Pixel Art" = "Pixel Art";
+
 /* No comment provided by engineer. */
 "Please close and reopen the Phone app." = "Vui lòng đóng và mở lại ứng dụng Điện thoại.";
 
@@ -763,6 +791,9 @@
 /* No comment provided by engineer. */
 "Respring" = "Khởi động lại màn hình";
 
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "Khởi động lại màn hình là một hành động cho phép bạn khởi động lại màn hình chính mà không cần khởi động lại thiết bị.";
+
 /* Respring to see changes */
 "Respring to see changes" = "Khởi động lại màn hình để thấy những thay đổi.";
 
@@ -813,6 +844,9 @@
 
 /* No comment provided by engineer. */
 "Set badge color" = "Chọn màu phù hiệu thông báo";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "Chọn màu cho biểu tượng trung tâm điều khiển";
 
 /* No comment provided by engineer. */
 "Set dock color" = "Chọn màu dock";
@@ -969,6 +1003,9 @@
 
 /* value for plist operation */
 "Value" = "Giá trị";
+
+/* App icon name - vector graphics */
+"Vector" = "Vector";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Phiên bản %@ (%@)";
