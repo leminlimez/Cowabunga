@@ -116,7 +116,7 @@
 "Auto Update Included Audio" = "Auto Actualización Incluido Audio";
 
 /* No comment provided by engineer. */
-"Background" = "Background";
+"Background" = "Segundo plano";
 
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Background Update Frequency";
@@ -142,11 +142,11 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Calcular Tamaño";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "Cancelar";
 
 /* Title of tool */
-"Card Changer" = "Card Changer";
+"Card Changer" = "Cambiador de Tarjetaw";
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Texto del Carrier";
@@ -242,7 +242,7 @@
 "Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Actualmente para presentar temas para otras personas para ver y usar, nosotros tenemos que revisarlo en nuestro Discord en el canal #showcase (Nota: principalmente se habla inglés aquí)";
 
 /* Custom size for passcode keys */
-"Custom" = "Custom";
+"Custom" = "Personalizado";
 
 /* No comment provided by engineer. */
 "Custom image" = "Imagen personalizada";
@@ -250,7 +250,8 @@
 /* Title of tool */
 "Custom Operations" = "Operaciones Personalizadas";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "Por defecto";
 
@@ -303,16 +304,16 @@
 "Download themes in Themes tab." = "Descargar temas en la pestaña de temas.";
 
 /* iPhone 14 Pro SubType */
-"Dynamic Island" = "Dynamic Island";
+"Dynamic Island" = "Isla Dinámica";
 
 /* iPhone 14 Pro Max SubType */
-"Dynamic Island Pro Max" = "Dynamic Island Pro Max";
+"Dynamic Island Pro Max" = "Isla Dinámica Pro Max";
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "Dynamic Island SubTypes";
 
 /* No comment provided by engineer. */
-"Editing %@" = "Editing %@";
+"Editing %@" = "Editando %@";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -342,7 +343,7 @@
 "Error" = "Error";
 
 /* ginsudev's contribution */
-"Exploit Code" = "Exploit Code";
+"Exploit Code" = "Código de Explotación";
 
 /* No comment provided by engineer. */
 "Explore" = "Explorar";
@@ -405,7 +406,7 @@
 "Full reset" = "Restablecimiento completo";
 
 /* No comment provided by engineer. */
-"Gestures / Dynamic Island" = "Gestos / Dynamic Island";
+"Gestures / Dynamic Island" = "Gestos / Isla Dinámica";
 
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "Ve aquí si algo no funciona correctamente.";
@@ -466,10 +467,10 @@
 "Home" = "Home";
 
 /* Category of tool */
-"Home Screen" = "Home Screen";
+"Home Screen" = "Pantalla de inicio";
 
 /* No comment provided by engineer. */
-"I'm not a robot (no cap)" = "I'm not a robot (no cap)";
+"I'm not a robot (no cap)" = "No soy un robot (bruh)";
 
 /* No comment provided by engineer. */
 "Icons" = "Iconos";
@@ -493,16 +494,16 @@
 "Included" = "Incluido";
 
 /* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "Included Audio, Credits, and Card Changer";
+"Included Audio, Credits, and Card Changer" = "Audio incluido, créditos y cambiador de tarjetas";
 
 /* Header for inputting custom iOS version */
-"Input Software Version" = "Input Software Version";
+"Input Software Version" = "Versión de software de entrada";
 
 /* x gestures */
 "iPhone X Gestures" = "Gestos del iPhone X";
 
 /* No comment provided by engineer. */
-"Join Discord" = "Join Discord";
+"Join Discord" = "Unirse al Discord";
 
 /* key for plist operation */
 "Key" = "Key";
@@ -545,7 +546,7 @@
 
 /* leminlimez's contribution
    sourcelocation's contribution */
-"Main Developer" = "Main Developer";
+"Main Developer" = "Principal Desarrollador";
 
 /* Maximum passcode key size */
 "Max:" = "Max:";
@@ -554,7 +555,7 @@
 "Min:" = "Min:";
 
 /* Title of tool */
-"Miscellaneous" = "Miscellaneous";
+"Miscellaneous" = "Variado";
 
 /* No comment provided by engineer. */
 "More Settings" = "Más configuraciones";
@@ -605,7 +606,7 @@
 "Operation Name" = "Nombre de la operación";
 
 /* Category of tool */
-"Other" = "Other";
+"Other" = "Otro";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "Editor de caras de código";
@@ -721,7 +722,7 @@
 /* No comment provided by engineer. */
 "Respring" = "Respring";
 
-/* No comment provided by engineer. */
+/* Respring to see changes */
 "Respring to see changes" = "Haz respring para ver los cambios";
 
 /* No comment provided by engineer. */
@@ -752,7 +753,7 @@
 "Scheduling icon cache reset..." = "Programando un restablecimiento de la caché de los iconos...";
 
 /* Audio name */
-"Screenshot" = "Captura de campaña";
+"Screenshot" = "Captura de pantalla";
 
 /* No comment provided by engineer. */
 "Select" = "Seleccionar";
@@ -954,7 +955,7 @@
 "Y" = "Y";
 
 /* Confirm apply for all (passcode keys) */
-"Yes" = "Yes";
+"Yes" = "Si";
 
 /* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "No tienes ningún tema de código guardado. Echa un vistazo a la pestaña Explorar para encontrar algunos!";

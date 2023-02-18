@@ -28,6 +28,9 @@
 /* No comment provided by engineer. */
 "Add Value" = "값 추가";
 
+/* No comment provided by engineer. */
+"Advanced" = "고급";
+
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "모든 앱 아이콘이 복구됩니다.\n진짜로 원하십니까?\n(다시시작이 필요합니다.)";
 
@@ -101,7 +104,7 @@
 "Applying operation..." = "테마 적용중...";
 
 /* No comment provided by engineer. */
-"Are you sure you want to reset the Default SubType?" = "정말로 장치의 형식을 되돌리겠습니까?";
+"Are you sure you want to reset the Default SubType?" = "정말 기본으로 되돌리겠습니까?";
 
 /* Title of tool */
 "Audio" = "소리";
@@ -122,6 +125,9 @@
 "Background Update Frequency" = "백그라운드 업데이트 주기";
 
 /* No comment provided by engineer. */
+"Banned Apps" = "비활성화된 앱";
+
+/* No comment provided by engineer. */
 "Basic Configuration" = "기본 구성";
 
 /* Audio name */
@@ -132,6 +138,12 @@
 
 /* No comment provided by engineer. */
 "binary" = "바이너리";
+
+/* No comment provided by engineer. */
+"Blacklist" = "블랙리스트";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "블랙리스트 파일 목록";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "흐림도:   %lld";
@@ -150,6 +162,12 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "통신사 이름";
+
+/* No comment provided by engineer. */
+"CC Modules" = "제어센터 모듈";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "CD 해시";
 
 /* No comment provided by engineer. */
 "Change" = "변경";
@@ -197,6 +215,9 @@
 "Choose an update option" = "업데이트 주기를 선택하세요";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "앱 아이콘을 선택하세요.";
+
+/* No comment provided by engineer. */
 "Choose size" = "크기 설정";
 
 /* No comment provided by engineer. */
@@ -230,7 +251,13 @@
 "Cowabunga %@" = "Cowabunga %@";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "Cowabunga 앱 아이콘";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
+
+/* App icon name */
+"CowTools" = "Cow도구";
 
 /* No comment provided by engineer. */
 "Create" = "저장";
@@ -250,7 +277,8 @@
 /* Title of tool */
 "Custom Operations" = "커스텀 작업";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "기본";
 
@@ -341,6 +369,15 @@
 /* No comment provided by engineer. */
 "Error" = "오류";
 
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "테마를 불러오는중 오류가 발생했습니다.";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "몇몇 아이콘을 설정하는중 오류가 발생했습니다.";
+
+/* No comment provided by engineer. */
+"Exaple" = "예시";
+
 /* ginsudev's contribution */
 "Exploit Code" = "익스플로잇";
 
@@ -398,6 +435,9 @@
 /* No comment provided by engineer. */
 "Forgot password?" = "비밀번호를 잊으셨나요?";
 
+/* Frequent */
+"Frequent" = "자주";
+
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "어디서 가져오시겠습니까?";
 
@@ -406,6 +446,9 @@
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "제스처 / 다이나믹 아일랜드";
+
+/* App icon name */
+"Glitch" = "글리치";
 
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "정상적으로 작동하지 않으면 여기로 오세요.";
@@ -495,8 +538,14 @@
 /* c22dev's contribution */
 "Included Audio, Credits, and Card Changer" = "내장 오디오, 크레딧, 카드 커스텀";
 
+/* respring info header */
+"Info" = "정보";
+
 /* Header for inputting custom iOS version */
 "Input Software Version" = "소프트웨어 버전 입력";
+
+/* App icon name */
+"iOS 6" = "IOS 6";
 
 /* x gestures */
 "iPhone X Gestures" = "iPhone X 제스처";
@@ -547,11 +596,17 @@
    sourcelocation's contribution */
 "Main Developer" = "메인 개발자";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "그렇게 하세요";
+
 /* Maximum passcode key size */
 "Max:" = "최대:";
 
 /* Minimum passcode key size */
 "Min:" = "최소:";
+
+/* App icon name */
+"Minecraft" = "마인크래프트";
 
 /* Title of tool */
 "Miscellaneous" = "기타";
@@ -604,8 +659,20 @@
 /* No comment provided by engineer. */
 "Operation Name" = "작업 이름";
 
+/* No comment provided by engineer. */
+"Options" = "옵션";
+
 /* Category of tool */
 "Other" = "기타";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "비활성화된 앱 덮어쓰기";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "블랙리스트 덮어쓰기";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "CD해시 덮어쓰기";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "암호 버튼 편집기";
@@ -633,6 +700,9 @@
 
 /* Audio name */
 "Payment Success" = "결제 성공";
+
+/* App icon name */
+"Pixel Art" = "픽셀 아트";
 
 /* No comment provided by engineer. */
 "Please close and reopen the Phone app." = "앱을 종료한 다음에 다시 열어주세요.";
@@ -679,6 +749,9 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Plist 유형:";
 
+/* Power Saving */
+"Power Saving" = "에너지 절약";
+
 /* No comment provided by engineer. */
 "Preferences" = "설정";
 
@@ -720,6 +793,9 @@
 
 /* No comment provided by engineer. */
 "Respring" = "SpringBoard 다시시작";
+
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "SpringBoard 다시시작은 재부팅하지않고 홈화면을 다시시작하는 작업입니다.";
 
 /* Respring to see changes */
 "Respring to see changes" = "적용 하려면 SpringBoard를 다시시작해야합니다.";
@@ -771,6 +847,9 @@
 
 /* No comment provided by engineer. */
 "Set badge color" = "알림배지 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "제어센터 모듈 색깔 설정";
 
 /* No comment provided by engineer. */
 "Set dock color" = "독 색깔 설정";
@@ -831,6 +910,9 @@
 
 /* applying audio succeeded */
 "Successfully applied audio!" = "오디오를 적용하였습니다.";
+
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "트윅 적용에 성공했습니다!";
 
 /* No comment provided by engineer. */
 "Supervised" = "감독모드";
@@ -925,14 +1007,26 @@
 /* value for plist operation */
 "Value" = "값";
 
+/* App icon name - vector graphics */
+"Vector" = "벡터";
+
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "버전 %@ (%@)";
+
+/* No comment provided by engineer. */
+"View contents of blacklist files" = "블랙리스트 파일 표시";
 
 /* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "잠깐, 그거 전부 TrollTools야?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 비워두면 통신사 이름을 표시합니다.";
+
+/* Title of tool */
+"Whitelist" = "화이트리스트";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "화이트리스트, 다양한 수정, AirPower Audio";
 
 /* Width of custom resolution
    Width of passcode keys */

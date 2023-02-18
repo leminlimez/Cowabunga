@@ -17,7 +17,7 @@
 "%lldx%lld" = "%lldx%lld";
 
 /* IMPORTANT alert when icons finish applying */
-"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabanga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\nЗатраченное время: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabunga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\nЗатраченное время: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -164,6 +164,9 @@
 "Carrier Text" = "Название оператора";
 
 /* No comment provided by engineer. */
+"CC Modules" = "Модули ЦУ";
+
+/* No comment provided by engineer. */
 "CD Hashes" = "CD Hashes";
 
 /* No comment provided by engineer. */
@@ -212,6 +215,9 @@
 "Choose an update option" = "Выберите частоту обновления в фоновом режиме";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "Выберите иконку приложения";
+
+/* No comment provided by engineer. */
 "Choose size" = "Изменить размер";
 
 /* No comment provided by engineer. */
@@ -245,7 +251,13 @@
 "Cowabunga %@" = "Cowabunga %@";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "Иконка приложения Cowabunga";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga требуется постоянный доступ к геолокации.";
+
+/* App icon name */
+"CowTools" = "CowTools";
 
 /* No comment provided by engineer. */
 "Create" = "Создать";
@@ -265,7 +277,8 @@
 /* Title of tool */
 "Custom Operations" = "Собственные операции";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "По умолчанию";
 
@@ -434,6 +447,9 @@
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Жесты / Динамический остров";
 
+/* App icon name */
+"Glitch" = "Глюк";
+
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "Зайди сюда, если что-то не работает.";
 
@@ -493,7 +509,7 @@
 "Home" = "Главная";
 
 /* Category of tool */
-"Home Screen" = "Экран Домой";
+"Home Screen" = "Экран «Домой»";
 
 /* No comment provided by engineer. */
 "I'm not a robot (no cap)" = "Я не робот (без б)";
@@ -522,8 +538,14 @@
 /* c22dev's contribution */
 "Included Audio, Credits, and Card Changer" = "Звуки, авторы, редактор карты";
 
+/* respring info header */
+"Info" = "Информация";
+
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Введите версию iOS";
+
+/* App icon name */
+"iOS 6" = "iOS 6";
 
 /* x gestures */
 "iPhone X Gestures" = "Жесты iPhone X";
@@ -575,13 +597,16 @@
 "Main Developer" = "Один из главных разработчиков";
 
 /* No comment provided by engineer. */
-"Make It So, Number One" = "Давай, нажми \"Применить\"";
+"Make It So, Number One" = "Давай, нажми «Применить»";
 
 /* Maximum passcode key size */
 "Max:" = "Максимум:";
 
 /* Minimum passcode key size */
 "Min:" = "Минимум:";
+
+/* App icon name */
+"Minecraft" = "Minecraft";
 
 /* Title of tool */
 "Miscellaneous" = "Разные приколы";
@@ -676,6 +701,9 @@
 /* Audio name */
 "Payment Success" = "Успешная оплата";
 
+/* App icon name */
+"Pixel Art" = "Пиксель арт";
+
 /* No comment provided by engineer. */
 "Please close and reopen the Phone app." = "Закройте и откройте заново приложение Телефон.";
 
@@ -689,16 +717,16 @@
 "Please log into your Sourced Repo account to continue" = "Войдите в аккаунт Sourced для продолжения";
 
 /* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "Перезапустите SpringBoard для применения изменений. Перезагрузите устройство для отмены изменений.";
+"Please respring to finalize changes. Reboot to revert." = "Перезапустите SpringBoard, чтобы завершить применение изменений. Перезагрузите устройство для отмены изменений.";
 
 /* No comment provided by engineer. */
-"Please respring to finish applying changes." = "Перезапустите SpringBoard для применения изменений.";
+"Please respring to finish applying changes." = "Перезапустите SpringBoard, чтобы изменения вступили в силу.";
 
 /* respring to hear audio changes */
-"Please respring to hear changes." = "Перезапустите SpringBoard для применения изменений.";
+"Please respring to hear changes." = "Перезапустите SpringBoard, чтобы изменения вступили в силу.";
 
 /* No comment provided by engineer. */
-"Please respring to see changes." = "Перезапустите SpringBoard для применения изменений.";
+"Please respring to see changes." = "Перезапустите SpringBoard, чтобы изменения вступили в силу.";
 
 /* No comment provided by engineer. */
 "Please select a file to import!" = "Выберите файл для импорта!";
@@ -766,8 +794,11 @@
 /* No comment provided by engineer. */
 "Respring" = "Перезапустить SpringBoard";
 
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "Перезапуск SpringBoard позволяет перезагружать экран «Домой» без полной перезагрузки устройства.";
+
 /* Respring to see changes */
-"Respring to see changes" = "Перезапустите SpringBoard для применения изменений";
+"Respring to see changes" = "Перезапустите SpringBoard, чтобы изменения вступили в силу.";
 
 /* No comment provided by engineer. */
 "Restore" = "Восстановить";
@@ -816,6 +847,9 @@
 
 /* No comment provided by engineer. */
 "Set badge color" = "Цвет наклеек";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "Цвет модуля ЦУ";
 
 /* No comment provided by engineer. */
 "Set dock color" = "Цвет панели Dock";
@@ -965,13 +999,16 @@
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Используйте это, если название оператора/текст часов не изменяется. Рекомендуется вернуть стандартные настройки после применения этой.";
 
 /* No comment provided by engineer. */
-"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки \"Применить\" во вкладке Строка состояния.";
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки «Применить» во вкладке Строка состояния.";
 
 /* No comment provided by engineer. */
 "validate" = "Проверить";
 
 /* value for plist operation */
 "Value" = "Значение";
+
+/* App icon name - vector graphics */
+"Vector" = "Векторная графика";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Версия %@ (%@)";

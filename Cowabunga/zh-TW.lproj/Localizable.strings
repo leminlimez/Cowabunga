@@ -20,7 +20,7 @@
 "Action" = "動作";
 
 /* No comment provided by engineer. */
-"Add Value" = "輸入數值";
+"Add Value" = "請輸入數值";
 
 /* No comment provided by engineer. */
 "Advanced" = "進階";
@@ -32,7 +32,7 @@
 "Alternatives" = "替代";
 
 /* No comment provided by engineer. */
-"Always has been" = "總是如此";
+"Always has been" = "當然! 總是如此 :p";
 
 /* No comment provided by engineer. */
 "An error occured when applying face sizes." = "套用鎖定數字盤按鈕大小時發生錯誤。";
@@ -119,7 +119,7 @@
 "Background Update Frequency" = "背景更新頻率";
 
 /* No comment provided by engineer. */
-"Banned Apps" = "您被封鎖的應用程式";
+"Banned Apps" = "此裝置被封鎖的應用程式";
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "基礎設定";
@@ -156,6 +156,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "電信商名稱";
+
+/* No comment provided by engineer. */
+"CC Modules" = "控制中心開關";
 
 /* No comment provided by engineer. */
 "Change" = "修改";
@@ -203,6 +206,9 @@
 "Choose an update option" = "請選擇適合您的背景更新頻率";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "請選擇一個應用程式圖標";
+
+/* No comment provided by engineer. */
 "Choose size" = "選擇尺寸";
 
 /* No comment provided by engineer. */
@@ -236,6 +242,9 @@
 "Cowabunga %@" = "卡哇邦嘎 %@";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "卡哇邦嘎應用程式圖標";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "卡哇邦嘎拜偷您給予「總是」的定位權限。";
 
 /* No comment provided by engineer. */
@@ -256,7 +265,8 @@
 /* Title of tool */
 "Custom Operations" = "自定義檔案替換操作";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "預設";
 
@@ -513,6 +523,9 @@
 /* c22dev's contribution */
 "Included Audio, Credits, and Card Changer" = "音效、翻譯與卡片美化器";
 
+/* respring info header */
+"Info" = "小姿勢";
+
 /* Header for inputting custom iOS version */
 "Input Software Version" = "請輸入自定義iOS系統版本(譯者註：改這功能百害無一利，千萬小心...)";
 
@@ -632,7 +645,7 @@
 "Other" = "其他";
 
 /* No comment provided by engineer. */
-"Overwrite Banned Apps" = "覆寫您被封鎖的應用程式";
+"Overwrite Banned Apps" = "覆寫此裝置被封鎖的應用程式";
 
 /* No comment provided by engineer. */
 "Overwrite Blacklist" = "覆寫黑名單";
@@ -757,6 +770,9 @@
 /* No comment provided by engineer. */
 "Respring" = "重新載入主畫面";
 
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "Respring是一種無需重啟(Reboot)您裝置的方式，其只「重新載入主畫面」便可以套用修改。";
+
 /* Respring to see changes */
 "Respring to see changes" = "請重新載入主畫面以套用修改。";
 
@@ -807,6 +823,9 @@
 
 /* No comment provided by engineer. */
 "Set badge color" = "設定角標顏色";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "設定控制中心開關顏色";
 
 /* No comment provided by engineer. */
 "Set dock color" = "設定Dock顏色";

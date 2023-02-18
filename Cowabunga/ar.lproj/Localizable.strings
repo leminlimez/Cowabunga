@@ -164,6 +164,9 @@
 "Carrier Text" = "نص الناقل";
 
 /* No comment provided by engineer. */
+"CC Modules" = "عناصر مركز التحكم";
+
+/* No comment provided by engineer. */
 "CD Hashes" = "CD Hashes";
 
 /* No comment provided by engineer. */
@@ -212,6 +215,9 @@
 "Choose an update option" = "اختر خيار التحديث";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "اختر أيقونة التطبيق";
+
+/* No comment provided by engineer. */
 "Choose size" = "اختر الحجم";
 
 /* No comment provided by engineer. */
@@ -245,7 +251,13 @@
 "Cowabunga %@" = "Cowabunga %@";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "أيقونة تطبيق Cowabunga";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "يتطلب Cowabunga إذن موقع \"دائمًا\".";
+
+/* App icon name */
+"CowTools" = "CowTools";
 
 /* No comment provided by engineer. */
 "Create" = "إنشاء";
@@ -265,7 +277,8 @@
 /* Title of tool */
 "Custom Operations" = "عمليات مخصصة";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "افتراضي";
 
@@ -434,6 +447,9 @@
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "الإيماءات /الجزيرة الديناميكية";
 
+/* App icon name */
+"Glitch" = "خلل";
+
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "اذهب هنا إذا كان هناك شيء لا يعمل بشكل صحيح.";
 
@@ -522,8 +538,14 @@
 /* c22dev's contribution */
 "Included Audio, Credits, and Card Changer" = "متضمن الصوت والاعتمادات ومبدل البطاقة";
 
+/* respring info header */
+"Info" = "معلومات";
+
 /* Header for inputting custom iOS version */
 "Input Software Version" = "أدخل رقم الإصدار";
+
+/* App icon name */
+"iOS 6" = "iOS 6";
 
 /* x gestures */
 "iPhone X Gestures" = "إيماءات iPhone X";
@@ -582,6 +604,9 @@
 
 /* Minimum passcode key size */
 "Min:" = "الحد الأدنى:";
+
+/* App icon name */
+"Minecraft" = "ماين كرافت";
 
 /* Title of tool */
 "Miscellaneous" = "متنوع";
@@ -676,6 +701,9 @@
 /* Audio name */
 "Payment Success" = "تم الدفع بنجاح";
 
+/* App icon name */
+"Pixel Art" = "فن البكسل";
+
 /* No comment provided by engineer. */
 "Please close and reopen the Phone app." = ".الرجاء إغلاق وإعادة فتح تطبيق الهاتف";
 
@@ -766,8 +794,11 @@
 /* No comment provided by engineer. */
 "Respring" = "إعادة التشغيل السريع";
 
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "إعادة التشغيل السريع هو إجراء يسمح بإعادة تشغيل شاشتك الرئيسية دون إعادة تشغيل جهازك.";
+
 /* Respring to see changes */
-"Respring to see changes" = "إعادة التشغيل لمشاهدة التغييرات";
+"Respring to see changes" = "أعد التشغيل السريع لمشاهدة التغييرات";
 
 /* No comment provided by engineer. */
 "Restore" = "استعادة";
@@ -816,6 +847,9 @@
 
 /* No comment provided by engineer. */
 "Set badge color" = "تعيين لون الشارة";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "تعيين لون عناصر مركز التحكم";
 
 /* No comment provided by engineer. */
 "Set dock color" = "تعيين لون البار السفلي";
@@ -972,6 +1006,9 @@
 
 /* value for plist operation */
 "Value" = "القيمة";
+
+/* App icon name - vector graphics */
+"Vector" = "فيكتور";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "الإصدار %@ (%@)";
