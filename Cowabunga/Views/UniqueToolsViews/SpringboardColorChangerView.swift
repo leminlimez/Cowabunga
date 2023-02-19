@@ -189,6 +189,8 @@ struct SpringboardColorChangerView: View {
                         // MARK: Folder
                         VStack {
                             let iconColors: [Color] = [.blue, .orange, .green, .purple, .white, .secondary]
+                            
+                            #warning("Unoptimized af. Adds 400ms on sourcelocation's machine of build time")
                             ZStack {
                                 ZStack {
                                     // Background
@@ -300,6 +302,7 @@ struct SpringboardColorChangerView: View {
                         
                         // MARK: CC Modulea
                         VStack {
+                            #warning("Unoptimized af. Adds 400ms on sourcelocation's machine of build time")
                             ZStack {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: minSize / 24)

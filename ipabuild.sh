@@ -19,8 +19,7 @@ xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedDataApp" \
     -destination 'generic/platform=iOS' \
     clean build \
-    ONLY_ACTIVE_ARCH="NO" \
-    CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO" \
+    CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
 
 DD_APP_PATH="$WORKING_LOCATION/build/DerivedDataApp/Build/Products/Release-iphoneos/$APPLICATION_NAME.app"
 TARGET_APP="$WORKING_LOCATION/build/$APPLICATION_NAME.app"

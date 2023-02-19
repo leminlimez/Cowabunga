@@ -36,10 +36,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>HCaptchaDomain</key>
-	<string>http://repo.sourceloc.net</string>
-	<key>HCaptchaKey</key>
-	<string>c1edb33e-8b1f-47f8-92df-360f9a38ec7f</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
