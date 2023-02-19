@@ -286,11 +286,13 @@ struct OtherModsView: View {
                                     let aliasURL = URL(fileURLWithPath: "/private/var/mobile/Library/Preferences/com.apple.iokit.IOMobileGraphicsFamily.plist")
                                     try? FileManager.default.removeItem(at: aliasURL)
                                     try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
+                                    xpc_crash("com.apple.cfprefsd.daemon")
+                                    xpc_crash("com.apple.backboard.TouchDeliveryPolicyServer")
+                                    respring()
                                     
-                                    UIApplication.shared.confirmAlert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finalize changes. Reboot to revert.", comment: "Successfully applying custom resolution"), onOK: {
-                                        xpc_crash("com.apple.cfprefsd.daemon")
-                                        xpc_crash("com.apple.backboard.TouchDeliveryPolicyServer")
-                                    }, noCancel: true)
+                                    /*UIApplication.shared.confirmAlert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Please respring to finalize changes. Reboot to revert.", comment: "Successfully applying custom resolution"), onOK: {
+                                        
+                                    }, noCancel: true)*/
                                 } catch {
                                     print("An error occurred: \(error.localizedDescription)")
                                     UIApplication.shared.alert(body: NSLocalizedString("Failed to apply resolution:", comment: "Failing to apply custom resolution") + " \(error.localizedDescription)")
