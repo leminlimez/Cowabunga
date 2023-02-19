@@ -68,21 +68,19 @@ struct HomeView: View {
                 Section {
                     VStack {
                         // apply all tweaks button
-                        // "Applies all tweaks which were applied before."
                         HStack {
                             Button("Fix tweaks") {
                                 applyTweaks()
                             }
                             .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                             Button {
-                                UIApplication.shared.alert(title: NSLocalizedString("Info", comment: "respring info header"), body: NSLocalizedString("Respring is an action that allows restarting your Home Screen without rebooting your device.", comment: "respring info"))
+                                UIApplication.shared.alert(title: NSLocalizedString("Info", comment: "fix tweaks info header"), body: NSLocalizedString("Applies all tweaks which were applied before.", comment: "fix tweaks info"))
                             } label: {
                                 Image(systemName: "info")
                             }
                             .buttonStyle(TintedButton(material: .systemMaterial, fullwidth: false))
                         }
                         
-                        //"Respring is an action that allows restarting your Home Screen without rebooting your device."
                         HStack {
                             Button("Respring") {
                                 respring()

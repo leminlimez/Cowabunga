@@ -26,6 +26,7 @@
 		21CD1051298C8151007EE649 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1053298C8151007EE649 /* Localizable.strings */; };
 		21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CD1054298C8177007EE649 /* InfoPlist.strings */; };
 		21D76C3F298D380100B3C707 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D76C3E298D380100B3C707 /* ApplicationManager.swift */; };
+		21D9E45C29A0FCAE0055B08D /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 21D9E45B29A0FCAE0055B08D /* AssetCatalogWrapper */; };
 		21DC3EBE29892EA0007D6F5C /* TintedButton14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */; };
 		21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */; };
 		21E54B182994063200D5F85A /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CD105C298C8540007EE649 /* ThemeManager.swift */; };
@@ -151,6 +152,7 @@
 		21CD105D298C8540007EE649 /* CatalogThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogThemeManager.swift; sourceTree = "<group>"; };
 		21D76C3E298D380100B3C707 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		21D76C42298D43AB00B3C707 /* UIImage+resizeToApprox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resizeToApprox.swift"; sourceTree = "<group>"; };
+		21D9E45D29A17E810055B08D /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintedButton14.swift; sourceTree = "<group>"; };
 		21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarVisibilityController.swift; sourceTree = "<group>"; };
 		21E54B1F2994070200D5F85A /* libMacDirtyCowSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMacDirtyCowSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,6 +287,7 @@
 				6FF21ADE29846A180054EBC0 /* ZIPFoundation in Frameworks */,
 				21AC8BAB298C0736000B7E85 /* CachedAsyncImage in Frameworks */,
 				6FF21B0229882CB70054EBC0 /* ACarousel in Frameworks */,
+				21D9E45C29A0FCAE0055B08D /* AssetCatalogWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,10 +547,11 @@
 		6F721C83296482C6001CFE46 = {
 			isa = PBXGroup;
 			children = (
-				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
 				6F721C8E296482C6001CFE46 /* Cowabunga */,
+				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
 				6FBEDC4F2964E1F10032B1A9 /* Frameworks */,
 				21E54B202994070200D5F85A /* MacDirtyCowSwift */,
+				21D9E45D29A17E810055B08D /* Makefile */,
 				21E1556A2989C32A00B59658 /* OverwriteFiles */,
 				6F721C8D296482C6001CFE46 /* Products */,
 			);
@@ -723,6 +727,7 @@
 				6FF21AF7298821410054EBC0 /* Dynamic */,
 				6FF21B0129882CB70054EBC0 /* ACarousel */,
 				21AC8BAA298C0736000B7E85 /* CachedAsyncImage */,
+				21D9E45B29A0FCAE0055B08D /* AssetCatalogWrapper */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -776,6 +781,7 @@
 				6FF21AF6298821410054EBC0 /* XCRemoteSwiftPackageReference "Dynamic" */,
 				6FF21B0029882CB70054EBC0 /* XCRemoteSwiftPackageReference "ACarousel" */,
 				21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				21D9E45A29A0FCAE0055B08D /* XCRemoteSwiftPackageReference "SantanderWrappers" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -1038,6 +1044,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1093,6 +1100,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1110,7 +1118,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -1149,14 +1157,14 @@
 		6F721C9C296482C7001CFE46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-iOS6 AppIcon-Vector AppIcon-Pixel AppIcon-Minecraft AppIcon-CowTools AppIcon-Glitch";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-iOS6 AppIcon-Vector AppIcon-Glitch AppIcon-CowTools AppIcon-Minecraft AppIcon-Pixel";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cowabunga/Info.plist;
@@ -1232,6 +1240,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		21D9E45A29A0FCAE0055B08D /* XCRemoteSwiftPackageReference "SantanderWrappers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SerenaKit/SantanderWrappers";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
@@ -1263,6 +1279,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		21D9E45B29A0FCAE0055B08D /* AssetCatalogWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21D9E45A29A0FCAE0055B08D /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
+			productName = AssetCatalogWrapper;
 		};
 		6FF21ADD29846A180054EBC0 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -47,9 +47,9 @@
             filePath = "Cowabunga/Controllers/Tools/Themes/CatalogThemeManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "applyChange(_:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "applyChanges(_:progress:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
