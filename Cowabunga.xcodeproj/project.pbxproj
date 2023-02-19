@@ -152,7 +152,6 @@
 		21CD105D298C8540007EE649 /* CatalogThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogThemeManager.swift; sourceTree = "<group>"; };
 		21D76C3E298D380100B3C707 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		21D76C42298D43AB00B3C707 /* UIImage+resizeToApprox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resizeToApprox.swift"; sourceTree = "<group>"; };
-		21D9E45D29A17E810055B08D /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		21DC3EBD29892EA0007D6F5C /* TintedButton14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintedButton14.swift; sourceTree = "<group>"; };
 		21E155682989C2EC00B59658 /* StatusBarVisibilityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarVisibilityController.swift; sourceTree = "<group>"; };
 		21E54B1F2994070200D5F85A /* libMacDirtyCowSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMacDirtyCowSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,8 +238,6 @@
 		6F843AAD298DC3190085D20A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		6FBACD552996BDC200302F94 /* PlistEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistEditView.swift; sourceTree = "<group>"; };
-		6FBACD572996F25B00302F94 /* vi-VN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "vi-VN"; path = "vi-vn.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		6FBACD582996F25B00302F94 /* vi-VN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "vi-VN"; path = "vi-vn.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FD9B525296C8AE300121229 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		6FD9B527296C8CBC00121229 /* AudioChangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChangerView.swift; sourceTree = "<group>"; };
@@ -551,7 +548,6 @@
 				6FF21AE92985F3BC0054EBC0 /* entitlements.plist */,
 				6FBEDC4F2964E1F10032B1A9 /* Frameworks */,
 				21E54B202994070200D5F85A /* MacDirtyCowSwift */,
-				21D9E45D29A17E810055B08D /* Makefile */,
 				21E1556A2989C32A00B59658 /* OverwriteFiles */,
 				6F721C8D296482C6001CFE46 /* Products */,
 			);
@@ -770,7 +766,6 @@
 				ko,
 				fr,
 				it,
-				"vi-VN",
 				ar,
 				"zh-TW",
 				es,
@@ -924,7 +919,6 @@
 				6F4296C129952C6700A96108 /* ko */,
 				6F4296C329952E7C00A96108 /* fr */,
 				6F7FC0222995A10B00C9CA2F /* it */,
-				6FBACD582996F25B00302F94 /* vi-VN */,
 				6F07AB9A299996F100076436 /* ar */,
 				6F07AB9E299BCC6B00076436 /* zh-TW */,
 				6F07ABA4299DC22000076436 /* es */,
@@ -947,7 +941,6 @@
 				6F4296C029952C6700A96108 /* ko */,
 				6F4296C229952E7B00A96108 /* fr */,
 				6F7FC0212995A10B00C9CA2F /* it */,
-				6FBACD572996F25B00302F94 /* vi-VN */,
 				6F07AB99299996F100076436 /* ar */,
 				6F07AB9D299BCC6B00076436 /* zh-TW */,
 				6F07ABA3299DC22000076436 /* es */,
