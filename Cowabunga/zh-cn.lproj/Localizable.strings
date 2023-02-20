@@ -715,3 +715,7 @@
 "Included Audio, Credits, and Card Changer" = "包括音频、信用卡和换卡器";
 "Whitelist, AirPower Audio, Various fixes" = "白名单，AirPower音频，问题修复";
 "CC Modules" = "控制中心";
+"Info" = "信息";
+"Applies all tweaks which were applied before." = "应用之前所有应用调整。";
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "注销是一种允许在不重新启动设备的情况下，重新载入主屏幕的操作，完成修改。";
