@@ -60,11 +60,14 @@ func modifyScreenTime(enabled: Bool) throws {
             try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
             try FileManager.default.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
             killSTA()
+            UserDefaults.standard.set(false, forKey: "stakillerenabled")
         }
         // Check if there is a TrollBox backup
         else if FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/live.cclerc.ScreenTimeAgent.plist") && !FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"){
             let data = try Data(contentsOf: URL(fileURLWithPath: "/var/mobile/Library/Preferences/live.cclerc.ScreenTimeAgent.plist"))
             try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
+            killSTA()
+            UserDefaults.standard.set(false, forKey: "stakillerenabled")
         }
         else {
             throw "No screentime file backup found!"
@@ -75,6 +78,7 @@ func modifyScreenTime(enabled: Bool) throws {
         try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
         try FileManager.default.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
         killSTA()
+        UserDefaults.standard.set(true, forKey: "stakillerenabled")
     }
 }
 

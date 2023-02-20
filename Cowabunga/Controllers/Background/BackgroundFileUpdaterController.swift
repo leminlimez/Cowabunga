@@ -95,7 +95,9 @@ class BackgroundFileUpdaterController: ObservableObject {
             let _ = AudioFiles.applyAllAudio()
             
             // kill screentime agent
-            killSTA()
+            if UserDefaults.standard.bool(forKey: "stakillerenabled") == true {
+                killSTA()
+            }
         }
     }
 }
