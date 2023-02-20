@@ -256,7 +256,7 @@ struct OtherModsView: View {
                     }
                     
                     // resolution setter
-                    HStack {
+                    /*HStack {
                         Image(systemName: "squareshape.controlhandles.on.squareshape.controlhandles")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -332,7 +332,7 @@ struct OtherModsView: View {
                         })
                         .foregroundColor(.blue)
                         .padding(.leading, 10)
-                    }
+                    }*/
                     
                     // device name
                     /*HStack {
