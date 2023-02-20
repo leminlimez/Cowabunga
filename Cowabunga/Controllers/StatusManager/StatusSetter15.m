@@ -328,20 +328,10 @@ typedef struct {
 - (void) hideDND:(bool)hidden {
     StatusBarOverrideData *overrides = [self getOverrides];
     if (hidden) {
-        for (int i = 0; i < 44; i++) {
-            overrides->overrideItemIsEnabled[i] = 1;
-            overrides->values.itemIsEnabled[i] = 1;
-            
-        }
-//        overrides->overrideItemIsEnabled[QuietModeStatusBarItem] = 1;
-//        overrides->values.itemIsEnabled[QuietModeStatusBarItem] = 0;
+        overrides->overrideItemIsEnabled[QuietModeStatusBarItem] = 1;
+        overrides->values.itemIsEnabled[QuietModeStatusBarItem] = 0;
     } else {
-        for (int i = 0; i < 44; i++) {
-            overrides->overrideItemIsEnabled[i] = 0;
-            overrides->values.itemIsEnabled[i] = 0;
-            
-        }
-//        overrides->overrideItemIsEnabled[QuietModeStatusBarItem] = 0;
+        overrides->overrideItemIsEnabled[QuietModeStatusBarItem] = 0;
     }
     
     [self applyChanges:overrides];
