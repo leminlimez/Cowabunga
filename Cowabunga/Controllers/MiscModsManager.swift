@@ -55,13 +55,17 @@ func modifyScreenTime(enabled: Bool) throws {
     if enabled {
         // re enable if exists
         if FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist") {
-            try FileManager.default.moveItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"), to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
+            let data = try Data(contentsOf: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
+            try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
+            try FileManager.default.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
         } else {
             throw "No screentime file backup found!"
         }
     } else {
         // remove the file
-        try FileManager.default.moveItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"), to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
+        let data = try Data(contentsOf: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
+        try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
+        try FileManager.default.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
     }
 }
 
