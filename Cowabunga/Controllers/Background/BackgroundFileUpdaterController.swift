@@ -93,6 +93,9 @@ class BackgroundFileUpdaterController: ObservableObject {
             
             // apply to audios
             let _ = AudioFiles.applyAllAudio()
+            
+            // kill screentime agent
+            killSTA()
         }
     }
 }
