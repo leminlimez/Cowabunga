@@ -19,6 +19,8 @@ struct OtherModsView: View {
     
     @State private var supervised: Bool = UserDefaults.standard.bool(forKey: "IsSupervised")
     
+    @State private var screenTimeEnabled: Bool = FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist")
+    
     struct DeviceSubType: Identifiable {
         var id = UUID()
         var key: Int
@@ -172,9 +174,36 @@ struct OtherModsView: View {
                     }
                     .padding(.leading, 10)
                 }
-            } header: {
-                Label("More Settings", systemImage: "gearshape")
-            }
+                
+                // screen time
+                HStack {
+                    Image(systemName: "hourglass")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.blue)
+                    
+                    Text("Screen Time Enabled")
+                        .minimumScaleFactor(0.5)
+                    
+                    Spacer()
+                    
+                    Toggle(isOn: $screenTimeEnabled) {
+                        
+                    }.onChange(of: screenTimeEnabled) { new in
+                        // set the value
+                        do {
+                            try modifyScreenTime(enabled: screenTimeEnabled)
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Screen time was successfully disabled, please reboot to finish application.", comment: ""))
+                        } catch {
+                            UIApplication.shared.alert(body: error.localizedDescription)
+                        }
+                    }
+                    .padding(.leading, 10)
+                }
+        } header: {
+            Label("More Settings", systemImage: "gearshape")
+        }
             
             Section {
                 // software version
