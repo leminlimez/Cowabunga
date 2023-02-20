@@ -719,3 +719,5 @@
 "Applies all tweaks which were applied before." = "应用之前所有应用调整。";
 /* respring info */
 "Respring is an action that allows restarting your Home Screen without rebooting your device." = "注销是一种允许在不重新启动设备的情况下，重新载入主屏幕的操作，完成修改。";
+"Screen Time Enabled" = "启用屏幕时间";
+"Screen time was successfully disabled, please reboot to finish application." = "屏幕时间已禁用，请重新启动以完成应用程序设置。";
