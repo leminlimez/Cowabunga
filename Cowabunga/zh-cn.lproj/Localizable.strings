@@ -131,7 +131,7 @@
 "Confirm" = "确认";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "损坏";
+"Corrupting" = "禁用";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "无法获取文件的路径，你是否已选取该文件?";
@@ -481,7 +481,7 @@
 "Remove all" = "移除所有";
 
 /* operation type that replaces a file */
-"Replacing" = "替换中";
+"Replacing" = "替换";
 
 /* No comment provided by engineer. */
 "Reset All" = "重置所有";
@@ -490,7 +490,7 @@
 "Reset Default SubType" = "重置为默认型号";
 
 /* No comment provided by engineer. */
-"Reset faces" = "重置锁频按钮";
+"Reset faces" = "重置锁屏按钮";
 
 /* No comment provided by engineer. */
 "Respring" = "注销";
@@ -665,7 +665,7 @@
 "Your device will respring." = "你的设备将会注销";
 
 /* Category of tool */
-"Control Center" = "控制中心";
+"Control Center" = "顶部状态栏";
 
 /* Springboard tool */
 "Hide Notification Banner Background" = "隐藏顶部通知背景";
@@ -721,3 +721,67 @@
 "Respring is an action that allows restarting your Home Screen without rebooting your device." = "注销是一种允许在不重新启动设备的情况下，重新载入主屏幕的操作，完成修改。";
 "Screen Time Enabled" = "启用屏幕时间";
 "Screen time was successfully disabled, please reboot to finish application." = "屏幕时间已禁用，请重新启动以完成应用程序设置。";
+"Please wait" = "请稍等";
+"Downloading" = "下载";
+"The theme was successfully downloaded and saved!" = "主题已成功下载并保存！";
+"Could not download theme!" = "无法下载主题!";
+"Rename theme" = "重命名主题";
+"New theme name" = "新的主题名称";
+"Rename" = "重命名";
+"Remove theme" = "移出主题";
+"Alternatives" = "备选方案";
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "找不到主题。请在“探索”选项卡中下载主题，或使用右上角的按钮导入主题（主题必须包含<id>.png格式的图标）";
+"Wait, it's all TrollTools?" = "等等，这是TrollTools？";
+"Always has been" = "一直都是啊";
+"Download themes in Themes tab." = "在探索选项卡中下载主题";
+"Starting..." = "开始...";
+"In progress..." = "正在进行...";
+"Scheduling icon cache reset..." = "正在图标缓存重置...";
+"Understood, Respring" = "Ok了，注销下吧";
+"Errors occurred while setting some icons" = "设置某些图标时出错";
+"Full reset" = "重置所有图标";
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "所有应用程序图标将恢复为其原始外观。是否确实要继续？（可能需要重新启动）";
+"Failed to load operations." = "加载操作失败";
+"Uncategorized" = "未分类";
+"Edit Operation" = "编辑操作";
+"Create Operation" = "创建操作";
+"Name:" = "名称：";
+"Basic Configuration" = "基本配置";
+"Operation Name" = "操作名称";
+"Choose an operation type" = "选择操作类型";
+"Enabled" = "启用";
+"File not found!" = "文件未发现";
+"Apply in Background" = "允许后台运行";
+"Action" = "动作";
+"Replace With:" = "替换为：";
+"Upload File" = "上传文件";
+"Replacement Data" = "替换数据";
+"Plist Type:" = "Plist类型";
+"Choose a plist type" = "选择Plist类型";
+"Size not calculated" = "大小未计算";
+"Could not calculate plist size!" = "无法计算Plist大小！";
+"Calculate Size" = "计算大小";
+"Plist Properties" = "Plist属性";
+"Add Value" = "添加属性";
+"Plist Data" = "Plist数据";
+"Saving operation..." = "正在保存...";
+"Please select a file to import!" = "请选择导入的文件";
+"The operation was successfully saved!" = "操作已成功保存！";
+"An error occurred while saving the operation" = "保存操作时出错";
+"Save" = "保存";
+"Create" = "创建";
+"Apply Once" = "应用一次";
+"Applying operation..." = "正在应用...";
+"The operation was successfully applied! The operation was not saved, only applied." = "该操作已成功应用！该操作未保存，仅应用";
+"An error occurred while applying the operation" = "应用操作时出错";
+"Deleting operation..." = "正在删除操作…";
+"The operation was successfully deleted!" = "操作已成功删除！";
+"An error occurred while deleting the operation" = "删除操作时出错";
+"Restoring original file..." = "正在还原原始文件…";
+"The file was successfully restored!" = "文件已成功还原！";
+"An error occurred while restoring the files" = "还原文件时出错";
+"Restore" = "还原";
+"An error occurred" = "发生错误";
+"New Operation" = "新操作";
+"File:" = "文件：";
+"No file selected!" = "未选择文件！";
