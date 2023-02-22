@@ -172,6 +172,36 @@ class ColorObject: AdvancedObject {
     var fill: String
     var stroke: String
     
+    func detectStyles() throws -> [String: String] {
+        if FileManager.default.fileExists(atPath: self.filePath) {
+            do {
+                // get the data
+                let originalData: Data = try Data(contentsOf: URL(fileURLWithPath: self.filePath))
+                do {
+                    // get the plist data
+                    let plist = try PropertyListSerialization.propertyList(from: originalData, options: [], format: nil) as! [String: Any]
+                    
+                    // get the styles plist
+                    if let stylesValues = plist["styles"] as? [String: String] {
+                        var styles: [String: String] = [:]
+                        styles["fill"] = stylesValues["fill"] ?? ""
+                        styles["stroke"] = stylesValues["stroke"] ?? ""
+                        return styles
+                    } else {
+                        return [:]
+                    }
+                } catch {
+                    throw "Could not serialize file at path \(self.filePath)!"
+                }
+            } catch {
+                throw "Could not get data of file at path \(self.filePath)!"
+            }
+        } else {
+            throw "File at path \(self.filePath) does not exist!"
+        }
+        throw "Unknown error"
+    }
+    
     override func parseData() throws {
         // get the files
         let url = Bundle.main.url(forResource: "replacement", withExtension: ".materialrecipe")
