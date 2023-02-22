@@ -69,7 +69,7 @@ class AdvancedManager {
             try? fm.removeItem(at: unzipURL)
             try fm.unzipItem(at: url, to: unzipURL)
             for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
-                try fm.moveItem(at: folder, to: getSavedOperationsDirectory()!.appendingPathComponent("None"))
+                try fm.moveItem(at: folder, to: getSavedOperationsDirectory()!.appendingPathComponent("None").appendingPathComponent(folder.deletingPathExtension().lastPathComponent))
             }
         } else {
             throw "No .cowperation file found!"

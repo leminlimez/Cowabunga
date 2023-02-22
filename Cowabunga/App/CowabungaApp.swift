@@ -87,6 +87,15 @@ struct CowabungaApp: App {
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                     }
                     
+                    // for opening cowperation files
+                    if url.pathExtension.lowercased() == "cowperation" {
+                        do {
+                            // try adding the operation
+                            try AdvancedManager.importOperation(url)
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                        } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                    }
+                    
                     // for opening zips of app themes
                     if url.pathExtension.lowercased() == "zip" {
                         let themeName = url.deletingPathExtension().lastPathComponent

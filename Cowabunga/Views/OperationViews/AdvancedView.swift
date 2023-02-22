@@ -25,13 +25,10 @@ struct AdvancedView: View {
                                 Image(systemName: "xmark.seal.fill")
                                     .foregroundColor(.red)
                             }
-                            VStack {
-                                if operation.author == "" {
-                                    Text(operation.name.replacingOccurrences(of: "_", with: " "))
-                                } else {
-                                    Text(operation.name.replacingOccurrences(of: "_", with: " "))
-                                        .padding(.bottom, 2)
-                                    Text(operation.author)
+                            VStack (alignment: .leading) {
+                                Text(operation.name.replacingOccurrences(of: "_", with: " "))
+                                if operation.author != "" {
+                                    Text("by: " + operation.author)
                                         .font(.caption)
                                 }
                             }
