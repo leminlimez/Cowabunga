@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AdvancedManager {
     static func changeDictValue(_ dict: [String: Any], _ key: String, _ value: Any) -> [String: Any] {
@@ -150,6 +151,23 @@ class AdvancedManager {
             let plistData = try Data(contentsOf: operationURL.appendingPathComponent("SavedValues.plist"))
             let replacementKeys = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
             return PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: isActive, plistType: plistType, replacingKeys: replacementKeys)
+        } else if operationType == "Color" {
+            let r = try getOperationProperty(operationInfo, key: "red") as? Double ?? CIColor.gray.red
+            let g = try getOperationProperty(operationInfo, key: "green") as? Double ?? CIColor.gray.green
+            let b = try getOperationProperty(operationInfo, key: "blue") as? Double ?? CIColor.gray.blue
+            let a = try getOperationProperty(operationInfo, key: "alpha") as? Double ?? 1
+            let blur = try getOperationProperty(operationInfo, key: "blur") as? Double ?? 30
+            
+            let color = Color.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b)).opacity(a)
+            
+            let usesStyles = try getOperationProperty(operationInfo, key: "UsesStyles")
+            if usesStyles as? Bool == true {
+                let fill = try getOperationProperty(operationInfo, key: "fill") as? String ?? ""
+                let stroke = try getOperationProperty(operationInfo, key: "stroke") as? String ?? ""
+                return ColorObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, color: color, blur: blur, usesStyles: true, fill, stroke)
+            } else {
+                return ColorObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, color: color, blur: blur)
+            }
         }
         
         throw "Could not get operation type!"
@@ -288,6 +306,21 @@ class AdvancedManager {
             // save the plist file
             let plistData = try PropertyListSerialization.data(fromPropertyList: plistOperation.replacingKeys, format: plistOperation.plistType, options: 0)
             try plistData.write(to: operationPath.appendingPathComponent("SavedValues.plist"))
+        } else if operation is ColorObject, let colorOperation = operation as? ColorObject {
+            plist["OperationType"] = "Color"
+            // set the color
+            let color: CIColor = CIColor(color: UIColor(colorOperation.col))
+            plist["red"] = Double(color.red)
+            plist["green"] = Double(color.green)
+            plist["blue"] = Double(color.blue)
+            plist["alpha"] = Double(color.alpha)
+            plist["blur"] = colorOperation.blur
+            
+            plist["UsesStyles"] = colorOperation.usesStyles
+            if colorOperation.usesStyles {
+                plist["fill"] = colorOperation.fill
+                plist["stroke"] = colorOperation.stroke
+            }
         }
         
         // serialize and write the plist
