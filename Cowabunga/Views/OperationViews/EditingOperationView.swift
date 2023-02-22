@@ -44,6 +44,13 @@ struct EditingOperationView: View {
     @State var isImporting: Bool = false
     @State var pageTitle: String = ""
     
+    // color properties
+    @State var changingColor: Color = Color.gray
+    @State var changingBlur: Double = 30
+    @State var usesStyles: Bool = false
+    @State var changingFill: String = ""
+    @State var changingStroke: String = ""
+    
     var body: some View {
         VStack {
             List {
@@ -92,7 +99,13 @@ struct EditingOperationView: View {
                                 // change the type
                                 if !(operation is PlistObject) {
                                     operation = PlistObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, plistType: plistType, replacingKeys: replacingKeys)
-                                    //operation = CorruptingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground)
+                                }
+                            }
+                            
+                            let colorAction = UIAlertAction(title: NSLocalizedString("Color", comment: "operation type that changes colors"), style: .default) { (action) in
+                                // change the type
+                                if !(operation is ColorObject) {
+                                    operation = ColorObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive)
                                 }
                             }
                             
@@ -485,6 +498,105 @@ struct EditingOperationView: View {
                     }
                 }
                 
+                // MARK: Color Object Operation
+                if operation is ColorObject {
+                    Section {
+                        // MARK: Color Picker
+                        HStack {
+                            Text("Color")
+                                .bold()
+                            Spacer()
+                            ColorPicker("Set color", selection: $changingColor)
+                                .labelsHidden()
+                        }
+                        
+                        // MARK: Blur Slider
+                        HStack {
+                            Text("Blur:   \(Int(changingBlur))")
+                                .foregroundColor(.white)
+                                .frame(width: 125)
+                            Spacer()
+                            Slider(value: $changingBlur, in: 0...150, step: 1.0)
+                                .padding(.horizontal)
+                        }
+                        
+                        // MARK: Using Styles
+                        HStack {
+                            Text("Uses Styles")
+                                .bold()
+                            Spacer()
+                            Toggle(isOn: $usesStyles) {}
+                        }
+                        
+                        // MARK: Styles
+                        if usesStyles {
+                            // Fill
+                            HStack {
+                                Text("Fill Name:")
+                                    .bold()
+                                Spacer()
+                                if #available(iOS 15.0, *) {
+                                    TextField("Fill", text: $changingFill)
+                                        .multilineTextAlignment(.trailing)
+                                        .submitLabel(.done)
+                                        .frame(maxHeight: 180)
+                                } else {
+                                    // Fallback on earlier versions
+                                    TextEditor(text: $changingFill)
+                                        .multilineTextAlignment(.trailing)
+                                        .frame(maxHeight: 180)
+                                }
+                            }
+                            
+                            // Stroke
+                            HStack {
+                                Text("Stroke Name:")
+                                    .bold()
+                                Spacer()
+                                if #available(iOS 15.0, *) {
+                                    TextField("Stroke", text: $changingStroke)
+                                        .multilineTextAlignment(.trailing)
+                                        .submitLabel(.done)
+                                        .frame(maxHeight: 180)
+                                } else {
+                                    // Fallback on earlier versions
+                                    TextEditor(text: $changingStroke)
+                                        .multilineTextAlignment(.trailing)
+                                        .frame(maxHeight: 180)
+                                }
+                            }
+                        }
+                        
+                        // MARK: Auto Detect Styles
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                if let colorOperation = operation as? ColorObject {
+                                    do {
+                                        let styles = try colorOperation.detectStyles()
+                                        if styles["fill"] == nil && styles["stroke"] == nil {
+                                            // no styles found
+                                            usesStyles = false
+                                        } else {
+                                            usesStyles = true
+                                            changingFill = styles["fill"] ?? ""
+                                            changingStroke = styles["stroke"] ?? ""
+                                        }
+                                    } catch {
+                                        UIApplication.shared.alert(title: NSLocalizedString("Could not detect styles.", comment: "when color styles could not be determined"), body: error.localizedDescription)
+                                    }
+                                }
+                            }) {
+                                Text("Determine Styles")
+                                    .multilineTextAlignment(.trailing)
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                    } header: {
+                        Text("Color Data")
+                    }
+                }
+                
                 // MARK: Operation Actions
                 Section {
                     VStack {
@@ -533,23 +645,22 @@ struct EditingOperationView: View {
                         .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                         
                         // MARK: Apply Once
-                        if !editing {
-                            Button("Apply Once") {
-                                // apply the operation
-                                UIApplication.shared.alert(title: NSLocalizedString("Applying operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
-                                applyOperationProperties()
-                                do {
-                                    try operation.parseData()
-                                    try operation.applyData()
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully applied! The operation was not saved, only applied.", comment: "when an operation is applied"))
-                                } catch {
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while applying the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
-                                }
+                        Button("Apply Without Saving") {
+                            // apply the operation
+                            UIApplication.shared.alert(title: NSLocalizedString("Applying operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                            applyOperationProperties()
+                            do {
+                                try operation.parseData()
+                                try operation.applyData()
+                                UIApplication.shared.dismissAlert(animated: true)
+                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully applied! The operation was not saved, only applied.", comment: "when an operation is applied"))
+                            } catch {
+                                UIApplication.shared.dismissAlert(animated: true)
+                                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while applying the operation", comment: "when an operation fails to apply") + ": \(error.localizedDescription)")
                             }
-                            .buttonStyle(TintedButton(color: .blue, fullwidth: true))
-                        } else {
+                        }
+                        .buttonStyle(TintedButton(color: .blue, fullwidth: true))
+                        if editing {
                             // MARK: Delete
                             Button(action: {
                                 // apply the changes
@@ -638,6 +749,13 @@ struct EditingOperationView: View {
                             plistKeys.append(.init(key: k, oldKey: k, value: v))
                         }
                     }
+                } else if let colorOperation = operation as? ColorObject {
+                    changingColor = colorOperation.col
+                    changingBlur = colorOperation.blur
+                    
+                    usesStyles = colorOperation.usesStyles
+                    changingFill = colorOperation.fill
+                    changingStroke = colorOperation.stroke
                 }
                 
                 replacingKeys.removeAll(keepingCapacity: true)
@@ -661,6 +779,13 @@ struct EditingOperationView: View {
         } else if operation is PlistObject, let operation = operation as? PlistObject {
             operation.replacingKeys = replacingKeys
             operation.plistType = plistType
+        } else if operation is ColorObject, let operation = operation as? ColorObject {
+            operation.col = changingColor
+            operation.blur = changingBlur
+            
+            operation.usesStyles = usesStyles
+            operation.fill = changingFill
+            operation.stroke = changingStroke
         }
     }
 }
