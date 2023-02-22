@@ -20,6 +20,7 @@ struct OtherModsView: View {
     @State private var supervised: Bool = UserDefaults.standard.bool(forKey: "IsSupervised")
     
     @State private var screenTimeEnabled: Bool = FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist")
+    @State private var internet_showed_once = false
     
     struct DeviceSubType: Identifiable {
         var id = UUID()
@@ -193,8 +194,16 @@ struct OtherModsView: View {
                     }.onChange(of: screenTimeEnabled) { new in
                         // set the value
                         do {
-                            try modifyScreenTime(enabled: screenTimeEnabled)
-                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Screen time was successfully disabled, please reboot to finish application.", comment: ""))
+                            let webconnected = isInternetAvailable()
+                            if webconnected == true && internet_showed_once == false {
+                                UIApplication.shared.alert(title: NSLocalizedString("Your device is connected to internet!", comment: ""), body: NSLocalizedString("This could cause issues. Make sure to disable data or Wi-Fi.", comment: "screentime process"))
+                            screenTimeEnabled = FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist")
+                            internet_showed_once = true
+                            }
+                            else {
+                                try modifyScreenTime(enabled: screenTimeEnabled)
+                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart.", comment: ""))
+                            }
                         } catch {
                             UIApplication.shared.alert(body: error.localizedDescription)
                         }
