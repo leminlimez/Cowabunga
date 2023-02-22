@@ -174,6 +174,8 @@
 		6F07ABAE299F13DD00076436 /* WDBImportCustomFontPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDBImportCustomFontPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		6F07ABB1299F144000076436 /* MainFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFontsView.swift; sourceTree = "<group>"; };
 		6F07ABB3299F14E800076436 /* AudioOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioOptionsView.swift; sourceTree = "<group>"; };
+		6F15D92C29A5ACC4008991F1 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F15D92D29A5ACC4008991F1 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				ar,
 				"zh-TW",
 				es,
+				sv,
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
@@ -922,6 +925,7 @@
 				6F07AB9A299996F100076436 /* ar */,
 				6F07AB9E299BCC6B00076436 /* zh-TW */,
 				6F07ABA4299DC22000076436 /* es */,
+				6F15D92D29A5ACC4008991F1 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -944,6 +948,7 @@
 				6F07AB99299996F100076436 /* ar */,
 				6F07AB9D299BCC6B00076436 /* zh-TW */,
 				6F07ABA3299DC22000076436 /* es */,
+				6F15D92C29A5ACC4008991F1 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
