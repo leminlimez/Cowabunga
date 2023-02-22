@@ -18,7 +18,8 @@ class LockManager {
         "3x-896h",
         "3x-812h",
         "2x-896h",
-        "2x-812h"
+        "2x-812h",
+        "2x-120fps~ipad"
     ]
     
     static let deviceLockPath: [String: String] = [
