@@ -7,6 +7,7 @@
 
 import Foundation
 import MacDirtyCowSwift
+import SwiftUI
 
 enum ReplacingObjectType: String, CaseIterable {
     case FilePath = "File Path"
@@ -160,6 +161,83 @@ class PlistObject: AdvancedObject {
     init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
         self.plistType = plistType
         self.replacingKeys = replacingKeys
+        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
+    }
+}
+
+class ColorObject: AdvancedObject {
+    var col: Color
+    var blur: Double
+    var usesStyles: Bool
+    var fill: String
+    var stroke: String
+    
+    override func parseData() throws {
+        // get the files
+        let url = Bundle.main.url(forResource: "replacement", withExtension: ".materialrecipe")
+        let color: CIColor = CIColor(color: UIColor(col))
+        
+        // set the colors
+        if url != nil {
+            do {
+                let plistData = try Data(contentsOf: url!)
+                var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+                
+                if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["tinting"] as? [String: Any], var thirdLevel = secondLevel["tintColor"] as? [String: Any] {
+                    // set the colors
+                    thirdLevel["red"] = color.red
+                    thirdLevel["green"] = color.green
+                    thirdLevel["blue"] = color.blue
+                    thirdLevel["alpha"] = 1
+                    
+                    if var secondLevel2 = firstLevel["materialFiltering"] as? [String: Any] {
+                        secondLevel2["blurRadius"] = blur
+                        firstLevel["materialFiltering"] = secondLevel2
+                    }
+                    
+                    secondLevel["tintColor"] = thirdLevel
+                    secondLevel["tintAlpha"] = color.alpha
+                    firstLevel["tinting"] = secondLevel
+                    plist["baseMaterial"] = firstLevel
+                }
+                
+                if usesStyles {
+                    let styles: [String: String] = [
+                        "fill": fill,
+                        "stroke": stroke
+                    ]
+                    plist["styles"] = styles
+                    plist["materialSettingsVersion"] = 2
+                }
+                
+                // fill with empty data
+                // get original data
+                let newUrl = URL(fileURLWithPath: filePath)
+                do {
+                    let originalFileSize = try Data(contentsOf: newUrl).count
+                    let newData = try addEmptyData(matchingSize: originalFileSize, to: plist)
+                    // save file to background directory
+                    if newData.count == originalFileSize {
+                        self.replacementData = newData
+                    } else {
+                        print("NOT CORRECT SIZE")
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                    throw error.localizedDescription
+                }
+            }
+        } else {
+            throw "Could not find original resource url"
+        }
+    }
+    
+    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, color: Color = Color.gray, blur: Double = 30, usesStyles: Bool = false, _ fill: String = "", _ stroke: String = "") {
+        self.col = color
+        self.blur = blur
+        self.usesStyles = usesStyles
+        self.fill = fill
+        self.stroke = stroke
         super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
     }
 }
