@@ -463,8 +463,13 @@ struct EditingOperationView: View {
                                         Text(plist.key.wrappedValue)
                                             .bold()
                                         Spacer()
-                                        Text(String(describing: plist.value.wrappedValue))
-                                            .foregroundColor(.secondary)
+                                        if !(plist.value.wrappedValue is String && (plist.value.wrappedValue as! String) == ".Cowabunga-DELETIGN") {
+                                            Text(String(describing: plist.value.wrappedValue))
+                                                .foregroundColor(.secondary)
+                                        } else {
+                                            Text("Deleting")
+                                                .foregroundColor(.red)
+                                        }
                                     }
                                 }
                             }
