@@ -156,7 +156,7 @@ struct ThemesExploreView: View {
     
     func downloadTheme(theme: DownloadableTheme) {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
-        UIApplication.shared.alert(title: "Downloading \(theme.name)...", body: "Please wait", animated: false, withButton: false)
+        UIApplication.shared.alert(title: NSLocalizedString("Downloading", comment: "") + " \(theme.name)...", body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
         
         // create the folder
         Task {
@@ -164,12 +164,12 @@ struct ThemesExploreView: View {
                 try await cowabungaAPI.downloadTheme(theme: theme)
                 Haptic.shared.notify(.success)
                 UIApplication.shared.dismissAlert(animated: true)
-                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: "The theme was successfully downloaded and saved!")
+                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The theme was successfully downloaded and saved!", comment: ""))
             } catch {
                 print("Could not download passcode theme: \(error.localizedDescription)")
                 Haptic.shared.notify(.error)
                 UIApplication.shared.dismissAlert(animated: true)
-                UIApplication.shared.alert(title: "Could not download theme!", body: error.localizedDescription)
+                UIApplication.shared.alert(title: NSLocalizedString("Could not download theme!", comment: ""), body: error.localizedDescription)
             }
         }
     }
