@@ -119,6 +119,7 @@ struct EditingOperationView: View {
                             if #available(iOS 15, *) {
                                 alert.addAction(plistAction)
                             }
+                            alert.addAction(colorAction)
                             alert.addAction(cancelAction)
                             
                             let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
@@ -138,6 +139,9 @@ struct EditingOperationView: View {
                                     .foregroundColor(.blue)
                             } else if operation is PlistObject {
                                 Text("Plist")
+                                    .foregroundColor(.blue)
+                            } else if operation is ColorObject {
+                                Text("Color")
                                     .foregroundColor(.blue)
                             } else {
                                 Text("????")
