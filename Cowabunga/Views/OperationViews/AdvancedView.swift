@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct AdvancedView: View {
     @State private var operations: [AdvancedCategory] = []
-    /*@State private var operations: [AdvancedObject] = [
-        CorruptingObject.init(operationName: "Test Operation", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: false),
-        ReplacingObject(operationName: "Replace Egg", filePath: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", singleApply: false, applyInBackground: true, overwriteData: Data("#".utf8))
-    ]*/
+    @State private var isImporting: Bool = false
     
     // lazyvgrid
     
@@ -27,8 +25,17 @@ struct AdvancedView: View {
                                 Image(systemName: "xmark.seal.fill")
                                     .foregroundColor(.red)
                             }
-                            Text(operation.name.replacingOccurrences(of: "_", with: " "))
-                                .padding(.horizontal, 8)
+                            VStack {
+                                if operation.author == "" {
+                                    Text(operation.name.replacingOccurrences(of: "_", with: " "))
+                                } else {
+                                    Text(operation.name.replacingOccurrences(of: "_", with: " "))
+                                        .padding(.bottom, 2)
+                                    Text(operation.author)
+                                        .font(.caption)
+                                }
+                            }
+                            .padding(.horizontal, 8)
                         }
                     }
                 } else {
@@ -43,48 +50,36 @@ struct AdvancedView: View {
                 updateCategories()
             }
             .toolbar {
-                // create a category
-                /*Button(action: {
-                    // ask for a name for the category
-                    let alert = UIAlertController(title: NSLocalizedString("Enter Name", comment: ""), message: NSLocalizedString("Choose a name for the category", comment: ""), preferredStyle: .alert)
-                    
-                    // bring up the text prompts
-                    alert.addTextField { (textField) in
-                        // text field for width
-                        textField.placeholder = NSLocalizedString("New Category", comment: "")
+                HStack {
+                    // import an operation
+                    Button(action: {
+                        isImporting.toggle()
+                    }) {
+                        Image(systemName: "square.and.arrow.down")
                     }
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
-                        // set the name and add the file
-                        if alert.textFields?[0].text != nil {
-                            // check if it is a valid name
-                            let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.")
-                            let catName: String = (alert.textFields?[0].text ?? "Unnamed").filter{validChars.contains($0)}
-                            if catName == "" {
-                                UIApplication.shared.alert(body: NSLocalizedString("Please enter a valid category name!", comment: "when user enters a category name that cannot be used"))
-                            } else {
-                                do {
-                                    try AdvancedManager.createCategory(folderURL: AdvancedManager.getSavedOperationsDirectory()!, categoryName: catName)
-                                    updateCategories()
-                                } catch {
-                                    UIApplication.shared.alert(title: NSLocalizedString("Failed to create category", comment: "when the category cannot be created"), body: error.localizedDescription)
-                                }
-                            }
-                        } else {
-                            print("alert textfield is nil!")
-                            UIApplication.shared.alert(body: "Unexpected error with textfield")
-                        }
-                    })
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                        // cancel the process
-                    })
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                }) {
-                    Image(systemName: "folder")
-                }*/
-                
-                // create a new operation
-                NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: NSLocalizedString("New Operation", comment: ""), filePath: "/var", applyInBackground: false))) {
-                    Image(systemName: "plus")
+                    .foregroundColor(.blue)
+                    
+                    // create a new operation
+                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: NSLocalizedString("New Operation", comment: ""), filePath: "/var", applyInBackground: false))) {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $isImporting) {
+                DocumentPicker(
+                    types: [
+                        UTType(filenameExtension: "cowperation") ?? .zip
+                    ]
+                ) { result in
+                    if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
+                    let url: URL = result.first!
+                    do {
+                        // try adding the operation
+                        try AdvancedManager.importOperation(url)
+                        operations.removeAll()
+                        operations = try AdvancedManager.loadOperations()
+                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                    } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                 }
             }
             .navigationTitle("Custom Operations")

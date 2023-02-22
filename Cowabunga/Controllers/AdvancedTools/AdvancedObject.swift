@@ -20,12 +20,14 @@ class AdvancedCategory: Identifiable {
     var isActive: Bool
     var operations: [AdvancedCategory]?
     var categoryName: String?
+    var author: String
     
-    init(name: String, isActive: Bool = true, operations: [AdvancedCategory]? = nil, categoryName: String? = nil) {
+    init(name: String, author: String = "", isActive: Bool = true, operations: [AdvancedCategory]? = nil, categoryName: String? = nil) {
         self.name = name
         self.isActive = isActive
         self.operations = operations
         self.categoryName = categoryName
+        self.author = author
     }
 }
 
@@ -38,13 +40,15 @@ class AdvancedObject: Identifiable {
     var backupData: Data? = nil
     var applyInBackground: Bool
     var isActive: Bool = true
+    var author: String
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true) {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true) {
         self.operationName = operationName
         self.filePath = filePath
         self.applyInBackground = applyInBackground
         self.backupData = backupData
         self.isActive = active
+        self.author = author
     }
     
     func backup() throws {
@@ -126,10 +130,10 @@ class ReplacingObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
         self.replacingType = replacingType
         self.replacingPath = replacingPath
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
+        super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
         self.replacementData = overwriteData
     }
 }
@@ -158,10 +162,10 @@ class PlistObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, plistType: PropertyListSerialization.PropertyListFormat, replacingKeys: [String: Any] = [:]) {
         self.plistType = plistType
         self.replacingKeys = replacingKeys
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
+        super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
     }
 }
 
@@ -199,7 +203,6 @@ class ColorObject: AdvancedObject {
         } else {
             throw "File at path \(self.filePath) does not exist!"
         }
-        throw "Unknown error"
     }
     
     override func parseData() throws {
@@ -262,12 +265,12 @@ class ColorObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, color: Color = Color.gray, blur: Double = 30, usesStyles: Bool = false, _ fill: String = "", _ stroke: String = "") {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, color: Color = Color.gray, blur: Double = 30, usesStyles: Bool = false, _ fill: String = "", _ stroke: String = "") {
         self.col = color
         self.blur = blur
         self.usesStyles = usesStyles
         self.fill = fill
         self.stroke = stroke
-        super.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
+        super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
     }
 }
