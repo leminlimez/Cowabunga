@@ -607,7 +607,7 @@ struct EditingOperationView: View {
             }
             .navigationTitle(pageTitle)
             .onAppear {
-                pageTitle = editing ? "Edit Operation": "Create Operation"
+                pageTitle = editing ? NSLocalizedString("Edit Operation", comment: "") : NSLocalizedString("Create Operation", comment: "")
                 
                 if replacingKeys.count == 0 {
                     isActive = operation.isActive

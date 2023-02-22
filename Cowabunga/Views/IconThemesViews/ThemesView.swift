@@ -75,7 +75,7 @@ struct ThemesView: View {
                                         }
                                 }
                             }
-                            .padding(4)
+                            .padding()
                             
                             VStack {
                                 HStack {
@@ -140,10 +140,12 @@ struct ThemesView: View {
                                 .cornerRadius(16)
                             }
                             .padding(.bottom, 80)
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal, 6)
+//                        .padding(.horizontal, 6)
                     }
-                }.padding()
+                }
+//                .padding()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
