@@ -690,7 +690,7 @@ struct EditingOperationView: View {
                         alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
                             // set the version
                             let author: String = alert.textFields?[0].text ?? ""
-                            saveCurrentOperation(author)
+                            saveCurrentOperation(author, alerts: false)
                             do {
                                 let archiveURL = try AdvancedManager.exportOperation(operationName.replacingOccurrences(of: " ", with: "_"))
                                 
@@ -808,7 +808,9 @@ struct EditingOperationView: View {
     
     func saveCurrentOperation(_ author: String = "", alerts: Bool = true) {
         // apply the changes
-        UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+        if alerts {
+            UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+        }
         if operation is ReplacingObject && replacingType == .Imported && replacingData == nil {
             UIApplication.shared.alert(body: NSLocalizedString("Please select a file to import!", comment: ""))
         } else {
