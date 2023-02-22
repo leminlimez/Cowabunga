@@ -23,6 +23,7 @@ struct ThemesExploreView: View {
     @State var themeTypeShown = DownloadableTheme.ThemeType.icon
     
     @State var filterType: ThemeFilterType = .random
+    @State var searchTerm: String = ""
     
     var body: some View {
         NavigationView {
@@ -46,6 +47,7 @@ struct ThemesExploreView: View {
                         .pickerStyle(.segmented)
                     }
                     .padding(.horizontal, 24)
+                    .padding(.bottom, 10)
                     
                     if themes.isEmpty {
                         ProgressView()
@@ -55,66 +57,68 @@ struct ThemesExploreView: View {
                         HStack {
                             Spacer()
                             Button("Filter: \(filterType.rawValue)") {
-                                
+                                showFilterChangerPopup()
                             }
                             .buttonStyle(TintedButton(color: .blue, fullwidth: false))
-                            .padding(.top, 5)
-                            .padding(.horizontal, 25)
+                            .padding(.trailing, 25)
                         }
                         
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
-                                Button {
-                                    downloadTheme(theme: theme)
-                                } label: {
-                                    VStack(spacing: 0) {
-                                        CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
-                                            image
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(maxWidth: .infinity)
-                                                .cornerRadius(10, corners: .topLeft)
-                                                .cornerRadius(10, corners: .topRight)
-                                        } placeholder: {
-                                            Color.gray
-                                                .frame(height: 192)
-                                        }
-                                        HStack {
-                                            VStack(spacing: 4) {
-                                                HStack {
-                                                    Text(theme.name)
-                                                        .foregroundColor(Color(uiColor14: .label))
-                                                        .minimumScaleFactor(0.5)
-                                                    Spacer()
-                                                }
-                                                HStack {
-                                                    Text(theme.contact.values.first ?? "Unknown author")
-                                                        .foregroundColor(.secondary)
-                                                        .font(.caption)
-                                                        .minimumScaleFactor(0.5)
-                                                    Spacer()
-                                                }
+                                if searchTerm == "" || theme.name.contains(searchTerm) {
+                                    Button {
+                                        downloadTheme(theme: theme)
+                                    } label: {
+                                        VStack(spacing: 0) {
+                                            CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(maxWidth: .infinity)
+                                                    .cornerRadius(10, corners: .topLeft)
+                                                    .cornerRadius(10, corners: .topRight)
+                                            } placeholder: {
+                                                Color.gray
+                                                    .frame(height: 192)
                                             }
-                                            .lineLimit(1)
-                                            Spacer()
-                                            Image(systemName: "arrow.down.circle")
-                                                .foregroundColor(.blue)
+                                            HStack {
+                                                VStack(spacing: 4) {
+                                                    HStack {
+                                                        Text(theme.name)
+                                                            .foregroundColor(Color(uiColor14: .label))
+                                                            .minimumScaleFactor(0.5)
+                                                        Spacer()
+                                                    }
+                                                    HStack {
+                                                        Text(theme.contact.values.first ?? "Unknown author")
+                                                            .foregroundColor(.secondary)
+                                                            .font(.caption)
+                                                            .minimumScaleFactor(0.5)
+                                                        Spacer()
+                                                    }
+                                                }
+                                                .lineLimit(1)
+                                                Spacer()
+                                                Image(systemName: "arrow.down.circle")
+                                                    .foregroundColor(.blue)
+                                            }
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 8)
+                                            .frame(height: 58)
                                         }
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 8)
-                                        .frame(height: 58)
                                     }
+                                    .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
+                                    //                                .frame(height: 250)
+                                    .background(Color(uiColor14: .secondarySystemBackground))
+                                    .cornerRadius(10)
+                                    .padding(4)
                                 }
-                                .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
-//                                .frame(height: 250)
-                                .background(Color(uiColor14: .secondarySystemBackground))
-                                .cornerRadius(10)
-                                .padding(4)
                             }
+                            .padding()
                         }
-                        .padding()
                     }
                 }
+                .searchable(text: $searchTerm)
                 .coordinateSpace(name: "pullToRefresh")
                 .navigationTitle("Explore")
                 .toolbar {
