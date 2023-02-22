@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ZIPFoundation
 import SwiftUI
 
 class AdvancedManager {
@@ -31,6 +32,48 @@ class AdvancedManager {
             }
         }
         return newDict
+    }
+    
+    // MARK: Export Operation
+    static func exportOperation(_ operationName: String) throws -> URL {
+        let fm = FileManager.default
+        let operationURL: URL = try getOperationURLFromName(operationName)
+        var archiveURL: URL?
+        var error: NSError?
+        let coordinator = NSFileCoordinator()
+        
+        coordinator.coordinate(readingItemAt: operationURL, options: [.forUploading], error: &error) { (zipURL) in
+            let tmpURL = try! fm.url(
+                for: .itemReplacementDirectory,
+                in: .userDomainMask,
+                appropriateFor: zipURL,
+                create: true
+            ).appendingPathComponent("\(operationName).cowperation")
+            try! fm.moveItem(at: zipURL, to: tmpURL)
+            archiveURL = tmpURL
+        }
+        
+        if let archiveURL = archiveURL {
+            return archiveURL
+        } else {
+            throw "There was an error exporting"
+        }
+    }
+    
+    // MARK: Import Operation
+    static func importOperation(_ url: URL) throws {
+        let fm = FileManager.default
+        
+        if url.lastPathComponent.contains(".cowperation") {
+            let unzipURL = fm.temporaryDirectory.appendingPathComponent("cowperation_unzip")
+            try? fm.removeItem(at: unzipURL)
+            try fm.unzipItem(at: url, to: unzipURL)
+            for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
+                try fm.moveItem(at: folder, to: getSavedOperationsDirectory()!.appendingPathComponent("None"))
+            }
+        } else {
+            throw "No .cowperation file found!"
+        }
     }
     
     static func getSavedOperationsDirectory() -> URL? {
@@ -188,6 +231,21 @@ class AdvancedManager {
         }
     }
     
+    static func getOperationURLFromName(_ operationName: String) throws -> URL {
+        let savedPath = getSavedOperationsDirectory()
+        if savedPath != nil {
+            for cat in try FileManager.default.contentsOfDirectory(at: savedPath!, includingPropertiesForKeys: nil) {
+                let operation = cat.appendingPathComponent(operationName)
+                if FileManager.default.fileExists(atPath: operation.path) {
+                    return operation
+                }
+            }
+            throw "Operation save file not found!"
+        } else {
+            throw "No save path found!"
+        }
+    }
+    
     static func loadOperations() throws -> [AdvancedCategory] {
         let savedPath = getSavedOperationsDirectory()
         if savedPath == nil {
@@ -203,7 +261,15 @@ class AdvancedManager {
                     if FileManager.default.fileExists(atPath: operation.appendingPathComponent(".disabled").path) {
                         isActive = false
                     }
-                    categoryOperations.append(.init(name: operation.lastPathComponent, isActive: isActive, categoryName: categoryName))
+                    var author: String = ""
+                    do {
+                        let plistData = try Data(contentsOf: operation.appendingPathComponent("Info.plist"))
+                        let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+                        author = (plist["Author"] as? String) ?? ""
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    categoryOperations.append(.init(name: operation.lastPathComponent, author: author, isActive: isActive, categoryName: categoryName))
                 }
                 operations.append(.init(name: categoryName, operations: categoryOperations))
             } catch {
@@ -270,6 +336,11 @@ class AdvancedManager {
             "FilePath": operation.filePath,
             "ApplyInBackground": operation.applyInBackground
         ]
+        
+        // add the author if there is one
+        if operation.author != "" {
+            plist["Author"] = operation.author
+        }
         
         // create the backup data
         if operation.backupData != nil {

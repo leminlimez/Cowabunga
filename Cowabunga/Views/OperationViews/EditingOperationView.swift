@@ -602,39 +602,7 @@ struct EditingOperationView: View {
                     VStack {
                         // MARK: Save
                         Button(action: {
-                            // apply the changes
-                            UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
-                            if operation is ReplacingObject && replacingType == .Imported && replacingData == nil {
-                                UIApplication.shared.alert(body: NSLocalizedString("Please select a file to import!", comment: ""))
-                            } else {
-                                applyOperationProperties()
-                                do {
-                                    if isActive {
-                                        do {
-                                            try operation.parseData()
-                                            try operation.applyData()
-                                        } catch {
-                                            print(error.localizedDescription)
-                                        }
-                                    } else {
-                                        do {
-                                            try operation.applyData(fromBackup: true)
-                                        } catch {
-                                            print(error.localizedDescription)
-                                        }
-                                    }
-                                    if !editing || previousFilePath != filePath {
-                                        try operation.backup()
-                                    }
-                                    try AdvancedManager.deleteOperation(operationName: previousName)
-                                    try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
-                                } catch {
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to save") + ": \(error.localizedDescription)")
-                                }
-                            }
+                            saveCurrentOperation()
                         }) {
                             if editing {
                                 Text("Save")
@@ -663,8 +631,15 @@ struct EditingOperationView: View {
                         if editing {
                             // MARK: Delete
                             Button(action: {
+                                // restore the data
+                                UIApplication.shared.alert(title: NSLocalizedString("Restoring original file...", comment: "restore button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                                do {
+                                    try operation.applyData(fromBackup: true)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
                                 // apply the changes
-                                UIApplication.shared.alert(title: NSLocalizedString("Deleting operation...", comment: "delete button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                                UIApplication.shared.change(title: NSLocalizedString("Deleting operation...", comment: "delete button on custom operations"), body: NSLocalizedString("Please wait", comment: ""))
                                 do {
                                     try AdvancedManager.deleteOperation(operationName: previousName)
                                     UIApplication.shared.dismissAlert(animated: true)
@@ -698,6 +673,45 @@ struct EditingOperationView: View {
                     }
                     .listRowInsets(EdgeInsets())
                     .padding()
+                }
+            }
+            .toolbar {
+                if editing {
+                    // create export button
+                    Button(action: {
+                        // create and configure alert controller
+                        let alert = UIAlertController(title: NSLocalizedString("Author Name", comment: "Header for inputting your name"), message: NSLocalizedString("Enter your name and you will be credited for creating the operation.", comment: "Message for inputting your name in custom operation"), preferredStyle: .alert)
+                        // bring up the text prompt
+                        alert.addTextField { (textField) in
+                            textField.placeholder = "Name"
+                        }
+                        
+                        // buttons
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
+                            // set the version
+                            let author: String = alert.textFields?[0].text ?? ""
+                            saveCurrentOperation(author)
+                            do {
+                                let archiveURL = try AdvancedManager.exportOperation(operationName.replacingOccurrences(of: " ", with: "_"))
+                                
+                                // show share menu
+                                let avc = UIActivityViewController(activityItems: [archiveURL], applicationActivities: nil)
+                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
+                            } catch {
+                                UIApplication.shared.alert(title: NSLocalizedString("Operation export failed!", comment: "failing to export custom operation"), body: error.localizedDescription)
+                            }
+                        })
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                            // cancel the process
+                        })
+                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.blue)
+                    }
                 }
             }
             .sheet(isPresented: $isImporting) {
@@ -767,12 +781,15 @@ struct EditingOperationView: View {
         }
     }
     
-    func applyOperationProperties() {
+    func applyOperationProperties(_ author: String = "") {
         // set the properties of the operation
         operation.operationName = operationName
         operation.filePath = filePath
         operation.applyInBackground = applyInBackground
         operation.isActive = isActive
+        if author != "" {
+            operation.author = author
+        }
         if operation is ReplacingObject, let operation = operation as? ReplacingObject {
             operation.replacingType = replacingType
             operation.replacingPath = replacingPath
@@ -786,6 +803,44 @@ struct EditingOperationView: View {
             operation.usesStyles = usesStyles
             operation.fill = changingFill
             operation.stroke = changingStroke
+        }
+    }
+    
+    func saveCurrentOperation(_ author: String = "", alerts: Bool = true) {
+        // apply the changes
+        UIApplication.shared.alert(title: NSLocalizedString("Saving operation...", comment: "apply button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+        if operation is ReplacingObject && replacingType == .Imported && replacingData == nil {
+            UIApplication.shared.alert(body: NSLocalizedString("Please select a file to import!", comment: ""))
+        } else {
+            applyOperationProperties(author)
+            do {
+                if isActive {
+                    do {
+                        try operation.parseData()
+                        try operation.applyData()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                } else {
+                    do {
+                        try operation.applyData(fromBackup: true)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                if !editing || previousFilePath != filePath {
+                    try operation.backup()
+                }
+                try AdvancedManager.deleteOperation(operationName: previousName)
+                try AdvancedManager.saveOperation(operation: operation, category: category, replacingFileData: replacingData)
+                UIApplication.shared.dismissAlert(animated: true)
+                if alerts {
+                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully saved!", comment: "when an operation is saved"))
+                }
+            } catch {
+                UIApplication.shared.dismissAlert(animated: true)
+                UIApplication.shared.alert(body: NSLocalizedString("An error occurred while saving the operation", comment: "when an operation fails to save") + ": \(error.localizedDescription)")
+            }
         }
     }
 }
