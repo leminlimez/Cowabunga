@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import MacDirtyCowSwift
+import SystemConfiguration
 
 enum SettingsOptionType: String {
     case textbox = "PSEditTextCell"
@@ -58,7 +59,17 @@ func modifyScreenTime(enabled: Bool) throws {
             let data = try Data(contentsOf: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
             try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
             try FileManager.default.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
-        } else {
+            killSTA()
+            UserDefaults.standard.set(false, forKey: "stakillerenabled")
+        }
+        // Check if there is a TrollBox backup
+        else if FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/live.cclerc.ScreenTimeAgent.plist") && !FileManager.default.fileExists(atPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"){
+            let data = try Data(contentsOf: URL(fileURLWithPath: "/var/mobile/Library/Preferences/live.cclerc.ScreenTimeAgent.plist"))
+            try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
+            killSTA()
+            UserDefaults.standard.set(false, forKey: "stakillerenabled")
+        }
+        else {
             throw "No screentime file backup found!"
         }
     } else {
@@ -66,8 +77,44 @@ func modifyScreenTime(enabled: Bool) throws {
         let data = try Data(contentsOf: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
         try data.write(to: URL(fileURLWithPath: "/var/mobile/Library/Preferences/.BACKUP_com.apple.ScreenTimeAgent.plist"))
         try FileManager.default.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/Preferences/com.apple.ScreenTimeAgent.plist"))
+        killSTA()
+        UserDefaults.standard.set(true, forKey: "stakillerenabled")
     }
 }
+
+// Screentime related
+func killSTA() {
+    // Kill the ScreenTime process - This is based of different sources, wich indicate to kill some of these process
+    xpc_crash("com.apple.ScreenTimeAgent")
+    xpc_crash("com.apple.ScreenTimeAgent.plist")
+    xpc_crash("com.apple.ScreenTime")
+    xpc_crash("com.apple.ScreenTimeAgent")
+    xpc_crash("ScreenTimeAgent")
+}
+func isInternetAvailable() -> Bool {
+    // This will check if internet is enabled, if yes, return true
+    var zeroAddress = sockaddr_in()
+    zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+    zeroAddress.sin_family = sa_family_t(AF_INET)
+    
+    guard let reachability = withUnsafePointer(to: &zeroAddress, {
+        $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+            SCNetworkReachabilityCreateWithAddress(nil, $0)
+        }
+    }) else {
+        return false
+    }
+    
+    var flags = SCNetworkReachabilityFlags()
+    if !SCNetworkReachabilityGetFlags(reachability, &flags) {
+        return false
+    }
+    
+    let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+    let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+    return (isReachable && !needsConnection)
+}
+
 
 func setValueInSystemVersionPlist(key: String, value: String) throws -> String {
     let filePath: String = "/System/Library/CoreServices/SystemVersion.plist"
