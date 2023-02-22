@@ -20,6 +20,18 @@ class AdvancedManager {
         return newDict
     }
     
+    static func deleteDictValue(_ dict: [String: Any], _ key: String) -> [String: Any] {
+        var newDict = dict
+        for (k, v) in dict {
+            if k == key {
+                newDict[k] = nil
+            } else if let subDict = v as? [String: Any] {
+                newDict[k] = deleteDictValue(subDict, key)
+            }
+        }
+        return newDict
+    }
+    
     static func getSavedOperationsDirectory() -> URL? {
         do {
             let newURL: URL = URL.documents.appendingPathComponent("Saved_Operations")

@@ -143,7 +143,11 @@ class PlistObject: AdvancedObject {
         let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
         var newPlist = plist
         for (k, v) in replacingKeys {
-            newPlist = AdvancedManager.changeDictValue(newPlist, k, v)
+            if (v is String && (v as! String) == ".Cowabunga-DELETIGN") {
+                newPlist = AdvancedManager.deleteDictValue(newPlist, k)
+            } else {
+                newPlist = AdvancedManager.changeDictValue(newPlist, k, v)
+            }
         }
         // add empty data if binary
         if plistType == PropertyListSerialization.PropertyListFormat.binary {
