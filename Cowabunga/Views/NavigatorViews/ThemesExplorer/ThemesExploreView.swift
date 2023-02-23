@@ -56,7 +56,7 @@ struct ThemesExploreView: View {
                     } else {
                         HStack {
                             Spacer()
-                            Button("Filter: \(filterType.rawValue)") {
+                            Button("Filter") {
                                 showFilterChangerPopup()
                             }
                             .buttonStyle(TintedButton(color: .blue, fullwidth: false))
