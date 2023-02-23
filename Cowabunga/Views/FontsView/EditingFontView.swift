@@ -14,6 +14,7 @@ struct EditingFontView: View {
     }
     
     @State var fontPackName: String
+    @State var newFontPackName: String = ""
     
     @State var fontFiles: [FontFile] = [
     ]
@@ -28,12 +29,21 @@ struct EditingFontView: View {
                             .bold()
                         Spacer()
                         if #available(iOS 15.0, *) {
-                            TextField("Font Pack Name", text: $fontPackName)
+                            TextField("Font Pack Name", text: $newFontPackName)
                                 .multilineTextAlignment(.trailing)
                                 .submitLabel(.done)
+                                .onSubmit {
+                                    do {
+                                        try FontManager.renameFontPack(old: fontPackName, new: newFontPackName)
+                                        fontPackName = newFontPackName
+                                    } catch {
+                                        newFontPackName = fontPackName
+                                        UIApplication.shared.alert(title: NSLocalizedString("Failed to rename font pack!", comment: ""), body: error.localizedDescription)
+                                    }
+                                }
                         } else {
                             // Fallback on earlier versions
-                            TextField("Font Pack Name", text: $fontPackName)
+                            TextField("Font Pack Name", text: $newFontPackName)
                                 .multilineTextAlignment(.trailing)
                         }
                     }
@@ -50,6 +60,12 @@ struct EditingFontView: View {
                             let deletingFileName = fontFiles[i].name
                             print("Deleting: " + deletingFileName)
                             // delete the file
+                            do {
+                                try FontManager.deleteFontFile(deletingFileName, fontPackName)
+                                fontFiles.remove(at: i)
+                            } catch {
+                                UIApplication.shared.alert(title: NSLocalizedString("Failed to delete font file!", comment: ""), body: error.localizedDescription)
+                            }
                         }
                     }
                 } header: {
@@ -58,10 +74,13 @@ struct EditingFontView: View {
             }
             .toolbar {
                 Button(action: {
-                    // import font
+                    // import font file
                 }) {
                     Image(systemName: "square.and.arrow.down")
                 }
+            }
+            .onAppear {
+                newFontPackName = fontPackName
             }
         }
     }

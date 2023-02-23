@@ -494,7 +494,8 @@ struct EditingOperationView: View {
                             .onDelete { indexSet in
                                 indexSet.forEach { i in
                                     let deletingProperty = plistKeys[i].key
-                                    replacingKeys[deletingProperty] = nil
+                                    replacingKeys.removeValue(forKey: deletingProperty)
+                                    plistKeys.remove(at: i)
                                 }
                             }
                         }

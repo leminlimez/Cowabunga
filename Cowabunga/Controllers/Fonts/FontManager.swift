@@ -38,6 +38,35 @@ class FontManager {
         }
     }
     
+    static func renameFontPack(old: String, new: String) throws {
+        let savedPath = try getSavedFontsFolder()
+        let fontPack = savedPath.appendingPathComponent(old)
+        let newPack = savedPath.appendingPathComponent(new)
+        if FileManager.default.fileExists(atPath: fontPack.path) {
+            if !FileManager.default.fileExists(atPath: newPack.path) {
+                try FileManager.default.moveItem(at: fontPack, to: newPack)
+            } else {
+                throw "Font pack with that name already exists!"
+            }
+        } else {
+            throw "Could not get font pack folder!"
+        }
+    }
+    
+    static func deleteFontFile(_ name: String, _ fontPack: String) throws {
+        let savedPath = try getSavedFontsFolder()
+        let fontPack = savedPath.appendingPathComponent(fontPack)
+        if FileManager.default.fileExists(atPath: fontPack.path) {
+            if FileManager.default.fileExists(atPath: fontPack.appendingPathComponent(name).path) {
+                try FileManager.default.removeItem(at: fontPack.appendingPathComponent(name))
+            } else {
+                print("File \(name) does not exist in folder \(fontPack.path)!")
+            }
+        } else {
+            throw "Could not get font pack folder!"
+        }
+    }
+    
     static func getFontPacks() throws -> [FontPack] {
         let savedPath = try getSavedFontsFolder()
         var fp: [FontPack] = []
