@@ -65,7 +65,7 @@ struct ThemesExploreView: View {
                         
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
-                                if searchTerm == "" || theme.name.contains(searchTerm) || (theme.contact.values.first ?? "Unknown author").contains(searchTerm) {
+                                if searchTerm == "" || theme.name.lowercased().contains(searchTerm.lowercased()) || (theme.contact.values.first ?? "Unknown author").lowercased().contains(searchTerm.lowercased()) {
                                     Button {
                                         downloadTheme(theme: theme)
                                     } label: {
