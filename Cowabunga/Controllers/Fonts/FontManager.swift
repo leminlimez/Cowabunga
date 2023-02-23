@@ -75,4 +75,31 @@ class FontManager {
         }
         return fp
     }
+    
+    static func addFontFileToPack(pack: String, file: URL) throws -> FontFile {
+        let savedPath = try getSavedFontsFolder()
+        let fontPack = savedPath.appendingPathComponent(pack)
+        if FileManager.default.fileExists(atPath: fontPack.path) {
+            let fileData: Data = try Data(contentsOf: file)
+            // write to file
+            try fileData.write(to: fontPack.appendingPathComponent(file.lastPathComponent))
+            return FontFile.init(name: file.lastPathComponent)
+        } else {
+            throw "Could not get font pack folder!"
+        }
+    }
+    
+    static func getFontPackFiles(_ fontPack: String) throws -> [FontFile] {
+        let savedPath = try getSavedFontsFolder()
+        let fontPack = savedPath.appendingPathComponent(fontPack)
+        if FileManager.default.fileExists(atPath: fontPack.path) {
+            var files: [FontFile] = []
+            for file in try FileManager.default.contentsOfDirectory(at: fontPack, includingPropertiesForKeys: nil) {
+                files.append(.init(name: file.lastPathComponent))
+            }
+            return files
+        } else {
+            throw "Could not get font pack folder!"
+        }
+    }
 }
