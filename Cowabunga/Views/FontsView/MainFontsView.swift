@@ -7,13 +7,13 @@
 
 import SwiftUI
 
+struct FontPack: Identifiable {
+    var id = UUID()
+    var name: String
+    var enabled: Bool = false
+}
+
 struct MainFontsView: View {
-    struct FontPack: Identifiable {
-        var id = UUID()
-        var name: String
-        var enabled: Bool = false
-    }
-    
     @State private var fontOptions: [FontPack] = [
         .init(name: "None", enabled: true)
     ]
@@ -29,6 +29,20 @@ struct MainFontsView: View {
                         Text(option.name.wrappedValue)
                             .padding(.horizontal, 8)
                     }
+                }
+            }
+            .toolbar {
+                Button(action: {
+                    // create a new font pack
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+            .onAppear {
+                do {
+                    fontOptions.append(contentsOf: try FontManager.getFontPacks())
+                } catch {
+                    UIApplication.shared.alert(title: NSLocalizedString("There was an error getting font packs.", comment: "loading font packs"), body: error.localizedDescription)
                 }
             }
         }

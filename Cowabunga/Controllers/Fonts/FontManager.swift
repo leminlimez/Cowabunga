@@ -37,4 +37,13 @@ class FontManager {
             throw "Font pack with name \(name) already exists!"
         }
     }
+    
+    static func getFontPacks() throws -> [FontPack] {
+        let savedPath = try getSavedFontsFolder()
+        var fp: [FontPack] = []
+        for file in try FileManager.default.contentsOfDirectory(at: savedPath, includingPropertiesForKeys: nil) {
+            fp.append(.init(name: file.lastPathComponent))
+        }
+        return fp
+    }
 }
