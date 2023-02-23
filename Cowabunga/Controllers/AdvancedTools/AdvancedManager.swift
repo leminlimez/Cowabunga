@@ -68,12 +68,24 @@ class AdvancedManager {
             let unzipURL = fm.temporaryDirectory.appendingPathComponent("cowperation_unzip")
             try? fm.removeItem(at: unzipURL)
             try fm.unzipItem(at: url, to: unzipURL)
+            let savePath = getSavedOperationsDirectory()!.appendingPathComponent("None")
             for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
-                try fm.moveItem(at: folder, to: getSavedOperationsDirectory()!.appendingPathComponent("None").appendingPathComponent(folder.deletingPathExtension().lastPathComponent))
+                try fm.moveItem(at: folder, to: savePath.appendingPathComponent(getAvailableName(folder.deletingPathExtension().lastPathComponent)))
             }
         } else {
             throw "No .cowperation file found!"
         }
+    }
+    
+    static func getAvailableName(_ operationName: String) -> String {
+        let savedPath: URL = getSavedOperationsDirectory()!.appendingPathComponent("None")
+        var currentName: String = operationName
+        var currentNum: Int = 0
+        while FileManager.default.fileExists(atPath: savedPath.appendingPathComponent(currentName).path) {
+            currentNum += 1
+            currentName = operationName + "_\(currentNum)"
+        }
+        return currentName
     }
     
     static func getSavedOperationsDirectory() -> URL? {
