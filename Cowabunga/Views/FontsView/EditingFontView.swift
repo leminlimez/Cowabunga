@@ -49,6 +49,9 @@ struct EditingFontView: View {
                                 .multilineTextAlignment(.trailing)
                         }
                     }
+                    
+                    // MARK: Enable Font
+                    
                 } header: {
                     Text("Configuration")
                 }
