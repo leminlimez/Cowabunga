@@ -78,6 +78,10 @@
 		6F7C01E1296B2FB200BC427A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01E0296B2FB200BC427A /* AudioManager.swift */; };
 		6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */; };
 		6FB4F5EC29A6D14300BAA7B6 /* CCModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4F5EB29A6D14300BAA7B6 /* CCModifierView.swift */; };
+		6FB4F5F229A6F86900BAA7B6 /* FontMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4F5F129A6F86900BAA7B6 /* FontMap.swift */; };
+		6FB4F5F429A6F95800BAA7B6 /* OverwriteFontImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4F5F329A6F95800BAA7B6 /* OverwriteFontImpl.swift */; };
+		6FB4F5F629A6FB2000BAA7B6 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4F5F529A6FB2000BAA7B6 /* FontManager.swift */; };
+		6FB4F5F829A6FD9600BAA7B6 /* EditingFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4F5F729A6FD9600BAA7B6 /* EditingFontView.swift */; };
 		6FBACD562996BDC200302F94 /* PlistEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBACD552996BDC200302F94 /* PlistEditView.swift */; };
 		6FD9B526296C8AE300121229 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B525296C8AE300121229 /* AudioView.swift */; };
 		6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9B527296C8CBC00121229 /* AudioChangerView.swift */; };
@@ -237,6 +241,10 @@
 		6F843AAD298DC3190085D20A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		6FB4F5EB29A6D14300BAA7B6 /* CCModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCModifierView.swift; sourceTree = "<group>"; };
+		6FB4F5F129A6F86900BAA7B6 /* FontMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMap.swift; sourceTree = "<group>"; };
+		6FB4F5F329A6F95800BAA7B6 /* OverwriteFontImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverwriteFontImpl.swift; sourceTree = "<group>"; };
+		6FB4F5F529A6FB2000BAA7B6 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		6FB4F5F729A6FD9600BAA7B6 /* EditingFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingFontView.swift; sourceTree = "<group>"; };
 		6FBACD552996BDC200302F94 /* PlistEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistEditView.swift; sourceTree = "<group>"; };
 		6FBEDC492964E0800032B1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FD9B525296C8AE300121229 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
@@ -451,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				6F07ABB1299F144000076436 /* MainFontsView.swift */,
+				6FB4F5F729A6FD9600BAA7B6 /* EditingFontView.swift */,
 			);
 			path = FontsView;
 			sourceTree = "<group>";
@@ -526,6 +535,7 @@
 				6F160E722965B2810026D69D /* ToolsManager.swift */,
 				6F4296B62992CDCC00A96108 /* AdvancedTools */,
 				21BA5BD5298999620022F814 /* Background */,
+				6FB4F5F029A6F85A00BAA7B6 /* Fonts */,
 				6F429677298DE9A800A96108 /* StatusManager */,
 				6FF21AD9298458830054EBC0 /* Tools */,
 			);
@@ -589,6 +599,16 @@
 				6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6FB4F5F029A6F85A00BAA7B6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6FB4F5F529A6FB2000BAA7B6 /* FontManager.swift */,
+				6FB4F5F129A6F86900BAA7B6 /* FontMap.swift */,
+				6FB4F5F329A6F95800BAA7B6 /* OverwriteFontImpl.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		6FBEDC4F2964E1F10032B1A9 /* Frameworks */ = {
@@ -840,8 +860,10 @@
 				6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */,
 				6FF21AD2298450C80054EBC0 /* grant_full_disk_access.m in Sources */,
 				6F369568298C874D0011ADB8 /* ThemeView.swift in Sources */,
+				6FB4F5F829A6FD9600BAA7B6 /* EditingFontView.swift in Sources */,
 				21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */,
 				6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */,
+				6FB4F5F429A6F95800BAA7B6 /* OverwriteFontImpl.swift in Sources */,
 				6F6D38EA297603F700DE3146 /* RegionEncodes.swift in Sources */,
 				6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */,
 				D60A489729995D830013F066 /* WhitelistView.swift in Sources */,
@@ -849,6 +871,7 @@
 				6FF21AFB298826FF0054EBC0 /* MainCardView.swift in Sources */,
 				6F6D38F22976FE6800DE3146 /* ApplicationMonitor.swift in Sources */,
 				6F07ABA7299EB63900076436 /* ChangeAppIconViewModel.swift in Sources */,
+				6FB4F5F229A6F86900BAA7B6 /* FontMap.swift in Sources */,
 				2183C9952987D8C800AE187C /* Alert++.swift in Sources */,
 				6F4296AD2991E8E400A96108 /* StatusSetter14.m in Sources */,
 				6FF21AD0298449F30054EBC0 /* ToolsView.swift in Sources */,
@@ -864,6 +887,7 @@
 				6FF21AFD298827190054EBC0 /* CardView.swift in Sources */,
 				6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */,
 				6F369562298C86D80011ADB8 /* ThemesView.swift in Sources */,
+				6FB4F5F629A6FB2000BAA7B6 /* FontManager.swift in Sources */,
 				21CB2B4F29982F3400188303 /* pow.swift in Sources */,
 				6FD9B528296C8CBC00121229 /* AudioChangerView.swift in Sources */,
 				6FF21ADB298458910054EBC0 /* PasscodeKeyFaceManager.swift in Sources */,
