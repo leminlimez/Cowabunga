@@ -15,6 +15,9 @@ struct EditingFontView: View {
     
     @State var fontPackName: String
     
+    @State var fontFiles: [FontFile] = [
+    ]
+    
     var body: some View {
         VStack {
             List {
@@ -39,7 +42,16 @@ struct EditingFontView: View {
                 }
                 
                 Section {
-                    
+                    ForEach($fontFiles) { font in
+                        Text(font.name.wrappedValue)
+                    }
+                    .onDelete { indexSet in
+                        indexSet.forEach { i in
+                            let deletingFileName = fontFiles[i].name
+                            print("Deleting: " + deletingFileName)
+                            // delete the file
+                        }
+                    }
                 } header: {
                     Text("Font Files")
                 }

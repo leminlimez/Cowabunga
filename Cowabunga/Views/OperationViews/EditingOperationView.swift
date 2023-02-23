@@ -46,6 +46,7 @@ struct EditingOperationView: View {
     
     // color properties
     @State var changingColor: Color = Color.gray
+    @State var hasBlur: Bool = true
     @State var changingBlur: Double = 30
     @State var usesStyles: Bool = false
     @State var changingFill: String = ""
@@ -516,12 +517,21 @@ struct EditingOperationView: View {
                         
                         // MARK: Blur Slider
                         HStack {
-                            Text("Blur:   \(Int(changingBlur))")
-                                .foregroundColor(.white)
-                                .frame(width: 125)
+                            Text("Blur Enabled")
+                                .bold()
                             Spacer()
-                            Slider(value: $changingBlur, in: 0...150, step: 1.0)
-                                .padding(.horizontal)
+                            Toggle(isOn: $hasBlur) {}
+                        }
+                        
+                        if hasBlur {
+                            HStack {
+                                Text("Blur:   \(Int(changingBlur))")
+                                    .foregroundColor(.white)
+                                    .frame(width: 125)
+                                Spacer()
+                                Slider(value: $changingBlur, in: 0...150, step: 1.0)
+                                    .padding(.horizontal)
+                            }
                         }
                         
                         // MARK: Using Styles
@@ -769,7 +779,11 @@ struct EditingOperationView: View {
                     }
                 } else if let colorOperation = operation as? ColorObject {
                     changingColor = colorOperation.col
-                    changingBlur = colorOperation.blur
+                    if colorOperation.blur == -1 {
+                        hasBlur = false
+                    } else {
+                        changingBlur = colorOperation.blur
+                    }
                     
                     usesStyles = colorOperation.usesStyles
                     changingFill = colorOperation.fill
@@ -802,7 +816,11 @@ struct EditingOperationView: View {
             operation.plistType = plistType
         } else if operation is ColorObject, let operation = operation as? ColorObject {
             operation.col = changingColor
-            operation.blur = changingBlur
+            if !hasBlur {
+                operation.blur = -1
+            } else {
+                operation.blur = changingBlur
+            }
             
             operation.usesStyles = usesStyles
             operation.fill = changingFill
