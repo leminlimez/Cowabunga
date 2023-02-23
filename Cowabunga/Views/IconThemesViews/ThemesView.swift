@@ -308,7 +308,9 @@ struct ThemesView: View {
     
     func rebuildIconCache() throws {
         let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
-        let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(lengthOfOldVersion == 6 ? Int.random(in: 100000...999999) : Int.random(in: 10000...99999))")
+        let minimum: Int = Int("1" + String(repeating: "0", count: lengthOfOldVersion-1)) ?? 100000
+        let maximum: Int = Int(String(repeating: "9", count: lengthOfOldVersion)) ?? 999999
+        let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(Int.random(in: minimum...maximum))")
 //
         xpc_crash("com.apple.iconservices")
 //
