@@ -58,6 +58,21 @@ struct AudioView: View {
         VStack {
             //NavigationView {
                 List {
+                    Button(action: {
+                        // apply the audio
+                        let succeeded = AudioFiles.applyAllAudio()
+                        if !succeeded {
+                            UIApplication.shared.alert(body: NSLocalizedString("Failed to apply audio for:", comment: "Failed to apply audio") + " " + AudioFiles.applyFailedMessage + ".")
+                        } else {
+                            UIApplication.shared.alert(title: NSLocalizedString("Successfully applied audio!", comment: "applying audio succeeded"), body: NSLocalizedString("Please respring to hear changes.", comment: "respring to hear audio changes"))
+                        }
+                    }) {
+                        Text("Apply")
+                            .frame(maxWidth: .infinity)
+                            .padding(8)
+                            .cornerRadius(8)
+                    }
+                    
                     ForEach($audioCategories) { cat in
                         Section {
                             ForEach(cat.options) { option in
@@ -79,21 +94,6 @@ struct AudioView: View {
                         } header: {
                             Label(NSLocalizedString(cat.title.wrappedValue, comment: "Header of audio"), systemImage: cat.imageName.wrappedValue)
                         }
-                    }
-                    
-                    Button(action: {
-                        // apply the audio
-                        let succeeded = AudioFiles.applyAllAudio()
-                        if !succeeded {
-                            UIApplication.shared.alert(body: NSLocalizedString("Failed to apply audio for:", comment: "Failed to apply audio") + " " + AudioFiles.applyFailedMessage + ".")
-                        } else {
-                            UIApplication.shared.alert(title: NSLocalizedString("Successfully applied audio!", comment: "applying audio succeeded"), body: NSLocalizedString("Please respring to hear changes.", comment: "respring to hear audio changes"))
-                        }
-                    }) {
-                        Text("Apply")
-                            .frame(maxWidth: .infinity)
-                            .padding(8)
-                            .cornerRadius(8)
                     }
                 }
                 .navigationTitle("Audio Changer")
