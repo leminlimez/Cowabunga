@@ -56,6 +56,13 @@ struct EditingFontView: View {
                     Text("Font Files")
                 }
             }
+            .toolbar {
+                Button(action: {
+                    // import font
+                }) {
+                    Image(systemName: "square.and.arrow.down")
+                }
+            }
         }
     }
 }
