@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MainFontsView: View {
-    struct FontReplacement: Identifiable {
+    struct FontPack: Identifiable {
         var id = UUID()
-        var title: String
+        var name: String
+        var enabled: Bool = false
     }
     
-    @State private var fontOptions: [FontReplacement] = [
-        .init(title: "Basic Fonts")
+    @State private var fontOptions: [FontPack] = [
+        .init(name: "None", enabled: true)
     ]
     
     var body: some View {
@@ -22,11 +23,11 @@ struct MainFontsView: View {
             List {
                 ForEach($fontOptions) { option in
                     HStack {
-                        Text(option.title.wrappedValue)
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.blue)
+                            .opacity(option.enabled.wrappedValue ? 1 : 0)
+                        Text(option.name.wrappedValue)
                             .padding(.horizontal, 8)
-                        Spacer()
-                        Text("Default")
-                            .foregroundColor(.secondary)
                     }
                 }
             }
