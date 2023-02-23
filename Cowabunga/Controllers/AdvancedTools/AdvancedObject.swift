@@ -253,6 +253,8 @@ class ColorObject: AdvancedObject {
                     if newData.count == originalFileSize {
                         self.replacementData = newData
                     } else {
+                        print(newData.count)
+                        print(originalFileSize)
                         print("NOT CORRECT SIZE")
                     }
                 } catch {
