@@ -224,8 +224,12 @@ class ColorObject: AdvancedObject {
                     thirdLevel["alpha"] = 1
                     
                     if var secondLevel2 = firstLevel["materialFiltering"] as? [String: Any] {
-                        secondLevel2["blurRadius"] = blur
-                        firstLevel["materialFiltering"] = secondLevel2
+                        if blur == -1 {
+                            firstLevel.removeValue(forKey: "materialFiltering")
+                        } else {
+                            secondLevel2["blurRadius"] = blur
+                            firstLevel["materialFiltering"] = secondLevel2
+                        }
                     }
                     
                     secondLevel["tintColor"] = thirdLevel
