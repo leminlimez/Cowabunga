@@ -11,12 +11,33 @@ import UniformTypeIdentifiers
 struct AdvancedView: View {
     @State private var operations: [AdvancedCategory] = []
     @State private var isImporting: Bool = false
+    @State private var uncategorizedOperations: [AdvancedCategory] = []
     
     // lazyvgrid
     
     var body: some View {
         VStack {
-            List(operations, children: \.operations) { operation in
+            List {
+                ForEach($uncategorizedOperations) { operation in
+                    NavigationLink(destination: EditingOperationView(category: operation.categoryName.wrappedValue!, editing: true, operation: try! AdvancedManager.getOperationFromName(operationName: operation.name.wrappedValue))) {
+                        HStack {
+                            if !operation.isActive.wrappedValue {
+                                Image(systemName: "xmark.seal.fill")
+                                    .foregroundColor(.red)
+                            }
+                            VStack (alignment: .leading) {
+                                Text(operation.name.wrappedValue.replacingOccurrences(of: "_", with: " "))
+                                if operation.author.wrappedValue != "" {
+                                    Text("by: " + operation.author.wrappedValue)
+                                        .font(.caption)
+                                }
+                            }
+                            .padding(.horizontal, 8)
+                        }
+                    }
+                }
+            }
+            /*List(operations, children: \.operations) { operation in
                 if operation.categoryName != nil {
                     // it is an operation
                     NavigationLink(destination: EditingOperationView(category: operation.categoryName!, editing: true, operation: try! AdvancedManager.getOperationFromName(operationName: operation.name))) {
@@ -42,7 +63,7 @@ struct AdvancedView: View {
                             .padding(.horizontal, 8)
                     }
                 }
-            }
+            }*/
             .onAppear {
                 updateCategories()
             }
@@ -87,6 +108,7 @@ struct AdvancedView: View {
         // load the operation categories
         do {
             operations = try AdvancedManager.loadOperations()
+            uncategorizedOperations = operations[0].operations!
         } catch {
             UIApplication.shared.alert(title: NSLocalizedString("Failed to load operations.", comment: ""), body: error.localizedDescription)
         }
