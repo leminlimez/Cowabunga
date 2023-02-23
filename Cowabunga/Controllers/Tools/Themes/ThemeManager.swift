@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ZIPFoundation
 
 var rawThemesDir: URL = {
 #if targetEnvironment(simulator)
@@ -111,14 +112,21 @@ class ThemeManager: ObservableObject {
     
     func importTheme(from importURL: URL) throws -> Theme {
         var name = importURL.deletingPathExtension().lastPathComponent
+        var finalURL = importURL
         try? fm.createDirectory(at: rawThemesDir, withIntermediateDirectories: true)
         var themeURL = rawThemesDir.appendingPathComponent(name)
         
         if importURL.lastPathComponent.contains(".theme") {
-            for folder in (try? fm.contentsOfDirectory(at: importURL, includingPropertiesForKeys: nil)) ?? [] {
+            // unzip
+            let unzipURL = fm.temporaryDirectory.appendingPathComponent("theme_unzip")
+            try? fm.removeItem(at: unzipURL)
+            try fm.unzipItem(at: importURL, to: unzipURL)
+            
+            for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
                 if folder.deletingPathExtension().lastPathComponent == "IconBundles" {
-                    themeURL = folder
                     name = importURL.lastPathComponent.replacingOccurrences(of: ".theme", with: "")
+                    finalURL = folder
+                    break
                 }
             }
         }
@@ -126,7 +134,7 @@ class ThemeManager: ObservableObject {
         try? fm.removeItem(at: themeURL)
         try fm.createDirectory(at: themeURL, withIntermediateDirectories: true)
         
-        for icon in (try? fm.contentsOfDirectory(at: importURL, includingPropertiesForKeys: nil)) ?? [] {
+        for icon in (try? fm.contentsOfDirectory(at: finalURL, includingPropertiesForKeys: nil)) ?? [] {
             guard !icon.lastPathComponent.contains(".DS_Store") else { continue }
             try? fm.copyItem(at: icon, to: themeURL.appendingPathComponent(appIDFromIcon(url: icon) + ".png"))
         }

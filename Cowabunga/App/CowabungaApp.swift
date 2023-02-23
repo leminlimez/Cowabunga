@@ -96,22 +96,12 @@ struct CowabungaApp: App {
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                     }
                     
-                    // for opening zips of app themes
-                    if url.pathExtension.lowercased() == "zip" {
-                        let themeName = url.deletingPathExtension().lastPathComponent
-                        let saveURL = rawThemesDir.appendingPathComponent(themeName)
-                        
+                    // for opening .theme app theme files
+                    if url.pathExtension.lowercased() == "theme" {
                         do {
-                            let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
-                            if FileManager.default.fileExists(atPath: tmpExtract.path) {
-                                try? FileManager.default.removeItem(at: tmpExtract)
-                            }
-                            try FileManager.default.unzipItem(at: url, to: tmpExtract)
-                            
-                            let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(themeName))
+                            let theme = try ThemeManager.shared.importTheme(from: url)
                             ThemeManager.shared.themes.append(theme)
                             
-                            try FileManager.default.removeItem(at: tmpExtract)
                             UIApplication.shared.alert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("App theme was successfully saved!", comment: ""))
                         } catch {
                             UIApplication.shared.alert(title: NSLocalizedString("Failed to save theme!", comment: ""), body: error.localizedDescription)
