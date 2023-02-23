@@ -23,6 +23,7 @@ class LockManager {
     ]
     
     static let deviceLockPath: [String: String] = [
+        // MARK: Phones
         "iPhone15,3": "3x-d73", // iPhone 14 Pro Max
         "iPhone15,2": "3x-d73", // iPhone 14 Pro
         "iPhone14,7": "3x-812h", // iPhone 14
@@ -47,7 +48,18 @@ class LockManager {
         "iPhone11,2": "3x-812h", // iPhone XS
         
         "iPhone10,3": "3x-812h", // iPhone X (GSM)
-        "iPhone10,6": "3x-812h" // iPhone X (Global)
+        "iPhone10,6": "3x-812h", // iPhone X (Global)
+        
+        // MARK: iPads
+        "iPad13,11": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
+        "iPad13,10": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
+        "iPad13,9": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
+        "iPad13,8": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
+        
+        "iPad13,7": "2x-120fps~ipad", // iPad Pro (11-inch) (3th generation)
+        "iPad13,6": "2x-120fps~ipad", // iPad Pro (11-inch) (3th generation)
+        "iPad13,5": "2x-120fps~ipad", // iPad Pro (11-inch) (3th generation)
+        "iPad13,4": "2x-120fps~ipad", // iPad Pro (11-inch) (3th generation)
     ]
     
     static func getLockType() -> String {
