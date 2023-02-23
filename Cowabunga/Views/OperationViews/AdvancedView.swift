@@ -57,7 +57,7 @@ struct AdvancedView: View {
                     .foregroundColor(.blue)
                     
                     // create a new operation
-                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: NSLocalizedString("New Operation", comment: ""), filePath: "/var", applyInBackground: false))) {
+                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: AdvancedManager.getAvailableName("New_Operation").replacingOccurrences(of: "_", with: " "), filePath: "/var", applyInBackground: false))) {
                         Image(systemName: "plus")
                     }
                 }
