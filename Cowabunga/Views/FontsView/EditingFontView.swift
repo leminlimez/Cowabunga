@@ -19,7 +19,8 @@ struct EditingFontView: View {
     
     @State var fontFiles: [FontFile] = [
     ]
-    @State var isImporting: Bool = false
+    @State private var isImporting: Bool = false
+    @State private var currentFont: String = UserDefaults.standard.string(forKey: "SelectedFont") ?? "None"
     
     var body: some View {
         VStack {
@@ -38,6 +39,8 @@ struct EditingFontView: View {
                                     do {
                                         try FontManager.renameFontPack(old: fontPackName, new: newFontPackName)
                                         fontPackName = newFontPackName
+                                        UserDefaults.standard.set(fontPackName, forKey: "SelectedFont")
+                                        currentFont = fontPackName
                                     } catch {
                                         newFontPackName = fontPackName
                                         UIApplication.shared.alert(title: NSLocalizedString("Failed to rename font pack!", comment: ""), body: error.localizedDescription)
@@ -51,7 +54,20 @@ struct EditingFontView: View {
                     }
                     
                     // MARK: Enable Font
-                    
+                    if currentFont == fontPackName {
+                        Text("Active")
+                            .multilineTextAlignment(.trailing)
+                            .foregroundColor(.green)
+                    } else {
+                        Button(action: {
+                            UserDefaults.standard.set(fontPackName, forKey: "SelectedFont")
+                            currentFont = fontPackName
+                        }) {
+                            Text("Set as Active")
+                                .multilineTextAlignment(.trailing)
+                                .foregroundColor(.blue)
+                        }
+                    }
                 } header: {
                     Text("Configuration")
                 }
