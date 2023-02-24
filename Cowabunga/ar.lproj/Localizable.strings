@@ -137,6 +137,12 @@
 "Background" = "الخلفية";
 
 /* No comment provided by engineer. */
+"Background Applying" = "تطبيق الخلفية";
+
+/* No comment provided by engineer. */
+"Background Services" = "خدمات الخلفية";
+
+/* No comment provided by engineer. */
 "Background Update Frequency" = "تكرار تحديث الخلفية";
 
 /* No comment provided by engineer. */
@@ -180,6 +186,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "نص الناقل";
+
+/* Run in background option */
+"CC Module Background" = "خلفية عناصر مركز التحكم";
 
 /* No comment provided by engineer. */
 "CC Modules" = "عناصر مركز التحكم";
@@ -507,6 +516,15 @@
 /* No comment provided by engineer. */
 "Folder" = "مجلد";
 
+/* Run in background option */
+"Folder Background" = "خلفية المجلد";
+
+/* Run in background option */
+"Folder Blur" = "ضبابية المجلد";
+
+/* No comment provided by engineer. */
+"Font file of this name does not exist. Please make sure that it is named correctly." = "ملف الخط بهذا الاسم غير موجود. يرجى التأكد من تسميته بشكل صحيح.";
+
 /* No comment provided by engineer. */
 "Font Files" = "ملفات الخطوط";
 
@@ -598,6 +616,9 @@
 /* No comment provided by engineer. */
 "Home" = "الصفحة الرئيسية";
 
+/* Run in background option */
+"Home Bar" = "شريط الشاشة";
+
 /* Category of tool */
 "Home Screen" = "الشاشة الرئيسية";
 
@@ -656,6 +677,9 @@
 /* Audio name */
 "Keyboard Press Normal" = "لوحة المفاتيح زر عادي";
 
+/* Run in background option */
+"Library Pod Backgrounds" = "خلفية المكتبة";
+
 /* Audio name */
 "Lock" = "قفل";
 
@@ -689,6 +713,9 @@
 
 /* No comment provided by engineer. */
 "Make It So, Number One" = "اجعلها كذلك ، رقم واحد";
+
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "إدارة مهام الخلفية";
 
 /* Maximum passcode key size */
 "Max:" = "الحد الأقصى:";
@@ -743,6 +770,9 @@
 
 /* No comment provided by engineer. */
 "Notification Banner" = "لافتة الإشعارات";
+
+/* Run in background option */
+"Notification Banner Background" = "خلفية لافتة الإشعارات";
 
 /* No comment provided by engineer. */
 "OK" = "موافق";
@@ -1102,6 +1132,9 @@
 "This could cause issues. Make sure to disable data or Wi-Fi." = "هذا يمكن أن يسبب المشاكل. تأكد من تعطيل البيانات أو Wi-Fi.";
 
 /* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "قم بتبديل الخدمات التي سيتم تشغيلها أو تطبيقها عندما يكون التطبيق في الخلفية.";
+
+/* No comment provided by engineer. */
 "Tools" = "الأدوات";
 
 /* No comment provided by engineer. */
@@ -1130,6 +1163,9 @@
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Unsandboxing";
+
+/* No comment provided by engineer. */
+"Update Frequency" = "تكرار تحديث";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "تحديث يشمل الصوت";

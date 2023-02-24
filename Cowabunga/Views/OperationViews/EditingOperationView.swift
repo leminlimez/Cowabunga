@@ -707,7 +707,7 @@ struct EditingOperationView: View {
                             let author: String = alert.textFields?[0].text ?? ""
                             saveCurrentOperation(author, alerts: false)
                             do {
-                                let archiveURL = try AdvancedManager.exportOperation(operationName.replacingOccurrences(of: " ", with: "_"))
+                                let archiveURL = try AdvancedManager.exportOperation(operationName)
                                 
                                 // show share menu
                                 let avc = UIActivityViewController(activityItems: [archiveURL], applicationActivities: nil)
