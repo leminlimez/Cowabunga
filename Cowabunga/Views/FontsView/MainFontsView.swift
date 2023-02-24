@@ -27,6 +27,15 @@ struct MainFontsView: View {
                 //MARK: Apply Button
                 Button("Apply") {
                     // apply the font
+                    UIApplication.shared.alert(title: NSLocalizedString("Applying fonts...", comment: ""), body: NSLocalizedString("Please wait...", comment: ""), animated: true, withButton: false)
+                    do {
+                        try FontManager.applyCurrentFont()
+                        UIApplication.shared.dismissAlert(animated: true)
+                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The fonts were successfully replaced", comment: ""))
+                    } catch {
+                        UIApplication.shared.dismissAlert(animated: true)
+                        UIApplication.shared.alert(title: NSLocalizedString("Failed to apply fonts!", comment: ""), body: error.localizedDescription)
+                    }
                 }
                 .buttonStyle(TintedButton(color: .blue, fullwidth: true))
                 
@@ -135,7 +144,8 @@ struct MainFontsView: View {
             .onAppear {
                 currentFont = UserDefaults.standard.string(forKey: "SelectedFont") ?? "None"
                 do {
-                    fontOptions.append(contentsOf: try FontManager.getFontPacks())
+                    fontOptions.removeAll(keepingCapacity: true)
+                    fontOptions = try FontManager.getFontPacks()
                     if currentFont == "None" {
                         nonePack.enabled = true
                     } else {

@@ -76,6 +76,30 @@ class FontManager {
         return fp
     }
     
+    static func applyCurrentFont() throws {
+        let pack: String = UserDefaults.standard.string(forKey: "SelectedFont") ?? "None"
+        if pack != "None" {
+            let fontsPath = URL(fileURLWithPath: "/System/Library/Fonts/")
+            let savedPath = try getSavedFontsFolder()
+            let fontPack = savedPath.appendingPathComponent(pack)
+            if FileManager.default.fileExists(atPath: fontPack.path) {
+                // apply each file
+                for font in try FileManager.default.contentsOfDirectory(at: fontPack, includingPropertiesForKeys: nil) {
+                    let replacingName: String = font.lastPathComponent
+                    for fontFolder in try FileManager.default.contentsOfDirectory(at: fontsPath, includingPropertiesForKeys: nil) {
+                        let replacementPath: String = fontFolder.appendingPathComponent(replacingName).path
+                        if FileManager.default.fileExists(atPath: replacementPath) {
+                            // replace the font
+                            try OverwriteFontImpl.overwriteWithFont(fontURL: font, pathToTargetFont: replacementPath)
+                        }
+                    }
+                }
+            } else {
+                throw "Could not get font pack folder!"
+            }
+        }
+    }
+    
     static func addFontFileToPack(pack: String, file: URL) throws -> FontFile {
         let savedPath = try getSavedFontsFolder()
         let fontPack = savedPath.appendingPathComponent(pack)

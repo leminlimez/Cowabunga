@@ -42,6 +42,7 @@ struct ToolsView: View {
             .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi")
         ]),
         .init(title: NSLocalizedString("Other", comment: "Category of tool"), systemImage: "ellipsis", options: [
+            .init(key: "MainFontsView", view: AnyView(MainFontsView()), title: NSLocalizedString("Fonts", comment: "Title of tool"), imageName: "f.cursive"),
             .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
             .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: NSLocalizedString("Whitelist", comment: "Title of tool"), imageName: "app.badge.checkmark"),
