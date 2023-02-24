@@ -12,10 +12,12 @@ class FilePickerViewControllerDelegate: NSObject, UIDocumentPickerDelegate {
     public typealias CompletionHandler = (_ urls: [URL]) -> Void
     
     let types: [UTType]
+    let allowsMultipleSelection: Bool
     let completed: CompletionHandler
     
-    init(types: [UTType], completed: @escaping CompletionHandler) {
+    init(types: [UTType], allowsMultipleSelection: Bool, completed: @escaping CompletionHandler) {
         self.types = types
+        self.allowsMultipleSelection = allowsMultipleSelection
         self.completed = completed
     }
     
@@ -28,11 +30,13 @@ struct DocumentPicker: UIViewControllerRepresentable {
     public typealias CompletionHandler = (_ urls: [URL]) -> Void
     
     var types: [UTType]
+    var allowsMultipleSelection: Bool = false
     var completed: CompletionHandler
     
     func makeCoordinator() -> FilePickerViewControllerDelegate {
         return FilePickerViewControllerDelegate(
             types: types,
+            allowsMultipleSelection: allowsMultipleSelection,
             completed: completed
         )
     }
@@ -43,7 +47,7 @@ struct DocumentPicker: UIViewControllerRepresentable {
             asCopy: false
         )
         
-        pickerViewController.allowsMultipleSelection = false
+        pickerViewController.allowsMultipleSelection = allowsMultipleSelection
         pickerViewController.delegate = context.coordinator
         return pickerViewController
     }

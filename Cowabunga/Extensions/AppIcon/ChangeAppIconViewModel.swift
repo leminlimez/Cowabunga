@@ -67,7 +67,7 @@ final class ChangeAppIconViewModel: ObservableObject {
         }
 
         var preview: UIImage {
-            UIImage(named: rawValue) ?? UIImage()
+            UIImage(named: rawValue + "-preview") ?? UIImage()
         }
     }
     

@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum ThemeFilterType: String, CaseIterable {
+    case random = "Random"
+    case newest = "Newest"
+    case oldest = "Oldest"
+}
+
 class CowabungaAPI: ObservableObject {
     
     static let shared = CowabungaAPI()
@@ -29,6 +35,16 @@ class CowabungaAPI: ObservableObject {
         }
         
         return themes
+    }
+    
+    func filterTheme(themes: [DownloadableTheme], filterType: ThemeFilterType) -> [DownloadableTheme] {
+        var filtered = themes
+        if filterType == ThemeFilterType.newest {
+            filtered = filtered.reversed()
+        } else if filterType == ThemeFilterType.random {
+            filtered = filtered.shuffled()
+        }
+        return filtered
     }
     
     func downloadTheme(theme: DownloadableTheme) async throws {

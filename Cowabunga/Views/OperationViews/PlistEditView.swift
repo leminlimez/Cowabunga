@@ -38,6 +38,9 @@ struct PlistEditView: View {
                     let boolAction = UIAlertAction(title: "Boolean", style: .default) { (action) in
                         plistValue = textFieldRawBool
                     }
+                    let deleteAction = UIAlertAction(title: "Deleting", style: .destructive) { (action) in
+                        plistValue = ".Cowabunga-DELETIGN"
+                    }
                     
                     let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                         // cancels the action
@@ -48,6 +51,7 @@ struct PlistEditView: View {
                     alert.addAction(intAction)
                     alert.addAction(doubleAction)
                     alert.addAction(boolAction)
+                    alert.addAction(deleteAction)
                     
                     alert.addAction(cancelAction)
                     
@@ -59,8 +63,13 @@ struct PlistEditView: View {
                     // present the alert
                     UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                 }) {
-                    Text(String(describing: type(of: plistValue)))
-                        .foregroundColor(.blue)
+                    if !(plistValue is String && (plistValue as! String) == ".Cowabunga-DELETIGN") {
+                        Text(String(describing: type(of: plistValue)))
+                            .foregroundColor(.blue)
+                    } else {
+                        Text("Deleting")
+                            .foregroundColor(.red)
+                    }
                 }
                 
                 // MARK: Key Name
@@ -79,12 +88,14 @@ struct PlistEditView: View {
                     Spacer()
                     
                     if plistValue is String {
-                        // For strings
-                        TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: $textFieldRawText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .submitLabel(.done)
-                        .onSubmit {
-                            plistValue = textFieldRawText
+                        if (plistValue as! String) != ".Cowabunga-DELETIGN" {
+                            // For strings
+                            TextField(NSLocalizedString("Value", comment: "value for plist operation"), text: $textFieldRawText)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .submitLabel(.done)
+                                .onSubmit {
+                                    plistValue = textFieldRawText
+                                }
                         }
                     } else if plistValue is Int {
                         // For ints

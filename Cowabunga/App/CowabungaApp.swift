@@ -16,6 +16,8 @@ struct CowabungaApp: App {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State var catalogFixupShown = false
+    @State var importingFontShown = false
+    @State var importingFontURL: URL? = nil
     
     var body: some Scene {
         WindowGroup {
@@ -87,28 +89,38 @@ struct CowabungaApp: App {
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                     }
                     
-                    // for opening zips of app themes
-                    if url.pathExtension.lowercased() == "zip" {
-                        let themeName = url.deletingPathExtension().lastPathComponent
-                        let saveURL = rawThemesDir.appendingPathComponent(themeName)
-                        
+                    // for opening cowperation files
+                    if url.pathExtension.lowercased() == "cowperation" {
                         do {
-                            let tmpExtract = saveURL.deletingLastPathComponent().appendingPathComponent("tmp_extract")
-                            if FileManager.default.fileExists(atPath: tmpExtract.path) {
-                                try? FileManager.default.removeItem(at: tmpExtract)
-                            }
-                            try FileManager.default.unzipItem(at: url, to: tmpExtract)
-                            
-                            let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(themeName))
+                            // try adding the operation
+                            try AdvancedManager.importOperation(url)
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                        } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                    }
+                    
+                    // for opening .theme app theme files
+                    if url.pathExtension.lowercased() == "theme" {
+                        do {
+                            let theme = try ThemeManager.shared.importTheme(from: url)
                             ThemeManager.shared.themes.append(theme)
                             
-                            try FileManager.default.removeItem(at: tmpExtract)
                             UIApplication.shared.alert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("App theme was successfully saved!", comment: ""))
                         } catch {
                             UIApplication.shared.alert(title: NSLocalizedString("Failed to save theme!", comment: ""), body: error.localizedDescription)
                         }
                     }
+                    
+                    // for opening font .ttf or .ttc files
+                    if url.pathExtension.lowercased() == "ttf" || url.pathExtension.lowercased() == "ttc" {
+                        if !UserDefaults.standard.bool(forKey: "shouldPerformCatalogFixup") && !catalogFixupShown {
+                            importingFontURL = url
+                            importingFontShown = true
+                        }
+                    }
                 })
+                .sheet(isPresented: $importingFontShown) {
+                    ImportingFontsView(isVisible: $importingFontShown, openingURL: importingFontURL!)
+                }
                 .sheet(isPresented: $catalogFixupShown) {
                     if #available(iOS 15.0, *) {
                         CatalogFixupView()

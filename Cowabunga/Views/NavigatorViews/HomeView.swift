@@ -35,6 +35,7 @@ struct HomeView: View {
         .init(names: "Abbyy#2820", contribution: "🇵🇱 Polish"),
         .init(names: "Maxiwee#9333", contribution: "🇩🇪 German"),
         .init(names: "Eevee#0094", contribution: "🇷🇺 Russian"),
+        .init(names: "Callz#1352", contribution: "🇸🇪 Swedish"),
         .init(names: "kylak#5621", contribution: "🇧🇷 Portuguese"),
         .init(names: "Skyfall#5572 & Chihaodong", contribution: "🇨🇳 Chinese (China Mainland)"),
         .init(names: "@CySxL", contribution: "🇹🇼 Traditional Chinese (Taiwan)"),
@@ -277,7 +278,7 @@ struct HomeView: View {
                     // app credits
                     LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: NSLocalizedString("Main Developer", comment: "leminlimez's contribution"), circle: true)
                     LinkCell(imageName: "sourcelocation", url: "https://github.com/sourcelocation", title: "sourcelocation", contribution: NSLocalizedString("Main Developer", comment: "sourcelocation's contribution"), circle: true)
-                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: NSLocalizedString("Included Audio, Credits, and Card Changer", comment: "c22dev's contribution"), circle: true)
+                    LinkCell(imageName: "c22dev", url: "https://github.com/c22dev", title: "c22dev", contribution: NSLocalizedString("ScreenTime Remover, Included Audio, Credits, and Card Changer", comment: "c22dev's contribution"), circle: true)
                     LinkCell(imageName: "zhuowei", url: "https://twitter.com/zhuowei/", title: "zhuowei", contribution: NSLocalizedString("Unsandboxing", comment: "zhuowei's contribution"), circle: true)
                     LinkCell(imageName: "haxi0", url: "https://github.com/haxi0", title: "haxi0", contribution: "TrollLock", circle: true)
                     LinkCell(imageName: "ginsudev", url: "https://github.com/ginsudev/WDBFontOverwrite", title: "ginsudev", contribution: NSLocalizedString("Exploit Code", comment: "ginsudev's contribution"), circle: true)
