@@ -104,23 +104,33 @@ struct EditingFontView: View {
             .sheet(isPresented: $isImporting) {
                 DocumentPicker(
                     types: [
-                        UTType(filenameExtension: "ttf") ?? .font
-                    ]) { result in
+                        UTType(filenameExtension: "ttf") ?? .font,
+                        UTType(filenameExtension: "ttc") ?? .font
+                    ], allowsMultipleSelection: true) { result in
                         // user chose a file
                         if result.first == nil {
                             UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: ""))
                             return
                         }
-                        let url: URL = result.first!
-                        guard url.startAccessingSecurityScopedResource() else { UIApplication.shared.alert(body: "File permission error"); return }
-                        
-                        do {
-                            let newFontFile = try FontManager.addFontFileToPack(pack: fontPackName, file: url)
-                            fontFiles.append(newFontFile)
-                            url.stopAccessingSecurityScopedResource()
-                        } catch {
-                            UIApplication.shared.alert(title: NSLocalizedString("Failed to import font file!", comment: ""), body: error.localizedDescription)
-                            url.stopAccessingSecurityScopedResource()
+                        var failed: [String: String] = [:]
+                        for url in result {
+                            guard url.startAccessingSecurityScopedResource() else { failed[url.lastPathComponent] = "File permission error"; continue }
+                            
+                            do {
+                                let newFontFile = try FontManager.addFontFileToPack(pack: fontPackName, file: url)
+                                fontFiles.append(newFontFile)
+                                url.stopAccessingSecurityScopedResource()
+                            } catch {
+                                failed[url.lastPathComponent] = error.localizedDescription
+                                url.stopAccessingSecurityScopedResource()
+                            }
+                        }
+                        if failed.count > 0 {
+                            var str: String = ""
+                            for (k, e) in failed {
+                                str += "\(k): \(e)\n"
+                            }
+                            UIApplication.shared.alert(title: NSLocalizedString("Failed to import font files!", comment: ""), body: str)
                         }
                     }
             }
