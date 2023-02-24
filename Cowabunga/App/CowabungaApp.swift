@@ -16,6 +16,8 @@ struct CowabungaApp: App {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State var catalogFixupShown = false
+    @State var importingFontShown = false
+    @State var importingFontURL: URL? = nil
     
     var body: some Scene {
         WindowGroup {
@@ -107,7 +109,18 @@ struct CowabungaApp: App {
                             UIApplication.shared.alert(title: NSLocalizedString("Failed to save theme!", comment: ""), body: error.localizedDescription)
                         }
                     }
+                    
+                    // for opening font .ttf or .ttc files
+                    if url.pathExtension.lowercased() == "ttf" || url.pathExtension.lowercased() == "ttc" {
+                        if !UserDefaults.standard.bool(forKey: "shouldPerformCatalogFixup") && !catalogFixupShown {
+                            importingFontURL = url
+                            importingFontShown = true
+                        }
+                    }
                 })
+                .sheet(isPresented: $importingFontShown) {
+                    ImportingFontsView(isVisible: $importingFontShown, openingURL: importingFontURL!)
+                }
                 .sheet(isPresented: $catalogFixupShown) {
                     if #available(iOS 15.0, *) {
                         CatalogFixupView()
