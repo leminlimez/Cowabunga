@@ -36,14 +36,18 @@ struct EditingFontView: View {
                                 .multilineTextAlignment(.trailing)
                                 .submitLabel(.done)
                                 .onSubmit {
-                                    do {
-                                        try FontManager.renameFontPack(old: fontPackName, new: newFontPackName)
-                                        fontPackName = newFontPackName
-                                        UserDefaults.standard.set(fontPackName, forKey: "SelectedFont")
-                                        currentFont = fontPackName
-                                    } catch {
-                                        newFontPackName = fontPackName
-                                        UIApplication.shared.alert(title: NSLocalizedString("Failed to rename font pack!", comment: ""), body: error.localizedDescription)
+                                    if newFontPackName != fontPackName {
+                                        do {
+                                            try FontManager.renameFontPack(old: fontPackName, new: newFontPackName)
+                                            if currentFont == fontPackName {
+                                                UserDefaults.standard.set(newFontPackName, forKey: "SelectedFont")
+                                                currentFont = newFontPackName
+                                            }
+                                            fontPackName = newFontPackName
+                                        } catch {
+                                            newFontPackName = fontPackName
+                                            UIApplication.shared.alert(title: NSLocalizedString("Failed to rename font pack!", comment: ""), body: error.localizedDescription)
+                                        }
                                     }
                                 }
                         } else {
@@ -135,14 +139,22 @@ struct EditingFontView: View {
                     }
             }
             .onAppear {
-                newFontPackName = fontPackName
+                if newFontPackName == "" {
+                    newFontPackName = fontPackName
+                }
                 // get the font files
                 do {
                     fontFiles = try FontManager.getFontPackFiles(fontPackName)
                 } catch {
-                    UIApplication.shared.alert(title: NSLocalizedString("Failed to fetch font pack files!", comment: ""), body: error.localizedDescription)
+                    // backup: check new font pack name
+                    do {
+                        fontFiles = try FontManager.getFontPackFiles(newFontPackName)
+                    } catch {
+                        UIApplication.shared.alert(title: NSLocalizedString("Failed to fetch font pack files!", comment: ""), body: error.localizedDescription)
+                    }
                 }
             }
         }
+        .navigationTitle("Editing \(fontPackName)")
     }
 }

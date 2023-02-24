@@ -123,7 +123,6 @@ struct MainFontsView: View {
                             do {
                                 try FontManager.createFontPackFolder(fileName)
                                 fontOptions.append(.init(name: fileName))
-                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The font pack folder was successfully created.", comment: "Creating font pack"))
                             } catch {
                                 print(error.localizedDescription)
                                 UIApplication.shared.alert(title: NSLocalizedString("Unable to create font pack!", comment: "Failed to create font pack"), body: error.localizedDescription)
@@ -163,6 +162,7 @@ struct MainFontsView: View {
                     UIApplication.shared.alert(title: NSLocalizedString("There was an error getting font packs.", comment: "loading font packs"), body: error.localizedDescription)
                 }
             }
+            .navigationTitle("Fonts")
         }
     }
 }
