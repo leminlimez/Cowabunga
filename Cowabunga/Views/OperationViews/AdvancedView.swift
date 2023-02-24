@@ -78,7 +78,7 @@ struct AdvancedView: View {
                     .foregroundColor(.blue)
                     
                     // create a new operation
-                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: AdvancedManager.getAvailableName("New_Operation"), filePath: "/var", applyInBackground: false))) {
+                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: AdvancedManager.getAvailableName("New Operation"), filePath: "/var", applyInBackground: false))) {
                         Image(systemName: "plus")
                     }
                 }
