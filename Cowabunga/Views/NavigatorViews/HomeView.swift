@@ -67,6 +67,14 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
+                // MARK: App Version
+                Section {
+                    
+                } header: {
+                    Label("Version \(Bundle.main.releaseVersionNumber ?? "UNKNOWN") (\(versionBuildString ?? "Release"))", systemImage: "info")
+                }
+                
+                // MARK: Tweak Options
                 Section {
                     VStack {
                         // apply all tweaks button
@@ -112,6 +120,7 @@ struct HomeView: View {
                     Label("Tweak Options", systemImage: "hammer")
                 }
                 
+                // MARK: Background Applying Options
                 Section {
                     // MARK: Background Run Frequency
                     HStack {
@@ -188,9 +197,11 @@ struct HomeView: View {
                     }
                     
                     // MARK: Manage Background Tasks
-                    Button("Manage Background Tasks", action: {
-                        bgTasksVisible.toggle()
-                    })
+                    if runInBackground {
+                        Button("Manage Background Tasks", action: {
+                            bgTasksVisible.toggle()
+                        })
+                    }
                 } header: {
                     Label("Background Applying", systemImage: "photo")
                 }
@@ -285,6 +296,7 @@ struct HomeView: View {
                     Label("Preferences", systemImage: "gearshape")
                 }
                 
+                // MARK: App Credits
                 Section {
                     // app credits
                     LinkCell(imageName: "leminlimez", url: "https://github.com/leminlimez", title: "leminlimez", contribution: NSLocalizedString("Main Developer", comment: "leminlimez's contribution"), circle: true)
@@ -298,9 +310,10 @@ struct HomeView: View {
                     LinkCell(imageName: "BomberFish", url: "https://github.com/BomberFish", title: "BomberFish", contribution: NSLocalizedString("Whitelist, AirPower Audio, Various fixes", comment: "BomberFish's contribution"), circle: true)
                     LinkCell(imageName: "matteozappia", url: "https://github.com/matteozappia", title: "matteozappia", contribution: NSLocalizedString("Dynamic Island SubTypes", comment: "matteozappia's contribution"), circle: true)
                 } header: {
-                    Label("Credits", systemImage: "heart")
+                    Label("Credits", systemImage: "wrench.and.screwdriver")
                 }
                 
+                // MARK: Translator Credits
                 Section {
                     ForEach(translators) { translator in
                         LinkCell(imageName: "", url: "", title: translator.names, contribution: translator.contribution)
@@ -309,11 +322,12 @@ struct HomeView: View {
                     Label("Translators", systemImage: "character.bubble")
                 }
                 
-                Section {
-                    
-                } header: {
-                    Label("Version \(Bundle.main.releaseVersionNumber ?? "UNKNOWN") (\(versionBuildString ?? "Release"))", systemImage: "info")
-                }
+                // MARK: Patreon Supporters
+//                Section {
+//
+//                } header: {
+//                    Label("Patreon Supporters", systemImage: "heart")
+//                }
             }
             .navigationTitle("Cowabunga")
         }
