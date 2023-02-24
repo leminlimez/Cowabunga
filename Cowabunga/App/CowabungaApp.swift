@@ -119,7 +119,7 @@ struct CowabungaApp: App {
                     }
                 })
                 .sheet(isPresented: $importingFontShown) {
-                    ImportingFontsView(isVisible: $importingFontShown, openingURL: importingFontURL!)
+                    ImportingFontsView(isVisible: $importingFontShown, openingURL: $importingFontURL)
                 }
                 .sheet(isPresented: $catalogFixupShown) {
                     if #available(iOS 15.0, *) {

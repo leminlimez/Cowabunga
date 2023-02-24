@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImportingFontsView: View {
     @Binding var isVisible: Bool
-    let openingURL: URL
+    @Binding var openingURL: URL?
     @State private var fontOptions: [FontPack] = []
     
     var body: some View {
@@ -78,7 +78,7 @@ struct ImportingFontsView: View {
                         for fontOption in fontOptions {
                             if fontOption.enabled {
                                 do {
-                                    let _ = try FontManager.addFontFileToPack(pack: fontOption.name, file: openingURL)
+                                    let _ = try FontManager.addFontFileToPack(pack: fontOption.name, file: openingURL!)
                                 } catch {
                                     failed[fontOption.name] = error.localizedDescription
                                 }
