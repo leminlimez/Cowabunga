@@ -26,7 +26,7 @@ struct AdvancedView: View {
                                     .foregroundColor(.red)
                             }
                             VStack (alignment: .leading) {
-                                Text(operation.name.wrappedValue.replacingOccurrences(of: "_", with: " "))
+                                Text(operation.name.wrappedValue)
                                 if operation.author.wrappedValue != "" {
                                     Text("by: " + operation.author.wrappedValue)
                                         .font(.caption)
@@ -78,7 +78,7 @@ struct AdvancedView: View {
                     .foregroundColor(.blue)
                     
                     // create a new operation
-                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: AdvancedManager.getAvailableName("New_Operation").replacingOccurrences(of: "_", with: " "), filePath: "/var", applyInBackground: false))) {
+                    NavigationLink(destination: EditingOperationView(category: "None", editing: false, operation: CorruptingObject(operationName: AdvancedManager.getAvailableName("New_Operation"), filePath: "/var", applyInBackground: false))) {
                         Image(systemName: "plus")
                     }
                 }
