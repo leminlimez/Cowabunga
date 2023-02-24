@@ -171,8 +171,8 @@ struct ThemesView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .sheet(isPresented: $isImporting) {
                 DocumentPicker(types: [
-                    .folder,
-                    UTType(filenameExtension: "theme") ?? .zip
+                    .folder
+                    //UTType(filenameExtension: "theme") ?? .zip
                 ]) { result in
                     if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
                     let url: URL = result.first!

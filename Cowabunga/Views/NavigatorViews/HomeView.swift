@@ -49,8 +49,10 @@ struct HomeView: View {
     @StateObject var appIconViewModel = ChangeAppIconViewModel()
     
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
+    
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
+    @State var bgTasksVisible: Bool = false
     
     @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
     @State private var autoFetchLocks: Bool = UserDefaults.standard.bool(forKey: "AutoFetchLocks")
@@ -111,6 +113,89 @@ struct HomeView: View {
                 }
                 
                 Section {
+                    // MARK: Background Run Frequency
+                    HStack {
+                        Text("Update Frequency")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button(bgUpdateIntervalDisplayTitles[bgUpdateInterval] ?? "Error", action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Choose an update option", comment: "Title for choosing background update interval"), message: "", preferredStyle: .actionSheet)
+                            
+                            // create the actions
+                            for (t, title) in bgUpdateIntervalDisplayTitles {
+                                let newAction = UIAlertAction(title: NSLocalizedString(title, comment: "The option title for background frequency"), style: .default) { (action) in
+                                    // apply the type
+                                    bgUpdateInterval = t
+                                    // set the default
+                                    UserDefaults.standard.set(t, forKey: "BackgroundUpdateInterval")
+                                    // update the timer
+                                    backgroundController.time = bgUpdateInterval
+                                }
+                                if bgUpdateInterval == t {
+                                    // add a check mark
+                                    newAction.setValue(true, forKey: "checked")
+                                }
+                                alert.addAction(newAction)
+                            }
+                            
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // MARK: Run in Background Toggle
+                    HStack {
+                        Toggle(isOn: $runInBackground) {
+                            HStack {
+                                Text("Run in background")
+                                    .minimumScaleFactor(0.5)
+                                /*Button(action: {
+                                    UIApplication.shared.alert(title: "Run in Background", body: "Use location services to keep the dock and folder background hidden. Location Services must be set to ALWAYS")
+                                }) {
+                                    Image(systemName: "info.circle")
+                                }*/
+                            }
+                        }.onChange(of: runInBackground) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "BackgroundApply")
+                            var newWord: String = "Enabled"
+                            if new == false {
+                                newWord = "Disabled"
+                                ApplicationMonitor.shared.stop()
+                            }
+                            UIApplication.shared.confirmAlert(title: "Background Applying \(newWord)", body: "The app needs to restart to apply the change.", onOK: {
+                                exit(0)
+                            }, noCancel: true)
+                            //BackgroundFileUpdaterController.shared.enabled = new
+                        }
+                    }
+                    
+                    // MARK: Manage Background Tasks
+                    Button("Manage Background Tasks", action: {
+                        bgTasksVisible.toggle()
+                    })
+                } header: {
+                    Label("Background Applying", systemImage: "photo")
+                }
+                
+                Section {
                     // app preferences
                     // lock type prefs
                     if LockManager.deviceLockPath[deviceType] != nil {
@@ -162,80 +247,6 @@ struct HomeView: View {
                             })
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
-                        }
-                    }
-                    
-                    // background run frequency
-                    HStack {
-                        Text("Background Update Frequency")
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                        
-                        Button(bgUpdateIntervalDisplayTitles[bgUpdateInterval] ?? "Error", action: {
-                            // create and configure alert controller
-                            let alert = UIAlertController(title: NSLocalizedString("Choose an update option", comment: "Title for choosing background update interval"), message: "", preferredStyle: .actionSheet)
-                            
-                            // create the actions
-                            for (t, title) in bgUpdateIntervalDisplayTitles {
-                                let newAction = UIAlertAction(title: NSLocalizedString(title, comment: "The option title for background frequency"), style: .default) { (action) in
-                                    // apply the type
-                                    bgUpdateInterval = t
-                                    // set the default
-                                    UserDefaults.standard.set(t, forKey: "BackgroundUpdateInterval")
-                                    // update the timer
-                                    backgroundController.time = bgUpdateInterval
-                                }
-                                if bgUpdateInterval == t {
-                                    // add a check mark
-                                    newAction.setValue(true, forKey: "checked")
-                                }
-                                alert.addAction(newAction)
-                            }
-                            
-                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
-                                // cancels the action
-                            }
-                            
-                            // add the actions
-                            alert.addAction(cancelAction)
-                            
-                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                            // present popover for iPads
-                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                            
-                            // present the alert
-                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
-                        })
-                        .foregroundColor(.blue)
-                        .padding(.leading, 10)
-                    }
-                    
-                    // run in background toggle
-                    HStack {
-                        Toggle(isOn: $runInBackground) {
-                            HStack {
-                                Text("Run in background")
-                                    .minimumScaleFactor(0.5)
-                                /*Button(action: {
-                                    UIApplication.shared.alert(title: "Run in Background", body: "Use location services to keep the dock and folder background hidden. Location Services must be set to ALWAYS")
-                                }) {
-                                    Image(systemName: "info.circle")
-                                }*/
-                            }
-                        }.onChange(of: runInBackground) { new in
-                            // set the user defaults
-                            UserDefaults.standard.set(new, forKey: "BackgroundApply")
-                            var newWord: String = "Enabled"
-                            if new == false {
-                                newWord = "Disabled"
-                                ApplicationMonitor.shared.stop()
-                            }
-                            UIApplication.shared.confirmAlert(title: "Background Applying \(newWord)", body: "The app needs to restart to apply the change.", onOK: {
-                                exit(0)
-                            }, noCancel: true)
-                            //BackgroundFileUpdaterController.shared.enabled = new
                         }
                     }
                     
@@ -326,6 +337,9 @@ struct HomeView: View {
             if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, build != "0" {
                 versionBuildString = "Beta \(build)"
             }
+        }
+        .sheet(isPresented: $bgTasksVisible) {
+            BackgroundEnablerView(isVisible: $bgTasksVisible)
         }
     }
     
