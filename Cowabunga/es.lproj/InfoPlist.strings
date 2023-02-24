@@ -4,6 +4,9 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Icon Theme" = "Temas de iconos";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Cowabunga necesita permiso para poder hacer las modificaciones (obligatorio para los cambios)";
 

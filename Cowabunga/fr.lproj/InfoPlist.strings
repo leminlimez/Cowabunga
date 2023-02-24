@@ -4,6 +4,12 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "Opération de Cowabunga";
+
+/* (No Comment) */
+"Icon Theme" = "Pack d'cones";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Autoriser l'application Cowabunga à obtenir un accès complet au disque (pour activer la modification des touches du code par exemple) ?";
 
@@ -18,4 +24,13 @@
 
 /* (No Comment) */
 "Passcode Theme File" = "Thème de touche de mot-de-passe";
+
+/* (No Comment) */
+"Theme Archive File" = "Archive de thème";
+
+/* (No Comment) */
+"TrueType collection" = "Collection TrueType";
+
+/* (No Comment) */
+"TrueType font" = "Police TrueType";
 
