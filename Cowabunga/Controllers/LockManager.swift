@@ -55,6 +55,7 @@ class LockManager {
         "iPad13,10": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
         "iPad13,9": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
         "iPad13,8": "2x-120fps~ipad", // iPad Pro (12.9-inch) (5th generation)
+        "iPad8,11": "2x-120fps~ipad", // iPad Pro (12.9-inch) (4th generation)
         
         "iPad13,7": "2x-120fps~ipad", // iPad Pro (11-inch) (3th generation)
         "iPad13,6": "2x-120fps~ipad", // iPad Pro (11-inch) (3th generation)
