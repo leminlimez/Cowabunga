@@ -14,7 +14,7 @@
 "%lld bytes" = "%lld بايت";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ تحذير ⚠️\nواجه بعض المستخدمين bootloop باستخدام هذه الميزة. إذا لم تكن قد استخدمته من قبل ، فيرجى المتابعة بحذر.";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ من فضلك اقرأ ⬇⚠️\n\n بعد إعادة تشغيل الهاتف ، يرجى * إعادة فتح Cowabunga * لإصلاح التطبيقات التي لا تعمل بشكل صحيح\n\nمهم جدًا: إذا رأيت شعار Apple وشريط التقدم ، فلا تقلق ، جهازك على ما يرام. من فضلك لا تحاول فرض إعادة تشغيله.\n\nالوقت المنقضي: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
@@ -24,6 +24,9 @@
 
 /* No comment provided by engineer. */
 "Action" = "الإجراء";
+
+/* No comment provided by engineer. */
+"Active" = "نشط";
 
 /* No comment provided by engineer. */
 "Add Value" = "إضافة قيمة";
@@ -85,6 +88,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "!تم حفظ سمة التطبيق بنجاح";
 
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "طبق جميع التعديلات التي تم تطبيقها من قبل.";
+
 /* No comment provided by engineer. */
 "Apply" = "تطبيق";
 
@@ -100,6 +106,12 @@
 /* No comment provided by engineer. */
 "Apply themes" = "تطبيق السمات";
 
+/* No comment provided by engineer. */
+"Apply Without Saving" = "تطبيق بدون حفظ";
+
+/* No comment provided by engineer. */
+"Applying fonts..." = "تطبيق الخطوط...";
+
 /* apply button on custom operations */
 "Applying operation..." = "جارٍ تطبيق العملية...";
 
@@ -111,6 +123,9 @@
 
 /* No comment provided by engineer. */
 "Audio Changer" = "مبدل الصوت";
+
+/* Header for inputting your name */
+"Author Name" = "اسم المؤلف";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "إعادة التشغيل التلقائي بعد التطبيق";
@@ -144,6 +159,9 @@
 
 /* No comment provided by engineer. */
 "Blacklist File Contents" = "محتويات ملف القائمة السوداء";
+
+/* No comment provided by engineer. */
+"Blur Enabled" = "تمكين الضبابية";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "الضبابية:   %lld";
@@ -194,6 +212,9 @@
 "Choose a name for the category" = "اختر اسمًا للفئة";
 
 /* No comment provided by engineer. */
+"Choose a name for the font pack" = "اختر اسمًا لحزمة الخطوط";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "اختر اسماً للقفل";
 
 /* Entering name for audio */
@@ -226,6 +247,15 @@
 /* No comment provided by engineer. */
 "Close" = "إغلاق";
 
+/* operation type that changes colors */
+"Color" = "لون";
+
+/* No comment provided by engineer. */
+"Color Data" = "بيانات اللون";
+
+/* No comment provided by engineer. */
+"Configuration" = "تكوين";
+
 /* No comment provided by engineer. */
 "Confirm" = "تأكيد";
 
@@ -237,6 +267,12 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "تعذر حساب حجم plist!";
+
+/* when color styles could not be determined */
+"Could not detect styles." = "تعذر اكتشاف الأنماط.";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "تعذر تنزيل السمة!";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "تعذر الحصول على عنوان URL للملف. هل قمت بتحديده؟";
@@ -261,6 +297,9 @@
 
 /* No comment provided by engineer. */
 "Create" = "إنشاء";
+
+/* No comment provided by engineer. */
+"Create Operation" = "إنشاء عملية";
 
 /* No comment provided by engineer. */
 "Credits" = "الاعتمادات";
@@ -291,11 +330,14 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "حذف لافتات الاختصار";
 
+/* No comment provided by engineer. */
+"Deleting" = "جاري الحذف";
+
 /* delete button on custom operations */
 "Deleting operation..." = "جارٍي حذف العملية...";
 
 /* No comment provided by engineer. */
-"Device Resolution" = "دقة الجهاز";
+"Determine Styles" = "تحديد الأنماط";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "محرر وجه مفاتيح الاتصال";
@@ -324,11 +366,14 @@
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "تعطيل اختصار التطبيقات كما Appclips";
 
-/* No comment provided by engineer. */
+/* Run in background option */
 "Dock" = "البار السفلي";
 
 /* No comment provided by engineer. */
 "Download themes in Themes tab." = "قم بتنزيل السمات في علامة تبويب السمات.";
+
+/* No comment provided by engineer. */
+"Downloading" = "جارى التحميل";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "جزيرة ديناميكية";
@@ -338,6 +383,9 @@
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "الأنواع الفرعية للجزيرة الديناميكية";
+
+/* No comment provided by engineer. */
+"Edit Operation" = "تحرير العملية";
 
 /* No comment provided by engineer. */
 "Editing %@" = "تعديل %@";
@@ -366,6 +414,9 @@
 /* No comment provided by engineer. */
 "Enter Name" = "أدخل الاسم";
 
+/* Message for inputting your name in custom operation */
+"Enter your name and you will be credited for creating the operation." = "أدخل اسمك وسيتم اعتمادك لإنشاء العملية.";
+
 /* No comment provided by engineer. */
 "Error" = "خطأ";
 
@@ -393,6 +444,9 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "فشل تطبيق النوع الفرعي للجهاز!";
 
+/* No comment provided by engineer. */
+"Failed to apply fonts!" = "فشل في تطبيق الخطوط!";
+
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = ":فشل في تطبيق الدقة";
 
@@ -403,7 +457,22 @@
 "Failed to create category" = "فشل إنشاء الفئة";
 
 /* No comment provided by engineer. */
+"Failed to delete font file!" = "فشل حذف ملف الخط!";
+
+/* No comment provided by engineer. */
+"Failed to delete font pack!" = "فشل حذف حزمة الخطوط!";
+
+/* No comment provided by engineer. */
+"Failed to fetch font pack files!" = "فشل في جلب ملفات حزمة الخطوط!";
+
+/* No comment provided by engineer. */
+"Failed to import font files!" = "فشل استيراد ملفات الخطوط!";
+
+/* No comment provided by engineer. */
 "Failed to load operations." = "فشل تحميل العمليات.";
+
+/* No comment provided by engineer. */
+"Failed to rename font pack!" = "فشل في إعادة تسمية حزمة الخط!";
 
 /* No comment provided by engineer. */
 "Failed to save theme!" = "!فشل في حفظ السمة";
@@ -418,6 +487,18 @@
 "Files" = "الملفات";
 
 /* No comment provided by engineer. */
+"Fill" = "ملء";
+
+/* No comment provided by engineer. */
+"Fill Name:" = "املأ الاسم:";
+
+/* No comment provided by engineer. */
+"Filter" = "تصفية";
+
+/* No comment provided by engineer. */
+"Filter Themes" = "تصفية السمات";
+
+/* No comment provided by engineer. */
 "Fix tweaks" = "إصلاح الأدوات";
 
 /* No comment provided by engineer. */
@@ -425,6 +506,15 @@
 
 /* No comment provided by engineer. */
 "Folder" = "مجلد";
+
+/* No comment provided by engineer. */
+"Font Files" = "ملفات الخطوط";
+
+/* No comment provided by engineer. */
+"Font Pack Name" = "اسم حزمة الخط";
+
+/* Title of tool */
+"Fonts" = "الخطوط";
 
 /* No comment provided by engineer. */
 "Footnote" = "حاشية سفلية";
@@ -520,6 +610,9 @@
 /* No comment provided by engineer. */
 "Icons override" = "تجاوز الأيقونات";
 
+/* No comment provided by engineer. */
+"If a file of the same name already exists in the pack, it will be overwritten." = "إذا كان الملف بنفس اسم الملف الموجود في الحزمة، فسيتم الكتابة فوقة.";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "إذا كان القفل المخصص لا ينطبق عليك، فجرّب خيارًا آخر.";
 
@@ -535,10 +628,8 @@
 /* No comment provided by engineer. */
 "Included" = "مشمول";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "متضمن الصوت والاعتمادات ومبدل البطاقة";
-
-/* respring info header */
+/* fix tweaks info header
+   respring info header */
 "Info" = "معلومات";
 
 /* Header for inputting custom iOS version */
@@ -627,6 +718,9 @@
 "New Mail" = "بريد جديد";
 
 /* No comment provided by engineer. */
+"New Operation" = "عملية جديدة";
+
+/* No comment provided by engineer. */
 "New theme name" = "اسم السمة الجديد";
 
 /* Decline apply for all (passcode keys) */
@@ -655,6 +749,9 @@
 
 /* No comment provided by engineer. */
 "Open Settings" = "فتح الإعدادات";
+
+/* failing to export custom operation */
+"Operation export failed!" = "فشل تصدير العملية!";
 
 /* No comment provided by engineer. */
 "Operation Name" = "اسم العملية";
@@ -716,9 +813,6 @@
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "يرجى تسجيل الدخول إلى حساب Sourced Repo للمتابعة";
 
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "يرجى إعادة التشغيل السريع لوضع اللمسات الأخيرة على التغييرات. أعد التشغيل للرجوع.";
-
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "يرجى إعادة التشغيل السريع لإنهاء تطبيق التغييرات.";
 
@@ -737,6 +831,9 @@
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "يرجى الانتظار حتى تنتهي Cowabunga من وضعهم...";
 
+/* No comment provided by engineer. */
+"Please wait..." = "الرجاء الانتظار...";
+
 /* operation type that changes plist keys */
 "Plist" = "Plist";
 
@@ -754,6 +851,9 @@
 
 /* No comment provided by engineer. */
 "Preferences" = "التفضيلات";
+
+/* Successfully applying custom resolution */
+"Reboot to revert resolution changes. It will auto respring when done" = "أعد التشغيل للتراجع عن تغييرات الدقة. سوف يعيد التشغيل السريع تلقائيا عند الانتهاء";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "إعادة بناء التخزين المؤقت للأيقونة";
@@ -792,6 +892,9 @@
 "Reset faces" = "إعادة تعيين الوجوه";
 
 /* No comment provided by engineer. */
+"Resolution will now apply" = "سيتم تطبيق الدقة الآن";
+
+/* No comment provided by engineer. */
 "Respring" = "إعادة التشغيل السريع";
 
 /* respring info */
@@ -827,11 +930,23 @@
 /* No comment provided by engineer. */
 "Scheduling icon cache reset..." = "إعادة تعيين التخزين المؤقت للأيقونة...";
 
+/* No comment provided by engineer. */
+"Screen Time Enabled" = "تمكين مدة استخدام الجهاز";
+
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "تم تعطيل مدة استخدام الجهاز بنجاح ، يرجى إعادة التشغيل لإنهاء التطبيق. ستتمكن من تمكين الاتصال بعد إعادة التشغيل.";
+
 /* Audio name */
 "Screenshot" = "لقطة شاشة";
 
+/* c22dev's contribution */
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "مزيل مدة استخدام الجهاز، الاصوت المُضمنة، والاعتمادات، ومغير البطاقة";
+
 /* No comment provided by engineer. */
 "Select" = "تحديد";
+
+/* No comment provided by engineer. */
+"Select Font Pack" = "حدد حزمة الخط";
 
 /* No comment provided by engineer. */
 "Selected" = "مختار";
@@ -846,10 +961,16 @@
 "Set app switcher color" = "تعيين لون مبدل التطبيقات";
 
 /* No comment provided by engineer. */
+"Set as Active" = "تعيين كنشط";
+
+/* No comment provided by engineer. */
 "Set badge color" = "تعيين لون الشارة";
 
 /* No comment provided by engineer. */
 "Set cc module color" = "تعيين لون عناصر مركز التحكم";
+
+/* No comment provided by engineer. */
+"Set color" = "تعيين اللون";
 
 /* No comment provided by engineer. */
 "Set dock color" = "تعيين لون البار السفلي";
@@ -900,6 +1021,12 @@
 "Status Bar Time Text" = "نص وقت شريط الحالة";
 
 /* No comment provided by engineer. */
+"Stroke" = "ضربة";
+
+/* No comment provided by engineer. */
+"Stroke Name:" = "اسم الضربة:";
+
+/* No comment provided by engineer. */
 "Submit themes" = "إرسال السمات";
 
 /* No comment provided by engineer. */
@@ -935,6 +1062,12 @@
 /* when an operation is restored */
 "The file was successfully restored!" = "!تمت استعادة الملف بنجاح";
 
+/* Creating font pack */
+"The font pack folder was successfully created." = "تم إنشاء مجلد حزمة الخط بنجاح.";
+
+/* No comment provided by engineer. */
+"The fonts were successfully replaced" = "تم استبدال الخطوط بنجاح";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "تم ترميز الصوت المستورد وحفظه بنجاح.";
 
@@ -947,14 +1080,26 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "تم حذف العملية بنجاح!";
 
+/* when importing a custom operation */
+"The operation was successfully imported." = "تم استيراد العملية بنجاح.";
+
 /* when an operation is saved */
 "The operation was successfully saved!" = "تم حفظ العملية بنجاح!";
+
+/* No comment provided by engineer. */
+"The theme was successfully downloaded and saved!" = "تم تنزيل السمة وحفظها بنجاح!";
 
 /* failed to select icon */
 "Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = ".السمة التي تحمل الاسم (url.deletingPathExtension().lastPathComponent) موجودة بالفعل. الرجاء إعادة تسمية المجلد";
 
 /* No comment provided by engineer. */
 "Themes" = "السمات";
+
+/* loading font packs */
+"There was an error getting font packs." = "حدث خطأ في الحصول على حزم الخطوط.";
+
+/* screentime process */
+"This could cause issues. Make sure to disable data or Wi-Fi." = "هذا يمكن أن يسبب المشاكل. تأكد من تعطيل البيانات أو Wi-Fi.";
 
 /* No comment provided by engineer. */
 "Tools" = "الأدوات";
@@ -967,6 +1112,9 @@
 
 /* No comment provided by engineer. */
 "Type:" = "النوع:";
+
+/* Failed to create font pack */
+"Unable to create font pack!" = "فشل في إنشاء حزمة الخط!";
 
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "تعذر حذف الصوت للصوت";
@@ -1000,6 +1148,9 @@
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "استخدم هذا إذا كان جهازك يكتشف عن طريق الخطأ تثبيت TrollStore، وليس لديك زر تطبيق في الجزء العلوي من صفحة شريط الحالة.";
+
+/* No comment provided by engineer. */
+"Uses Styles" = "يستخدم الأنماط";
 
 /* No comment provided by engineer. */
 "validate" = "التحقق من الصحة";
@@ -1055,6 +1206,9 @@
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "يجب أن تعمل تطبيقاتك الآن بشكل صحيح";
+
+/* No comment provided by engineer. */
+"Your device is connected to internet!" = "جهازك متصل بالإنترنت!";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "سيتم إعادة التشغيل السريع.";

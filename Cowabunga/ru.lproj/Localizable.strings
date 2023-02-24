@@ -14,7 +14,7 @@
 "%lld bytes" = "%lld байт";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ Предупреждение ⚠️\nНекоторые пользователи сталкиваются с циклической перезагрузкой устройства при использовании этой функции.";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ПРОЧИТАЙТЕ ⬇⚠️\n\nПосле перезапуска SpringBoard *откройте Cowabunga*, чтобы исправить приложения, которые не работают нормально.\n\nОЧЕНЬ ВАЖНО: Если Вы увидите логотип Apple с индикатором выполнения, НЕ ПЫТАЙТЕСЬ ПРИНУДИТЕЛЬНО ПЕРЕЗАГРУЗИТЬ УСТРОЙСТВО, просто ждите.\n\nЗатраченное время: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0) секунд";
@@ -24,6 +24,9 @@
 
 /* No comment provided by engineer. */
 "Action" = "Действие";
+
+/* No comment provided by engineer. */
+"Active" = "Используется сейчас";
 
 /* No comment provided by engineer. */
 "Add Value" = "Добавить значение";
@@ -85,6 +88,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "Тема приложения успешно сохранена!";
 
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "Исправление твиков применяет все примененные ранее твики.";
+
 /* No comment provided by engineer. */
 "Apply" = "Применить";
 
@@ -100,6 +106,12 @@
 /* No comment provided by engineer. */
 "Apply themes" = "Применить темы";
 
+/* No comment provided by engineer. */
+"Apply Without Saving" = "Применить без сохранения";
+
+/* No comment provided by engineer. */
+"Applying fonts..." = "Применение шрифтов...";
+
 /* apply button on custom operations */
 "Applying operation..." = "Применение операции...";
 
@@ -111,6 +123,9 @@
 
 /* No comment provided by engineer. */
 "Audio Changer" = "Редактор звуков";
+
+/* Header for inputting your name */
+"Author Name" = "Автор";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "Перезапускать SpringBoard автоматически после применения твиков";
@@ -146,6 +161,9 @@
 "Blacklist File Contents" = "Содержание файлов черных списков";
 
 /* No comment provided by engineer. */
+"Blur Enabled" = "Размытие включено";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Размытие:  %lld";
 
 /* No comment provided by engineer. */
@@ -158,7 +176,7 @@
 "Cancel" = "Отменить";
 
 /* Title of tool */
-"Card Changer" = "Редактор карты";
+"Card Changer" = "Редактор карт";
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Название оператора";
@@ -194,7 +212,10 @@
 "Choose a name for the category" = "Выберите имя категории";
 
 /* No comment provided by engineer. */
-"Choose a name for the lock" = "Выберите имя для значка замка";
+"Choose a name for the font pack" = "Выберите имя пакета шрифтов";
+
+/* No comment provided by engineer. */
+"Choose a name for the lock" = "Выберите имя значка замка";
 
 /* Entering name for audio */
 "Choose a name for the sound" = "Выберите имя звука";
@@ -226,6 +247,15 @@
 /* No comment provided by engineer. */
 "Close" = "Закрыть";
 
+/* operation type that changes colors */
+"Color" = "Изменение цвета";
+
+/* No comment provided by engineer. */
+"Color Data" = "Данные цвета";
+
+/* No comment provided by engineer. */
+"Configuration" = "Конфигурация";
+
 /* No comment provided by engineer. */
 "Confirm" = "Подтвердить";
 
@@ -237,6 +267,12 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "Не удалось вычислить размер файла plist!";
+
+/* when color styles could not be determined */
+"Could not detect styles." = "Не удалось определить стили.";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "Не удалось загрузить тему!";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "Не удалось получить путь к файлу. Вы файл-то выбрали?";
@@ -261,6 +297,9 @@
 
 /* No comment provided by engineer. */
 "Create" = "Создать";
+
+/* No comment provided by engineer. */
+"Create Operation" = "Создать операцию";
 
 /* No comment provided by engineer. */
 "Credits" = "Авторы";
@@ -291,11 +330,14 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "Убрать баннер быстрой команды";
 
+/* No comment provided by engineer. */
+"Deleting" = "Удаление";
+
 /* delete button on custom operations */
 "Deleting operation..." = "Удаление операции...";
 
 /* No comment provided by engineer. */
-"Device Resolution" = "Разрешение устройства";
+"Determine Styles" = "Определить стили";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "Редактор тем клавиш звонилки";
@@ -324,11 +366,14 @@
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "Отключить приложения быстрых команд как блиц-приложения";
 
-/* No comment provided by engineer. */
+/* Run in background option */
 "Dock" = "Панель Dock";
 
 /* No comment provided by engineer. */
 "Download themes in Themes tab." = "Скачайте темы во вкладке Темы.";
+
+/* No comment provided by engineer. */
+"Downloading" = "Загрузка";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "Динамический остров";
@@ -338,6 +383,9 @@
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "Подтипы динамического острова";
+
+/* No comment provided by engineer. */
+"Edit Operation" = "Редактировать операцию";
 
 /* No comment provided by engineer. */
 "Editing %@" = "Редактирование %@";
@@ -366,6 +414,9 @@
 /* No comment provided by engineer. */
 "Enter Name" = "Введите имя";
 
+/* Message for inputting your name in custom operation */
+"Enter your name and you will be credited for creating the operation." = "Введите Ваше имя для присвоения авторства операции";
+
 /* No comment provided by engineer. */
 "Error" = "Ошибка";
 
@@ -393,6 +444,9 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "Не удалось применить подтип устройства!";
 
+/* No comment provided by engineer. */
+"Failed to apply fonts!" = "Не удалось применить шрифты!";
+
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "Не удалось применить разрешение:";
 
@@ -403,7 +457,22 @@
 "Failed to create category" = "Не удалось создать категорию";
 
 /* No comment provided by engineer. */
+"Failed to delete font file!" = "Не удалось удалить файл шрифта!";
+
+/* No comment provided by engineer. */
+"Failed to delete font pack!" = "Не удалось удалить пакет шрифтов!";
+
+/* No comment provided by engineer. */
+"Failed to fetch font pack files!" = "Не удалось получить файлы пакета шрифтов!";
+
+/* No comment provided by engineer. */
+"Failed to import font files!" = "Не удалось импортировать файлы шрифта!";
+
+/* No comment provided by engineer. */
 "Failed to load operations." = "Не удалось загрузить операции.";
+
+/* No comment provided by engineer. */
+"Failed to rename font pack!" = "Не удалось переименовать пакет шрифтов!";
 
 /* No comment provided by engineer. */
 "Failed to save theme!" = "Не удалось сохранить тему!";
@@ -418,6 +487,18 @@
 "Files" = "Файлы";
 
 /* No comment provided by engineer. */
+"Fill" = "Заполнить";
+
+/* No comment provided by engineer. */
+"Fill Name:" = "Введите имя:";
+
+/* No comment provided by engineer. */
+"Filter" = "Фильтр";
+
+/* No comment provided by engineer. */
+"Filter Themes" = "Фильтровать темы";
+
+/* No comment provided by engineer. */
 "Fix tweaks" = "Исправить твики";
 
 /* No comment provided by engineer. */
@@ -425,6 +506,15 @@
 
 /* No comment provided by engineer. */
 "Folder" = "Папка";
+
+/* No comment provided by engineer. */
+"Font Files" = "Файлы шрифта";
+
+/* No comment provided by engineer. */
+"Font Pack Name" = "Имя пакета шрифтов";
+
+/* Title of tool */
+"Fonts" = "Шрифты";
 
 /* No comment provided by engineer. */
 "Footnote" = "Сноска";
@@ -520,6 +610,9 @@
 /* No comment provided by engineer. */
 "Icons override" = "Изменение иконок";
 
+/* No comment provided by engineer. */
+"If a file of the same name already exists in the pack, it will be overwritten." = "Если файл с таким именем уже существует в пакете, он будет перезаписан.";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "Если смена значка замка не работает, выберите другой пункт.";
 
@@ -535,10 +628,8 @@
 /* No comment provided by engineer. */
 "Included" = "Встроенные";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "Звуки, авторы, редактор карты";
-
-/* respring info header */
+/* fix tweaks info header
+   respring info header */
 "Info" = "Информация";
 
 /* Header for inputting custom iOS version */
@@ -627,6 +718,9 @@
 "New Mail" = "Новое письмо";
 
 /* No comment provided by engineer. */
+"New Operation" = "Новая операция";
+
+/* No comment provided by engineer. */
 "New theme name" = "Название темы";
 
 /* Decline apply for all (passcode keys) */
@@ -655,6 +749,9 @@
 
 /* No comment provided by engineer. */
 "Open Settings" = "Открыть Настройки";
+
+/* failing to export custom operation */
+"Operation export failed!" = "Не удалось экспортировать операцию!";
 
 /* No comment provided by engineer. */
 "Operation Name" = "Имя операции";
@@ -716,9 +813,6 @@
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Войдите в аккаунт Sourced для продолжения";
 
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "Перезапустите SpringBoard, чтобы завершить применение изменений. Перезагрузите устройство для отмены изменений.";
-
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "Перезапустите SpringBoard, чтобы изменения вступили в силу.";
 
@@ -737,6 +831,9 @@
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "Подождите завершения применения темы...";
 
+/* No comment provided by engineer. */
+"Please wait..." = "Пожалуйста, подождите...";
+
 /* operation type that changes plist keys */
 "Plist" = "Изменение файла Plist";
 
@@ -754,6 +851,9 @@
 
 /* No comment provided by engineer. */
 "Preferences" = "Параметры";
+
+/* Successfully applying custom resolution */
+"Reboot to revert resolution changes. It will auto respring when done" = "Перезагрузите устройство, чтобы вернуть оригинальное разрешение.";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "Пересобрать кэш иконок";
@@ -792,6 +892,9 @@
 "Reset faces" = "Сбросить клавиши";
 
 /* No comment provided by engineer. */
+"Resolution will now apply" = "Разрешение будет применено";
+
+/* No comment provided by engineer. */
 "Respring" = "Перезапустить SpringBoard";
 
 /* respring info */
@@ -827,11 +930,23 @@
 /* No comment provided by engineer. */
 "Scheduling icon cache reset..." = "Сброс кэша иконок...";
 
+/* No comment provided by engineer. */
+"Screen Time Enabled" = "Экранное время";
+
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "Функция «Экранное время» успешно отключена. Перезагрузите устройство, после чего Вы сможете подключиться к интернету.";
+
 /* Audio name */
 "Screenshot" = "Снимок экрана";
 
+/* c22dev's contribution */
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "Удаление Экранного времени, звуки, авторы, редактор карт";
+
 /* No comment provided by engineer. */
 "Select" = "Выбрать";
+
+/* No comment provided by engineer. */
+"Select Font Pack" = "Выбрать";
 
 /* No comment provided by engineer. */
 "Selected" = "Выбранное";
@@ -846,10 +961,16 @@
 "Set app switcher color" = "Цвет многозадачности";
 
 /* No comment provided by engineer. */
+"Set as Active" = "Использовать";
+
+/* No comment provided by engineer. */
 "Set badge color" = "Цвет наклеек";
 
 /* No comment provided by engineer. */
 "Set cc module color" = "Цвет модуля ЦУ";
+
+/* No comment provided by engineer. */
+"Set color" = "Цвет";
 
 /* No comment provided by engineer. */
 "Set dock color" = "Цвет панели Dock";
@@ -900,6 +1021,12 @@
 "Status Bar Time Text" = "Время в строке состояния";
 
 /* No comment provided by engineer. */
+"Stroke" = "Обводка";
+
+/* No comment provided by engineer. */
+"Stroke Name:" = "Имя обводки:";
+
+/* No comment provided by engineer. */
 "Submit themes" = "Отправить темы";
 
 /* No comment provided by engineer. */
@@ -935,6 +1062,12 @@
 /* when an operation is restored */
 "The file was successfully restored!" = "Файл успешно восстановлен!";
 
+/* Creating font pack */
+"The font pack folder was successfully created." = "Пакет шрифтов успешно создан.";
+
+/* No comment provided by engineer. */
+"The fonts were successfully replaced" = "Шрифты успешно заменены";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "Импортированный звук успешно сохранен.";
 
@@ -947,14 +1080,26 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "Операция успешно удалена!";
 
+/* when importing a custom operation */
+"The operation was successfully imported." = "Операция успешно импортирована.";
+
 /* when an operation is saved */
 "The operation was successfully saved!" = "Операция успешно сохранена!";
+
+/* No comment provided by engineer. */
+"The theme was successfully downloaded and saved!" = "Тема успешно загружена и сохранена!";
 
 /* failed to select icon */
 "Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "Тема с именем (url.deletingPathExtension().lastPathComponent) уже существует. Выберите другое имя.";
 
 /* No comment provided by engineer. */
 "Themes" = "Темы";
+
+/* loading font packs */
+"There was an error getting font packs." = "При получении пакетов шрифтов произошла ошибка.";
+
+/* screentime process */
+"This could cause issues. Make sure to disable data or Wi-Fi." = "Это может привести к проблемам. Убедитесь, что сотовые данные или Wi-Fi отключены.";
 
 /* No comment provided by engineer. */
 "Tools" = "Твики";
@@ -967,6 +1112,9 @@
 
 /* No comment provided by engineer. */
 "Type:" = "Тип:";
+
+/* Failed to create font pack */
+"Unable to create font pack!" = "Не удалось создать пакет шрифтов!";
 
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "Не удалось удалить звук для";
@@ -1000,6 +1148,9 @@
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Используйте это, если Ваше устройство ошибочно считает, что установлен TrollStore, и у Вас нет кнопки «Применить» во вкладке Строка состояния.";
+
+/* No comment provided by engineer. */
+"Uses Styles" = "Использует стиль";
 
 /* No comment provided by engineer. */
 "validate" = "Проверить";
@@ -1055,6 +1206,9 @@
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "Сейчас приложения должны работать нормально";
+
+/* No comment provided by engineer. */
+"Your device is connected to internet!" = "Ваше устройство подключено к интернету!";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "SpringBoard перезапустится.";
