@@ -4,6 +4,12 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "عملية Cowabunga";
+
+/* (No Comment) */
+"Icon Theme" = "أيقونة السمة";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "منح الإذن لصندوق الرمل (يحتاجه لمفاتيح رمز المرور + بعض الخيارات الأخرى)";
 
@@ -21,4 +27,10 @@
 
 /* (No Comment) */
 "Theme Archive File" = "ملف أرشيف السمة";
+
+/* (No Comment) */
+"TrueType collection" = "مجموعة TrueType";
+
+/* (No Comment) */
+"TrueType font" = "خط TrueType";
 
