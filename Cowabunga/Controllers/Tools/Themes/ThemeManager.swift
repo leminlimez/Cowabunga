@@ -114,7 +114,7 @@ class ThemeManager: ObservableObject {
         var name = importURL.deletingPathExtension().lastPathComponent
         var finalURL = importURL
         try? fm.createDirectory(at: rawThemesDir, withIntermediateDirectories: true)
-        var themeURL = rawThemesDir.appendingPathComponent(name)
+        let themeURL = rawThemesDir.appendingPathComponent(name)
         
         if importURL.lastPathComponent.contains(".theme") {
             // unzip
@@ -124,7 +124,7 @@ class ThemeManager: ObservableObject {
             
             for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
                 if folder.deletingPathExtension().lastPathComponent == "IconBundles" {
-                    name = importURL.lastPathComponent.replacingOccurrences(of: ".theme", with: "")
+                    name = importURL.deletingPathExtension().lastPathComponent
                     finalURL = folder
                     break
                 }
