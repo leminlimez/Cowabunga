@@ -18,8 +18,9 @@ struct ImportingFontsView: View {
                 HStack {
                     Text("Select Font Pack")
                         .font(.largeTitle)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 5)
+                        .padding(.horizontal, 40)
+                        .padding(.top, 20)
+                        .padding(.bottom, 5)
                     
                     Spacer()
                     
@@ -65,7 +66,9 @@ struct ImportingFontsView: View {
                     }) {
                         Image(systemName: "plus")
                             .foregroundColor(.blue)
-                            .padding(5)
+                            .padding(.horizontal, 5)
+                            .padding(.bottom, 5)
+                            .padding(.top, 20)
                             .font(.title2)
                     }
                     
@@ -95,8 +98,9 @@ struct ImportingFontsView: View {
                     }) {
                         Image(systemName: "checkmark.circle")
                             .foregroundColor(.blue)
-                            .padding(.trailing, 20)
-                            .padding(.vertical, 5)
+                            .padding(.trailing, 40)
+                            .padding(.top, 20)
+                            .padding(.bottom, 5)
                             .font(.title2)
                     }
                 }
