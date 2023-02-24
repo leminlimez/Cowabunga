@@ -787,7 +787,15 @@
 "No file selected!" = "未选择文件！";
 "⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ 警告⚠️\n建议有经验的用户使用此功能。如果您以前没有使用过，请谨慎操作。";
 "Fonts" = "字体";
-"Choose a name for the font pack" = "选择字体包的名称";
+"Choose a name for the font pack" = "添加字体包的名称";
 "None" = "无";
 "Apply Without Saving" = "应用并保存";
 "ScreenTime Remover, Included Audio, Credits, and Card Changer" = "屏幕时间删除程序,包括音频、卡片和换卡器";
+"Editing %@" = "编辑 %@";
+"Configuration" = "配置";
+"Set as Active" = "应用";
+"Font Files" = "字体文件";
+"Failed to delete font file!" = "删除字体文件失败！";
+"Couldn't get url of file. Did you select it?" = "无法获取文件的url。您选择正确了吗？";
+"Failed to import font files!" = "导入字体文件失败！";
+"Active" = "激活";
