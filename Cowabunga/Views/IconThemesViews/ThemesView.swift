@@ -7,6 +7,7 @@
 
 import MacDirtyCowSwift
 import SwiftUI
+import UniformTypeIdentifiers
 
 @available(iOS 15, *)
 struct ThemesView: View {
@@ -169,7 +170,10 @@ struct ThemesView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .sheet(isPresented: $isImporting) {
-                DocumentPicker(types: [.folder]) { result in
+                DocumentPicker(types: [
+                    .folder,
+                    UTType(filenameExtension: "theme") ?? .zip
+                ]) { result in
                     if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
                     let url: URL = result.first!
                     if themes.contains(where: { t in
@@ -304,7 +308,9 @@ struct ThemesView: View {
     
     func rebuildIconCache() throws {
         let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
-        let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(lengthOfOldVersion == 6 ? Int.random(in: 100000...999999) : Int.random(in: 10000...99999))")
+        let minimum: Int = Int("1" + String(repeating: "0", count: lengthOfOldVersion-1)) ?? 100000
+        let maximum: Int = Int(String(repeating: "9", count: lengthOfOldVersion)) ?? 999999
+        let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(Int.random(in: minimum...maximum))")
 //
         xpc_crash("com.apple.iconservices")
 //

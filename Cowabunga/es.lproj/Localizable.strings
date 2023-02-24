@@ -13,9 +13,6 @@
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld bytes";
 
-/* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
-
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ POR FAVOR, LEE ESTO ⬇⚠️\n\n Después de que el teléfono haga respring, por favor *reabrir Cowabunga* para arreglar las aplicaciones que no funcionan correctamente\n\nMUY IMPORTANTE: Si ves el logotipo de Apple y la barra de progreso, no te preocupes, tu dispositivo está bien. POR FAVOR, NO INTENTE FORZAR SU REINICIO.\n\nTiempo transcurrido: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
@@ -116,7 +113,7 @@
 "Auto Update Included Audio" = "Auto Actualización Incluido Audio";
 
 /* No comment provided by engineer. */
-"Background" = "Segundo plano";
+"Background" = "Background";
 
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Background Update Frequency";
@@ -146,7 +143,7 @@
 "Cancel" = "Cancelar";
 
 /* Title of tool */
-"Card Changer" = "Cambiador de Tarjetaw";
+"Card Changer" = "Editor de tarjeta";
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Texto del Carrier";
@@ -161,7 +158,7 @@
 "Change Carrier Text" = "Cambiar el nombre del Carrier";
 
 /* No comment provided by engineer. */
-"Change Status Bar Time Text" = "Cambiar el texto de la barra de estatus";
+"Change Status Bar Time Text" = "Cambiar el texto de la barra de estado";
 
 /* Audio name */
 "Charging" = "Cargando";
@@ -195,6 +192,9 @@
 
 /* Title for choosing background update interval */
 "Choose an update option" = "Elige una opción de actualización";
+
+/* No comment provided by engineer. */
+"Choose app Icon" = "Elige un icono para la aplicacion";
 
 /* No comment provided by engineer. */
 "Choose size" = "Elige tamaño";
@@ -242,7 +242,7 @@
 "Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Actualmente para presentar temas para otras personas para ver y usar, nosotros tenemos que revisarlo en nuestro Discord en el canal #showcase (Nota: principalmente se habla inglés aquí)";
 
 /* Custom size for passcode keys */
-"Custom" = "Personalizado";
+"Custom" = "Custom";
 
 /* No comment provided by engineer. */
 "Custom image" = "Imagen personalizada";
@@ -266,9 +266,6 @@
 
 /* delete button on custom operations */
 "Deleting operation..." = "Eliminando operación...";
-
-/* No comment provided by engineer. */
-"Device Resolution" = "Resolución de dispositivo";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "Editor de caras de marcador";
@@ -304,16 +301,16 @@
 "Download themes in Themes tab." = "Descargar temas en la pestaña de temas.";
 
 /* iPhone 14 Pro SubType */
-"Dynamic Island" = "Isla Dinámica";
+"Dynamic Island" = "Dynamic Island";
 
 /* iPhone 14 Pro Max SubType */
-"Dynamic Island Pro Max" = "Isla Dinámica Pro Max";
+"Dynamic Island Pro Max" = "Dynamic Island Pro Max";
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "Dynamic Island SubTypes";
 
 /* No comment provided by engineer. */
-"Editing %@" = "Editando %@";
+"Editing %@" = "Editing %@";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -343,7 +340,7 @@
 "Error" = "Error";
 
 /* ginsudev's contribution */
-"Exploit Code" = "Código de Explotación";
+"Exploit Code" = "Exploit Code";
 
 /* No comment provided by engineer. */
 "Explore" = "Explorar";
@@ -406,7 +403,7 @@
 "Full reset" = "Restablecimiento completo";
 
 /* No comment provided by engineer. */
-"Gestures / Dynamic Island" = "Gestos / Isla Dinámica";
+"Gestures / Dynamic Island" = "Gestos / Dynamic Island";
 
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "Ve aquí si algo no funciona correctamente.";
@@ -467,10 +464,10 @@
 "Home" = "Home";
 
 /* Category of tool */
-"Home Screen" = "Pantalla de inicio";
+"Home Screen" = "Home Screen";
 
 /* No comment provided by engineer. */
-"I'm not a robot (no cap)" = "No soy un robot (bruh)";
+"I'm not a robot (no cap)" = "I'm not a robot (no cap)";
 
 /* No comment provided by engineer. */
 "Icons" = "Iconos";
@@ -493,44 +490,41 @@
 /* No comment provided by engineer. */
 "Included" = "Incluido";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "Audio incluido, créditos y cambiador de tarjetas";
-
 /* Header for inputting custom iOS version */
-"Input Software Version" = "Versión de software de entrada";
+"Input Software Version" = "Introduzca version de software";
 
 /* x gestures */
 "iPhone X Gestures" = "Gestos del iPhone X";
 
 /* No comment provided by engineer. */
-"Join Discord" = "Unirse al Discord";
+"Join Discord" = "Unete al Discord";
 
 /* key for plist operation */
 "Key" = "Key";
 
 /* Audio name */
-"Keyboard Press Clear" = "Pulso de despeje del teclado";
+"Keyboard Press Clear" = "Tanspariencia de teclas del teclado";
 
 /* Audio name */
-"Keyboard Press Delete" = "Pulso de eliminar del teclado";
+"Keyboard Press Delete" = "Pulsacion de eliminar en teclado";
 
 /* Audio name */
-"Keyboard Press Normal" = "Pulso normal del teclado";
+"Keyboard Press Normal" = "Pulsacion normal del teclado";
 
 /* Audio name */
 "Lock" = "Bloqueó";
 
 /* Category of tool */
-"Lock Screen" = "Pantalla de bloqueó";
+"Lock Screen" = "Pantalla de bloqueo";
 
 /* Title of tool */
-"Lock Screen Footnote" = "Footnote en pantalla de bloqueó";
+"Lock Screen Footnote" = "Texto inferior en pantalla de bloqueo";
 
 /* No comment provided by engineer. */
-"Lock Screen Footnote Changer" = "Cambiar footnote";
+"Lock Screen Footnote Changer" = "Editar texto inferior";
 
 /* No comment provided by engineer. */
-"Lock Type" = "Tipo de bloqueó";
+"Lock Type" = "Tipo de bloqueo";
 
 /* Title of tool */
 "Locks" = "Bloqueos";
@@ -542,11 +536,11 @@
 "Log in Sourced" = "Iniciar sesión de origen";
 
 /* Audio name */
-"Low Power" = "Ahorro de batería";
+"Low Power" = "Ahorro de energía";
 
 /* leminlimez's contribution
    sourcelocation's contribution */
-"Main Developer" = "Principal Desarrollador";
+"Main Developer" = "Main Developer";
 
 /* Maximum passcode key size */
 "Max:" = "Max:";
@@ -555,7 +549,7 @@
 "Min:" = "Min:";
 
 /* Title of tool */
-"Miscellaneous" = "Variado";
+"Miscellaneous" = "Miscellaneous";
 
 /* No comment provided by engineer. */
 "More Settings" = "Más configuraciones";
@@ -606,7 +600,7 @@
 "Operation Name" = "Nombre de la operación";
 
 /* Category of tool */
-"Other" = "Otro";
+"Other" = "Other";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "Editor de caras de código";
@@ -646,9 +640,6 @@
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Inicie sesión en su cuenta de repositorio de origen para continuar";
-
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "Haga respring para finalizar los cambios. Reinicia el dispositivo para revertir.";
 
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "Haga respring para finalizar de aplicar los cambios.";
@@ -753,7 +744,7 @@
 "Scheduling icon cache reset..." = "Programando un restablecimiento de la caché de los iconos...";
 
 /* Audio name */
-"Screenshot" = "Captura de pantalla";
+"Screenshot" = "Captura de campaña";
 
 /* No comment provided by engineer. */
 "Select" = "Seleccionar";
@@ -955,7 +946,7 @@
 "Y" = "Y";
 
 /* Confirm apply for all (passcode keys) */
-"Yes" = "Si";
+"Yes" = "Yes";
 
 /* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "No tienes ningún tema de código guardado. Echa un vistazo a la pestaña Explorar para encontrar algunos!";

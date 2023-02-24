@@ -197,7 +197,9 @@ struct LockView: View {
         }
         .sheet(isPresented: $isImporting) {
             DocumentPicker(
-                types: [.folder]) { result in
+                types: [
+                    .folder
+                ]) { result in
                     // user chose a file
                     if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of folder. Did you select it?", comment: "")); return }
                     let url: URL = result.first!

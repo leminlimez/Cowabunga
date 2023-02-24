@@ -22,6 +22,9 @@ struct ThemesExploreView: View {
     @State var themeTypeSelected = 0
     @State var themeTypeShown = DownloadableTheme.ThemeType.icon
     
+    @State var filterType: ThemeFilterType = .random
+    @State var searchTerm: String = ""
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -44,65 +47,78 @@ struct ThemesExploreView: View {
                         .pickerStyle(.segmented)
                     }
                     .padding(.horizontal, 24)
+                    .padding(.bottom, 10)
                     
                     if themes.isEmpty {
                         ProgressView()
                             .scaleEffect(1.75)
                             .navigationTitle("Explore")
                     } else {
+                        HStack {
+                            Spacer()
+                            Button("Filter") {
+                                showFilterChangerPopup()
+                            }
+                            .buttonStyle(TintedButton(color: .blue, fullwidth: false))
+                            .padding(.trailing, 25)
+                        }
+                        
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
-                                Button {
-                                    downloadTheme(theme: theme)
-                                } label: {
-                                    VStack(spacing: 0) {
-                                        CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
-                                            image
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(maxWidth: .infinity)
-                                                .cornerRadius(10, corners: .topLeft)
-                                                .cornerRadius(10, corners: .topRight)
-                                        } placeholder: {
-                                            Color.gray
-                                                .frame(height: 192)
-                                        }
-                                        HStack {
-                                            VStack(spacing: 4) {
-                                                HStack {
-                                                    Text(theme.name)
-                                                        .foregroundColor(Color(uiColor14: .label))
-                                                        .minimumScaleFactor(0.5)
-                                                    Spacer()
-                                                }
-                                                HStack {
-                                                    Text(theme.contact.values.first ?? "Unknown author")
-                                                        .foregroundColor(.secondary)
-                                                        .font(.caption)
-                                                        .minimumScaleFactor(0.5)
-                                                    Spacer()
-                                                }
+                                if searchTerm == "" || theme.name.lowercased().contains(searchTerm.lowercased()) || (theme.contact.values.first ?? "Unknown author").lowercased().contains(searchTerm.lowercased()) {
+                                    Button {
+                                        downloadTheme(theme: theme)
+                                    } label: {
+                                        VStack(spacing: 0) {
+                                            CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(maxWidth: .infinity)
+                                                    .cornerRadius(10, corners: .topLeft)
+                                                    .cornerRadius(10, corners: .topRight)
+                                            } placeholder: {
+                                                Color.gray
+                                                    .frame(height: 192)
                                             }
-                                            .lineLimit(1)
-                                            Spacer()
-                                            Image(systemName: "arrow.down.circle")
-                                                .foregroundColor(.blue)
+                                            HStack {
+                                                VStack(spacing: 4) {
+                                                    HStack {
+                                                        Text(theme.name)
+                                                            .foregroundColor(Color(uiColor14: .label))
+                                                            .minimumScaleFactor(0.5)
+                                                        Spacer()
+                                                    }
+                                                    HStack {
+                                                        Text(theme.contact.values.first ?? "Unknown author")
+                                                            .foregroundColor(.secondary)
+                                                            .font(.caption)
+                                                            .minimumScaleFactor(0.5)
+                                                        Spacer()
+                                                    }
+                                                }
+                                                .lineLimit(1)
+                                                Spacer()
+                                                Image(systemName: "arrow.down.circle")
+                                                    .foregroundColor(.blue)
+                                            }
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 8)
+                                            .frame(height: 58)
                                         }
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 8)
-                                        .frame(height: 58)
                                     }
+                                    .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
+                                    //                                .frame(height: 250)
+                                    .background(Color(uiColor14: .secondarySystemBackground))
+                                    .cornerRadius(10)
+                                    .padding(4)
                                 }
-                                .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
-//                                .frame(height: 250)
-                                .background(Color(uiColor14: .secondarySystemBackground))
-                                .cornerRadius(10)
-                                .padding(4)
                             }
+                            .padding()
                         }
-                        .padding()
                     }
                 }
+                .searchable(text: $searchTerm)
                 .coordinateSpace(name: "pullToRefresh")
                 .navigationTitle("Explore")
                 .toolbar {
@@ -147,7 +163,8 @@ struct ThemesExploreView: View {
     func loadThemes() {
         Task {
             do {
-                themes = try await cowabungaAPI.fetchThemes(type: themeTypeShown).shuffled()
+                themes = try await cowabungaAPI.fetchThemes(type: themeTypeShown)
+                themes = cowabungaAPI.filterTheme(themes: themes, filterType: filterType)
             } catch {
                 UIApplication.shared.alert(body: NSLocalizedString("Error occured while fetching themes", comment: "Error occured while fetching themes") + "\(error.localizedDescription)")
             }
@@ -172,6 +189,41 @@ struct ThemesExploreView: View {
                 UIApplication.shared.alert(title: NSLocalizedString("Could not download theme!", comment: ""), body: error.localizedDescription)
             }
         }
+    }
+    
+    func showFilterChangerPopup() {
+        // create and configure alert controller
+        let alert = UIAlertController(title: NSLocalizedString("Filter Themes", comment: ""), message: "", preferredStyle: .actionSheet)
+        
+        // create the actions
+        for type in ThemeFilterType.allCases {
+            let newAction = UIAlertAction(title: type.rawValue, style: .default) { (action) in
+                // apply the filter type
+                filterType = type
+                themes.removeAll()
+                loadThemes()
+            }
+            if filterType == type {
+                // add a check mark
+                newAction.setValue(true, forKey: "checked")
+            }
+            alert.addAction(newAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+            // cancels the action
+        }
+        
+        // add the actions
+        alert.addAction(cancelAction)
+        
+        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+        // present popover for iPads
+        alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+        alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+        
+        // present the alert
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
     }
 }
 

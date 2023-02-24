@@ -2,13 +2,10 @@
 "(Recommended)" = "(推薦)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*註：將會同時隱藏電信商名稱\n**註：將會同時隱藏電信商訊號強度";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "註1：將會同時隱藏電信商名稱\n註2：將會同時隱藏電信商訊號強度";
 
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld 位元組";
-
-/* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 請「仔細」閱讀⬇⚠️\n\n- 在您的裝置重新載入主畫面之後，請「重新開啟」卡哇邦嘎來修復一些應用程式無法正常運作的問題。\n\n- 非常非常嚴肅的提醒您，如果您看到了蘋果標誌+進度條畫面，不用擔心，您的裝置沒有遇到問題。請不要在遇到此現象時嘗試強制重開機!!!!!!!!!!\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
@@ -119,7 +116,7 @@
 "Background Update Frequency" = "背景更新頻率";
 
 /* No comment provided by engineer. */
-"Banned Apps" = "此裝置被封鎖的應用程式";
+"Banned Apps" = "封鎖此裝置的應用程式";
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "基礎設定";
@@ -206,7 +203,7 @@
 "Choose an update option" = "請選擇適合您的背景更新頻率";
 
 /* No comment provided by engineer. */
-"Choose app Icon" = "請選擇一個應用程式圖標";
+"Choose app Icon" = "請選擇一個替代圖標";
 
 /* No comment provided by engineer. */
 "Choose size" = "選擇尺寸";
@@ -242,7 +239,7 @@
 "Cowabunga %@" = "卡哇邦嘎 %@";
 
 /* No comment provided by engineer. */
-"Cowabunga App Icon" = "卡哇邦嘎應用程式圖標";
+"Cowabunga App Icon" = "更換卡哇邦嘎應用程式圖標";
 
 /* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "卡哇邦嘎拜偷您給予「總是」的定位權限。";
@@ -263,7 +260,7 @@
 "Custom image" = "自定義圖片";
 
 /* Title of tool */
-"Custom Operations" = "自定義檔案替換操作";
+"Custom Operations" = "自定義檔案替換";
 
 /* App icon name
    default device subtype
@@ -281,9 +278,6 @@
 
 /* delete button on custom operations */
 "Deleting operation..." = "正在刪除此操作";
-
-/* No comment provided by engineer. */
-"Device Resolution" = "裝置解析度";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "撥號數字盤修改器";
@@ -307,7 +301,7 @@
 "Disable Folder Blur" = "移除資料夾模糊";
 
 /* Springboard tool */
-"Disable Library Pods Background" = "移除App資料庫背景";
+"Disable Library Pods Background" = "移除App資料庫背景(桌面最後一頁)";
 
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "禁止將捷徑製作的應用程式視為Appclips";
@@ -461,7 +455,7 @@
 "Hide CarPlay" = "隱藏CarPlay";
 
 /* No comment provided by engineer. */
-"Hide Cellular*" = "隱藏行動數據圖標 *註";
+"Hide Cellular*" = "隱藏行動數據圖標 *註1";
 
 /* No comment provided by engineer. */
 "Hide Do Not Disturb" = "隱藏勿擾模式圖標";
@@ -488,7 +482,7 @@
 "Hide VPN" = "隱藏VPN圖標";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi**" = "隱藏WiFi圖標 **註";
+"Hide Wi-Fi**" = "隱藏WiFi圖標 *註2";
 
 /* No comment provided by engineer. */
 "Home" = "首頁";
@@ -520,10 +514,8 @@
 /* No comment provided by engineer. */
 "Included" = "內建";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "音效、翻譯與卡片美化器";
-
-/* respring info header */
+/* fix tweaks info header
+   respring info header */
 "Info" = "小姿勢";
 
 /* Header for inputting custom iOS version */
@@ -579,7 +571,7 @@
 "Main Developer" = "主要開發者";
 
 /* No comment provided by engineer. */
-"Make It So, Number One" = "出發吧！大副！- 星際爭霸戰";
+"Make It So, Number One" = "那就出發吧！！大副！-- 星際爭霸戰";
 
 /* Maximum passcode key size */
 "Max:" = "最大：";
@@ -645,7 +637,7 @@
 "Other" = "其他";
 
 /* No comment provided by engineer. */
-"Overwrite Banned Apps" = "覆寫此裝置被封鎖的應用程式";
+"Overwrite Banned Apps" = "覆寫封鎖此裝置的應用程式";
 
 /* No comment provided by engineer. */
 "Overwrite Blacklist" = "覆寫黑名單";
@@ -691,9 +683,6 @@
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "請登入您的源帳號以繼續";
-
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "請重新載入主畫面以套用自定義解析度。重開機後將自動恢復預設解析度。";
 
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "請重新載入主畫面以完成套用。";

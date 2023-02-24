@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.register(defaults: [
             "AutoFetchAudio": true,
             "AutoFetchLocks": true,
-            "LockPrefs": LockManager.deviceLockPath[UIDevice().machineName] ?? LockManager.globalLockPaths[0]
+            "LockPrefs": LockManager.deviceLockPath[UIDevice().machineName] ?? LockManager.globalLockPaths[0],
+            "SelectedFont": "None"
         ])
         if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
             ApplicationMonitor.shared.start()

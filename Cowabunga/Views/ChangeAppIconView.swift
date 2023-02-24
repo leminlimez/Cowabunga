@@ -29,7 +29,7 @@ struct ChangeAppIconView: View {
                                     Text(appIcon.description)
                                         .bold()
                                         .padding(.bottom, 2)
-                                    Text(appIcon.author)
+                                    Text("by: " + appIcon.author)
                                         .font(.caption)
                                 }
                             }
