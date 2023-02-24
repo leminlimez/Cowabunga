@@ -34,6 +34,10 @@ struct StatusBarView: View {
     
     var body: some  View {
         List {
+            Section (footer: Text("⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution.")) {
+                
+            }
+            
             if (StatusManager.sharedInstance().isMDCMode()) {
                 Section (footer: Text("Your device will respring.")) {
                     Button("Apply") {
