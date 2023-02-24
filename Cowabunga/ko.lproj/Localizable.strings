@@ -14,7 +14,7 @@
 "%lld bytes" = "%lld bytes";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ 경고 ⚠️\n몇몇 유저들은 이 기능을 쓰고 무한사과가 발생했습니다.\n이전에 사용한 적이 없다면 주의하세요.";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 제발 읽어주세요. ⬇⚠️\n\nSpringBoard가 재시작된 후 \n\"Cowabunga를 다시 열어주세요.\"\n몇몇 앱들의 기능을 수리해야합니다.\n\n매우 중요함\n애플로고가 표시되도 괜찮습니다.\n폰에는 아무런 문제가 없습니다.\n제발 강제로 다시시작 하지 마세요.\n\n소요된 시간 :  (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)초";
@@ -24,6 +24,9 @@
 
 /* No comment provided by engineer. */
 "Action" = "동작";
+
+/* No comment provided by engineer. */
+"Active" = "활성화";
 
 /* No comment provided by engineer. */
 "Add Value" = "값 추가";
@@ -85,6 +88,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "테마가 성공적으로 저장되었습니다!";
 
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "이전에 적용된 모든 트윅을 적용합니다.";
+
 /* No comment provided by engineer. */
 "Apply" = "적용";
 
@@ -100,6 +106,12 @@
 /* No comment provided by engineer. */
 "Apply themes" = "테마 적용";
 
+/* No comment provided by engineer. */
+"Apply Without Saving" = "저장없이 적용";
+
+/* No comment provided by engineer. */
+"Applying fonts..." = "폰트 적용중..";
+
 /* apply button on custom operations */
 "Applying operation..." = "테마 적용중...";
 
@@ -111,6 +123,9 @@
 
 /* No comment provided by engineer. */
 "Audio Changer" = "시스템 소리 변경";
+
+/* Header for inputting your name */
+"Author Name" = "작성자 이름";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "적용후 자동으로 SpringBoard 다시시작";
@@ -144,6 +159,9 @@
 
 /* No comment provided by engineer. */
 "Blacklist File Contents" = "블랙리스트 파일 목록";
+
+/* No comment provided by engineer. */
+"Blur Enabled" = "투명도 활성화";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "흐림도:   %lld";
@@ -194,6 +212,9 @@
 "Choose a name for the category" = "카테고라의 이름을 입력하세요.";
 
 /* No comment provided by engineer. */
+"Choose a name for the font pack" = "폰트이름을 입력하세요.";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "자물쇠 아이콘의 이름을 입력하세요";
 
 /* Entering name for audio */
@@ -226,6 +247,15 @@
 /* No comment provided by engineer. */
 "Close" = "닫기";
 
+/* operation type that changes colors */
+"Color" = "색깔";
+
+/* No comment provided by engineer. */
+"Color Data" = "색깔 데이터";
+
+/* No comment provided by engineer. */
+"Configuration" = "콘피그";
+
 /* No comment provided by engineer. */
 "Confirm" = "확인";
 
@@ -237,6 +267,12 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "plist의 크기를 계산할 수 없습니다!";
+
+/* when color styles could not be determined */
+"Could not detect styles." = "스타일 감지되지 않음";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "테마를 다운로드할 수 없습니다.";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "파일의 위치를 가져올 수 없습니다. 파일을 선택하셨나요?";
@@ -257,10 +293,13 @@
 "Cowabunga requires “Always” location permission." = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
 
 /* App icon name */
-"CowTools" = "Cow도구";
+"CowTools" = "";
 
 /* No comment provided by engineer. */
 "Create" = "저장";
+
+/* No comment provided by engineer. */
+"Create Operation" = "작업 생성";
 
 /* No comment provided by engineer. */
 "Credits" = "크레딧";
@@ -291,11 +330,14 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "단축어 배너 제거";
 
+/* No comment provided by engineer. */
+"Deleting" = "제거";
+
 /* delete button on custom operations */
 "Deleting operation..." = "작업 제거중..";
 
 /* No comment provided by engineer. */
-"Device Resolution" = "해상도";
+"Determine Styles" = "스타일 결정";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "다이얼 버튼 편집기";
@@ -330,6 +372,9 @@
 /* No comment provided by engineer. */
 "Download themes in Themes tab." = "탐색 탭의 아이콘 탭에서 테마를 다운로드 하세요.";
 
+/* No comment provided by engineer. */
+"Downloading" = "다운로드중";
+
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "다이나믹 아일랜드";
 
@@ -338,6 +383,9 @@
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "다이나믹 아일랜드";
+
+/* No comment provided by engineer. */
+"Edit Operation" = "작업 수정";
 
 /* No comment provided by engineer. */
 "Editing %@" = "%@ 수정중";
@@ -366,6 +414,9 @@
 /* No comment provided by engineer. */
 "Enter Name" = "이름 입력";
 
+/* Message for inputting your name in custom operation */
+"Enter your name and you will be credited for creating the operation." = "이름을 입력하면 작업을 본인이 작업을 생성한걸로 인정합니다.";
+
 /* No comment provided by engineer. */
 "Error" = "오류";
 
@@ -393,6 +444,9 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "장치 유형 변경에 실패했습니다.";
 
+/* No comment provided by engineer. */
+"Failed to apply fonts!" = "폰트 적용에 성공했습니다!";
+
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "해상도 설정에 실패하였습니다:";
 
@@ -403,7 +457,22 @@
 "Failed to create category" = "카테고리 생성에 실패했습니다.";
 
 /* No comment provided by engineer. */
+"Failed to delete font file!" = "폰트파일을 제거하는데 실패했습니다.";
+
+/* No comment provided by engineer. */
+"Failed to delete font pack!" = "폰트팩을 제거하는데 실패했습니다.";
+
+/* No comment provided by engineer. */
+"Failed to fetch font pack files!" = "폰트팩 파일을 불러오는데 실패했습니다.";
+
+/* No comment provided by engineer. */
+"Failed to import font files!" = "폰트파일을 불러오는데 실패했습니다!";
+
+/* No comment provided by engineer. */
 "Failed to load operations." = "작업을 불러오는데 실패했습니다.";
+
+/* No comment provided by engineer. */
+"Failed to rename font pack!" = "폰트팩 이름변경에 실패했습니다!";
 
 /* No comment provided by engineer. */
 "Failed to save theme!" = "테마를 저장하는데 실패했습니다!";
@@ -418,6 +487,18 @@
 "Files" = "파일";
 
 /* No comment provided by engineer. */
+"Fill" = "채우기";
+
+/* No comment provided by engineer. */
+"Fill Name:" = "채울 이름:";
+
+/* No comment provided by engineer. */
+"Filter" = "필터";
+
+/* No comment provided by engineer. */
+"Filter Themes" = "테마 필터";
+
+/* No comment provided by engineer. */
 "Fix tweaks" = "트윅 오류 수정";
 
 /* No comment provided by engineer. */
@@ -425,6 +506,15 @@
 
 /* No comment provided by engineer. */
 "Folder" = "폴더";
+
+/* No comment provided by engineer. */
+"Font Files" = "폰트 파일";
+
+/* No comment provided by engineer. */
+"Font Pack Name" = "폰트팩 이름";
+
+/* Title of tool */
+"Fonts" = "폰트";
 
 /* No comment provided by engineer. */
 "Footnote" = "각주";
@@ -448,7 +538,7 @@
 "Gestures / Dynamic Island" = "제스처 / 다이나믹 아일랜드";
 
 /* App icon name */
-"Glitch" = "글리치";
+"Glitch" = "";
 
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "정상적으로 작동하지 않으면 여기로 오세요.";
@@ -520,6 +610,9 @@
 /* No comment provided by engineer. */
 "Icons override" = "아이콘 커스텀";
 
+/* No comment provided by engineer. */
+"If a file of the same name already exists in the pack, it will be overwritten." = "같은이름을 가진 파알이 팩 안에 있으면 그파일은 덮어씌어집니다.";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "자물쇠 아이콘이 바뀌지 않으면 다른것을 선택하세요.";
 
@@ -535,17 +628,15 @@
 /* No comment provided by engineer. */
 "Included" = "내장";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "내장 오디오, 크레딧, 카드 커스텀";
-
-/* respring info header */
+/* fix tweaks info header
+   respring info header */
 "Info" = "정보";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "소프트웨어 버전 입력";
 
 /* App icon name */
-"iOS 6" = "IOS 6";
+"iOS 6" = "";
 
 /* x gestures */
 "iPhone X Gestures" = "iPhone X 제스처";
@@ -606,7 +697,7 @@
 "Min:" = "최소:";
 
 /* App icon name */
-"Minecraft" = "마인크래프트";
+"Minecraft" = "";
 
 /* Title of tool */
 "Miscellaneous" = "기타";
@@ -627,6 +718,9 @@
 "New Mail" = "새로운 메일";
 
 /* No comment provided by engineer. */
+"New Operation" = "새로운 작업";
+
+/* No comment provided by engineer. */
 "New theme name" = "테마 이름";
 
 /* Decline apply for all (passcode keys) */
@@ -642,7 +736,7 @@
 "No themes containing icons for %@ (%@) have been found." = "%@ (%@) 의 아이콘이 발견되지 않았습니다.";
 
 /* No comment provided by engineer. */
-"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 없습니다.\n탐색의 아이콘 탭에서 다운로드할 수 있습니다.\n(테마는 <id>.png 형식입니다.)";
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 없습니다.\n탐색의 아이콘 탭에서 다운로드하거나 오른쪽 위의 버튼을 눌러 가져올 수 있습니다.\n(테마는 <id>.png 형식입니다.)";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "너무 크거나 작습니다.";
@@ -655,6 +749,9 @@
 
 /* No comment provided by engineer. */
 "Open Settings" = "설정 열기";
+
+/* failing to export custom operation */
+"Operation export failed!" = "작업 추출에 실패했습니다.";
 
 /* No comment provided by engineer. */
 "Operation Name" = "작업 이름";
@@ -702,7 +799,7 @@
 "Payment Success" = "결제 성공";
 
 /* App icon name */
-"Pixel Art" = "픽셀 아트";
+"Pixel Art" = "";
 
 /* No comment provided by engineer. */
 "Please close and reopen the Phone app." = "앱을 종료한 다음에 다시 열어주세요.";
@@ -715,9 +812,6 @@
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "계속하려면 Sourced Repo 계정에 로그인하세요";
-
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "적용하려면 SpringBoard를 재시작 하세요.\n되돌릴려면 재부팅 하세요.";
 
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "적용하려면 SpringBoard를 재시작 하세요.";
@@ -737,6 +831,9 @@
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "테마 작업이 끝날때까지 기다려 주세요.";
 
+/* No comment provided by engineer. */
+"Please wait..." = "기다려 주세요.";
+
 /* operation type that changes plist keys */
 "Plist" = "Plist";
 
@@ -754,6 +851,9 @@
 
 /* No comment provided by engineer. */
 "Preferences" = "설정";
+
+/* Successfully applying custom resolution */
+"Reboot to revert resolution changes. It will auto respring when done" = "작업이 완료되면 자동으로 SpringBoard가 재시작 됩니다.\n되돌리고 싶으면 껏다켜세요.";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "아이콘 캐시 새로고침";
@@ -792,6 +892,9 @@
 "Reset faces" = "버튼 초기화";
 
 /* No comment provided by engineer. */
+"Resolution will now apply" = "헤상도가 지금 적용됩니다.";
+
+/* No comment provided by engineer. */
 "Respring" = "SpringBoard 다시시작";
 
 /* respring info */
@@ -827,11 +930,23 @@
 /* No comment provided by engineer. */
 "Scheduling icon cache reset..." = "캐시 초기화중...";
 
+/* No comment provided by engineer. */
+"Screen Time Enabled" = "스크린타임이 활성화됨";
+
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "스크린타임이 성공적으로 꺼졌습니다.\n껏다켠 후에 적용됩니다.";
+
 /* Audio name */
 "Screenshot" = "스크린샷";
 
+/* c22dev's contribution */
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "스크린타임 제거, 내장된 오디오, 크래딧, 카드 변경";
+
 /* No comment provided by engineer. */
 "Select" = "선택";
+
+/* No comment provided by engineer. */
+"Select Font Pack" = "폰트팩 선택";
 
 /* No comment provided by engineer. */
 "Selected" = "선택됨";
@@ -846,10 +961,16 @@
 "Set app switcher color" = "멀티태스킹 색깔 설정";
 
 /* No comment provided by engineer. */
+"Set as Active" = "활성화";
+
+/* No comment provided by engineer. */
 "Set badge color" = "알림배지 색깔 설정";
 
 /* No comment provided by engineer. */
 "Set cc module color" = "제어센터 모듈 색깔 설정";
+
+/* No comment provided by engineer. */
+"Set color" = "색 선택";
 
 /* No comment provided by engineer. */
 "Set dock color" = "독 색깔 설정";
@@ -900,6 +1021,12 @@
 "Status Bar Time Text" = "상단바 시간 텍스트";
 
 /* No comment provided by engineer. */
+"Stroke" = "획";
+
+/* No comment provided by engineer. */
+"Stroke Name:" = "획 이름:";
+
+/* No comment provided by engineer. */
 "Submit themes" = "테마 재출";
 
 /* No comment provided by engineer. */
@@ -935,6 +1062,12 @@
 /* when an operation is restored */
 "The file was successfully restored!" = "파일이 성공적으로 복구 되었습니다!";
 
+/* Creating font pack */
+"The font pack folder was successfully created." = "폰트팩 폴더가 생성되었습니다!";
+
+/* No comment provided by engineer. */
+"The fonts were successfully replaced" = "폰트들이 변경되었습니다.";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "오디오를 성공적으로 불러왔습니다!";
 
@@ -947,14 +1080,26 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "작업이 성공적으로 제거되었습니다!";
 
+/* when importing a custom operation */
+"The operation was successfully imported." = "작업을 성공적으로 불러왔습니다!";
+
 /* when an operation is saved */
 "The operation was successfully saved!" = "작업이 성공적으로 저장되었습니다!";
+
+/* No comment provided by engineer. */
+"The theme was successfully downloaded and saved!" = "테마가 성공적으로 저장되었습니다!";
 
 /* failed to select icon */
 "Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "(url.deletingPathExtension().lastPathComponent)라는 이름의 테마가 이미 존재합니다.\n폴더이름을 바꿔주세요.";
 
 /* No comment provided by engineer. */
 "Themes" = "테마";
+
+/* loading font packs */
+"There was an error getting font packs." = "폰트를 가져오는데 오류가 발생했습니다.";
+
+/* screentime process */
+"This could cause issues. Make sure to disable data or Wi-Fi." = "이로인해 문제가 발생 할 수 잇습니다.\n데이터나 와이파이를 끄세요.";
 
 /* No comment provided by engineer. */
 "Tools" = "도구";
@@ -968,11 +1113,14 @@
 /* No comment provided by engineer. */
 "Type:" = "종류:";
 
+/* Failed to create font pack */
+"Unable to create font pack!" = "폰트팩 생성에 실패했습니다!";
+
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "오디오를 삭제할 수 없습니다.";
 
 /* Failed to import lock */
-"Unable to save imported lock!" = "자물쇠 아이콘을 불러올 수 없습니다.";
+"Unable to save imported lock!" = "저장된 자물쇠 아이콘을 불러올수 없습니다.";
 
 /* No comment provided by engineer. */
 "Uncategorized" = "분류되지 않음";
@@ -1002,13 +1150,16 @@
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "작동되지 않을때 활성화 하세요.";
 
 /* No comment provided by engineer. */
+"Uses Styles" = "스타일 사용";
+
+/* No comment provided by engineer. */
 "validate" = "확인";
 
 /* value for plist operation */
 "Value" = "값";
 
 /* App icon name - vector graphics */
-"Vector" = "벡터";
+"Vector" = "";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "버전 %@ (%@)";
@@ -1055,6 +1206,9 @@
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "이제 앱이 정상적으로 작동 할겁니다.";
+
+/* No comment provided by engineer. */
+"Your device is connected to internet!" = "디바이스가 인터넷에 연결되었습니다!";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "SpringBoard가 재시작 됩니다.";
