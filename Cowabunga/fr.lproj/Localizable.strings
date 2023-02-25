@@ -8,7 +8,10 @@
 "*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Cachera aussi le nom de l'opérateur\n**Cachera aussi l'indicateur de données cellulaires";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ Attention ⚠️\nCertains utilisateurs ont rencontrés des problèmes avec cette fonctionnalité, rendant leur appareil inutilisable. Si vous n'avez jamais utiliser cet outil, veuillez prendre les précautions nécessaires";
+
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ LISEZ CECI ⬇⚠️\n\nAprès que l'appareil ai respring, veuillez *réouvrir Cowabunga* pour réparer les apps qui ne fonctionnent pas comme prévu\n\nTRÈS IMPORTANT : Si vous voyez le logo d'Apple avec la barre de progression (comme dans une mise à jour), tout est normal. VEUILLEZ NE PAS LE REDEMARRER DE FORCE !\n\nTemps de modification des icônes : \n(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -17,10 +20,16 @@
 "Action" = "Action";
 
 /* No comment provided by engineer. */
+"Active" = "Activer";
+
+/* No comment provided by engineer. */
 "Add Value" = "Ajouter une valeur";
 
-/* BomberFish's contribution */
-"AirPower Audio" = "Audio d'AirPower";
+/* No comment provided by engineer. */
+"Advanced" = "Avancé";
+
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Tous les icônes seront réinitialisés. Êtes vous sûr de vouloir continuer ? (Vous aurez peut-être à redémarrer)";
 
 /* No comment provided by engineer. */
 "Alternatives" = "Alternatives";
@@ -71,6 +80,12 @@
 "App Switcher" = "Sélecteur d'application";
 
 /* No comment provided by engineer. */
+"App theme was successfully saved!" = "Le thème à bien été enregistré !";
+
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "Applique toutes les modifications qui ont été appliqué auparavant";
+
+/* No comment provided by engineer. */
 "Apply" = "Appliquer";
 
 /* Header for apply passcode key size for all */
@@ -85,6 +100,12 @@
 /* No comment provided by engineer. */
 "Apply themes" = "Appliquer les thèmes";
 
+/* No comment provided by engineer. */
+"Apply Without Saving" = "Appliquer sans sauvegarder";
+
+/* No comment provided by engineer. */
+"Applying fonts..." = "Application des polices...";
+
 /* apply button on custom operations */
 "Applying operation..." = "Application de votre opération...";
 
@@ -97,6 +118,9 @@
 /* No comment provided by engineer. */
 "Audio Changer" = "Modificateur d'audios";
 
+/* Header for inputting your name */
+"Author Name" = "Nom de l'auteur";
+
 /* No comment provided by engineer. */
 "Auto respring after apply" = "Respring automatiquement après l'application des modifications";
 
@@ -107,7 +131,16 @@
 "Background" = "Arrière-plan";
 
 /* No comment provided by engineer. */
+"Background Applying" = "Application en arrière-plan";
+
+/* No comment provided by engineer. */
+"Background Services" = "Services d'arrière-plan";
+
+/* No comment provided by engineer. */
 "Background Update Frequency" = "Fréquence d'actualisation en arrière-plan";
+
+/* No comment provided by engineer. */
+"Banned Apps" = "Applications bannies";
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "Configuration basique";
@@ -122,6 +155,15 @@
 "binary" = "binary";
 
 /* No comment provided by engineer. */
+"Blacklist" = "Liste noire";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "Contenu du fichier de la liste noire";
+
+/* No comment provided by engineer. */
+"Blur Enabled" = "Flou activé";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "Flou:   %lld";
 
 /* No comment provided by engineer. */
@@ -130,7 +172,7 @@
 /* No comment provided by engineer. */
 "Calculate Size" = "Calculer la taille";
 
-/* No comment provided by engineer. */
+/* Cancel */
 "Cancel" = "Annuler";
 
 /* Title of tool */
@@ -138,6 +180,15 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Texte d'opérateur";
+
+/* Run in background option */
+"CC Module Background" = "Arrière-plan des module du CC";
+
+/* No comment provided by engineer. */
+"CC Modules" = "Modules du CC";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "Hashes du CC";
 
 /* No comment provided by engineer. */
 "Change" = "Changer";
@@ -164,6 +215,9 @@
 "Choose a name for the category" = "Choisissez un nom pour la catégorie";
 
 /* No comment provided by engineer. */
+"Choose a name for the font pack" = "Choisissez un nom pour votre pack de polices";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "Choisissez un nom pour le verrouillage";
 
 /* Entering name for audio */
@@ -185,6 +239,9 @@
 "Choose an update option" = "Choisissez une option d'actualisation";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "Choisissez l'icône de l'application";
+
+/* No comment provided by engineer. */
 "Choose size" = "Choisissez la taille";
 
 /* No comment provided by engineer. */
@@ -192,6 +249,15 @@
 
 /* No comment provided by engineer. */
 "Close" = "Fermer";
+
+/* operation type that changes colors */
+"Color" = "Couleur";
+
+/* No comment provided by engineer. */
+"Color Data" = "Donnée de couleurs";
+
+/* No comment provided by engineer. */
+"Configuration" = "Configuration";
 
 /* No comment provided by engineer. */
 "Confirm" = "Confirmer";
@@ -205,6 +271,12 @@
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "Impossible de calculer la taille de la plist !";
 
+/* when color styles could not be determined */
+"Could not detect styles." = "Impossible de détecter les styles de couleur.";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "Impossible de télécharger le thème !";
+
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "Impossible d'obtenir le lien du fichier. L'avez vous sélectionné ?";
 
@@ -215,10 +287,19 @@
 "Cowabunga" = "Cowabunga";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "Icône de l'app Cowabunga";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "Cowabunga a besoin de l'autorisation \"Toujours\" pour les permissions de localisation.";
+
+/* App icon name */
+"CowTools" = "CowTools";
 
 /* No comment provided by engineer. */
 "Create" = "Créer";
+
+/* No comment provided by engineer. */
+"Create Operation" = "Créer une opération";
 
 /* No comment provided by engineer. */
 "Credits" = "Crédits";
@@ -232,10 +313,11 @@
 /* No comment provided by engineer. */
 "Custom image" = "Image personnalisée";
 
-/* No comment provided by engineer. */
+/* Title of tool */
 "Custom Operations" = "Opérations personnalisées";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "Défaut";
 
@@ -248,11 +330,20 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "Supprimer les bannières de Raccourci";
 
+/* No comment provided by engineer. */
+"Deleting" = "Supression";
+
 /* delete button on custom operations */
 "Deleting operation..." = "Suppression de l'opération...";
 
 /* No comment provided by engineer. */
-"Device Resolution" = "Résolution de l'appareil";
+"Determine Styles" = "Determiner les styles de couleurs";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "Editeur des touches d'appel";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "Touches d'appel effacées !";
 
 /* No comment provided by engineer. */
 "Disable" = "Désactiver";
@@ -275,17 +366,23 @@
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "Transformer les raccourcis en veritables app";
 
-/* No comment provided by engineer. */
+/* Run in background option */
 "Dock" = "Dock";
 
 /* No comment provided by engineer. */
 "Download themes in Themes tab." = "Téléchargez des thèmes dans l'onglet Thèmes";
+
+/* No comment provided by engineer. */
+"Downloading" = "Téléchargement";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "";
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "SubTypes de la Dynamic Island";
+
+/* No comment provided by engineer. */
+"Edit Operation" = "Modifier l'opération";
 
 /* No comment provided by engineer. */
 "Editing %@" = "Modification %@";
@@ -314,8 +411,17 @@
 /* No comment provided by engineer. */
 "Enter Name" = "Entrer le nom";
 
+/* Message for inputting your name in custom operation */
+"Enter your name and you will be credited for creating the operation." = "Entrez votre nom et vous serez mentionné pour avoir créé l'opération";
+
 /* No comment provided by engineer. */
 "Error" = "Erreur";
+
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "Une erreur s'est produite lors de l'obtention des thèmes";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "Plusieurs erreurs se sont produite lors de l'application de plusieurs icônes";
 
 /* ginsudev's contribution */
 "Exploit Code" = "Code de l'exploit";
@@ -332,6 +438,9 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "Impossible d'appliquer le SubType !";
 
+/* No comment provided by engineer. */
+"Failed to apply fonts!" = "Impossible d'appliquer les polices !";
+
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "Impossible d'appliquer la résolution :";
 
@@ -342,7 +451,25 @@
 "Failed to create category" = "Impossible de créer la catégorie";
 
 /* No comment provided by engineer. */
+"Failed to delete font file!" = "Impossible de supprimer la police !";
+
+/* No comment provided by engineer. */
+"Failed to delete font pack!" = "Impossible de supprimer le pack de polices !";
+
+/* No comment provided by engineer. */
+"Failed to fetch font pack files!" = "Impossible d'obtenir les packs de polices";
+
+/* No comment provided by engineer. */
+"Failed to import font files!" = "Impossible d'importer les polices !";
+
+/* No comment provided by engineer. */
 "Failed to load operations." = "Impossible de charger les opérations.";
+
+/* No comment provided by engineer. */
+"Failed to rename font pack!" = "Une erreur s'est produite lors du renommage du pack de polices";
+
+/* No comment provided by engineer. */
+"Failed to save theme!" = "Une erreur s'est produite lors de la sauvegarde du thème !";
 
 /* No comment provided by engineer. */
 "File not found!" = "Fichier introuvable !";
@@ -354,6 +481,18 @@
 "Files" = "Fichiers";
 
 /* No comment provided by engineer. */
+"Fill" = "Remplir";
+
+/* No comment provided by engineer. */
+"Fill Name:" = "Nom du fichier :";
+
+/* No comment provided by engineer. */
+"Filter" = "Filtrer";
+
+/* No comment provided by engineer. */
+"Filter Themes" = "Filtrer les thèmes";
+
+/* No comment provided by engineer. */
 "Fix tweaks" = "Réparer les modifications";
 
 /* No comment provided by engineer. */
@@ -361,6 +500,24 @@
 
 /* No comment provided by engineer. */
 "Folder" = "Dossier";
+
+/* Run in background option */
+"Folder Background" = "Arrière plan des dossiers";
+
+/* Run in background option */
+"Folder Blur" = "Flou des dossiers";
+
+/* No comment provided by engineer. */
+"Font file of this name does not exist. Please make sure that it is named correctly." = "Une police avec ce nom n'existe pas. Veuillez vérifier que vous l'avez orthographié correctement";
+
+/* No comment provided by engineer. */
+"Font Files" = "Fichiers de police";
+
+/* No comment provided by engineer. */
+"Font Pack Name" = "Nom du pack de polices";
+
+/* Title of tool */
+"Fonts" = "Polices";
 
 /* No comment provided by engineer. */
 "Footnote" = "Bas de page de l'écran vérouillé";
@@ -371,11 +528,20 @@
 /* No comment provided by engineer. */
 "Forgot password?" = "Mot de passe oublié ?";
 
+/* Frequent */
+"Frequent" = "Fréquent";
+
 /* Where to import passcode theme from */
 "From where do you want to import from?" = "De quel source souhaitez vous importer les images ?";
 
+/* header for resetting all icons */
+"Full reset" = "Réinitialisation complète";
+
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Gestes / Dynamic Island";
+
+/* App icon name */
+"Glitch" = "Glitch";
 
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "Rendez-vous ici si quelque chose ne fonctionne pas correctement.";
@@ -435,6 +601,9 @@
 /* No comment provided by engineer. */
 "Home" = "Accueil";
 
+/* Run in background option */
+"Home Bar" = "Barre de navigation";
+
 /* Category of tool */
 "Home Screen" = "Écran d'Accueil";
 
@@ -447,11 +616,17 @@
 /* No comment provided by engineer. */
 "Icons override" = "Remplacer des icônes";
 
+/* No comment provided by engineer. */
+"If a file of the same name already exists in the pack, it will be overwritten." = "Si un fichier du même nom existe déjà dans le pack, il sera remplacé.";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "Si le verrouillage personnalisé ne s'applique pas, essayez une autre option.";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "Importer un thème de mot de passe";
+
+/* No comment provided by engineer. */
+"In progress..." = "En cours...";
 
 /* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
 "In the meantime you can ..." = "Pendant ce temps vous pouvez...";
@@ -459,11 +634,15 @@
 /* No comment provided by engineer. */
 "Included" = "Inclus";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "Audio pré-inclus, crédits, et le changeur de cartes";
+/* fix tweaks info header
+   respring info header */
+"Info" = "Info";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "Entrez la version du système";
+
+/* App icon name */
+"iOS 6" = "iOS 6";
 
 /* x gestures */
 "iPhone X Gestures" = "Fonctionnalités tactiles de l'iPhone X";
@@ -482,6 +661,9 @@
 
 /* Audio name */
 "Keyboard Press Normal" = "Touche normale";
+
+/* Run in background option */
+"Library Pod Backgrounds" = "Arrière plan des groupe de la bibliothèque d'app";
 
 /* Audio name */
 "Lock" = "Verrouiller";
@@ -514,11 +696,20 @@
    sourcelocation's contribution */
 "Main Developer" = "Développeur principal";
 
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Fais comme cela, maître Jedi";
+
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "Gérer les tâches d'arrière-plan";
+
 /* Maximum passcode key size */
 "Max:" = "Max:";
 
 /* Minimum passcode key size */
 "Min:" = "Min:";
+
+/* App icon name */
+"Minecraft" = "Minecraft";
 
 /* Title of tool */
 "Miscellaneous" = "Divers";
@@ -537,6 +728,9 @@
 
 /* Audio name */
 "New Mail" = "Nouveau Mail";
+
+/* No comment provided by engineer. */
+"New Operation" = "Nouvelle opération";
 
 /* No comment provided by engineer. */
 "New theme name" = "Nouveau nom de thème";
@@ -562,17 +756,35 @@
 /* No comment provided by engineer. */
 "Notification Banner" = "Bannière de notification";
 
+/* Run in background option */
+"Notification Banner Background" = "Arrière-plan de la bannière de notification";
+
 /* No comment provided by engineer. */
 "OK" = "OK";
 
 /* No comment provided by engineer. */
 "Open Settings" = "Ouvrir les réglages";
 
+/* failing to export custom operation */
+"Operation export failed!" = "Une erreur s'est produite lors de l'exportation de l'opération";
+
 /* No comment provided by engineer. */
 "Operation Name" = "Nom de l'opération";
 
+/* No comment provided by engineer. */
+"Options" = "Options";
+
 /* Category of tool */
 "Other" = "Autre";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "Réinitialiser la liste des apps bannies";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "Réinitialiser la liste noire";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "Réinitialiser les CDHashes";
 
 /* No comment provided by engineer. */
 "Passcode Face Editor" = "Éditeur d'icônes du mot de passe";
@@ -601,6 +813,12 @@
 /* Audio name */
 "Payment Success" = "Paiement validé";
 
+/* App icon name */
+"Pixel Art" = "Pixel Art";
+
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "Veuillez fermer et réouvrir l'application Téléphone.";
+
 /* when user enters a category name that cannot be used */
 "Please enter a valid category name!" = "Veuillez entrer un nom valide pour la catégorie !";
 
@@ -609,9 +827,6 @@
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Merci de vous connectez au repo Sourced pour continuer";
-
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "Veuillez respring pour finaliser les changements. Redémarrez pour restorer.";
 
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "Veuillez respring pour finaliser les changements.";
@@ -623,10 +838,16 @@
 "Please respring to see changes." = "Veuillez respring pour voir les changements.";
 
 /* No comment provided by engineer. */
+"Please select a file to import!" = "Veuillez sélectionner un fichier à importer !";
+
+/* No comment provided by engineer. */
 "Please wait" = "Veuillez patienter";
 
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "Veillez patienter le temps que l'app finisse d'appliquer les thèmes...";
+
+/* No comment provided by engineer. */
+"Please wait..." = "Veuillez patienter...";
 
 /* operation type that changes plist keys */
 "Plist" = "Plist";
@@ -640,8 +861,14 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Type de la Plist :";
 
+/* Power Saving */
+"Power Saving" = "Economie d'énergie";
+
 /* No comment provided by engineer. */
 "Preferences" = "Réglages";
+
+/* Successfully applying custom resolution */
+"Reboot to revert resolution changes. It will auto respring when done" = "Redémarrez pour réinitialiser les changements de résolution. Lorsque les modifications seront appliqués, l'app respringera automatiquement.";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "Rafraichir le cache d'icône";
@@ -680,9 +907,15 @@
 "Reset faces" = "Réinitialiser les icônes ";
 
 /* No comment provided by engineer. */
-"Respring" = "Respring";
+"Resolution will now apply" = "La résolution va maintenant s'appliquer";
 
 /* No comment provided by engineer. */
+"Respring" = "Respring";
+
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "Respring est une action permettant de redémarrer l'interface utilisateur (écran d'accueil...) sans redémarrer l'appareil complètement";
+
+/* Respring to see changes */
 "Respring to see changes" = "Veuillez respring pour voir les changements";
 
 /* No comment provided by engineer. */
@@ -706,11 +939,29 @@
 /* apply button on custom operations */
 "Saving operation..." = "Sauvegarde de l'opération...";
 
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "Ordonner un rafraichissement du câche d'icône";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "Ordonner un rafraichissement du câche d'icône";
+
+/* No comment provided by engineer. */
+"Screen Time Enabled" = "Temps d'écran activé";
+
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "Le temps d'écran à bien été désactivé. Veuillez redémarrer pour appliquer. Vous pourrez ré-initier la connection Internet après cela.";
+
 /* Audio name */
 "Screenshot" = "Capture d'écran";
 
+/* c22dev's contribution */
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "Désactiveur de temps d'écran, audios pré-inclus, crédits et le changeur d'images de carte";
+
 /* No comment provided by engineer. */
 "Select" = "Sélectionner";
+
+/* No comment provided by engineer. */
+"Select Font Pack" = "Sélectionner un pack de polices";
 
 /* No comment provided by engineer. */
 "Selected" = "Sélectionné";
@@ -725,7 +976,16 @@
 "Set app switcher color" = "Définissez la couleur du sélecteur d'app";
 
 /* No comment provided by engineer. */
+"Set as Active" = "Définir comme actif";
+
+/* No comment provided by engineer. */
 "Set badge color" = "Définissez la couleur du badge de notification";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "Définir la couleur d'un module du CC";
+
+/* No comment provided by engineer. */
+"Set color" = "Définir une couleur";
 
 /* No comment provided by engineer. */
 "Set dock color" = "Définissez la couleur du dock";
@@ -766,11 +1026,17 @@
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "Outils SpringBoard";
 
+/* No comment provided by engineer. */
+"Starting..." = "Démarrage...";
+
 /* Title of tool */
 "Status Bar" = "Barre de statut";
 
 /* No comment provided by engineer. */
 "Status Bar Time Text" = "Texte de l'heure de la barre de statut";
+
+/* No comment provided by engineer. */
+"Stroke Name:" = "Nom du Stroke :";
 
 /* No comment provided by engineer. */
 "Submit themes" = "Proposer des thèmes";
@@ -783,6 +1049,9 @@
 
 /* applying audio succeeded */
 "Successfully applied audio!" = "Audio appliqué avec succès !";
+
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "Les modifications ont bien été appliquées";
 
 /* No comment provided by engineer. */
 "Supervised" = "Supervisé";
@@ -805,6 +1074,12 @@
 /* when an operation is restored */
 "The file was successfully restored!" = "Le fichier à bien été restauré";
 
+/* Creating font pack */
+"The font pack folder was successfully created." = "Le dossier du pack de polices à bien été créé";
+
+/* No comment provided by engineer. */
+"The fonts were successfully replaced" = "Les polices ont bien été remplacées";
+
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "L'audio importé à bien été encodé et sauvegardé.";
 
@@ -817,11 +1092,29 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "L'opération à bien été supprimée !";
 
+/* when importing a custom operation */
+"The operation was successfully imported." = "L'opération à bien été importée.";
+
 /* when an operation is saved */
 "The operation was successfully saved!" = "L'opération à bien été sauvegardée !";
 
 /* No comment provided by engineer. */
+"The theme was successfully downloaded and saved!" = "Le thème à été téléchargé et enregistré !";
+
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "Le thème appelé (url.deletingPathExtension().lastPathComponent) existe déjà. Veuillez renommer le dossier.";
+
+/* No comment provided by engineer. */
 "Themes" = "Thèmes";
+
+/* loading font packs */
+"There was an error getting font packs." = "Une erreur s'est produite lors de l'obtention des packs de polices.";
+
+/* screentime process */
+"This could cause issues. Make sure to disable data or Wi-Fi." = "Cela pourrais provoquer des erreurs. Veuillez désactiver toute connection Internet.";
+
+/* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "Sélectionnez quel services vous souhaitez lancer ou appliquer quand l'app est en arrière-plan.";
 
 /* No comment provided by engineer. */
 "Tools" = "Outils";
@@ -834,6 +1127,9 @@
 
 /* No comment provided by engineer. */
 "Type:" = "Type :";
+
+/* Failed to create font pack */
+"Unable to create font pack!" = "Impossible de créer le pack de polices !";
 
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "Impossible de supprimer l'audio";
@@ -849,6 +1145,9 @@
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Accès au système de fichier complet";
+
+/* No comment provided by engineer. */
+"Update Frequency" = "Changer la fréquence";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "Mettre à jour les audios pré-disponibles";
@@ -869,19 +1168,34 @@
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Utilisez cela uniquement si l'app détecte TrollStore, et que vous n'avez de bouton appliquer en haut de la page de modification de la barre de statut.";
 
 /* No comment provided by engineer. */
+"Uses Styles" = "Utilise les styles";
+
+/* No comment provided by engineer. */
 "validate" = "valider";
 
 /* value for plist operation */
 "Value" = "Valeur";
 
+/* App icon name - vector graphics */
+"Vector" = "Vecteur";
+
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "Version %@ (%@)";
+
+/* No comment provided by engineer. */
+"View contents of blacklist files" = "Voir le contenu des fichiers de liste noire";
 
 /* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "Hen ?? C'est TrollTools ?";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "Si vous ne mettez rien sur les appareils avec un notch, cela affichera le nom de l'opérateur";
+
+/* Title of tool */
+"Whitelist" = "";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "Whitelist, Audio AirPower, et divers correctifs";
 
 /* Width of custom resolution
    Width of passcode keys */
@@ -910,6 +1224,9 @@
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "Vos applications devrais fonctionner à nouveau";
+
+/* No comment provided by engineer. */
+"Your device is connected to internet!" = "Votre appareil est connecté à Internet !";
 
 /* No comment provided by engineer. */
 "Your device will respring." = "Votre appareil va respring.";

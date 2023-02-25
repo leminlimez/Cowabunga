@@ -4,6 +4,12 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "Операция Cowabunga";
+
+/* (No Comment) */
+"Icon Theme" = "Тема иконки";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Для использования некоторых твиков (например, темы клавиш код-пароля) требуется разрешение на выход из Sandbox.";
 
@@ -21,4 +27,10 @@
 
 /* (No Comment) */
 "Theme Archive File" = "Архив с темой";
+
+/* (No Comment) */
+"TrueType collection" = "Коллекция TrueType";
+
+/* (No Comment) */
+"TrueType font" = "Шрифт TrueType";
 

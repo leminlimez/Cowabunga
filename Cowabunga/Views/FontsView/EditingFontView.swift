@@ -120,14 +120,33 @@ struct EditingFontView: View {
                         for url in result {
                             guard url.startAccessingSecurityScopedResource() else { failed[url.lastPathComponent] = "File permission error"; continue }
                             
-                            do {
-                                let newFontFile = try FontManager.addFontFileToPack(pack: fontPackName, file: url)
-                                fontFiles.append(newFontFile)
-                                url.stopAccessingSecurityScopedResource()
-                            } catch {
-                                failed[url.lastPathComponent] = error.localizedDescription
-                                url.stopAccessingSecurityScopedResource()
+                            // verify name
+                            if FontManager.verifyName(fileName: url.lastPathComponent) {
+                                do {
+                                    let newFontFile = try FontManager.addFontFileToPack(pack: fontPackName, file: url)
+                                    fontFiles.append(newFontFile)
+                                } catch {
+                                    failed[url.lastPathComponent] = error.localizedDescription
+                                }
+                            } else {
+                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(url.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (SFUI.ttf)?", comment: "when the font file is not correctly named"), onOK: {
+                                    // rename
+                                    let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent("SFUI.ttf")
+                                    do {
+                                        if FileManager.default.fileExists(atPath: tmpDir.path) {
+                                            try FileManager.default.removeItem(at: tmpDir)
+                                        }
+                                        let fontData: Data = try Data(contentsOf: url)
+                                        try fontData.write(to: tmpDir)
+                                        
+                                        let newFontFile = try FontManager.addFontFileToPack(pack: fontPackName, file: tmpDir)
+                                        fontFiles.append(newFontFile)
+                                    } catch {
+                                        failed[url.lastPathComponent] = error.localizedDescription
+                                    }
+                                }, noCancel: false)
                             }
+                            url.stopAccessingSecurityScopedResource()
                         }
                         if failed.count > 0 {
                             var str: String = ""

@@ -100,6 +100,20 @@ class FontManager {
         }
     }
     
+    static func verifyName(fileName: String) -> Bool {
+        do {
+            let fontsPath = URL(fileURLWithPath: "/System/Library/Fonts/")
+            for font in try FileManager.default.contentsOfDirectory(at: fontsPath, includingPropertiesForKeys: nil) {
+                if FileManager.default.fileExists(atPath: font.appendingPathComponent(fileName).path) {
+                    return true
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return false
+    }
+    
     static func addFontFileToPack(pack: String, file: URL) throws -> FontFile {
         let savedPath = try getSavedFontsFolder()
         let fontPack = savedPath.appendingPathComponent(pack)
