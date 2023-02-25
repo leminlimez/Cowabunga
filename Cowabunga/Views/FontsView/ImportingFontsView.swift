@@ -74,26 +74,50 @@ struct ImportingFontsView: View {
                     
                     // MARK: Import Button
                     Button(action: {
-                        var failed: [String: String] = [:]
-                        for fontOption in fontOptions {
-                            if fontOption.enabled {
-                                do {
-                                    let _ = try FontManager.addFontFileToPack(pack: fontOption.name, file: openingURL!)
-                                } catch {
-                                    failed[fontOption.name] = error.localizedDescription
+                        if openingURL != nil {
+                            var failed: [String: String] = [:]
+                            for fontOption in fontOptions {
+                                if fontOption.enabled {
+                                    do {
+                                        // verify name
+                                        if FontManager.verifyName(fileName: openingURL!.lastPathComponent) {
+                                            let _ = try FontManager.addFontFileToPack(pack: fontOption.name, file: openingURL!)
+                                        } else {
+                                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(openingURL!.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (SFUI.ttf)?", comment: "when the font file is not correctly named"), onOK: {
+                                                // rename
+                                                let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent("SFUI.ttf")
+                                                do {
+                                                    if FileManager.default.fileExists(atPath: tmpDir.path) {
+                                                        try FileManager.default.removeItem(at: tmpDir)
+                                                    }
+                                                    let fontData: Data = try Data(contentsOf: openingURL!)
+                                                    try fontData.write(to: tmpDir)
+                                                    openingURL = tmpDir
+                                                    
+                                                    let _ = try FontManager.addFontFileToPack(pack: fontOption.name, file: openingURL!)
+                                                } catch {
+                                                    failed[fontOption.name] = error.localizedDescription
+                                                }
+                                            }, noCancel: false)
+                                        }
+                                    } catch {
+                                        failed[fontOption.name] = error.localizedDescription
+                                    }
                                 }
                             }
-                        }
-                        // show the error message if there is one, otherwise close the ui
-                        if failed.count > 0 {
-                            var str: String = ""
-                            for (k, e) in failed {
-                                str += "\(k): \(e)\n"
+                            // show the error message if there is one, otherwise close the ui
+                            if failed.count > 0 {
+                                var str: String = ""
+                                for (k, e) in failed {
+                                    str += "\(k): \(e)\n"
+                                }
+                                UIApplication.shared.alert(title: NSLocalizedString("Failed to import font files!", comment: ""), body: str)
+                            } else {
+                                // success
+                                isVisible = false
                             }
-                            UIApplication.shared.alert(title: NSLocalizedString("Failed to import font files!", comment: ""), body: str)
                         } else {
-                            // success
-                            isVisible = false
+                            UIApplication.shared.alert(title: NSLocalizedString("Failed to import font files!", comment: ""), body: NSLocalizedString("The font file does not exist!", comment: ""))
                         }
                     }) {
                         Image(systemName: "checkmark.circle")
