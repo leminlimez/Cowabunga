@@ -48,6 +48,9 @@ struct HomeView: View {
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
     @StateObject var appIconViewModel = ChangeAppIconViewModel()
     
+    @ObservedObject var patreonAPI = PatreonAPI.shared
+    @State private var patrons: [Patron] = []
+    
     @State private var autoRespring: Bool = UserDefaults.standard.bool(forKey: "AutoRespringOnApply")
     
     @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
@@ -323,11 +326,17 @@ struct HomeView: View {
                 }
                 
                 // MARK: Patreon Supporters
-//                Section {
-//
-//                } header: {
-//                    Label("Patreon Supporters", systemImage: "heart")
-//                }
+                if patrons.count > 0 {
+                    Section {
+                        ForEach(patrons) { patron in
+                            Text(patron.name)
+                                .fontWeight(.bold)
+                                .foregroundColor(.blue)
+                        }
+                    } header: {
+                        Label("Patreon Supporters", systemImage: "heart")
+                    }
+                }
             }
             .navigationTitle("Cowabunga")
         }
@@ -351,9 +360,22 @@ struct HomeView: View {
             if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, build != "0" {
                 versionBuildString = "Beta \(build)"
             }
+            
+            // add the patreon supporters
+            loadPatrons()
         }
         .sheet(isPresented: $bgTasksVisible) {
             BackgroundEnablerView(isVisible: $bgTasksVisible)
+        }
+    }
+    
+    func loadPatrons() {
+        Task {
+            do {
+                patrons = try await patreonAPI.fetchPatrons()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     
