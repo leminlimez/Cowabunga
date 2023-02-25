@@ -134,6 +134,12 @@
 "Background" = "Nền";
 
 /* No comment provided by engineer. */
+"Background Applying" = "Áp dụng trong nền";
+
+/* No comment provided by engineer. */
+"Background Services" = "Dịch vụ trong nền";
+
+/* No comment provided by engineer. */
 "Background Update Frequency" = "Tần số cập nhật trong nền";
 
 /* No comment provided by engineer. */
@@ -177,6 +183,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Tên nhà mạng";
+
+/* Run in background option */
+"CC Module Background" = "Nền biểu tượng trung tâm điều khiển";
 
 /* No comment provided by engineer. */
 "CC Modules" = "Biểu tượng trung tâm điều khiển";
@@ -504,6 +513,12 @@
 /* No comment provided by engineer. */
 "Folder" = "Thư mục";
 
+/* Run in background option */
+"Folder Background" = "Nền thư mục";
+
+/* Run in background option */
+"Folder Blur" = "Độ mờ thư mục";
+
 /* No comment provided by engineer. */
 "Font Files" = "Tệp phông chữ";
 
@@ -595,6 +610,9 @@
 /* No comment provided by engineer. */
 "Home" = "Nhà";
 
+/* Run in background option */
+"Home Bar" = "Thanh Home";
+
 /* Category of tool */
 "Home Screen" = "Màn hình chủ";
 
@@ -653,6 +671,9 @@
 /* Audio name */
 "Keyboard Press Normal" = "Bàn phím bấm bình thường";
 
+/* Run in background option */
+"Library Pod Backgrounds" = "Nền Thư mục ứng dụng thư viện";
+
 /* Audio name */
 "Lock" = "Khóa";
 
@@ -686,6 +707,9 @@
 
 /* No comment provided by engineer. */
 "Make It So, Number One" = "Hãy làm như vậy, số một";
+
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "Quản lý tác vụ nền";
 
 /* Maximum passcode key size */
 "Max:" = "Tối đa:";
@@ -740,6 +764,9 @@
 
 /* No comment provided by engineer. */
 "Notification Banner" = "Thông báo";
+
+/* Run in background option */
+"Notification Banner Background" = "Nền thông báo";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -1099,6 +1126,9 @@
 "This could cause issues. Make sure to disable data or Wi-Fi." = "Việc này có thể gây ra vấn đề. Hãy tắt dữ liệu hoặc Wi-Fi.";
 
 /* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "Bật/tắt các dịch vụ sẽ chạy hoặc áp dụng khi ứng dụng đang chạy trong nền.";
+
+/* No comment provided by engineer. */
 "Tools" = "Công cụ";
 
 /* No comment provided by engineer. */
@@ -1127,6 +1157,9 @@
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Đang thoát khỏi môi trường sandbox";
+
+/* No comment provided by engineer. */
+"Update Frequency" = "Tần suất cập nhật";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "Cập nhật âm thanh kèm sẵn";
