@@ -111,7 +111,7 @@ struct CowabungaApp: App {
                     }
                     
                     // for opening font .ttf or .ttc files
-                    if url.pathExtension.lowercased() == "ttf" || url.pathExtension.lowercased() == "ttc" {
+                    if url.pathExtension.lowercased() == "ttf" || url.pathExtension.lowercased() == "ttc" || url.pathExtension.lowercased() == "otf" {
                         if !UserDefaults.standard.bool(forKey: "shouldPerformCatalogFixup") && !catalogFixupShown {
                             importingFontURL = url
                             importingFontShown = true

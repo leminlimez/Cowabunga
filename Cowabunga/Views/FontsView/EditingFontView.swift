@@ -109,7 +109,8 @@ struct EditingFontView: View {
                 DocumentPicker(
                     types: [
                         UTType(filenameExtension: "ttf") ?? .font,
-                        UTType(filenameExtension: "ttc") ?? .font
+                        UTType(filenameExtension: "ttc") ?? .font,
+                        UTType(filenameExtension: "otf") ?? .font
                     ], allowsMultipleSelection: true) { result in
                         // user chose a file
                         if result.first == nil {
