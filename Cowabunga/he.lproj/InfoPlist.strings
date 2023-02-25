@@ -4,6 +4,12 @@
 /* Bundle name */
 "CFBundleName" = "קוואבאנגה";
 
+/* (No Comment) */
+"Cowabunga Operation" = "פעולות קוואבאנגה";
+
+/* (No Comment) */
+"Icon Theme" = "עיצוב האייקונים";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "תן גישה לסנדבוקס (צריך לעשות את זה בשביל מקשי הקוד ועוד כמה אופציות אחרות)";
 
@@ -21,4 +27,10 @@
 
 /* (No Comment) */
 "Theme Archive File" = "קובץ ארכיון עיצובים";
+
+/* (No Comment) */
+"TrueType collection" = "קולקציית TrueType";
+
+/* (No Comment) */
+"TrueType font" = "פונט TrueType";
 

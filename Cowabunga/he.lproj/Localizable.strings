@@ -14,7 +14,7 @@
 "%lld bytes" = "%lld ביטים";
 
 /* No comment provided by engineer. */
-"%lldx%lld" = "%lldx%lld";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ אזהרה ⚠️\nחלק מהמשתמשים חוו bootloop  בשימוש בפיצ'ר הזה. אם לא השתמשת בזה לפני, השתמש בזהירות.";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️נא לקרוא⚠️\nאחרי שהטלפון מבצע respring, בבקשה *לפתוח מחדש את קוואבאנגה* בשביל לתקן אפליקציות שלא עובדות נכון\n\nחשוב מאוד: אם אתה רואה סמל של אפל ופס טעינה, אל תדאג, המכשיר שלך בסדר. אל תנסה לאתחל את המכשיר בכוח\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
@@ -24,6 +24,9 @@
 
 /* No comment provided by engineer. */
 "Action" = "פעולה";
+
+/* No comment provided by engineer. */
+"Active" = "פועל";
 
 /* No comment provided by engineer. */
 "Add Value" = "הוסף ערך";
@@ -85,6 +88,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "עיצוב האפליקציה נשמר בהצלחה!";
 
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "יישם את כל ההשינויים שיושמו בעבר";
+
 /* No comment provided by engineer. */
 "Apply" = "יישום";
 
@@ -100,6 +106,12 @@
 /* No comment provided by engineer. */
 "Apply themes" = "יישם עיצובים";
 
+/* No comment provided by engineer. */
+"Apply Without Saving" = "יישם בלי לשמור";
+
+/* No comment provided by engineer. */
+"Applying fonts..." = "מיישם פונטים...";
+
 /* apply button on custom operations */
 "Applying operation..." = "יישם פעולות";
 
@@ -111,6 +123,9 @@
 
 /* No comment provided by engineer. */
 "Audio Changer" = "משנה אודיו";
+
+/* Header for inputting your name */
+"Author Name" = "שם היוצר";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "תיקון אוטומטי אחרי יישום";
@@ -144,6 +159,9 @@
 
 /* No comment provided by engineer. */
 "Blacklist File Contents" = "הרשימה השחורה של תוכן הקבצים";
+
+/* No comment provided by engineer. */
+"Blur Enabled" = "תשטוש מופעל";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "תשטוש:   %lld";
@@ -188,6 +206,9 @@
 "Choose a name for the category" = "בחר שם לקטגוריה";
 
 /* No comment provided by engineer. */
+"Choose a name for the font pack" = "בחר שם בשביל חבילת הפונטים";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "בחר שם בשביל הנעילה";
 
 /* Entering name for audio */
@@ -209,6 +230,9 @@
 "Choose an update option" = "בחר אופציה לעדכון אוטומטי";
 
 /* No comment provided by engineer. */
+"Choose app Icon" = "בחר אייקון אפליקציה";
+
+/* No comment provided by engineer. */
 "Choose size" = "בחר גודל";
 
 /* No comment provided by engineer. */
@@ -216,6 +240,15 @@
 
 /* No comment provided by engineer. */
 "Close" = "סגור";
+
+/* operation type that changes colors */
+"Color" = "צבע";
+
+/* No comment provided by engineer. */
+"Color Data" = "מידע צבע";
+
+/* No comment provided by engineer. */
+"Configuration" = "סידור";
 
 /* No comment provided by engineer. */
 "Confirm" = "אישור";
@@ -228,6 +261,12 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "לא הצליח לחשב את גודל רשימת התכונות";
+
+/* when color styles could not be determined */
+"Could not detect styles." = "לא הצליח לזהות סטייל.";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "לא הצליח להוריד עיצוב!";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "לא מצליח להשיג url של קובץ. בחרת אותו?";
@@ -242,10 +281,16 @@
 "Cowabunga %@" = "קוואבאנגה %@";
 
 /* No comment provided by engineer. */
+"Cowabunga App Icon" = "אייקון אפליקצית קוואבאנגה";
+
+/* No comment provided by engineer. */
 "Cowabunga requires “Always” location permission." = "קוואבאנגה מצריך אישור תמידי של מיקום.";
 
 /* No comment provided by engineer. */
 "Create" = "צור";
+
+/* No comment provided by engineer. */
+"Create Operation" = "צור פעולה";
 
 /* No comment provided by engineer. */
 "Credits" = "קרדיט";
@@ -262,7 +307,8 @@
 /* Title of tool */
 "Custom Operations" = "עיצוב פעולות";
 
-/* default device subtype
+/* App icon name
+   default device subtype
    Default passcode size */
 "Default" = "ברירת מחדל";
 
@@ -275,11 +321,11 @@
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "מחק באנר של קיצורים";
 
+/* No comment provided by engineer. */
+"Deleting" = "מוחק";
+
 /* delete button on custom operations */
 "Deleting operation..." = "מוחק פעולות";
-
-/* No comment provided by engineer. */
-"Device Resolution" = "איכות המכשיר";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "עורך מקשי חיוג";
@@ -308,7 +354,7 @@
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "בטל אפליקציות קיצור דרך כקליפאפליקציות";
 
-/* No comment provided by engineer. */
+/* Run in background option */
 "Dock" = "דוק";
 
 /* No comment provided by engineer. */
@@ -516,8 +562,9 @@
 /* No comment provided by engineer. */
 "Included" = "כלול";
 
-/* c22dev's contribution */
-"Included Audio, Credits, and Card Changer" = "סאונדים כלולים, קרדיטים, ומשנה כרטיסים";
+/* fix tweaks info header
+   respring info header */
+"Info" = "מידע";
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "ייבא גרסת תוכנה";
@@ -685,9 +732,6 @@
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Please log into your Sourced Repo account to continue";
 
-/* Successfully applying custom resolution */
-"Please respring to finalize changes. Reboot to revert." = "בבקשה תן למכשיר לעדכן הגדרות עם respring. אתחל את המכשיר בשביל להחזיר למצב הקודם.";
-
 /* No comment provided by engineer. */
 "Please respring to finish applying changes." = "בבקשה תבצע respring בשביל לגמור להגדיר שינויים.";
 
@@ -705,6 +749,9 @@
 
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "בבקשה תחכה בשביל קוואבאנגה לגמור לעצב...";
+
+/* No comment provided by engineer. */
+"Please wait..." = "בבקשה תחכה...";
 
 /* operation type that changes plist keys */
 "Plist" = "רשימת תכונות";
@@ -875,7 +922,7 @@
 "Successfully applied audio!" = "יישם סאונד בהצלחה!";
 
 /* Successfully applied tweaks */
-"Successfully applied tweaks" = "tweaks ייושמו בהצלחה";
+"Successfully applied tweaks" = "שינויים ייושמו בהצלחה";
 
 /* No comment provided by engineer. */
 "Supervised" = "מפוקח";

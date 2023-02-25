@@ -4,6 +4,12 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "Cowabunga 작업";
+
+/* (No Comment) */
+"Icon Theme" = "아이콘 테마";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "암호버튼 수정과 여러가지를 위해 이 권한이 필요합니다.";
 
@@ -21,4 +27,10 @@
 
 /* (No Comment) */
 "Theme Archive File" = "테마 압축파일";
+
+/* (No Comment) */
+"TrueType collection" = "트루타입 모음";
+
+/* (No Comment) */
+"TrueType font" = "트루타입 폰트";
 

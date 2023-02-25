@@ -17,19 +17,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UserDefaults.standard.register(defaults: [
-            "AutoFetchAudio": true,
-            "AutoFetchLocks": true,
-            "LockPrefs": LockManager.deviceLockPath[UIDevice().machineName] ?? LockManager.globalLockPaths[0],
-            "SelectedFont": "None"
-        ])
+        UserDefaults.standard.register(defaults: createDefaults())
         if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
+            setBGApplyOptions()
             ApplicationMonitor.shared.start()
             
             self.registerForNotifications()
         }
         
         return true
+    }
+    
+    func createDefaults() -> [String: Any] {
+        var defaults: [String: Any] = [
+            "AutoFetchAudio": true,
+            "AutoFetchLocks": true,
+            "LockPrefs": LockManager.deviceLockPath[UIDevice().machineName] ?? LockManager.globalLockPaths[0],
+            "SelectedFont": "None"
+        ]
+        for bgOption in BackgroundFileUpdaterController.shared.BackgroundOptions {
+            defaults[bgOption.key + "_BGApply"] = true
+        }
+        return defaults
+    }
+    
+    func setBGApplyOptions() {
+        for (i, bgOption) in BackgroundFileUpdaterController.shared.BackgroundOptions.enumerated() {
+            if !UserDefaults.standard.bool(forKey: bgOption.key + "_BGApply") {
+                BackgroundFileUpdaterController.shared.BackgroundOptions[i].enabled = false
+            }
+        }
     }
     
 }

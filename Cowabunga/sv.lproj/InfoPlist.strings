@@ -4,6 +4,12 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "Cowabunga Operation";
+
+/* (No Comment) */
+"Icon Theme" = "Tema för ikoner";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Ge tillstånd till sandlådan (behöver den för lösenordsnycklar + några andra alternativ)";
 
@@ -15,4 +21,16 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Bilder";
+
+/* (No Comment) */
+"Passcode Theme File" = "Temafil för lösenord";
+
+/* (No Comment) */
+"Theme Archive File" = "Arkiv för tema";
+
+/* (No Comment) */
+"TrueType collection" = "TrueType-samling";
+
+/* (No Comment) */
+"TrueType font" = "TrueType-teckensnitt";
 
