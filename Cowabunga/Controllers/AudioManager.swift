@@ -39,6 +39,9 @@ class AudioFiles {
         case kbKeyClick = "Key Click"
         case kbKeyDel = "Key Delete"
         case kbKeyMod = "Key Modifier"
+        
+        case tock = "Tock"
+        case tink = "Tink"
     }
     
     static var ListOfAudio: [String: [String]] = [:]
@@ -312,5 +315,8 @@ class AudioFiles {
         SoundEffect.kbKeyClick.rawValue: "UISounds/key_press_click.caf",
         SoundEffect.kbKeyDel.rawValue: "UISounds/key_press_delete.caf",
         SoundEffect.kbKeyMod.rawValue: "UISounds/key_press_modifier.caf",
+        
+        SoundEffect.tock.rawValue: "UISounds/Tock.caf",
+        SoundEffect.tink.rawValue: "UISounds/Tink.caf"
     ]
 }
