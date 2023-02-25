@@ -56,9 +56,14 @@ struct ThemesExploreView: View {
                     } else {
                         HStack {
                             Spacer()
-                            Button("Filter") {
-                                showFilterChangerPopup()
-                            }
+                            Button(
+                                action: {
+                                    showFilterChangerPopup()
+                                },
+                                label: {
+                                    Label("Filter", systemImage: "line.3.horizontal.decrease.circle")
+                                }
+                            )
                             .buttonStyle(TintedButton(color: .blue, fullwidth: false))
                             .padding(.trailing, 25)
                         }
