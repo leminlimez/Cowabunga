@@ -137,6 +137,12 @@
 "Background" = "백그라운드";
 
 /* No comment provided by engineer. */
+"Background Applying" = "백그라운드에서 업데이트";
+
+/* No comment provided by engineer. */
+"Background Services" = "백그라운드 서비스";
+
+/* No comment provided by engineer. */
 "Background Update Frequency" = "백그라운드 업데이트 주기";
 
 /* No comment provided by engineer. */
@@ -180,6 +186,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "통신사 이름";
+
+/* Run in background option */
+"CC Module Background" = "제어센터 모듈 배경";
 
 /* No comment provided by engineer. */
 "CC Modules" = "제어센터 모듈";
@@ -366,7 +375,7 @@
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "단축어 바로가기 비활성화";
 
-/* No comment provided by engineer. */
+/* Run in background option */
 "Dock" = "독";
 
 /* No comment provided by engineer. */
@@ -507,6 +516,12 @@
 /* No comment provided by engineer. */
 "Folder" = "폴더";
 
+/* Run in background option */
+"Folder Background" = "폴더 배경";
+
+/* Run in background option */
+"Folder Blur" = "폴더 흐림도";
+
 /* No comment provided by engineer. */
 "Font Files" = "폰트 파일";
 
@@ -598,6 +613,9 @@
 /* No comment provided by engineer. */
 "Home" = "홈";
 
+/* Run in background option */
+"Home Bar" = "홈바";
+
 /* Category of tool */
 "Home Screen" = "홈화면";
 
@@ -656,6 +674,9 @@
 /* Audio name */
 "Keyboard Press Normal" = "키";
 
+/* Run in background option */
+"Library Pod Backgrounds" = "라이브러리 Pod 백그라운드";
+
 /* Audio name */
 "Lock" = "잠금";
 
@@ -689,6 +710,9 @@
 
 /* No comment provided by engineer. */
 "Make It So, Number One" = "그렇게 하세요";
+
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "백그라운드 작업 설정";
 
 /* Maximum passcode key size */
 "Max:" = "최대:";
@@ -743,6 +767,9 @@
 
 /* No comment provided by engineer. */
 "Notification Banner" = "알림 배너";
+
+/* Run in background option */
+"Notification Banner Background" = "알림 배너 배경";
 
 /* No comment provided by engineer. */
 "OK" = "확인";
@@ -1102,6 +1129,9 @@
 "This could cause issues. Make sure to disable data or Wi-Fi." = "이로인해 문제가 발생 할 수 잇습니다.\n데이터나 와이파이를 끄세요.";
 
 /* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "앱이 백그라운드에 있으면 작동합니다.";
+
+/* No comment provided by engineer. */
 "Tools" = "도구";
 
 /* No comment provided by engineer. */
@@ -1130,6 +1160,9 @@
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Sandbox 탈출";
+
+/* No comment provided by engineer. */
+"Update Frequency" = "업데이트 주기";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "내장 오디오 업데이트";
