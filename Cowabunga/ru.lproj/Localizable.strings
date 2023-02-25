@@ -137,6 +137,12 @@
 "Background" = "Фон";
 
 /* No comment provided by engineer. */
+"Background Applying" = "Применяются в фоновом режиме";
+
+/* No comment provided by engineer. */
+"Background Services" = "Сервисы в фоновом режиме";
+
+/* No comment provided by engineer. */
 "Background Update Frequency" = "Частота обновления в фоновом режиме";
 
 /* No comment provided by engineer. */
@@ -180,6 +186,9 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Название оператора";
+
+/* Run in background option */
+"CC Module Background" = "Фоновый режим модуля ЦУ";
 
 /* No comment provided by engineer. */
 "CC Modules" = "Модули ЦУ";
@@ -507,6 +516,12 @@
 /* No comment provided by engineer. */
 "Folder" = "Папка";
 
+/* Run in background option */
+"Folder Background" = "Фон папки";
+
+/* Run in background option */
+"Folder Blur" = "Размытие папки";
+
 /* No comment provided by engineer. */
 "Font Files" = "Файлы шрифта";
 
@@ -598,6 +613,9 @@
 /* No comment provided by engineer. */
 "Home" = "Главная";
 
+/* Run in background option */
+"Home Bar" = "Полоска";
+
 /* Category of tool */
 "Home Screen" = "Экран «Домой»";
 
@@ -656,6 +674,9 @@
 /* Audio name */
 "Keyboard Press Normal" = "Стандартная клавиша клавиатуры";
 
+/* Run in background option */
+"Library Pod Backgrounds" = "Фоновый режим библиотеки приложений";
+
 /* Audio name */
 "Lock" = "Блокировка";
 
@@ -689,6 +710,9 @@
 
 /* No comment provided by engineer. */
 "Make It So, Number One" = "Давай, нажми «Применить»";
+
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "Управление задачами в фоновом режиме";
 
 /* Maximum passcode key size */
 "Max:" = "Максимум:";
@@ -743,6 +767,9 @@
 
 /* No comment provided by engineer. */
 "Notification Banner" = "Баннер уведомлений";
+
+/* Run in background option */
+"Notification Banner Background" = "Фон уведомления";
 
 /* No comment provided by engineer. */
 "OK" = "ОК";
@@ -1102,6 +1129,9 @@
 "This could cause issues. Make sure to disable data or Wi-Fi." = "Это может привести к проблемам. Убедитесь, что сотовые данные или Wi-Fi отключены.";
 
 /* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "Выберите, какие сервисы будут запускаться в фоновом режиме.";
+
+/* No comment provided by engineer. */
 "Tools" = "Твики";
 
 /* No comment provided by engineer. */
@@ -1130,6 +1160,9 @@
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Выход из Sandbox";
+
+/* No comment provided by engineer. */
+"Update Frequency" = "Частота обновления";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "Обновить список звуков";
