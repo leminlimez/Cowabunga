@@ -799,3 +799,13 @@
 "Couldn't get url of file. Did you select it?" = "无法获取文件的url。您选择正确了吗？";
 "Failed to import font files!" = "导入字体文件失败！";
 "Active" = "激活";
+"Update Frequency" = "更新频率";
+"Background Applying" = "后台应用";
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "如果您的设备错误地检测到安装了TrollStore，并且状态栏页面顶部没有“应用”按钮，请使用此选项";
+"Your apps should now function properly" = "你的应用现在应该正常运行";
+"Please wait for Cowabunga to finish theming..." = "请等待Cowabunga完成主题...";
+"In the meantime you can ..." = "在此期间，你可以…";
+"Join Discord" = "加入Discord";
+"Close" = "关闭";
+"No themes containing icons for %@ (%@) have been found." = "主题内未找到包含%@（%@）图标";
+"There was an error getting font packs." = "获取字体包时出错";
