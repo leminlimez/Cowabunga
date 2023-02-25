@@ -109,7 +109,8 @@ struct EditingFontView: View {
                 DocumentPicker(
                     types: [
                         UTType(filenameExtension: "ttf") ?? .font,
-                        UTType(filenameExtension: "ttc") ?? .font
+                        UTType(filenameExtension: "ttc") ?? .font,
+                        UTType(filenameExtension: "otf") ?? .font
                     ], allowsMultipleSelection: true) { result in
                         // user chose a file
                         if result.first == nil {
@@ -129,9 +130,10 @@ struct EditingFontView: View {
                                     failed[url.lastPathComponent] = error.localizedDescription
                                 }
                             } else {
-                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(url.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (SFUI.ttf)?", comment: "when the font file is not correctly named"), onOK: {
+                                let newFileName: String = url.pathExtension == "ttc" ? "SFUISoft.ttc" : "SFUI.ttf"
+                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(url.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (\(newFileName))?", comment: "when the font file is not correctly named"), onOK: {
                                     // rename
-                                    let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent("SFUI.ttf")
+                                    let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent(newFileName)
                                     do {
                                         if FileManager.default.fileExists(atPath: tmpDir.path) {
                                             try FileManager.default.removeItem(at: tmpDir)
