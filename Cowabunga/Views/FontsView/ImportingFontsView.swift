@@ -83,9 +83,10 @@ struct ImportingFontsView: View {
                                         if FontManager.verifyName(fileName: openingURL!.lastPathComponent) {
                                             let _ = try FontManager.addFontFileToPack(pack: fontOption.name, file: openingURL!)
                                         } else {
-                                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(openingURL!.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (SFUI.ttf)?", comment: "when the font file is not correctly named"), onOK: {
+                                            let newFileName: String = openingURL!.pathExtension == "ttc" ? "SFUISoft.ttc" : "SFUI.ttf"
+                                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(openingURL!.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (\(newFileName))?", comment: "when the font file is not correctly named"), onOK: {
                                                 // rename
-                                                let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent("SFUI.ttf")
+                                                let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent(newFileName)
                                                 do {
                                                     if FileManager.default.fileExists(atPath: tmpDir.path) {
                                                         try FileManager.default.removeItem(at: tmpDir)
