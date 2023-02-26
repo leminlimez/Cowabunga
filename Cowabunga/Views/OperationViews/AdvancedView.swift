@@ -36,6 +36,26 @@ struct AdvancedView: View {
                         }
                     }
                 }
+                .onDelete { indexSet in
+                    indexSet.forEach { i in
+                        let deletingOperation = uncategorizedOperations[i].name
+                        print("Deleting: " + deletingOperation)
+                        // restore operation
+                        do {
+                            let op = try AdvancedManager.getOperationFromName(operationName: deletingOperation)
+                            try op.applyData(fromBackup: true)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        // delete the file
+                        do {
+                            try AdvancedManager.deleteOperation(operationName: deletingOperation)
+                            uncategorizedOperations.remove(at: i)
+                        } catch {
+                            UIApplication.shared.alert(body: NSLocalizedString("Unable to delete operation ", comment: "Cannot delete operation (operation name is after)") + " \"" + deletingOperation + "\"!")
+                        }
+                    }
+                }
             }
             /*List(operations, children: \.operations) { operation in
                 if operation.categoryName != nil {
