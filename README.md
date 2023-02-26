@@ -8,6 +8,8 @@ Warning: Some changes are permanent on iOS 14.0-14.8.1
 
 IPA available in the [Releases](https://github.com/leminlimez/Cowabunga/releases/latest) section.
 
+Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the home screen and to get access to exclusive private beta builds!
+
 ## Features
 - Running in the background to keep some changes from reverting
     - From running tests, battery loss is negligible (~1% per day on frequent), but that may vary
@@ -50,6 +52,7 @@ IPA available in the [Releases](https://github.com/leminlimez/Cowabunga/releases
     - Hide many icons in the status bar
 
 - Other Tools
+    - Custom Fonts
     - Lock Screen Footnote
     - Notification Badges Changer (iOS 14-15 ONLY)
     - Springboard Colors
@@ -99,8 +102,8 @@ Just build like a normal Xcode project. Sign using your own team and bundle iden
 
 ## Credits
 - [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command, carrier changer logic, alerts UI, and update inbounds message.
-- [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code.
-- [SourceLocation](https://github.com/sourcelocation) for the redesigned springboard UI and background services.
+- [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code and fonts.
+- [SourceLocation](https://github.com/sourcelocation) for the redesigned springboard UI, background services, explore page, and custom app icons.
 - [BomberFish](https://github.com/BomberFish) for AirPower sound.
 - [c22dev](https://github.com/c22dev) for fixing AirPower and some included audios.
 - [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function.
