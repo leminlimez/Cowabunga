@@ -7,6 +7,7 @@
 
 import Foundation
 import ZIPFoundation
+import Zip
 import SwiftUI
 
 class AdvancedManager {
@@ -74,6 +75,59 @@ class AdvancedManager {
             }
         } else {
             throw "No .cowperation file found!"
+        }
+    }
+    
+    static func getFSPOperations(_ info: [String: Any]) {
+        var returning: [[String: Any]] = []
+        if info["IsFolder"] as? Bool == true {
+            if let children: [[String: Any]] = info["Child"] as? [[String: Any]] {
+                
+            }
+        }
+    }
+    
+    // Convert .fsp for importing
+    static func convertFromFSP(_ url: URL) throws {
+        let fm = FileManager.default
+        
+        // MARK: UNZIP
+        let zipURL = fm.temporaryDirectory.appendingPathComponent(url.deletingPathExtension().appendingPathExtension("zip").lastPathComponent)
+        if fm.fileExists(atPath: zipURL.path) {
+            try? fm.removeItem(at: zipURL)
+        }
+        try fm.copyItem(at: url, to: zipURL)
+        let outURL = fm.temporaryDirectory.appendingPathComponent("out")
+        try Zip.unzipFile(zipURL, destination: outURL, overwrite: true, password: "aVBob25l5oyB44Gj44Gm6LuK5Lit5rOK44Gu5peF44Gr6KGM44GN44Gf44GE44Gq44CC44GC44Gj44Gf44GL44GE44Gf44G+44GU44KC6aOf44G544Gf44GE44GX44CC")
+        try? fm.removeItem(at: zipURL)
+        
+        // MARK: CONVERT
+        let cowURL = fm.temporaryDirectory.appendingPathComponent("cow")
+        if fm.fileExists(atPath: cowURL.path) {
+            try? fm.removeItem(at: cowURL)
+        }
+        
+        // basic properties
+        let infoJson = outURL.appendingPathComponent("Share/info.json")
+        do {
+            let info = try JSONSerialization.jsonObject(with: Data(contentsOf: infoJson)) as! [String: Any]
+            
+            var name: String = url.deletingPathExtension().lastPathComponent
+            if let newName: String = info["Name"] as? String {
+                name = newName
+            }
+            var targetPath: String = "Unknown"
+            if let newTarget: String = info["TargetFilePath"] as? String {
+                targetPath = newTarget
+            }
+            var author: String = ""
+            if let newAuthor: String = info["Share_Author"] as? String {
+                author = newAuthor
+            }
+        } catch {
+            try? fm.removeItem(at: outURL)
+            try? fm.removeItem(at: cowURL)
+            throw error.localizedDescription
         }
     }
     
@@ -174,7 +228,7 @@ class AdvancedManager {
         if operationType == "Corrupting" {
             // create a corrupting type
             return CorruptingObject.init(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: isActive)
-        } else if operationType == "Replacing" {
+        } else if operationType == "Replacing" || operationType == "Creating" {
             let replacingType = try getOperationProperty(operationInfo, key: "ReplacingType") as! String
             var replacingTypeObject: ReplacingObjectType? = nil
             var replacingPath = try getOperationProperty(operationInfo, key: "ReplacingPath") as! String
@@ -185,6 +239,8 @@ class AdvancedManager {
                 replacingTypeObject = ReplacingObjectType.FilePath
             }
             
+            let isCreating: Bool = (operationType == "Creating")
+            
             if replacingTypeObject == nil {
                 throw "Could not get replacing object type!"
             }
@@ -194,7 +250,7 @@ class AdvancedManager {
             } catch {
                 print(error.localizedDescription)
             }
-            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: isActive, overwriteData: replacingData ?? Data("#".utf8), replacingType: replacingTypeObject!, replacingPath: replacingPath)
+            return ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, creating: isCreating, active: isActive, overwriteData: replacingData ?? Data("#".utf8), replacingType: replacingTypeObject!, replacingPath: replacingPath)
         } else if operationType == "Plist" {
             let plistTypeString = try getOperationProperty(operationInfo, key: "PlistType") as! String
             var plistType: PropertyListSerialization.PropertyListFormat
@@ -375,7 +431,11 @@ class AdvancedManager {
         if operation is CorruptingObject {
             plist["OperationType"] = "Corrupting"
         } else if operation is ReplacingObject, let replacingOperation = operation as? ReplacingObject {
-            plist["OperationType"] = "Replacing"
+            if replacingOperation.isCreating {
+                plist["OperationType"] = "Creating"
+            } else {
+                plist["OperationType"] = "Replacing"
+            }
             // add the other replacing data
             plist["ReplacingType"] = replacingOperation.replacingType.rawValue
             if replacingOperation.replacingType == ReplacingObjectType.Imported {

@@ -39,21 +39,25 @@ class AdvancedObject: Identifiable {
     var replacementData: Data? = nil
     var backupData: Data? = nil
     var applyInBackground: Bool
+    var isCreating: Bool = false
     var isActive: Bool = true
     var author: String
     
-    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true) {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, creating: Bool = false, active: Bool = true) {
         self.operationName = operationName
         self.filePath = filePath
         self.applyInBackground = applyInBackground
         self.backupData = backupData
+        self.isCreating = creating
         self.isActive = active
         self.author = author
     }
     
     func backup() throws {
         // back up the data at the file path
-        backupData = try Data(contentsOf: URL(fileURLWithPath: filePath))
+        if !isCreating {
+            backupData = try Data(contentsOf: URL(fileURLWithPath: filePath))
+        }
     }
     
     func parseData() throws {
@@ -62,7 +66,7 @@ class AdvancedObject: Identifiable {
     
     func applyData(fromBackup: Bool = false) throws {
         var newData: Data? = nil
-        if fromBackup {
+        if fromBackup && !isCreating {
             newData = backupData
         } else {
             newData = replacementData
@@ -91,6 +95,8 @@ class AdvancedObject: Identifiable {
                         throw error.localizedDescription
                     }
                 }
+            } else if isCreating {
+                try newData!.write(to: URL(fileURLWithPath: filePath))
             } else {
                 throw "No file exists at path!"
             }
@@ -130,10 +136,10 @@ class ReplacingObject: AdvancedObject {
         }
     }
     
-    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, creating: Bool = false, active: Bool = true, overwriteData: Data, replacingType: ReplacingObjectType, replacingPath: String) {
         self.replacingType = replacingType
         self.replacingPath = replacingPath
-        super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
+        super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, creating: creating, active: active)
         self.replacementData = overwriteData
     }
 }

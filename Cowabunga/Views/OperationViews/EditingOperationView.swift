@@ -93,6 +93,17 @@ struct EditingOperationView: View {
                                 // change the type
                                 if !(operation is ReplacingObject) {
                                     operation = ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/Unknown")
+                                } else {
+                                    operation.isCreating = false
+                                }
+                            }
+                            
+                            let creatingAction = UIAlertAction(title: NSLocalizedString("Creating", comment: "operation type that creates a new file"), style: .default) { (action) in
+                                // change the type
+                                if !(operation is ReplacingObject) {
+                                    operation = ReplacingObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, creating: true, active: isActive, overwriteData: Data("#".utf8), replacingType: ReplacingObjectType.Imported, replacingPath: "/Unknown")
+                                } else {
+                                    operation.isCreating = true
                                 }
                             }
                             
@@ -135,8 +146,11 @@ struct EditingOperationView: View {
                             if operation is CorruptingObject {
                                 Text("Corrupting")
                                     .foregroundColor(.blue)
-                            } else if operation is ReplacingObject {
+                            } else if operation is ReplacingObject && !operation.isCreating {
                                 Text("Replacing")
+                                    .foregroundColor(.blue)
+                            } else if operation is ReplacingObject && operation.isCreating {
+                                Text("Creating")
                                     .foregroundColor(.blue)
                             } else if operation is PlistObject {
                                 Text("Plist")
@@ -184,14 +198,26 @@ struct EditingOperationView: View {
                         Spacer()
                         HStack {
                             Spacer()
-                            if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-                                Text("\(fileData.count) bytes")
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.bottom, 10)
+                            if operation.isCreating {
+                                if FileManager.default.isWritableFile(atPath: filePath) {
+                                    Image(systemName: "checkmark.circle")
+                                        .foregroundColor(.green)
+                                        .padding(.bottom, 10)
+                                } else {
+                                    Text("Cannot write to file path!")
+                                        .multilineTextAlignment(.trailing)
+                                        .padding(.bottom, 10)
+                                }
                             } else {
-                                Text("File not found!")
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.bottom, 10)
+                                if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                    Text("\(fileData.count) bytes")
+                                        .multilineTextAlignment(.trailing)
+                                        .padding(.bottom, 10)
+                                } else {
+                                    Text("File not found!")
+                                        .multilineTextAlignment(.trailing)
+                                        .padding(.bottom, 10)
+                                }
                             }
                         }
                     }
@@ -280,31 +306,33 @@ struct EditingOperationView: View {
                                             .frame(maxHeight: 180)
                                     }
                                 }
-                                Spacer()
-                                HStack {
+                                if !operation.isCreating {
                                     Spacer()
-                                    if FileManager.default.fileExists(atPath: replacingPath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: replacingPath)) {
-                                        Text("\(fileData.count) bytes")
-                                            .multilineTextAlignment(.trailing)
-                                            .padding(.bottom, 10)
-                                        if FileManager.default.isWritableFile(atPath: filePath) {
-                                            Image(systemName: "checkmark.circle")
-                                                .foregroundColor(.green)
-                                        } else {
-                                            if FileManager.default.fileExists(atPath: filePath), let fileData2 = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-                                                if fileData2.count >= fileData.count {
-                                                    Image(systemName: "checkmark.circle")
-                                                        .foregroundColor(.green)
-                                                } else {
-                                                    Image(systemName: "x.circle")
-                                                        .foregroundColor(.red)
+                                    HStack {
+                                        Spacer()
+                                        if FileManager.default.fileExists(atPath: replacingPath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: replacingPath)) {
+                                            Text("\(fileData.count) bytes")
+                                                .multilineTextAlignment(.trailing)
+                                                .padding(.bottom, 10)
+                                            if FileManager.default.isWritableFile(atPath: filePath) {
+                                                Image(systemName: "checkmark.circle")
+                                                    .foregroundColor(.green)
+                                            } else {
+                                                if FileManager.default.fileExists(atPath: filePath), let fileData2 = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                                    if fileData2.count >= fileData.count {
+                                                        Image(systemName: "checkmark.circle")
+                                                            .foregroundColor(.green)
+                                                    } else {
+                                                        Image(systemName: "x.circle")
+                                                            .foregroundColor(.red)
+                                                    }
                                                 }
                                             }
+                                        } else {
+                                            Text("File not found!")
+                                                .multilineTextAlignment(.trailing)
+                                                .padding(.bottom, 10)
                                         }
-                                    } else {
-                                        Text("File not found!")
-                                            .multilineTextAlignment(.trailing)
-                                            .padding(.bottom, 10)
                                     }
                                 }
                             }
@@ -317,31 +345,33 @@ struct EditingOperationView: View {
                                     Text(splitted.last ?? "No file selected!")
                                         .multilineTextAlignment(.trailing)
                                 }
-                                Spacer()
-                                HStack {
+                                if !operation.isCreating {
                                     Spacer()
-                                    if replacingData != nil {
-                                        Text("\(replacingData!.count) bytes")
-                                            .multilineTextAlignment(.trailing)
-                                            .padding(.bottom, 10)
-                                        if FileManager.default.isWritableFile(atPath: filePath) {
-                                            Image(systemName: "checkmark.circle")
-                                                .foregroundColor(.green)
-                                        } else {
-                                            if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-                                                if fileData.count >= replacingData!.count {
-                                                    Image(systemName: "checkmark.circle")
-                                                        .foregroundColor(.green)
-                                                } else {
-                                                    Image(systemName: "x.circle")
-                                                        .foregroundColor(.red)
+                                    HStack {
+                                        Spacer()
+                                        if replacingData != nil {
+                                            Text("\(replacingData!.count) bytes")
+                                                .multilineTextAlignment(.trailing)
+                                                .padding(.bottom, 10)
+                                            if FileManager.default.isWritableFile(atPath: filePath) {
+                                                Image(systemName: "checkmark.circle")
+                                                    .foregroundColor(.green)
+                                            } else {
+                                                if FileManager.default.fileExists(atPath: filePath), let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                                    if fileData.count >= replacingData!.count {
+                                                        Image(systemName: "checkmark.circle")
+                                                            .foregroundColor(.green)
+                                                    } else {
+                                                        Image(systemName: "x.circle")
+                                                            .foregroundColor(.red)
+                                                    }
                                                 }
                                             }
+                                        } else {
+                                            Text("File not found!")
+                                                .multilineTextAlignment(.trailing)
+                                                .padding(.bottom, 10)
                                         }
-                                    } else {
-                                        Text("File not found!")
-                                            .multilineTextAlignment(.trailing)
-                                            .padding(.bottom, 10)
                                     }
                                 }
                             }
@@ -357,7 +387,7 @@ struct EditingOperationView: View {
                             }
                         }
                     } header: {
-                        Text("Replacement Data")
+                        Text(operation.isCreating ? "Creating Data" : "Replacement Data")
                     }
                 }
                 
@@ -669,21 +699,23 @@ struct EditingOperationView: View {
                             .buttonStyle(TintedButton(color: .red, fullwidth: true))
                             
                             // MARK: Restore
-                            Button(action: {
-                                // apply the changes
-                                UIApplication.shared.alert(title: NSLocalizedString("Restoring original file...", comment: "restore button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
-                                do {
-                                    try operation.applyData(fromBackup: true)
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The file was successfully restored!", comment: "when an operation is restored"))
-                                } catch {
-                                    UIApplication.shared.dismissAlert(animated: true)
-                                    UIApplication.shared.alert(body: NSLocalizedString("An error occurred while restoring the files", comment: "when an operation fails to restore") + ": \(error.localizedDescription)")
+                            if !operation.isCreating {
+                                Button(action: {
+                                    // apply the changes
+                                    UIApplication.shared.alert(title: NSLocalizedString("Restoring original file...", comment: "restore button on custom operations"), body: NSLocalizedString("Please wait", comment: ""), animated: false, withButton: false)
+                                    do {
+                                        try operation.applyData(fromBackup: true)
+                                        UIApplication.shared.dismissAlert(animated: true)
+                                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The file was successfully restored!", comment: "when an operation is restored"))
+                                    } catch {
+                                        UIApplication.shared.dismissAlert(animated: true)
+                                        UIApplication.shared.alert(body: NSLocalizedString("An error occurred while restoring the files", comment: "when an operation fails to restore") + ": \(error.localizedDescription)")
+                                    }
+                                }) {
+                                    Text("Restore")
                                 }
-                            }) {
-                                Text("Restore")
+                                .buttonStyle(TintedButton(color: .green, fullwidth: true))
                             }
-                            .buttonStyle(TintedButton(color: .green, fullwidth: true))
                         }
                     }
                     .listRowInsets(EdgeInsets())
