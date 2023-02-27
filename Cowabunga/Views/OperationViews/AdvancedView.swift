@@ -19,7 +19,7 @@ struct AdvancedView: View {
         VStack {
             List {
                 ForEach($uncategorizedOperations) { operation in
-                    NavigationLink(destination: EditingOperationView(category: operation.categoryName.wrappedValue!, editing: true, operation: try! AdvancedManager.getOperationFromName(operationName: operation.name.wrappedValue))) {
+                    NavigationLink(destination: EditingOperationView(category: operation.categoryName.wrappedValue!, editing: true, operation: AdvancedManager.getOperationFromName_SAFE(operationName: operation.name.wrappedValue))) {
                         HStack {
                             if !operation.isActive.wrappedValue {
                                 Image(systemName: "xmark.seal.fill")
