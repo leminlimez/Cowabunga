@@ -106,7 +106,8 @@ struct AdvancedView: View {
             .sheet(isPresented: $isImporting) {
                 DocumentPicker(
                     types: [
-                        UTType(filenameExtension: "cowperation") ?? .zip
+                        UTType(filenameExtension: "cowperation") ?? .zip,
+                        UTType(filenameExtension: "fsp") ?? .zip
                     ]
                 ) { result in
                     if result.first == nil { UIApplication.shared.alert(body: NSLocalizedString("Couldn't get url of file. Did you select it?", comment: "")); return }
