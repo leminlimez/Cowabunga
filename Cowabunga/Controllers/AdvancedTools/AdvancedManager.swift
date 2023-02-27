@@ -243,6 +243,14 @@ class AdvancedManager {
         }
     }
     
+    static func getOperationFromName_SAFE(operationName: String) -> AdvancedObject {
+        do {
+            return try getOperationFromName(operationName: operationName)
+        } catch {
+            return CorruptingObject(operationName: operationName, filePath: "Unknown", applyInBackground: false)
+        }
+    }
+    
     static func getOperationURLFromName(_ operationName: String) throws -> URL {
         let savedPath = getSavedOperationsDirectory()
         if savedPath != nil {
