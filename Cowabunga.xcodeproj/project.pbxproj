@@ -44,6 +44,7 @@
 		6F07ABB2299F144000076436 /* MainFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABB1299F144000076436 /* MainFontsView.swift */; };
 		6F07ABB4299F14E800076436 /* AudioOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABB3299F14E800076436 /* AudioOptionsView.swift */; };
 		6F0E754E29ACF85A002E7516 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 6F0E754D29ACF85A002E7516 /* Zip */; };
+		6F0E755129AD32CB002E7516 /* FSPConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E755029AD32CB002E7516 /* FSPConverter.swift */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
@@ -178,6 +179,7 @@
 		6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
 		6F07ABB1299F144000076436 /* MainFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFontsView.swift; sourceTree = "<group>"; };
 		6F07ABB3299F14E800076436 /* AudioOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioOptionsView.swift; sourceTree = "<group>"; };
+		6F0E755029AD32CB002E7516 /* FSPConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPConverter.swift; sourceTree = "<group>"; };
 		6F15D92C29A5ACC4008991F1 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F15D92D29A5ACC4008991F1 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F160E6C2964E3540026D69D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -517,6 +519,7 @@
 			children = (
 				6F4296B42992CCB500A96108 /* AdvancedManager.swift */,
 				6F4296B72992CDDE00A96108 /* AdvancedObject.swift */,
+				6F0E755029AD32CB002E7516 /* FSPConverter.swift */,
 			);
 			path = AdvancedTools;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */,
 				6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */,
 				6F4296B82992CDDE00A96108 /* AdvancedObject.swift in Sources */,
+				6F0E755129AD32CB002E7516 /* FSPConverter.swift in Sources */,
 				2183C9972987D8D800AE187C /* Color++.swift in Sources */,
 				21E54B3D299412C300D5F85A /* UIImage+resizeToApprox.swift in Sources */,
 				6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */,

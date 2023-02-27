@@ -90,7 +90,7 @@ struct CowabungaApp: App {
                     }
                     
                     // for opening cowperation files
-                    if url.pathExtension.lowercased() == "cowperation" {
+                    if url.pathExtension.lowercased() == "cowperation" || url.pathExtension.lowercased() == "fsp" {
                         do {
                             // try adding the operation
                             try AdvancedManager.importOperation(url)
