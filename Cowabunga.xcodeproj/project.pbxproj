@@ -43,6 +43,7 @@
 		6F07ABA9299EB67100076436 /* ChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */; };
 		6F07ABB2299F144000076436 /* MainFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABB1299F144000076436 /* MainFontsView.swift */; };
 		6F07ABB4299F14E800076436 /* AudioOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07ABB3299F14E800076436 /* AudioOptionsView.swift */; };
+		6F0E754E29ACF85A002E7516 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 6F0E754D29ACF85A002E7516 /* Zip */; };
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
@@ -289,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F0E754E29ACF85A002E7516 /* Zip in Frameworks */,
 				21E54B272994079700D5F85A /* libMacDirtyCowSwift.a in Frameworks */,
 				6FF21AF8298821410054EBC0 /* Dynamic in Frameworks */,
 				6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */,
@@ -741,6 +743,7 @@
 				6FF21B0129882CB70054EBC0 /* ACarousel */,
 				21AC8BAA298C0736000B7E85 /* CachedAsyncImage */,
 				21D9E45B29A0FCAE0055B08D /* AssetCatalogWrapper */,
+				6F0E754D29ACF85A002E7516 /* Zip */,
 			);
 			productName = DockHider;
 			productReference = 6F721C8C296482C6001CFE46 /* Cowabunga.app */;
@@ -795,6 +798,7 @@
 				6FF21B0029882CB70054EBC0 /* XCRemoteSwiftPackageReference "ACarousel" */,
 				21AC8BA9298C0736000B7E85 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				21D9E45A29A0FCAE0055B08D /* XCRemoteSwiftPackageReference "SantanderWrappers" */,
+				6F0E754C29ACF85A002E7516 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 6F721C8D296482C6001CFE46 /* Products */;
 			projectDirPath = "";
@@ -1266,6 +1270,14 @@
 				kind = branch;
 			};
 		};
+		6F0E754C29ACF85A002E7516 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		6FF21ADC29846A180054EBC0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
@@ -1302,6 +1314,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 21D9E45A29A0FCAE0055B08D /* XCRemoteSwiftPackageReference "SantanderWrappers" */;
 			productName = AssetCatalogWrapper;
+		};
+		6F0E754D29ACF85A002E7516 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F0E754C29ACF85A002E7516 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		6FF21ADD29846A180054EBC0 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
