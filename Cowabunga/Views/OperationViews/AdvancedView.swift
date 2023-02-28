@@ -115,8 +115,7 @@ struct AdvancedView: View {
                     do {
                         // try adding the operation
                         try AdvancedManager.importOperation(url)
-                        operations.removeAll()
-                        operations = try AdvancedManager.loadOperations()
+                        updateCategories()
                         UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
                     } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                 }
