@@ -29,7 +29,7 @@ struct HomeView: View {
     
     // list of translators
     @State private var translators: [Translator] = [
-        .init(names: "Zaalhir#1288", contribution: "🇪🇸 Spanish"),
+        .init(names: "Zaalhir#1288 & Panwato#9764", contribution: "🇪🇸 Spanish"),
         .init(names: "c22dev", contribution: "🇫🇷 French"),
         .init(names: "Mattia#6297", contribution: "🇮🇹 Italian"),
         .init(names: "Abbyy#2820", contribution: "🇵🇱 Polish"),
