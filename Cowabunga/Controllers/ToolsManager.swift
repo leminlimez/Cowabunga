@@ -7,6 +7,7 @@
 
 import UIKit
 import MacDirtyCowSwift
+import Dynamic
 
 // get the user defaults for a boolean key
 func getDefaultBool(forKey: String, defaultValue: Bool = false) -> Bool {
@@ -40,6 +41,23 @@ func respring() {
         restartFrontboard()
         exit(0)
     })
+}
+
+var connection: NSXPCConnection?
+
+func removeIconCache() {
+    print("removing icon cache")
+    if connection == nil {
+        let myCookieInterface = NSXPCInterface(with: ISIconCacheServiceProtocol.self)
+        connection = Dynamic.NSXPCConnection(machServiceName: "com.apple.iconservices", options: []).asObject as? NSXPCConnection
+        connection!.remoteObjectInterface = myCookieInterface
+        connection!.resume()
+        print("Connection: \(connection!)")
+    }
+    
+    (connection!.remoteObjectProxy as AnyObject).clearCachedItems(forBundeID: nil) { (a, b) in // passing nil to remove all icon cache
+        print("Successfully responded (\(a), \(b ?? "(null)"))")
+    }
 }
 
 //func rebuildIconCache() throws {

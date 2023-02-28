@@ -186,6 +186,7 @@
 		6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
 		6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasscodesView.swift; sourceTree = "<group>"; };
+		6F24805829AE854B00F2DAA2 /* ISIconCacheServiceProtocol-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISIconCacheServiceProtocol-Protocol.h"; sourceTree = "<group>"; };
 		6F369561298C86D80011ADB8 /* ThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesView.swift; sourceTree = "<group>"; };
 		6F369563298C86FC0011ADB8 /* IconOverridesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconOverridesView.swift; sourceTree = "<group>"; };
 		6F369565298C870F0011ADB8 /* AltIconSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltIconSelectionView.swift; sourceTree = "<group>"; };
@@ -368,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF21AFF29882C020054EBC0 /* CoreServices.h */,
+				6F24805829AE854B00F2DAA2 /* ISIconCacheServiceProtocol-Protocol.h */,
 			);
 			path = "ObjectiveC💀";
 			sourceTree = "<group>";
