@@ -11,13 +11,13 @@
 "Icon Theme" = "Tema för ikoner";
 
 /* Privacy - Media Library Usage Description */
-"NSAppleMusicUsageDescription" = "Ge tillstånd till sandlådan (behöver den för lösenordsnycklar + några andra alternativ)";
+"NSAppleMusicUsageDescription" = "Ge tillstånd till sandlåda (behövs för att modifiera bland annat lösenordsnycklar)";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga körs i bakgrunden för att se till att alla tweaks fungerar. Vanligtvis stoppas sådana appar efter en tid av iOS. Men Cowabunga lurar iOS genom att begära platsdata vilket tillåter mycket längre sessioner. Data lagras aldrig någonstans, bara hämtas.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga körs i bakgrunden för att se till att alla tweaks fungerar. Vanligtvis stoppas sådana appar efter ett tag av iOS. Men Cowabunga lurar iOS genom att begära platsdata vilket tillåter mycket längre sessioner. Data lagras aldrig någonstans, bara hämtas.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga körs i bakgrunden för att se till att alla tweaks fungerar. Vanligtvis stoppas sådana appar efter en tid av iOS. Men Cowabunga lurar iOS genom att begära platsdata vilket tillåter mycket längre sessioner. Data lagras aldrig någonstans, bara hämtas.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga körs i bakgrunden för att se till att alla tweaks fungerar. Vanligtvis stoppas sådana appar efter ett tag av iOS. Men Cowabunga lurar iOS genom att begära platsdata vilket tillåter mycket längre sessioner. Data lagras aldrig någonstans, bara hämtas.";
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Bilder";
