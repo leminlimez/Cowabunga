@@ -130,10 +130,8 @@ struct ThemesView: View {
                                 
                                 
                                 Button("Rebuild Icon Cache") {
-                                    do {
-                                        UIApplication.shared.alert(title: NSLocalizedString("Scheduling a rebuild", comment: "rebuilding icon cache"), body: "", withButton: false)
-                                        try rebuildIconCache()
-                                    } catch { UIApplication.shared.alert(body: error.localizedDescription) }
+                                    UIApplication.shared.alert(title: NSLocalizedString("Scheduling a rebuild", comment: "rebuilding icon cache"), body: "", withButton: false)
+                                    remvoeIconCache()
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(10)
@@ -246,85 +244,28 @@ struct ThemesView: View {
                     })
                     
                     UIApplication.shared.change(title: NSLocalizedString("In progress...", comment: ""), body: NSLocalizedString("Scheduling icon cache reset...", comment: ""))
+                    remvoeIconCache()
+
+                    UIApplication.shared.dismissAlert(animated: false)
                     
-//                    let iconservicesagentURL = URL(fileURLWithPath: "/System/Library/CoreServices/iconservicesagent")
-//                    var byteArray = [UInt8](try! Data(contentsOf: iconservicesagentURL))
-//
-//
-//                    let findBytes: [UInt8]    = [UInt8]("/System/Library/CoreServices/SystemVersion.plist".data(using: .utf8)!)
-//                    let replaceBytes: [UInt8] = [UInt8]("/var/mobile/.DO-NOT-DELETE-Cowabunga/dummy.plist".data(using: .utf8)!)
-//
-//                    var startIndex = 0
-//                    while startIndex <= byteArray.count - findBytes.count {
-//                        let endIndex = startIndex + findBytes.count
-//                        let subArray = Array(byteArray[startIndex..<endIndex])
-//
-//                        if subArray == findBytes {
-//                            byteArray.replaceSubrange(startIndex..<endIndex, with: replaceBytes)
-//                            startIndex += replaceBytes.count
-//                        } else {
-//                            startIndex += 1
-//                        }
-//                    }
-//                    let newData = Data(byteArray)
-//
-//                    print(MDC.overwriteFile(at: iconservicesagentURL.path, with: newData))
-                    let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
-                    let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(Int.random(in: (10^^(lengthOfOldVersion - 1))...(10^^lengthOfOldVersion - 1)))")
-//
-                    xpc_crash("com.apple.iconservices")
-//
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                        do {
-                            let _ = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: oldVersion)
-                        } catch {
-                            UIApplication.shared.change(body: error.localizedDescription)
-
-                        }
-
-                        UIApplication.shared.dismissAlert(animated: false)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
-                            
-                            UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", comment: "IMPORTANT alert when icons finish applying"), confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
-                                    respring()
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                        UIApplication.shared.confirmAlert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: \(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s", comment: "IMPORTANT alert when icons finish applying"), confirmTitle: NSLocalizedString("Understood, Respring", comment: "Shown after successful theme set."), onOK: {
+                                respring()
+                        }, noCancel: true)
+                        
+                        for err in themeManager.catalogThemeManager.errors {
+                            UIApplication.shared.confirmAlert(title: NSLocalizedString("Errors occurred while setting some icons", comment: ""), body: err, onOK: {
+                                
                             }, noCancel: true)
-                            
-                            for err in themeManager.catalogThemeManager.errors {
-                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Errors occurred while setting some icons", comment: ""), body: err, onOK: {
-                                    
-                                }, noCancel: true)
-                            }
-                        })
+                        }
                     })
                 } catch { UIApplication.shared.change(body: error.localizedDescription) }
             }
         }
         
         UIImpactFeedbackGenerator(style: .light).impactOccurred(); apply()
-    }
-    
-    
-    func rebuildIconCache() throws {
-        let lengthOfOldVersion = (try getValueInSystemVersionPlist(key: "ProductBuildVersion") as? String)?.count ?? 6
-        let minimum: Int = Int("1" + String(repeating: "0", count: lengthOfOldVersion-1)) ?? 100000
-        let maximum: Int = Int(String(repeating: "9", count: lengthOfOldVersion)) ?? 999999
-        let oldVersion = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: "\(Int.random(in: minimum...maximum))")
-//
-        xpc_crash("com.apple.iconservices")
-//
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            do {
-                let _ = try setValueInSystemVersionPlist(key: "ProductBuildVersion", value: oldVersion)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
-                    respring()
-                })
-            } catch {
-                UIApplication.shared.change(body: error.localizedDescription)
-
-            }
-        })
     }
 }
 

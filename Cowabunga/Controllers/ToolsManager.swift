@@ -45,7 +45,7 @@ func respring() {
 
 var connection: NSXPCConnection?
 
-func removeIconCache() {
+func remvoeIconCache() {
     print("removing icon cache")
     if connection == nil {
         let myCookieInterface = NSXPCInterface(with: ISIconCacheServiceProtocol.self)
