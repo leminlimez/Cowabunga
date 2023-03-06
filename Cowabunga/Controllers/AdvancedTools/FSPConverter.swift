@@ -62,8 +62,9 @@ class FSPConverter {
     }
     
     // Convert .fsp for importing
-    static func convertFromFSP(_ url: URL) throws {
+    static func convertFromFSP(_ url: URL) throws -> Bool {
         let fm = FileManager.default
+        var editsVar: Bool = false
         
         // MARK: UNZIP
         let zipURL = fm.temporaryDirectory.appendingPathComponent(url.deletingPathExtension().appendingPathExtension("zip").lastPathComponent)
@@ -108,14 +109,21 @@ class FSPConverter {
                     }
                 }
                 
+                let isActive: Bool = false // operation["Active"] as! Bool
+                
+                // check if it edits /var
+                if (operation["FilePath"] as! String).starts(with: "/var") {
+                    editsVar = true
+                }
+                
                 if opType == "Corrupting" {
-                    opObj = CorruptingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: operation["Active"] as! Bool)
+                    opObj = CorruptingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: isActive)
                 } else if opType == "Replacing" {
-                    opObj = ReplacingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: operation["Active"] as! Bool, overwriteData: replaceData, replacingType: (operation["ReplacingType"] as! String == "FilePath" ? ReplacingObjectType.FilePath : ReplacingObjectType.Imported), replacingPath: operation["ReplacingPath"] as! String)
+                    opObj = ReplacingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: isActive, overwriteData: replaceData, replacingType: (operation["ReplacingType"] as! String == "FilePath" ? ReplacingObjectType.FilePath : ReplacingObjectType.Imported), replacingPath: operation["ReplacingPath"] as! String)
                 } else if opType == "Creating" {
-                    opObj = ReplacingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, creating: true, active: operation["Active"] as! Bool, overwriteData: replaceData, replacingType: (operation["ReplacingType"] as! String == "FilePath" ? ReplacingObjectType.FilePath : ReplacingObjectType.Imported), replacingPath: operation["ReplacingPath"] as! String)
+                    opObj = ReplacingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, creating: true, active: isActive, overwriteData: replaceData, replacingType: (operation["ReplacingType"] as! String == "FilePath" ? ReplacingObjectType.FilePath : ReplacingObjectType.Imported), replacingPath: operation["ReplacingPath"] as! String)
                 } else if opType == "Color" {
-                    opObj = ColorObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: operation["Active"] as! Bool, color: Color.init(hex: operation["HexColor"] as! String)!, blur: operation["Blur"] as! Double)
+                    opObj = ColorObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: isActive, color: Color.init(hex: operation["HexColor"] as! String)!, blur: operation["Blur"] as! Double)
                     // determine the styles
                     if let opObj = opObj as? ColorObject {
                         var styles: [String: String] = [:]
@@ -141,5 +149,6 @@ class FSPConverter {
             try? fm.removeItem(at: cowURL)
             throw error.localizedDescription
         }
+        return editsVar
     }
 }

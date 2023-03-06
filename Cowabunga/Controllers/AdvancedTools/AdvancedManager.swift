@@ -61,8 +61,9 @@ class AdvancedManager {
     }
     
     // MARK: Import Operation
-    static func importOperation(_ url: URL) throws {
+    static func importOperation(_ url: URL) throws -> Bool {
         let fm = FileManager.default
+        var editsVar: Bool = false
         
         if url.pathExtension == "cowperation" {
             let unzipURL = fm.temporaryDirectory.appendingPathComponent("cowperation_unzip")
@@ -70,13 +71,26 @@ class AdvancedManager {
             try fm.unzipItem(at: url, to: unzipURL)
             let savePath = getSavedOperationsDirectory()!.appendingPathComponent("None")
             for folder in (try? fm.contentsOfDirectory(at: unzipURL, includingPropertiesForKeys: nil)) ?? [] {
+                do {
+                    let plistURL = folder.appendingPathComponent("Info.plist")
+                    let plistData = try Data(contentsOf: plistURL)
+                    let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+                    if (plist["FilePath"] as! String).starts(with: "/var") {
+                        editsVar = true
+                    }
+                }
+                // disable the operation by default
+                if !fm.fileExists(atPath: folder.appendingPathComponent(".disabled").path) {
+                    try Data("#".utf8).write(to: folder.appendingPathComponent(".disabled"))
+                }
                 try fm.moveItem(at: folder, to: savePath.appendingPathComponent(getAvailableName(folder.deletingPathExtension().lastPathComponent)))
             }
         } else if url.pathExtension == "fsp" {
-            try FSPConverter.convertFromFSP(url)
+            editsVar = try FSPConverter.convertFromFSP(url)
         } else {
             throw "No .cowperation file found!"
         }
+        return editsVar
     }
     
     static func getAvailableName(_ operationName: String) -> String {
