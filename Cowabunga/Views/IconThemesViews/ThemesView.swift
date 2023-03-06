@@ -132,6 +132,9 @@ struct ThemesView: View {
                                 Button("Rebuild Icon Cache") {
                                     UIApplication.shared.alert(title: NSLocalizedString("Scheduling a rebuild", comment: "rebuilding icon cache"), body: "", withButton: false)
                                     remvoeIconCache()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                                        respring()
+                                    })
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(10)
