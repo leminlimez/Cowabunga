@@ -9,10 +9,10 @@
 "NSAppleMusicUsageDescription" = "Grant permission to the sandbox (needs it for Passcode keys + some other options)";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga runs in the background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time, but Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga runs in the background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time, but Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Photos";
