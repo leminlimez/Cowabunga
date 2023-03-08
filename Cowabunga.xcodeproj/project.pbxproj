@@ -1153,8 +1153,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant permission to the sandbox (needs it for Passcode keys + some other options)";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Photos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
