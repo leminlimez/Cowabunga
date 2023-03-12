@@ -216,53 +216,53 @@ struct OtherModsView: View {
             
             Section {
                 // software version
-                if #available(iOS 15, *) {
-                    HStack {
-                        Image(systemName: "gear.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.blue)
-                        
-                        Text("Software Version")
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                        
-                        Button(CurrentVersion, action: {
-                            let defaults = UserDefaults.standard
-                            // create and configure alert controller
-                            let alert = UIAlertController(title: NSLocalizedString("Input Software Version", comment: "Header for inputting custom iOS version"), message: NSLocalizedString("No respring required to apply.", comment: ""), preferredStyle: .alert)
-                            // bring up the text prompt
-                            alert.addTextField { (textField) in
-                                textField.placeholder = "Version"
-                                textField.text = defaults.string(forKey: "ProductVersion") ?? CurrentVersion
-                                textField.keyboardType = .decimalPad
-                            }
-                            
-                            // buttons
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
-                                // set the version
-                                let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
-                                if newVersion != "" {
-                                    do {
-                                        let _ = try setValueInSystemVersionPlist(key: "ProductVersion", value: newVersion)
-                                        CurrentVersion = newVersion
-                                        // set the default
-                                        defaults.set(newVersion, forKey: "ProductVersion")
-                                    } catch {
-                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply system version change! The version must be shorter than your current device version.\n\n\(error.localizedDescription)", comment: ""))
-                                    }
-                                }
-                            })
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                                // cancel the process
-                            })
-                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                        })
-                        .foregroundColor(.blue)
-                        .padding(.leading, 10)
-                    }
+//                if #available(iOS 15, *) {
+//                    HStack {
+//                        Image(systemName: "gear.circle")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(width: 24, height: 24)
+//                            .foregroundColor(.blue)
+//
+//                        Text("Software Version")
+//                            .minimumScaleFactor(0.5)
+//
+//                        Spacer()
+//
+//                        Button(CurrentVersion, action: {
+//                            let defaults = UserDefaults.standard
+//                            // create and configure alert controller
+//                            let alert = UIAlertController(title: NSLocalizedString("Input Software Version", comment: "Header for inputting custom iOS version"), message: NSLocalizedString("No respring required to apply.", comment: ""), preferredStyle: .alert)
+//                            // bring up the text prompt
+//                            alert.addTextField { (textField) in
+//                                textField.placeholder = "Version"
+//                                textField.text = defaults.string(forKey: "ProductVersion") ?? CurrentVersion
+//                                textField.keyboardType = .decimalPad
+//                            }
+//
+//                            // buttons
+//                            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
+//                                // set the version
+//                                let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
+//                                if newVersion != "" {
+//                                    do {
+//                                        let _ = try setValueInSystemVersionPlist(key: "ProductVersion", value: newVersion)
+//                                        CurrentVersion = newVersion
+//                                        // set the default
+//                                        defaults.set(newVersion, forKey: "ProductVersion")
+//                                    } catch {
+//                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply system version change! The version must be shorter than your current device version.\n\n\(error.localizedDescription)", comment: ""))
+//                                    }
+//                                }
+//                            })
+//                            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+//                                // cancel the process
+//                            })
+//                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+//                        })
+//                        .foregroundColor(.blue)
+//                        .padding(.leading, 10)
+//                    }
                     
                     // resolution setter
                     /*HStack {
@@ -428,7 +428,7 @@ struct OtherModsView: View {
                      .padding(.leading, 10)
                      }*/
                     
-                }
+//                }
                 
                 // region restrictions
                 /*HStack {
