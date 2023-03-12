@@ -726,18 +726,41 @@ struct EditingOperationView: View {
                 if editing {
                     // create export button
                     Button(action: {
-                        // create and configure alert controller
-                        let alert = UIAlertController(title: NSLocalizedString("Author Name", comment: "Header for inputting your name"), message: NSLocalizedString("Enter your name and you will be credited for creating the operation.", comment: "Message for inputting your name in custom operation"), preferredStyle: .alert)
-                        // bring up the text prompt
-                        alert.addTextField { (textField) in
-                            textField.placeholder = "Name"
-                        }
-                        
-                        // buttons
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
-                            // set the version
-                            let author: String = alert.textFields?[0].text ?? ""
-                            saveCurrentOperation(author, alerts: false)
+                        // get the saved author name if it exists
+                        let savedAuthorName = UserDefaults.standard.string(forKey: "CustomOperationsAuthorName")
+                        if savedAuthorName == nil {
+                            // user did not set an author name
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Author Name", comment: "Header for inputting your name"), message: NSLocalizedString("Enter your name and you will be credited for creating the operation.", comment: "Message for inputting your name in custom operation"), preferredStyle: .alert)
+                            // bring up the text prompt
+                            alert.addTextField { (textField) in
+                                textField.placeholder = "Enter Name"
+                            }
+                            
+                            // buttons
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
+                                // set the version
+                                let author: String = alert.textFields?[0].text ?? ""
+                                saveCurrentOperation(author, alerts: false)
+                                do {
+                                    let archiveURL = try AdvancedManager.exportOperation(operationName)
+                                    
+                                    // show share menu
+                                    let avc = UIActivityViewController(activityItems: [archiveURL], applicationActivities: nil)
+                                    let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                    avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                    avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                    UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
+                                } catch {
+                                    UIApplication.shared.alert(title: NSLocalizedString("Operation export failed!", comment: "failing to export custom operation"), body: error.localizedDescription)
+                                }
+                            })
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                                // cancel the process
+                            })
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                        } else {
+                            saveCurrentOperation(savedAuthorName!, alerts: false)
                             do {
                                 let archiveURL = try AdvancedManager.exportOperation(operationName)
                                 
@@ -750,11 +773,7 @@ struct EditingOperationView: View {
                             } catch {
                                 UIApplication.shared.alert(title: NSLocalizedString("Operation export failed!", comment: "failing to export custom operation"), body: error.localizedDescription)
                             }
-                        })
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                            // cancel the process
-                        })
-                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                        }
                     }) {
                         Image(systemName: "square.and.arrow.up")
                             .foregroundColor(.blue)

@@ -57,6 +57,7 @@ struct HomeView: View {
     @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
     @State var bgTasksVisible: Bool = false
     
+    @State private var customOperationsAuthorName = UserDefaults.standard.string(forKey: "CustomOperationsAuthorName")
     @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
     @State private var autoFetchLocks: Bool = UserDefaults.standard.bool(forKey: "AutoFetchLocks")
     @State private var lockPrefs: String = UserDefaults.standard.string(forKey: "LockPrefs") ?? LockManager.globalLockPaths[0]
@@ -211,6 +212,46 @@ struct HomeView: View {
                 
                 Section {
                     // app preferences
+                    // custom operations author name
+                    HStack {
+                        Text("Custom Operations Author Name")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button(customOperationsAuthorName ?? "Enter Name", action: {
+                            let defaults = UserDefaults.standard
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Enter Author Name", comment: "Header for inputting custom operations author name"), message: NSLocalizedString("This is the name that your exported operations will be attached to.", comment: "Footer for inputting custom operations author name"), preferredStyle: .alert)
+                            // bring up the text prompt
+                            alert.addTextField { (textField) in
+                                textField.placeholder = "Enter Name"
+                                textField.text = defaults.string(forKey: "CustomOperationsAuthorName") ?? ""
+                            }
+                            
+                            // buttons
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
+                                // set the version
+                                let newAuthor: String = alert.textFields?[0].text! ?? ""
+                                if newAuthor == "" {
+                                    // reset the author name
+                                    defaults.removeObject(forKey: "CustomOperationsAuthorName")
+                                    customOperationsAuthorName = nil
+                                } else {
+                                   // apply the author name
+                                    defaults.set(newAuthor, forKey: "CustomOperationsAuthorName")
+                                    customOperationsAuthorName = newAuthor
+                                }
+                            })
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                                // cancel the process
+                            })
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
                     // lock type prefs
                     if LockManager.deviceLockPath[deviceType] != nil {
                         HStack {
