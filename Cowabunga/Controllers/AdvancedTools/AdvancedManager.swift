@@ -402,7 +402,7 @@ class AdvancedManager {
             plist["ReplacingType"] = replacingOperation.replacingType.rawValue
             if replacingOperation.replacingType == ReplacingObjectType.Imported {
                 // remove the app path from the info
-                let repFileName = replacingOperation.replacingPath.replacingOccurrences(of: FileManager.default.temporaryDirectory.path + "/", with: "").replacingOccurrences(of: operationPath.path + "/", with: "")
+                let repFileName = URL(fileURLWithPath: replacingOperation.replacingPath).lastPathComponent
                 try operation.replacementData?.write(to: operationPath.appendingPathComponent(repFileName))
                 plist["ReplacingPath"] = repFileName
             } else {
