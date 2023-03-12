@@ -62,7 +62,7 @@ struct CowabungaApp: App {
                             
                             if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                                 if (json["tag_name"] as? String)?.replacingOccurrences(of: "v", with: "").compare(version, options: .numeric) == .orderedDescending {
-                                    UIApplication.shared.confirmAlert(title: "Update available", body: "A new Cowabunga update is available, do you want to visit releases page?", onOK: {
+                                    UIApplication.shared.confirmAlert(title: "Update available", body: "Cowabunga \(json["tag_name"] as? String ?? "update") is available, do you want to visit releases page?", onOK: {
                                         UIApplication.shared.open(URL(string: "https://github.com/leminlimez/Cowabunga/releases/latest")!)
                                     }, noCancel: false)
                                 }
