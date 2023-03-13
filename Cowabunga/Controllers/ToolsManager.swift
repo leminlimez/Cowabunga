@@ -100,7 +100,7 @@ enum SpringBoardOptions: String, CaseIterable {
 
 let replacementPaths: [String: [String]] = [
     SpringBoardOptions.DockHidden.rawValue: ["CoreMaterial.framework/dockDark.materialrecipe", "CoreMaterial.framework/dockLight.materialrecipe"],
-    SpringBoardOptions.HomeBarHidden.rawValue: ["MaterialKit.framework/Info.plist", "MaterialKit.framework/Assets.car"],
+    SpringBoardOptions.HomeBarHidden.rawValue: ["MaterialKit.framework/Assets.car"],
     SpringBoardOptions.FolderBGHidden.rawValue: ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
     SpringBoardOptions.FolderBlurDisabled.rawValue: ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
     SpringBoardOptions.SwitcherBlurDisabled.rawValue: ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
@@ -193,8 +193,33 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         if replacementPaths[fileIdentifier] != nil {
             var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
-                let randomGarbage = Data("###".utf8)
-                succeeded = succeeded && MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: randomGarbage)
+                var newData = Data("###".utf8)
+                if value as? Bool ?? true == false {
+                    if fileIdentifier == "HomeBarHidden" {
+                        if let url: URL = Bundle.main.url(forResource: "HomeBarAssets", withExtension: "car") {
+                            do {
+                                newData = try Data(contentsOf: url)
+                            } catch {
+                                print(error.localizedDescription)
+                                return false
+                            }
+                        } else {
+                            return false
+                        }
+                    } else {
+                        if let fileName = path.split(separator: "/").last, let fn = fileName.split(separator: ".").first, let ext = fileName.split(separator: ".").last, let url: URL = Bundle.main.url(forResource: String(fn), withExtension: String(ext)) {
+                            do {
+                                newData = try Data(contentsOf: url)
+                            } catch {
+                                print(error.localizedDescription)
+                                return false
+                            }
+                        } else {
+                            return false
+                        }
+                    }
+                }
+                succeeded = succeeded && MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
             }
             return succeeded
         }
@@ -223,6 +248,19 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         if replacementPaths[fileIdentifier] != nil {
             do {
                 let path: String = replacementPaths[fileIdentifier]![0]
+                if value as? Bool ?? true == false {
+                    // restore
+                    if let url: URL = Bundle.main.url(forResource: "modules", withExtension: "materialrecipe") {
+                        do {
+                            let newData = try Data(contentsOf: url)
+                            return MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                    return false
+                }
+                
                 let plistData = try Data(contentsOf: URL(fileURLWithPath: "/System/Library/PrivateFrameworks/" + path))
                 let originalSize = plistData.count
                 var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
