@@ -71,7 +71,7 @@
 "Begin Recording" = "开始录制";
 
 /* Big passcode keys */
-"Big" = "大的";
+"Big" = "大";
 
 /* No comment provided by engineer. */
 "Blur:   %lld" = "模糊程度:   %lld";
@@ -364,7 +364,7 @@
 "Keyboard Press Normal" = "键盘输入";
 
 /* Audio name */
-"Lock" = "锁头";
+"Lock" = "锁定";
 
 /* Category of tool */
 "Lock Screen" = "锁屏界面";
@@ -613,7 +613,7 @@
 "Unable to save imported lock!" = "无法保存导入的锁头!";
 
 /* zhuowei's contribution */
-"Unsandboxing" = "沙盒逃逸中！";
+"Unsandboxing" = "沙盒逃逸";
 
 /* No comment provided by engineer. */
 "Update Included Audio" = "升级内置音效";
