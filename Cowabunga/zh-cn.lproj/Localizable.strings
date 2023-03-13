@@ -2,7 +2,7 @@
 "(Recommended)" = "(推荐)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*会同时隐藏运营商名称\n^会同时隐藏数据图标";
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*运营商名称会同时隐藏\n^数据图标会同时隐藏";
 
 /* No comment provided by engineer. */
 "%lldx%lld" = "%lldx%lld";
@@ -98,16 +98,16 @@
 "Change Status Bar Time Text" = "修改锁屏状态栏时间文字";
 
 /* Audio name */
-"Charging" = "修改";
+"Charging" = "充电中";
 
 /* No comment provided by engineer. */
 "Choose a device subtype" = "选择想修改的设备型号";
 
 /* Title for lock preference */
-"Choose a lock preference" = "选择一个锁定偏好";
+"Choose a lock preference" = "修改锁定偏好";
 
 /* No comment provided by engineer. */
-"Choose a name for the lock" = "为锁头选取一个名字";
+"Choose a name for the lock" = "选取锁头名字";
 
 /* Entering name for audio */
 "Choose a name for the sound" = "为声音选择一个名字";
@@ -273,7 +273,7 @@
 "Gestures / Dynamic Island" = "手势 / 灵动岛";
 
 /* No comment provided by engineer. */
-"Go here if something isn't working correctly." = "如果不能正常运行，请到这。";
+"Go here if something isn't working correctly." = "无法生效时的备选设置";
 
 /* Height of custom resolution
    Height of passcode keys */
@@ -589,10 +589,10 @@
 "The app will quit." = "软件将会退出";
 
 /* Saving imported audio */
-"The imported audio was successfully encoded and saved." = "导入音效已成功加密并保存";
+"The imported audio was successfully encoded and saved." = "音效导入成功";
 
 /* Saving imported lock */
-"The imported lock was successfully saved." = "导入的锁头成功保存";
+"The imported lock was successfully saved." = "锁头导入成功";
 
 /* No comment provided by engineer. */
 "Tools" = "工具";
@@ -607,7 +607,7 @@
 "Type:" = "类型:";
 
 /* Cannot delete audio (audio name is after) */
-"Unable to delete audio for audio" = "无法删除音效o";
+"Unable to delete audio for audio" = "无法删除音效";
 
 /* Failed to import lock */
 "Unable to save imported lock!" = "无法保存导入的锁头!";
@@ -619,13 +619,13 @@
 "Update Included Audio" = "升级内置音效";
 
 /* No comment provided by engineer. */
-"Use Alternative Setter" = "用另一种设置";
+"Use Alternative Setter" = "备选设置";
 
 /* No comment provided by engineer. */
-"Use at your own risk" = "请后果自负";
+"Use at your own risk" = "后果自负";
 
 /* No comment provided by engineer. */
-"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "在运营商/时间文字没有应用成功的情况下使用这个，我推荐你在打开并保存成功后恢复为默认选项";
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "如果运营商/时间文字没有应用成功，建议恢复默认并保存";
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "如果你的设备错误地检测到了巨魔已经安装了或者在状态栏修改插件的顶部没有应用按钮，请使用这个";
