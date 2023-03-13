@@ -61,6 +61,7 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
     - Disable shortcut banners
     - Turn shortcuts into app clips
     - Supervise Device
+    - Disable screentime
     Warning: Use the features below at your own risk!
     - Change system version (shows in settings, iOS 15+)
     - Enable iPhone X Gestures
