@@ -48,6 +48,19 @@
 		6F160E6D2964E3540026D69D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F160E6C2964E3540026D69D /* CoreServices.framework */; };
 		6F160E732965B2810026D69D /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F160E722965B2810026D69D /* ToolsManager.swift */; };
 		6F247A5C298888CE007BD53A /* SavedPasscodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */; };
+		6F2481BC29BE963500F2DAA2 /* platters.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481AA29BE963500F2DAA2 /* platters.materialrecipe */; };
+		6F2481BD29BE963500F2DAA2 /* plattersDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481AB29BE963500F2DAA2 /* plattersDark.materialrecipe */; };
+		6F2481BE29BE963500F2DAA2 /* podBackgroundViewLight.visualstyleset in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481AD29BE963500F2DAA2 /* podBackgroundViewLight.visualstyleset */; };
+		6F2481BF29BE963500F2DAA2 /* podBackgroundViewDark.visualstyleset in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481AE29BE963500F2DAA2 /* podBackgroundViewDark.visualstyleset */; };
+		6F2481C029BE963500F2DAA2 /* modules.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B029BE963500F2DAA2 /* modules.materialrecipe */; };
+		6F2481C129BE963500F2DAA2 /* folderLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B229BE963500F2DAA2 /* folderLight.materialrecipe */; };
+		6F2481C229BE963500F2DAA2 /* folderDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B329BE963500F2DAA2 /* folderDark.materialrecipe */; };
+		6F2481C329BE963500F2DAA2 /* folderExpandedBackgroundHome.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B529BE963500F2DAA2 /* folderExpandedBackgroundHome.materialrecipe */; };
+		6F2481C429BE963500F2DAA2 /* homeScreenOverlay-iPad.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B629BE963500F2DAA2 /* homeScreenOverlay-iPad.materialrecipe */; };
+		6F2481C529BE963500F2DAA2 /* homeScreenOverlay.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B729BE963500F2DAA2 /* homeScreenOverlay.materialrecipe */; };
+		6F2481C629BE963500F2DAA2 /* HomeBarAssets.car in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481B829BE963500F2DAA2 /* HomeBarAssets.car */; };
+		6F2481C729BE963500F2DAA2 /* dockDark.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481BA29BE963500F2DAA2 /* dockDark.materialrecipe */; };
+		6F2481C829BE963500F2DAA2 /* dockLight.materialrecipe in Resources */ = {isa = PBXBuildFile; fileRef = 6F2481BB29BE963500F2DAA2 /* dockLight.materialrecipe */; };
 		6F369562298C86D80011ADB8 /* ThemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369561298C86D80011ADB8 /* ThemesView.swift */; };
 		6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369563298C86FC0011ADB8 /* IconOverridesView.swift */; };
 		6F369566298C870F0011ADB8 /* AltIconSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F369565298C870F0011ADB8 /* AltIconSelectionView.swift */; };
@@ -187,6 +200,19 @@
 		6F160E722965B2810026D69D /* ToolsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsManager.swift; sourceTree = "<group>"; };
 		6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasscodesView.swift; sourceTree = "<group>"; };
 		6F24805829AE854B00F2DAA2 /* ISIconCacheServiceProtocol-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISIconCacheServiceProtocol-Protocol.h"; sourceTree = "<group>"; };
+		6F2481AA29BE963500F2DAA2 /* platters.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = platters.materialrecipe; sourceTree = "<group>"; };
+		6F2481AB29BE963500F2DAA2 /* plattersDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = plattersDark.materialrecipe; sourceTree = "<group>"; };
+		6F2481AD29BE963500F2DAA2 /* podBackgroundViewLight.visualstyleset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = podBackgroundViewLight.visualstyleset; sourceTree = "<group>"; };
+		6F2481AE29BE963500F2DAA2 /* podBackgroundViewDark.visualstyleset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = podBackgroundViewDark.visualstyleset; sourceTree = "<group>"; };
+		6F2481B029BE963500F2DAA2 /* modules.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = modules.materialrecipe; sourceTree = "<group>"; };
+		6F2481B229BE963500F2DAA2 /* folderLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folderLight.materialrecipe; sourceTree = "<group>"; };
+		6F2481B329BE963500F2DAA2 /* folderDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folderDark.materialrecipe; sourceTree = "<group>"; };
+		6F2481B529BE963500F2DAA2 /* folderExpandedBackgroundHome.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = folderExpandedBackgroundHome.materialrecipe; sourceTree = "<group>"; };
+		6F2481B629BE963500F2DAA2 /* homeScreenOverlay-iPad.materialrecipe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "homeScreenOverlay-iPad.materialrecipe"; sourceTree = "<group>"; };
+		6F2481B729BE963500F2DAA2 /* homeScreenOverlay.materialrecipe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = homeScreenOverlay.materialrecipe; sourceTree = "<group>"; };
+		6F2481B829BE963500F2DAA2 /* HomeBarAssets.car */ = {isa = PBXFileReference; lastKnownFileType = file; path = HomeBarAssets.car; sourceTree = "<group>"; };
+		6F2481BA29BE963500F2DAA2 /* dockDark.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockDark.materialrecipe; sourceTree = "<group>"; };
+		6F2481BB29BE963500F2DAA2 /* dockLight.materialrecipe */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dockLight.materialrecipe; sourceTree = "<group>"; };
 		6F369561298C86D80011ADB8 /* ThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesView.swift; sourceTree = "<group>"; };
 		6F369563298C86FC0011ADB8 /* IconOverridesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconOverridesView.swift; sourceTree = "<group>"; };
 		6F369565298C870F0011ADB8 /* AltIconSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltIconSelectionView.swift; sourceTree = "<group>"; };
@@ -311,6 +337,7 @@
 		216D5FB2298C574000910C67 /* SpringboardFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6F2481A829BE963500F2DAA2 /* BackupFiles */,
 				216D5FB3298C574000910C67 /* replacement.materialrecipe */,
 			);
 			path = SpringboardFiles;
@@ -483,6 +510,74 @@
 				6F247A5B298888CE007BD53A /* SavedPasscodesView.swift */,
 			);
 			path = PasscodeChangerViews;
+			sourceTree = "<group>";
+		};
+		6F2481A829BE963500F2DAA2 /* BackupFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481A929BE963500F2DAA2 /* Notif */,
+				6F2481AC29BE963500F2DAA2 /* LibraryFolder */,
+				6F2481AF29BE963500F2DAA2 /* Module */,
+				6F2481B129BE963500F2DAA2 /* Folder */,
+				6F2481B429BE963500F2DAA2 /* FolderBG */,
+				6F2481B829BE963500F2DAA2 /* HomeBarAssets.car */,
+				6F2481B929BE963500F2DAA2 /* Dock */,
+			);
+			path = BackupFiles;
+			sourceTree = "<group>";
+		};
+		6F2481A929BE963500F2DAA2 /* Notif */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481AA29BE963500F2DAA2 /* platters.materialrecipe */,
+				6F2481AB29BE963500F2DAA2 /* plattersDark.materialrecipe */,
+			);
+			path = Notif;
+			sourceTree = "<group>";
+		};
+		6F2481AC29BE963500F2DAA2 /* LibraryFolder */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481AD29BE963500F2DAA2 /* podBackgroundViewLight.visualstyleset */,
+				6F2481AE29BE963500F2DAA2 /* podBackgroundViewDark.visualstyleset */,
+			);
+			path = LibraryFolder;
+			sourceTree = "<group>";
+		};
+		6F2481AF29BE963500F2DAA2 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481B029BE963500F2DAA2 /* modules.materialrecipe */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		6F2481B129BE963500F2DAA2 /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481B229BE963500F2DAA2 /* folderLight.materialrecipe */,
+				6F2481B329BE963500F2DAA2 /* folderDark.materialrecipe */,
+			);
+			path = Folder;
+			sourceTree = "<group>";
+		};
+		6F2481B429BE963500F2DAA2 /* FolderBG */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481B529BE963500F2DAA2 /* folderExpandedBackgroundHome.materialrecipe */,
+				6F2481B629BE963500F2DAA2 /* homeScreenOverlay-iPad.materialrecipe */,
+				6F2481B729BE963500F2DAA2 /* homeScreenOverlay.materialrecipe */,
+			);
+			path = FolderBG;
+			sourceTree = "<group>";
+		};
+		6F2481B929BE963500F2DAA2 /* Dock */ = {
+			isa = PBXGroup;
+			children = (
+				6F2481BA29BE963500F2DAA2 /* dockDark.materialrecipe */,
+				6F2481BB29BE963500F2DAA2 /* dockLight.materialrecipe */,
+			);
+			path = Dock;
 			sourceTree = "<group>";
 		};
 		6F369560298C86990011ADB8 /* IconThemesViews */ = {
@@ -820,10 +915,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2481BE29BE963500F2DAA2 /* podBackgroundViewLight.visualstyleset in Resources */,
 				21CD1051298C8151007EE649 /* Localizable.strings in Resources */,
+				6F2481C529BE963500F2DAA2 /* homeScreenOverlay.materialrecipe in Resources */,
 				21CD1056298C8177007EE649 /* InfoPlist.strings in Resources */,
+				6F2481C129BE963500F2DAA2 /* folderLight.materialrecipe in Resources */,
+				6F2481BF29BE963500F2DAA2 /* podBackgroundViewDark.visualstyleset in Resources */,
 				6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */,
+				6F2481C329BE963500F2DAA2 /* folderExpandedBackgroundHome.materialrecipe in Resources */,
+				6F2481C629BE963500F2DAA2 /* HomeBarAssets.car in Resources */,
+				6F2481C029BE963500F2DAA2 /* modules.materialrecipe in Resources */,
+				6F2481C429BE963500F2DAA2 /* homeScreenOverlay-iPad.materialrecipe in Resources */,
+				6F2481BD29BE963500F2DAA2 /* plattersDark.materialrecipe in Resources */,
+				6F2481BC29BE963500F2DAA2 /* platters.materialrecipe in Resources */,
 				216D5FB4298C574100910C67 /* replacement.materialrecipe in Resources */,
+				6F2481C229BE963500F2DAA2 /* folderDark.materialrecipe in Resources */,
+				6F2481C729BE963500F2DAA2 /* dockDark.materialrecipe in Resources */,
+				6F2481C829BE963500F2DAA2 /* dockLight.materialrecipe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,15 +80,13 @@ struct SpringBoardView: View {
             var failed: Bool = false
             for option in tweakOptions {
                 //  apply tweak
-                if option.value == true {
-                    print("Applying tweak \"" + option.title + "\"")
-                    let succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value)
-                    if succeeded {
-                        print("Successfully applied tweak \"" + option.title + "\"")
-                    } else {
-                        print("Failed to apply tweak \"" + option.title + "\"!!!")
-                        failed = true
-                    }
+                print("Applying tweak \"" + option.title + "\"")
+                let succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, option.value)
+                if succeeded {
+                    print("Successfully applied tweak \"" + option.title + "\"")
+                } else {
+                    print("Failed to apply tweak \"" + option.title + "\"!!!")
+                    failed = true
                 }
             }
             
