@@ -1274,7 +1274,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8.1.3;
+				MARKETING_VERSION = 8.1.4;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1320,7 +1320,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8.1.3;
+				MARKETING_VERSION = 8.1.4;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
