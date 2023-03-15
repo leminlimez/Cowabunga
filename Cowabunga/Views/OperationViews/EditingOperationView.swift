@@ -35,6 +35,15 @@ struct EditingOperationView: View {
     @State var replacingData: Data? = nil
     @State var backupData: Data? = nil
     
+    private let hasPadding: [String] = [
+            "plist",
+            "strings",
+            "loctable",
+            "materialrecipe",
+            "visualstyleset"
+        ]
+        @State var showPaddingButton: Bool = false
+    
     // plist properties
     @State var plistType: PropertyListSerialization.PropertyListFormat = .xml
     @State var replacingKeys: [String: Any] = [:]
@@ -128,6 +137,7 @@ struct EditingOperationView: View {
                             // add the actions
                             alert.addAction(corruptingAction)
                             alert.addAction(replacingAction)
+                            alert.addAction(creatingAction)
                             if #available(iOS 15, *) {
                                 alert.addAction(plistAction)
                             }
@@ -383,6 +393,29 @@ struct EditingOperationView: View {
                                     Text("Upload File")
                                         .foregroundColor(.blue)
                                         .multilineTextAlignment(.trailing)
+                                }
+                            }
+                            
+                            if showPaddingButton == true, let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        UIApplication.shared.alert(title: NSLocalizedString("Generating padding...", comment: "Custom operation generating plist padding"), body: NSLocalizedString("Please wait...", comment: ""), animated: true, withButton: false)
+                                        do {
+                                            let plist = try PropertyListSerialization.propertyList(from: replacingData!, options: [], format: nil) as! [String: Any]
+                                            let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
+                                            replacingData = newData
+                                            showPaddingButton = false
+                                            UIApplication.shared.dismissAlert(animated: true)
+                                        } catch {
+                                            UIApplication.shared.dismissAlert(animated: true)
+                                            UIApplication.shared.alert(body: error.localizedDescription)
+                                        }
+                                    }) {
+                                        Text("Generate Padding")
+                                            .foregroundColor(.blue)
+                                            .multilineTextAlignment(.trailing)
+                                    }
                                 }
                             }
                         }
@@ -794,6 +827,7 @@ struct EditingOperationView: View {
                         // write to temp file
                         try replacingData!.write(to: newURL)
                         replacingPath = newURL.path
+                        showPaddingButton = hasPadding.contains(URL(fileURLWithPath: replacingPath).pathExtension)
                         url.stopAccessingSecurityScopedResource()
                     } catch {
                         UIApplication.shared.alert(body: NSLocalizedString("An error occurred", comment: "") + ": \(error.localizedDescription)")
@@ -819,6 +853,7 @@ struct EditingOperationView: View {
                     replacingPath = replacingOperation.replacingPath
                     if replacingOperation.replacingType == .Imported && operation.replacementData != Data("#".utf8) {
                         replacingData = operation.replacementData
+                        showPaddingButton = hasPadding.contains(URL(fileURLWithPath: replacingPath).pathExtension)
                     }
                 } else if let plistOperation = operation as? PlistObject {
                     plistType = plistOperation.plistType
