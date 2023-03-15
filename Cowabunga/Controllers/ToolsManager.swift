@@ -204,7 +204,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                                 return false
                             }
                         } else {
-                            return false
+                            continue
                         }
                     } else {
                         if let fileName = path.split(separator: "/").last, let fn = fileName.split(separator: ".").first, let ext = fileName.split(separator: ".").last, let url: URL = Bundle.main.url(forResource: String(fn), withExtension: String(ext)) {
@@ -215,7 +215,7 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                                 return false
                             }
                         } else {
-                            return false
+                            continue
                         }
                     }
                 }
