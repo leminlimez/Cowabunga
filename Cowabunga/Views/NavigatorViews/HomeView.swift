@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    // lazyvgrid
+    private var gridItemLayout = [GridItem(.adaptive(minimum: 100))]
+    
     @State private var versionBuildString: String?
     // list of options
     @State var tweakOptions: [GeneralOption] = [
@@ -369,10 +372,18 @@ struct HomeView: View {
                 // MARK: Patreon Supporters
                 if patrons.count > 0 {
                     Section {
-                        ForEach(patrons) { patron in
-                            Text(patron.name)
-                                .fontWeight(.bold)
-                                .foregroundColor(.blue)
+                        LazyVGrid(columns: gridItemLayout) {
+                            ForEach(patrons) { patron in
+                                HStack {
+                                    Spacer()
+                                    Text(patron.name)
+                                        .fontWeight(.bold)
+                                        .font(.footnote)
+                                        .foregroundColor(.blue)
+                                    Spacer()
+                                }
+                                .padding(.vertical, 5)
+                            }
                         }
                     } header: {
                         Label("Patreon Supporters", systemImage: "heart")
