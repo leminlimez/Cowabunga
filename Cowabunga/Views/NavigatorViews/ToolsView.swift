@@ -46,6 +46,7 @@ struct ToolsView: View {
             .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
             .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: NSLocalizedString("Whitelist", comment: "Title of tool"), imageName: "app.badge.checkmark"),
+            .init(key: "FreeloadView", view: AnyView(FreeloadView()), title: NSLocalizedString("Freeload", comment: "Title of tool"), imageName: "apps.iphone.badge.plus"),
             .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: NSLocalizedString("Miscellaneous", comment: "Title of tool"), imageName: "hammer"),
             .init(key: "AdvancedView", view: AnyView(AdvancedView()), title: NSLocalizedString("Custom Operations", comment: "Title of tool"), imageName: "pencil.and.outline")
         ])
