@@ -11,7 +11,6 @@ import MacDirtyCowSwift
 struct FreeloadView: View {
     @State var inProgress = false
     @State var success = false
-    let appVersion = ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown") + " (" + (Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown") + ")")
     var body: some View {
         NavigationView {
             List {
@@ -37,8 +36,7 @@ struct FreeloadView: View {
                     }
                     )
                 }
-                Section(header: Text("Freeload " + appVersion + "\nMade with ❤️ by BomberFish\nThanks @zhuowei for the installd patch")) {}.textCase(nil)
-                    .navigationTitle("Freeload")
+                    .navigationTitle("Remove three-app limit")
             }
         }
         .disabled(inProgress)
