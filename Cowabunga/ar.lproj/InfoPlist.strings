@@ -8,6 +8,9 @@
 "Cowabunga Operation" = "عملية Cowabunga";
 
 /* (No Comment) */
+"FileSwitcherPro Item" = "FileSwitcherPro عنصر";
+
+/* (No Comment) */
 "Icon Theme" = "أيقونة السمة";
 
 /* Privacy - Media Library Usage Description */
@@ -21,6 +24,9 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "الصور";
+
+/* (No Comment) */
+"OpenType font" = "خط أوبن تايب";
 
 /* (No Comment) */
 "Passcode Theme File" = "ملف سمة رمز المرور";

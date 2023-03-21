@@ -17,13 +17,6 @@ struct SettingsView: View {
         exitGracefully()
     }
     
-    func exitGracefully() {
-        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-            exit(0)
-        }
-    }
-    
     var body: some View {
         Form {
             List {

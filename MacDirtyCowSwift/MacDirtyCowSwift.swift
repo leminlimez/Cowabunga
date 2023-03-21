@@ -6,10 +6,39 @@
 //
 
 import Foundation
+import UIKit
 
 public class MDC {
-    public static func overwriteFile(at path: String, with data: Data) -> Bool {
-        return overwriteFileWithDataImpl(originPath: path, replacementData: data)
+    public enum MDCOverwriteError: Error, LocalizedError {
+        case unknown
+        case ram
+        
+        public var errorDescription: String? {
+            switch self {
+            case .unknown:
+                return "MacDirtyCow exploit failed. Restart the app and try again."
+            case .ram:
+                return "Cowabunga ran out of memory and for your safety disabled overwriting files using MacDirtyCow. Please close some apps running in background, reopen Cowabunga and try again."
+            }
+        }
+    }
+    
+    public static var isMDCSafe: Bool = true
+    
+    static var junk: [String] = []
+    
+    /// unlockDataAtEnd - Unlocked the data at overwrite end. Used when replacing files inside app bundle
+    public static func overwriteFile(at path: String, with data: Data, unlockDataAtEnd: Bool = false) throws {
+//        junk.append(String(repeating: "a",  count: 50_000_000))
+        
+        if !isMDCSafe {
+            throw MDCOverwriteError.ram
+        }
+        for i in 0...2 {
+            print("Running mdc i=\(i)")
+            let success = overwriteFileWithDataImpl(originPath: path, replacementData: data, unlockDataAtEnd: unlockDataAtEnd)
+            if !success { throw MDCOverwriteError.unknown }
+        }
     }
     
     public static func toggleCatalogCorruption(at path: String, corrupt: Bool) throws {
@@ -43,7 +72,7 @@ public class MDC {
         
         let overwriteSucceeded = byteArray.withUnsafeBytes { dataChunkBytes in
             return unaligned_copy_switch_race(
-                fd, 0, dataChunkBytes.baseAddress, dataChunkBytes.count)
+                fd, 0, dataChunkBytes.baseAddress, dataChunkBytes.count, true)
         }
         print("overwriteSucceeded = \(overwriteSucceeded)")
     }

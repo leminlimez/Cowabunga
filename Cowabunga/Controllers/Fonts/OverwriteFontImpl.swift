@@ -80,7 +80,6 @@ class OverwriteFontImpl {
         }
         
         // for every 16k chunk, rewrite
-        print(Date())
         for chunkOff in stride(from: 0, to: fontData.count, by: 0x4000) {
             print(String(format: "%lx", chunkOff))
             let dataChunk = fontData[chunkOff..<min(fontData.count, chunkOff + 0x4000)]
@@ -88,7 +87,7 @@ class OverwriteFontImpl {
             for _ in 0..<2 {
                 let overwriteSucceeded = dataChunk.withUnsafeBytes { dataChunkBytes in
                     return unaligned_copy_switch_race(
-                        fd, Int64(chunkOff), dataChunkBytes.baseAddress, dataChunkBytes.count)
+                        fd, Int64(chunkOff), dataChunkBytes.baseAddress, dataChunkBytes.count, false)
                 }
                 if overwriteSucceeded {
                     overwroteOne = true
@@ -100,6 +99,5 @@ class OverwriteFontImpl {
                 throw "Failed to overwrite font!"
             }
         }
-        print(Date())
     }
 }

@@ -8,16 +8,22 @@
 "(Recommended)" = "(권장)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*는 통신사 이름도 함께 숨깁니다.\n**는 셀룰러 인디게이터도 함꼐 숨깁니다.";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*는 통신사 이름도 함께 숨깁니다.\n**는 셀룰러 인디게이터도 함께 숨깁니다.";
+
+/* No comment provided by engineer. */
+"%lld" = "%lld";
 
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld bytes";
 
 /* No comment provided by engineer. */
-"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ 경고 ⚠️\n몇몇 유저들은 이 기능을 쓰고 무한사과가 발생했습니다.\n이전에 사용한 적이 없다면 주의하세요.";
+"%lld%%" = "%lld%%";
+
+/* No comment provided by engineer. */
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "일부 사용자는 이 기능을 사용하여 무한사과를 경험했습니다. \niOS 베타 버전을 사용 중이라면 주의해서 사용하세요.\niOS 16.0 베타를 사용 중인 경우 이 기능을 사용하지 마십시오.";
 
 /* IMPORTANT alert when icons finish applying */
-"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 제발 읽어주세요. ⬇⚠️\n\nSpringBoard가 재시작된 후 \n\"Cowabunga를 다시 열어주세요.\"\n몇몇 앱들의 기능을 수리해야합니다.\n\n매우 중요함\n애플로고가 표시되도 괜찮습니다.\n폰에는 아무런 문제가 없습니다.\n제발 강제로 다시시작 하지 마세요.\n\n소요된 시간 :  (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)초";
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 제발 읽어주세요. ⬇⚠️\n\nSpringBoard가 재시작된 후 \n\"Cowabunga를 다시 열어주세요.\"\n몇몇 앱들의 기능을 수리해야합니다.\n\n매우 중요함\n애플로고와 프로그래스바가 표시되도 괜찮습니다.\n폰에는 아무런 문제가 없습니다.\n제발 강제로 다시시작 하지 마세요.\n\n소요된 시간 :  (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)초";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -38,7 +44,7 @@
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "모든 앱 아이콘이 복구됩니다.\n진짜로 원하십니까?\n(다시시작이 필요합니다.)";
 
 /* No comment provided by engineer. */
-"Alternatives" = "대안";
+"Alternatives" = "대체";
 
 /* No comment provided by engineer. */
 "Always has been" = "항상 그래왔어.";
@@ -88,6 +94,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "테마가 성공적으로 저장되었습니다!";
 
+/* No comment provided by engineer. */
+"Apple ID, iCloud, Media & Purchases" = "Apple ID, iCloud, 미디어 및 구입 항목";
+
 /* fix tweaks info */
 "Applies all tweaks which were applied before." = "이전에 적용된 모든 트윅을 적용합니다.";
 
@@ -109,23 +118,20 @@
 /* No comment provided by engineer. */
 "Apply Without Saving" = "저장없이 적용";
 
-/* No comment provided by engineer. */
-"Applying fonts..." = "폰트 적용중..";
-
 /* apply button on custom operations */
 "Applying operation..." = "테마 적용중...";
 
 /* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "정말 기본으로 되돌리겠습니까?";
 
+/* No comment provided by engineer. */
+"Asset Catalog" = "Asset 목록";
+
 /* Title of tool */
 "Audio" = "소리";
 
 /* No comment provided by engineer. */
 "Audio Changer" = "시스템 소리 변경";
-
-/* Header for inputting your name */
-"Author Name" = "작성자 이름";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "적용후 자동으로 SpringBoard 다시시작";
@@ -150,6 +156,9 @@
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "기본 구성";
+
+/* No comment provided by engineer. */
+"Battery Detail Text" = "배터리 텍스트";
 
 /* Audio name */
 "Begin Recording" = "녹화 시작";
@@ -176,10 +185,16 @@
 "Breadcrumb Text" = "◂Cowabunga▸";
 
 /* No comment provided by engineer. */
+"Bugs may arise. It's also not meant to be redistributed, because... blah blah blah, you know what happens if you do 🧌" = "버그가 발생할 수 있습니다. 또한 재배포를 의도하지 않았으며, 그 이유는... 재배포를 하면 일어나는 일을 이미 알고 있으시겠죠 🧌";
+
+/* No comment provided by engineer. */
 "Calculate Size" = "파일 크기";
 
 /* Cancel */
 "Cancel" = "취소";
+
+/* No comment provided by engineer. */
+"Cannot write to file path!" = "파일을 덮어쓸 수 없습니다!";
 
 /* Title of tool */
 "Card Changer" = "카드 커스텀";
@@ -187,8 +202,8 @@
 /* No comment provided by engineer. */
 "Carrier Text" = "통신사 이름";
 
-/* Run in background option */
-"CC Module Background" = "제어센터 모듈 배경";
+/* No comment provided by engineer. */
+"catalogIconTheming" = "catalogIconTheming";
 
 /* No comment provided by engineer. */
 "CC Modules" = "제어센터 모듈";
@@ -200,13 +215,25 @@
 "Change" = "변경";
 
 /* No comment provided by engineer. */
+"Change Battery Detail Text" = "배터리 텍스트 변경";
+
+/* No comment provided by engineer. */
+"Change Battery Icon Capacity" = "배터리 용량 아이콘 변경";
+
+/* No comment provided by engineer. */
 "Change Breadcrumb Text" = "이동 텍스트 변경";
 
 /* No comment provided by engineer. */
 "Change Carrier Text" = "통신사 이름 변경";
 
 /* No comment provided by engineer. */
+"Change Cellular Signal Strength Bars" = "셀룰러 신호 상태바 변경";
+
+/* No comment provided by engineer. */
 "Change Status Bar Time Text" = "상단바 시계 텍스트 변경";
+
+/* No comment provided by engineer. */
+"Change WiFi Signal Strength Bars" = "WIFI 신호 상태바 변경";
 
 /* Audio name */
 "Charging" = "충전";
@@ -218,10 +245,7 @@
 "Choose a lock preference" = "자물쇠 아이콘의 형식을 선택하세요.";
 
 /* No comment provided by engineer. */
-"Choose a name for the category" = "카테고라의 이름을 입력하세요.";
-
-/* No comment provided by engineer. */
-"Choose a name for the font pack" = "폰트이름을 입력하세요.";
+"Choose a name for the category" = "카테고리의 이름을 입력하세요.";
 
 /* No comment provided by engineer. */
 "Choose a name for the lock" = "자물쇠 아이콘의 이름을 입력하세요";
@@ -248,6 +272,9 @@
 "Choose app Icon" = "앱 아이콘을 선택하세요.";
 
 /* No comment provided by engineer. */
+"Choose Image" = "사진 선택";
+
+/* No comment provided by engineer. */
 "Choose size" = "크기 설정";
 
 /* No comment provided by engineer. */
@@ -256,17 +283,23 @@
 /* No comment provided by engineer. */
 "Close" = "닫기";
 
-/* operation type that changes colors */
+/* No comment provided by engineer. */
 "Color" = "색깔";
 
 /* No comment provided by engineer. */
 "Color Data" = "색깔 데이터";
 
 /* No comment provided by engineer. */
+"Color:" = "색: ";
+
+/* No comment provided by engineer. */
 "Configuration" = "콘피그";
 
 /* No comment provided by engineer. */
 "Confirm" = "확인";
+
+/* No comment provided by engineer. */
+"Continue" = "계속";
 
 /* Category of tool */
 "Control Center" = "제어센터";
@@ -276,9 +309,6 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "plist의 크기를 계산할 수 없습니다!";
-
-/* when color styles could not be determined */
-"Could not detect styles." = "스타일 감지되지 않음";
 
 /* No comment provided by engineer. */
 "Could not download theme!" = "테마를 다운로드할 수 없습니다.";
@@ -302,13 +332,19 @@
 "Cowabunga requires “Always” location permission." = "Cowabunga는 트윅을 유지하기위해 \"항상\" 위치서비스를 필요로 합니다.\n위치데이터는 어디에도 저장되지 않습니다.";
 
 /* App icon name */
-"CowTools" = "";
+"CowTools" = "CowTools";
 
 /* No comment provided by engineer. */
 "Create" = "저장";
 
 /* No comment provided by engineer. */
 "Create Operation" = "작업 생성";
+
+/* No comment provided by engineer. */
+"Creating" = "제작";
+
+/* No comment provided by engineer. */
+"Creating Data" = "데이터 만들기";
 
 /* No comment provided by engineer. */
 "Credits" = "크레딧";
@@ -324,6 +360,9 @@
 
 /* Title of tool */
 "Custom Operations" = "커스텀 작업";
+
+/* No comment provided by engineer. */
+"Custom Operations Author Name" = "커스텀 작업 제작자 이름";
 
 /* App icon name
    default device subtype
@@ -344,9 +383,6 @@
 
 /* delete button on custom operations */
 "Deleting operation..." = "작업 제거중..";
-
-/* No comment provided by engineer. */
-"Determine Styles" = "스타일 결정";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "다이얼 버튼 편집기";
@@ -373,9 +409,12 @@
 "Disable Library Pods Background" = "앱서랍 배경 비활성화";
 
 /* No comment provided by engineer. */
+"Disable Screen Time" = "스크린타임 비활성화";
+
+/* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "단축어 바로가기 비활성화";
 
-/* Run in background option */
+/* No comment provided by engineer. */
 "Dock" = "독";
 
 /* No comment provided by engineer. */
@@ -397,7 +436,7 @@
 "Edit Operation" = "작업 수정";
 
 /* No comment provided by engineer. */
-"Editing %@" = "%@ 수정중";
+"Editing %@" = "%@ 수정";
 
 /* No comment provided by engineer. */
 "Email" = "Email";
@@ -422,9 +461,6 @@
 
 /* No comment provided by engineer. */
 "Enter Name" = "이름 입력";
-
-/* Message for inputting your name in custom operation */
-"Enter your name and you will be credited for creating the operation." = "이름을 입력하면 작업을 본인이 작업을 생성한걸로 인정합니다.";
 
 /* No comment provided by engineer. */
 "Error" = "오류";
@@ -453,35 +489,17 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "장치 유형 변경에 실패했습니다.";
 
-/* No comment provided by engineer. */
-"Failed to apply fonts!" = "폰트 적용에 성공했습니다!";
-
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "해상도 설정에 실패하였습니다:";
 
 /* No comment provided by engineer. */
-"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "시스템 버전을 변경하는중 오류가 발생했습니다.\n시스템 버전의 길이는 현재보다 짧아야 합니다.\n\n\n(error.localizedDescription)";
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "????????\n도데체 어떻게 이걸 활성화하신거죠?";
 
 /* when the category cannot be created */
 "Failed to create category" = "카테고리 생성에 실패했습니다.";
 
 /* No comment provided by engineer. */
-"Failed to delete font file!" = "폰트파일을 제거하는데 실패했습니다.";
-
-/* No comment provided by engineer. */
-"Failed to delete font pack!" = "폰트팩을 제거하는데 실패했습니다.";
-
-/* No comment provided by engineer. */
-"Failed to fetch font pack files!" = "폰트팩 파일을 불러오는데 실패했습니다.";
-
-/* No comment provided by engineer. */
-"Failed to import font files!" = "폰트파일을 불러오는데 실패했습니다!";
-
-/* No comment provided by engineer. */
 "Failed to load operations." = "작업을 불러오는데 실패했습니다.";
-
-/* No comment provided by engineer. */
-"Failed to rename font pack!" = "폰트팩 이름변경에 실패했습니다!";
 
 /* No comment provided by engineer. */
 "Failed to save theme!" = "테마를 저장하는데 실패했습니다!";
@@ -496,16 +514,7 @@
 "Files" = "파일";
 
 /* No comment provided by engineer. */
-"Fill" = "채우기";
-
-/* No comment provided by engineer. */
-"Fill Name:" = "채울 이름:";
-
-/* No comment provided by engineer. */
 "Filter" = "필터";
-
-/* No comment provided by engineer. */
-"Filter Themes" = "테마 필터";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "트윅 오류 수정";
@@ -514,13 +523,10 @@
 "Fixing apps..." = "앱 고치는중...";
 
 /* No comment provided by engineer. */
+"Focus" = "집중모드";
+
+/* No comment provided by engineer. */
 "Folder" = "폴더";
-
-/* Run in background option */
-"Folder Background" = "폴더 배경";
-
-/* Run in background option */
-"Folder Blur" = "폴더 흐림도";
 
 /* No comment provided by engineer. */
 "Font Files" = "폰트 파일";
@@ -528,11 +534,14 @@
 /* No comment provided by engineer. */
 "Font Pack Name" = "폰트팩 이름";
 
-/* Title of tool */
+/* No comment provided by engineer. */
 "Fonts" = "폰트";
 
 /* No comment provided by engineer. */
 "Footnote" = "각주";
+
+/* No comment provided by engineer. */
+"Footnote:" = "각주:";
 
 /* No comment provided by engineer. */
 "Force MacDirtyCOW" = "MacDirtyCOW 사용";
@@ -550,10 +559,13 @@
 "Full reset" = "초기화";
 
 /* No comment provided by engineer. */
+"Generate Padding" = "패딩 제작";
+
+/* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "제스처 / 다이나믹 아일랜드";
 
 /* App icon name */
-"Glitch" = "";
+"Glitch" = "Glitch";
 
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "정상적으로 작동하지 않으면 여기로 오세요.";
@@ -584,7 +596,7 @@
 "Hide Cellular*" = "셀룰러 숨기기*";
 
 /* No comment provided by engineer. */
-"Hide Do Not Disturb" = "방해금지모드(집중모드) 숨기기";
+"Hide Do Not Disturb" = "집중모드 (방해금지모드) 숨기기";
 
 /* Springboard tool */
 "Hide Dock" = "독 숨기기";
@@ -613,9 +625,6 @@
 /* No comment provided by engineer. */
 "Home" = "홈";
 
-/* Run in background option */
-"Home Bar" = "홈바";
-
 /* Category of tool */
 "Home Screen" = "홈화면";
 
@@ -629,10 +638,13 @@
 "Icons override" = "아이콘 커스텀";
 
 /* No comment provided by engineer. */
-"If a file of the same name already exists in the pack, it will be overwritten." = "같은이름을 가진 파알이 팩 안에 있으면 그파일은 덮어씌어집니다.";
+"If a file of the same name already exists in the pack, it will be overwritten." = "같은이름을 가진 파일이 팩 안에 있으면 \n새로운 파일로 덮어씌어집니다.";
 
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "자물쇠 아이콘이 바뀌지 않으면 다른것을 선택하세요.";
+
+/* No comment provided by engineer. */
+"Image:" = "사진:";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "테마 제출";
@@ -654,7 +666,7 @@
 "Input Software Version" = "소프트웨어 버전 입력";
 
 /* App icon name */
-"iOS 6" = "";
+"iOS 6" = "iOS 6";
 
 /* x gestures */
 "iPhone X Gestures" = "iPhone X 제스처";
@@ -672,10 +684,7 @@
 "Keyboard Press Delete" = "삭제";
 
 /* Audio name */
-"Keyboard Press Normal" = "키";
-
-/* Run in background option */
-"Library Pod Backgrounds" = "라이브러리 Pod 백그라운드";
+"Keyboard Press Normal" = "기본 입력";
 
 /* Audio name */
 "Lock" = "잠금";
@@ -721,7 +730,7 @@
 "Min:" = "최소:";
 
 /* App icon name */
-"Minecraft" = "";
+"Minecraft" = "Minecraft";
 
 /* Title of tool */
 "Miscellaneous" = "기타";
@@ -734,6 +743,9 @@
 
 /* No comment provided by engineer. */
 "Name:" = "이름:";
+
+/* No comment provided by engineer. */
+"New" = "새로운";
 
 /* No comment provided by engineer. */
 "New Category" = "새로운 카테고리";
@@ -754,6 +766,9 @@
 "No Cards Found" = "발견된 카드 없음";
 
 /* No comment provided by engineer. */
+"No images found!" = "사진이 없습니다!";
+
+/* No comment provided by engineer. */
 "No respring required to apply." = "SpringBoard 다시시작이 필요없습니다.";
 
 /* No comment provided by engineer. */
@@ -762,14 +777,23 @@
 /* No comment provided by engineer. */
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 없습니다.\n탐색의 아이콘 탭에서 다운로드하거나 오른쪽 위의 버튼을 눌러 가져올 수 있습니다.\n(테마는 <id>.png 형식입니다.)";
 
+/* No comment provided by engineer. */
+"noPNGThemingFixup" = "noPNGThemingFixup";
+
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "너무 크거나 작습니다.";
 
 /* No comment provided by engineer. */
-"Notification Banner" = "알림 배너";
+"Not enough icons to show a preview. \nInvalid theme?" = "미리보기를 표시하기에 아이콘이 너무 적습니다.\n옳은 테마입니까?";
 
-/* Run in background option */
-"Notification Banner Background" = "알림 배너 배경";
+/* No comment provided by engineer. */
+"Not Playing" = "재생 안함";
+
+/* No comment provided by engineer. */
+"noThemingFixup" = "noThemingFixup";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "알림 배너";
 
 /* No comment provided by engineer. */
 "OK" = "확인";
@@ -777,14 +801,14 @@
 /* No comment provided by engineer. */
 "Open Settings" = "설정 열기";
 
-/* failing to export custom operation */
-"Operation export failed!" = "작업 추출에 실패했습니다.";
-
 /* No comment provided by engineer. */
 "Operation Name" = "작업 이름";
 
 /* No comment provided by engineer. */
 "Options" = "옵션";
+
+/* No comment provided by engineer. */
+"Original" = "기본";
 
 /* Category of tool */
 "Other" = "기타";
@@ -802,10 +826,10 @@
 "Passcode Face Editor" = "암호 버튼 편집기";
 
 /* Title of tool */
-"Passcode Faces" = "암호 버튼";
+"Passcode Faces" = "암호 버튼 및 다이얼";
 
 /* No comment provided by engineer. */
-"Passcodes" = "암호 버튼";
+"Passcodes" = "암호 버튼 및 다이얼";
 
 /* No comment provided by engineer. */
 "Password" = "암호";
@@ -816,17 +840,20 @@
 /* No comment provided by engineer. */
 "Path:" = "위치:";
 
+/* No comment provided by engineer. */
+"Patreon Supporters" = "Patreon 후원자";
+
 /* Audio name */
 "Payment Failed" = "결제 실패";
 
 /* Audio name */
-"Payment Received" = "돈을 받음";
+"Payment Received" = "입금 받음";
 
 /* Audio name */
 "Payment Success" = "결제 성공";
 
 /* App icon name */
-"Pixel Art" = "";
+"Pixel Art" = "Pixel Art";
 
 /* No comment provided by engineer. */
 "Please close and reopen the Phone app." = "앱을 종료한 다음에 다시 열어주세요.";
@@ -858,14 +885,11 @@
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "테마 작업이 끝날때까지 기다려 주세요.";
 
-/* No comment provided by engineer. */
-"Please wait..." = "기다려 주세요.";
-
 /* operation type that changes plist keys */
 "Plist" = "Plist";
 
 /* No comment provided by engineer. */
-"Plist Data" = "Plist 자료";
+"Plist Data" = "Plist 데이터";
 
 /* No comment provided by engineer. */
 "Plist Properties" = "Plist 유형";
@@ -873,11 +897,20 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Plist 유형:";
 
+/* No comment provided by engineer. */
+"pngIconTheming" = "pngIconTheming";
+
 /* Power Saving */
 "Power Saving" = "에너지 절약";
 
 /* No comment provided by engineer. */
 "Preferences" = "설정";
+
+/* No comment provided by engineer. */
+"Preview" = "미리보기";
+
+/* No comment provided by engineer. */
+"Private build" = "비밀 빌드";
 
 /* Successfully applying custom resolution */
 "Reboot to revert resolution changes. It will auto respring when done" = "작업이 완료되면 자동으로 SpringBoard가 재시작 됩니다.\n되돌리고 싶으면 껏다켜세요.";
@@ -890,6 +923,18 @@
 
 /* No comment provided by engineer. */
 "Remove all" = "전부 삭제";
+
+/* No comment provided by engineer. */
+"Remove Icons" = "아이콘 삭제";
+
+/* No comment provided by engineer. */
+"Remove Image" = "사진 삭제";
+
+/* No comment provided by engineer. */
+"Remove Labels" = "라벨 제거";
+
+/* No comment provided by engineer. */
+"Remove Previews" = "미리보기 제거";
 
 /* No comment provided by engineer. */
 "Remove theme" = "테마 삭제";
@@ -919,7 +964,7 @@
 "Reset faces" = "버튼 초기화";
 
 /* No comment provided by engineer. */
-"Resolution will now apply" = "헤상도가 지금 적용됩니다.";
+"Resolution will now apply" = "헤상도가 적용됩니다.";
 
 /* No comment provided by engineer. */
 "Respring" = "SpringBoard 다시시작";
@@ -951,6 +996,9 @@
 /* apply button on custom operations */
 "Saving operation..." = "작업 저장중...";
 
+/* No comment provided by engineer. */
+"Scale:   %lld%%" = "크기:   %lld%%";
+
 /* rebuilding icon cache */
 "Scheduling a rebuild" = "캐시 재설정중...";
 
@@ -958,16 +1006,16 @@
 "Scheduling icon cache reset..." = "캐시 초기화중...";
 
 /* No comment provided by engineer. */
-"Screen Time Enabled" = "스크린타임이 활성화됨";
+"Screen Time Enabled" = "스크린타임 비활성화";
 
 /* No comment provided by engineer. */
-"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "스크린타임이 성공적으로 꺼졌습니다.\n껏다켠 후에 적용됩니다.";
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "스크린타임이 성공적으로 비활성화 됐습니다.\n재부팅후 적용됩니다.";
 
 /* Audio name */
 "Screenshot" = "스크린샷";
 
 /* c22dev's contribution */
-"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "스크린타임 제거, 내장된 오디오, 크래딧, 카드 변경";
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "스크린타임 제거, 내장 오디오, 크레딧, 카드 변경";
 
 /* No comment provided by engineer. */
 "Select" = "선택";
@@ -976,7 +1024,13 @@
 "Select Font Pack" = "폰트팩 선택";
 
 /* No comment provided by engineer. */
+"Select Image" = "사진 선택";
+
+/* No comment provided by engineer. */
 "Selected" = "선택됨";
+
+/* No comment provided by engineer. */
+"Selected: %lld" = "%lld 선택됨";
 
 /* Audio name */
 "Sent Mail" = "보낸 메일";
@@ -1018,6 +1072,15 @@
 "Shortcut Apps" = "단축어";
 
 /* No comment provided by engineer. */
+"Show Numeric Cellular Strength" = "데이터 신호강도를 숫자로 표시";
+
+/* No comment provided by engineer. */
+"Show Numeric WiFi Strength" = "WIFI 신호강도를 숫자로 표시";
+
+/* No comment provided by engineer. */
+"showCancelButtonOnThemingEnd" = "showCancelButtonOnThemingEnd";
+
+/* No comment provided by engineer. */
 "Sign up" = "회원가입";
 
 /* No comment provided by engineer. */
@@ -1048,12 +1111,6 @@
 "Status Bar Time Text" = "상단바 시간 텍스트";
 
 /* No comment provided by engineer. */
-"Stroke" = "획";
-
-/* No comment provided by engineer. */
-"Stroke Name:" = "획 이름:";
-
-/* No comment provided by engineer. */
 "Submit themes" = "테마 재출";
 
 /* No comment provided by engineer. */
@@ -1081,19 +1138,19 @@
 "Tap on any key to edit \nits appearance" = "버튼을 눌러 변경하세요.";
 
 /* No comment provided by engineer. */
+"Tap on icon you want to set as preferred for %@ (%@)" = "%@ (%@)에 우선적으로 설정할 아이콘을 탭하세요.";
+
+/* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "이 알림을 눌러 앱을 활성화 시키세요.";
+
+/* No comment provided by engineer. */
+"Test: theme all icons using 1 icon" = "테스트:테마는 모든 아이콘이 하나의 아이콘을 사용합니다.";
 
 /* No comment provided by engineer. */
 "The app will quit." = "앱이 종료됩니다.";
 
 /* when an operation is restored */
 "The file was successfully restored!" = "파일이 성공적으로 복구 되었습니다!";
-
-/* Creating font pack */
-"The font pack folder was successfully created." = "폰트팩 폴더가 생성되었습니다!";
-
-/* No comment provided by engineer. */
-"The fonts were successfully replaced" = "폰트들이 변경되었습니다.";
 
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "오디오를 성공적으로 불러왔습니다!";
@@ -1107,9 +1164,6 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "작업이 성공적으로 제거되었습니다!";
 
-/* when importing a custom operation */
-"The operation was successfully imported." = "작업을 성공적으로 불러왔습니다!";
-
 /* when an operation is saved */
 "The operation was successfully saved!" = "작업이 성공적으로 저장되었습니다!";
 
@@ -1122,11 +1176,8 @@
 /* No comment provided by engineer. */
 "Themes" = "테마";
 
-/* loading font packs */
-"There was an error getting font packs." = "폰트를 가져오는데 오류가 발생했습니다.";
-
 /* screentime process */
-"This could cause issues. Make sure to disable data or Wi-Fi." = "이로인해 문제가 발생 할 수 잇습니다.\n데이터나 와이파이를 끄세요.";
+"This could cause issues. Make sure to disable data or Wi-Fi." = "이로인해 문제가 발생 할 수 있습니다.\n데이터나 와이파이를 끄세요.";
 
 /* No comment provided by engineer. */
 "Toggle what services will run or apply when the app is in the background." = "앱이 백그라운드에 있으면 작동합니다.";
@@ -1142,9 +1193,6 @@
 
 /* No comment provided by engineer. */
 "Type:" = "종류:";
-
-/* Failed to create font pack */
-"Unable to create font pack!" = "폰트팩 생성에 실패했습니다!";
 
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "오디오를 삭제할 수 없습니다.";
@@ -1177,13 +1225,13 @@
 "Use at your own risk" = "본인의 책임하에 사용하세요.";
 
 /* No comment provided by engineer. */
+"Use Settings Footnote" = "설정의 각주 사용";
+
+/* No comment provided by engineer. */
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "통신사 이름과 시계 택스트가 적용되지 않으면 재설정후 다시 하는걸 추천합니다.";
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "작동되지 않을때 활성화 하세요.";
-
-/* No comment provided by engineer. */
-"Uses Styles" = "스타일 사용";
 
 /* No comment provided by engineer. */
 "validate" = "확인";
@@ -1192,7 +1240,7 @@
 "Value" = "값";
 
 /* App icon name - vector graphics */
-"Vector" = "";
+"Vector" = "Vector";
 
 /* No comment provided by engineer. */
 "Version %@ (%@)" = "버전 %@ (%@)";
@@ -1204,7 +1252,7 @@
 "Wait, it's all TrollTools?" = "잠깐, 그거 전부 TrollTools야?";
 
 /* No comment provided by engineer. */
-"When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 비워두면 통신사 이름을 표시합니다.";
+"When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 이 칸을 비워두면 통신사 이름을 표시합니다.";
 
 /* Title of tool */
 "Whitelist" = "화이트리스트";
@@ -1235,7 +1283,10 @@
 "Yes" = "확인";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 암호 버튼 탭에서 다운로드 하세요.";
+"YN" = "YN";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 암호 버튼 및 다이얼 탭에서 다운로드 하세요.";
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "이제 앱이 정상적으로 작동 할겁니다.";
@@ -1248,4 +1299,7 @@
 
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nApplying using %@." = "SpringBoard가 재시작 됩니다.\n\n\n%@를 사용해 적용합니다.";
+
+/* No comment provided by engineer. */
+"Your Name" = "본인의 이름";
 

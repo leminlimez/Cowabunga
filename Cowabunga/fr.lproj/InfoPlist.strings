@@ -8,6 +8,9 @@
 "Cowabunga Operation" = "Opération de Cowabunga";
 
 /* (No Comment) */
+"FileSwitcherPro Item" = "Fichier FileSwitcherPro";
+
+/* (No Comment) */
 "Icon Theme" = "Pack d'cones";
 
 /* Privacy - Media Library Usage Description */
@@ -21,6 +24,9 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Autoriser l'app à accéder à vos photos ?";
+
+/* (No Comment) */
+"OpenType font" = "Police OpenType";
 
 /* (No Comment) */
 "Passcode Theme File" = "Thème de touche de mot-de-passe";

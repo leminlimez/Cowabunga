@@ -114,9 +114,13 @@ struct AdvancedView: View {
                     let url: URL = result.first!
                     do {
                         // try adding the operation
-                        try AdvancedManager.importOperation(url)
+                        let editsVar = try AdvancedManager.importOperation(url)
                         updateCategories()
-                        UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                        if editsVar {
+                            UIApplication.shared.alert(title: NSLocalizedString("⚠️ Warning ⚠️", comment: "warning for if a custom operation edits /var"), body: NSLocalizedString("The imported operation edits a file in the user folder (/var). This has the potential to permanently brick your device or cause bootloops. Only activate it if you know what you are doing and trust the source!", comment: "warning for if a custom operation edits /var"))
+                        } else {
+                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                        }
                     } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                 }
             }

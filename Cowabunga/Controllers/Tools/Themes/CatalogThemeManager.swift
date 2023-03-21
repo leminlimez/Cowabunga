@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MacDirtyCowSwift
+import AssetCatalogWrapper
 
 public class CatalogThemeManager {
     
@@ -15,11 +16,18 @@ public class CatalogThemeManager {
     
     var errors: [String] = []
     
+    enum ChangeApplyError {
+        case critical(Error)
+        case nonCritical([Error])
+    }
+    
     public init() { }
     
-    public func applyChanges(_ changes: [AppIconChange], progress: (Double) -> ()) throws {
+    public func applyChanges(_ changes: [AppIconChange], progress: ((Double,String)) -> ()) throws -> [String] {
+        themingInProgress = true
         errors.removeAll()
         try? fm.createDirectory(at: originalIconsDir, withIntermediateDirectories: true)
+        try? fm.createDirectory(at: catalogBackupsDir, withIntermediateDirectories: true)
         
         
         let changesCount = Double(changes.count)
@@ -28,96 +36,182 @@ public class CatalogThemeManager {
                 try applyChange(change)
             } catch {
                 errors.append(error.localizedDescription)
+                if error is MDC.MDCOverwriteError {
+                    break
+                }
             }
-            progress(Double(i) / changesCount)
+            progress((Double(i) / changesCount, change.app.name))
         }
+        
+        if !MDC.isMDCSafe {
+            throw NSLocalizedString("⛔️ Aborted ⛔️\n\n\(errors.last?.localizedDescription ?? "no error")", comment: "")
+        }
+        print("done", errors)
+        themingInProgress = false
+        
+        return errors
     }
     
     private func applyChange(_ change: AppIconChange) throws {
-        let systemAppsWith💀Symlinks = ["com.apple.MBHelperApp"]
-        guard !systemAppsWith💀Symlinks.contains(change.app.bundleIdentifier) else { return }
-        
-        backupPNGs(app: change.app)
-        
-        let appURL = change.app.bundleURL
-        let catalogURL = appURL.appendingPathComponent("Assets.car")
-
-        if let icon = change.icon {
-            // MARK: set custom icons
-            print("setting icon")
+        try autoreleasepool {
+            let app = change.app
             
-            try? fm.createDirectory(at: processedThemesDir.appendingPathComponent(icon.themeName), withIntermediateDirectories: true)
-            for iconName in change.app.pngIconPaths {
-                
-                let iconURL = change.app.bundleURL.appendingPathComponent(iconName)
-                
-                // optimize icons if not aleady cached
-                let cachedIconURL = icon.cachedThemeIconURL(fileName: iconName)
-                var cachedIcon = try? Data(contentsOf: cachedIconURL)
-                
-                if cachedIcon == nil {
-                    let imgData = try Data(contentsOf: icon.rawThemeIconURL)
-                    guard let themeIcon = UIImage(data: imgData) else { throw "Could not read image data from icon at path \(icon.rawThemeIconURL.path)" }
-                    
-                    guard let origImageData = try? Data(contentsOf: iconURL) else { print("icon not found at the specified path. \(iconName)"); continue } // happens for calendar for some reason
-                    let origImageSize = origImageData.count
-                    
-                    guard let origImage = UIImage(data: origImageData) else { throw "Could not read image data from original icon at path \(icon.rawThemeIconURL.path)" }
-                    let width = origImage.size.width / 2
-                    
-                    var processedImage: Data?
-                    
-                    var resScale: CGFloat = 1
-                    while resScale > 0.01 {
-                        let sizeWithAppliedScale = width * resScale
-                        let size = CGSize(width: sizeWithAppliedScale, height: sizeWithAppliedScale)
-                        
-                        processedImage = try? UIGraphicsImageRenderer(size: size).image { _ in themeIcon.draw(in: CGRect(origin: .zero, size: size)) }.resizeToApprox(allowedSizeInBytes: origImageSize)
-                        if processedImage != nil { break }
-                        
-                        resScale *= 0.75
-                    }
-                    
-                    guard let processedImage = processedImage else {
-                        print("could not compress image low enough to fit inside original \(origImageData.count) bytes. path to orig \(iconURL.path), path to theme icon \(iconURL.path)")
-                        continue
-                    }
-                    cachedIcon = processedImage
-                    try! cachedIcon?.write(to: cachedIconURL)
-                }
-#if targetEnvironment(simulator)
-#else
-                let success = MDC.overwriteFile(at: iconURL.path, with: cachedIcon!)
-                print(success)
-                try? MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: true)
-                UserDefaults.standard.set(true, forKey: "shouldPerformCatalogFixup")
-#endif
-            }
-        } else {
-            // MARK: restore icons to original
-            print("restoring")
+            let systemAppsWith💀Symlinks = ["com.apple.MBHelperApp"]
+            print(app.bundleIdentifier)
+//            let systemAppsWith💀Symlinks = ["com.burbn.instagram"]
+            guard !systemAppsWith💀Symlinks.contains(app.bundleIdentifier) else { return }
+            guard !app.hiddenFromSpringboard else { return }
             
-            for iconName in change.app.pngIconPaths {
-                let iconURL = change.app.bundleURL.appendingPathComponent(iconName)
-                let urlOfOriginal = change.app.originalIconURL(fileName: iconName)
-                if let data = try? Data(contentsOf: urlOfOriginal) {
-                    // Has backup
-#if targetEnvironment(simulator)
-#else
-                    let success = MDC.overwriteFile(at: iconURL.path, with: data)
-                    print(success)
-#endif
+            let catalogURL = app.assetsCatalogURL()
+            
+            if let icon = change.icon {
+                print("set")
+                
+                // MARK: Replace Assets.car
+                if UserDefaults.standard.bool(forKey: "catalogIconTheming") {
+                    if FileManager.default.fileExists(atPath: catalogURL.path) {
+                        try backupCatalog(ofApp: app)
+                        
+                        let imgData = try Data(contentsOf: icon.rawThemeIconURL)
+                        
+                        guard let themeIcon = UIImage(data: imgData) else { throw "Could not read image data from icon at path \(icon.rawThemeIconURL.path)" }
+                        
+                        let catalogSize = getCatalogSize(originPath: catalogURL.path)
+                        if let catalogIconName = app.catalogIconName() { // happens with app which store their icons as .png's inside bundle
+                            let newCatalogURL = try createCatalog(withIcon: themeIcon, iconName: catalogIconName, maxSize: catalogSize, bundleIdentifier: app.bundleIdentifier)
+                            UserDefaults.standard.set(true, forKey: "shouldPerformCatalogFixup")
+                            try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: newCatalogURL))
+                        }
+                    }
                 }
+                
+                // MARK: Replace .png icons
+                if UserDefaults.standard.bool(forKey: "pngIconTheming") {
+                    app.backUpPNGIcons()
+                    try? fm.createDirectory(at: processedThemesDir.appendingPathComponent(icon.themeName), withIntermediateDirectories: true)
+                    try app.setPNGIcons(icon: icon)
+                }
+            } else {
+                print("restore")
+                try app.restorePNGIcons()
+                try app.restoreCatalog()
             }
         }
     }
     
+    private func getCatalogSize(originPath: String) -> Int {
+        let fd = open(originPath, O_RDONLY | O_CLOEXEC)
+        defer { close(fd) }
+        return Int(lseek(fd, 0, SEEK_END))
+    }
+    
+    private func createCatalog(withIcon rawIcon: UIImage, iconName: String, maxSize: Int, bundleIdentifier: String) throws -> URL {
+        
+        var resScale: CGFloat = 1
+        while resScale > 0.01 {
+            
+            let sizeWithAppliedScale = 60 * resScale
+            let size = CGSize(width: sizeWithAppliedScale, height: sizeWithAppliedScale)
+            
+            defer {
+                resScale *= 0.85
+            }
+            print("Trying \(sizeWithAppliedScale)x\(sizeWithAppliedScale) with \(resScale) compression")
+            
+            let resizedIcon = UIGraphicsImageRenderer(size: size).image(actions:{ _ in UIImage(data: rawIcon.jpegData(compressionQuality: resScale)!)!.draw(in: CGRect(origin: .zero, size: size)) })
+            
+            guard let dummyCatalogURL = Bundle.main.url(forResource: "AssetsDummy\(iconName.count)", withExtension: "car") else { continue }
+            let copyURL = fm.temporaryDirectory.appendingPathComponent("AssetsDummy.car")
+            try? fm.removeItem(at: copyURL)
+            try fm.copyItem(at: dummyCatalogURL, to: copyURL)
+            
+            let (catalog, renditionsRoot) = try AssetCatalogWrapper.shared.renditions(forCarArchive: copyURL)
+            for rendition in renditionsRoot {
+                let type = rendition.type
+                guard type == .icon else { continue }
+                print("type", type)
+                if type == .icon {
+                    let renditions = rendition.renditions
+                    for rend in renditions {
+                        rend.cuiRend.unslicedSize()
+                        do {
+                            try catalog.editItem(rend, fileURL: copyURL, to: .image(resizedIcon.cgImage!))
+                        } catch {
+                            print("failed to edit rendition: \(error) \(rend.type) \(rend.name) \(rend.namedLookup)")
+                        }
+                    }
+                }
+            }
+            print(copyURL)
+            var byteArray = [UInt8](try Data(contentsOf: copyURL))
+            print(byteArray.count)
+            guard byteArray.count <= maxSize else { continue } // make sure the bundle can fit
+            let findBytes: [UInt8] = [UInt8]("cowabungacowabungacowabunga"[0...iconName.count - 1].data(using: .utf8)!)
+            let replaceBytes: [UInt8] = [UInt8](iconName.data(using: .utf8)!)
+            
+            
+            var startIndex = 0
+            while startIndex <= byteArray.count - findBytes.count {
+                let endIndex = startIndex + findBytes.count
+                let subArray = Array(byteArray[startIndex..<endIndex])
+                
+                if subArray == findBytes {
+                    byteArray.replaceSubrange(startIndex..<endIndex, with: replaceBytes)
+                    startIndex += replaceBytes.count
+                } else {
+                    startIndex += 1
+                }
+            }
+            try Data(byteArray).write(to: copyURL)
+            
+            return copyURL
+        }
+        
+        throw NSLocalizedString("\(bundleIdentifier): Unable to generate an asset catalog with max size \(maxSize)B", comment: "")
+    }
+    
+    static func restoreCatalogs(progress: ((Double,SBApp)) -> Void) throws -> [String] {
+        var errors: [String] = []
+        let apps = try ApplicationManager.getApps()
+        themingInProgress = true
+        for (i,app) in apps.enumerated() {
+            do {
+                try app.restoreCatalog()
+                progress(((Double(i) / Double(apps.count)), app))
+            } catch {
+                errors.append("catalog: \(app.bundleIdentifier) \(app.name) \(error.localizedDescription)")
+            }
+        }
+        themingInProgress = false
+        return errors
+    }
+    static func restoreIconPNGs(progress: ((Double,SBApp)) -> Void) throws -> [String] {
+        var errors: [String] = []
+        
+        let apps = try ApplicationManager.getApps()
+        themingInProgress = true
+        for (i,app) in apps.enumerated() {
+            do {
+                try app.restorePNGIcons()
+                progress(((Double(i) / Double(apps.count)), app))
+            } catch {
+                errors.append("png icon: \(app.bundleIdentifier) \(app.name) \(error.localizedDescription)")
+            }
+        }
+        themingInProgress = false
+        return errors
+    }
+    
+    
     static func uncorruptCatalogs() throws {
-        for app in try ApplicationManager.getApps() {
+        let apps = try ApplicationManager.getApps()
+        themingInProgress = true
+        for app in apps {
             let catalogURL = app.bundleURL.appendingPathComponent("Assets.car")
             print(app.bundleIdentifier)
             try? MDC.toggleCatalogCorruption(at: catalogURL.path, corrupt: false)
         }
+        themingInProgress = false
     }
     
     
@@ -155,30 +249,38 @@ public class CatalogThemeManager {
 //        }
 //    }
     
-    private func backupPNGs(app: SBApp) {
-        for pngIconPath in app.pngIconPaths {
-            let url = app.bundleURL.appendingPathComponent(pngIconPath)
-            try? fm.copyItem(at: url, to: app.originalIconURL(fileName: pngIconPath))
+    private func backupCatalog(ofApp app: SBApp) throws {
+        let catalogURL = app.bundleURL.appendingPathComponent("Assets.car")
+        let destinationURL = app.catalogBackupURL()
+        
+        guard fm.fileExists(atPath: catalogURL.path) else { return }
+        guard !fm.fileExists(atPath: destinationURL.path) else { return }
+#warning("might cause issues if icons are bonkers in size")
+        let maxSize = 32 * 1024 * 1024
+        
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: maxSize)
+        
+        let inputStream = InputStream(url: catalogURL)!
+        let outputStream = OutputStream(url: destinationURL, append: false)!
+        inputStream.open()
+        outputStream.open()
+        
+        while inputStream.hasBytesAvailable {
+            let bytesRead = inputStream.read(buffer, maxLength: maxSize)
+            if bytesRead > 0 {
+                let bytesWritten = outputStream.write(buffer, maxLength: bytesRead)
+                if bytesWritten < 0 {
+                    break
+                }
+            } else {
+                break
+            }
         }
+        
+        inputStream.close()
+        outputStream.close()
     }
     
-    
-    struct BackedUpPNG {
-        var bundleIdentifier: String
-        var iconName: String
-        var data: Data
-    }
-    
-    /// bundle id, icon name in .app, img data
-    private func backedUpPNGs() -> [BackedUpPNG] {
-        var res: [BackedUpPNG] = []
-        for url in (try? fm.contentsOfDirectory(at: originalIconsDir, includingPropertiesForKeys: nil)) ?? [] {
-            let items = url.lastPathComponent.components(separatedBy: "----")
-            guard let data = try? Data(contentsOf: url) else { continue }
-            res.append(.init(bundleIdentifier: items[0], iconName: items[1], data: data))
-        }
-        return res
-    }
     
 //    private func backupAssetsURL(appURL: URL) throws -> URL {
 //        // Get version of app, so when app updates and user restores assets.car, old
