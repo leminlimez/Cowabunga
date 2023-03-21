@@ -24,6 +24,17 @@ extension UIApplication {
     }
     func alert(title: String = errorString, body: String, animated: Bool = true, withButton: Bool = true) {
         DispatchQueue.main.async {
+            var body = body
+            
+            if title == errorString {
+                // append debug info
+                let device = UIDevice.current
+                let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+                let appBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+                let systemVersion = device.systemVersion
+                body += "\n\(device.systemName) \(systemVersion), version \(appVersion) build \(appBuild) escaped=\(FileManager.default.isReadableFile(atPath: "/var/mobile"))"
+            }
+            
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if withButton { currentUIAlertController?.addAction(.init(title: okString, style: .cancel)) }
             self.present(alert: currentUIAlertController!)

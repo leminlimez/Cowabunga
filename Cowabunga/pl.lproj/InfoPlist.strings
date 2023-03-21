@@ -4,15 +4,39 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "Cowabunga Operation";
+
+/* (No Comment) */
+"FileSwitcherPro Item" = "FileSwitcherPro Item";
+
+/* (No Comment) */
+"Icon Theme" = "Motyw ikon";
+
 /* Privacy - Media Library Usage Description */
-"NSAppleMusicUsageDescription" = "Przyznaj dostęp do \"sandbox\" (potrzebny aby modyfikować przyciski ekranu blokady i kilka innych rzeczy)";
+"NSAppleMusicUsageDescription" = "Daj uprawnienia sandbox'owi (potrzebuje tego do Passcode keys oraz innych opcji)";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Aplikacja Cowabunga działa w tle aby modyfikacje ciągle działały. Zazwyczaj iOS automatycznie zamyka takie aplikacje po jakimś czasie, jednak Cowabunga wykorzystuje trik polegający na używaniu dostępu do lokalizacji pozwalający na znacznie dłuższą żywotność. Dane nie są przechowywane, jedynie pobierane lokalnie.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga dziala w tle, upewnij sie, że tweak'i dalej dzialaja. Zazwyczaj iOS zamyka takie aplikacje po jakims czasie, ale Cowabunga oszukuje iOS poprzez proszenie o dane lokalizacyjne, dzieki temu pozwala na znacznie dłuższe dzialanie. Dane nie sa nigdzie zbierane, tylko chwilowo pobierane.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Aplikacja Cowabunga działa w tle aby modyfikacje ciągle działały. Zazwyczaj iOS automatycznie zamyka takie aplikacje po jakimś czasie, jednak Cowabunga wykorzystuje trik polegający na używaniu dostępu do lokalizacji pozwalający na znacznie dłuższą żywotność. Dane nie są przechowywane, jedynie pobierane lokalnie.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga dziala w tle, upewnij sie, ze tweak'i dalej dzialaja. Zazwyczaj iOS zamyka takie aplikacje po jakims czasie, ale Cowabunga oszukuje iOS poprzez proszenie o dane lokalizacyjne, dzieki temu pozwala na znacznie dłuższe dzialanie. Dane nie sa nigdzie zbierane, tylko chwilowo pobierane.";
 
 /* Privacy - Photo Library Usage Description */
-"NSPhotoLibraryUsageDescription" = "Photos";
+"NSPhotoLibraryUsageDescription" = "Zdjęcia";
+
+/* (No Comment) */
+"OpenType font" = "OpenType font";
+
+/* (No Comment) */
+"Passcode Theme File" = "Passcode theme file";
+
+/* (No Comment) */
+"Theme Archive File" = "Theme archive file";
+
+/* (No Comment) */
+"TrueType collection" = "Kolekcja TrueType";
+
+/* (No Comment) */
+"TrueType font" = "czcionka TrueType";
 

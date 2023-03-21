@@ -9,9 +9,11 @@ import SwiftUI
 //import LaunchServicesBridge
 import Dynamic
 
+@available(iOS 15.0, *)
 struct IconOverridesView: View {
     @ObservedObject var themeManager = ThemeManager.shared
     var gridItemLayout = [GridItem(.adaptive(minimum: 64, maximum: 64))]
+    @State private var searchText = ""
     
     @State var allApps: [IconOverrideViewApp] = []
     
@@ -19,12 +21,15 @@ struct IconOverridesView: View {
         ScrollView {
             LazyVGrid(columns: gridItemLayout, spacing: 14) {
                 ForEach(allApps, id: \.self) { app in
-                    IconEditorAppView(app: app, edited: themeManager.iconOverrides[app.appID] != nil, updateApps: updateApps)
-                        .padding(.horizontal, 3)
+                    if searchText == "" || app.displayName.contains(searchText) {
+                        IconEditorAppView(app: app, edited: themeManager.iconOverrides[app.appID] != nil, updateApps: updateApps)
+                            .padding(.horizontal, 3)
+                    }
                 }
             }
             .padding(.bottom, 80)
         }
+        .searchable(text: $searchText)
         .navigationTitle("Icons override")
         .onAppear {
             updateApps()
@@ -34,7 +39,7 @@ struct IconOverridesView: View {
     func updateApps() {
         do {
             let preferedIcons = themeManager.preferedIcons
-            allApps = try ApplicationManager.getApps().filter({ !$0.hiddenFromSpringboard }).map {
+            allApps = try ApplicationManager.getApps().filter({ !$0.hiddenFromSpringboard }).sorted(by: { $0.name.lowercased() < $1.name.lowercased() }).map {
                 if let themedIcon = preferedIcons[$0.bundleIdentifier] {
                     return IconOverrideViewApp(appID: $0.bundleIdentifier,
                                                icon: UIImage(contentsOfFile: themedIcon.rawThemeIconURL.path), displayName: $0.name)

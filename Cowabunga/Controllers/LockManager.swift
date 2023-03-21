@@ -116,7 +116,13 @@ class LockManager {
             // write to the path
             let newData: Data? = replacingContents.data(using: .utf8)
             if newData != nil {
-                return MDC.overwriteFile(at: originPath + "/main.caml", with: newData!)
+                do {
+                    try MDC.overwriteFile(at: originPath + "/main.caml", with: newData!)
+                    return true
+                } catch {
+                    print(error)
+                    return false
+                }
             } else {
                 print("Failed to replace lock: failed to get data")
                 return false

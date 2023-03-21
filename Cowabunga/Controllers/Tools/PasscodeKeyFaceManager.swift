@@ -237,7 +237,7 @@ class PasscodeKeyFaceManager {
     static func getURL(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> URL { // O(n^2), but works
         let fm = FileManager.default
         for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(dir), includingPropertiesForKeys: nil) {
-            if imageURL.path.contains("-\(n)-") && ((mask && imageURL.path.contains("mask")) || (!mask && !imageURL.path.contains("mask"))) {
+            if imageURL.path.contains("-\(n)-") && (dir == .passcode || (mask && imageURL.path.contains("mask")) || (!mask && !imageURL.path.contains("mask"))) {
                 return imageURL
             }
         }
@@ -270,12 +270,12 @@ class PasscodeKeyFaceManager {
     static func telephonyUIURL(_ dir: TelephonyDirType) throws -> URL {
         if dir == .passcode {
             guard let url = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches/"), includingPropertiesForKeys: nil)
-                .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Have the caches been generated? Reset faces in app and try again." }
+                .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Reset the faces and then go to the passcode screen on the lock screen." }
             return url
         } else if dir == .dialer {
             let dialerURL = try getDialerDataURL()
             guard let url = try FileManager.default.contentsOfDirectory(at: dialerURL.appendingPathComponent("Library/Caches"), includingPropertiesForKeys: nil)
-                .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Have the caches been generated? Reset faces in app and try again." }
+                .first(where: { url in url.lastPathComponent.contains("TelephonyUI") }) else { throw "TelephonyUI folder not found. Reset the faces and then open the phone app." }
             return url
         } else {
             throw "Incorrect directory type"

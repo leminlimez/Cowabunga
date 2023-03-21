@@ -41,29 +41,31 @@ struct OtherModsView: View {
         List {
             Section {
                 // delete shortcut banner
-                HStack {
-                    Image(systemName: "pencil.slash")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
+//                if #unavailable(iOS 16) {
+                    HStack {
+                        Image(systemName: "pencil.slash")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.blue)
+                        
+                        Text("Delete Shortcut Banners")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button("Delete", action: {
+                            let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.deleteBanner)
+                            if succeeded {
+                                UIApplication.shared.alert(title: "Success!", body: "The shortcut banner will no longer appear for current shortcuts. Please respring to finalize.")
+                            } else {
+                                UIApplication.shared.alert(body: "An error occurred while trying to delete shortcut banners.")
+                            }
+                        })
                         .foregroundColor(.blue)
-                    
-                    Text("Delete Shortcut Banners")
-                        .minimumScaleFactor(0.5)
-                    
-                    Spacer()
-                    
-                    Button("Delete", action: {
-                        let succeeded = modifyShortcutApp(modifying: ShortcutAppMod.deleteBanner)
-                        if succeeded {
-                            UIApplication.shared.alert(title: "Success!", body: "The shortcut banner will no longer appear for current shortcuts. Please respring to finalize.")
-                        } else {
-                            UIApplication.shared.alert(body: "An error occurred while trying to delete shortcut banners.")
-                        }
-                    })
-                    .foregroundColor(.blue)
-                    .padding(.leading, 10)
-                }
+                        .padding(.leading, 10)
+                    }
+//                }
                 
                 // set shortcut apps to appclip
                 HStack {
@@ -184,7 +186,7 @@ struct OtherModsView: View {
                         .frame(width: 24, height: 24)
                         .foregroundColor(.blue)
                     
-                    Text("Screen Time Enabled")
+                    Text("Disable Screen Time")
                         .minimumScaleFactor(0.5)
                     
                     Spacer()
@@ -215,244 +217,6 @@ struct OtherModsView: View {
         }
             
             Section {
-                // software version
-//                if #available(iOS 15, *) {
-//                    HStack {
-//                        Image(systemName: "gear.circle")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 24, height: 24)
-//                            .foregroundColor(.blue)
-//
-//                        Text("Software Version")
-//                            .minimumScaleFactor(0.5)
-//
-//                        Spacer()
-//
-//                        Button(CurrentVersion, action: {
-//                            let defaults = UserDefaults.standard
-//                            // create and configure alert controller
-//                            let alert = UIAlertController(title: NSLocalizedString("Input Software Version", comment: "Header for inputting custom iOS version"), message: NSLocalizedString("No respring required to apply.", comment: ""), preferredStyle: .alert)
-//                            // bring up the text prompt
-//                            alert.addTextField { (textField) in
-//                                textField.placeholder = "Version"
-//                                textField.text = defaults.string(forKey: "ProductVersion") ?? CurrentVersion
-//                                textField.keyboardType = .decimalPad
-//                            }
-//
-//                            // buttons
-//                            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply", comment: ""), style: .default) { (action) in
-//                                // set the version
-//                                let newVersion: String = alert.textFields?[0].text! ?? CurrentVersion
-//                                if newVersion != "" {
-//                                    do {
-//                                        let _ = try setValueInSystemVersionPlist(key: "ProductVersion", value: newVersion)
-//                                        CurrentVersion = newVersion
-//                                        // set the default
-//                                        defaults.set(newVersion, forKey: "ProductVersion")
-//                                    } catch {
-//                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply system version change! The version must be shorter than your current device version.\n\n\(error.localizedDescription)", comment: ""))
-//                                    }
-//                                }
-//                            })
-//                            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-//                                // cancel the process
-//                            })
-//                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-//                        })
-//                        .foregroundColor(.blue)
-//                        .padding(.leading, 10)
-//                    }
-                    
-                    // resolution setter
-                    /*HStack {
-                        Image(systemName: "squareshape.controlhandles.on.squareshape.controlhandles")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.blue)
-                        
-                        Text("Device Resolution")
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                        
-                        Button("\(deviceRes[0])x\(deviceRes[1])", action: {
-                            // ask the user for a custom size
-                            let sizeAlert = UIAlertController(title: NSLocalizedString("Enter Dimensions", comment: "Entering custom resolution"), message: "", preferredStyle: .alert)
-                            // bring up the text prompts
-                            sizeAlert.addTextField { (textField) in
-                                // text field for width
-                                textField.placeholder = NSLocalizedString("Width", comment: "Width of custom resolution")
-                                textField.text = String(deviceRes[0])
-                                textField.keyboardType = .decimalPad
-                            }
-                            sizeAlert.addTextField { (textField) in
-                                // text field for height
-                                textField.placeholder = NSLocalizedString("Height", comment: "Height of custom resolution")
-                                textField.text = String(deviceRes[1])
-                                textField.keyboardType = .decimalPad
-                            }
-                            sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
-                                // set the sizes
-                                let first = sizeAlert.textFields![0].text
-                                if first != nil && Int(first!) != nil {
-                                    deviceRes[0] = Int(first!)!
-                                }
-                                
-                                let second = sizeAlert.textFields![1].text
-                                if second != nil && Int(second!) != nil {
-                                    deviceRes[1] = Int(second!)!
-                                }
-                                
-                                // credit:
-                                func createPlist(at url: URL) throws {
-                                    let 💀 : [String: Any] = [
-                                        "canvas_height": deviceRes[0],
-                                        "canvas_width": deviceRes[1],
-                                    ]
-                                    let data = NSDictionary(dictionary: 💀)
-                                    data.write(toFile: url.path, atomically: true)
-                                }
-                                
-                                UIApplication.shared.confirmAlert(title: NSLocalizedString("Resolution will now apply", comment: ""), body: NSLocalizedString("Reboot to revert resolution changes. It will auto respring when done", comment: "Successfully applying custom resolution"), onOK: {
-                                    do {
-                                        let tmpPlistURL = URL(fileURLWithPath: "/var/tmp/com.apple.iokit.IOMobileGraphicsFamily.plist")
-                                        try? FileManager.default.removeItem(at: tmpPlistURL)
-                                        
-                                        try createPlist(at: tmpPlistURL)
-                                        
-                                        let aliasURL = URL(fileURLWithPath: "/private/var/mobile/Library/Preferences/com.apple.iokit.IOMobileGraphicsFamily.plist")
-                                        try? FileManager.default.removeItem(at: aliasURL)
-                                        try FileManager.default.createSymbolicLink(at: aliasURL, withDestinationURL: tmpPlistURL)
-                                        xpc_crash("com.apple.cfprefsd.daemon")
-                                        xpc_crash("com.apple.backboard.TouchDeliveryPolicyServer")
-                                        restartBackboard()
-                                    } catch {
-                                        print("An error occurred: \(error.localizedDescription)")
-                                        UIApplication.shared.alert(body: NSLocalizedString("Failed to apply resolution:", comment: "Failing to apply custom resolution") + " \(error.localizedDescription)")
-                                    }
-                                }, noCancel: false)
-                            })
-                            sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
-                                // cancel the process
-                            })
-                            UIApplication.shared.windows.first?.rootViewController?.present(sizeAlert, animated: true, completion: nil)
-                        })
-                        .foregroundColor(.blue)
-                        .padding(.leading, 10)
-                    }*/
-                    
-                    // device name
-                    /*HStack {
-                     Image(systemName: "iphone")
-                     .resizable()
-                     .aspectRatio(contentMode: .fit)
-                     .frame(width: 24, height: 24)
-                     .foregroundColor(.blue)
-                     
-                     
-                     Text("Model Name")
-                     .minimumScaleFactor(0.5)
-                     
-                     Spacer()
-                     
-                     Button(CurrentModel, action: {
-                     let defaults = UserDefaults.standard
-                     // create and configure alert controller
-                     let alert = UIAlertController(title: "Input Model Name", message: "No respring required to apply.", preferredStyle: .alert)
-                     // bring up the text prompt
-                     alert.addTextField { (textField) in
-                     textField.placeholder = "Model"
-                     textField.text = defaults.string(forKey: "ModelName") ?? CurrentModel
-                     }
-                     
-                     // buttons
-                     alert.addAction(UIAlertAction(title: "Apply", style: .default) { (action) in
-                     // set the version
-                     let newModel: String = alert.textFields?[0].text! ?? CurrentModel
-                     let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890.,_/")
-                     let newName: String = newModel.filter{validChars.contains($0)}
-                     if newName != "" {
-                     UIApplication.shared.alert(title: "Applying model name...", body: "Please wait", animated: false, withButton: false)
-                     setModelName(value: newName) { succeeded in
-                     UIApplication.shared.dismissAlert(animated: true)
-                     if succeeded {
-                     CurrentModel = newName
-                     // set the default
-                     defaults.set(newName, forKey: "ModelName")
-                     } else {
-                     UIApplication.shared.alert(body: "Failed to apply device model name! File overwrite failed unexpectedly.")
-                     }
-                     }
-                     } else {
-                     UIApplication.shared.alert(body: "Failed to apply device model name! Please enter a valid name.")
-                     }
-                     })
-                     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                     // cancel the process
-                     })
-                     UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
-                     })
-                     .padding(.leading, 10)
-                     }*/
-                    
-                    // export mobilegestalt
-                    /*HStack {
-                     Image(systemName: "iphone")
-                     .resizable()
-                     .aspectRatio(contentMode: .fit)
-                     .frame(width: 24, height: 24)
-                     .foregroundColor(.blue)
-                     
-                     
-                     Text("Mobilegestalt Export")
-                     .minimumScaleFactor(0.5)
-                     
-                     Spacer()
-                     
-                     Button("Export", action: {
-                     let plistPath: String = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
-                     do {
-                     let archiveURL: URL? = try URL(fileURLWithPath: plistPath)
-                     // show share menu
-                     let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
-                     let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                     avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                     avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                     UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
-                     } catch {
-                     UIApplication.shared.alert(body: "Failed.")
-                     }
-                     })
-                     .padding(.leading, 10)
-                     }*/
-                    
-//                }
-                
-                // region restrictions
-                /*HStack {
-                 Image(systemName: "ipodtouch")
-                 .resizable()
-                 .aspectRatio(contentMode: .fit)
-                 .frame(width: 24, height: 24)
-                 .foregroundColor(.blue)
-                 
-                 
-                 Text("Region Restrictions")
-                 .minimumScaleFactor(0.5)
-                 
-                 Spacer()
-                 
-                 Button("Test", action: {
-                 setRegion() { succeeded in
-                 print(succeeded)
-                 }
-                 })
-                 .foregroundColor(.blue)
-                 .padding(.leading, 10)
-                 }*/
-                
                 // device subtype
                 if UIDevice.current.userInterfaceIdiom == .phone {
                     HStack {

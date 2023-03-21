@@ -13,7 +13,9 @@ import Foundation
 // The font must be specially prepared so that it skips past the last byte in every 16KB page.
 // See BrotliPadding.swift for an implementation that adds this padding to WOFF2 fonts.
 // credit: FontOverwrite
-func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Bool {
+
+/// unlockDataAtEnd - Unlocked the data at overwrite end. Used when replacing files inside app bundle
+func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlockDataAtEnd: Bool = true) -> Bool {
 #if false
     let documentDirectory = FileManager.default.urls(
         for: .documentDirectory,
@@ -58,13 +60,13 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
     // for every 16k chunk, rewrite
     print(Date())
     for chunkOff in stride(from: 0, to: replacementData.count, by: 0x4000) {
-        print(String(format: "%lx", chunkOff))
+//        print(String(format: "%lx", chunkOff))
         let dataChunk = replacementData[chunkOff..<min(replacementData.count, chunkOff + 0x4000)]
         var overwroteOne = false
         for _ in 0..<2 {
             let overwriteSucceeded = dataChunk.withUnsafeBytes { dataChunkBytes in
                 return unaligned_copy_switch_race(
-                    fd, Int64(chunkOff), dataChunkBytes.baseAddress, dataChunkBytes.count)
+                    fd, Int64(chunkOff), dataChunkBytes.baseAddress, dataChunkBytes.count, unlockDataAtEnd)
             }
             if overwriteSucceeded {
                 overwroteOne = true
@@ -78,5 +80,13 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
         }
     }
     print(Date())
+    
+    if unlockDataAtEnd {
+        guard munlock(fileMap, replacementData.count) == 0 else {
+            print("Failed to munlock")
+            return true
+        }
+    }
+    
     return true
 }

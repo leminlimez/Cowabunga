@@ -8,6 +8,7 @@
 import Foundation
 import MacDirtyCowSwift
 import SwiftUI
+import AssetCatalogWrapper
 
 enum ReplacingObjectType: String, CaseIterable {
     case FilePath = "File Path"
@@ -84,10 +85,7 @@ class AdvancedObject: Identifiable {
                     do {
                         let originalSize = try Data(contentsOf: URL(fileURLWithPath: filePath)).count
                         if originalSize >= newData!.count {
-                            let succeeded = MDC.overwriteFile(at: filePath, with: newData!)
-                            if !succeeded {
-                                throw "There was an error trying to write/replace the file."
-                            }
+                            try MDC.overwriteFile(at: filePath, with: newData!)
                         } else {
                             throw "Replacement data is larger than the original file!"
                         }
@@ -178,38 +176,6 @@ class PlistObject: AdvancedObject {
 class ColorObject: AdvancedObject {
     var col: Color
     var blur: Double
-    var usesStyles: Bool
-    var fill: String
-    var stroke: String
-    
-    func detectStyles() throws -> [String: String] {
-        if FileManager.default.fileExists(atPath: self.filePath) {
-            do {
-                // get the data
-                let originalData: Data = try Data(contentsOf: URL(fileURLWithPath: self.filePath))
-                do {
-                    // get the plist data
-                    let plist = try PropertyListSerialization.propertyList(from: originalData, options: [], format: nil) as! [String: Any]
-                    
-                    // get the styles plist
-                    if let stylesValues = plist["styles"] as? [String: String] {
-                        var styles: [String: String] = [:]
-                        styles["fill"] = stylesValues["fill"] ?? ""
-                        styles["stroke"] = stylesValues["stroke"] ?? ""
-                        return styles
-                    } else {
-                        return [:]
-                    }
-                } catch {
-                    throw "Could not serialize file at path \(self.filePath)!"
-                }
-            } catch {
-                throw "Could not get data of file at path \(self.filePath)!"
-            }
-        } else {
-            throw "File at path \(self.filePath) does not exist!"
-        }
-    }
     
     override func parseData() throws {
         // get the files
@@ -218,71 +184,50 @@ class ColorObject: AdvancedObject {
         
         // set the colors
         if url != nil {
-            do {
-                let plistData = try Data(contentsOf: url!)
-                var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
-                
-                if var firstLevel = plist["baseMaterial"] as? [String : Any], var secondLevel = firstLevel["tinting"] as? [String: Any], var thirdLevel = secondLevel["tintColor"] as? [String: Any] {
-                    // set the colors
-                    thirdLevel["red"] = color.red
-                    thirdLevel["green"] = color.green
-                    thirdLevel["blue"] = color.blue
-                    thirdLevel["alpha"] = 1
-                    
-                    if var secondLevel2 = firstLevel["materialFiltering"] as? [String: Any] {
-                        if blur == -1 {
-                            firstLevel.removeValue(forKey: "materialFiltering")
-                        } else {
-                            secondLevel2["blurRadius"] = blur
-                            firstLevel["materialFiltering"] = secondLevel2
-                        }
-                    }
-                    
-                    secondLevel["tintColor"] = thirdLevel
-                    secondLevel["tintAlpha"] = color.alpha
-                    firstLevel["tinting"] = secondLevel
-                    plist["baseMaterial"] = firstLevel
-                }
-                
-                if usesStyles {
-                    let styles: [String: String] = [
-                        "fill": fill,
-                        "stroke": stroke
-                    ]
-                    plist["styles"] = styles
-                    plist["materialSettingsVersion"] = 2
-                }
-                
-                // fill with empty data
-                // get original data
-                let newUrl = URL(fileURLWithPath: filePath)
-                do {
-                    let originalFileSize = try Data(contentsOf: newUrl).count
-                    let newData = try addEmptyData(matchingSize: originalFileSize, to: plist)
-                    // save file to background directory
-                    if newData.count == originalFileSize {
-                        self.replacementData = newData
-                    } else {
-                        print(newData.count)
-                        print(originalFileSize)
-                        print("NOT CORRECT SIZE")
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                    throw error.localizedDescription
-                }
-            }
+            self.replacementData = try ColorSwapManager.setColor(url: url!, color: color, blur: Int(blur))
         } else {
             throw "Could not find original resource url"
         }
     }
     
-    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, color: Color = Color.gray, blur: Double = 30, usesStyles: Bool = false, _ fill: String = "", _ stroke: String = "") {
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, color: Color = Color.gray, blur: Double = 30) {
         self.col = color
         self.blur = blur
-        self.usesStyles = usesStyles
-        self.fill = fill
-        self.stroke = stroke
+        super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
+    }
+}
+
+class AssetCatalogObject: AdvancedObject {
+    var replacingImages: [String: UIImage]
+    var cachedRenditions: [Rendition] = []
+    var cachedViewingImages: [String: UIImage] = [:]
+    
+    func getRenditions() -> [Rendition] {
+        if FileManager.default.fileExists(atPath: filePath) && cachedRenditions.count == 0 {
+            cachedRenditions = AssetCatalogManager.getAssetRenditions(URL(fileURLWithPath: filePath))
+        }
+        return cachedRenditions
+    }
+    
+    func getAssets() -> [String: UIImage] {
+        if cachedViewingImages.count == 0 {
+            let renditions = getRenditions()
+            for rendition in renditions {
+                if rendition.image != nil {
+                    cachedViewingImages[rendition.name] = UIImage(cgImage: rendition.image!)
+                }
+            }
+        }
+        return cachedViewingImages
+    }
+    
+    func resetRenditions() {
+        cachedRenditions.removeAll()
+        cachedViewingImages.removeAll()
+    }
+    
+    init(operationName: String, author: String = "", filePath: String, applyInBackground: Bool, backupData: Data? = nil, active: Bool = true, replacingImages: [String: UIImage] = [:]) {
+        self.replacingImages = replacingImages
         super.init(operationName: operationName, author: author, filePath: filePath, applyInBackground: applyInBackground, backupData: backupData, active: active)
     }
 }

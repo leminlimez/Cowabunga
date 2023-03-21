@@ -32,6 +32,16 @@ var originalIconsDir: URL = {
 #endif
 }()
 
+var catalogBackupsDir: URL = {
+#if targetEnvironment(simulator)
+    FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(".DO-NOT-DELETE-Cowabunga/.CatalogBackups/")
+#else
+    URL(fileURLWithPath: "/var/mobile/.DO-NOT-DELETE-Cowabunga/.CatalogBackups/")
+#endif
+}()
+
+var themingInProgress = false
+
 class ThemeManager: ObservableObject {
     
     static let shared = ThemeManager()
@@ -39,6 +49,10 @@ class ThemeManager: ObservableObject {
     let fm = FileManager.default
     
     var catalogThemeManager = CatalogThemeManager()
+    
+    @Published var testThemeAllIcons = false
+    
+    @Published var themes: [Theme] = []
     
     @Published var preferedThemes: [Theme] = []
     
@@ -60,10 +74,6 @@ class ThemeManager: ObservableObject {
         }
     }
     
-    var themes: [Theme] {
-        get { guard let data = UserDefaults.standard.data(forKey: "themes") else { return [] }; return (try? JSONDecoder().decode([Theme].self, from: data)) ?? [] }
-        set { guard let data = try? JSONEncoder().encode(newValue) else { return }; UserDefaults.standard.set(data, forKey: "themes") }
-    }
     var iconOverrides: [String : String] {
         get { return UserDefaults.standard.dictionary(forKey: "iconOverrides") as? [String : String] ?? [:] }
         set { UserDefaults.standard.set(newValue, forKey: "iconOverrides") }
@@ -74,11 +84,11 @@ class ThemeManager: ObservableObject {
     }
     
     // MARK: - Set theme
-    func applyChanges(progress: (String) -> ()) throws {
+    func applyChanges(progress: (String) -> ()) throws -> [String] {
         let appChanges = try neededChanges()
         
-        try catalogThemeManager.applyChanges(appChanges, progress: { percentage in
-            progress("\(Int(percentage * 100))% done")
+        return try catalogThemeManager.applyChanges(appChanges, progress: { (percentage, appName) in
+            progress("\(Int(percentage * 100))% done\n\nChanging \(appName) icon")
         })
     }
     
@@ -88,13 +98,33 @@ class ThemeManager: ObservableObject {
         let preferedIcons = preferedIcons
         
         for app in apps {
-//            guard app.bundleIdentifier == "com.apple.calculator" else { continue }
-            if let themedIcon = preferedIcons[app.bundleIdentifier] {
-                appChanges.append(.init(app: app, icon: themedIcon))
+            guard fm.fileExists(atPath: app.assetsCatalogURL().path) || !app.pngIconPaths.isEmpty else { continue }
+            
+            if testThemeAllIcons {
+                appChanges.append(.init(app: app, icon: preferedIcons.first!.value ))
             } else {
-                appChanges.append(.init(app: app, icon: nil))
+                
+                if let themedIcon = preferedIcons[app.bundleIdentifier] {
+                    // add app to changes to be themed
+                    appChanges.append(.init(app: app, icon: themedIcon))
+                } else if app.bundleIdentifier == "com.apple.mobiletimer", let themedIcon = preferedIcons["ClockIconBackgroundSquare"] {
+                    // add app to changes to be themed
+                    appChanges.append(.init(app: app, icon: themedIcon))
+                } else {
+                    var bundleComponents = app.bundleIdentifier.components(separatedBy: ".")
+                    bundleComponents.removeLast()
+                    if let themedIcon = preferedIcons[bundleComponents.joined(separator: ".")] {
+                        // sideloaded apps
+                        appChanges.append(.init(app: app, icon: themedIcon))
+                    } else {
+                        // restore
+                        appChanges.append(.init(app: app, icon: nil))
+                    }
+                }
             }
         }
+        
+        
         return appChanges
     }
     
@@ -110,7 +140,7 @@ class ThemeManager: ObservableObject {
         return try icon(forAppID: appID, from: Theme(name: name, iconCount: 1))
     }
     
-    func importTheme(from importURL: URL) throws -> Theme {
+    func importTheme(from importURL: URL) throws {
         var name = importURL.deletingPathExtension().lastPathComponent
         var finalURL = importURL
         try? fm.createDirectory(at: rawThemesDir, withIntermediateDirectories: true)
@@ -138,23 +168,24 @@ class ThemeManager: ObservableObject {
             guard !icon.lastPathComponent.contains(".DS_Store") else { continue }
             try? fm.copyItem(at: icon, to: themeURL.appendingPathComponent(appIDFromIcon(url: icon) + ".png"))
         }
-        return Theme(name: themeURL.deletingPathExtension().lastPathComponent, iconCount: try fm.contentsOfDirectory(at: themeURL, includingPropertiesForKeys: nil).count)
+        refreshThemes()
     }
     
     
     func renameImportedTheme(id: UUID, newName: String) throws {
         guard let i = themes.firstIndex(where: { t in t.id == id }) else { throw "Theme not found" }
         try fm.moveItem(at: themes[i].url, to: themes[i].url.deletingLastPathComponent().appendingPathComponent(newName))
-        themes[i].name = newName
+        refreshThemes()
     }
     
     func removeImportedTheme(theme: Theme) throws {
         try? fm.removeItem(at: theme.cacheURL)
         try fm.removeItem(at: theme.url)
+        refreshThemes()
     }
     
     // MARK: - Utils
-    func iconFileEnding(iconFilename: String) -> String {
+    private func iconFileEnding(iconFilename: String) -> String {
         if iconFilename.contains("-large.png") {
             return "-large"
         } else if iconFilename.contains("@2x.png") {
@@ -173,11 +204,21 @@ class ThemeManager: ObservableObject {
 //            $0[applicationIdentifier ?? ""] = displayName
 //        }
 //    }
-    func appIDFromIcon(url: URL) -> String {
+    private func appIDFromIcon(url: URL) -> String {
         return url.deletingPathExtension().lastPathComponent.replacingOccurrences(of: iconFileEnding(iconFilename: url.lastPathComponent), with: "")
     }
-    func iconURL(appID: String, in theme: Theme) -> URL {
+    private func iconURL(appID: String, in theme: Theme) -> URL {
         return theme.url.appendingPathComponent(appID + ".png")
+    }
+    
+    private func getThemes() -> [Theme] {
+        let contents = (try? fm.contentsOfDirectory(at: rawThemesDir, includingPropertiesForKeys: nil)) ?? []
+        
+        return contents.map { .init(name: $0.lastPathComponent, iconCount: ((try? fm.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil)) ?? []).count )}
+    }
+    
+    func refreshThemes() {
+        themes = getThemes()
     }
 }
 

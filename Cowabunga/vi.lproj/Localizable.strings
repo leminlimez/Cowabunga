@@ -11,7 +11,7 @@
 "%lld bytes" = "%lld bytes";
 
 /* No comment provided by engineer. */
-"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you have not used it before, please proceed with caution." = "⚠️ Cảnh báo ⚠️\nMột số người dùng đã gặp tình trạng treo táo khi sử dụng tính năng này. Nếu bạn chưa từng sử dụng nó trước đây, hãy dùng với sự cẩn trọng.";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️ Cảnh báo ⚠️\nMột số người dùng đã bị treo táo khi sử dụng tính năng này. Nếu bạn đang sử dụng một phiên bản beta của iOS, hãy dùng nó với thận trọng. Nếu bạn đang sử dụng iOS 16.0 beta, đừng sử dụng tính năng này.";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ VUI LÒNG ĐỌC ⬇⚠️\n\n  Sau khi điện thoại khởi động lại màn hình, vui lòng *mở lại Cowabunga* để sửa lại các ứng dụng không hoạt động bình thường\n\nRẤT QUAN TRỌNG: Nếu bạn thấy logo táo và thanh tiến trình, đừng lo lắng, thiết bị của bạn vẫn hoạt động bình thường. VUI LÒNG KHÔNG THỬ KHỞI ĐỘNG LẠI NÓ.\n\nThời gian đã qua: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
@@ -85,6 +85,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "Giao diện biểu tượng ứng dụng đã được lưu thành công!";
 
+/* No comment provided by engineer. */
+"Apple ID, iCloud, Media & Purchases" = "Apple ID, iCloud, Đa phương tiện & Thanh toán";
+
 /* fix tweaks info */
 "Applies all tweaks which were applied before." = "Áp dụng tất cả các tinh chỉnh đã được áp dụng trước đó.";
 
@@ -106,23 +109,20 @@
 /* No comment provided by engineer. */
 "Apply Without Saving" = "Áp dụng mà không lưu lại";
 
-/* No comment provided by engineer. */
-"Applying fonts..." = "Đang áp dụng phông chữ...";
-
 /* apply button on custom operations */
 "Applying operation..." = "Đang áp dụng thao tác...";
 
 /* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "Bạn có chắc bạn muốn đặt SubType về mặc định?";
 
+/* No comment provided by engineer. */
+"Asset Catalog" = "Tài nguyên";
+
 /* Title of tool */
 "Audio" = "Âm thanh";
 
 /* No comment provided by engineer. */
 "Audio Changer" = "Thay đổi âm thanh";
-
-/* Header for inputting your name */
-"Author Name" = "Tên tác giả";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "Tự động khởi động lại màn hình sau khi áp dụng ";
@@ -147,6 +147,9 @@
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "Cài đặt cơ bản";
+
+/* No comment provided by engineer. */
+"Battery Detail Text" = "Chỉ số pin chi tiết";
 
 /* Audio name */
 "Begin Recording" = "Bắt đầu ghi âm";
@@ -173,10 +176,16 @@
 "Breadcrumb Text" = "Chữ breadcrumb";
 
 /* No comment provided by engineer. */
+"Bugs may arise. It's also not meant to be redistributed, because... blah blah blah, you know what happens if you do 🧌" = "Có thể sẽ có lỗi. Nó cũng không được phép phân phối lại, vì... blah blah blah, bạn biết những gì sẽ xảy ra nếu bạn làm 🧌";
+
+/* No comment provided by engineer. */
 "Calculate Size" = "Tính kích thước";
 
 /* Cancel */
 "Cancel" = "Hủy";
+
+/* No comment provided by engineer. */
+"Cannot write to file path!" = "Không thể ghi vào đường dẫn tệp!";
 
 /* Title of tool */
 "Card Changer" = "Bộ thay đổi chủ đề thẻ";
@@ -184,8 +193,8 @@
 /* No comment provided by engineer. */
 "Carrier Text" = "Tên nhà mạng";
 
-/* Run in background option */
-"CC Module Background" = "Nền biểu tượng trung tâm điều khiển";
+/* No comment provided by engineer. */
+"catalogIconTheming" = "catalogIconTheming";
 
 /* No comment provided by engineer. */
 "CC Modules" = "Biểu tượng trung tâm điều khiển";
@@ -197,13 +206,25 @@
 "Change" = "Thay đổi";
 
 /* No comment provided by engineer. */
+"Change Battery Detail Text" = "Thay đổi chỉ số pin";
+
+/* No comment provided by engineer. */
+"Change Battery Icon Capacity" = "Thay đổi biểu tượng pin";
+
+/* No comment provided by engineer. */
 "Change Breadcrumb Text" = "Thay đổi chữ Breadcrumb";
 
 /* No comment provided by engineer. */
 "Change Carrier Text" = "Thay đổi tên nhà mạng";
 
 /* No comment provided by engineer. */
+"Change Cellular Signal Strength Bars" = "Thay đổi biểu tượng mạng di động";
+
+/* No comment provided by engineer. */
 "Change Status Bar Time Text" = "Đổi thời gian thanh trạng thái";
+
+/* No comment provided by engineer. */
+"Change WiFi Signal Strength Bars" = "Thay đổi biểu tượng mạng WiFi";
 
 /* Audio name */
 "Charging" = "Đang sạc";
@@ -216,9 +237,6 @@
 
 /* No comment provided by engineer. */
 "Choose a name for the category" = "Đặt tên cho danh mục";
-
-/* No comment provided by engineer. */
-"Choose a name for the font pack" = "Đặt tên cho gói phông chữ";
 
 /* No comment provided by engineer. */
 "Choose a name for the lock" = "Đặt tên cho biểu tượng khóa";
@@ -245,6 +263,9 @@
 "Choose app Icon" = "Chọn biểu tượng ứng dụng bất kỳ";
 
 /* No comment provided by engineer. */
+"Choose Image" = "Chọn hình ảnh";
+
+/* No comment provided by engineer. */
 "Choose size" = "Chọn kích thước";
 
 /* No comment provided by engineer. */
@@ -253,17 +274,23 @@
 /* No comment provided by engineer. */
 "Close" = "Đóng";
 
-/* operation type that changes colors */
+/* No comment provided by engineer. */
 "Color" = "Màu";
 
 /* No comment provided by engineer. */
 "Color Data" = "Dữ liệu màu";
 
 /* No comment provided by engineer. */
+"Color:" = "Màu:";
+
+/* No comment provided by engineer. */
 "Configuration" = "Cấu hình";
 
 /* No comment provided by engineer. */
 "Confirm" = "Xác nhận";
+
+/* No comment provided by engineer. */
+"Continue" = "Tiếp tục";
 
 /* Category of tool */
 "Control Center" = "Trung tâm điều khiển";
@@ -273,9 +300,6 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "Không thể tính toán kích thước plist!";
-
-/* when color styles could not be determined */
-"Could not detect styles." = "Không thể phát hiện kiểu màu.";
 
 /* No comment provided by engineer. */
 "Could not download theme!" = "Không thể tải xuống giao diện!";
@@ -308,6 +332,12 @@
 "Create Operation" = "Tạo thao tác mới";
 
 /* No comment provided by engineer. */
+"Creating" = "Đang tạo";
+
+/* No comment provided by engineer. */
+"Creating Data" = "Đang tạo dữ liệu";
+
+/* No comment provided by engineer. */
 "Credits" = "Tác giả";
 
 /* No comment provided by engineer. */
@@ -321,6 +351,9 @@
 
 /* Title of tool */
 "Custom Operations" = "Vận hành tùy chỉnh";
+
+/* No comment provided by engineer. */
+"Custom Operations Author Name" = "Tên tác giả của vận hành tùy chỉnh";
 
 /* App icon name
    default device subtype
@@ -341,9 +374,6 @@
 
 /* delete button on custom operations */
 "Deleting operation..." = "Đang xóa thao tác...";
-
-/* No comment provided by engineer. */
-"Determine Styles" = "Xác định kiểu";
 
 /* No comment provided by engineer. */
 "Dialer Face Editor" = "Trình chỉnh sửa hình số điện thoại";
@@ -370,9 +400,12 @@
 "Disable Library Pods Background" = "Vô hiệu hóa nền của thư mục trong thư viện ứng dụng";
 
 /* No comment provided by engineer. */
+"Disable Screen Time" = "Vô hiệu hóa thời gian màn hình";
+
+/* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "Vô hiệu ứng dụng của Shortcut thành Appclips";
 
-/* Run in background option */
+/* No comment provided by engineer. */
 "Dock" = "Dock";
 
 /* No comment provided by engineer. */
@@ -420,9 +453,6 @@
 /* No comment provided by engineer. */
 "Enter Name" = "Nhập tên";
 
-/* Message for inputting your name in custom operation */
-"Enter your name and you will be credited for creating the operation." = "Nhập tên của bạn và bạn sẽ được ghi nhận về việc đóng góp thao tác.";
-
 /* No comment provided by engineer. */
 "Error" = "Lỗi";
 
@@ -450,9 +480,6 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "Không thể áp dụng SubType của thiết bị đã chọn!";
 
-/* No comment provided by engineer. */
-"Failed to apply fonts!" = "Không thể áp dụng phông chữ!";
-
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "Không thể áp dụng độ phân giải:";
 
@@ -463,22 +490,7 @@
 "Failed to create category" = "Không thể tạo danh mục";
 
 /* No comment provided by engineer. */
-"Failed to delete font file!" = "Không thể xóa tệp phông chữ!";
-
-/* No comment provided by engineer. */
-"Failed to delete font pack!" = "Không thể xóa gói phông chữ!";
-
-/* No comment provided by engineer. */
-"Failed to fetch font pack files!" = "Không thể tải gói phông chữ!";
-
-/* No comment provided by engineer. */
-"Failed to import font files!" = "Không thể nhập phông chữ!";
-
-/* No comment provided by engineer. */
 "Failed to load operations." = "Chạy thao tác thất bại.";
-
-/* No comment provided by engineer. */
-"Failed to rename font pack!" = "Không thể đổi tên gói phông chữ!";
 
 /* No comment provided by engineer. */
 "Failed to save theme!" = "Không thể lưu giao diện!";
@@ -493,16 +505,7 @@
 "Files" = "Tệp";
 
 /* No comment provided by engineer. */
-"Fill" = "Điền";
-
-/* No comment provided by engineer. */
-"Fill Name:" = "Điền tên:";
-
-/* No comment provided by engineer. */
 "Filter" = "Lọc";
-
-/* No comment provided by engineer. */
-"Filter Themes" = "Lọc giao diện";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "Sửa các tùy chỉnh";
@@ -511,13 +514,10 @@
 "Fixing apps..." = "Đang sửa ứng dụng...";
 
 /* No comment provided by engineer. */
+"Focus" = "Tập trung";
+
+/* No comment provided by engineer. */
 "Folder" = "Thư mục";
-
-/* Run in background option */
-"Folder Background" = "Nền thư mục";
-
-/* Run in background option */
-"Folder Blur" = "Độ mờ thư mục";
 
 /* No comment provided by engineer. */
 "Font Files" = "Tệp phông chữ";
@@ -525,11 +525,14 @@
 /* No comment provided by engineer. */
 "Font Pack Name" = "Tên gói phông chữ";
 
-/* Title of tool */
+/* No comment provided by engineer. */
 "Fonts" = "Phông chữ";
 
 /* No comment provided by engineer. */
 "Footnote" = "Chú thích cuối";
+
+/* No comment provided by engineer. */
+"Footnote:" = "Chú thích cuối:";
 
 /* No comment provided by engineer. */
 "Force MacDirtyCOW" = "Buộc MacDirtyCOW";
@@ -545,6 +548,9 @@
 
 /* header for resetting all icons */
 "Full reset" = "Buộc khôi phục lại";
+
+/* No comment provided by engineer. */
+"Generate Padding" = "Tạo padding";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "Cử chỉ / Dynamic Island";
@@ -610,9 +616,6 @@
 /* No comment provided by engineer. */
 "Home" = "Nhà";
 
-/* Run in background option */
-"Home Bar" = "Thanh Home";
-
 /* Category of tool */
 "Home Screen" = "Màn hình chủ";
 
@@ -630,6 +633,9 @@
 
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "Nếu biểu tượng khóa không được áp dụng, hãy thử lựa chọn khác.";
+
+/* No comment provided by engineer. */
+"Image:" = "Hình ảnh:";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "Nhập vào chủ đề cho màn hình khóa";
@@ -670,9 +676,6 @@
 
 /* Audio name */
 "Keyboard Press Normal" = "Bàn phím bấm bình thường";
-
-/* Run in background option */
-"Library Pod Backgrounds" = "Nền Thư mục ứng dụng thư viện";
 
 /* Audio name */
 "Lock" = "Khóa";
@@ -733,6 +736,9 @@
 "Name:" = "Tên:";
 
 /* No comment provided by engineer. */
+"New" = "Tạo mới";
+
+/* No comment provided by engineer. */
 "New Category" = "Danh mục mới";
 
 /* Audio name */
@@ -751,6 +757,9 @@
 "No Cards Found" = "Không tìm thấy thẻ";
 
 /* No comment provided by engineer. */
+"No images found!" = "Không tìm thấy hình ảnh!";
+
+/* No comment provided by engineer. */
 "No respring required to apply." = "Không cần khởi động lại màn hình để áp dụng.";
 
 /* No comment provided by engineer. */
@@ -759,14 +768,23 @@
 /* No comment provided by engineer. */
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Không tìm thấy chủ đề. Vui lòng tải chủ đề trong tab Khám phá,\nhoặc thêm chủ đề tùy chỉnh bằng cách sử dụng nút ở góc phải trên cùng (Chủ đề phải chứa biểu tượng theo định dạng <id>.png).";
 
+/* No comment provided by engineer. */
+"noPNGThemingFixup" = "noPNGThemingFixup";
+
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Không phải là kích thước hợp lệ!";
 
 /* No comment provided by engineer. */
-"Notification Banner" = "Thông báo";
+"Not enough icons to show a preview. \nInvalid theme?" = "Không đủ biểu tượng để hiển thị một bản xem trước.\nChủ đề không hợp lệ?";
 
-/* Run in background option */
-"Notification Banner Background" = "Nền thông báo";
+/* No comment provided by engineer. */
+"Not Playing" = "Không phát";
+
+/* No comment provided by engineer. */
+"noThemingFixup" = "noThemingFixup";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "Thông báo";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -774,14 +792,14 @@
 /* No comment provided by engineer. */
 "Open Settings" = "Mở cài đặt";
 
-/* failing to export custom operation */
-"Operation export failed!" = "Xuất thao tác thất bại!";
-
 /* No comment provided by engineer. */
 "Operation Name" = "Tên thao tác";
 
 /* No comment provided by engineer. */
 "Options" = "Tùy chọn";
+
+/* No comment provided by engineer. */
+"Original" = "Nguyên bản";
 
 /* Category of tool */
 "Other" = "khác";
@@ -812,6 +830,9 @@
 
 /* No comment provided by engineer. */
 "Path:" = "Đường dẫn:";
+
+/* No comment provided by engineer. */
+"Patreon Supporters" = "Người ủng hộ trên Patreon";
 
 /* Audio name */
 "Payment Failed" = "Thanh toán thất bại";
@@ -855,9 +876,6 @@
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "Vui lòng đợi Cowabunga hoàn thành việc áp dụng chủ đề...";
 
-/* No comment provided by engineer. */
-"Please wait..." = "Vui lòng đợi...";
-
 /* operation type that changes plist keys */
 "Plist" = "Plist";
 
@@ -870,11 +888,20 @@
 /* No comment provided by engineer. */
 "Plist Type:" = "Loại plist:";
 
+/* No comment provided by engineer. */
+"pngIconTheming" = "pngIconTheming";
+
 /* Power Saving */
 "Power Saving" = "Tiết kiệm pin";
 
 /* No comment provided by engineer. */
 "Preferences" = "Tùy chọn";
+
+/* No comment provided by engineer. */
+"Preview" = "Xem trước";
+
+/* No comment provided by engineer. */
+"Private build" = "Phiên bản đặc biệt";
 
 /* Successfully applying custom resolution */
 "Reboot to revert resolution changes. It will auto respring when done" = "Khởi động lại để hoàn tác thay đổi độ phân giải. Nó sẽ tự động khởi động lại màn hình sau khi hoàn tất";
@@ -887,6 +914,18 @@
 
 /* No comment provided by engineer. */
 "Remove all" = "Xóa tất cả";
+
+/* No comment provided by engineer. */
+"Remove Icons" = "Xóa biểu tượng";
+
+/* No comment provided by engineer. */
+"Remove Image" = "Xóa hình ảnh";
+
+/* No comment provided by engineer. */
+"Remove Labels" = "Xóa nhãn";
+
+/* No comment provided by engineer. */
+"Remove Previews" = "Xóa xem trước";
 
 /* No comment provided by engineer. */
 "Remove theme" = "Xóa chủ đề";
@@ -948,6 +987,9 @@
 /* apply button on custom operations */
 "Saving operation..." = "Đang lưu lại thao tác...";
 
+/* No comment provided by engineer. */
+"Scale:   %lld%%" = "Tỷ lệ:   %lld%%";
+
 /* rebuilding icon cache */
 "Scheduling a rebuild" = "Đang chuẩn bị xây dựng lại";
 
@@ -973,7 +1015,13 @@
 "Select Font Pack" = "Chọn gói phông chữ";
 
 /* No comment provided by engineer. */
+"Select Image" = "Chọn hình ảnh";
+
+/* No comment provided by engineer. */
 "Selected" = "Đã chọn";
+
+/* No comment provided by engineer. */
+"Selected: %lld" = "Đã chọn: %lld";
 
 /* Audio name */
 "Sent Mail" = "Mail đã gửi";
@@ -1015,6 +1063,15 @@
 "Shortcut Apps" = "Ứng dụng Shortcut";
 
 /* No comment provided by engineer. */
+"Show Numeric Cellular Strength" = "Hiển thị chỉ số về cường độ sóng di động";
+
+/* No comment provided by engineer. */
+"Show Numeric WiFi Strength" = "Hiển thị chỉ số về cường độ sóng WiFi";
+
+/* No comment provided by engineer. */
+"showCancelButtonOnThemingEnd" = "showCancelButtonOnThemingEnd";
+
+/* No comment provided by engineer. */
 "Sign up" = "Đăng ký";
 
 /* No comment provided by engineer. */
@@ -1045,12 +1102,6 @@
 "Status Bar Time Text" = "Thời gian thanh trạng thái";
 
 /* No comment provided by engineer. */
-"Stroke" = "Đường viền";
-
-/* No comment provided by engineer. */
-"Stroke Name:" = "Tên đường viền:";
-
-/* No comment provided by engineer. */
 "Submit themes" = "Đăng chủ đề";
 
 /* No comment provided by engineer. */
@@ -1078,19 +1129,19 @@
 "Tap on any key to edit \nits appearance" = "Nhấn vào nút bất kì để chỉnh sửa \nvẻ bề ngoài";
 
 /* No comment provided by engineer. */
+"Tap on icon you want to set as preferred for %@ (%@)" = "Nhấn vào biểu tượng bạn muốn đặt làm ưu tiên cho %@ (%@)";
+
+/* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "Nhấn vào thông báo này để tiếp tục chạy các tùy chỉnh.";
+
+/* No comment provided by engineer. */
+"Test: theme all icons using 1 icon" = "Thử nghiệm: Áp dụng 1 biểu tượng cho tất cả biểu tượng";
 
 /* No comment provided by engineer. */
 "The app will quit." = "Ứng dụng sẽ thoát.";
 
 /* when an operation is restored */
 "The file was successfully restored!" = "Tập tin đã được khôi phục thành công!";
-
-/* Creating font pack */
-"The font pack folder was successfully created." = "Thư mục gói phông chữ đã được tạo thành công.";
-
-/* No comment provided by engineer. */
-"The fonts were successfully replaced" = "Phông chữ đã được thay thế thành công";
 
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "Âm thanh tùy chỉnh đã được lưu thành công.";
@@ -1104,9 +1155,6 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "Thao tác đã được xóa thành công!";
 
-/* when importing a custom operation */
-"The operation was successfully imported." = "Thao tác đã được nhập thành công.";
-
 /* when an operation is saved */
 "The operation was successfully saved!" = "Thao tác đã được lưu thành công!";
 
@@ -1118,9 +1166,6 @@
 
 /* No comment provided by engineer. */
 "Themes" = "Chủ đề";
-
-/* loading font packs */
-"There was an error getting font packs." = "Có lỗi xảy ra khi tải gói phông chữ.";
 
 /* screentime process */
 "This could cause issues. Make sure to disable data or Wi-Fi." = "Việc này có thể gây ra vấn đề. Hãy tắt dữ liệu hoặc Wi-Fi.";
@@ -1139,9 +1184,6 @@
 
 /* No comment provided by engineer. */
 "Type:" = "Loại:";
-
-/* Failed to create font pack */
-"Unable to create font pack!" = "Không thể tạo gói phông chữ!";
 
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "Không thể xóa âm thanh cho âm thanh";
@@ -1174,13 +1216,13 @@
 "Use at your own risk" = "Tự chịu rủi ro khi sử dụng";
 
 /* No comment provided by engineer. */
+"Use Settings Footnote" = "Dùng chú thích cuối ở ứng dụng cài đặt";
+
+/* No comment provided by engineer. */
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Dùng cái này nếu tên nhà mạng/chữ thay thế đồng hồ không hoạt động. Tôi khuyến khích bạn đặt lại về mặc định sau khi bật lên và lưu lại.";
 
 /* No comment provided by engineer. */
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Dùng cái này nếu thiết bị của bạn báo lỗi TrollStore đã được cài đặt, và bạn không có nút Áp dụng ở đầu trang Thanh trạng thái.";
-
-/* No comment provided by engineer. */
-"Uses Styles" = "Sử dụng kiểu";
 
 /* No comment provided by engineer. */
 "validate" = "xác thực";
@@ -1232,6 +1274,9 @@
 "Yes" = "Đồng ý";
 
 /* No comment provided by engineer. */
+"YN" = "YN";
+
+/* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "Bạn chưa có lưu hình mật khẩu nào hết. Hãy vào phần Khám phá để tìm thêm!";
 
 /* No comment provided by engineer. */
@@ -1245,4 +1290,7 @@
 
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nApplying using %@." = "Thiết bị của bạn sẽ khởi động lại màn hình.\n\n\nĐang áp dụng bằng %@.";
+
+/* No comment provided by engineer. */
+"Your Name" = "Tên của bạn";
 

@@ -43,16 +43,28 @@ struct WhitelistView: View {
                             Haptic.shared.play(.heavy)
                             inProgress = true
                             
+                            // had to be changed to this monstrocity due to MDC library API being rewritten. looks ugly
                             if banned {
-                                banned_success = Whitelist.overwriteBannedApps()
+                                do {
+                                    try Whitelist.overwriteBannedApps()
+                                    banned_success = true
+                                } catch { banned_success = false; print(error) }
                             }
                             if cdHash {
-                                hash_success = Whitelist.overwriteCdHashes()
+                                do {
+                                    try Whitelist.overwriteCdHashes()
+                                    hash_success = true
+                                } catch { hash_success = false; print(error) }
                             } else {
                                 banned_success = false
                                 hash_success = false
                             }
-                            success = Whitelist.overwriteBlacklist()
+                            do {
+                                try Whitelist.overwriteBlacklist()
+                                success = true
+                            } catch {
+                                success = false
+                            }
                             
                             // FIXME: Bad.
                             

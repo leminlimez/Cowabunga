@@ -8,6 +8,9 @@
 "Cowabunga Operation" = "Операция Cowabunga";
 
 /* (No Comment) */
+"FileSwitcherPro Item" = "Элемент FIleSwitcherPro";
+
+/* (No Comment) */
 "Icon Theme" = "Тема иконки";
 
 /* Privacy - Media Library Usage Description */
@@ -21,6 +24,9 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Фото";
+
+/* (No Comment) */
+"OpenType font" = "Шрифт OpenType";
 
 /* (No Comment) */
 "Passcode Theme File" = "Файл с темой клавиш";

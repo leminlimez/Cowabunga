@@ -8,6 +8,9 @@
 "Cowabunga Operation" = "Hoạt động Cowabunga";
 
 /* (No Comment) */
+"FileSwitcherPro Item" = "Mục FileSwitcherPro";
+
+/* (No Comment) */
 "Icon Theme" = "Giao diện biểu tượng";
 
 /* Privacy - Media Library Usage Description */
@@ -21,6 +24,9 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Ảnh";
+
+/* (No Comment) */
+"OpenType font" = "Phông chữ OpenType";
 
 /* (No Comment) */
 "Passcode Theme File" = "Tệp giao diện màn hình khóa";

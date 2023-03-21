@@ -5,7 +5,7 @@
 "CFBundleName" = "Cowabunga";
 
 /* (No Comment) */
-"Icon Theme" = "Temas de iconos";
+"Icon Theme" = "Tema de iconos";
 
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Cowabunga necesita permiso para poder hacer las modificaciones (obligatorio para los cambios)";
@@ -18,4 +18,19 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Fotos";
+
+/* (No Comment) */
+"OpenType font" = "Fuente OpenType";
+
+/* (No Comment) */
+"Passcode Theme File" = "Tema para Código";
+
+/* (No Comment) */
+"Theme Archive File" = "Archivo de Tema";
+
+/* (No Comment) */
+"TrueType collection" = "Elección TrueType";
+
+/* (No Comment) */
+"TrueType font" = "Fuente TrueType";
 

@@ -38,9 +38,11 @@ let settingsOptions: [SettingsPageOption] = [
     // Don't Lock After Respring
     .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBDontLockAfterCrash", label: "Don't Lock After Respring", editingFilePath: "com.apple.springboard"),
     // Numeric Wi-Fi Strength
-    .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowRSSI", label: "Numeric Wi-Fi Strength", editingFilePath: "com.apple.springboard"),
+    //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowRSSI", label: "Numeric Wi-Fi Strength", editingFilePath: "com.apple.springboard"),
     // Numeric Cellular Strength
     //.init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBShowGSMRSSI", label: "Numeric Cellular Strength", editingFilePath: "com.apple.springboard")
+    // Hide Low Power Alert
+        .init(type: SettingsOptionType.toggle, defaultValue: 0, key: "SBHideLowPowerAlerts", label: "No Low Battery Alerts", editingFilePath: "com.apple.springboard"),
 ]
 
 func getValueInSystemVersionPlist(key: String) throws -> Any? {
@@ -128,8 +130,7 @@ func setValueInSystemVersionPlist(key: String, value: String) throws -> String {
     
     // overwrite the plist
     let plistData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
-    let succeeded = MDC.overwriteFile(at: filePath, with: plistData)
-    guard succeeded else { throw "mdc exploit did not succeed while setting systemversion"}
+    try MDC.overwriteFile(at: filePath, with: plistData)
     return oldValue
 }
 
@@ -220,8 +221,8 @@ func setPlistValue(plistPath: String, key: String, value: String) -> Bool {
         let newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
         
         if newData.count == originalSize {
-            
-            return MDC.overwriteFile(at: plistPath, with: newData)
+            try MDC.overwriteFile(at: plistPath, with: newData)
+            return true
         } else {
             // temporary to create a log for me to debug
             do {
@@ -264,7 +265,12 @@ func setPlistValueInt(plistPath: String, key: String, value: Int) -> Bool {
     // overwrite the plist
     let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
     if newData.count == stringsData.count {
-        return MDC.overwriteFile(at: plistPath, with: newData)
+        do {
+            try MDC.overwriteFile(at: plistPath, with: newData)
+            return true
+        } catch {
+            return false
+        }
     } else {
         // too big
         return false
@@ -312,13 +318,9 @@ func setRegion() -> Bool {
             
             // check the size and apply
             if newData.count == originalSize {
-                let succeeded = MDC.overwriteFile(at: plistPath, with: newData)
-                if succeeded {
-                    UIApplication.shared.alert(title: "Successfully applied region", body: "Respring and see if it worked")
-                } else {
-                    UIApplication.shared.alert(body: "Could not overwrite region file")
-                }
-                return succeeded
+                try MDC.overwriteFile(at: plistPath, with: newData)
+                UIApplication.shared.alert(title: "Successfully applied region", body: "Respring and see if it worked")
+                return true
             } else {
                 UIApplication.shared.alert(body: "The file sizes did not match!")
                 return false
@@ -341,15 +343,19 @@ func addEmptyData(matchingSize: Int, to plist: [String: Any]) throws -> Data {
     // add data if too small
     // while loop to make data match because recursive function didn't work
     // very slow, will hopefully improve
+    if newData.count == matchingSize {
+        return newData
+    }
     var newDataSize = newData.count
     var added = matchingSize - newDataSize
     if added < 0 {
         added = 1
     }
     var count = 0
-    while newDataSize != matchingSize || count < 200 {
+    while newDataSize != matchingSize && count < 200 {
         count += 1
         if added < 0 {
+            print("LESS THAN 0")
             break
         }
         newPlist.updateValue(String(repeating: "#", count: added), forKey: "MdC")
@@ -357,6 +363,7 @@ func addEmptyData(matchingSize: Int, to plist: [String: Any]) throws -> Data {
             newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
         } catch {
             newDataSize = -1
+            print("ERROR SERIALIZING DATA")
             break
         }
         newDataSize = newData.count
@@ -423,8 +430,11 @@ func setCarrierName(newName: String) -> Bool {
             
             if newData.count == originalSize {
                 // apply
-                if MDC.overwriteFile(at: url.path, with: newData) == true {
+                do {
+                    try MDC.overwriteFile(at: url.path, with: newData)
                     succeededOnce = true
+                } catch {
+                    print(error)
                 }
             }
         }
@@ -515,7 +525,7 @@ func modifyShortcutApp(modifying: ShortcutAppMod, _ value: Bool = false) -> Bool
                     // create the new data
                     let newData = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
                     // apply plist
-                    succeeded = succeeded && MDC.overwriteFile(at: plistURL.path, with: newData)
+                    try MDC.overwriteFile(at: plistURL.path, with: newData)
                 } catch {
                     print("Could not replace plist data: \(error.localizedDescription)")
                     succeeded = false
@@ -596,7 +606,8 @@ func createSettingsPage() -> Bool {
         } else {
             path = "/System/Library/PreferenceBundles/MobileSlideShowSettings.bundle/Photos.plist"
         }
-        return MDC.overwriteFile(at: path, with: newData)
+        try MDC.overwriteFile(at: path, with: newData)
+        return true
     } catch {
         print("Could not get the data!")
         return false
