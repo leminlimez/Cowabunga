@@ -26,7 +26,6 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
 - App Icon Themes
     - Importing folders of app icons
     - No WebClips!
-    - Disclaimer: Some apps may look highly compressed. This may be fixed in the future. You could use shortcuts and disable app banner for those apps instead.
 
 - Audio
     - Custom sound effects
@@ -47,8 +46,10 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
 
 - Status Bar
     - Change carrier name
+    - Change battery display detail
     - Change time text
     - Change breadcrumb text
+    - Show numeric WiFi/Cellular strength
     - Hide many icons in the status bar
 
 - Other Tools
@@ -56,6 +57,8 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
     - Lock Screen Footnote
     - Notification Badges Changer (iOS 14-15 ONLY)
     - Springboard Colors
+    - Settings App Customizer
+    - Calculator Error Message
 
 - Misc
     - Disable shortcut banners
@@ -69,7 +72,7 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
 - Extra Tools
     - Lock Screen Footnote
     - No Lock On Respring
-    - Numeric Wi-Fi Strength
+    - Disable Low Power Alert
 
 ## Screenshots
 <img src="/Images/Home.PNG" width="300" height="650"/> <img src="/Images/Tools.PNG" width="300" height="650"/> <img src="/Images/SpringboardTools.PNG" width="300" height="650"/> <img src="/Images/Audio_Changer.PNG" width="300" height="650"/>

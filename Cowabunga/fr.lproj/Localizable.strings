@@ -8,10 +8,10 @@
 "*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Cachera aussi le nom de l'opérateur\n**Cachera aussi l'indicateur de données cellulaires";
 
 /* No comment provided by engineer. */
-"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️ Attention ⚠️\nPlusieurs utilisateurs ont rencontré des bootloops avec cet fonctionnalité.Si vous êtes sur une version beta d'iOS, restez prudent. Si vous êtes sur une beta d'iOS 16, n'utilisez pas cette fonctionnalité.";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️ Attention ⚠️\nPlusieurs utilisateurs ont rencontré des boot loops en utilisant cette fonctionnalité. Si vous êtes sur une version beta d'iOS 16.0, n'utilisez pas cette fonctionnalité.";
 
 /* IMPORTANT alert when icons finish applying */
-"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ LISEZ CECI ⬇⚠️\n\nAprès que l'appareil ai respring, veuillez *réouvrir Cowabunga* pour réparer les apps qui ne fonctionnent pas comme prévu\n\nTRÈS IMPORTANT : Si vous voyez le logo d'Apple avec la barre de progression (comme dans une mise à jour), tout est normal. VEUILLEZ NE PAS LE REDEMARRER DE FORCE !\n\nTemps de modification des icônes : \n(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ ATTENTION ⬇⚠️\n\nAprès le respring de votre appareil, veuillez *réouvrir Cowabunga* pour réparer certaines apps qui pourrait dysfonctionner.\n\nATTENTION ! Si vous voyez le logo de démarrage d'Apple avec une barre de progression en dessous, il n'y a aucun problème ! VEUILLEZ NE PAS REDEMARRER VOTRE APPAREIL PENDANT LA PROCEDURE.\n\nTemps écoulé : \n(Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -29,7 +29,7 @@
 "Advanced" = "Avancé";
 
 /* resetting all icons */
-"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Tous les icônes seront réinitialisés. Êtes vous sûr de vouloir continuer ? (Vous aurez peut-être à redémarrer)";
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Tous les icônes seront réinitialisées à leur apparence d'origine. Êtes vous sûr de vouloir continuer ?";
 
 /* No comment provided by engineer. */
 "Alternatives" = "Alternatives";
@@ -38,10 +38,10 @@
 "Always has been" = "L'as toujours été";
 
 /* No comment provided by engineer. */
-"An error occured when applying face sizes." = "Une erreur s'est produite quand les tailles ont du être appliquées";
+"An error occured when applying face sizes." = "Une erreur s'est produite quand les tailles des touches ont du être appliquées.";
 
 /* No comment provided by engineer. */
-"An error occured while changing key face." = "Une erreur s'est produite lors du changement d'une image du mot de passe";
+"An error occured while changing key face." = "Une erreur s'est produite lors du changement de la touche.";
 
 /* Passcode export error */
 "An error occured while exporting key face." = "Une erreur s'est produite lors de l'exportation";
@@ -59,7 +59,7 @@
 "An error occurred while deleting the operation" = "Une erreur s'est produite lors de la suppression de l'opération";
 
 /* when an operation fails to restore */
-"An error occurred while restoring the files" = "Une erreur s'est produite lors que les fichiers ont du être restauré";
+"An error occurred while restoring the files" = "Une erreur s'est produite lorsque les fichiers ont du être restauré";
 
 /* when an operation fails to save */
 "An error occurred while saving the operation" = "Une erreur s'est produite lors de l'enregistrement de l'opération";
@@ -71,7 +71,7 @@
 "An error occurred while trying to enable appclip icons." = "Une erreur s'est produite lors de l'activation des icônes AppClips";
 
 /* No comment provided by engineer. */
-"An error occurred while trying to enable extra settings." = "Une erreur s'est produite lors de l'activation d'un paramètre supplémentaire";
+"An error occurred while trying to enable extra settings." = "Une erreur s'est produite lors de l'activation des paramètres supplémentaires";
 
 /* No comment provided by engineer. */
 "App Stopped Running" = "L'application a cessé de fonctionner";
@@ -86,7 +86,7 @@
 "Apple ID, iCloud, Media & Purchases" = "Apple ID, iCloud, Achats et medias";
 
 /* fix tweaks info */
-"Applies all tweaks which were applied before." = "Applique toutes les modifications qui ont été appliqué auparavant";
+"Applies all tweaks which were applied before." = "Applique toutes les modifications qui ont été appliquées auparavant";
 
 /* No comment provided by engineer. */
 "Apply" = "Appliquer";
@@ -107,10 +107,10 @@
 "Apply Without Saving" = "Appliquer sans sauvegarder";
 
 /* apply button on custom operations */
-"Applying operation..." = "Application de votre opération...";
+"Applying operation..." = "Application de l'opération...";
 
 /* No comment provided by engineer. */
-"Are you sure you want to reset the Default SubType?" = "Êtes vous sûr de réinitialiser le SubType à son origine ?";
+"Are you sure you want to reset the Default SubType?" = "Êtes vous sûr de vouloir réinitialiser le SubType ?";
 
 /* No comment provided by engineer. */
 "Asset Catalog" = "Catalogue d'assets";
@@ -146,7 +146,7 @@
 "Basic Configuration" = "Configuration basique";
 
 /* No comment provided by engineer. */
-"Battery Detail Text" = "Texte de la batterie";
+"Battery Detail Text" = "Texte du pourcentage de la batterie";
 
 /* Audio name */
 "Begin Recording" = "Commencer l'enregistrement";
@@ -170,10 +170,7 @@
 "Blur:   %lld" = "Flou:   %lld";
 
 /* No comment provided by engineer. */
-"Breadcrumb Text" = "Texte de barre de statut";
-
-/* No comment provided by engineer. */
-"Bugs may arise. It's also not meant to be redistributed, because... blah blah blah, you know what happens if you do 🧌" = "Certains bugs peuvent survenir. Ce n'est pas destiné à être redistribué, ou sinon...";
+"Breadcrumb Text" = "Texte de la barre de statut";
 
 /* No comment provided by engineer. */
 "Calculate Size" = "Calculer la taille";
@@ -182,13 +179,13 @@
 "Cancel" = "Annuler";
 
 /* No comment provided by engineer. */
-"Cannot write to file path!" = "Impossible d'écrire le fichier au chemin !";
+"Cannot write to file path!" = "Impossible d'écrire le fichier !";
 
 /* Title of tool */
 "Card Changer" = "Changeur de carte";
 
 /* No comment provided by engineer. */
-"Carrier Text" = "Texte d'opérateur";
+"Carrier Text" = "Texte de l'opérateur";
 
 /* No comment provided by engineer. */
 "CC Modules" = "Modules du CC";
@@ -200,13 +197,13 @@
 "Change" = "Changer";
 
 /* No comment provided by engineer. */
-"Change Battery Detail Text" = "Changer le texte de la batterie";
+"Change Battery Detail Text" = "Changer le texte du pourcentage de la batterie";
 
 /* No comment provided by engineer. */
-"Change Battery Icon Capacity" = "Changer l'icône de la batterie par le pourcentage";
+"Change Battery Icon Capacity" = "Modifier la capacité de l'icône de la batterie";
 
 /* No comment provided by engineer. */
-"Change Breadcrumb Text" = "Changer le texte de barre de statut";
+"Change Breadcrumb Text" = "Changer/Ajouter un texte inférieur à l'heure";
 
 /* No comment provided by engineer. */
 "Change Carrier Text" = "Changer le texte de l'opérateur";
@@ -227,16 +224,16 @@
 "Choose a device subtype" = "Choisir un SubType";
 
 /* Title for lock preference */
-"Choose a lock preference" = "Choisissez une titre pour la préférence de verrouillage";
+"Choose a lock preference" = "Choisissez une titre pour cette animation de déverrouillage";
 
 /* No comment provided by engineer. */
-"Choose a name for the category" = "Choisissez un nom pour la catégorie";
+"Choose a name for the category" = "Choisissez un nom pour cette catégorie";
 
 /* No comment provided by engineer. */
-"Choose a name for the lock" = "Choisissez un nom pour le verrouillage";
+"Choose a name for the lock" = "Choisissez un nom pour cette animation de déverrouillage";
 
 /* Entering name for audio */
-"Choose a name for the sound" = "Choisissez un nom pour le son importé";
+"Choose a name for the sound" = "Choisissez un nom pour ce son";
 
 /* No comment provided by engineer. */
 "Choose a plist type" = "Choisissez un type de Plist";
@@ -283,9 +280,6 @@
 /* No comment provided by engineer. */
 "Confirm" = "Confirmer";
 
-/* No comment provided by engineer. */
-"Continue" = "Continuer";
-
 /* Category of tool */
 "Control Center" = "Centre de contrôle";
 
@@ -311,7 +305,7 @@
 "Cowabunga App Icon" = "Icône de l'app Cowabunga";
 
 /* No comment provided by engineer. */
-"Cowabunga requires “Always” location permission." = "Cowabunga a besoin de l'autorisation \"Toujours\" pour les permissions de localisation.";
+"Cowabunga requires “Always” location permission." = "Cowabunga a besoin de l'autorisation \"Toujours autoriser la localisation\" pour fonctionner en arrière-plan.";
 
 /* App icon name */
 "CowTools" = "CowTools";
@@ -367,10 +361,10 @@
 "Deleting operation..." = "Suppression de l'opération...";
 
 /* No comment provided by engineer. */
-"Dialer Face Editor" = "Editeur des touches d'appel";
+"Dialer Face Editor" = "Touches du composeur d'appel";
 
 /* No comment provided by engineer. */
-"Dialer keys successfully cleared!" = "Touches d'appel effacées !";
+"Dialer keys successfully cleared!" = "Touches du composeur effacées !";
 
 /* No comment provided by engineer. */
 "Disable" = "Désactiver";
@@ -526,7 +520,7 @@
 "Frequent" = "Fréquent";
 
 /* Where to import passcode theme from */
-"From where do you want to import from?" = "De quel source souhaitez vous importer les images ?";
+"From where do you want to import from?" = "De quel source souhaiteriez vous importer les images ?";
 
 /* header for resetting all icons */
 "Full reset" = "Réinitialisation complète";
@@ -548,28 +542,28 @@
 "Height" = "Hauteur";
 
 /* No comment provided by engineer. */
-"Hide Airplane Mode" = "Cacher la mode avion";
+"Hide Airplane Mode" = "Cacher l'icône de mode avion";
 
 /* No comment provided by engineer. */
-"Hide AirPlay" = "Cacher AirPlay";
+"Hide AirPlay" = "Cacher l'icône d'AirPlay";
 
 /* No comment provided by engineer. */
-"Hide Alarm" = "Cacher l'Alarme";
+"Hide Alarm" = "Cacher l'icône d'alarme";
 
 /* No comment provided by engineer. */
-"Hide Battery" = "Cacher la batterie";
+"Hide Battery" = "Cacher l'icône de la batterie";
 
 /* No comment provided by engineer. */
-"Hide Bluetooth" = "Cacher le Bluetooth";
+"Hide Bluetooth" = "Cacher l'icône du Bluetooth";
 
 /* No comment provided by engineer. */
-"Hide CarPlay" = "Cacher CarPlay";
+"Hide CarPlay" = "Cacher l'icône de CarPlay";
 
 /* No comment provided by engineer. */
-"Hide Cellular*" = "Cacher les données cellulaires*";
+"Hide Cellular*" = "Cacher l'icône des données cellulaires*";
 
 /* No comment provided by engineer. */
-"Hide Do Not Disturb" = "Cacher Ne Pas Déranger";
+"Hide Do Not Disturb" = "Cacher l'icône Ne Pas Déranger";
 
 /* Springboard tool */
 "Hide Dock" = "Cacher le Dock";
@@ -578,22 +572,22 @@
 "Hide Home Bar" = "Cacher la barre de navigation";
 
 /* No comment provided by engineer. */
-"Hide Location" = "Cacher la localisation";
+"Hide Location" = "Cacher l'icône de localisation";
 
 /* Springboard tool */
 "Hide Notification Banner Background" = "Cacher l'arrière plan des bannières de notification";
 
 /* No comment provided by engineer. */
-"Hide Rotation Lock" = "Cacher le verrouillage de l'orientation";
+"Hide Rotation Lock" = "Cacher l'icône du verrouillage d'orientation";
 
 /* No comment provided by engineer. */
 "Hide Status Bar Time" = "Cacher l'heure de la barre de statut";
 
 /* No comment provided by engineer. */
-"Hide VPN" = "Cacher le VPN";
+"Hide VPN" = "Cacher l'icône VPN";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi**" = "Cacher le Wi-Fi**";
+"Hide Wi-Fi**" = "Cacher l'icône du Wi-Fi**";
 
 /* No comment provided by engineer. */
 "Home" = "Accueil";
@@ -614,7 +608,7 @@
 "If a file of the same name already exists in the pack, it will be overwritten." = "Si un fichier du même nom existe déjà dans le pack, il sera remplacé.";
 
 /* Description for lock preference */
-"If the custom lock does not apply for you, try another option." = "Si le verrouillage personnalisé ne s'applique pas, essayez une autre option.";
+"If the custom lock does not apply for you, try another option." = "Si l'animation de verrouillage ne s'applique pas, essayez une autre option.";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "Importer un thème de mot de passe";
@@ -648,16 +642,16 @@
 "Key" = "Touche";
 
 /* Audio name */
-"Keyboard Press Clear" = "Touche effacer du clavier";
+"Keyboard Press Clear" = "Touche \"Effacer\" du clavier";
 
 /* Audio name */
-"Keyboard Press Delete" = "Touche supprimer du clavier";
+"Keyboard Press Delete" = "Touche \"Supprimer\" du clavier";
 
 /* Audio name */
 "Keyboard Press Normal" = "Touche normale";
 
 /* Audio name */
-"Lock" = "Verrouiller";
+"Lock" = "Verrouillage";
 
 /* Category of tool */
 "Lock Screen" = "Ecran verrouillé ";
@@ -739,10 +733,10 @@
 "No images found!" = "Aucune image trouvée !";
 
 /* No comment provided by engineer. */
-"No respring required to apply." = "Il n'est pas nécessaire de respring pour appliquer";
+"No respring required to apply." = "Il n'est pas nécessaire de respring pour appliquer cette modification.";
 
 /* No comment provided by engineer. */
-"No themes containing icons for %@ (%@) have been found." = "Aucun thèmes comprennent des icônes pour %@ (%@) n'as été trouvé.";
+"No themes containing icons for %@ (%@) have been found." = "Aucun thèmes comprennant des icônes pour %@ (%@) n'as été trouvé.";
 
 /* No comment provided by engineer. */
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Aucun thème n'as été trouvé. Téléchargez des thèmes dans l'onglet Découvrir, ou importez les en utilisant le bouton en haut a droite (vos thèmes doivent contenir les icônes sous ce format : <bundle.id>.png";
@@ -751,10 +745,10 @@
 "Not a valid size!" = "Taille non valide!";
 
 /* No comment provided by engineer. */
-"Not enough icons to show a preview. \nInvalid theme?" = "Il n'y as pas assez d'icône pour montrer une aperçu.\nThème invalide ?";
+"Not enough icons to show a preview. \nInvalid theme?" = "Il n'y as pas assez d'icône pour montrer une aperçu.\nLe thème est-il invalide ?";
 
 /* No comment provided by engineer. */
-"Not Playing" = "Pas en cours de lecture";
+"Not Playing" = "Rien en cours de lecture";
 
 /* No comment provided by engineer. */
 "Notification Banner" = "Bannière de notification";
@@ -775,16 +769,16 @@
 "Other" = "Autre";
 
 /* No comment provided by engineer. */
-"Overwrite Banned Apps" = "Réinitialiser la liste des apps bannies";
+"Overwrite Banned Apps" = "Réinitialiser la liste des apps blacklistées";
 
 /* No comment provided by engineer. */
-"Overwrite Blacklist" = "Réinitialiser la liste noire";
+"Overwrite Blacklist" = "Réinitialiser la blacklist";
 
 /* No comment provided by engineer. */
 "Overwrite CDHashes" = "Réinitialiser les CDHashes";
 
 /* No comment provided by engineer. */
-"Passcode Face Editor" = "Éditeur d'icônes du mot de passe";
+"Passcode Face Editor" = "Touches du mot de passe";
 
 /* Title of tool */
 "Passcode Faces" = "Touches du mot de passe";
@@ -823,7 +817,7 @@
 "Please enter a valid category name!" = "Veuillez entrer un nom valide pour la catégorie !";
 
 /* No comment provided by engineer. */
-"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Merci d'autoriser Cowabunga à \"Toujours\" utiliser la localisation pour que l'application puisse s'actualiser en arrière-plan.";
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Merci d'autoriser Cowabunga à \"Toujours utiliser la localisation\" pour que l'application puisse s'actualiser en arrière-plan.";
 
 /* No comment provided by engineer. */
 "Please log into your Sourced Repo account to continue" = "Merci de vous connectez au repo Sourced pour continuer";
@@ -866,9 +860,6 @@
 
 /* No comment provided by engineer. */
 "Preview" = "Aperçu";
-
-/* No comment provided by engineer. */
-"Private build" = "Build privé";
 
 /* Successfully applying custom resolution */
 "Reboot to revert resolution changes. It will auto respring when done" = "Redémarrez pour réinitialiser les changements de résolution. Lorsque les modifications seront appliqués, l'app respringera automatiquement.";
@@ -958,10 +949,10 @@
 "Scale:   %lld%%" = "Échelle :   %lld%%";
 
 /* rebuilding icon cache */
-"Scheduling a rebuild" = "Ordonner un rafraichissement du câche d'icône";
+"Scheduling a rebuild" = "Rafraichir le câche d'icône";
 
 /* No comment provided by engineer. */
-"Scheduling icon cache reset..." = "Ordonner un rafraichissement du câche d'icône";
+"Scheduling icon cache reset..." = "Rafraichissement...";
 
 /* No comment provided by engineer. */
 "Screen Time Enabled" = "Temps d'écran activé";
@@ -1030,16 +1021,16 @@
 "Shortcut Apps" = "Applications Raccourci";
 
 /* No comment provided by engineer. */
-"Show Numeric Cellular Strength" = "Afficher la portée en chiffre des données cellulaire";
+"Show Numeric Cellular Strength" = "Afficher la portée numérique des données cellulaire";
 
 /* No comment provided by engineer. */
-"Show Numeric WiFi Strength" = "Afficher la portée en chiffre du WiFi";
+"Show Numeric WiFi Strength" = "Afficher la portée numérique du WiFi";
 
 /* No comment provided by engineer. */
 "Sign up" = "S'inscrire";
 
 /* No comment provided by engineer. */
-"Size not calculated" = "Taille pas calculée";
+"Size not calculated" = "Taille non calculée";
 
 /* Small passcode keys */
 "Small" = "Petit";
