@@ -9,32 +9,17 @@ import SwiftUI
 
 struct ThemingSettingsView: View {
     
-//    @AppStorage("catalogIconTheming") var catalogIconTheming = false
-//    @AppStorage("pngIconTheming") var pngIconTheming = false
     @AppStorage("showCancelButtonOnThemingEnd") var showCancelButtonOnThemingEnd = false
     @AppStorage("noThemingFixup") var noThemingFixup = false
-//    @AppStorage("noPNGThemingFixup") var noPNGThemingFixup = false
-//    @AppStorage("noCatalogThemingFixup") var noCatalogThemingFixup = false
     
     var body: some View {
         List {
-//            Toggle(isOn: $catalogIconTheming) {
-//                Text("catalogIconTheming")
-//            }
-//            Toggle(isOn: $pngIconTheming) {
-//                Text("pngIconTheming")
-//            }
             Toggle(isOn: $showCancelButtonOnThemingEnd) {
                 Text("showCancelButtonOnThemingEnd")
             }
             Toggle(isOn: $noThemingFixup) {
                 Text("noThemingFixup")
             }
-            // Show cancel button on end
-            //"
-//            Toggle(isOn: $noPNGThemingFixup) {
-//                Text("noPNGThemingFixup")
-//            }
         }
     }
 }

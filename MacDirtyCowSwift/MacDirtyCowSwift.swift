@@ -12,6 +12,7 @@ public class MDC {
     public enum MDCOverwriteError: Error, LocalizedError {
         case unknown
         case ram
+        case corruption
         
         public var errorDescription: String? {
             switch self {
@@ -19,6 +20,8 @@ public class MDC {
                 return "MacDirtyCow exploit failed. Restart the app and try again."
             case .ram:
                 return "Cowabunga ran out of memory and for your safety disabled overwriting files using MacDirtyCow. Please close some apps running in background, reopen Cowabunga and try again."
+            case .corruption:
+                return "⚠️IMPORTANT⚠️\nMacDirtyCow corrupted an asset catalog. This will lead to a bootloop if the steps are not followed. FOLLOW CAREFULLY: Close all your background apps, then reopen Cowabunga for fixing. Then you can try again."
             }
         }
     }
