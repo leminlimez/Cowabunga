@@ -23,6 +23,24 @@ public class CatalogThemeManager {
     
     public init() { }
     
+    private func verifyCatalog(_ change: AppIconChange) -> Bool {
+        let app = change.app
+        
+        let systemAppsWith💀Symlinks = ["com.apple.MBHelperApp"]
+        guard !systemAppsWith💀Symlinks.contains(app.bundleIdentifier) else { return true }
+        guard !app.hiddenFromSpringboard else { return true }
+        
+        let catalogURL = app.assetsCatalogURL()
+        do {
+            let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
+            return true
+        } catch {
+            // corruption error
+            UserDefaults.standard.set(false, forKey: "noCatalogThemingFixup")
+            return false
+        }
+    }
+    
     public func applyChanges(_ changes: [AppIconChange], progress: ((Double,String)) -> ()) throws -> [String] {
         themingInProgress = true
         errors.removeAll()
@@ -33,7 +51,13 @@ public class CatalogThemeManager {
         let changesCount = Double(changes.count)
         for (i,change) in changes.enumerated() {
             do {
-                try applyChange(change)
+                let didApply = try applyChange(change)
+                // verify to make sure catalog is not corrupted
+                if didApply == true && !verifyCatalog(change) {
+                    errors.append(MDC.MDCOverwriteError.corruption.localizedDescription)
+                    MDC.isMDCSafe = false
+                    break
+                }
             } catch {
                 errors.append(error.localizedDescription)
                 if error is MDC.MDCOverwriteError {
@@ -52,15 +76,15 @@ public class CatalogThemeManager {
         return errors
     }
     
-    private func applyChange(_ change: AppIconChange) throws {
+    private func applyChange(_ change: AppIconChange) throws -> Bool {
         try autoreleasepool {
             let app = change.app
             
             let systemAppsWith💀Symlinks = ["com.apple.MBHelperApp"]
             print(app.bundleIdentifier)
 //            let systemAppsWith💀Symlinks = ["com.burbn.instagram"]
-            guard !systemAppsWith💀Symlinks.contains(app.bundleIdentifier) else { return }
-            guard !app.hiddenFromSpringboard else { return }
+            guard !systemAppsWith💀Symlinks.contains(app.bundleIdentifier) else { return false }
+            guard !app.hiddenFromSpringboard else { return false }
             
             let catalogURL = app.assetsCatalogURL()
             
@@ -81,6 +105,7 @@ public class CatalogThemeManager {
                             let newCatalogURL = try createCatalog(withIcon: themeIcon, iconName: catalogIconName, maxSize: catalogSize, bundleIdentifier: app.bundleIdentifier)
                             UserDefaults.standard.set(true, forKey: "shouldPerformCatalogFixup")
                             try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: newCatalogURL))
+                            return true
                         }
                     }
                 }
@@ -96,6 +121,7 @@ public class CatalogThemeManager {
                 try app.restorePNGIcons()
                 try app.restoreCatalog()
             }
+            return false
         }
     }
     

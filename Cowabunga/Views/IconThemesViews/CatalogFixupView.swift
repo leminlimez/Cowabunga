@@ -96,29 +96,21 @@ struct CatalogFixupView: View {
             DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1, execute: {
                 do {
                     var errorsCatalog: [String] = []
-                    var errorsPNGs: [String] = []
                     
                     let noCatalogThemingFixup = UserDefaults.standard.bool(forKey: "noCatalogThemingFixup")
-                    let noPNGThemingFixup = UserDefaults.standard.bool(forKey: "noPNGThemingFixup")
                     
                     if !noCatalogThemingFixup {
                         errorsCatalog = try CatalogThemeManager.restoreCatalogs(progress: { (percentage, app) in
                             self.percentage = percentage
-//                            self.percentage = noPNGThemingFixup ? percentage : (percentage / 2)
                         })
                     }
-//                    if !noPNGThemingFixup {
-//                        errorsPNGs = try CatalogThemeManager.restoreIconPNGs(progress: { (percentage, app) in
-//                            self.percentage = noCatalogThemingFixup ? percentage : (percentage / 2 + 0.5)
-//                        })
-//                    }
                     
                     UserDefaults.standard.set(false, forKey: "shouldPerformCatalogFixup")
                     showSuccess = true
                     isRotating1 = 0
                     
-                    if !errorsCatalog.isEmpty || !errorsPNGs.isEmpty {
-                        UIApplication.shared.alert(body: (errorsCatalog + errorsPNGs).joined(separator: "\n\n"))
+                    if !errorsCatalog.isEmpty {
+                        UIApplication.shared.alert(body: (errorsCatalog).joined(separator: "\n\n"))
                     }
                 } catch {
                     UIApplication.shared.alert(body: error.localizedDescription)
