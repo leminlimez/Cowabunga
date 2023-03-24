@@ -205,7 +205,12 @@ public class CatalogThemeManager {
                 try app.restoreCatalog()
                 progress(((Double(i) / Double(apps.count)), app))
             } catch {
-                errors.append("catalog: \(app.bundleIdentifier) \(app.name) \(error.localizedDescription)")
+                if error is MDC.MDCOverwriteError {
+                    MDC.isMDCSafe = false
+                    throw error.localizedDescription
+                } else {
+                    errors.append("catalog: \(app.bundleIdentifier) \(app.name) \(error.localizedDescription)")
+                }
             }
         }
         themingInProgress = false
