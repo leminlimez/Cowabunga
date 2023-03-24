@@ -60,7 +60,7 @@ class SettingsCustomizerManager {
     private static func removePropertyFromTable(_ isHS: Bool, dict: [[String: Any]]) -> [[String: Any]] {
         var newDict: [[String: Any]] = dict
         for (i, item) in dict.enumerated() {
-            if !isHS && ((item["bundle"] != nil && (item["bundle"] as? String == "ClassroomSettings" || item["bundle"] as? String == "ClassKitSettings")) || (item["id"] != nil && (item["id"] as? String == "TRANSLATE"))) {
+            if !isHS && item["bundle"] != nil && (item["bundle"] as? String == "ClassroomSettings" || item["bundle"] as? String == "ClassKitSettings") {
                 newDict.remove(at: i)
             } else if isHS && item["id"] != nil {
                 let currentDevice = UIDevice.current.userInterfaceIdiom
