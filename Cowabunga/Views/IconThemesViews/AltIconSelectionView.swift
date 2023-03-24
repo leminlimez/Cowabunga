@@ -28,17 +28,26 @@ struct AltIconSelectionView: View {
                     .font(.footnote)
                     .foregroundColor(Color(uiColor14: .secondaryLabel))
             } else {
-                LazyVGrid(columns: gridItemLayout, spacing: 14) {
-                    ForEach(icons, id: \.1) { (icon, themeName) in
-                        Button(action: {
-                            onChoose(themeName)
-                            presentation.wrappedValue.dismiss()
-                        }) {
-                            Image(uiImage: icon)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(25)
+                ScrollView {
+                    Text("Tap on icon you want to set as preferred for \(displayName) (\(bundleID))")
+                        .padding()
+                        .background(Color(uiColor14: .secondarySystemBackground))
+                        .multilineTextAlignment(.center)
+                        .cornerRadius(16)
+                        .font(.footnote)
+                        .foregroundColor(Color(uiColor14: .secondaryLabel))
+                    LazyVGrid(columns: gridItemLayout, spacing: 14) {
+                        ForEach(icons, id: \.1) { (icon, themeName) in
+                            Button(action: {
+                                onChoose(themeName)
+                                presentation.wrappedValue.dismiss()
+                            }) {
+                                Image(uiImage: icon)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(25)
+                            }
                         }
                     }
                 }

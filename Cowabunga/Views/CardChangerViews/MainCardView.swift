@@ -77,32 +77,32 @@ struct MainCardView: View {
         }
     }
         
-    var body: some View
-    {
-        ZStack
-        {
-            Text("Tap a card to customize").font(.system(size: 25)).foregroundColor(Color(UIColor.label)).padding(.bottom, 350 )
-            Text("Swipe to view different cards").font(.system(size: 15)).foregroundColor(Color(UIColor.label)).padding(.bottom, 300 )
-
-            VStack
-            {
-                if (!getPasses().isEmpty)
-                {
-                    ACarousel(getPasses(), id: \.self)
-                    {
-                        i in
+    var body: some View {
+        VStack {
+            VStack(spacing: 8) {
+                Text("Tap a card to customize")
+                    .font(.headline)
+                    .multilineTextAlignment(.center)
+                Text("Swipe to view different cards")
+                    .multilineTextAlignment(.center)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding()
+            VStack  {
+                if (!getPasses().isEmpty) {
+                    ACarousel(getPasses(), id: \.self) { i in
                         let imageData = getImage(id: i)
                         
-                        if (!imageData.0.isEmpty)
-                        {
+                        if (!imageData.0.isEmpty) {
                             CardView(card: Card(image: imageData.0, id: i, format: imageData.1))
                         }
 
                     }
-                }
-                else
-                {
-                    Text("No Cards Found").foregroundColor(.red)
+                } else {
+                    Text("No Cards Found")
+                        .foregroundColor(.red)
+                        .padding(64)
                 }
             }
         }

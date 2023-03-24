@@ -40,6 +40,7 @@ $WORKING_LOCATION/bin/ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP
 
 mkdir Payload
 cp -r Cowabunga.app Payload/Cowabunga.app
+strip Payload/Cowabunga.app/Cowabunga
 zip -vr Cowabunga.ipa Payload
 rm -rf Cowabunga.app
 rm -rf Payload

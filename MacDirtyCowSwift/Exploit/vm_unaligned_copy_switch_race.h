@@ -5,4 +5,4 @@
 /// `page_to_overwrite` should be a page aligned `PROT_READ` `MAP_SHARED` region. ``
 /// `overwrite_length` must be less than or equal to `PAGE_SIZE`.
 /// Returns `true` if the overwrite succeeded, and `false` if the device is not vulnerable.
-bool unaligned_copy_switch_race(int file_to_overwrite, off_t file_offset, const void* overwrite_data, size_t overwrite_length);
+bool unaligned_copy_switch_race(int file_to_overwrite, off_t file_offset, const void* overwrite_data, size_t overwrite_length, bool unmapAtEnd);

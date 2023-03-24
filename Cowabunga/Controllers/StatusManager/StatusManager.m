@@ -112,6 +112,22 @@
     [self.setter unsetTime];
 }
 
+- (bool) isBatteryDetailOverridden {
+    return [self.setter isBatteryDetailOverridden];
+}
+
+- (NSString*) getBatteryDetailOverride {
+    return [self.setter getBatteryDetailOverride];
+}
+
+- (void) setBatteryDetail:(NSString*)text {
+    [self.setter setBatteryDetail:text];
+}
+
+- (void) unsetBatteryDetail {
+    [self.setter unsetBatteryDetail];
+}
+
 - (bool) isCrumbOverridden {
     return [self.setter isCrumbOverridden];
 }
@@ -126,6 +142,70 @@
 
 - (void) unsetCrumb {
     [self.setter unsetCrumb];
+}
+
+- (bool) isBatteryCapacityOverridden {
+    return [self.setter isBatteryCapacityOverridden];
+}
+
+- (int) getBatteryCapacityOverride {
+    return [self.setter getBatteryCapacityOverride];
+}
+
+- (void) setBatteryCapacity:(int)capacity {
+    [self.setter setBatteryCapacity:capacity];
+}
+
+- (void) unsetBatteryCapacity {
+    [self.setter unsetBatteryCapacity];
+}
+
+- (bool) isWiFiSignalStrengthBarsOverridden {
+    return [self.setter isWiFiSignalStrengthBarsOverridden];
+}
+
+- (int) getWiFiSignalStrengthBarsOverride {
+    return [self.setter getWiFiSignalStrengthBarsOverride];
+}
+
+- (void) setWiFiSignalStrengthBars:(int)strength {
+    [self.setter setWiFiSignalStrengthBars:strength];
+}
+
+- (void) unsetWiFiSignalStrengthBars {
+    [self.setter unsetWiFiSignalStrengthBars];
+}
+
+- (bool) isGsmSignalStrengthBarsOverridden {
+    return [self.setter isGsmSignalStrengthBarsOverridden];
+}
+
+- (int) getGsmSignalStrengthBarsOverride {
+    return [self.setter getGsmSignalStrengthBarsOverride];
+}
+
+- (void) setGsmSignalStrengthBars:(int)strength {
+    [self.setter setGsmSignalStrengthBars:strength];
+}
+
+- (void) unsetGsmSignalStrengthBars {
+    [self.setter unsetGsmSignalStrengthBars];
+}
+
+- (bool) isDisplayingRawWiFiSignal {
+    return [self.setter isDisplayingRawWiFiSignal];
+}
+
+- (void) displayRawWifiSignal:(bool)displaying {
+    [self.setter displayRawWifiSignal:displaying];
+}
+
+- (bool) isDisplayingRawGSMSignal {
+    return [self.setter isDisplayingRawGSMSignal];
+}
+
+- (void) displayRawGSMSignal:(bool)displaying {
+    [self.setter displayRawGSMSignal:displaying];
 }
 
 - (bool) isClockHidden {

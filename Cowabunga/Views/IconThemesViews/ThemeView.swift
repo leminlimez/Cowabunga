@@ -11,22 +11,23 @@ import SwiftUI
 struct ThemeView: View {
     @ObservedObject var themeManager = ThemeManager.shared
     @State var theme: Theme
-    var wallpaper: UIImage
+    var wallpaper: UIImage?
     var defaultWallpaper: Bool = false
     @State var icons: [UIImage?] = []
-    @State var selected: Bool = false
     
     var body: some View {
         VStack {
             ZStack {
-                Image(uiImage: wallpaper)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 90)
-                    .scaleEffect(defaultWallpaper ? 2 : 1)
-                    .clipped()
-                    .cornerRadius(8)
-                    .allowsHitTesting(false)
+                if let wallpaper = wallpaper {
+                    Image(uiImage: wallpaper)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 90)
+                        .scaleEffect(defaultWallpaper ? 2 : 1)
+                        .clipped()
+                        .cornerRadius(8)
+                        .allowsHitTesting(false)
+                }
                 if icons.count >= 8 {
                     VStack {
                         HStack {
@@ -52,6 +53,9 @@ struct ThemeView: View {
                             }
                         }
                     }
+                    if icons.compactMap { $0 }.isEmpty {
+                        noIconsFoundPreview
+                    }
                 }
             }
             HStack {
@@ -67,29 +71,41 @@ struct ThemeView: View {
             }
             Button(action: {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                if selected {
+                if themeManager.preferedThemes.contains(theme) {
                     themeManager.preferedThemes.removeAll { t in t.name == theme.name }
                 } else {
                     themeManager.preferedThemes.append(theme)
                 }
-                selected.toggle()
             }) {
-                Text(selected ? "Selected" : "Select")
+                let i = themeManager.preferedThemes.firstIndex(of: theme)
+                Text(i == nil ? "Select" : "Selected: \(i! + 1)")
                     .frame(maxWidth: .infinity)
                 
             }
             .padding(10)
-            .background(selected ? Color.blue : Color(uiColor14: UIColor.tertiarySystemBackground))
+            .background(themeManager.preferedThemes.contains(theme) ? Color.blue : Color(uiColor14: UIColor.tertiarySystemBackground))
             .cornerRadius(8)
-            .foregroundColor(selected ? .white : .init(uiColor14: .label) )
+            .foregroundColor(themeManager.preferedThemes.contains(theme) ? .white : .init(uiColor14: .label) )
         }
         .padding(10)
         .background(Color(uiColor14: .secondarySystemBackground))
         .cornerRadius(16)
         .onAppear {
             icons = (try? themeManager.icons(forAppIDs: ["com.apple.mobilephone", "com.apple.mobilesafari", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.AppStore", "com.apple.Preferences", "com.apple.Music", "com.apple.calculator"], from: theme)) ?? []
-            selected = themeManager.preferedThemes.contains(where: { t in t.name == theme.name })
         }
+    }
+    
+    @ViewBuilder
+    var noIconsFoundPreview: some View {
+        Text("Not enough icons to show a preview. \nInvalid theme?")
+            .multilineTextAlignment(.center)
+            .padding(6)
+            .background(MaterialView(.dark))
+            .foregroundColor(.white)
+            .font(.footnote)
+            .cornerRadius(4)
+            .padding(6)
+        
     }
 }
 
@@ -97,5 +113,6 @@ struct ThemeView_Previews: PreviewProvider {
     static var previews: some View {
         ThemeView(theme: Theme(name: "Theme", iconCount: 23), wallpaper: UIImage(named: "wallpaper")!)
             .frame(width: 190)
+            .preferredColorScheme(.dark)
     }
 }

@@ -14,14 +14,16 @@ struct HomeView: View {
     @State private var versionBuildString: String?
     // list of options
     @State var tweakOptions: [GeneralOption] = [
-        .init(key: "DockHidden", fileType: OverwritingFileTypes.springboard),
-        .init(key: "HomeBarHidden", fileType: OverwritingFileTypes.springboard),
-        .init(key: "FolderBGHidden", fileType: OverwritingFileTypes.springboard),
-        .init(key: "FolderBlurDisabled", fileType: OverwritingFileTypes.springboard),
-        .init(key: "SwitcherBlurDisabled", fileType: OverwritingFileTypes.springboard),
-        .init(key: "CCModuleBackgroundDisabled", fileType: OverwritingFileTypes.cc),
-        .init(key: "PodBackgroundDisabled", fileType: OverwritingFileTypes.springboard),
-        .init(key: "NotifBackgroundDisabled", fileType: OverwritingFileTypes.springboard)
+        .init(key: "Dock", fileType: OverwritingFileTypes.springboard, sbType: .dock),
+        .init(key: "HomeBar", fileType: OverwritingFileTypes.springboard),
+        .init(key: "FolderBG", fileType: OverwritingFileTypes.springboard, sbType: .folder),
+        .init(key: "FolderBlur", fileType: OverwritingFileTypes.springboard, sbType: .folderBG),
+        .init(key: "Switcher", fileType: OverwritingFileTypes.springboard, sbType: .switcher),
+        .init(key: "CCBG", fileType: .springboard, sbType: .moduleBG),
+        .init(key: "CCModuleBG", fileType: OverwritingFileTypes.cc, sbType: .module),
+        .init(key: "PodBG", fileType: OverwritingFileTypes.springboard, sbType: .libraryFolder),
+        .init(key: "NotifBG", fileType: OverwritingFileTypes.springboard, sbType: .notif),
+        .init(key: "NotifShadow", fileType: .springboard, sbType: .notifShadow)
     ]
     
     struct Translator: Identifiable {
@@ -68,7 +70,8 @@ struct HomeView: View {
     
     @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
         120.0: NSLocalizedString("Frequent", comment: "Frequent"),
-        600.0: NSLocalizedString("Power Saving", comment: "Power Saving")
+        600.0: NSLocalizedString("Default", comment: "Default"),
+        1800.0: NSLocalizedString("Power Saving", comment: "Power Saving")
     ]
     
     var body: some View {
@@ -141,8 +144,8 @@ struct HomeView: View {
                             let alert = UIAlertController(title: NSLocalizedString("Choose an update option", comment: "Title for choosing background update interval"), message: "", preferredStyle: .actionSheet)
                             
                             // create the actions
-                            for (t, title) in bgUpdateIntervalDisplayTitles {
-                                let newAction = UIAlertAction(title: NSLocalizedString(title, comment: "The option title for background frequency"), style: .default) { (action) in
+                            for (t, title) in bgUpdateIntervalDisplayTitles.sorted(by: { $0.0 < $1.0 }) {
+                                let newAction = UIAlertAction(title: title + " (" + NSLocalizedString("Every \(Int(t/60)) Minutes", comment: "The option title for background frequency") + ")", style: .default) { (action) in
                                     // apply the type
                                     bgUpdateInterval = t
                                     // set the default
@@ -197,7 +200,7 @@ struct HomeView: View {
                                 ApplicationMonitor.shared.stop()
                             }
                             UIApplication.shared.confirmAlert(title: "Background Applying \(newWord)", body: "The app needs to restart to apply the change.", onOK: {
-                                exit(0)
+                                exitGracefully()
                             }, noCancel: true)
                             //BackgroundFileUpdaterController.shared.enabled = new
                         }
@@ -394,18 +397,6 @@ struct HomeView: View {
         .navigationViewStyle(.stack)
         .onAppear {
             backgroundController.setup()
-            var isGood = false
-            for (t, _) in bgUpdateIntervalDisplayTitles {
-                if bgUpdateInterval == t {
-                    isGood = true
-                    break
-                }
-            }
-            if !isGood {
-                // set the default
-                UserDefaults.standard.set(120.0, forKey: "BackgroundUpdateInterval")
-                bgUpdateInterval = 120.0
-            }
             backgroundController.time = bgUpdateInterval
             
             if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, build != "0" {
@@ -437,10 +428,17 @@ struct HomeView: View {
         // apply the springboard tweaks first
         for option in tweakOptions {
             // get the user defaults
-            let value: Bool = UserDefaults.standard.bool(forKey: option.key)
-            if value == true {
+            let value: String = UserDefaults.standard.string(forKey: option.key) ?? "Visible"
+            if value == "Color" || value == "Blur" || value == "Disabled" {
                 print("Applying tweak \"" + option.key + "\"")
-                let succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, value)
+                var succeeded = false
+                print(value)
+                if option.sbType != nil {
+                    SpringboardColorManager.applyColor(forType: option.sbType!)
+                    succeeded = true
+                } else {
+                    succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key, true)
+                }
                 if succeeded {
                     print("Successfully applied tweak \"" + option.key + "\"")
                 } else {
@@ -458,33 +456,17 @@ struct HomeView: View {
             failedAudio = true
         }
         
-        UIApplication.shared.change(title: "Applying color tweaks...", body: "Please wait")
-        if !UserDefaults.standard.bool(forKey: "FolderBGHidden") {
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folder)
-        }
-        if !UserDefaults.standard.bool(forKey: "FolderBlurDisabled") {
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.folderBG)
-        }
-        if !UserDefaults.standard.bool(forKey: "SwitcherBlurDisabled") {
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.switcher)
-        }
-        if !UserDefaults.standard.bool(forKey: "DockHidden") {
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.dock)
-        }
-        if !UserDefaults.standard.bool(forKey: "PodBackgroundDisabled") {
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.libraryFolder)
-        }
-        if !UserDefaults.standard.bool(forKey: "NotifBackgroundDisabled") {
-            SpringboardColorManager.applyColor(forType: SpringboardColorManager.SpringboardType.notif)
-        }
-        if !UserDefaults.standard.bool(forKey: "CCModuleBackgroundDisabled") {
-            SpringboardColorManager.applyColor(forType: .module)
-        }
-        
         // apply custom operations
         UIApplication.shared.change(title: "Applying custom operations...", body: "Please wait")
         do {
             try AdvancedManager.applyOperations(background: false)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        // apply the settings tweak
+        do {
+            try SettingsCustomizerManager.apply()
         } catch {
             print(error.localizedDescription)
         }
@@ -522,6 +504,7 @@ struct HomeView: View {
         var id = UUID()
         var key: String
         var fileType: OverwritingFileTypes
+        var sbType: SpringboardColorManager.SpringboardType?
     }
     
     struct LinkCell: View {

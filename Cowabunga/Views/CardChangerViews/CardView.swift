@@ -113,20 +113,22 @@ struct CardView: View {
         ZStack {
             Image(uiImage: UIImage(contentsOfFile: card.image)!).resizable().aspectRatio(contentMode: .fit).frame(width: 320).zIndex(0).cornerRadius(5).onTapGesture {
                 showSheet = true
-            }.sheet(isPresented: $showSheet) {
+            }
+            .sheet(isPresented: $showSheet) {
                 ImagePickerB(sourceType: .photoLibrary, selectedImage: self.$cardImage)
-            }.onChange(of: self.cardImage)
-            {
+            }
+            .onChange(of: self.cardImage) {
                 newImage in setImage(image: newImage, format: card.format)
             }
             
-            if (fm.fileExists(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined" + card.format + ".backup"))
-            {
+            if fm.fileExists(atPath: "/var/mobile/Library/Passes/Cards/" + card.id + "/cardBackgroundCombined" + card.format + ".backup") {
                 Button {
                     resetImage(format: card.format)
                 } label: {
                     Image(systemName: "arrow.counterclockwise.circle.fill").resizable().scaledToFit().frame(width: 40).foregroundColor(Color.red)
-                }.zIndex(1).padding(.top, 265)
+                }
+                .zIndex(1)
+                .padding(.top, 265)
             }
         }
     }

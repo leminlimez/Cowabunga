@@ -14,7 +14,7 @@
 "%lld bytes" = "%lld bytes";
 
 /* IMPORTANT alert when icons finish applying */
-"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ POR FAVOR, LEE ESTO ⬇⚠️\n\n Después de que el teléfono haga respring, por favor *reabrir Cowabunga* para arreglar las aplicaciones que no funcionan correctamente\n\nMUY IMPORTANTE: Si ves el logotipo de Apple y la barra de progreso, no te preocupes, tu dispositivo está bien. POR FAVOR, NO INTENTE FORZAR SU REINICIO.\n\nTiempo transcurrido: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ POR FAVOR, LEE ESTO ⬇⚠️\n\n Después de que el teléfono haga respring, por favor *reabre Cowabunga* para arreglar las aplicaciones que no funcionan correctamente\n\nMUY IMPORTANTE: Si ves el logotipo de Apple y la barra de progreso, no te preocupes, tu dispositivo está bien. POR FAVOR, NO INTENTE FORZAR SU REINICIO.\n\nTiempo transcurrido: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
 /* Notification Badge Bubble text. (1 notification) */
 "1" = "1";
@@ -23,7 +23,13 @@
 "Action" = "Acción";
 
 /* No comment provided by engineer. */
+"Active" = "Activo";
+
+/* No comment provided by engineer. */
 "Add Value" = "Añadir valor";
+
+/* No comment provided by engineer. */
+"Advanced" = "Avanzado";
 
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Todas las aplicaciones se revertirán a su apariencia original. ¿Estás seguro de querer hacer eso? (Se requerirá reiniciar el dispositivo) ";
@@ -79,6 +85,9 @@
 /* No comment provided by engineer. */
 "App theme was successfully saved!" = "El tema ha sido guardado";
 
+/* No comment provided by engineer. */
+"Apple ID, iCloud, Media & Purchases" = "Compras Apple ID, iCloud, Media &";
+
 /* fix tweaks info */
 "Applies all tweaks which were applied before." = "Aplica a todos los tweaks que estuvieran antes.";
 
@@ -98,7 +107,7 @@
 "Apply themes" = "Aplicar tema";
 
 /* No comment provided by engineer. */
-"Applying fonts..." = "Aplicando fuentes...";
+"Apply Without Saving" = "Aplicar sin guardar";
 
 /* apply button on custom operations */
 "Applying operation..." = "Aplicando operación...";
@@ -106,14 +115,14 @@
 /* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "¿Estas seguro de querer reiniciar el SubType predeterminado?";
 
+/* No comment provided by engineer. */
+"Asset Catalog" = "Catálogo de Asset";
+
 /* Title of tool */
 "Audio" = "Audio";
 
 /* No comment provided by engineer. */
 "Audio Changer" = "Cambiador de Audio";
-
-/* Header for inputting your name */
-"Author Name" = "Nombre del autor";
 
 /* No comment provided by engineer. */
 "Auto respring after apply" = "Auto respring después de aplicar";
@@ -126,6 +135,9 @@
 
 /* No comment provided by engineer. */
 "Background Applying" = "Aplicando fondo";
+
+/* No comment provided by engineer. */
+"Background Services" = "Servicios en Segundo Plano";
 
 /* No comment provided by engineer. */
 "Background Update Frequency" = "Frecuencia de actualización";
@@ -143,7 +155,7 @@
 "Big" = "Grande";
 
 /* No comment provided by engineer. */
-"binary" = "binary";
+"binary" = "binario";
 
 /* No comment provided by engineer. */
 "Blacklist File Contents" = "Contenidos de la Blacklist";
@@ -168,9 +180,6 @@
 
 /* No comment provided by engineer. */
 "Carrier Text" = "Texto del Operador";
-
-/* Run in background option */
-"CC Module Background" = "Fondo del módulo del CC";
 
 /* No comment provided by engineer. */
 "CC Modules" = "Módulos del CC";
@@ -200,9 +209,6 @@
 "Choose a name for the category" = "Elige un nombre para la categoría";
 
 /* No comment provided by engineer. */
-"Choose a name for the font pack" = "Elige un nombre para el pack de fuentes";
-
-/* No comment provided by engineer. */
 "Choose a name for the lock" = "Elige un nombre para el bloqueo";
 
 /* Entering name for audio */
@@ -227,6 +233,9 @@
 "Choose app Icon" = "Elige un icono para la aplicación";
 
 /* No comment provided by engineer. */
+"Choose Image" = "Elige imagen";
+
+/* No comment provided by engineer. */
 "Choose size" = "Elige tamaño";
 
 /* No comment provided by engineer. */
@@ -241,6 +250,9 @@
 /* No comment provided by engineer. */
 "Confirm" = "Confirmar";
 
+/* No comment provided by engineer. */
+"Continue" = "Continuar";
+
 /* Category of tool */
 "Control Center" = "Centro de Control";
 
@@ -249,9 +261,6 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "No se pudo calcular el tamaño del plist";
-
-/* when color styles could not be determined */
-"Could not detect styles." = "No se han detectado estilos.";
 
 /* No comment provided by engineer. */
 "Could not download theme!" = "No se ha podido descargar el tema.";
@@ -279,6 +288,12 @@
 
 /* No comment provided by engineer. */
 "Create Operation" = "Crear operación";
+
+/* No comment provided by engineer. */
+"Creating" = "Creando";
+
+/* No comment provided by engineer. */
+"Creating Data" = "Creando datos";
 
 /* No comment provided by engineer. */
 "Credits" = "Créditos";
@@ -316,9 +331,6 @@
 "Deleting operation..." = "Eliminando operación...";
 
 /* No comment provided by engineer. */
-"Determine Styles" = "Determinar estilos";
-
-/* No comment provided by engineer. */
 "Dialer Face Editor" = "Editor de caras de marcador";
 
 /* No comment provided by engineer. */
@@ -343,9 +355,12 @@
 "Disable Library Pods Background" = "Desactivar el fondo de los pods de la biblioteca";
 
 /* No comment provided by engineer. */
+"Disable Screen Time" = "Desactivar Tiempo de uso";
+
+/* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "Desactivar las aplicaciones de acceso directo como clips de aplicaciones";
 
-/* Run in background option */
+/* No comment provided by engineer. */
 "Dock" = "Dock";
 
 /* No comment provided by engineer. */
@@ -393,9 +408,6 @@
 /* No comment provided by engineer. */
 "Enter Name" = "Introduzca nombre";
 
-/* Message for inputting your name in custom operation */
-"Enter your name and you will be credited for creating the operation." = "Indica tu nombre y serás mencionado por crear esta operación";
-
 /* No comment provided by engineer. */
 "Error" = "Error";
 
@@ -423,9 +435,6 @@
 /* failed to apply subtype */
 "Failed to apply Device SubType!" = "No se pudo aplicar el subtipo de dispositivo";
 
-/* No comment provided by engineer. */
-"Failed to apply fonts!" = "Error al añadir las fuentes";
-
 /* Failing to apply custom resolution */
 "Failed to apply resolution:" = "No se pudo aplicar la resolución:";
 
@@ -436,22 +445,7 @@
 "Failed to create category" = "No se pudo crear la categoría";
 
 /* No comment provided by engineer. */
-"Failed to delete font file!" = "No se ha podido borrar la fuente";
-
-/* No comment provided by engineer. */
-"Failed to delete font pack!" = "No se ha podido borrar el pack de fuentes";
-
-/* No comment provided by engineer. */
-"Failed to fetch font pack files!" = "No se han podido obtener los packs de fuentes";
-
-/* No comment provided by engineer. */
-"Failed to import font files!" = "No se ha podido importar las fuentes";
-
-/* No comment provided by engineer. */
 "Failed to load operations." = "Error al cargar las operaciones.";
-
-/* No comment provided by engineer. */
-"Failed to rename font pack!" = "No se ha podido renombrar el pack de fuentes";
 
 /* No comment provided by engineer. */
 "Failed to save theme!" = "No se pudo guardar el tema";
@@ -466,16 +460,7 @@
 "Files" = "Archivos";
 
 /* No comment provided by engineer. */
-"Fill" = "Rellenar";
-
-/* No comment provided by engineer. */
-"Fill Name:" = "Ingresa el nombre";
-
-/* No comment provided by engineer. */
 "Filter" = "Filtrar";
-
-/* No comment provided by engineer. */
-"Filter Themes" = "Filtrar temas";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "Arreglar ajustes";
@@ -486,19 +471,13 @@
 /* No comment provided by engineer. */
 "Folder" = "Carpeta";
 
-/* Run in background option */
-"Folder Background" = "Fondo de carpetas";
-
-/* Run in background option */
-"Folder Blur" = "Desenfoque de carpetas";
-
 /* No comment provided by engineer. */
 "Font Files" = "Archivos de fuentes";
 
 /* No comment provided by engineer. */
 "Font Pack Name" = "Nombre de pack de fuentes";
 
-/* Title of tool */
+/* No comment provided by engineer. */
 "Fonts" = "Fuentes";
 
 /* No comment provided by engineer. */
@@ -662,6 +641,9 @@
    sourcelocation's contribution */
 "Main Developer" = "Main Developer";
 
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "Administrar tareas en Segundo Plano";
+
 /* Maximum passcode key size */
 "Max:" = "Max:";
 
@@ -679,6 +661,9 @@
 
 /* No comment provided by engineer. */
 "Name:" = "Nombre:";
+
+/* No comment provided by engineer. */
+"New" = "Nuevo";
 
 /* No comment provided by engineer. */
 "New Category" = "Nueva Categoría";
@@ -711,10 +696,10 @@
 "Not a valid size!" = "No es un tamaño válido";
 
 /* No comment provided by engineer. */
-"Notification Banner" = "Banner de notificación";
+"Not Playing" = "Sin reproducir";
 
-/* Run in background option */
-"Notification Banner Background" = "Fondo tira notificación";
+/* No comment provided by engineer. */
+"Notification Banner" = "Banner de notificación";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
@@ -722,11 +707,11 @@
 /* No comment provided by engineer. */
 "Open Settings" = "Abrir la configuración";
 
-/* failing to export custom operation */
-"Operation export failed!" = "La exportación ha fallado";
-
 /* No comment provided by engineer. */
 "Operation Name" = "Nombre de la operación";
+
+/* No comment provided by engineer. */
+"Options" = "Opciones";
 
 /* Category of tool */
 "Other" = "Otros";
@@ -816,6 +801,9 @@
 "Preferences" = "Preferencias";
 
 /* No comment provided by engineer. */
+"Private build" = "Build privada";
+
+/* No comment provided by engineer. */
 "Rebuild Icon Cache" = "Reconstruir el cache de los iconos ";
 
 /* Audio name */
@@ -823,6 +811,18 @@
 
 /* No comment provided by engineer. */
 "Remove all" = "Eliminar todo";
+
+/* No comment provided by engineer. */
+"Remove Icons" = "Eliminar iconos";
+
+/* No comment provided by engineer. */
+"Remove Image" = "Eliminar imagen";
+
+/* No comment provided by engineer. */
+"Remove Labels" = "Eliminar etiquetas";
+
+/* No comment provided by engineer. */
+"Remove Previews" = "Eliminar Vistas previas";
 
 /* No comment provided by engineer. */
 "Remove theme" = "Eliminar tema";
@@ -893,6 +893,9 @@
 /* No comment provided by engineer. */
 "Screen Time Enabled" = "Tiempo de uso activado";
 
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "Tiempo de uso ha sido desactivado correctamente, por favor, reinicia. Podrás activar la conexión después de reiniciar.";
+
 /* Audio name */
 "Screenshot" = "Captura de pantalla";
 
@@ -904,6 +907,9 @@
 
 /* No comment provided by engineer. */
 "Selected" = "Seleccionado";
+
+/* No comment provided by engineer. */
+"Selected: %lld" = "Seleccionado: %lld";
 
 /* Audio name */
 "Sent Mail" = "Correo enviado";
@@ -975,12 +981,6 @@
 "Status Bar Time Text" = "Texto de la barra de tiempo";
 
 /* No comment provided by engineer. */
-"Stroke" = "Trazo";
-
-/* No comment provided by engineer. */
-"Stroke Name:" = "Nombre del trazo";
-
-/* No comment provided by engineer. */
 "Submit themes" = "Enviar temas";
 
 /* No comment provided by engineer. */
@@ -1008,6 +1008,9 @@
 "Tap on any key to edit \nits appearance" = "Toca cualquier tecla para editar su apariencia";
 
 /* No comment provided by engineer. */
+"Tap on icon you want to set as preferred for %@ (%@)" = "Toca en el icono que quieras poner como preferido para %@ (%@)";
+
+/* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "Toca está notificación para reanudar los ajustes de las aplicaciones.";
 
 /* No comment provided by engineer. */
@@ -1015,12 +1018,6 @@
 
 /* when an operation is restored */
 "The file was successfully restored!" = "El archivo se restauró correctamente";
-
-/* Creating font pack */
-"The font pack folder was successfully created." = "La carpeta del pack de fuentes ha sido creada";
-
-/* No comment provided by engineer. */
-"The fonts were successfully replaced" = "Las fuentes se han cambiado correctamente";
 
 /* Saving imported audio */
 "The imported audio was successfully encoded and saved." = "El audio importado se codificó y guardó correctamente.";
@@ -1034,9 +1031,6 @@
 /* when an operation is deleted */
 "The operation was successfully deleted!" = "La operación se elimino correctamente";
 
-/* when importing a custom operation */
-"The operation was successfully imported." = "La operación se ha importado.";
-
 /* when an operation is saved */
 "The operation was successfully saved!" = "La operación se guardó completamente";
 
@@ -1048,9 +1042,6 @@
 
 /* No comment provided by engineer. */
 "Themes" = "Temas";
-
-/* loading font packs */
-"There was an error getting font packs." = "Hubo un error al obtener los packs de fuentes.";
 
 /* screentime process */
 "This could cause issues. Make sure to disable data or Wi-Fi." = "Esto puede causar problemas. Asegúrate de desactivar el Wi-Fi o los datos móviles.";
@@ -1069,9 +1060,6 @@
 
 /* No comment provided by engineer. */
 "Type:" = "Type:";
-
-/* Failed to create font pack */
-"Unable to create font pack!" = "Error al crear el pack de fuentes";
 
 /* Cannot delete audio (audio name is after) */
 "Unable to delete audio for audio" = "No se puede eliminar el audio para el audio";
@@ -1110,10 +1098,7 @@
 "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Úselo si su dispositivo está detectando erróneamente TrollStore instalado y no tiene un botón Aplicar en la parte superior de la página de la barra de estado.";
 
 /* No comment provided by engineer. */
-"Uses Styles" = "Estilos de uso";
-
-/* No comment provided by engineer. */
-"validate" = "validate";
+"validate" = "validar";
 
 /* value for plist operation */
 "Value" = "Valor";
@@ -1131,7 +1116,7 @@
 "When set to blank on notched devices, this will display the carrier name." = "Cuando se establece en blanco en los dispositivos con notch, se mostrará el nombre del operador.";
 
 /* BomberFish's contribution */
-"Whitelist, AirPower Audio, Various fixes" = "Whitelist, Audio AirPower, otros ajustes";
+"Whitelist, AirPower Audio, Various fixes" = "Lista blanca, Audio de AirPower, y otros ajustes";
 
 /* Width of custom resolution
    Width of passcode keys */
@@ -1153,7 +1138,7 @@
 "Y" = "Y";
 
 /* Confirm apply for all (passcode keys) */
-"Yes" = "Yes";
+"Yes" = "Si";
 
 /* No comment provided by engineer. */
 "You do not have any saved passcode themes. Check out the explore tab to find some!" = "No tienes ningún tema de código guardado. Echa un vistazo a la pestaña Explorar para encontrar algunos";

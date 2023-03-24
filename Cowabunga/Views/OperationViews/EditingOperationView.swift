@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AssetCatalogWrapper
 
 struct PlistProperty: Identifiable {
     var id = UUID()
@@ -36,13 +37,13 @@ struct EditingOperationView: View {
     @State var backupData: Data? = nil
     
     private let hasPadding: [String] = [
-            "plist",
-            "strings",
-            "loctable",
-            "materialrecipe",
-            "visualstyleset"
-        ]
-        @State var showPaddingButton: Bool = false
+        "plist",
+        "strings",
+        "loctable",
+        "materialrecipe",
+        "visualstyleset"
+    ]
+    @State var showPaddingButton: Bool = false
     
     // plist properties
     @State var plistType: PropertyListSerialization.PropertyListFormat = .xml
@@ -57,9 +58,9 @@ struct EditingOperationView: View {
     @State var changingColor: Color = Color.gray
     @State var hasBlur: Bool = true
     @State var changingBlur: Double = 30
-    @State var usesStyles: Bool = false
-    @State var changingFill: String = ""
-    @State var changingStroke: String = ""
+    
+    // asset catalog properties
+    @State var replacingImages: [String: UIImage] = [:]
     
     var body: some View {
         VStack {
@@ -130,18 +131,26 @@ struct EditingOperationView: View {
                                 }
                             }
                             
+//                            let assetCatalogAction = UIAlertAction(title: "Asset Catalog", style: .default) { (action) in
+//                                // change the type
+//                                if !(operation is AssetCatalogObject) {
+//                                    operation = AssetCatalogObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive)
+//                                }
+//                            }
+                            
                             let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                                 // cancels the action
                             }
                             
                             // add the actions
                             alert.addAction(corruptingAction)
-                            alert.addAction(replacingAction)
                             alert.addAction(creatingAction)
+                            alert.addAction(replacingAction)
                             if #available(iOS 15, *) {
                                 alert.addAction(plistAction)
                             }
                             alert.addAction(colorAction)
+                            //alert.addAction(assetCatalogAction)
                             alert.addAction(cancelAction)
                             
                             let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
@@ -167,6 +176,9 @@ struct EditingOperationView: View {
                                     .foregroundColor(.blue)
                             } else if operation is ColorObject {
                                 Text("Color")
+                                    .foregroundColor(.blue)
+                            } else if operation is AssetCatalogObject {
+                                Text("Asset Catalog")
                                     .foregroundColor(.blue)
                             } else {
                                 Text("????")
@@ -198,6 +210,9 @@ struct EditingOperationView: View {
                                     .multilineTextAlignment(.trailing)
                                     .submitLabel(.done)
                                     .frame(maxHeight: 180)
+                                    .onSubmit {
+                                        filePath = filePath.trimmingCharacters(in: .whitespacesAndNewlines)
+                                    }
                             } else {
                                 // Fallback on earlier versions
                                 TextEditor(text: $filePath)
@@ -309,6 +324,9 @@ struct EditingOperationView: View {
                                             .multilineTextAlignment(.trailing)
                                             .submitLabel(.done)
                                             .frame(maxHeight: 180)
+                                            .onSubmit {
+                                                replacingPath = replacingPath.trimmingCharacters(in: .whitespacesAndNewlines)
+                                            }
                                     } else {
                                         // Fallback on earlier versions
                                         TextEditor(text: $replacingPath)
@@ -395,7 +413,6 @@ struct EditingOperationView: View {
                                         .multilineTextAlignment(.trailing)
                                 }
                             }
-                            
                             if showPaddingButton == true, let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
                                 HStack {
                                     Spacer()
@@ -597,83 +614,21 @@ struct EditingOperationView: View {
                                     .padding(.horizontal)
                             }
                         }
-                        
-                        // MARK: Using Styles
-                        HStack {
-                            Text("Uses Styles")
-                                .bold()
-                            Spacer()
-                            Toggle(isOn: $usesStyles) {}
-                        }
-                        
-                        // MARK: Styles
-                        if usesStyles {
-                            // Fill
-                            HStack {
-                                Text("Fill Name:")
-                                    .bold()
-                                Spacer()
-                                if #available(iOS 15.0, *) {
-                                    TextField("Fill", text: $changingFill)
-                                        .multilineTextAlignment(.trailing)
-                                        .submitLabel(.done)
-                                        .frame(maxHeight: 180)
-                                } else {
-                                    // Fallback on earlier versions
-                                    TextEditor(text: $changingFill)
-                                        .multilineTextAlignment(.trailing)
-                                        .frame(maxHeight: 180)
-                                }
-                            }
-                            
-                            // Stroke
-                            HStack {
-                                Text("Stroke Name:")
-                                    .bold()
-                                Spacer()
-                                if #available(iOS 15.0, *) {
-                                    TextField("Stroke", text: $changingStroke)
-                                        .multilineTextAlignment(.trailing)
-                                        .submitLabel(.done)
-                                        .frame(maxHeight: 180)
-                                } else {
-                                    // Fallback on earlier versions
-                                    TextEditor(text: $changingStroke)
-                                        .multilineTextAlignment(.trailing)
-                                        .frame(maxHeight: 180)
-                                }
-                            }
-                        }
-                        
-                        // MARK: Auto Detect Styles
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                if let colorOperation = operation as? ColorObject {
-                                    do {
-                                        let styles = try colorOperation.detectStyles()
-                                        if styles["fill"] == nil && styles["stroke"] == nil {
-                                            // no styles found
-                                            usesStyles = false
-                                        } else {
-                                            usesStyles = true
-                                            changingFill = styles["fill"] ?? ""
-                                            changingStroke = styles["stroke"] ?? ""
-                                        }
-                                    } catch {
-                                        UIApplication.shared.alert(title: NSLocalizedString("Could not detect styles.", comment: "when color styles could not be determined"), body: error.localizedDescription)
-                                    }
-                                }
-                            }) {
-                                Text("Determine Styles")
-                                    .multilineTextAlignment(.trailing)
-                                    .foregroundColor(.blue)
-                            }
-                        }
                     } header: {
                         Text("Color Data")
                     }
                 }
+                
+                // MARK: Asset Catalog Operation
+//                if operation is AssetCatalogObject {
+//                    Section {
+//                        NavigationLink(destination: AssetCatalogEditView(filePath: filePath, replacingImages: $replacingImages)) {
+//                            Text("Manage Images")
+//                        }
+//                    } header: {
+//                        Text("Asset Catalog Preferences")
+//                    }
+//                }
                 
                 // MARK: Operation Actions
                 Section {
@@ -871,10 +826,6 @@ struct EditingOperationView: View {
                     } else {
                         changingBlur = colorOperation.blur
                     }
-                    
-                    usesStyles = colorOperation.usesStyles
-                    changingFill = colorOperation.fill
-                    changingStroke = colorOperation.stroke
                 }
                 
                 replacingKeys.removeAll(keepingCapacity: true)
@@ -908,10 +859,6 @@ struct EditingOperationView: View {
             } else {
                 operation.blur = changingBlur
             }
-            
-            operation.usesStyles = usesStyles
-            operation.fill = changingFill
-            operation.stroke = changingStroke
         }
     }
     
