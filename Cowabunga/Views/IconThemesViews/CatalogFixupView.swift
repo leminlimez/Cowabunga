@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MacDirtyCowSwift
 
 @available(iOS 15.0, *)
 struct CatalogFixupView: View {
@@ -113,7 +114,11 @@ struct CatalogFixupView: View {
                         UIApplication.shared.alert(body: (errorsCatalog).joined(separator: "\n\n"))
                     }
                 } catch {
-                    UIApplication.shared.alert(body: error.localizedDescription)
+                    if MDC.isMDCSafe {
+                        UIApplication.shared.alert(body: error.localizedDescription)
+                    } else {
+                        UIApplication.shared.alert(body: "⛔️ Aborted ⛔️\n\n\(error.localizedDescription)", withButton: false)
+                    }
                 }
             })
         }

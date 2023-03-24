@@ -7,6 +7,7 @@
 
 import UIKit
 import MacDirtyCowSwift
+import AssetCatalogWrapper
 
 
 // code from appabetical
@@ -196,6 +197,12 @@ struct SBApp {
             let catalogURL = bundleURL.appendingPathComponent("Assets.car")
             
             try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: catalogBackupURL), unlockDataAtEnd: !isSystem)
+            // verify that it is not corrupted
+            do {
+                let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
+            } catch {
+                throw MDC.MDCOverwriteError.corruption
+            }
         }
     }
     
