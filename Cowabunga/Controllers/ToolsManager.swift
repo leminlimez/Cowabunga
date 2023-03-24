@@ -16,6 +16,12 @@ func getDefaultBool(forKey: String, defaultValue: Bool = false) -> Bool {
     return defaults.object(forKey: forKey) as? Bool ?? defaultValue
 }
 
+func getDefaultStr(forKey: String, defaultValue: String = "Visible") -> String {
+    let defaults = UserDefaults.standard
+    
+    return defaults.string(forKey: forKey) ?? defaultValue
+}
+
 // set a user defaults value for a boolean key
 func setDefaultBoolean(forKey: String, value: Bool) {
     let defaults = UserDefaults.standard
@@ -39,8 +45,16 @@ func respring() {
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
         restartFrontboard()
+        sleep(2) // give the springboard some time to restart before exiting
         exit(0)
     })
+}
+
+func exitGracefully() {
+    UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+        exit(0)
+    }
 }
 
 var connection: NSXPCConnection?
@@ -89,13 +103,14 @@ func remvoeIconCache() {
 
 enum SpringBoardOptions: String, CaseIterable {
     case DockHidden = "DockHidden"
-    case HomeBarHidden = "HomeBarHidden"
+    case HomeBarHidden = "HomeBar"
     case FolderBGHidden = "FolderBGHidden"
     case FolderBlurDisabled = "FolderBlurDisabled"
     case SwitcherBlurDisabled = "SwitcherBlurDisabled"
     case CCModuleBackgroundDisabled = "CCModuleBackgroundDisabled"
     case PodBackgroundDisabled = "PodBackgroundDisabled"
     case NotifBackgroundDisabled = "NotifBackgroundDisabled"
+    case ShortcutBanner = "ShortcutBanner"
 }
 
 let replacementPaths: [String: [String]] = [
@@ -106,7 +121,8 @@ let replacementPaths: [String: [String]] = [
     SpringBoardOptions.SwitcherBlurDisabled.rawValue: ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
     SpringBoardOptions.CCModuleBackgroundDisabled.rawValue: ["CoreMaterial.framework/modules.materialrecipe"],
     SpringBoardOptions.PodBackgroundDisabled.rawValue: ["SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", "SpringBoardHome.framework/podBackgroundViewDark.visualstyleset"],
-    SpringBoardOptions.NotifBackgroundDisabled.rawValue: ["CoreMaterial.framework/plattersDark.materialrecipe", "CoreMaterial.framework/platters.materialrecipe"]
+    SpringBoardOptions.NotifBackgroundDisabled.rawValue: ["CoreMaterial.framework/plattersDark.materialrecipe", "CoreMaterial.framework/platters.materialrecipe"],
+    SpringBoardOptions.ShortcutBanner.rawValue: ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"]
 ]
 
 enum OverwritingFileTypes {
@@ -193,54 +209,49 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         if replacementPaths[fileIdentifier] != nil {
             var succeeded = true
             for path in replacementPaths[fileIdentifier]! {
-                var newData = Data("###".utf8)
-                if value as? Bool ?? true == false {
-                    if fileIdentifier == "HomeBarHidden" {
-                        if let url: URL = Bundle.main.url(forResource: "HomeBarAssets", withExtension: "car") {
-                            do {
-                                newData = try Data(contentsOf: url)
-                            } catch {
-                                print(error.localizedDescription)
-                                return false
-                            }
-                        } else {
-                            continue
+                if fileIdentifier == "HomeBar" && value as? Bool == false {
+                    if let url: URL = Bundle.main.url(forResource: "HomeBarAssets", withExtension: "car") {
+                        do {
+                            let replacementCar = try Data(contentsOf: url)
+                            try MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: replacementCar)
+                        } catch {
+                            print(error.localizedDescription)
+                            succeeded = false
                         }
                     } else {
-                        if let fileName = path.split(separator: "/").last, let fn = fileName.split(separator: ".").first, let ext = fileName.split(separator: ".").last, let url: URL = Bundle.main.url(forResource: String(fn), withExtension: String(ext)) {
-                            do {
-                                newData = try Data(contentsOf: url)
-                            } catch {
-                                print(error.localizedDescription)
-                                return false
-                            }
-                        } else {
-                            continue
-                        }
+                        print("Home bar file not found!")
+                        return false
                     }
+                } else {
+                    let randomGarbage = Data("###".utf8)
+                    try? MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: randomGarbage)
                 }
-                succeeded = succeeded && MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
             }
             return succeeded
         }
     
     // audio option
     } else if typeOfFile == OverwritingFileTypes.audio {
-        let path = AudioFiles.getAudioPath(attachment: fileIdentifier)
-        if path != nil {
-            if value as! String == "Off" {
-                // disable the audio
-                let randomGarbage = Data("###".utf8)
-                return MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: randomGarbage)
-            } else {
-                // replace the audio data
-                let newData = AudioFiles.getNewAudioData(soundName: value as! String)
-                if newData != nil {
-                    return MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: newData!)
-                } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
-                    return MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: customAudioData)
+        do {
+            let path = AudioFiles.getAudioPath(attachment: fileIdentifier)
+            if path != nil {
+                if value as! String == "Off" {
+                    // disable the audio
+                    let randomGarbage = Data("###".utf8)
+                    try MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: randomGarbage)
+                } else {
+                    // replace the audio data
+                    let newData = AudioFiles.getNewAudioData(soundName: value as! String)
+                    if newData != nil {
+                        try MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: newData!)
+                    } else if let customAudioData = AudioFiles.getCustomAudioData(soundName: value as! String) {
+                        try MDC.overwriteFile(at: "/System/Library/Audio/" + path!, with: customAudioData)
+                    }
                 }
             }
+            return true
+        } catch {
+            return false
         }
         
     // setting cc modules transparency
@@ -248,19 +259,6 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
         if replacementPaths[fileIdentifier] != nil {
             do {
                 let path: String = replacementPaths[fileIdentifier]![0]
-                if value as? Bool ?? true == false {
-                    // restore
-                    if let url: URL = Bundle.main.url(forResource: "modules", withExtension: "materialrecipe") {
-                        do {
-                            let newData = try Data(contentsOf: url)
-                            return MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                    }
-                    return false
-                }
-                
                 let plistData = try Data(contentsOf: URL(fileURLWithPath: "/System/Library/PrivateFrameworks/" + path))
                 let originalSize = plistData.count
                 var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
@@ -306,7 +304,8 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
                 }
                 
                 if originalSize == newData.count {
-                    return MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
+                    try MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
+                    return true
                 } else {
                     print("File sizes didn't match!")
                     return false
@@ -331,17 +330,21 @@ func overwriteFile<Value>(typeOfFile: OverwritingFileTypes, fileIdentifier: Stri
             
             // overwrite the plist
             let newData = try! PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
-            
-            return MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
+            do {
+                try MDC.overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: newData)
+            } catch {
+                return false
+            }
+            return true
         }
     } else if typeOfFile == OverwritingFileTypes.region {
         let startPath = "/Library/RegionFeatures/RegionFeatures_"
         let devices = ["iphone", "audio"]
-        var succeeded = true
+        let succeeded = true
         
         for dev in devices {
             let newData: Data = Data(base64Encoded: regionEncodes[dev]!)!
-            succeeded = succeeded && MDC.overwriteFile(at: startPath + dev + ".txt", with: newData)
+            try? MDC.overwriteFile(at: startPath + dev + ".txt", with: newData)
         }
         return succeeded
     }

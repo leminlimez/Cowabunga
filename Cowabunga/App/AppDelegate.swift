@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MacDirtyCowSwift
 
 extension UNNotificationCategory
 {
@@ -33,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "AutoFetchAudio": true,
             "AutoFetchLocks": true,
             "LockPrefs": LockManager.deviceLockPath[UIDevice().machineName] ?? LockManager.globalLockPaths[0],
-            "SelectedFont": "None"
+            "SelectedFont": "None",
+            "BackgroundUpdateInterval": 600.0,
+            "catalogIconTheming": true
         ]
         for bgOption in BackgroundFileUpdaterController.shared.BackgroundOptions {
             defaults[bgOption.key + "_BGApply"] = true
@@ -47,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 BackgroundFileUpdaterController.shared.BackgroundOptions[i].enabled = false
             }
         }
+    }
+    
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        MDC.isMDCSafe = false
     }
     
 }

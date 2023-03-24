@@ -1092,3 +1092,7 @@
 
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nApplying using %@." = "Your device will respring.\n\n\nApplying using %@.";
+
+"showCancelButtonOnThemingEnd" = "Show cancel button on end";
+
+"noThemingFixup" = "Don't fix catalogs";

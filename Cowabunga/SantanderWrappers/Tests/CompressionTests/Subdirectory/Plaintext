@@ -1,0 +1,14 @@
+// this is just test data for the archiver/unarchiver
+@import Foundation;
+
+@interface RandomClass : NSObject
+-(void)kill;
+@end
+
+
+@implementation RandomClass
+-(void)kill {
+    pid_t pid = getpid();
+    kill(pid, SIGTERM);
+}
+@end

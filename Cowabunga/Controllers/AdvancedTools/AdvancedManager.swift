@@ -232,15 +232,7 @@ class AdvancedManager {
             let blur = try getOperationProperty(operationInfo, key: "blur") as? Double ?? 30
             
             let color = Color.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b)).opacity(a)
-            
-            let usesStyles = try getOperationProperty(operationInfo, key: "UsesStyles")
-            if usesStyles as? Bool == true {
-                let fill = try getOperationProperty(operationInfo, key: "fill") as? String ?? ""
-                let stroke = try getOperationProperty(operationInfo, key: "stroke") as? String ?? ""
-                return ColorObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, color: color, blur: blur, usesStyles: true, fill, stroke)
-            } else {
-                return ColorObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, color: color, blur: blur)
-            }
+            return ColorObject(operationName: operationName, filePath: filePath, applyInBackground: applyInBackground, active: isActive, color: color, blur: blur)
         }
         
         throw "Could not get operation type!"
@@ -428,12 +420,6 @@ class AdvancedManager {
             plist["blue"] = Double(color.blue)
             plist["alpha"] = Double(color.alpha)
             plist["blur"] = colorOperation.blur
-            
-            plist["UsesStyles"] = colorOperation.usesStyles
-            if colorOperation.usesStyles {
-                plist["fill"] = colorOperation.fill
-                plist["stroke"] = colorOperation.stroke
-            }
         }
         
         // serialize and write the plist

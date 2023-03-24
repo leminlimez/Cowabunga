@@ -5,22 +5,28 @@
 "CFBundleName" = "Cowabunga";
 
 /* (No Comment) */
-"Cowabunga Operation" = "Opération de Cowabunga";
+"Cowabunga Operation" = "Opération pour Cowabunga";
 
 /* (No Comment) */
-"Icon Theme" = "Pack d'cones";
+"FileSwitcherPro Item" = "Fichier FileSwitcherPro";
+
+/* (No Comment) */
+"Icon Theme" = "Pack d'icônes";
 
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Autoriser l'application Cowabunga à obtenir un accès complet au disque (pour activer la modification des touches du code par exemple) ?";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga s'actualise en arrière plan pour être sur que les modifications restent appliquées. Normalement, iOS arrête ces applications après une courte durée. Cowabunga va demander à iOS l'accès aux données de localisation pour que l'application continue de s'actualiser en arrière plan. Aucune donnée relative à votre localisation ne sera stockéee ou envoyée aux développeurs.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga s'actualise en arrière plan pour pouvoir continuellement appliquer vos modifications. Normalement, iOS empêche ces applications  de s'actualiser après une courte durée. Cowabunga va demander à iOS l'accès aux données de localisation pour que l'application continue de s'actualiser en arrière plan. Aucune donnée relative à votre localisation ne sera stockée ou envoyée aux développeurs.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga s'actualise en arrière plan pour être sûr que les modifications restent appliquées. Normalement, iOS arrête ces applications après une courte durée. Cowabunga va demander à iOS l'accès aux données de localisation pour que l'application continue de s'actualiser en arrière plan. Aucune donnée relative à votre localisation ne sera stockée ou envoyée aux développeurs.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga s'actualise en arrière plan pour pouvoir continuellement appliquer vos modifications. Normalement, iOS empêche ces applications  de s'actualiser après une courte durée. Cowabunga va demander à iOS l'accès aux données de localisation pour que l'application continue de s'actualiser en arrière plan. Aucune donnée relative à votre localisation ne sera stockée ou envoyée aux développeurs.";
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Autoriser l'app à accéder à vos photos ?";
+
+/* (No Comment) */
+"OpenType font" = "Police OpenType";
 
 /* (No Comment) */
 "Passcode Theme File" = "Thème de touche de mot-de-passe";

@@ -94,8 +94,7 @@ class CowabungaAPI: ObservableObject {
             try fm.unzipItem(at: tempThemeDownloadURL, to: tmpExtract)
             
             if theme.type == .icon {
-                let theme = try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(theme.name))
-                ThemeManager.shared.themes.append(theme)
+                try ThemeManager.shared.importTheme(from: tmpExtract.appendingPathComponent(theme.name))
             } else if theme.type == .lock {
                 print(saveURL)
                 if fm.fileExists(atPath: tmpExtract.appendingPathComponent(theme.name).appendingPathExtension("__MACOSX").path) {

@@ -96,7 +96,6 @@ class AudioFiles {
     }
     
     static func setup(fetchingNewAudio: Bool) {
-        print("setting up audio")
         // fetch new audio if needed
         if fetchingNewAudio == true {
             fetchIncludedAudio()

@@ -8,6 +8,9 @@
 "Cowabunga Operation" = "Cowabunga Operation";
 
 /* (No Comment) */
+"FileSwitcherPro Item" = "FileSwitcherPro objekt";
+
+/* (No Comment) */
 "Icon Theme" = "Tema för ikoner";
 
 /* Privacy - Media Library Usage Description */
@@ -21,6 +24,9 @@
 
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "Bilder";
+
+/* (No Comment) */
+"OpenType font" = "OpenType-teckensnitt";
 
 /* (No Comment) */
 "Passcode Theme File" = "Temafil för lösenord";

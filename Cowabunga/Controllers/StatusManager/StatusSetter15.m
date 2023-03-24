@@ -274,6 +274,30 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isBatteryDetailOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideBatteryDetailString == 1;
+}
+
+- (NSString*) getBatteryDetailOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    NSString* batteryDetail = @(overrides->values.batteryDetailString);
+    return batteryDetail;
+}
+
+- (void) setBatteryDetail:(NSString*)text {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    strcpy(overrides->values.batteryDetailString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    overrides->overrideBatteryDetailString = 1;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetBatteryDetail {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideBatteryDetailString = 0;
+    [self applyChanges:overrides];
+}
+
 - (bool) isCrumbOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideBreadcrumb == 1;
@@ -300,6 +324,109 @@ typedef struct {
     StatusBarOverrideData *overrides = [self getOverrides];
     strcpy(overrides->values.breadcrumbTitle, [@"" cStringUsingEncoding:NSUTF8StringEncoding]);
     overrides->overrideBreadcrumb = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isBatteryCapacityOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideBatteryCapacity == 1;
+}
+
+- (int) getBatteryCapacityOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.batteryCapacity;
+}
+
+- (void) setBatteryCapacity:(int)capacity {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->values.batteryCapacity = capacity;
+    overrides->overrideBatteryCapacity = 1;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetBatteryCapacity {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideBatteryCapacity = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isWiFiSignalStrengthBarsOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideWifiSignalStrengthBars == 1;
+}
+
+- (int) getWiFiSignalStrengthBarsOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.wifiSignalStrengthBars;
+}
+
+- (void) setWiFiSignalStrengthBars:(int)strength {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->values.wifiSignalStrengthBars = strength;
+    overrides->overrideWifiSignalStrengthBars = 1;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetWiFiSignalStrengthBars {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideWifiSignalStrengthBars = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isGsmSignalStrengthBarsOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideGsmSignalStrengthBars == 1;
+}
+
+- (int) getGsmSignalStrengthBarsOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.gsmSignalStrengthBars;
+}
+
+- (void) setGsmSignalStrengthBars:(int)strength {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->values.gsmSignalStrengthBars = strength;
+    overrides->overrideGsmSignalStrengthBars = 1;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetGsmSignalStrengthBars {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideGsmSignalStrengthBars = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isDisplayingRawWiFiSignal {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideDisplayRawWifiSignal == 1;
+}
+
+- (void) displayRawWifiSignal:(bool)displaying {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    if (displaying) {
+        overrides->values.displayRawWifiSignal = 1;
+        overrides->overrideDisplayRawWifiSignal = 1;
+    } else {
+        overrides->overrideDisplayRawWifiSignal = 0;
+    }
+    
+    [self applyChanges:overrides];
+}
+
+- (bool) isDisplayingRawGSMSignal {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideDisplayRawGSMSignal == 1;
+}
+
+- (void) displayRawGSMSignal:(bool)displaying {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    if (displaying) {
+        overrides->values.displayRawGSMSignal = 1;
+        overrides->overrideDisplayRawGSMSignal = 1;
+    } else {
+        overrides->overrideDisplayRawGSMSignal = 0;
+    }
+    
     [self applyChanges:overrides];
 }
 

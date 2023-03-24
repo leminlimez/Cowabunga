@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Darwin
+import MacDirtyCowSwift
 
 @main
 struct CowabungaApp: App {
@@ -14,6 +15,8 @@ struct CowabungaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var cowabungaAPI = CowabungaAPI()
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    private let memoryWarningPublisher = NotificationCenter.default.publisher(for: UIApplication.didReceiveMemoryWarningNotification)
     
     @State var catalogFixupShown = false
     @State var importingFontShown = false
@@ -93,16 +96,19 @@ struct CowabungaApp: App {
                     if url.pathExtension.lowercased() == "cowperation" || url.pathExtension.lowercased() == "fsp" {
                         do {
                             // try adding the operation
-                            try AdvancedManager.importOperation(url)
-                            UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                            let editsVar = try AdvancedManager.importOperation(url)
+                            if editsVar {
+                                UIApplication.shared.alert(title: NSLocalizedString("⚠️ Warning ⚠️", comment: "warning for if a custom operation edits /var"), body: NSLocalizedString("The imported operation edits a file in the user folder (/var). This has the potential to permanently brick your device or cause bootloops. Only activate it if you know what you are doing and trust the source!", comment: "warning for if a custom operation edits /var"))
+                            } else {
+                                UIApplication.shared.alert(title: NSLocalizedString("Success!", comment: ""), body: NSLocalizedString("The operation was successfully imported.", comment: "when importing a custom operation"))
+                            }
                         } catch { UIApplication.shared.alert(body: error.localizedDescription) }
                     }
                     
                     // for opening .theme app theme files
                     if url.pathExtension.lowercased() == "theme" {
                         do {
-                            let theme = try ThemeManager.shared.importTheme(from: url)
-                            ThemeManager.shared.themes.append(theme)
+                            try ThemeManager.shared.importTheme(from: url)
                             
                             UIApplication.shared.alert(title: NSLocalizedString("Success", comment: ""), body: NSLocalizedString("App theme was successfully saved!", comment: ""))
                         } catch {
@@ -130,7 +136,7 @@ struct CowabungaApp: App {
     }
     
     func performCatalogFixupIfNeeded() {
-        if UserDefaults.standard.bool(forKey: "shouldPerformCatalogFixup") {
+        if UserDefaults.standard.bool(forKey: "shouldPerformCatalogFixup") && !UserDefaults.standard.bool(forKey: "noThemingFixup") {
             catalogFixupShown = true
         }
     }

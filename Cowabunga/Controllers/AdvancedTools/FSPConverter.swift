@@ -124,20 +124,6 @@ class FSPConverter {
                     opObj = ReplacingObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, creating: true, active: isActive, overwriteData: replaceData, replacingType: (operation["ReplacingType"] as! String == "FilePath" ? ReplacingObjectType.FilePath : ReplacingObjectType.Imported), replacingPath: operation["ReplacingPath"] as! String)
                 } else if opType == "Color" {
                     opObj = ColorObject.init(operationName: operation["Name"] as! String, author: operation["Author"] as! String, filePath: operation["FilePath"] as! String, applyInBackground: operation["ApplyInBackground"] as! Bool, backupData: backupData, active: isActive, color: Color.init(hex: operation["HexColor"] as! String)!, blur: operation["Blur"] as! Double)
-                    // determine the styles
-                    if let opObj = opObj as? ColorObject {
-                        var styles: [String: String] = [:]
-                        do {
-                            styles = try opObj.detectStyles()
-                            if styles["fill"] != nil || styles["stroke"] != nil {
-                                opObj.usesStyles = true
-                                opObj.fill = styles["fill"] ?? ""
-                                opObj.stroke = styles["stroke"] ?? ""
-                            }
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                    }
                 }
                 
                 if opObj != nil {
