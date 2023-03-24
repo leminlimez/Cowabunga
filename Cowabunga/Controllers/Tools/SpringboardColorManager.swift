@@ -216,7 +216,7 @@ class SpringboardColorManager {
         let bgDir = getBackgroundDirectory()
         
         if bgDir != nil && finalFiles[forType] != nil && fileFolders[forType] != nil && fileExt[forType] != nil {
-            if fileExt[forType] == "materialrecipe" && forType != .switcher {
+            if fileExt[forType] == ".materialrecipe" && forType != .switcher {
                 try createColorOLD(forType: forType, color: color, blur: blur, asTemp: asTemp)
                 return
             }
