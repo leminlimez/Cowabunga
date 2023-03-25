@@ -8,6 +8,8 @@
 import SwiftUI
 import MacDirtyCowSwift
 
+var ERRORED_APP: String = "UNKNOWN"
+
 @available(iOS 15.0, *)
 struct CatalogFixupView: View {
     @State private var isRotating1 = 0.0
@@ -117,7 +119,7 @@ struct CatalogFixupView: View {
                     if MDC.isMDCSafe {
                         UIApplication.shared.alert(body: error.localizedDescription)
                     } else {
-                        UIApplication.shared.alert(body: "⛔️ Aborted ⛔️\n\n\(error.localizedDescription)", withButton: false)
+                        UIApplication.shared.alert(body: "⛔️ Aborted ⛔️\n\n\(error.localizedDescription)\n\nError occurred with: \(ERRORED_APP)", withButton: false)
                     }
                 }
             })
