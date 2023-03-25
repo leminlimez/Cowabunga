@@ -197,11 +197,19 @@ struct SBApp {
             let catalogURL = bundleURL.appendingPathComponent("Assets.car")
             
             try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: catalogBackupURL), unlockDataAtEnd: !isSystem)
-            // verify that it is not corrupted
-            do {
-                let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
-            } catch {
-                throw MDC.MDCOverwriteError.corruption
+            // verify that it is not corrupted, as long as it is not a system path
+            if bundleURL.lastPathComponent != "MobileTimer.app" {
+                do {
+                    let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogBackupURL)
+                    do {
+                        let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
+                    } catch {
+                        ERRORED_APP = bundleURL.lastPathComponent
+                        throw MDC.MDCOverwriteError.corruption
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }
