@@ -180,19 +180,22 @@
 "Disable" = "禁用";
 
 /* Springboard tool */
-"Disable App Switcher Blur" = "移除多任务后台模糊";
+"App Switcher Blur" = "多任务后台模糊";
 
 /* Springboard tool */
-"Disable CC Module Background" = "移除控制中心模块背景";
+"CC Module Background" = "控制中心模块背景";
 
 /* Springboard tool */
-"Disable Folder Background" = "透明文件夹背景";
+"CC Background Blur" = "控制中心模块模糊";
 
 /* Springboard tool */
-"Disable Folder Blur" = "移除文件夹模糊";
+"Folder Background" = "透明文件夹背景";
 
 /* Springboard tool */
-"Disable Library Pods Background" = "移除资源库背景";
+"Folder Blur" = "移除文件夹模糊";
+
+/* Springboard tool */
+"Library Pod Background" = "资源库背景";
 
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "禁用将捷径生成的软件作为轻App";
@@ -304,10 +307,7 @@
 "Hide Do Not Disturb" = "隐藏勿扰模式图标";
 
 /* Springboard tool */
-"Hide Dock" = "隐藏Dock";
-
-/* Springboard tool */
-"Hide Home Bar" = "隐藏底部手势白条";
+"Home Bar" = "底部手势白条";
 
 /* No comment provided by engineer. */
 "Hide Location" = "隐藏定位图标";
@@ -517,21 +517,6 @@
 "Sent Message" = "发送信息";
 
 /* No comment provided by engineer. */
-"Set app switcher color" = "设置多任务后台颜色";
-
-/* No comment provided by engineer. */
-"Set badge color" = "设置角标颜色";
-
-/* No comment provided by engineer. */
-"Set dock color" = "设置dock颜色";
-
-/* No comment provided by engineer. */
-"Set expanded folder background color" = "设置文件夹展开后背景颜色";
-
-/* No comment provided by engineer. */
-"Set folder color" = "设置文件夹颜色";
-
-/* No comment provided by engineer. */
 "Settings" = "设置";
 
 /* No comment provided by engineer. */
@@ -547,10 +532,14 @@
 "Software Version" = "系统版本";
 
 /* Title of tool */
-"Springboard Colors" = "桌面颜色";
+"Color" = "颜色";
 
 /* Title of tool */
 "Springboard Tools" = "桌面工具";
+
+/* Springboard tool */
+"Disabled" = "禁用";
+"Visible" = "显示";
 
 /* No comment provided by engineer. */
 "SpringBoard Tools" = "桌面工具";
@@ -668,11 +657,19 @@
 "Control Center" = "顶部状态栏";
 
 /* Springboard tool */
-"Hide Notification Banner Background" = "隐藏顶部通知背景";
+"Notification Banner Background" = "顶部通知背景";
+
+/* Springboard tool */
+"Notification Banner Shadow" = "顶部通知阴影";
 
 /* Alert tool */
 "Successfully applied tweaks" = "应用已调整成功";
 "Respring to see changes" = "注销后以查看更改";
+
+/* APPS*/
+"APPS" = "应用";
+"Calculator Error Message" = "自定义计算器错误";//哎呦你干嘛
+"Settings App Customizer" = "自定义设置内容";
 
 /* Themes by chihaodong (twitter) */
 "Themes" = "主题";
@@ -719,7 +716,7 @@
 "Applies all tweaks which were applied before." = "应用之前所有应用调整。";
 /* respring info */
 "Respring is an action that allows restarting your Home Screen without rebooting your device." = "注销是一种允许在不重新启动设备的情况下，重新载入主屏幕的操作，完成修改。";
-"Screen Time Enabled" = "启用屏幕时间";
+"Disable Screen Time" = "禁用屏幕使用时间";
 "Screen time was successfully disabled, please reboot to finish application." = "屏幕时间已禁用，请重新启动以完成应用程序设置。";
 "Please wait" = "请稍等";
 "Downloading" = "下载";
@@ -748,6 +745,12 @@
 "Name:" = "名称：";
 "Basic Configuration" = "基本配置";
 "Operation Name" = "操作名称";
+"Remove Icons" = "移除图标";
+"Remove Labels" = "移除名称";
+"Remove Previews" = "移除预览";
+"Use Settings Footnote" = "使用脚注";
+"Footnote:" = "脚注:";
+"Image:" = "图片:";
 "Choose an operation type" = "选择操作类型";
 "Enabled" = "启用";
 "File not found!" = "文件未发现";
@@ -809,3 +812,14 @@
 "Close" = "关闭";
 "No themes containing icons for %@ (%@) have been found." = "主题内未找到包含%@（%@）图标";
 "There was an error getting font packs." = "获取字体包时出错";
+"Custom Operations Author Name" = "自定义操作者姓名";
+"Change Battery Detail Text" = "修改电池文字";
+"Battery Detail Text" = "电池文字";
+"Change Battery Icon Capacity" = "修改当前电量";
+"Change WiFi Signal Strength Bars" = "修改WiFi信号强度";
+"Change Cellular Signal Strength Bars" = "修改运营商信号强度";
+"Show Numeric WiFi Strength" = "显示WiFi信号强度";
+"Show Numeric Cellular Strength" = "显示运营商信号强度";
+"Test: theme all icons using 1 icon" = "测试性: 全部主题仅使用一个图标";
+"showCancelButtonOnThemingEnd" = "启用主题后取消注销按钮";
+"noThemingFixup" = "空主题修复";
