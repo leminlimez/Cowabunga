@@ -31,16 +31,19 @@ public class MDC {
     static var junk: [String] = []
     
     /// unlockDataAtEnd - Unlocked the data at overwrite end. Used when replacing files inside app bundle
-    public static func overwriteFile(at path: String, with data: Data, unlockDataAtEnd: Bool = false) throws {
+    public static func overwriteFile(at path: String, with data: Data, unlockDataAtEnd: Bool = false, multipleIterations: Bool = false) throws {
 //        junk.append(String(repeating: "a",  count: 50_000_000))
         
         if !isMDCSafe {
             throw MDCOverwriteError.ram
         }
-        for i in 0...2 {
-            print("Running mdc i=\(i)")
-            let success = overwriteFileWithDataImpl(originPath: path, replacementData: data, unlockDataAtEnd: unlockDataAtEnd)
-            if !success { throw MDCOverwriteError.unknown }
+        if multipleIterations {
+            for i in 0...2 {
+                print("Running mdc i=\(i)")
+                try overwriteFileWithDataImpl(originPath: path, replacementData: data, unlockDataAtEnd: unlockDataAtEnd)
+            }
+        } else {
+            try overwriteFileWithDataImpl(originPath: path, replacementData: data, unlockDataAtEnd: unlockDataAtEnd)
         }
     }
     
