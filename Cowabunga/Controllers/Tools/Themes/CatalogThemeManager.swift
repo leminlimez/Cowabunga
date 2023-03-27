@@ -35,9 +35,16 @@ public class CatalogThemeManager {
             let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
             return true
         } catch {
-            // corruption error
-            UserDefaults.standard.set(false, forKey: "noCatalogThemingFixup")
-            return false
+            // try to revert file
+            do {
+                try change.app.restoreCatalog()
+                let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
+                return true
+            } catch {
+                // corruption error
+                UserDefaults.standard.set(false, forKey: "noCatalogThemingFixup")
+                return false
+            }
         }
     }
     
