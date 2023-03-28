@@ -751,6 +751,8 @@
 "Use Settings Footnote" = "使用脚注";
 "Footnote:" = "脚注:";
 "Image:" = "图片:";
+"Remove Image" = "移除图片";
+"Select Image" = "选择图片";
 "Choose an operation type" = "选择操作类型";
 "Enabled" = "启用";
 "File not found!" = "文件未发现";
@@ -821,5 +823,8 @@
 "Show Numeric WiFi Strength" = "显示WiFi信号强度";
 "Show Numeric Cellular Strength" = "显示运营商信号强度";
 "Test: theme all icons using 1 icon" = "测试性: 全部主题仅使用一个图标";
-"showCancelButtonOnThemingEnd" = "启用主题后取消注销按钮";
+"showCancelButtonOnThemingEnd" = "应用后显示取消按钮";
 "noThemingFixup" = "空主题修复";
+"Every 2 Minutes" = "每2分钟";
+"Every 10 Minutes" = "每10分钟";
+"Every 30 Minutes" = "每30分钟";

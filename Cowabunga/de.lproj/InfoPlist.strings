@@ -1,3 +1,4 @@
+
 /* Bundle display name */
 "CFBundleDisplayName" = "Cowabunga";
 
@@ -5,14 +6,19 @@
 "CFBundleName" = "Cowabunga";
 
 /* Privacy - Media Library Usage Description */
-"NSAppleMusicUsageDescription" = "Gebe der sandbox die Berechtigung( wird für einige tweaks benötigt z.b Code Tasten und weitere)";
+"NSAppleMusicUsageDescription" = "Sandbox-Berechtigung (benötigt für Passcode-Schlüssel + einige andere Optionen)";
 
 /* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund um sicherzustellen das alle deine Änderung bleiben. iOS beendet Apps normalerweise nach einer gewissen Zeit aber Cowabunga trickst iOS aus indem es nach deinem Standort fragt. Diese Daten werden nirgendwo gespeichert sie werden lediglich abgefragt.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund, um sicherzustellen, dass die Optimierungen angewendet bleiben. Normalerweise beendet iOS solche Apps nach einer gewissen Zeit, aber Cowabunga trickst iOS aus, indem es Standortdaten anfordert und so viel längere Sitzungen ermöglicht. Daten werden niemals irgendwo gespeichert, sondern nur abgerufen.";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund um sicherzustellen das alle deine Änderung bleiben. iOS beendet Apps normalerweise nach einer gewissen Zeit aber Cowabunga trickst iOS aus indem es nach deinem Standort fragt. Diese Daten werden nirgendwo gespeichert sie werden lediglich abgefragt.";
+"NSLocationWhenInUseUsageDescription" = "Cowabunga läuft im Hintergrund, um sicherzustellen, dass die Optimierungen angewendet bleiben. Normalerweise beendet iOS solche Apps nach einer gewissen Zeit, aber Cowabunga trickst iOS aus, indem es Standortdaten anfordert und so viel längere Sitzungen ermöglicht. Daten werden niemals irgendwo gespeichert, sondern nur abgerufen.";
 
 /* Privacy - Photo Library Usage Description */
-"NSPhotoLibraryUsageDescription" = "Photos";
+"NSPhotoLibraryUsageDescription" = "Fotos";
 
+/* (No Comment) */
+"Passcode Theme File" = "Passcode-Themedatei";
+
+/* (No Comment) */
+"Theme Archive File" = "Theme-Archivdatei";
