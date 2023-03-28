@@ -66,7 +66,7 @@ struct CatalogFixupView: View {
             Spacer()
             if !showSuccess { Text("In the meantime you can ...", comment: "A joke about users being able to join Discord while they wait for Cowabunga to finish theming. \"In the meantime you can Join Discord\" is the text for button") }
             Button("Join Discord") {
-                UIApplication.shared.open(URL(string: "https://discord.gg/zTPFJuQfdw")!)
+                UIApplication.shared.open(URL(string: "https://discord.gg/MN8JgqSAqT")!)
             }
             .buttonStyle(TintedButton(color: .gray, fullwidth: true))
             .padding(8)
