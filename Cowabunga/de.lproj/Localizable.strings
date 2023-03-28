@@ -652,7 +652,7 @@
 "No themes containing icons for %@ (%@) have been found." = "Es wurden keine Themes gefunden, die Icons für %@ (%@) enthalten.";
 
 /* No comment provided by engineer. */
-"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Keine Themes gefunden. Lade Themes auf der Registerkarte "Erkunden" herunter,\noder importiere sie über die Schaltfläche in der oberen rechten Ecke (Themes müssen Icons im Format <id>.png haben).";
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Keine Themes gefunden. Lade Themes auf der Registerkarte \"Erkunden\" herunter,\noder importiere sie über die Schaltfläche in der oberen rechten Ecke (Themes müssen Icons im Format <id>.png haben).";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Keine gültige Größe!";
@@ -1079,7 +1079,7 @@
 "Yes" = "Ja";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Du hast keine gespeicherten Passcode-Themes. Schaue "Erkunden" an, um einige zu finden!";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "Du hast keine gespeicherten Passcode-Themes. Schaue \"Erkunden\" an, um einige zu finden!";
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "Deine Apps sollten jetzt ordnungsgemäß funktionieren";

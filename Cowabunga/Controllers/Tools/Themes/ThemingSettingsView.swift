@@ -19,19 +19,19 @@ struct ThemingSettingsView: View {
     var body: some View {
         List {
             Toggle(isOn: $catalogIconTheming) {
-                Text("catalogIconTheming")
+                Text("Catalog Icon Theming (v10 method)")
             }
             Toggle(isOn: $pngIconTheming) {
-                Text("pngIconTheming")
+                Text("PNG Icon Theming (v8 method)")
             }
             Toggle(isOn: $showCancelButtonOnThemingEnd) {
                 Text("showCancelButtonOnThemingEnd")
             }
             Toggle(isOn: $noThemingFixup) {
-                Text("noThemingFixup")
+                Text("Disable Theming Fixup")
             }
             Toggle(isOn: $noPNGThemingFixup) {
-                Text("noPNGThemingFixup")
+                Text("Disable PNG Theming Fixup (Stop Random Reverts)")
             }
         }
     }
