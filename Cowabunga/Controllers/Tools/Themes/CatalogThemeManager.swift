@@ -111,7 +111,7 @@ public class CatalogThemeManager {
                         if let catalogIconName = app.catalogIconName() { // happens with app which store their icons as .png's inside bundle
                             let newCatalogURL = try createCatalog(withIcon: themeIcon, iconName: catalogIconName, maxSize: catalogSize, bundleIdentifier: app.bundleIdentifier)
                             UserDefaults.standard.set(true, forKey: "shouldPerformCatalogFixup")
-                            try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: newCatalogURL))
+                            try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: newCatalogURL), multipleIterations: true)
                             return true
                         }
                     }
