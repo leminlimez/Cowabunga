@@ -44,10 +44,11 @@ struct HomeView: View {
         .init(names: "kylak#5621", contribution: "🇧🇷 Portuguese"),
         .init(names: "Skyfall#5572 & Chihaodong", contribution: "🇨🇳 Chinese (China Mainland)"),
         .init(names: "@CySxL", contribution: "🇹🇼 Traditional Chinese (Taiwan)"),
-        .init(names: "mystical#2343 & yun#7739", contribution: "🇻🇳 Vietnamese"),
+        .init(names: "mystical#2343 & rahsey#2222", contribution: "🇻🇳 Vietnamese"),
         .init(names: "crimeboss#6704 & meliherdem#0001", contribution: "🇹🇷 Turkish"),
         .init(names: "TaekyungAncal#7857", contribution: "🇰🇷 Korean"),
-        .init(names: "Aru Pro#2789", contribution: "🇦🇪 Arabic")
+        .init(names: "Aru Pro#2789", contribution: "🇦🇪 Arabic"),
+        .init(names: "EPOS#0646", contribution: "🇳🇱 Dutch")
     ]
     
     @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
