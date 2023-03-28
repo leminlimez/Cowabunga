@@ -75,6 +75,7 @@ struct SpringBoardView: View {
                                 SpringBoardOptionView(option: option, screenGeom: screenGeometry, flippedOption: $flippedOption, otherOptions: $tweakOptions)
                                     .zIndex(option.flipped.wrappedValue ? 2 : 0)
                                     .blur(radius: (flippedOption == nil || flippedOption!.title == option.title.wrappedValue) ? 0 : 8, opaque: false)
+                                    .environment(\.layoutDirection, .leftToRight)
                             }
                         }
                     }
