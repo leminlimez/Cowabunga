@@ -1,0 +1,36 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Cowabunga";
+
+/* Bundle name */
+"CFBundleName" = "Cowabunga";
+
+/* (No Comment) */
+"Cowabunga Operation" = "Cowabunga-bewerking";
+
+/* (No Comment) */
+"FileSwitcherPro Item" = "FileSwitcherPro-item";
+
+/* (No Comment) */
+"Icon Theme" = "Pictogram Thema";
+
+/* Privacy - Media Library Usage Description */
+"NSAppleMusicUsageDescription" = "Toestemming verlenen aan de sandbox (dit is nodig voor toegangscode sleutels en enkele andere opties)\n\n";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Foto's";
+
+/* (No Comment) */
+"OpenType font" = "OpenType-lettertype";
+
+/* (No Comment) */
+"Passcode Theme File" = "Toegangscode-themabestand";
+
+/* (No Comment) */
+"Theme Archive File" = "Thema-archiefbestand";
+
+/* (No Comment) */
+"TrueType collection" = "TrueType-verzameling";
+
+/* (No Comment) */
+"TrueType font" = "TrueType-lettertype";
+

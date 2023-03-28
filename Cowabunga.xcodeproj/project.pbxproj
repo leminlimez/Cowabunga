@@ -375,6 +375,8 @@
 		6FF21AFA298826FF0054EBC0 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FF21AFC298827190054EBC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6FF21AFF29882C020054EBC0 /* CoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
+		6FFA739529D371BE00E4DCBC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6FFA739629D371BE00E4DCBC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D60A489629995D830013F066 /* WhitelistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistView.swift; sourceTree = "<group>"; };
 		D60A489829995DAD0013F066 /* FileContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentsView.swift; sourceTree = "<group>"; };
 		D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistFunctions.swift; sourceTree = "<group>"; };
@@ -1022,6 +1024,7 @@
 				"zh-TW",
 				es,
 				sv,
+				nl,
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
@@ -1234,6 +1237,7 @@
 				6F07AB9E299BCC6B00076436 /* zh-TW */,
 				6F07ABA4299DC22000076436 /* es */,
 				6F15D92D29A5ACC4008991F1 /* sv */,
+				6FFA739629D371BE00E4DCBC /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1257,6 +1261,7 @@
 				6F07AB9D299BCC6B00076436 /* zh-TW */,
 				6F07ABA3299DC22000076436 /* es */,
 				6F15D92C29A5ACC4008991F1 /* sv */,
+				6FFA739529D371BE00E4DCBC /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
