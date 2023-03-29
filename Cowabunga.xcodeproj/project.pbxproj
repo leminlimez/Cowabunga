@@ -163,6 +163,7 @@
 		D60A489729995D830013F066 /* WhitelistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A489629995D830013F066 /* WhitelistView.swift */; };
 		D60A489929995DAD0013F066 /* FileContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A489829995DAD0013F066 /* FileContentsView.swift */; };
 		D60A489C29995DDC0013F066 /* WhitelistFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */; };
+		D6D22B7129C763140095645B /* FreeloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D22B7029C763140095645B /* FreeloadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -380,6 +381,7 @@
 		D60A489629995D830013F066 /* WhitelistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistView.swift; sourceTree = "<group>"; };
 		D60A489829995DAD0013F066 /* FileContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentsView.swift; sourceTree = "<group>"; };
 		D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistFunctions.swift; sourceTree = "<group>"; };
+		D6D22B7029C763140095645B /* FreeloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeloadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -891,6 +893,7 @@
 				6F2480A829B578DB00F2DAA2 /* SettingsCustomizerView.swift */,
 				6FF21AF2298821010054EBC0 /* SpringboardColorChangerView.swift */,
 				6F429675298DE8D700A96108 /* StatusBarView.swift */,
+				D6D22B7029C763140095645B /* FreeloadView.swift */,
 			);
 			path = UniqueToolsViews;
 			sourceTree = "<group>";
@@ -1174,6 +1177,7 @@
 				6F07ABB4299F14E800076436 /* AudioOptionsView.swift in Sources */,
 				6F4296AC2991E8E400A96108 /* StatusManager.m in Sources */,
 				6F369564298C86FC0011ADB8 /* IconOverridesView.swift in Sources */,
+				D6D22B7129C763140095645B /* FreeloadView.swift in Sources */,
 				6F2480A929B578DB00F2DAA2 /* SettingsCustomizerView.swift in Sources */,
 				6F4296B82992CDDE00A96108 /* AdvancedObject.swift in Sources */,
 				6F0E755129AD32CB002E7516 /* FSPConverter.swift in Sources */,
@@ -1429,7 +1433,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1479,7 +1483,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 2P4CP47H76;
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
