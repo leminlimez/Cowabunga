@@ -35,9 +35,16 @@ public class CatalogThemeManager {
             let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
             return true
         } catch {
-            // corruption error
-            UserDefaults.standard.set(false, forKey: "noCatalogThemingFixup")
-            return false
+            // try to revert file
+            do {
+                try change.app.restoreCatalog()
+                let _ = try AssetCatalogWrapper.shared.renditions(forCarArchive: catalogURL)
+                return true
+            } catch {
+                // corruption error
+                UserDefaults.standard.set(false, forKey: "noCatalogThemingFixup")
+                return false
+            }
         }
     }
     
@@ -104,7 +111,7 @@ public class CatalogThemeManager {
                         if let catalogIconName = app.catalogIconName() { // happens with app which store their icons as .png's inside bundle
                             let newCatalogURL = try createCatalog(withIcon: themeIcon, iconName: catalogIconName, maxSize: catalogSize, bundleIdentifier: app.bundleIdentifier)
                             UserDefaults.standard.set(true, forKey: "shouldPerformCatalogFixup")
-                            try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: newCatalogURL))
+                            try MDC.overwriteFile(at: catalogURL.path, with: try Data(contentsOf: newCatalogURL), multipleIterations: true)
                             return true
                         }
                     }
@@ -205,7 +212,12 @@ public class CatalogThemeManager {
                 try app.restoreCatalog()
                 progress(((Double(i) / Double(apps.count)), app))
             } catch {
-                errors.append("catalog: \(app.bundleIdentifier) \(app.name) \(error.localizedDescription)")
+                if error is MDC.MDCOverwriteError {
+                    MDC.isMDCSafe = false
+                    throw error.localizedDescription
+                } else {
+                    errors.append("catalog: \(app.bundleIdentifier) \(app.name) \(error.localizedDescription)")
+                }
             }
         }
         themingInProgress = false

@@ -326,6 +326,8 @@ struct EditingOperationView: View {
                                             .frame(maxHeight: 180)
                                             .onSubmit {
                                                 replacingPath = replacingPath.trimmingCharacters(in: .whitespacesAndNewlines)
+                                                // show padding button
+                                                showPaddingButton = hasPadding.contains(URL(fileURLWithPath: replacingPath).pathExtension)
                                             }
                                     } else {
                                         // Fallback on earlier versions
@@ -419,11 +421,23 @@ struct EditingOperationView: View {
                                     Button(action: {
                                         UIApplication.shared.alert(title: NSLocalizedString("Generating padding...", comment: "Custom operation generating plist padding"), body: NSLocalizedString("Please wait...", comment: ""), animated: true, withButton: false)
                                         do {
-                                            let plist = try PropertyListSerialization.propertyList(from: replacingData!, options: [], format: nil) as! [String: Any]
-                                            let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
-                                            replacingData = newData
-                                            showPaddingButton = false
-                                            UIApplication.shared.dismissAlert(animated: true)
+                                            if let repOp = operation as? ReplacingObject {
+                                                if repOp.replacingType == .Imported {
+                                                    let plist = try PropertyListSerialization.propertyList(from: replacingData!, options: [], format: nil) as! [String: Any]
+                                                    let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
+                                                    replacingData = newData
+                                                    showPaddingButton = false
+                                                    UIApplication.shared.dismissAlert(animated: true)
+                                                } else if repOp.replacingType == .FilePath {
+                                                    let plistData = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
+                                                    var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+                                                    plist["MdC"] = nil
+                                                    let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
+                                                    try newData.write(to: URL(fileURLWithPath: replacingPath))
+                                                    showPaddingButton = false
+                                                    UIApplication.shared.dismissAlert(animated: true)
+                                                }
+                                            }
                                         } catch {
                                             UIApplication.shared.dismissAlert(animated: true)
                                             UIApplication.shared.alert(body: error.localizedDescription)
@@ -808,6 +822,8 @@ struct EditingOperationView: View {
                     replacingPath = replacingOperation.replacingPath
                     if replacingOperation.replacingType == .Imported && operation.replacementData != Data("#".utf8) {
                         replacingData = operation.replacementData
+                        showPaddingButton = hasPadding.contains(URL(fileURLWithPath: replacingPath).pathExtension)
+                    } else if replacingOperation.replacingType == .FilePath && FileManager.default.fileExists(atPath: replacingPath) {
                         showPaddingButton = hasPadding.contains(URL(fileURLWithPath: replacingPath).pathExtension)
                     }
                 } else if let plistOperation = operation as? PlistObject {

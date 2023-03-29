@@ -15,7 +15,7 @@ import Foundation
 // credit: FontOverwrite
 
 /// unlockDataAtEnd - Unlocked the data at overwrite end. Used when replacing files inside app bundle
-func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlockDataAtEnd: Bool = true) -> Bool {
+func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlockDataAtEnd: Bool = true) throws {
 #if false
     let documentDirectory = FileManager.default.urls(
         for: .documentDirectory,
@@ -32,7 +32,7 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlock
     let fd = open(originPath, O_RDONLY | O_CLOEXEC)
     if fd == -1 {
         print("Could not open target file")
-        return false
+        throw("Could not open target file")
     }
     defer { close(fd) }
     // check size of font
@@ -41,7 +41,7 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlock
         print("Original file: \(originalFileSize)")
         print("Replacement file: \(replacementData.count)")
         print("File too big")
-        return false
+        throw "File too big!\nOriginal file: \(originalFileSize)\nReplacement file: \(replacementData.count)"
     }
     lseek(fd, 0, SEEK_SET)
     
@@ -49,12 +49,12 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlock
     let fileMap = mmap(nil, replacementData.count, PROT_READ, MAP_SHARED, fd, 0)
     if fileMap == MAP_FAILED {
         print("Failed to map")
-        return false
+        throw "Failed to map"
     }
     // mlock so the file gets cached in memory
     guard mlock(fileMap, replacementData.count) == 0 else {
         print("Failed to mlock")
-        return true
+        throw "Failed to mlock"
     }
     
     // for every 16k chunk, rewrite
@@ -76,7 +76,7 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlock
         }
         guard overwroteOne else {
             print("Failed to overwrite")
-            return false
+            throw "Failed to overwrite"
         }
     }
     print(Date())
@@ -84,9 +84,7 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data, unlock
     if unlockDataAtEnd {
         guard munlock(fileMap, replacementData.count) == 0 else {
             print("Failed to munlock")
-            return true
+            return
         }
     }
-    
-    return true
 }

@@ -376,6 +376,8 @@
 		6FF21AFA298826FF0054EBC0 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FF21AFC298827190054EBC0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6FF21AFF29882C020054EBC0 /* CoreServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
+		6FFA739529D371BE00E4DCBC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6FFA739629D371BE00E4DCBC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D60A489629995D830013F066 /* WhitelistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistView.swift; sourceTree = "<group>"; };
 		D60A489829995DAD0013F066 /* FileContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentsView.swift; sourceTree = "<group>"; };
 		D60A489B29995DDC0013F066 /* WhitelistFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistFunctions.swift; sourceTree = "<group>"; };
@@ -1025,6 +1027,7 @@
 				"zh-TW",
 				es,
 				sv,
+				nl,
 			);
 			mainGroup = 6F721C83296482C6001CFE46;
 			packageReferences = (
@@ -1238,6 +1241,7 @@
 				6F07AB9E299BCC6B00076436 /* zh-TW */,
 				6F07ABA4299DC22000076436 /* es */,
 				6F15D92D29A5ACC4008991F1 /* sv */,
+				6FFA739629D371BE00E4DCBC /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1261,6 +1265,7 @@
 				6F07AB9D299BCC6B00076436 /* zh-TW */,
 				6F07ABA3299DC22000076436 /* es */,
 				6F15D92C29A5ACC4008991F1 /* sv */,
+				6FFA739529D371BE00E4DCBC /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1439,8 +1444,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant permission to the sandbox (needs it for Passcode keys + some other options)";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in the background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time, but Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in the background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time, but Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Photos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1452,7 +1457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.0.1;
+				MARKETING_VERSION = 10.1.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1502,7 +1507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.0.1;
+				MARKETING_VERSION = 10.1.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";

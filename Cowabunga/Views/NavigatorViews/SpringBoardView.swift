@@ -75,6 +75,7 @@ struct SpringBoardView: View {
                                 SpringBoardOptionView(option: option, screenGeom: screenGeometry, flippedOption: $flippedOption, otherOptions: $tweakOptions)
                                     .zIndex(option.flipped.wrappedValue ? 2 : 0)
                                     .blur(radius: (flippedOption == nil || flippedOption!.title == option.title.wrappedValue) ? 0 : 8, opaque: false)
+                                    .environment(\.layoutDirection, .leftToRight)
                             }
                         }
                     }
@@ -225,11 +226,11 @@ struct SpringBoardView: View {
                     ZStack {
                         FrontSpringBoardView(option: $option, flippedOption: $flippedOption, otherOptions: $otherOptions).opacity(option.flipped ? 0.0 : 1.0)
                             .frame(width: cardGeometry.size.width, height: cardGeometry.size.height)
-                            .scaleEffect(option.animate3d ? (screenGeom.size.width*0.95) / cardGeometry.size.width: 1)
+                            .scaleEffect(option.animate3d ? (min(screenGeom.size.width*0.95, screenGeom.size.height*0.95)) / cardGeometry.size.width: 1)
                         
                         BackSpringBoardView(option: $option, flippedOption: $flippedOption, screenGeom: screenGeom).opacity(option.flipped ? 1.0 : 0.0)
-                            .frame(width: screenGeom.size.width*0.95, height: screenGeom.size.width*0.95)
-                            .scaleEffect(option.animate3d ? 1 : cardGeometry.size.width / (screenGeom.size.width*0.95))
+                            .frame(width: min(screenGeom.size.width, screenGeom.size.height)*0.95, height: min(screenGeom.size.width, screenGeom.size.height)*0.95)
+                            .scaleEffect(option.animate3d ? 1 : cardGeometry.size.width / (min(screenGeom.size.width*0.95, screenGeom.size.height*0.95)))
                     }
                     .modifier(FlipEffect(flipped: $option.flipped, angle: option.animate3d ? 180 : 0, axis: (x: 0.25, y: 1)))
                     .offset(x: option.animate3d ? -cardGeometry.frame(in: .named("mainFrame")).origin.x + screenGeom.size.width*0.025: -(screenGeom.size.width*0.95)/2 + cardGeometry.size.width/2, y: option.animate3d ? -cardGeometry.frame(in: .named("mainFrame")).origin.y + (screenGeom.size.height)/8: -screenGeom.size.width/2 + cardGeometry.size.height/2)

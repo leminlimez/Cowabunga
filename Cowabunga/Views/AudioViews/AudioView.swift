@@ -47,11 +47,11 @@ struct AudioView: View {
             .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentFailed, title: NSLocalizedString("Payment Failed", comment: "Audio name"), imageName: "creditcard.trianglebadge.exclamationmark"),
             .init(category: SoundCategory.payment, key: AudioFiles.SoundEffect.paymentReceived, title: NSLocalizedString("Payment Received", comment: "Audio name"), imageName: "square.and.arrow.down.on.square")
         ]),
-//        .init(title: "Keyboard", imageName: "keyboard", options: [
-//            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: NSLocalizedString("Keyboard Press Normal", comment: "Audio name"), imageName: "square"),
-//            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: NSLocalizedString("Keyboard Press Delete", comment: "Audio name"), imageName: "delete.left"),
-//            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: NSLocalizedString("Keyboard Press Clear", comment: "Audio name"), imageName: "keyboard.badge.ellipsis")
-//        ])
+        .init(title: "Keyboard", imageName: "keyboard", options: [
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyClick, title: NSLocalizedString("Keyboard Press Normal", comment: "Audio name"), imageName: "square"),
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyDel, title: NSLocalizedString("Keyboard Press Delete", comment: "Audio name"), imageName: "delete.left"),
+            .init(category: SoundCategory.keyboard, key: AudioFiles.SoundEffect.kbKeyMod, title: NSLocalizedString("Keyboard Press Clear", comment: "Audio name"), imageName: "keyboard.badge.ellipsis")
+        ])
     ]
     
     var body: some View {
