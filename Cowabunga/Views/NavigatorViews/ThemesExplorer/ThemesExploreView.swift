@@ -141,7 +141,7 @@ struct ThemesExploreView: View {
             }
             .alert("Submit themes", isPresented: $submitThemeAlertShown, actions: {
                 Button("Join Discord", role: .none, action: {
-                    UIApplication.shared.open(URL(string: "https://discord.gg/zTPFJuQfdw")!)
+                    UIApplication.shared.open(URL(string: "https://discord.gg/MN8JgqSAqT")!)
                 })
                 Button("OK", role: .cancel, action: {})
             }, message: {

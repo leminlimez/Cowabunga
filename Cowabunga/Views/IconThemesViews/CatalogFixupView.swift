@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import MacDirtyCowSwift
+
+var ERRORED_APP: String = "UNKNOWN"
 
 @available(iOS 15.0, *)
 struct CatalogFixupView: View {
@@ -63,7 +66,7 @@ struct CatalogFixupView: View {
             Spacer()
             if !showSuccess { Text("In the meantime you can ...", comment: "A joke about users being able to join Discord while they wait for Cowabunga to finish theming. \"In the meantime you can Join Discord\" is the text for button") }
             Button("Join Discord") {
-                UIApplication.shared.open(URL(string: "https://discord.gg/zTPFJuQfdw")!)
+                UIApplication.shared.open(URL(string: "https://discord.gg/MN8JgqSAqT")!)
             }
             .buttonStyle(TintedButton(color: .gray, fullwidth: true))
             .padding(8)
@@ -96,12 +99,20 @@ struct CatalogFixupView: View {
             DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1, execute: {
                 do {
                     var errorsCatalog: [String] = []
+                    var errorsPNGs: [String] = []
                     
                     let noCatalogThemingFixup = UserDefaults.standard.bool(forKey: "noCatalogThemingFixup")
+                    let noPNGThemingFixup = UserDefaults.standard.bool(forKey: "noPNGThemingFixup")
                     
                     if !noCatalogThemingFixup {
                         errorsCatalog = try CatalogThemeManager.restoreCatalogs(progress: { (percentage, app) in
                             self.percentage = percentage
+                            self.percentage = noPNGThemingFixup ? percentage : (percentage / 2)
+                        })
+                    }
+                    if !noPNGThemingFixup {
+                        errorsPNGs = try CatalogThemeManager.restoreIconPNGs(progress: { (percentage, app) in
+                            self.percentage = noCatalogThemingFixup ? percentage : (percentage / 2 + 0.5)
                         })
                     }
                     
@@ -109,11 +120,15 @@ struct CatalogFixupView: View {
                     showSuccess = true
                     isRotating1 = 0
                     
-                    if !errorsCatalog.isEmpty {
-                        UIApplication.shared.alert(body: (errorsCatalog).joined(separator: "\n\n"))
+                    if !errorsCatalog.isEmpty || !errorsPNGs.isEmpty {
+                        UIApplication.shared.alert(body: (errorsCatalog + errorsPNGs).joined(separator: "\n\n"))
                     }
                 } catch {
-                    UIApplication.shared.alert(body: error.localizedDescription)
+                    if MDC.isMDCSafe {
+                        UIApplication.shared.alert(body: error.localizedDescription)
+                    } else {
+                        UIApplication.shared.alert(body: "⛔️ Aborted ⛔️\n\n\(error.localizedDescription)\n\nError occurred with: \(ERRORED_APP)", withButton: false)
+                    }
                 }
             })
         }

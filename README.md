@@ -42,7 +42,7 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
 
 - Explore
     - Find and download themes for passcodes, locks, and app icons!
-    - If you would like to submit your own works, please [join the discord](https://discord.gg/VyVcNjRMeg)
+    - If you would like to submit your own works, please [join the discord](https://discord.gg/MN8JgqSAqT)
 
 - Status Bar
     - Change carrier name
@@ -106,11 +106,11 @@ Just build like a normal Xcode project. Sign using your own team and bundle iden
 ## Credits
 - [TrollTools](https://github.com/sourcelocation/TrollTools) for ipabuild.command, carrier changer logic, alerts UI, and update inbounds message.
 - [FontOverwrite](https://github.com/ginsudev/WDBFontOverwrite) for exploit code and fonts.
-- [SourceLocation](https://github.com/sourcelocation) for the redesigned springboard UI, background services, explore page, and custom app icons.
+- [SourceLocation](https://github.com/sourcelocation) for the explore page and v8 and v10 icon theming.
 - [BomberFish](https://github.com/BomberFish) for AirPower sound.
 - [c22dev](https://github.com/c22dev) for fixing AirPower and some included audios.
 - [DynamicCow](https://github.com/matteozappia/DynamicCow) for DynamicIsland tweak + improved plist function.
 - [Evyrest](https://github.com/sourcelocation/Evyrest) for location based background running.
 
 ## Suggestions and support
-You can either create an issue on this GitHub repo, or join our [Discord server](https://discord.gg/VyVcNjRMeg) where us, or other members, might help you.
+You can either create an issue on this GitHub repo, or join our [Discord server](https://discord.gg/MN8JgqSAqT) where us, or other members, might help you.

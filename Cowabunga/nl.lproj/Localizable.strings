@@ -1,0 +1,1290 @@
+/* No comment provided by engineer. */
+"????" = "????";
+
+/* No comment provided by engineer. */
+"· %lld" = "· %lld";
+
+/* Recommended lock type */
+"(Recommended)" = "(Aanbevolen)";
+
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Verbergt ook de naam van de mobiele provider\n**Verbergt ook de indicator voor mobiele gegevens";
+
+/* No comment provided by engineer. */
+"%lld" = "%lld";
+
+/* No comment provided by engineer. */
+"%lld bytes" = "%lld bytes";
+
+/* No comment provided by engineer. */
+"%lld%%" = "%lld%%";
+
+/* No comment provided by engineer. */
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️ Waarschuwing ⚠️\nSommige gebruikers hebben bootloops ervaren met deze functie. Als u een bètaversie van iOS gebruikt, kunt u voorzichtig doorgaan. Gebruik deze functie niet als u een bètaversie van iOS 16.0 gebruikt.";
+
+/* IMPORTANT alert when icons finish applying */
+"⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ GRAAG LEZEN ⬇⚠️\n\n Nadat de telefoon is gerespringt, graag *Cowabunga heropenen* om ervoor te zorgen dat apps goed werken\n\nZEER BELANGRIJK: als u het Apple-logo en de voortgangsbalk ziet, hoeft u zich geen zorgen te maken, uw apparaat is in orde. PROBEER UW APPARAAT NIET GEFORCEERD TE HERSTARTEN.\n\nVerstreken tijd: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
+
+/* Notification Badge Bubble text. (1 notification) */
+"1" = "1";
+
+/* No comment provided by engineer. */
+"Action" = "Actie";
+
+/* No comment provided by engineer. */
+"Active" = "Actief";
+
+/* No comment provided by engineer. */
+"Add Value" = "Waarde toevoegen";
+
+/* No comment provided by engineer. */
+"Advanced" = "Geavanceerd";
+
+/* resetting all icons */
+"All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "Alle app-pictogrammen worden teruggezet naar hun originele uiterlijk. Weet je zeker dat je verder wilt gaan? (Opnieuw opstarten is mogelijk vereist)";
+
+/* No comment provided by engineer. */
+"Alternatives" = "Alternatieven";
+
+/* No comment provided by engineer. */
+"Always has been" = "Always has been";
+
+/* No comment provided by engineer. */
+"An error occured when applying face sizes." = "Er is een fout opgetreden bij het toepassen van het knop uiterlijk formaat.";
+
+/* No comment provided by engineer. */
+"An error occured while changing key face." = "Er is een fout opgetreden tijdens het wijzigen van het knop uiterlijk.";
+
+/* Passcode export error */
+"An error occured while exporting key face." = "Er is een fout opgetreden bij het exporteren van het knop uiterlijk.";
+
+/* No comment provided by engineer. */
+"An error occured." = "Er is een fout opgetreden.";
+
+/* No comment provided by engineer. */
+"An error occurred" = "Er is een fout opgetreden";
+
+/* when an operation fails to apply */
+"An error occurred while applying the operation" = "Er is een fout opgetreden tijdens het toepassen van de bewerking";
+
+/* when an operation fails to delete */
+"An error occurred while deleting the operation" = "Er is een fout opgetreden tijdens het verwijderen van de bewerking";
+
+/* when an operation fails to restore */
+"An error occurred while restoring the files" = "Er is een fout opgetreden tijdens het herstellen van de bestanden";
+
+/* when an operation fails to save */
+"An error occurred while saving the operation" = "Er is een fout opgetreden tijdens het opslaan van de bewerking";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to disable appclip icons." = "Er is een fout opgetreden bij het uitschakelen van appclip-pictogrammen.";
+
+/* Unable to enable app clips (NOT WEBCLIPS, if your language does not have a word for this then ignore) */
+"An error occurred while trying to enable appclip icons." = "Er is een fout opgetreden bij het inschakelen van appclip-pictogrammen.";
+
+/* No comment provided by engineer. */
+"An error occurred while trying to enable extra settings." = "Er is een fout opgetreden bij het inschakelen van extra instellingen.";
+
+/* No comment provided by engineer. */
+"App Stopped Running" = "App is gestopt met werken";
+
+/* No comment provided by engineer. */
+"App Switcher" = "App-switcher";
+
+/* No comment provided by engineer. */
+"App theme was successfully saved!" = "App-thema is succesvol opgeslagen!";
+
+/* No comment provided by engineer. */
+"Apple ID, iCloud, Media & Purchases" = "Apple ID, iCloud, Media & Aankopen";
+
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "Past alle tweaks toe die eerder zijn toegepast.";
+
+/* No comment provided by engineer. */
+"Apply" = "Toepassen";
+
+/* Header for apply passcode key size for all */
+"Apply for all?" = "Voor alles toepassen?";
+
+/* No comment provided by engineer. */
+"Apply in Background" = "Toepassen op achtergrond";
+
+/* No comment provided by engineer. */
+"Apply Once" = "Eenmalig toepassen";
+
+/* No comment provided by engineer. */
+"Apply themes" = "Thema's toepassen";
+
+/* No comment provided by engineer. */
+"Apply Without Saving" = "Toepassen zonder op te slaan";
+
+/* apply button on custom operations */
+"Applying operation..." = "Bewerking toepassen...";
+
+/* No comment provided by engineer. */
+"Are you sure you want to reset the Default SubType?" = "Weet u zeker dat u het standaard subtype wilt resetten?";
+
+/* No comment provided by engineer. */
+"Asset Catalog" = "Asset Catalogus";
+
+/* Title of tool */
+"Audio" = "Audio";
+
+/* No comment provided by engineer. */
+"Audio Changer" = "Audio-wisselaar";
+
+/* No comment provided by engineer. */
+"Auto respring after apply" = "Automatisch respringen na toepassen";
+
+/* No comment provided by engineer. */
+"Auto Update Included Audio" = "Automatisch inbegrepen audio updaten";
+
+/* No comment provided by engineer. */
+"Background" = "Achtergrond";
+
+/* No comment provided by engineer. */
+"Background Applying" = "Achtergrond toepassen";
+
+/* No comment provided by engineer. */
+"Background Services" = "Achtergrondservices";
+
+/* No comment provided by engineer. */
+"Background Update Frequency" = "Frequentie van achtergrondupdates";
+
+/* No comment provided by engineer. */
+"Banned Apps" = "Verboden apps";
+
+/* No comment provided by engineer. */
+"Basic Configuration" = "Basis configuratie";
+
+/* No comment provided by engineer. */
+"Battery Detail Text" = "Batterijdetailtekst";
+
+/* Audio name */
+"Begin Recording" = "Begin met opnemen";
+
+/* Big passcode keys */
+"Big" = "Groot";
+
+/* No comment provided by engineer. */
+"binary" = "binary";
+
+/* No comment provided by engineer. */
+"Blacklist" = "Blacklist";
+
+/* No comment provided by engineer. */
+"Blacklist File Contents" = "Blacklist bestandsinhoud";
+
+/* No comment provided by engineer. */
+"Blur Enabled" = "Blur ingeschakeld";
+
+/* No comment provided by engineer. */
+"Blur:   %lld" = "Blur:   %lld";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "Breadcrumb-tekst";
+
+/* No comment provided by engineer. */
+"Calculate Size" = "Bereken de grootte";
+
+/* Cancel */
+"Cancel" = "Annuleren";
+
+/* No comment provided by engineer. */
+"Cannot write to file path!" = "Kan niet schrijven naar bestandspad!";
+
+/* Title of tool */
+"Card Changer" = "Kaart uiterlijk wijzigen";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "Mobiele provider tekst";
+
+/* No comment provided by engineer. */
+"catalogIconTheming" = "catalogIconTheming";
+
+/* No comment provided by engineer. */
+"CC Modules" = "CC-modules";
+
+/* No comment provided by engineer. */
+"CD Hashes" = "CD-hashes";
+
+/* No comment provided by engineer. */
+"Change" = "Wijzigen";
+
+/* No comment provided by engineer. */
+"Change Battery Detail Text" = "Wijzig batterijdetails tekst";
+
+/* No comment provided by engineer. */
+"Change Battery Icon Capacity" = "Wijzig de capaciteit van het batterijpictogram";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "Wijzig de breadcrumb-tekst";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "wijzig mobiele provider tekst";
+
+/* No comment provided by engineer. */
+"Change Cellular Signal Strength Bars" = "Wijzig mobiel netwerk signaalsterkte balken";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "Wijzig statusbalk tijdtekst";
+
+/* No comment provided by engineer. */
+"Change WiFi Signal Strength Bars" = "Wijzig wifi-signaalsterktebalken";
+
+/* Audio name */
+"Charging" = "Opladen";
+
+/* No comment provided by engineer. */
+"Choose a device subtype" = "Kies een apparaatsubtype";
+
+/* Title for lock preference */
+"Choose a lock preference" = "Kies een slotvoorkeur";
+
+/* No comment provided by engineer. */
+"Choose a name for the category" = "Kies een naam voor de categorie";
+
+/* No comment provided by engineer. */
+"Choose a name for the lock" = "Kies een naam voor het slot";
+
+/* Entering name for audio */
+"Choose a name for the sound" = "Kies een naam voor het geluid";
+
+/* No comment provided by engineer. */
+"Choose a plist type" = "Kies een plist-type";
+
+/* Choose a size for passcode keys */
+"Choose a size" = "Kies een maat";
+
+/* No comment provided by engineer. */
+"Choose a value type" = "Kies een waardetype";
+
+/* No comment provided by engineer. */
+"Choose an operation type" = "Kies een bewerkingstype";
+
+/* Title for choosing background update interval */
+"Choose an update option" = "Kies een update-optie";
+
+/* No comment provided by engineer. */
+"Choose app Icon" = "Kies app-pictogram";
+
+/* No comment provided by engineer. */
+"Choose Image" = "Kies Afbeelding";
+
+/* No comment provided by engineer. */
+"Choose size" = "Kies grootte";
+
+/* No comment provided by engineer. */
+"Clear image" = "Afbeelding resetten";
+
+/* No comment provided by engineer. */
+"Close" = "Sluiten";
+
+/* No comment provided by engineer. */
+"Color" = "Kleur";
+
+/* No comment provided by engineer. */
+"Color Data" = "Kleur gegevens";
+
+/* No comment provided by engineer. */
+"Color:" = "Kleur:";
+
+/* No comment provided by engineer. */
+"Configuration" = "Configuratie";
+
+/* No comment provided by engineer. */
+"Confirm" = "Bevestigen";
+
+/* Category of tool */
+"Control Center" = "Control Center";
+
+/* operation type that corrupts/disables the file */
+"Corrupting" = "Corrupting";
+
+/* No comment provided by engineer. */
+"Could not calculate plist size!" = "Kon de plist-grootte niet berekenen!";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "Kan thema niet downloaden!";
+
+/* No comment provided by engineer. */
+"Couldn't get url of file. Did you select it?" = "Kan de URL van het bestand niet ophalen. Heb je het geselecteerd?";
+
+/* No comment provided by engineer. */
+"Couldn't get url of folder. Did you select it?" = "Kan de URL van de map niet ophalen. Heb je het geselecteerd?";
+
+/* No comment provided by engineer. */
+"Cowabunga" = "Cowabunga";
+
+/* No comment provided by engineer. */
+"Cowabunga %@" = "Cowabunga %@";
+
+/* No comment provided by engineer. */
+"Cowabunga App Icon" = "Cowabunga App-pictogram";
+
+/* No comment provided by engineer. */
+"Cowabunga requires “Always” location permission." = "Cowabunga vereist “Altijd” locatietoestemming.";
+
+/* App icon name */
+"CowTools" = "CowTools";
+
+/* No comment provided by engineer. */
+"Create" = "Creëren";
+
+/* No comment provided by engineer. */
+"Create Operation" = "Bewerking maken";
+
+/* No comment provided by engineer. */
+"Creating" = "Creëren";
+
+/* No comment provided by engineer. */
+"Creating Data" = "Gegevens creëren";
+
+/* No comment provided by engineer. */
+"Credits" = "Credits";
+
+/* No comment provided by engineer. */
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Momenteel om thema's in te dienen die andere mensen kunnen zien en gebruiken, moeten we ze goedkeuren in onze Discord in #showcase channel.";
+
+/* Custom size for passcode keys */
+"Custom" = "Aangepast";
+
+/* No comment provided by engineer. */
+"Custom image" = "Aangepaste afbeelding";
+
+/* Title of tool */
+"Custom Operations" = "Aangepaste bewerkingen";
+
+/* No comment provided by engineer. */
+"Custom Operations Author Name" = "Auteursnaam aangepaste bewerkingen";
+
+/* App icon name
+   default device subtype
+   Default passcode size */
+"Default" = "Standaard";
+
+/* Audio name */
+"Default Notifications" = "Standaardmeldingen";
+
+/* No comment provided by engineer. */
+"Delete" = "Verwijderen";
+
+/* No comment provided by engineer. */
+"Delete Shortcut Banners" = "Verwijder snelkoppelingsbanners";
+
+/* No comment provided by engineer. */
+"Deleting" = "Verwijderen";
+
+/* delete button on custom operations */
+"Deleting operation..." = "Bewerking verwijderen...";
+
+/* No comment provided by engineer. */
+"Dialer Face Editor" = "Dialer knop uiterlijk editor";
+
+/* No comment provided by engineer. */
+"Dialer keys successfully cleared!" = "Dialer knop succesvol gereset!";
+
+/* No comment provided by engineer. */
+"Disable" = "Uitzetten";
+
+/* Springboard tool */
+"Disable App Switcher Blur" = "Zet app switcher blur uit";
+
+/* Springboard tool */
+"Disable CC Module Background" = "Zet CC-module achtergrond uit";
+
+/* Springboard tool */
+"Disable Folder Background" = "Zet map achtergrond uit";
+
+/* Springboard tool */
+"Disable Folder Blur" = "Zet map blur uit";
+
+/* Springboard tool */
+"Disable Library Pods Background" = "Achtergrond van bibliotheekpods uitschakelen";
+
+/* No comment provided by engineer. */
+"Disable Screen Time" = "Schermtijd uitschakelen";
+
+/* No comment provided by engineer. */
+"Disable Shortcut Apps as Appclips" = "Schakel snelkoppelingsapps uit als appclips";
+
+/* No comment provided by engineer. */
+"Dock" = "Dock";
+
+/* No comment provided by engineer. */
+"Download themes in Themes tab." = "Download thema's in het thema's tabblad.";
+
+/* No comment provided by engineer. */
+"Downloading" = "downloaden";
+
+/* iPhone 14 Pro SubType */
+"Dynamic Island" = "Dynamic Island";
+
+/* iPhone 14 Pro Max SubType */
+"Dynamic Island Pro Max" = "Dynamic Island Pro Max";
+
+/* matteozappia's contribution */
+"Dynamic Island SubTypes" = "Dynamic Island SubTypes";
+
+/* No comment provided by engineer. */
+"Edit Operation" = "Bewerking bewerken";
+
+/* No comment provided by engineer. */
+"Editing %@" = "Bewerken %@";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Enable" = "Inschakelen";
+
+/* No comment provided by engineer. */
+"Enable Shortcut Apps as Appclips" = "Schakel snelkoppelingsapps in als appclips";
+
+/* No comment provided by engineer. */
+"Enabled" = "Ingeschakeld";
+
+/* Audio name */
+"End Recording" = "Beëindig opname";
+
+/* Entering custom resolution */
+"Enter Dimensions" = "Voer afmetingen in";
+
+/* dimensions for passcode keys */
+"Enter Key Dimensions" = "Voer knop afmetingen in";
+
+/* No comment provided by engineer. */
+"Enter Name" = "Voer naam in";
+
+/* No comment provided by engineer. */
+"Error" = "Fout";
+
+/* Error occured while fetching themes */
+"Error occured while fetching themes" = "Er is een fout opgetreden tijdens het ophalen van thema's";
+
+/* No comment provided by engineer. */
+"Errors occurred while setting some icons" = "Er zijn fouten opgetreden bij het instellen van sommige pictogrammen";
+
+/* No comment provided by engineer. */
+"Exaple" = "Voorbeeld";
+
+/* ginsudev's contribution */
+"Exploit Code" = "Exploit Code";
+
+/* No comment provided by engineer. */
+"Explore" = "Verkennen";
+
+/* No comment provided by engineer. */
+"Extra Preferences" = "Extra Voorkeuren";
+
+/* Failed to apply audio */
+"Failed to apply audio for:" = "Kan audio niet toepassen voor:";
+
+/* failed to apply subtype */
+"Failed to apply Device SubType!" = "Kan apparaatsubtype niet toepassen!";
+
+/* Failing to apply custom resolution */
+"Failed to apply resolution:" = "Kan resolutie niet toepassen:";
+
+/* No comment provided by engineer. */
+"Failed to apply system version change! The version must be shorter than your current device version.\n\n(error.localizedDescription)" = "Kan de wijziging van de systeemversie niet toepassen! De versie moet korter zijn dan uw huidige apparaatversie.\n\n(error.localizedDescription)";
+
+/* when the category cannot be created */
+"Failed to create category" = "Kan categorie niet maken";
+
+/* No comment provided by engineer. */
+"Failed to load operations." = "Kan bewerkingen niet laden.";
+
+/* No comment provided by engineer. */
+"Failed to save theme!" = "Kan thema niet opslaan!";
+
+/* No comment provided by engineer. */
+"File not found!" = "Bestand niet gevonden!";
+
+/* No comment provided by engineer. */
+"File:" = "Bestand:";
+
+/* Import passcode theme from files */
+"Files" = "Bestanden";
+
+/* No comment provided by engineer. */
+"Filter" = "Filter";
+
+/* No comment provided by engineer. */
+"Fix tweaks" = "Repareer tweaks";
+
+/* No comment provided by engineer. */
+"Fixing apps..." = "Apps aan het repareren...";
+
+/* No comment provided by engineer. */
+"Focus" = "Focus";
+
+/* No comment provided by engineer. */
+"Folder" = "Map";
+
+/* No comment provided by engineer. */
+"Font Files" = "Lettertypebestanden";
+
+/* No comment provided by engineer. */
+"Font Pack Name" = "Naam lettertypepakket";
+
+/* No comment provided by engineer. */
+"Fonts" = "lettertypen";
+
+/* No comment provided by engineer. */
+"Footnote" = "voetnoot";
+
+/* No comment provided by engineer. */
+"Footnote:" = "voetnoot:";
+
+/* No comment provided by engineer. */
+"Force MacDirtyCOW" = "Forceer MacDirtyCOW";
+
+/* No comment provided by engineer. */
+"Forgot password?" = "Wachtwoord vergeten?";
+
+/* Frequent */
+"Frequent" = "Veel voorkomend";
+
+/* Where to import passcode theme from */
+"From where do you want to import from?" = "Van waaruit wilt u importeren?";
+
+/* header for resetting all icons */
+"Full reset" = "Volledige reset";
+
+/* No comment provided by engineer. */
+"Generate Padding" = "Genereer padding";
+
+/* No comment provided by engineer. */
+"Gestures / Dynamic Island" = "Gebaren / Dynamic Island";
+
+/* App icon name */
+"Glitch" = "Glitch";
+
+/* No comment provided by engineer. */
+"Go here if something isn't working correctly." = "Ga hierheen als er iets niet goed werkt.";
+
+/* Height of custom resolution
+   Height of passcode keys */
+"Height" = "Hoogte";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "Vliegtuigmodus verbergen";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "AirPlay verbergen";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "Alarm verbergen";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "Batterij verbergen";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "Bluetooth verbergen";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "CarPlay verbergen";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "Mobiel netwerk verbergen*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "Niet storen verbergen";
+
+/* Springboard tool */
+"Hide Dock" = "Dock verbergen";
+
+/* Springboard tool */
+"Hide Home Bar" = "Home Bar verbergen";
+
+/* No comment provided by engineer. */
+"Hide Location" = "Locatie verbergen";
+
+/* Springboard tool */
+"Hide Notification Banner Background" = "Achtergrond van meldingsbanner verbergen";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "Rotatievergrendeling verbergen";
+
+/* No comment provided by engineer. */
+"Hide Status Bar Time" = "Statusbalktijd verbergen";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "VPN verbergen";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi**" = "Wifi verbergen**";
+
+/* No comment provided by engineer. */
+"Home" = "Start";
+
+/* Category of tool */
+"Home Screen" = "Startscherm";
+
+/* No comment provided by engineer. */
+"I'm not a robot (no cap)" = "ik ben geen robot (no cap)";
+
+/* No comment provided by engineer. */
+"Icons" = "Pictogrammen";
+
+/* No comment provided by engineer. */
+"Icons override" = "Pictogrammen overschrijven";
+
+/* No comment provided by engineer. */
+"If a file of the same name already exists in the pack, it will be overwritten." = "Als er al een bestand met dezelfde naam in het pakket bestaat, wordt deze overschreven.";
+
+/* Description for lock preference */
+"If the custom lock does not apply for you, try another option." = "Als het aangepaste slot niet bij jou werkt, probeer dan een andere optie.";
+
+/* No comment provided by engineer. */
+"Image:" = "Afbeelding:";
+
+/* Header for importing passcode theme */
+"Import Passcode Theme" = "Importeer toegangscodethema";
+
+/* No comment provided by engineer. */
+"In progress..." = "Bezig...";
+
+/* A joke about users being able to join Discord while they wait for Cowabunga to finish theming. "In the meantime you can Join Discord" is the text for button */
+"In the meantime you can ..." = "In de tussentijd kun je ...";
+
+/* No comment provided by engineer. */
+"Included" = "Inbegrepen";
+
+/* fix tweaks info header
+   respring info header */
+"Info" = "Info";
+
+/* Header for inputting custom iOS version */
+"Input Software Version" = "Softwareversie invoeren";
+
+/* App icon name */
+"iOS 6" = "iOS 6";
+
+/* x gestures */
+"iPhone X Gestures" = "iPhone X Gebaren";
+
+/* No comment provided by engineer. */
+"Join Discord" = "Discord joinen";
+
+/* key for plist operation */
+"Key" = "Key";
+
+/* Audio name */
+"Keyboard Press Clear" = "Toetsenbord Druk Wissen";
+
+/* Audio name */
+"Keyboard Press Delete" = "Toetsenbord Druk Verwijderen";
+
+/* Audio name */
+"Keyboard Press Normal" = "Toetsenbord Druk Normaal";
+
+/* Audio name */
+"Lock" = "Vergrendelen";
+
+/* Category of tool */
+"Lock Screen" = "Vergrendel scherm";
+
+/* Title of tool */
+"Lock Screen Footnote" = "Vergrendel scherm voetnoot";
+
+/* No comment provided by engineer. */
+"Lock Screen Footnote Changer" = "Vergrendel scherm voetnoot veranderen";
+
+/* No comment provided by engineer. */
+"Lock Type" = "Vergrendel type";
+
+/* Title of tool */
+"Locks" = "Locks";
+
+/* No comment provided by engineer. */
+"Log in" = "Inloggen";
+
+/* No comment provided by engineer. */
+"Log in Sourced" = "Inloggen afkomstig";
+
+/* Audio name */
+"Low Power" = "laag batterijvermogen";
+
+/* leminlimez's contribution
+   sourcelocation's contribution */
+"Main Developer" = "Hoofdontwikkelaar";
+
+/* No comment provided by engineer. */
+"Make It So, Number One" = "Maak het zo, nummer één";
+
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "Achtergrondtaken beheren";
+
+/* Maximum passcode key size */
+"Max:" = "Max:";
+
+/* Minimum passcode key size */
+"Min:" = "Min:";
+
+/* App icon name */
+"Minecraft" = "Minecraft";
+
+/* Title of tool */
+"Miscellaneous" = "Diversen";
+
+/* No comment provided by engineer. */
+"More Settings" = "Meer instellingen";
+
+/* No comment provided by engineer. */
+"Name" = "Naam";
+
+/* No comment provided by engineer. */
+"Name:" = "Naam:";
+
+/* No comment provided by engineer. */
+"New" = "Nieuw";
+
+/* No comment provided by engineer. */
+"New Category" = "Nieuwe categorie";
+
+/* Audio name */
+"New Mail" = "Nieuwe Mail";
+
+/* No comment provided by engineer. */
+"New Operation" = "Nieuwe bewerking";
+
+/* No comment provided by engineer. */
+"New theme name" = "Nieuwe themanaam";
+
+/* Decline apply for all (passcode keys) */
+"No" = "Nee";
+
+/* No comment provided by engineer. */
+"No Cards Found" = "Geen kaarten gevonden";
+
+/* No comment provided by engineer. */
+"No images found!" = "Geen afbeeldingen gevonden!";
+
+/* No comment provided by engineer. */
+"No respring required to apply." = "Geen respring vereist om toe te passen.";
+
+/* No comment provided by engineer. */
+"No themes containing icons for %@ (%@) have been found." = "Er zijn geen thema's met pictogrammen voor %@ (%@) gevonden.";
+
+/* No comment provided by engineer. */
+"No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Geen thema's gevonden. Download thema's op het tabblad Verkennen,\nof importeer ze via de knop in de rechterbovenhoek (Thema's moeten iconen bevatten in de indeling <id>.png).";
+
+/* No comment provided by engineer. */
+"noPNGThemingFixup" = "noPNGThemingFixup";
+
+/* Not a valid size input for passcode keys */
+"Not a valid size!" = "Geen geldige maat!";
+
+/* No comment provided by engineer. */
+"Not enough icons to show a preview. \nInvalid theme?" = "Niet genoeg pictogrammen om een voorbeeld weer te geven.\nOngeldig thema?";
+
+/* No comment provided by engineer. */
+"Not Playing" = "Niet spelen";
+
+/* No comment provided by engineer. */
+"Notification Banner" = "Meldingsbanner";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Open Settings" = "Open instellingen";
+
+/* No comment provided by engineer. */
+"Operation Name" = "Bewerking naam";
+
+/* No comment provided by engineer. */
+"Options" = "Opties";
+
+/* No comment provided by engineer. */
+"Original" = "Origineel";
+
+/* Category of tool */
+"Other" = "Overig";
+
+/* No comment provided by engineer. */
+"Overwrite Banned Apps" = "Overschrijf verboden apps";
+
+/* No comment provided by engineer. */
+"Overwrite Blacklist" = "Zwarte lijst overschrijven";
+
+/* No comment provided by engineer. */
+"Overwrite CDHashes" = "Overschrijf CDHashes";
+
+/* No comment provided by engineer. */
+"Passcode Face Editor" = "Toegangscode knop editor";
+
+/* Title of tool */
+"Passcode Faces" = "Toegangscode knoppen";
+
+/* No comment provided by engineer. */
+"Passcodes" = "Toegangscodes";
+
+/* No comment provided by engineer. */
+"Password" = "Wachtwoord";
+
+/* No comment provided by engineer. */
+"Path" = "Pad";
+
+/* No comment provided by engineer. */
+"Path:" = "Pad:";
+
+/* No comment provided by engineer. */
+"Patreon Supporters" = "Patreon Supporters";
+
+/* Audio name */
+"Payment Failed" = "Betaling mislukt";
+
+/* Audio name */
+"Payment Received" = "Betaling ontvangen";
+
+/* Audio name */
+"Payment Success" = "Betaling gelukt";
+
+/* App icon name */
+"Pixel Art" = "Pixel Art";
+
+/* No comment provided by engineer. */
+"Please close and reopen the Phone app." = "Sluit de telefoon-app en open deze opnieuw.";
+
+/* when user enters a category name that cannot be used */
+"Please enter a valid category name!" = "Voer een geldige categorienaam in!";
+
+/* No comment provided by engineer. */
+"Please grant Cowabunga “Always” location permission in Settings so it can run in the background indefinitely." = "Verleen Cowabunga \"Altijd\" locatietoestemming in Instellingen, zodat deze voor onbepaalde tijd op de achtergrond kan blijven draaien.";
+
+/* No comment provided by engineer. */
+"Please log into your Sourced Repo account to continue" = "Log in op uw Sourced Repo-account om door te gaan";
+
+/* No comment provided by engineer. */
+"Please respring to finish applying changes." = "Respring om de wijzigingen toe te passen.";
+
+/* respring to hear audio changes */
+"Please respring to hear changes." = "Respring om wijzigingen te horen.";
+
+/* No comment provided by engineer. */
+"Please respring to see changes." = "Respring om de wijzigingen te zien.";
+
+/* No comment provided by engineer. */
+"Please select a file to import!" = "Selecteer een bestand om te importeren!";
+
+/* No comment provided by engineer. */
+"Please wait" = "Even geduld aub";
+
+/* No comment provided by engineer. */
+"Please wait for Cowabunga to finish theming..." = "Wacht tot Cowabunga klaar is met het instellen van uw thema...";
+
+/* operation type that changes plist keys */
+"Plist" = "Plist";
+
+/* No comment provided by engineer. */
+"Plist Data" = "Plist Data";
+
+/* No comment provided by engineer. */
+"Plist Properties" = "Plist Properties";
+
+/* No comment provided by engineer. */
+"Plist Type:" = "Plist Type:";
+
+/* No comment provided by engineer. */
+"pngIconTheming" = "pngIconTheming";
+
+/* Power Saving */
+"Power Saving" = "Energiebesparend";
+
+/* No comment provided by engineer. */
+"Preferences" = "Voorkeuren";
+
+/* No comment provided by engineer. */
+"Preview" = "Voorbeeld";
+
+/* Successfully applying custom resolution */
+"Reboot to revert resolution changes. It will auto respring when done" = "Start opnieuw op om resolutiewijzigingen ongedaan te maken. Het zal automatisch respringen zodra het klaar is";
+
+/* No comment provided by engineer. */
+"Rebuild Icon Cache" = "Pictogramcache opnieuw opbouwen";
+
+/* Audio name */
+"Received Message" = "Ontvangen bericht";
+
+/* No comment provided by engineer. */
+"Remove all" = "Verwijder alles";
+
+/* No comment provided by engineer. */
+"Remove Icons" = "Verwijder pictogrammen";
+
+/* No comment provided by engineer. */
+"Remove Image" = "Verwijder afbeelding";
+
+/* No comment provided by engineer. */
+"Remove Labels" = "Verwijder labels";
+
+/* No comment provided by engineer. */
+"Remove Previews" = "Verwijder voorbeelden";
+
+/* No comment provided by engineer. */
+"Remove theme" = "Verwijder thema";
+
+/* No comment provided by engineer. */
+"Rename" = "Hernoemen";
+
+/* Entering new theme name */
+"Rename theme" = "Hernoem thema";
+
+/* No comment provided by engineer. */
+"Replace With:" = "Vervangen door:";
+
+/* No comment provided by engineer. */
+"Replacement Data" = "Vervangende gegevens";
+
+/* operation type that replaces a file */
+"Replacing" = "Vervangen";
+
+/* No comment provided by engineer. */
+"Reset All" = "Alles resetten";
+
+/* No comment provided by engineer. */
+"Reset Default SubType" = "Reset standaard subtype";
+
+/* No comment provided by engineer. */
+"Reset faces" = "Reset knoppen";
+
+/* No comment provided by engineer. */
+"Resolution will now apply" = "Resolutie is nu van toepassing";
+
+/* No comment provided by engineer. */
+"Respring" = "Respring";
+
+/* respring info */
+"Respring is an action that allows restarting your Home Screen without rebooting your device." = "Respring is een actie waarmee u uw startscherm opnieuw kunt opstarten zonder uw apparaat opnieuw op te starten.";
+
+/* Respring to see changes */
+"Respring to see changes" = "Respring om veranderingen te zien";
+
+/* No comment provided by engineer. */
+"Restore" = "Herstellen";
+
+/* restore button on custom operations */
+"Restoring original file..." = "Origineel bestand herstellen...";
+
+/* No comment provided by engineer. */
+"Run in background" = "Laten lopen op de achtergrond";
+
+/* No comment provided by engineer. */
+"Save" = "opslaan";
+
+/* No comment provided by engineer. */
+"Save Settings" = "Instellingen opslaan";
+
+/* Import passcode theme from saved */
+"Saved" = "Opgeslagen";
+
+/* apply button on custom operations */
+"Saving operation..." = "Bewerking opslaan...";
+
+/* No comment provided by engineer. */
+"Scale:   %lld%%" = "Schaal:   %lld%%";
+
+/* rebuilding icon cache */
+"Scheduling a rebuild" = "Een herbouw van de pictogramcache plannen";
+
+/* No comment provided by engineer. */
+"Scheduling icon cache reset..." = "Een reset van de pictogramcache plannen...";
+
+/* No comment provided by engineer. */
+"Screen Time Enabled" = "Schermtijd ingeschakeld";
+
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "Schermtijd is succesvol uitgeschakeld, start opnieuw op om de toepassing te voltooien. U kunt de verbinding inschakelen na opnieuw opstarten.";
+
+/* Audio name */
+"Screenshot" = "Schermafbeelding";
+
+/* c22dev's contribution */
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "Schermtijd verwijderaar, inbegrepen audio, credits en kaart uiterlijk wijzigen";
+
+/* No comment provided by engineer. */
+"Select" = "Selecteer";
+
+/* No comment provided by engineer. */
+"Select Font Pack" = "Selecteer Lettertypepakket";
+
+/* No comment provided by engineer. */
+"Select Image" = "Selecteer afbeelding";
+
+/* No comment provided by engineer. */
+"Selected" = "Geselecteerd";
+
+/* No comment provided by engineer. */
+"Selected: %lld" = "Geselecteerd: %lld";
+
+/* Audio name */
+"Sent Mail" = "Verzend mail";
+
+/* Audio name */
+"Sent Message" = "Verzend bericht";
+
+/* No comment provided by engineer. */
+"Set app switcher color" = "App-switcher kleur instellen";
+
+/* No comment provided by engineer. */
+"Set as Active" = "Instellen als Actief";
+
+/* No comment provided by engineer. */
+"Set badge color" = "Badgekleur instellen";
+
+/* No comment provided by engineer. */
+"Set cc module color" = "Cc-module kleur instellen";
+
+/* No comment provided by engineer. */
+"Set color" = "Kleur instellen";
+
+/* No comment provided by engineer. */
+"Set dock color" = "Dockkleur instellen";
+
+/* No comment provided by engineer. */
+"Set expanded folder background color" = "achtergrondkleur van geopende map instellen";
+
+/* No comment provided by engineer. */
+"Set folder color" = "Mapkleur instellen";
+
+/* No comment provided by engineer. */
+"Set notification banner color" = "Meldingsbanner kleur instellen";
+
+/* No comment provided by engineer. */
+"Settings" = "Instellingen";
+
+/* No comment provided by engineer. */
+"Shortcut Apps" = "Snelkoppeling-apps";
+
+/* No comment provided by engineer. */
+"Show Numeric Cellular Strength" = "Toon numerieke cellulaire sterkte";
+
+/* No comment provided by engineer. */
+"Show Numeric WiFi Strength" = "Toon numerieke wifi-sterkte";
+
+/* No comment provided by engineer. */
+"Sign up" = "Aanmelden";
+
+/* No comment provided by engineer. */
+"Size not calculated" = "Grootte niet berekend";
+
+/* Small passcode keys */
+"Small" = "Klein";
+
+/* No comment provided by engineer. */
+"Software Version" = "Software versie";
+
+/* Title of tool */
+"Springboard Colors" = "Springboard kleuren";
+
+/* Title of tool */
+"Springboard Tools" = "Springboard-tools";
+
+/* No comment provided by engineer. */
+"SpringBoard Tools" = "SpringBoard-tools";
+
+/* No comment provided by engineer. */
+"Starting..." = "Starten...";
+
+/* Title of tool */
+"Status Bar" = "Statusbalk";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "Statusbalk Tijdtekst";
+
+/* No comment provided by engineer. */
+"Submit themes" = "Thema's indienen";
+
+/* No comment provided by engineer. */
+"Success" = "Gelukt";
+
+/* No comment provided by engineer. */
+"Success!" = "Gelukt!";
+
+/* applying audio succeeded */
+"Successfully applied audio!" = "Audio succesvol toegepast!";
+
+/* Successfully applied tweaks */
+"Successfully applied tweaks" = "Tweaks succesvol toegepast";
+
+/* No comment provided by engineer. */
+"Supervised" = "Supervised";
+
+/* No comment provided by engineer. */
+"Swipe to view different cards" = "Veeg om verschillende kaarten te bekijken";
+
+/* No comment provided by engineer. */
+"Tap a card to customize" = "Tik op een kaart om aan te passen";
+
+/* No comment provided by engineer. */
+"Tap on any key to edit \nits appearance" = "Tik op een toets om het uiterlijk te bewerken";
+
+/* No comment provided by engineer. */
+"Tap on icon you want to set as preferred for %@ (%@)" = "Tik op het pictogram waaraan u de voorkeur geeft voor %@ (%@)";
+
+/* No comment provided by engineer. */
+"Tap this notification to resume tweak applications." = "Tik op deze melding om tweak-applicaties te hervatten.";
+
+/* No comment provided by engineer. */
+"Test: theme all icons using 1 icon" = "Test: wijzig alle pictogrammen met 1 pictogram";
+
+/* No comment provided by engineer. */
+"The app will quit." = "De app zal stoppen.";
+
+/* when an operation is restored */
+"The file was successfully restored!" = "Het bestand is succesvol hersteld!";
+
+/* Saving imported audio */
+"The imported audio was successfully encoded and saved." = "De geïmporteerde audio is met succes gecodeerd en opgeslagen.";
+
+/* Saving imported lock */
+"The imported lock was successfully saved." = "De geïmporteerde lock is succesvol opgeslagen.";
+
+/* when an operation is applied */
+"The operation was successfully applied! The operation was not saved, only applied." = "De bewerking is succesvol toegepast! De bewerking is niet opgeslagen, alleen toegepast.";
+
+/* when an operation is deleted */
+"The operation was successfully deleted!" = "De bewerking is succesvol verwijderd!";
+
+/* when an operation is saved */
+"The operation was successfully saved!" = "De bewerking is succesvol opgeslagen!";
+
+/* No comment provided by engineer. */
+"The theme was successfully downloaded and saved!" = "Het thema is succesvol gedownload en opgeslagen!";
+
+/* failed to select icon */
+"Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "Thema met de naam (url.deletingPathExtension().lastPathComponent) bestaat al. Geef de map een andere naam.";
+
+/* No comment provided by engineer. */
+"Themes" = "Thema's";
+
+/* screentime process */
+"This could cause issues. Make sure to disable data or Wi-Fi." = "Dit kan problemen veroorzaken. Zorg ervoor dat je je mobiele netwerk of wifi uitschakelt.";
+
+/* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "Schakel tussen welke services worden uitgevoerd of toegepast wanneer de app op de achtergrond draait.";
+
+/* No comment provided by engineer. */
+"Tools" = "Hulpmiddelen";
+
+/* No comment provided by engineer. */
+"Translators" = "Vertalers";
+
+/* No comment provided by engineer. */
+"Tweak Options" = "Tweak-opties";
+
+/* No comment provided by engineer. */
+"Type:" = "Type:";
+
+/* Cannot delete audio (audio name is after) */
+"Unable to delete audio for audio" = "Kan audio voor audio niet verwijderen";
+
+/* Failed to import lock */
+"Unable to save imported lock!" = "Kan geïmporteerd lock niet opslaan!";
+
+/* No comment provided by engineer. */
+"Uncategorized" = "Ongecategoriseerd";
+
+/* Shown after successful theme set. */
+"Understood, Respring" = "Begrepen, Respring";
+
+/* zhuowei's contribution */
+"Unsandboxing" = "Unsandboxing";
+
+/* No comment provided by engineer. */
+"Update Frequency" = "Update frequentie";
+
+/* No comment provided by engineer. */
+"Update Included Audio" = "Update inbegrepen audio";
+
+/* No comment provided by engineer. */
+"Upload File" = "Upload bestand";
+
+/* No comment provided by engineer. */
+"Use Alternative Setter" = "Gebruik Alternatieve Setter";
+
+/* No comment provided by engineer. */
+"Use at your own risk" = "Gebruik op eigen risico";
+
+/* No comment provided by engineer. */
+"Use Settings Footnote" = "Gebruik Instellingen Voetnoot";
+
+/* No comment provided by engineer. */
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Gebruik dit als de tekst van mobiele provider/tijd niet wilt toepassen. Ik zraad je aan om naar de standaardinstellingen te resetten na het inschakelen en opslaan.";
+
+/* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of the Status Bar page." = "Gebruik dit als uw apparaat onjuist detecteert dat TrollStore geïnstalleerd is en u geen knop voor Toepassen boven aan de statusbalkpagina hebt.";
+
+/* No comment provided by engineer. */
+"validate" = "valideren";
+
+/* value for plist operation */
+"Value" = "Waarde";
+
+/* App icon name - vector graphics */
+"Vector" = "Vector";
+
+/* No comment provided by engineer. */
+"Version %@ (%@)" = "Versie %@ (%@)";
+
+/* No comment provided by engineer. */
+"View contents of blacklist files" = "Bekijk de inhoud van blacklist-bestanden";
+
+/* No comment provided by engineer. */
+"Wait, it's all TrollTools?" = "Wait, it's all TrollTools?";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "Indien ingesteld naar niks op apparaten met notch zal dit uw mobiele provider naam laten zien.";
+
+/* Title of tool */
+"Whitelist" = "Whitelist";
+
+/* BomberFish's contribution */
+"Whitelist, AirPower Audio, Various fixes" = "Whitelist, AirPower Audio, Verschillende fixes";
+
+/* Width of custom resolution
+   Width of passcode keys */
+"Width" = "breedte";
+
+/* Message for apply passcode key size for all */
+"Would you like to apply this size for all currently active keys? Otherwise, it will only apply to new faces." = "Wilt u deze grootte toepassen op alle momenteel actieve knoppen? anders zal dit alleen van toepassing zijn bij nieuw toegevoegde knoppen.";
+
+/* No comment provided by engineer. */
+"x" = "x";
+
+/* No comment provided by engineer. */
+"X" = "X";
+
+/* No comment provided by engineer. */
+"xml" = "xml";
+
+/* No comment provided by engineer. */
+"Y" = "Y";
+
+/* Confirm apply for all (passcode keys) */
+"Yes" = "Ja";
+
+/* No comment provided by engineer. */
+"YN" = "YN";
+
+/* No comment provided by engineer. */
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "U heeft geen opgeslagen toegangscode thema's. Bekijk het Verkennen tabblad om er een paar te vinden!";
+
+/* No comment provided by engineer. */
+"Your apps should now function properly" = "Uw apps zouden nu naar behoren moeten werken";
+
+/* No comment provided by engineer. */
+"Your device is connected to internet!" = "Je apparaat is verbonden met internet!";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "Je apparaat zal opnieuw opstarten.";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nApplying using %@." = "Je apparaat zal respringen.\n\n\nToepassen met behulp van %@.";
+
+/* No comment provided by engineer. */
+"Your Name" = "Uw naam";
+
