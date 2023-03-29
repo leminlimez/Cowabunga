@@ -54,6 +54,7 @@ struct ToolsView: View {
             .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
             .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: NSLocalizedString("Whitelist", comment: "Title of tool"), imageName: "app.badge.checkmark"),
             .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: NSLocalizedString("Miscellaneous", comment: "Title of tool"), imageName: "hammer")
+            .init(key: "FreeloadView", view: AnyView(FreeloadView()), title: NSLocalizedString("Remove three-app limit", comment: "Title of tool"), imageName: "apps.iphone.badge.plus"),
         ])
     ]
     @State var iOS16: Bool = false
