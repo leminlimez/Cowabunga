@@ -4,15 +4,33 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "卡哇邦嘎操作";
+
+/* (No Comment) */
+"FileSwitcherPro Item" = "FileSwitcherPro項目";
+
+/* (No Comment) */
+"Icon Theme" = "圖標主題";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "獲取存取沙盒的權限（需要套用在鎖定數字盤與其他功能上）";
 
-/* Privacy - Location Always and When In Use Usage Description */
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "卡哇邦嘎在背景運行以保證其效果持續作用。通常iOS會定期清理背景程序。但卡哇邦嘎利用請求定位數據的方式來欺騙iOS，因此可以維持更久的效果。定位數據不會儲存在任何地方, only fetched.";
-
-/* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "卡哇邦嘎在背景運行以保證其效果持續作用。通常iOS會定期清理背景程序。但卡哇邦嘎利用請求定位數據的方式來欺騙iOS，因此可以維持更久的效果。定位數據不會儲存在任何地方, only fetched.";
-
 /* Privacy - Photo Library Usage Description */
 "NSPhotoLibraryUsageDescription" = "照片";
+
+/* (No Comment) */
+"OpenType font" = "OpenType字體";
+
+/* (No Comment) */
+"Passcode Theme File" = "鎖定數字盤主題檔案";
+
+/* (No Comment) */
+"Theme Archive File" = "主題檔案存檔";
+
+/* (No Comment) */
+"TrueType collection" = "TrueType collection(譯者註：即.ttc)";
+
+/* (No Comment) */
+"TrueType font" = "TrueType font(譯者註：即.ttf)";
 

@@ -7,6 +7,9 @@
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld 位元組";
 
+/* No comment provided by engineer. */
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️警告⚠️\n有部分使用者在使用此功能後裝置進入重開機死循環。如果您的裝置正在使用beta版本的iOS，在繼續操作時請萬分小心。如果您的裝置正在使用iOS 16.0 beta，請不要使用此功能。";
+
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ 請「仔細」閱讀⬇⚠️\n\n- 在您的裝置重新載入主畫面之後，請「重新開啟」卡哇邦嘎來修復一些應用程式無法正常運作的問題。\n\n- 非常非常嚴肅的提醒您，如果您看到了蘋果標誌+進度條畫面，不用擔心，您的裝置沒有遇到問題。請不要在遇到此現象時嘗試強制重開機!!!!!!!!!!\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
 
@@ -15,6 +18,9 @@
 
 /* No comment provided by engineer. */
 "Action" = "動作";
+
+/* No comment provided by engineer. */
+"Active" = "使用中";
 
 /* No comment provided by engineer. */
 "Add Value" = "請輸入數值";
@@ -77,6 +83,12 @@
 "App theme was successfully saved!" = "已成功儲存應用程式主題！";
 
 /* No comment provided by engineer. */
+"Apple ID, iCloud, Media & Purchases" = "Apple ID, iCloud, 媒體與購買項目";
+
+/* fix tweaks info */
+"Applies all tweaks which were applied before." = "重新套用所有之前套用過的插體(tweaks)";
+
+/* No comment provided by engineer. */
 "Apply" = "套用";
 
 /* Header for apply passcode key size for all */
@@ -91,11 +103,17 @@
 /* No comment provided by engineer. */
 "Apply themes" = "套用主題";
 
+/* No comment provided by engineer. */
+"Apply Without Saving" = "套用但不儲存";
+
 /* apply button on custom operations */
 "Applying operation..." = "套用自定義操作";
 
 /* No comment provided by engineer. */
 "Are you sure you want to reset the Default SubType?" = "您確定想要重置為預設的裝置類型？";
+
+/* No comment provided by engineer. */
+"Asset Catalog" = "資產目錄";
 
 /* Title of tool */
 "Audio" = "音效";
@@ -113,6 +131,12 @@
 "Background" = "背景";
 
 /* No comment provided by engineer. */
+"Background Applying" = "在背景套用調整";
+
+/* No comment provided by engineer. */
+"Background Services" = "背景服務";
+
+/* No comment provided by engineer. */
 "Background Update Frequency" = "背景更新頻率";
 
 /* No comment provided by engineer. */
@@ -120,6 +144,9 @@
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "基礎設定";
+
+/* No comment provided by engineer. */
+"Battery Detail Text" = "詳細電池文字";
 
 /* Audio name */
 "Begin Recording" = "開始錄製聲";
@@ -137,6 +164,9 @@
 "Blacklist File Contents" = "黑名單檔案內容";
 
 /* No comment provided by engineer. */
+"Blur Enabled" = "已啟用模糊";
+
+/* No comment provided by engineer. */
 "Blur:   %lld" = "模糊程度:   %lld";
 
 /* No comment provided by engineer. */
@@ -147,6 +177,9 @@
 
 /* Cancel */
 "Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Cannot write to file path!" = "無法寫入路徑！";
 
 /* Title of tool */
 "Card Changer" = "卡片美化器";
@@ -161,13 +194,25 @@
 "Change" = "修改";
 
 /* No comment provided by engineer. */
+"Change Battery Detail Text" = "更改詳細電池文字";
+
+/* No comment provided by engineer. */
+"Change Battery Icon Capacity" = "更改電池圖標容量";
+
+/* No comment provided by engineer. */
 "Change Breadcrumb Text" = "修改左上角返回文字";
 
 /* No comment provided by engineer. */
 "Change Carrier Text" = "修改電信商名稱";
 
 /* No comment provided by engineer. */
+"Change Cellular Signal Strength Bars" = "更改電信訊號強度條";
+
+/* No comment provided by engineer. */
 "Change Status Bar Time Text" = "修改狀態欄時間文字";
+
+/* No comment provided by engineer. */
+"Change WiFi Signal Strength Bars" = "更改WiFi訊號強度條";
 
 /* Audio name */
 "Charging" = "充電聲";
@@ -206,6 +251,9 @@
 "Choose app Icon" = "請選擇一個替代圖標";
 
 /* No comment provided by engineer. */
+"Choose Image" = "選擇圖片";
+
+/* No comment provided by engineer. */
 "Choose size" = "選擇尺寸";
 
 /* No comment provided by engineer. */
@@ -213,6 +261,18 @@
 
 /* No comment provided by engineer. */
 "Close" = "關閉";
+
+/* No comment provided by engineer. */
+"Color" = "顏色";
+
+/* No comment provided by engineer. */
+"Color Data" = "顏色資料";
+
+/* No comment provided by engineer. */
+"Color:" = "顏色:";
+
+/* No comment provided by engineer. */
+"Configuration" = "設定";
 
 /* No comment provided by engineer. */
 "Confirm" = "確認";
@@ -225,6 +285,9 @@
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "無法計算此plist的大小！";
+
+/* No comment provided by engineer. */
+"Could not download theme!" = "無法下載主題！";
 
 /* No comment provided by engineer. */
 "Couldn't get url of file. Did you select it?" = "無法取得檔案的url。您是否已選擇好該檔案？";
@@ -248,6 +311,15 @@
 "Create" = "創建";
 
 /* No comment provided by engineer. */
+"Create Operation" = "創建檔案替換";
+
+/* No comment provided by engineer. */
+"Creating" = "創建中";
+
+/* No comment provided by engineer. */
+"Creating Data" = "資料創建中";
+
+/* No comment provided by engineer. */
 "Credits" = "鳴謝貢獻與協力開發";
 
 /* No comment provided by engineer. */
@@ -262,6 +334,9 @@
 /* Title of tool */
 "Custom Operations" = "自定義檔案替換";
 
+/* No comment provided by engineer. */
+"Custom Operations Author Name" = "自定義檔案替換作者簽名檔";
+
 /* App icon name
    default device subtype
    Default passcode size */
@@ -275,6 +350,9 @@
 
 /* No comment provided by engineer. */
 "Delete Shortcut Banners" = "删除捷徑的橫幅通知";
+
+/* No comment provided by engineer. */
+"Deleting" = "刪除中";
 
 /* delete button on custom operations */
 "Deleting operation..." = "正在刪除此操作";
@@ -304,6 +382,9 @@
 "Disable Library Pods Background" = "移除App資料庫背景(桌面最後一頁)";
 
 /* No comment provided by engineer. */
+"Disable Screen Time" = "停用螢幕使用時間功能";
+
+/* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "禁止將捷徑製作的應用程式視為Appclips";
 
 /* No comment provided by engineer. */
@@ -311,6 +392,9 @@
 
 /* No comment provided by engineer. */
 "Download themes in Themes tab." = "在主題區塊中下載主題";
+
+/* No comment provided by engineer. */
+"Downloading" = "下載中";
 
 /* iPhone 14 Pro SubType */
 "Dynamic Island" = "動態島";
@@ -320,6 +404,9 @@
 
 /* matteozappia's contribution */
 "Dynamic Island SubTypes" = "動態島裝置型號";
+
+/* No comment provided by engineer. */
+"Edit Operation" = "編輯檔案替換";
 
 /* No comment provided by engineer. */
 "Editing %@" = "編輯中 %@";
@@ -400,16 +487,34 @@
 "Files" = "檔案";
 
 /* No comment provided by engineer. */
+"Filter" = "分類排序";
+
+/* No comment provided by engineer. */
 "Fix tweaks" = "按此修復插體";
 
 /* No comment provided by engineer. */
 "Fixing apps..." = "修復應用程式中...";
 
 /* No comment provided by engineer. */
+"Focus" = "專注";
+
+/* No comment provided by engineer. */
 "Folder" = "資料夾";
 
 /* No comment provided by engineer. */
+"Font Files" = "字體檔案";
+
+/* No comment provided by engineer. */
+"Font Pack Name" = "字體包名稱";
+
+/* No comment provided by engineer. */
+"Fonts" = "字體工具";
+
+/* No comment provided by engineer. */
 "Footnote" = "按此修改註腳";
+
+/* No comment provided by engineer. */
+"Footnote:" = "註腳：";
 
 /* No comment provided by engineer. */
 "Force MacDirtyCOW" = "強制使用MacDirtyCow漏洞";
@@ -425,6 +530,9 @@
 
 /* header for resetting all icons */
 "Full reset" = "重置所有圖標";
+
+/* No comment provided by engineer. */
+"Generate Padding" = "產生填充";
 
 /* No comment provided by engineer. */
 "Gestures / Dynamic Island" = "滑動手勢 / 動態島";
@@ -499,8 +607,14 @@
 /* No comment provided by engineer. */
 "Icons override" = "取代圖標";
 
+/* No comment provided by engineer. */
+"If a file of the same name already exists in the pack, it will be overwritten." = "若有重複相同名稱的檔案存在於此包中，其會被覆寫。";
+
 /* Description for lock preference */
 "If the custom lock does not apply for you, try another option." = "如果您的自定義鎖頭沒有成功套用，請嘗試其他選項。";
+
+/* No comment provided by engineer. */
+"Image:" = "圖片：";
 
 /* Header for importing passcode theme */
 "Import Passcode Theme" = "導入鎖定數字盤主題";
@@ -573,6 +687,9 @@
 /* No comment provided by engineer. */
 "Make It So, Number One" = "那就出發吧！！大副！-- 星際爭霸戰";
 
+/* No comment provided by engineer. */
+"Manage Background Tasks" = "管理背景任務";
+
 /* Maximum passcode key size */
 "Max:" = "最大：";
 
@@ -592,10 +709,16 @@
 "Name:" = "名稱：";
 
 /* No comment provided by engineer. */
+"New" = "新的";
+
+/* No comment provided by engineer. */
 "New Category" = "新類別";
 
 /* Audio name */
 "New Mail" = "新郵件提示聲";
+
+/* No comment provided by engineer. */
+"New Operation" = "新的檔案替換操作";
 
 /* No comment provided by engineer. */
 "New theme name" = "新主題名稱";
@@ -605,6 +728,9 @@
 
 /* No comment provided by engineer. */
 "No Cards Found" = "沒有找到您的卡片";
+
+/* No comment provided by engineer. */
+"No images found!" = "沒有找到圖片！";
 
 /* No comment provided by engineer. */
 "No respring required to apply." = "不需重新載入主畫面即可套用。";
@@ -617,6 +743,12 @@
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "此尺寸無效！";
+
+/* No comment provided by engineer. */
+"Not enough icons to show a preview. \nInvalid theme?" = "沒有足夠的圖標來顯示預覽圖。這是個有效的主題嗎？";
+
+/* No comment provided by engineer. */
+"Not Playing" = "未在播放中";
 
 /* No comment provided by engineer. */
 "Notification Banner" = "通知橫幅";
@@ -632,6 +764,9 @@
 
 /* No comment provided by engineer. */
 "Options" = "選項";
+
+/* No comment provided by engineer. */
+"Original" = "原始的";
 
 /* Category of tool */
 "Other" = "其他";
@@ -662,6 +797,9 @@
 
 /* No comment provided by engineer. */
 "Path:" = "路徑：";
+
+/* No comment provided by engineer. */
+"Patreon Supporters" = "Patreon支持者們";
 
 /* Audio name */
 "Payment Failed" = "付款失敗聲";
@@ -721,6 +859,12 @@
 "Preferences" = "基本偏好設置";
 
 /* No comment provided by engineer. */
+"Preview" = "預覽";
+
+/* Successfully applying custom resolution */
+"Reboot to revert resolution changes. It will auto respring when done" = "重開機以恢復原始解析度。完成時將會自動Respring。";
+
+/* No comment provided by engineer. */
 "Rebuild Icon Cache" = "重建圖標緩存(Rebuild icon cache)";
 
 /* Audio name */
@@ -728,6 +872,18 @@
 
 /* No comment provided by engineer. */
 "Remove all" = "移除所有外觀";
+
+/* No comment provided by engineer. */
+"Remove Icons" = "移除圖標";
+
+/* No comment provided by engineer. */
+"Remove Image" = "移除圖片";
+
+/* No comment provided by engineer. */
+"Remove Labels" = "移除標籤文字";
+
+/* No comment provided by engineer. */
+"Remove Previews" = "移除預覽";
 
 /* No comment provided by engineer. */
 "Remove theme" = "移除主題";
@@ -755,6 +911,9 @@
 
 /* No comment provided by engineer. */
 "Reset faces" = "重置數字盤按鈕";
+
+/* No comment provided by engineer. */
+"Resolution will now apply" = "解析度將開始套用";
 
 /* No comment provided by engineer. */
 "Respring" = "重新載入主畫面";
@@ -786,20 +945,41 @@
 /* apply button on custom operations */
 "Saving operation..." = "儲存操作中...";
 
+/* No comment provided by engineer. */
+"Scale:   %lld%%" = "比例：  %lld%%";
+
 /* rebuilding icon cache */
 "Scheduling a rebuild" = "重建排程中...";
 
 /* No comment provided by engineer. */
 "Scheduling icon cache reset..." = "重置圖標緩存排程中...";
 
+/* No comment provided by engineer. */
+"Screen Time Enabled" = "啟用螢幕使用時間功能";
+
+/* No comment provided by engineer. */
+"Screen time was successfully disabled, please reboot to finish application. You will be able to enable connection after restart." = "螢幕使用時間功能已被成功停用，請重開機來完成套用。您將可以在重開機後再次啟用網路連接。（譯者註：在此之前需手動關閉網路連接，不然會造成問題。）";
+
 /* Audio name */
 "Screenshot" = "螢幕截圖聲";
+
+/* c22dev's contribution */
+"ScreenTime Remover, Included Audio, Credits, and Card Changer" = "螢幕使用時間移除器、音效修改器、卡片美化器等";
 
 /* No comment provided by engineer. */
 "Select" = "選擇";
 
 /* No comment provided by engineer. */
+"Select Font Pack" = "請選擇字體包";
+
+/* No comment provided by engineer. */
+"Select Image" = "請選擇圖片";
+
+/* No comment provided by engineer. */
 "Selected" = "已選擇";
+
+/* No comment provided by engineer. */
+"Selected: %lld" = "已選擇: %lld";
 
 /* Audio name */
 "Sent Mail" = "寄出郵件聲";
@@ -811,10 +991,16 @@
 "Set app switcher color" = "設定多工任務中心顏色";
 
 /* No comment provided by engineer. */
+"Set as Active" = "設定為使用中";
+
+/* No comment provided by engineer. */
 "Set badge color" = "設定角標顏色";
 
 /* No comment provided by engineer. */
 "Set cc module color" = "設定控制中心開關顏色";
+
+/* No comment provided by engineer. */
+"Set color" = "設定顏色";
 
 /* No comment provided by engineer. */
 "Set dock color" = "設定Dock顏色";
@@ -833,6 +1019,12 @@
 
 /* No comment provided by engineer. */
 "Shortcut Apps" = "捷徑應用程式";
+
+/* No comment provided by engineer. */
+"Show Numeric Cellular Strength" = "顯示數值化電信訊號強度";
+
+/* No comment provided by engineer. */
+"Show Numeric WiFi Strength" = "顯示數值化WiFi訊號強度";
 
 /* No comment provided by engineer. */
 "Sign up" = "註冊";
@@ -892,7 +1084,13 @@
 "Tap on any key to edit \nits appearance" = "點擊任意數字鍵以修改其外觀";
 
 /* No comment provided by engineer. */
+"Tap on icon you want to set as preferred for %@ (%@)" = "點擊您想設定的圖標給 %@ (%@)";
+
+/* No comment provided by engineer. */
 "Tap this notification to resume tweak applications." = "點擊此通知以繼續調整、修改應用程式。";
+
+/* No comment provided by engineer. */
+"Test: theme all icons using 1 icon" = "測試功能：使用單一圖標替換所有圖標";
 
 /* No comment provided by engineer. */
 "The app will quit." = "應用程式將會關閉。";
@@ -915,11 +1113,20 @@
 /* when an operation is saved */
 "The operation was successfully saved!" = "已成功儲存此操作！";
 
+/* No comment provided by engineer. */
+"The theme was successfully downloaded and saved!" = "已成功下載儲存此主題！";
+
 /* failed to select icon */
 "Theme with the name (url.deletingPathExtension().lastPathComponent) already exists. Please rename the folder." = "名為：(url.deletingPathExtension().lastPathComponent) 的主題已經存在。請重新命名此資料夾。";
 
 /* No comment provided by engineer. */
 "Themes" = "主題";
+
+/* screentime process */
+"This could cause issues. Make sure to disable data or Wi-Fi." = "在您重開機前若連接著網路可能會造成問題，請先關閉行動網路或WiFi。";
+
+/* No comment provided by engineer. */
+"Toggle what services will run or apply when the app is in the background." = "請選擇當卡哇邦嘎在背景時可以持續運行或套用的服務";
 
 /* No comment provided by engineer. */
 "Tools" = "工具";
@@ -949,6 +1156,9 @@
 "Unsandboxing" = "沙盒解封";
 
 /* No comment provided by engineer. */
+"Update Frequency" = "更新頻率";
+
+/* No comment provided by engineer. */
 "Update Included Audio" = "升級內建音效";
 
 /* No comment provided by engineer. */
@@ -959,6 +1169,9 @@
 
 /* No comment provided by engineer. */
 "Use at your own risk" = "個人造業個人擔，小叮做事小叮噹";
+
+/* No comment provided by engineer. */
+"Use Settings Footnote" = "使用設定註腳";
 
 /* No comment provided by engineer. */
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "在電信商/狀態欄時間文字沒有被套用成功的情況下使用此功能，推薦您在此功能開啟並成功套用儲存後將其重置為預設狀態。";
@@ -1019,8 +1232,14 @@
 "Your apps should now function properly" = "您的應用程式應已正常運作";
 
 /* No comment provided by engineer. */
+"Your device is connected to internet!" = "您的裝置目前正連接著網際網路！";
+
+/* No comment provided by engineer. */
 "Your device will respring." = "您的裝置將會重新載入主畫面";
 
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nApplying using %@." = "您的裝置將會重新載入主畫面\n\n此區使用%@套用";
+
+/* No comment provided by engineer. */
+"Your Name" = "您的大名";
 
