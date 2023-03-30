@@ -82,6 +82,9 @@ class AdvancedManager {
                         if FileManager.default.fileExists(atPath: backupURL.path) {
                             try? FileManager.default.removeItem(at: backupURL)
                         }
+                        if FileManager.default.fileExists(atPath: plist["FilePath"] as! String) {
+                            try? FileManager.default.copyItem(at: URL(fileURLWithPath: plist["FilePath"] as! String), to: backupURL)
+                        }
                     }
                 }
                 // disable the operation by default
