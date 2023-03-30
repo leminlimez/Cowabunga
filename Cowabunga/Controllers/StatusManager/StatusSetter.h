@@ -6,6 +6,10 @@
 - (NSString*) getCarrierOverride;
 - (void) setCarrier:(NSString*)text;
 - (void) unsetCarrier;
+- (bool) isSecondaryCarrierOverridden;
+- (NSString*) getSecondaryCarrierOverride;
+- (void) setSecondaryCarrier:(NSString*)text;
+- (void) unsetSecondaryCarrier;
 - (bool) isTimeOverridden;
 - (NSString*) getTimeOverride;
 - (void) setTime:(NSString*)text;
