@@ -96,6 +96,22 @@
     [self.setter unsetCarrier];
 }
 
+- (bool) isSecondaryCarrierOverridden {
+    return [self.setter isSecondaryCarrierOverridden];
+}
+
+- (NSString*) getSecondaryCarrierOverride {
+    return [self.setter getSecondaryCarrierOverride];
+}
+
+- (void) setSecondaryCarrier:(NSString*)text {
+    [self.setter setSecondaryCarrier:text];
+}
+
+- (void) unsetSecondaryCarrier {
+    [self.setter unsetSecondaryCarrier];
+}
+
 - (bool) isTimeOverridden {
     return [self.setter isTimeOverridden];
 }

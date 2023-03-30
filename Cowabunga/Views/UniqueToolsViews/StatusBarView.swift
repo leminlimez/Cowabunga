@@ -13,6 +13,9 @@ struct StatusBarView: View {
     @State private var carrierText: String = StatusManager.sharedInstance().getCarrierOverride()
     @State private var carrierTextEnabled: Bool = StatusManager.sharedInstance().isCarrierOverridden()
     
+    @State private var secondaryCarrierText: String = StatusManager.sharedInstance().getSecondaryCarrierOverride()
+    @State private var secondaryCarrierTextEnabled: Bool = StatusManager.sharedInstance().isSecondaryCarrierOverridden()
+    
     @State private var timeText: String = StatusManager.sharedInstance().getTimeOverride()
     @State private var timeTextEnabled: Bool = StatusManager.sharedInstance().isTimeOverridden()
     
@@ -91,6 +94,26 @@ struct StatusBarView: View {
                     carrierText = safeNv
                     if carrierTextEnabled {
                         StatusManager.sharedInstance().setCarrier(safeNv)
+                    }
+                })
+                Toggle("Change Secondary Carrier Text", isOn: $secondaryCarrierTextEnabled).onChange(of: secondaryCarrierTextEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setSecondaryCarrier(secondaryCarrierText)
+                    } else {
+                        StatusManager.sharedInstance().unsetSecondaryCarrier()
+                    }
+                })
+                TextField("Secondary Carrier Text", text: $secondaryCarrierText).onChange(of: secondaryCarrierText, perform: { nv in
+                    // This is important.
+                    // Make sure the UTF-8 representation of the string does not exceed 100
+                    // Otherwise the struct will overflow
+                    var safeNv = nv
+                    while safeNv.utf8CString.count > 100 {
+                        safeNv = String(safeNv.prefix(safeNv.count - 1))
+                    }
+                    secondaryCarrierText = safeNv
+                    if secondaryCarrierTextEnabled {
+                        StatusManager.sharedInstance().setSecondaryCarrier(safeNv)
                     }
                 })
                 Toggle("Change Breadcrumb Text", isOn: $crumbTextEnabled).onChange(of: crumbTextEnabled, perform: { nv in

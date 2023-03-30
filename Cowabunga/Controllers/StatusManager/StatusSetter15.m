@@ -235,17 +235,38 @@ typedef struct {
 - (void) setCarrier:(NSString*)text {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideServiceString = 1;
-    overrides->overrideSecondaryServiceString = 1;
     strcpy(overrides->values.serviceString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
     strcpy(overrides->values.serviceCrossfadeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
-    strcpy(overrides->values.secondaryServiceString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
-    strcpy(overrides->values.secondaryServiceCrossfadeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
     [self applyChanges:overrides];
 }
 
 - (void) unsetCarrier {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideServiceString = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isSecondaryCarrierOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideSecondaryServiceString == 1;
+}
+
+- (NSString*) getSecondaryCarrierOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    NSString* carrier = @(overrides->values.secondaryServiceString);
+    return carrier;
+}
+
+- (void) setSecondaryCarrier:(NSString*)text {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideSecondaryServiceString = 1;
+    strcpy(overrides->values.secondaryServiceString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    strcpy(overrides->values.secondaryServiceCrossfadeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    [self applyChanges:overrides];
+}
+
+- (void) unsetSecondaryCarrier {
+    StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideSecondaryServiceString = 0;
     [self applyChanges:overrides];
 }
