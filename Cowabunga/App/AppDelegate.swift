@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "LockPrefs": LockManager.deviceLockPath[UIDevice().machineName] ?? LockManager.globalLockPaths[0],
             "SelectedFont": "None",
             "BackgroundUpdateInterval": 600.0,
-            "catalogIconTheming": true
+            "catalogIconTheming": true,
+            "rootCatalogIconTheming": true
         ]
         for bgOption in BackgroundFileUpdaterController.shared.BackgroundOptions {
             defaults[bgOption.key + "_BGApply"] = true
