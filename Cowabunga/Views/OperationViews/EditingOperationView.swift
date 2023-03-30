@@ -422,22 +422,20 @@ struct EditingOperationView: View {
                                 Button(action: {
                                     UIApplication.shared.alert(title: NSLocalizedString("Generating padding...", comment: "Custom operation generating plist padding"), body: NSLocalizedString("Please wait...", comment: ""), animated: true, withButton: false)
                                     do {
-                                        if let repOp = operation as? ReplacingObject {
-                                            if repOp.replacingType == .Imported {
-                                                let plist = try PropertyListSerialization.propertyList(from: replacingData!, options: [], format: nil) as! [String: Any]
-                                                let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
-                                                replacingData = newData
-                                                showPaddingButton = false
-                                                UIApplication.shared.dismissAlert(animated: true)
-                                            } else if repOp.replacingType == .FilePath {
-                                                let plistData = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
-                                                var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
-                                                plist["MdC"] = nil
-                                                let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
-                                                try newData.write(to: URL(fileURLWithPath: replacingPath))
-                                                showPaddingButton = false
-                                                UIApplication.shared.dismissAlert(animated: true)
-                                            }
+                                        if replacingType == .Imported {
+                                            let plist = try PropertyListSerialization.propertyList(from: replacingData!, options: [], format: nil) as! [String: Any]
+                                            let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
+                                            replacingData = newData
+                                            showPaddingButton = false
+                                            UIApplication.shared.dismissAlert(animated: true)
+                                        } else if replacingType == .FilePath {
+                                            let plistData = try Data(contentsOf: URL(fileURLWithPath: replacingPath))
+                                            var plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
+                                            plist["MdC"] = nil
+                                            let newData = try addEmptyData(matchingSize: fileData.count, to: plist)
+                                            try newData.write(to: URL(fileURLWithPath: replacingPath))
+                                            showPaddingButton = false
+                                            UIApplication.shared.dismissAlert(animated: true)
                                         }
                                     } catch {
                                         UIApplication.shared.dismissAlert(animated: true)
