@@ -77,6 +77,11 @@ class AdvancedManager {
                     let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
                     if (plist["FilePath"] as! String).starts(with: "/var") {
                         editsVar = true
+                        // delete the backup file if there
+                        let backupURL = folder.appendingPathComponent(".backup")
+                        if FileManager.default.fileExists(atPath: backupURL.path) {
+                            try? FileManager.default.removeItem(at: backupURL)
+                        }
                     }
                 }
                 // disable the operation by default
