@@ -18,10 +18,12 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
     - Hide dock
     - Hide home bar
     - Hide folder backgrounds
+    - Disable library pod background
     - Disable folder background blur
     - Disable app switcher blur
     - Hide CC Module Backgrounds
     - Hide Notification Banner Background
+    - Notification Banner Shadow
 
 - App Icon Themes
     - Importing folders of app icons
@@ -46,6 +48,7 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
 
 - Status Bar
     - Change carrier name
+    - Change secondary carrier name
     - Change battery display detail
     - Change time text
     - Change breadcrumb text
@@ -65,7 +68,6 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS) to be featured in the
     - Turn shortcuts into app clips
     - Supervise Device
     Warning: Use the features below at your own risk!
-    - Change system version (shows in settings, iOS 15+)
     - Enable iPhone X Gestures
     - Enable Dynamic Island (iOS 16+)
 
