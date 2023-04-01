@@ -11,6 +11,15 @@
 "%lld%%" = "%lld%%";
 
 /* Recommended lock type */
+"(Every 2 Minutes)" = "(Alle 2 Minuten)";
+
+/* Recommended lock type */
+"(Every 10 Minutes)" = "(Alle 10 Minuten)";
+
+/* Recommended lock type */
+"(Every 30 Minutes)" = "(Alle 30 Minuten)";
+
+/* Recommended lock type */
 "(Recommended)" = "(Empfohlen)";
 
 /* No comment provided by engineer. */
@@ -161,7 +170,7 @@
 "Battery Detail Text" = "Batterie-Detailtext";
 
 /* Audio name */
-"Begin Recording" = "Mit Aufnahme beginnen";
+"Begin Recording" = "Aufnahme starten";
 
 /* Big passcode keys */
 "Big" = "Groß";
@@ -189,6 +198,12 @@
 
 /* No comment provided by engineer. */
 "Calculate Size" = "berechnete Größe";
+
+/* No comment provided by engineer. */
+"Calculator Error Message" = "Rechner-Fehlermeldung";
+
+/* No comment provided by engineer. */
+"Camera" = "Kamera";
 
 /* Cancel */
 "Cancel" = "Abbrechen";
@@ -254,6 +269,9 @@
 "Choose a name for the category" = "Kategorienamen auswählen";
 
 /* No comment provided by engineer. */
+"Choose a name for the font pack" = "Schriftpaket auswählen";
+
+/* No comment provided by engineer. */
 "Choose a name for the lock" = "Sperrsymbolnamen auswählen";
 
 /* Entering name for audio */
@@ -311,7 +329,7 @@
 "Control Center" = "Kontrollzentrum";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "korrupt";
+"Corrupting" = "Zerstören";
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "Plist-Größe konnte nicht berechnet werden!";
@@ -347,7 +365,7 @@
 "Create Operation" = "Vorgang erstellen";
 
 /* No comment provided by engineer. */
-"Creating" = "Erstelle";
+"Creating" = "Erstellen";
 
 /* No comment provided by engineer. */
 "Creating Data" = "Erstelle Daten";
@@ -356,16 +374,16 @@
 "Credits" = "Danksagungen";
 
 /* No comment provided by engineer. */
-"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Um Themen einzureichen, damit andere sie sehen und verwenden können, müssen wir sie derzeit in Discord auf unseren #showcase Kanal überprüfen.";
+"Currently to submit themes for other people to see and use, we have to review them on our Discord in #showcase channel." = "Um Themes einzureichen, damit andere sie sehen und verwenden können, müssen wir sie derzeit in Discord auf unseren #showcase Kanal überprüfen.";
 
 /* Custom size for passcode keys */
 "Custom" = "Benutzerdefiniert";
 
 /* No comment provided by engineer. */
-"Custom image" = "Benutzerdefiniertes Bild";
+"Custom image" = "Eigenes Bild";
 
 /* Title of tool */
-"Custom Operations" = "Benutzerdefinierte Vorgänge";
+"Custom Operations" = "Eigene Vorgänge";
 
 /* No comment provided by engineer. */
 "Custom Operations Author Name" = "Name des Erstellers";
@@ -376,7 +394,7 @@
 "Default" = "Standard";
 
 /* Audio name */
-"Default Notifications" = "Standard-Benachrichtigungen";
+"Default Notifications" = "Benachrichtigungen";
 
 /* No comment provided by engineer. */
 "Delete" = "Löschen";
@@ -391,6 +409,9 @@
 "Deleting operation..." = "Vorgang löschen...";
 
 /* No comment provided by engineer. */
+"Device" = "Gerät";
+
+/* No comment provided by engineer. */
 "Dialer Face Editor" = "Ziffernblock-Face-Editor";
 
 /* No comment provided by engineer. */
@@ -398,6 +419,9 @@
 
 /* No comment provided by engineer. */
 "Disable" = "Deaktivieren";
+
+/* No comment provided by engineer. */
+"Disabled" = "Deaktiviert;
 
 /* Springboard tool */
 "Disable App Switcher Blur" = "App Switcher Unschärfe deaktivieren";
@@ -457,7 +481,7 @@
 "Enabled" = "Aktiviert";
 
 /* Audio name */
-"End Recording" = "Aufnahme beenden";
+"End Recording" = "Aufnahme stoppen";
 
 /* No comment provided by engineer. */
 "Enter Author Name" = "Autornamen eingeben";
@@ -524,6 +548,9 @@
 
 /* No comment provided by engineer. */
 "Filter" = "Filter";
+
+/* No comment provided by engineer. */
+"Filter Themes" = "Themes filtern";
 
 /* No comment provided by engineer. */
 "Fix tweaks" = "Tweaks anwenden";
@@ -629,7 +656,7 @@
 "Hide Rotation Lock" = "Ausrichtungssperre ausblenden";
 
 /* No comment provided by engineer. */
-"Hide Status Bar Time" = "Zeit der Statusleiste ausblenden";
+"Hide Status Bar Time" = "Statusleistenzeit ausblenden";
 
 /* No comment provided by engineer. */
 "Hide VPN" = "VPN ausblenden";
@@ -671,7 +698,7 @@
 "In the meantime you can ..." = "In der Zwischenzeit kannst du ...";
 
 /* No comment provided by engineer. */
-"Included" = "Inbegriffen";
+"Included" = "Verfügbar";
 
 /* fix tweaks info header
    respring info header */
@@ -692,14 +719,26 @@
 /* key for plist operation */
 "Key" = "Schlüssel";
 
-/* Audio name */
-"Keyboard Press Clear" = "Tastaturtaste Entfernen";
+/* No comment provided by engineer. */
+"Key Click" = "Normale Taste";
+
+/* No comment provided by engineer. */
+"Key Delete" = "Löschen-Taste";
+
+/* No comment provided by engineer. */
+"Key Modifier" = "Spezial-Taste";
+
+/* No comment provided by engineer. */
+"Keyboard" = "Tastatur";
 
 /* Audio name */
-"Keyboard Press Delete" = "Tastaturtaste Löschen";
+"Keyboard Press Clear" = "Spezial-Taste";
 
 /* Audio name */
-"Keyboard Press Normal" = "Tastaturtaste Normal";
+"Keyboard Press Delete" = "Löschen-Taste";
+
+/* Audio name */
+"Keyboard Press Normal" = "Normale Taste";
 
 /* No comment provided by engineer. */
 "Library Pod Backgrounds" = "Bibliotheks-Podhintergründe";
@@ -729,7 +768,7 @@
 "Log in Sourced" = "Quellenanmeldung";
 
 /* Audio name */
-"Low Power" = "Stromsparen";
+"Low Power" = "Stromsparmodus";
 
 /* leminlimez's contribution
    sourcelocation's contribution */
@@ -743,6 +782,9 @@
 
 /* Maximum passcode key size */
 "Max:" = "Max:";
+
+/* No comment provided by engineer. */
+"Messages" = "Nachrichten";
 
 /* Minimum passcode key size */
 "Min:" = "Min:";
@@ -769,13 +811,16 @@
 "New Category" = "Neue Kategorie";
 
 /* Audio name */
-"New Mail" = "Neue E-Mail";
+"New Mail" = "E-Mail erhalten";
 
 /* No comment provided by engineer. */
 "New Operation" = "Neuer Vorgang";
 
 /* No comment provided by engineer. */
 "New theme name" = "Neuer Themenname";
+
+/* Decline apply for all (passcode keys) */
+"Newest" = "Neueste";
 
 /* Decline apply for all (passcode keys) */
 "No" = "Nein";
@@ -796,6 +841,9 @@
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Keine Themes gefunden. Lade Themes auf der Registerkarte \"Erkunden\" herunter,\noder importiere sie über die Schaltfläche in der oberen rechten Ecke (Themes müssen Icons im Format <id>.png haben).";
 
 /* No comment provided by engineer. */
+"None" = "Keine";
+
+/* No comment provided by engineer. */
 "noPNGThemingFixup" = "Keine PNG-Theming-Korrektur";
 
 /* Not a valid size input for passcode keys */
@@ -814,13 +862,22 @@
 "noThemingFixup" = "Keine Theming-Korrektur";
 
 /* No comment provided by engineer. */
+"Notification" = "Benachrichtigung";
+
+/* No comment provided by engineer. */
 "Notification Banner" = "Benachrichtigungsbanner";
 
 /* No comment provided by engineer. */
 "Notification Banner Background" = "Benachrichtigungsbanner-Hintergrund";
 
 /* No comment provided by engineer. */
+"Off" = "Aus";
+
+/* No comment provided by engineer. */
 "OK" = "Okay";
+
+/* No comment provided by engineer. */
+"Oldest" = "Älteste";
 
 /* No comment provided by engineer. */
 "Open Settings" = "Einstellungen öffnen";
@@ -867,6 +924,9 @@
 /* No comment provided by engineer. */
 "Patreon Supporters" = "Patreon-Unterstützer";
 
+/* No comment provided by engineer. */
+"Payment" = "Zahlung";
+
 /* Audio name */
 "Payment Failed" = "Zahlung fehlgeschlagen";
 
@@ -874,7 +934,7 @@
 "Payment Received" = "Zahlung erhalten";
 
 /* Audio name */
-"Payment Success" = "Zahlungserfolg";
+"Payment Success" = "Zahlung gesendet";
 
 /* App icon name */
 "Pixel Art" = "Pixel Art";
@@ -904,7 +964,7 @@
 "Please select a file to import!" = "Bitte wähle eine Datei zum Importieren aus!";
 
 /* No comment provided by engineer. */
-"Please wait" = "Bitte warte";
+"Please wait" = "Bitte warte!";
 
 /* No comment provided by engineer. */
 "Please wait for Cowabunga to finish theming..." = "Bitte warte bis Cowabunga das Themen abgeschlossen hat...";
@@ -936,6 +996,9 @@
 /* No comment provided by engineer. */
 "Private build" = "Private Version";
 
+/* No comment provided by engineer. */
+"Random" = "Zufällig";
+
 /* Successfully applying custom resolution */
 "Reboot to revert resolution changes. It will auto respring when done" = "Starte neu, um Auflösungsänderungen rückgängig zu machen. Es wird automatisch ein Respring durchgeführt, wenn es fertig ist.";
 
@@ -943,10 +1006,10 @@
 "Rebuild Icon Cache" = "Icon-Cache neu erstellen";
 
 /* Audio name */
-"Received Message" = "Erhaltene Nachricht";
+"Received Message" = "Nachricht erhalten";
 
 /* No comment provided by engineer. */
-"Remove all" = "Alles entfernen";
+"Remove all" = "Alles löschen";
 
 /* No comment provided by engineer. */
 "Remove Icons" = "Icons entfernen";
@@ -1093,6 +1156,9 @@
 "Settings" = "Einstellungen";
 
 /* No comment provided by engineer. */
+"Settings App Customizer" = "Einstellung-App";
+
+/* No comment provided by engineer. */
 "Settings Customizations" = "Einstellungsanpassungen";
 
 /* No comment provided by engineer. */
@@ -1123,10 +1189,10 @@
 "Springboard Colors" = "Springboard-Farben";
 
 /* Title of tool */
-"Springboard Tools" = "Springboard-Werkzeuge";
+"Springboard Tools" = "Werkzeuge";
 
 /* No comment provided by engineer. */
-"SpringBoard Tools" = "SpringBoard-Werkzeuge";
+"SpringBoard Tools" = "Werkzeuge";
 
 /* No comment provided by engineer. */
 "Starting..." = "Starte...";
@@ -1162,7 +1228,7 @@
 "Tap a card to customize" = "Tippe auf eine Karte, um sie anzupassen.";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Tippe auf eine beliebige Taste, um \nits Aussehen zu bearbeiten";
+"Tap on any key to edit \nits appearance" = "Tippe auf eine beliebige Taste, um das Aussehen zu bearbeiten.";
 
 /* No comment provided by engineer. */
 "Tap on icon you want to set as preferred for %@ (%@)" = "Tippe auf das Icon, das du als bevorzugt für %@ (%@) festlegen möchtest.";
@@ -1258,7 +1324,7 @@
 "Use at your own risk" = "Benutzung auf eigene Gefahr";
 
 /* No comment provided by engineer. */
-"Use Settings Footnote" = "Fußnoten-Einstellungen verwenden";
+"Use Settings Footnote" = "Fußnote verwenden";
 
 /* No comment provided by engineer. */
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Verwende dies, wenn der Netzbetreiber-/Zeittext nicht zutrifft. Ich würde Dir empfehlen, nach dem Einschalten und Speichern auf die Standardeinstellungen zurückzusetzen.";
@@ -1280,6 +1346,9 @@
 
 /* No comment provided by engineer. */
 "View contents of blacklist files" = "Zeige den Inhalt von Blacklist-Dateien an";
+
+/* No comment provided by engineer. */
+"Visible" = "Sichtbar";
 
 /* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "Warte, es sind alles TrollTools?";
