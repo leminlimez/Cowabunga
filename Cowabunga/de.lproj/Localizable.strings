@@ -206,7 +206,13 @@
 "catalogIconTheming" = "Katalog-Icon-Theming";
 
 /* No comment provided by engineer. */
+"CC Background Blur" = "Kontrollzentrum-Hintergrund-Unschärfe";
+
+/* No comment provided by engineer. */
 "CC Modules" = "Kontrollzentrum-Module";
+
+/* No comment provided by engineer. */
+"CC Module Background" = "Kontrollzentrum-Modul-Hintergrund";
 
 /* No comment provided by engineer. */
 "CD Hashes" = "CD-Hashes";
@@ -362,7 +368,7 @@
 "Custom Operations" = "Benutzerdefinierte Vorgänge";
 
 /* No comment provided by engineer. */
-"Custom Operations Author Name" = "Name des Erstellers des benutzerdefinierten Vorgangs";
+"Custom Operations Author Name" = "Name des Erstellers";
 
 /* App icon name
    default device subtype
@@ -453,6 +459,9 @@
 /* Audio name */
 "End Recording" = "Aufnahme beenden";
 
+/* No comment provided by engineer. */
+"Enter Author Name" = "Autornamen eingeben";
+
 /* Entering custom resolution */
 "Enter Dimensions" = "Abmessungen eingeben";
 
@@ -527,6 +536,12 @@
 
 /* No comment provided by engineer. */
 "Folder" = "Ordner";
+
+/* No comment provided by engineer. */
+"Folder Background" = "Ordner-Hintergrund";
+
+/* No comment provided by engineer. */
+"Folder Blur" = "Ordner-Unschärfe";
 
 /* No comment provided by engineer. */
 "Font Files" = "Schriftdateien";
@@ -687,6 +702,9 @@
 "Keyboard Press Normal" = "Tastaturtaste Normal";
 
 /* No comment provided by engineer. */
+"Library Pod Backgrounds" = "Bibliotheks-Podhintergründe";
+
+/* No comment provided by engineer. */
 "Lock" = "Sperrsymbol";
 
 /* Category of tool */
@@ -797,6 +815,9 @@
 
 /* No comment provided by engineer. */
 "Notification Banner" = "Benachrichtigungsbanner";
+
+/* No comment provided by engineer. */
+"Notification Banner Background" = "Benachrichtigungsbanner-Hintergrund";
 
 /* No comment provided by engineer. */
 "OK" = "Okay";
@@ -1072,6 +1093,9 @@
 "Settings" = "Einstellungen";
 
 /* No comment provided by engineer. */
+"Settings Customizations" = "Einstellungsanpassungen";
+
+/* No comment provided by engineer. */
 "Shortcut Apps" = "Kurzbefehle-Apps";
 
 /* No comment provided by engineer. */
@@ -1181,6 +1205,9 @@
 
 /* screentime process */
 "This could cause issues. Make sure to disable data or Wi-Fi." = "Dies könnte zu Problemen führen. Stelle sicher, dass mobile Daten oder WLAN deaktiviert sind.";
+
+/* No comment provided by engineer. */
+"This is the name that your exported operations will be attached to." = "Dies ist der Name, an den deine exportierten Vorgänge angehängt werden.";
 
 /* No comment provided by engineer. */
 "This version of iOS is not supported." = "Diese iOS-Version wird nicht unterstützt.";
