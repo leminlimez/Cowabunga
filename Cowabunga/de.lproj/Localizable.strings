@@ -14,13 +14,13 @@
 "(Recommended)" = "(Empfohlen)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Verbirgt auch den Namen des Netzbetreibers\n**Blendet auch die Anzeige für Mobilfunkdaten aus";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Verbirgt auch den Namen des Netzbetreibers\n**Blendet auch die Anzeige für Mobilfunkdaten aus.";
 
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld bytes";
 
 /* No comment provided by engineer. */
-"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️ Warnung ⚠️\nEinige Benutzer haben mit dieser Funktion Bootloops erlebt. Wenn du eine Beta-Version von iOS verwendest, gehe vorsichtig vor. Wenn du eine iOS 16.0-Betaversion verwendest, verwende diese Funktion nicht";
+"⚠️ Warning ⚠️\nSome users have experienced bootloops using this feature. If you are on a beta version of iOS, preceed with caution. If you are on an iOS 16.0 beta, do not use this feature." = "⚠️ Warnung ⚠️\nEinige Benutzer haben mit dieser Funktion Bootloops erlebt. Wenn du eine Beta-Version von iOS verwendest, gehe vorsichtig vor. Wenn du eine iOS 16.0-Betaversion verwendest, verwende diese Funktion nicht.";
 
 /* IMPORTANT alert when icons finish applying */
 "⚠️⬇ PLEASE READ ⬇⚠️\n\n After the phone resprings, please *reopen Cowabunga* to fix apps not functioning properly\n\nVERY IMPORTANT: If you see the apple logo and progress bar, do not worry, your device is fine. PLEASE DO NOT ATTEMPT TO FORCE REBOOT IT.\n\nElapsed time: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s" = "⚠️⬇ BITTE LESEN ⬇⚠️\n\n Nachdem das Telefon neu gestartet wurde, *öffne Cowabunga erneut*, um zu beheben, dass Apps nicht richtig funktionieren\n\nSEHR WICHTIG: Wenn du das Apple-Logo und den Fortschrittsbalken siehst, mach dir keine Sorgen, dein Gerät ist in Ordnung. BITTE VERSUCHE NICHT, EINEN NEUSTART ZU ERZWINGEN.\n\nVerstrichene Zeit: (Double(Int(-timeStart.timeIntervalSinceNow * 100.0)) / 100.0)s";
@@ -98,7 +98,7 @@
 "Apple ID, iCloud, Media & Purchases" = "Apple-ID, iCloud, Medien & Käufe";
 
 /* fix tweaks info */
-"Applies all tweaks which were applied before." = "Wendet alle zuvor angewendeten Optimierungen an.";
+"Applies all tweaks which were applied before." = "Wendet alle zuvor aktivierten Tweaks an.";
 
 /* No comment provided by engineer. */
 "Apply" = "Anwenden";
@@ -134,16 +134,16 @@
 "Audio Changer" = "Audio-Wechsler";
 
 /* No comment provided by engineer. */
-"Auto respring after apply" = "Automatischer Respring nach Anwendung";
+"Auto respring after apply" = "Automatischer Respring";
 
 /* No comment provided by engineer. */
-"Auto Update Included Audio" = "Automatisches Update inklusive Audio";
+"Auto Update Included Audio" = "Automatisches Update beinhaltet Audio";
 
 /* No comment provided by engineer. */
 "Background" = "Hintergrund";
 
 /* No comment provided by engineer. */
-"Background Applying" = "im Hintergrund anwenden";
+"Background Applying" = "Hintergrundanwendung";
 
 /* No comment provided by engineer. */
 "Background Services" = "Hintergrunddienste";
@@ -185,7 +185,7 @@
 "Breadcrumb Text" = "Breadcrumb-Text";
 
 /* No comment provided by engineer. */
-"Bugs may arise. It's also not meant to be redistributed, because... blah blah blah, you know what happens if you do 🧌" = "Es können Fehler auftreten. Es ist auch nicht zum Weiterverteilen gedacht, denn... bla bla bla, ihr wisst was passiert wenn ihr es tut 🧌";
+"Bugs may arise. It's also not meant to be redistributed, because... blah blah blah, you know what happens if you do 🧌" = "Es können Fehler auftreten. Es ist auch nicht zum Weiterverteilen gedacht, denn... bla bla bla, ihr wisst was passiert wenn ihr es tut. 🧌";
 
 /* No comment provided by engineer. */
 "Calculate Size" = "berechnete Größe";
@@ -203,7 +203,7 @@
 "Carrier Text" = "Netzbetreiber-Text";
 
 /* No comment provided by engineer. */
-"catalogIconTheming" = "catalogIconTheming";
+"catalogIconTheming" = "Katalog-Icon-Theming";
 
 /* No comment provided by engineer. */
 "CC Modules" = "Kontrollzentrum-Module";
@@ -245,13 +245,13 @@
 "Choose a lock preference" = "Sperrsymbol-Einstellung auswählen";
 
 /* No comment provided by engineer. */
-"Choose a name for the category" = "Namen für die Kategorie auswählen";
+"Choose a name for the category" = "Kategorienamen auswählen";
 
 /* No comment provided by engineer. */
-"Choose a name for the lock" = "Namen für das Sperrsymbol auswählen";
+"Choose a name for the lock" = "Sperrsymbolnamen auswählen";
 
 /* Entering name for audio */
-"Choose a name for the sound" = "Namen für den Sound auswählen";
+"Choose a name for the sound" = "Soundname auswählen";
 
 /* No comment provided by engineer. */
 "Choose a plist type" = "Plist-Typ auswählen";
@@ -305,7 +305,7 @@
 "Control Center" = "Kontrollzentrum";
 
 /* operation type that corrupts/disables the file */
-"Corrupting" = "zerstörend";
+"Corrupting" = "korrupt";
 
 /* No comment provided by engineer. */
 "Could not calculate plist size!" = "Plist-Größe konnte nicht berechnet werden!";
@@ -397,7 +397,7 @@
 "Disable App Switcher Blur" = "App Switcher Unschärfe deaktivieren";
 
 /* Springboard tool */
-"Disable CC Module Background" = "Hintergrund des Kontrollzentrum-Moduls deaktivieren";
+"Disable CC Module Background" = "Kontrollzentrum-Modulhintergrund deaktivieren";
 
 /* Springboard tool */
 "Disable Folder Background" = "Ordnerhintergrund deaktivieren";
@@ -406,7 +406,7 @@
 "Disable Folder Blur" = "Ordnerunschärfe deaktivieren";
 
 /* Springboard tool */
-"Disable Library Pods Background" = "Hintergrund der Bibliotheks-Pods deaktivieren";
+"Disable Library Pods Background" = "Bibliotheks-Podhintergrund deaktivieren";
 
 /* No comment provided by engineer. */
 "Disable Screen Time" = "Bildschirmzeit deaktivieren";
@@ -433,7 +433,7 @@
 "Dynamic Island SubTypes" = "Dynamic Island Untertypen";
 
 /* No comment provided by engineer. */
-"Edit Operation" = "Vorgang bearbeitenn";
+"Edit Operation" = "Vorgang bearbeiten";
 
 /* No comment provided by engineer. */
 "Editing %@" = "Bearbeite %@";
@@ -466,10 +466,10 @@
 "Error" = "Fehler";
 
 /* Error occured while fetching themes */
-"Error occured while fetching themes" = "Beim Abrufen von Themes ist ein Fehler aufgetreten";
+"Error occured while fetching themes" = "Beim Abrufen von Themes ist ein Fehler aufgetreten.";
 
 /* No comment provided by engineer. */
-"Errors occurred while setting some icons" = "Beim Festlegen einiger Icons sind Fehler aufgetreten";
+"Errors occurred while setting some icons" = "Beim Festlegen einiger Icons sind Fehler aufgetreten.";
 
 /* No comment provided by engineer. */
 "Exaple" = "Beispiel";
@@ -517,7 +517,7 @@
 "Filter" = "Filter";
 
 /* No comment provided by engineer. */
-"Fix tweaks" = "Tweaks beheben";
+"Fix tweaks" = "Tweaks anwenden";
 
 /* No comment provided by engineer. */
 "Fixing apps..." = "Apps reparieren...";
@@ -608,7 +608,7 @@
 "Hide Location" = "Standort ausblenden";
 
 /* Springboard tool */
-"Hide Notification Banner Background" = "Hintergrund des Benachrichtigungsbanners ausblenden";
+"Hide Notification Banner Background" = "Benachrichtigungsbannerhintergrund ausblenden";
 
 /* No comment provided by engineer. */
 "Hide Rotation Lock" = "Ausrichtungssperre ausblenden";
@@ -629,7 +629,7 @@
 "Home Screen" = "Home-Bildschirm";
 
 /* No comment provided by engineer. */
-"I'm not a robot (no cap)" = "Ich bin kein Roboter (ohne Witz)";
+"I'm not a robot (no cap)" = "Ich bin kein Roboter (ohne Witz).";
 
 /* No comment provided by engineer. */
 "Icons" = "Icons";
@@ -693,10 +693,10 @@
 "Lock Screen" = "Sperrbildschirm";
 
 /* Title of tool */
-"Lock Screen Footnote" = "Sperrbildschirm Fußnote";
+"Lock Screen Footnote" = "Fußnote";
 
 /* No comment provided by engineer. */
-"Lock Screen Footnote Changer" = "Sperrbildschirm Fußnoten-Wechsler";
+"Lock Screen Footnote Changer" = "Fußnoten-Wechsler";
 
 /* No comment provided by engineer. */
 "Lock Type" = "Sperrsymbol-Typ";
@@ -708,7 +708,7 @@
 "Log in" = "Log in";
 
 /* No comment provided by engineer. */
-"Log in Sourced" = "Log in Sourced";
+"Log in Sourced" = "Quellenanmeldung";
 
 /* Audio name */
 "Low Power" = "Stromsparen";
@@ -718,7 +718,7 @@
 "Main Developer" = "Hauptentwickler";
 
 /* No comment provided by engineer. */
-"Make It So, Number One" = "Mach es auf diese Weise";
+"Make It So, Number One" = "Mach es auf diese Weise".;
 
 /* No comment provided by engineer. */
 "Manage Background Tasks" = "Hintergrundaufgaben verwalten";
@@ -778,7 +778,7 @@
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "Keine Themes gefunden. Lade Themes auf der Registerkarte \"Erkunden\" herunter,\noder importiere sie über die Schaltfläche in der oberen rechten Ecke (Themes müssen Icons im Format <id>.png haben).";
 
 /* No comment provided by engineer. */
-"noPNGThemingFixup" = "noPNGThemingFixup";
+"noPNGThemingFixup" = "Keine PNG-Theming-Korrektur";
 
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "Keine gültige Größe!";
@@ -793,7 +793,7 @@
 "Not Supported" = "Nicht unterstützt";
 
 /* No comment provided by engineer. */
-"noThemingFixup" = "noThemingFixup";
+"noThemingFixup" = "Keine Theming-Korrektur";
 
 /* No comment provided by engineer. */
 "Notification Banner" = "Benachrichtigungsbanner";
@@ -901,10 +901,10 @@
 "Plist Type:" = "Plist-Typ:";
 
 /* No comment provided by engineer. */
-"pngIconTheming" = "pngIconTheming";
+"pngIconTheming" = "PNG-Icon-Theming";
 
 /* Power Saving */
-"Power Saving" = "Energie sparen";
+"Power Saving" = "Energie sparend";
 
 /* No comment provided by engineer. */
 "Preferences" = "Einstellungen";
@@ -916,7 +916,7 @@
 "Private build" = "Private Version";
 
 /* Successfully applying custom resolution */
-"Reboot to revert resolution changes. It will auto respring when done" = "Starte neu, um Auflösungsänderungen rückgängig zu machen. Es wird automatisch ein Respring durchgeführt, wenn es fertig ist";
+"Reboot to revert resolution changes. It will auto respring when done" = "Starte neu, um Auflösungsänderungen rückgängig zu machen. Es wird automatisch ein Respring durchgeführt, wenn es fertig ist.";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "Icon-Cache neu erstellen";
@@ -967,7 +967,7 @@
 "Reset faces" = "Faces zurücksetzen";
 
 /* No comment provided by engineer. */
-"Resolution will now apply" = "Die Auflösung gilt jetzt";
+"Resolution will now apply" = "Die Auflösung gilt jetzt.";
 
 /* No comment provided by engineer. */
 "Respring" = "Respring";
@@ -985,7 +985,7 @@
 "Restoring original file..." = "Originaldatei wiederherstellen...";
 
 /* No comment provided by engineer. */
-"Run in background" = "Im Hintergrund laufen";
+"Run in background" = "Im Hintergrund ausführen";
 
 /* No comment provided by engineer. */
 "Save" = "Speichern";
@@ -1081,7 +1081,7 @@
 "Show Numeric WiFi Strength" = "WLAN-Signalstärke als Zahl anzeigen";
 
 /* No comment provided by engineer. */
-"showCancelButtonOnThemingEnd" = "showCancelButtonOnThemingEnd";
+"showCancelButtonOnThemingEnd" = "Abbrechen-Taste am Ende des Theming anzeigen";
 
 /* No comment provided by engineer. */
 "Sign up" = "Anmelden";
@@ -1111,7 +1111,7 @@
 "Status Bar" = "Statusleiste";
 
 /* No comment provided by engineer. */
-"Status Bar Time Text" = "Zeittext der Statusleiste";
+"Status Bar Time Text" = "Statusleiste-Zeittext";
 
 /* No comment provided by engineer. */
 "Submit themes" = "Themes einreichen";
@@ -1132,10 +1132,10 @@
 "Supervised" = "Supervised";
 
 /* No comment provided by engineer. */
-"Swipe to view different cards" = "Wischen, um andere Karten anzuzeigen";
+"Swipe to view different cards" = "Wischen, um andere Karten anzuzeigen.";
 
 /* No comment provided by engineer. */
-"Tap a card to customize" = "Tippe auf eine Karte, um sie anzupassen";
+"Tap a card to customize" = "Tippe auf eine Karte, um sie anzupassen.";
 
 /* No comment provided by engineer. */
 "Tap on any key to edit \nits appearance" = "Tippe auf eine beliebige Taste, um \nits Aussehen zu bearbeiten";
@@ -1201,7 +1201,7 @@
 "Type:" = "Typ:";
 
 /* Cannot delete audio (audio name is after) */
-"Unable to delete audio for audio" = "Audio für Audio kann nicht gelöscht werden";
+"Unable to delete audio for audio" = "Audio für Audio konnte nicht gelöscht werden.";
 
 /* Failed to import lock */
 "Unable to save imported lock!" = "Importiertes Sperrsymbol konnte nicht gespeichert werden!";
@@ -1210,7 +1210,7 @@
 "Uncategorized" = "Nicht kategorisiert";
 
 /* Shown after successful theme set. */
-"Understood, Respring" = "Verstanden, Respring";
+"Understood, Respring" = "Verstanden, Respring!";
 
 /* zhuowei's contribution */
 "Unsandboxing" = "Unsandboxing";
@@ -1301,7 +1301,7 @@
 "Your device is connected to internet!" = "Dein Gerät ist mit dem Internet verbunden!";
 
 /* No comment provided by engineer. */
-"Your device will respring." = "Ein Respring wird ausgeführt";
+"Your device will respring." = "Ein Respring wird ausgeführt.";
 
 /* No comment provided by engineer. */
 "Your device will respring.\n\n\nApplying using %@." = "Dein Gerät wird einen Respring durchführen.\n\n\nAnwenden mit %@.";
