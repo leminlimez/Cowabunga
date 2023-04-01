@@ -23,7 +23,7 @@
 "(Recommended)" = "(Empfohlen)";
 
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Verbirgt auch den Namen des Netzbetreibers\n**Blendet auch die Anzeige für Mobilfunkdaten aus.";
+"*Will also hide carrier name\n**Will also hide cellular data indicator" = "*Verbirgt auch den Namen des Netzbetreibers.\n**Blendet auch die Anzeige für Mobilfunkdaten aus.";
 
 /* No comment provided by engineer. */
 "%lld bytes" = "%lld bytes";
@@ -95,6 +95,9 @@
 "An error occurred while trying to enable extra settings." = "Beim Versuch zusätzliche Einstellungen zu aktivieren ist ein Fehler aufgetreten.";
 
 /* No comment provided by engineer. */
+"An error occurred while writing to the file." = "Beim Schreiben in die Datei ist ein Fehler aufgetreten.";
+
+/* No comment provided by engineer. */
 "App Stopped Running" = "App läuft nicht mehr";
 
 /* No comment provided by engineer. */
@@ -161,7 +164,7 @@
 "Background Update Frequency" = "Hintergrundaktualisierungshäufigkeit";
 
 /* No comment provided by engineer. */
-"Banned Apps" = "Verbotene Apps";
+"Banned Apps" = "Gesperrte Apps";
 
 /* No comment provided by engineer. */
 "Basic Configuration" = "Basiseinstellung";
@@ -182,7 +185,7 @@
 "Blacklist" = "Blacklist";
 
 /* No comment provided by engineer. */
-"Blacklist File Contents" = "Inhalt der Blacklist-Datei";
+"Blacklist File Contents" = "Blacklist-Datei";
 
 /* No comment provided by engineer. */
 "Blur Enabled" = "Unschärfe aktiviert";
@@ -215,7 +218,7 @@
 "Card Changer" = "Kartenwechsler";
 
 /* No comment provided by engineer. */
-"Carrier Text" = "Netzbetreiber-Text";
+"Carrier Text" = "1. Netzbetreiber-Text";
 
 /* No comment provided by engineer. */
 "catalogIconTheming" = "Katalog-Icon-Theming";
@@ -245,13 +248,16 @@
 "Change Breadcrumb Text" = "Breadcrumb-Text ändern";
 
 /* No comment provided by engineer. */
-"Change Carrier Text" = "Netzbetreiber-Text ändern";
+"Change Carrier Text" = "1. Netzbetreiber-Text ändern";
 
 /* No comment provided by engineer. */
 "Change Cellular Signal Strength Bars" = "Balken für die Mobilfunksignalstärke ändern";
 
+* No comment provided by engineer. */
+"Change Secondary Carrier Text" = "2. Netzbetreiber-Text ändern";
+
 /* No comment provided by engineer. */
-"Change Status Bar Time Text" = "Zeittext der Statusleiste ändern";
+"Change Status Bar Time Text" = "Statusleisten-Zeittext ändern";
 
 /* No comment provided by engineer. */
 "Change WiFi Signal Strength Bars" = "Balken für die WLAN-Signalstärke ändern";
@@ -442,7 +448,7 @@
 "Disable Screen Time" = "Bildschirmzeit deaktivieren";
 
 /* No comment provided by engineer. */
-"Disable Shortcut Apps as Appclips" = "Shortcut-Apps als Appclips deaktivieren";
+"Disable Shortcut Apps as Appclips" = "Kurzbefehle-Apps als Appclips deaktivieren";
 
 /* No comment provided by engineer. */
 "Dock" = "Dock";
@@ -497,6 +503,9 @@
 
 /* No comment provided by engineer. */
 "Error" = "Fehler";
+
+/* No comment provided by engineer. */
+"ERROR: Could not read from file! Does it even exist?" = "FEHLER: Datei konnte nicht gelesen werden! Existiert sie überhaupt?";
 
 /* Error occured while fetching themes */
 "Error occured while fetching themes" = "Beim Abrufen von Themes ist ein Fehler aufgetreten.";
@@ -635,7 +644,7 @@
 "Hide CarPlay" = "CarPlay ausblenden";
 
 /* No comment provided by engineer. */
-"Hide Cellular*" = "Mobilfunk ausblenden*";
+"Hide Cellular*" = "*Mobilfunk ausblenden";
 
 /* No comment provided by engineer. */
 "Hide Do Not Disturb" = "Nicht stören ausblenden";
@@ -662,7 +671,7 @@
 "Hide VPN" = "VPN ausblenden";
 
 /* No comment provided by engineer. */
-"Hide Wi-Fi**" = "WLAN** ausblenden";
+"Hide Wi-Fi**" = "**WLAN ausblenden";
 
 /* No comment provided by engineer. */
 "Home" = "Home";
@@ -775,7 +784,7 @@
 "Main Developer" = "Hauptentwickler";
 
 /* No comment provided by engineer. */
-"Make It So, Number One" = "Mach es auf diese Weise".;
+"Make It So, Number One" = "Mach es auf diese Weise.";
 
 /* No comment provided by engineer. */
 "Manage Background Tasks" = "Hintergrundaufgaben verwalten";
@@ -826,7 +835,7 @@
 "No" = "Nein";
 
 /* No comment provided by engineer. */
-"No Cards Found" = "Keine Karten gefunden";
+"No Cards Found" = "Keine Karten gefunden!";
 
 /* No comment provided by engineer. */
 "No images found!" = "Keine Bilder gefunden!";
@@ -1027,6 +1036,9 @@
 "Remove theme" = "Theme entfernen";
 
 /* No comment provided by engineer. */
+"Remove three-app limit" = "3-App-Limit entfernen";
+
+/* No comment provided by engineer. */
 "Rename" = "Umbenennen";
 
 /* Entering new theme name */
@@ -1060,7 +1072,7 @@
 "Respring is an action that allows restarting your Home Screen without rebooting your device." = "Ein Respring ist eine Aktion, mit der dein Startbildschirm neu gestartet werden kann, ohne dein Gerät neu zu starten.";
 
 /* Respring to see changes */
-"Respring to see changes" = "Respring durchführen, um Änderungen zu sehen";
+"Respring to see changes" = "Respring durchführen, um Änderungen zu sehen.";
 
 /* No comment provided by engineer. */
 "Restore" = "Wiederherstellen";
@@ -1103,6 +1115,9 @@
 
 /* c22dev's contribution */
 "ScreenTime Remover, Included Audio, Credits, and Card Changer" = "Bildschirmzeit-Entferner, enthaltenes Audio, Danksagungen und Kartenwechsler";
+
+/* No comment provided by engineer. */
+"Secondary Carrier Text" = "2. Netzbetreiber-Text";
 
 /* No comment provided by engineer. */
 "Select" = "Auswählen";
@@ -1165,10 +1180,10 @@
 "Shortcut Apps" = "Kurzbefehle-Apps";
 
 /* No comment provided by engineer. */
-"Show Numeric Cellular Strength" = "Mobilfunk-Signalstärke als Zahl anzeigen";
+"Show Numeric Cellular Strength" = "Mobilfunk-Signalstärke als Zahl";
 
 /* No comment provided by engineer. */
-"Show Numeric WiFi Strength" = "WLAN-Signalstärke als Zahl anzeigen";
+"Show Numeric WiFi Strength" = "WLAN-Signalstärke als Zahl";
 
 /* No comment provided by engineer. */
 "showCancelButtonOnThemingEnd" = "Abbrechen-Taste am Ende des Theming anzeigen";
@@ -1201,7 +1216,7 @@
 "Status Bar" = "Statusleiste";
 
 /* No comment provided by engineer. */
-"Status Bar Time Text" = "Statusleiste-Zeittext";
+"Status Bar Time Text" = "Statusleisten-Zeittext";
 
 /* No comment provided by engineer. */
 "Submit themes" = "Themes einreichen";
@@ -1228,7 +1243,7 @@
 "Tap a card to customize" = "Tippe auf eine Karte, um sie anzupassen.";
 
 /* No comment provided by engineer. */
-"Tap on any key to edit \nits appearance" = "Tippe auf eine beliebige Taste, um das Aussehen zu bearbeiten.";
+"Tap on any key to edit \nits appearance" = "Tippe auf eine beliebige Taste, um ihr Aussehen zu bearbeiten.";
 
 /* No comment provided by engineer. */
 "Tap on icon you want to set as preferred for %@ (%@)" = "Tippe auf das Icon, das du als bevorzugt für %@ (%@) festlegen möchtest.";
@@ -1345,7 +1360,7 @@
 "Version %@ (%@)" = "Version %@ (%@)";
 
 /* No comment provided by engineer. */
-"View contents of blacklist files" = "Zeige den Inhalt von Blacklist-Dateien an";
+"View contents of blacklist files" = "Blacklist-Dateien anzeigen";
 
 /* No comment provided by engineer. */
 "Visible" = "Sichtbar";
