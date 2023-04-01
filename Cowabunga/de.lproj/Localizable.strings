@@ -790,6 +790,9 @@
 "Not Playing" = "Nicht abspielen";
 
 /* No comment provided by engineer. */
+"Not Supported" = "Nicht unterstützt";
+
+/* No comment provided by engineer. */
 "noThemingFixup" = "noThemingFixup";
 
 /* No comment provided by engineer. */
@@ -1178,6 +1181,9 @@
 
 /* screentime process */
 "This could cause issues. Make sure to disable data or Wi-Fi." = "Dies könnte zu Problemen führen. Stelle sicher, dass mobile Daten oder WLAN deaktiviert sind.";
+
+/* No comment provided by engineer. */
+"This version of iOS is not supported." = "Diese iOS-Version wird nicht unterstützt.";
 
 /* No comment provided by engineer. */
 "Toggle what services will run or apply when the app is in the background." = "Wähle aus, welche Dienste ausgeführt oder angewendet werden, wenn sich die App im Hintergrund befindet.";
