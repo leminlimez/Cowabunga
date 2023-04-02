@@ -5,6 +5,15 @@
 /* Bundle name */
 "CFBundleName" = "Cowabunga";
 
+/* (No Comment) */
+"Cowabunga Operation" = "Cowabunga-Operation";
+
+/* (No Comment) */
+"FileSwitcherPro Item" = "FileSwitcherPro";
+
+/* (No Comment) */
+"Icon Theme" = "Icon-Theme";
+
 /* Privacy - Media Library Usage Description */
 "NSAppleMusicUsageDescription" = "Sandbox-Berechtigung (benötigt für Passcode-Schlüssel + einige andere Optionen)";
 
@@ -18,7 +27,16 @@
 "NSPhotoLibraryUsageDescription" = "Fotos";
 
 /* (No Comment) */
+"OpenType font" = "OpenType-Schriftart";
+
+/* (No Comment) */
 "Passcode Theme File" = "Passcode-Themedatei";
 
 /* (No Comment) */
 "Theme Archive File" = "Theme-Archivdatei";
+
+/* (No Comment) */
+"TrueType collection" = "TrueType-Sammlung";
+
+/* (No Comment) */
+"TrueType font" = "TrueType-Schriftart";
