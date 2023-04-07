@@ -725,7 +725,7 @@
 "Rename theme" = "重命名主题";
 "New theme name" = "新的主题名称";
 "Rename" = "重命名";
-"Remove theme" = "移出主题";
+"Remove theme" = "移除主题";
 "Alternatives" = "备选方案";
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "找不到主题。请在“探索”选项卡中下载主题，或使用右上角的按钮导入主题（主题必须包含<id>.png格式的图标）";
 "Wait, it's all TrollTools?" = "等等，这是TrollTools？";
