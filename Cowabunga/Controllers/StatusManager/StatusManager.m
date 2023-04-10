@@ -145,6 +145,22 @@
     [self.setter unsetSecondaryServiceBadge];
 }
 
+- (bool) isDateOverridden {
+    return [self.setter isDateOverridden];
+}
+
+- (NSString*) getDateOverride {
+    return [self.setter getDateOverride];
+}
+
+- (void) setDate:(NSString*)text {
+    [self.setter setDate:text];
+}
+
+- (void) unsetDate {
+    [self.setter unsetDate];
+}
+
 - (bool) isTimeOverridden {
     return [self.setter isTimeOverridden];
 }

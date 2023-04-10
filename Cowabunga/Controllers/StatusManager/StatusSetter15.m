@@ -319,6 +319,30 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isDateOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideDateString == 1;
+}
+
+- (NSString*) getDateOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    NSString* time = @(overrides->values.dateString);
+    return time;
+}
+
+- (void) setDate:(NSString*)text {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    strcpy(overrides->values.dateString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    overrides->overrideDateString = 1;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetDate {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideDateString = 0;
+    [self applyChanges:overrides];
+}
+
 - (bool) isTimeOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideTimeString == 1;

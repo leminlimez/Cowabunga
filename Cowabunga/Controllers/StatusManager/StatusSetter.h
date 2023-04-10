@@ -18,6 +18,10 @@
 - (NSString*) getSecondaryServiceBadgeOverride;
 - (void) setSecondaryServiceBadge:(NSString*)text;
 - (void) unsetSecondaryServiceBadge;
+- (bool) isDateOverridden;
+- (NSString*) getDateOverride;
+- (void) setDate:(NSString*)text;
+- (void) unsetDate;
 - (bool) isTimeOverridden;
 - (NSString*) getTimeOverride;
 - (void) setTime:(NSString*)text;
