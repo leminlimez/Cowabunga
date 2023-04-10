@@ -37,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "SelectedFont": "None",
             "BackgroundUpdateInterval": 600.0,
             "catalogIconTheming": true,
-            "rootCatalogIconTheming": true
+            "rootCatalogIconTheming": true,
+            "DateFormat": "MM/dd"
         ]
         for bgOption in BackgroundFileUpdaterController.shared.BackgroundOptions {
             defaults[bgOption.key + "_BGApply"] = true

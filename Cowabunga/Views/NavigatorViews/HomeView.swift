@@ -75,6 +75,38 @@ struct HomeView: View {
         1800.0: NSLocalizedString("Power Saving", comment: "Power Saving")
     ]
     
+    @State private var dateFormat: String = UserDefaults.standard.string(forKey: "DateFormat") ?? "MM/dd"
+    
+    private var dateFormats: [String] = [
+        "MM/dd",
+        "MM/dd/yyyy",
+        "MMM dd",
+        "MMM dd yyyy",
+        
+        "dd/MM",
+        "dd/MM/yyyy",
+        "dd MMM",
+        "dd MMM yyyy",
+        
+        "EEE, MMM dd",
+        "EEEE"
+    ]
+    
+    private var dateFormattingExamples: [String: String] = [
+        "MM/dd": "03/20",
+        "MM/dd/yyyy": "03/20/2023",
+        "MMM dd": "Mar 20",
+        "MMM dd yyyy": "Mar 20 2023",
+        
+        "dd/MM": "20/03",
+        "dd/MM/yyyy": "20/03/2023",
+        "dd MMM": "20 Mar",
+        "dd MMM yyyy": "20 Mar 2023",
+        
+        "EEE, MMM dd": "Mon, Mar 20",
+        "EEEE": "Monday"
+    ]
+    
     var body: some View {
         NavigationView {
             List {
@@ -312,6 +344,22 @@ struct HomeView: View {
                         }
                     }
                     
+                    // MARK: Date Format
+                    HStack {
+                        Text("Date Format")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            showDateFormatPopup()
+                        }) {
+                            Text(dateFormat)
+                                .foregroundColor(.blue)
+                                .padding(.leading, 10)
+                        }
+                    }
+                    
                     // auto fetch audio updates toggle
                     HStack {
                         Toggle(isOn: $autoFetchAudio) {
@@ -420,6 +468,40 @@ struct HomeView: View {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func showDateFormatPopup() {
+        // create and configure alert controller
+        let alert = UIAlertController(title: "Choose a date format", message: "", preferredStyle: .actionSheet)
+        
+        // create the actions
+        for f in dateFormats {
+            let newAction = UIAlertAction(title: "\(f) (\(dateFormattingExamples[f] ?? "Error"))", style: .default) { (action) in
+                // apply the format
+                UserDefaults.standard.set(f, forKey: "DateFormat")
+                dateFormat = f
+            }
+            if dateFormat == f {
+                // add a check mark
+                newAction.setValue(true, forKey: "checked")
+            }
+            alert.addAction(newAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+            // cancels the action
+        }
+        
+        // add the actions
+        alert.addAction(cancelAction)
+        
+        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+        // present popover for iPads
+        alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+        alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+        
+        // present the alert
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
     }
     
     func applyTweaks() {
