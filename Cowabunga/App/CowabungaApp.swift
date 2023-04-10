@@ -38,6 +38,9 @@ struct CowabungaApp: App {
                         UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.")
                     } else {
                         do {
+                            if UserDefaults.standard.bool(forKey: "ForceMDC") == true {
+                                throw "Force MDC"
+                            }
                             // TrollStore method
                             try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches"), includingPropertiesForKeys: nil)
                             StatusManager.sharedInstance().setIsMDCMode(false)
