@@ -1432,7 +1432,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1457,7 +1457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.1.1;
+				MARKETING_VERSION = 10.1.2;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1482,7 +1482,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1494,8 +1494,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Cowabunga;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant permission to the sandbox (needs it for Passcode keys + some other options)";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time. But Cowabunga tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Cowabunga runs in the background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time, but Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cowabunga runs in the background to make sure tweaks remain applied. Usually iOS kills such apps after a period of time, but Cowabunga tricks iOS by requesting location data thus allowing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Photos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1507,7 +1507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.1.1;
+				MARKETING_VERSION = 10.1.2;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
