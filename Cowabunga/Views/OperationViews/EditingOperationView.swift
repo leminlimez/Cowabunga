@@ -366,13 +366,13 @@ struct EditingOperationView: View {
                                     }
                                 }
                             }
-                        } else if replacingType == ReplacingObjectType.Imported, let splitted = replacingPath.split(separator: "/") {
+                        } else if replacingType == ReplacingObjectType.Imported {
                             VStack {
                                 HStack {
                                     Text("File:")
                                         .bold()
                                     Spacer()
-                                    Text(splitted.last ?? "No file selected!")
+                                    Text(replacingPath.split(separator: "/").last ?? "No file selected!")
                                         .multilineTextAlignment(.trailing)
                                 }
                                 if !operation.isCreating {
