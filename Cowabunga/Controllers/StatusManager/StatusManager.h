@@ -14,6 +14,14 @@
 - (NSString*) getSecondaryCarrierOverride;
 - (void) setSecondaryCarrier:(NSString*)text;
 - (void) unsetSecondaryCarrier;
+- (bool) isPrimaryServiceBadgeOverridden;
+- (NSString*) getPrimaryServiceBadgeOverride;
+- (void) setPrimaryServiceBadge:(NSString*)text;
+- (void) unsetPrimaryServiceBadge;
+- (bool) isSecondaryServiceBadgeOverridden;
+- (NSString*) getSecondaryServiceBadgeOverride;
+- (void) setSecondaryServiceBadge:(NSString*)text;
+- (void) unsetSecondaryServiceBadge;
 - (bool) isTimeOverridden;
 - (NSString*) getTimeOverride;
 - (void) setTime:(NSString*)text;

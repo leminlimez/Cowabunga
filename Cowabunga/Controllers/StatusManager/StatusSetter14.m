@@ -242,6 +242,54 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isPrimaryServiceBadgeOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overridePrimaryServiceBadgeString == 1;
+}
+
+- (NSString*) getPrimaryServiceBadgeOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    NSString* carrier = @(overrides->values.primaryServiceBadgeString);
+    return carrier;
+}
+
+- (void) setPrimaryServiceBadge:(NSString*)text {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overridePrimaryServiceBadgeString = 1;
+    strcpy(overrides->values.primaryServiceBadgeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    [self applyChanges:overrides];
+}
+
+- (void) unsetPrimaryServiceBadge {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overridePrimaryServiceBadgeString = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isSecondaryServiceBadgeOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideSecondaryServiceBadgeString == 1;
+}
+
+- (NSString*) getSecondaryServiceBadgeOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    NSString* carrier = @(overrides->values.secondaryServiceBadgeString);
+    return carrier;
+}
+
+- (void) setSecondaryServiceBadge:(NSString*)text {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideSecondaryServiceBadgeString = 1;
+    strcpy(overrides->values.secondaryServiceBadgeString, [text cStringUsingEncoding:NSUTF8StringEncoding]);
+    [self applyChanges:overrides];
+}
+
+- (void) unsetSecondaryServiceBadge {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideSecondaryServiceBadgeString = 0;
+    [self applyChanges:overrides];
+}
+
 - (bool) isTimeOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideTimeString == 1;
