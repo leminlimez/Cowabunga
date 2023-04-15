@@ -359,6 +359,12 @@ struct HomeView: View {
                                 .padding(.leading, 10)
                         }
                     }
+                    // MARK: Apply Date
+                    Button(action: {
+                        createStatusBarDateTag()
+                    }) {
+                        Text("Update Status Bar Date")
+                    }
                     
                     // auto fetch audio updates toggle
                     HStack {
