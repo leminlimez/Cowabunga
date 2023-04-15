@@ -209,6 +209,22 @@
     [self.setter unsetCrumb];
 }
 
+- (bool) isDataNetworkTypeOverridden {
+    return [self.setter isDataNetworkTypeOverridden];
+}
+
+- (int) getDataNetworkTypeOverride {
+    return [self.setter getDataNetworkTypeOverride];
+}
+
+- (void) setDataNetworkType:(int)identifier {
+    [self.setter setDataNetworkType:identifier];
+}
+
+- (void) unsetDataNetworkType {
+    [self.setter unsetDataNetworkType];
+}
+
 - (bool) isBatteryCapacityOverridden {
     return [self.setter isBatteryCapacityOverridden];
 }
