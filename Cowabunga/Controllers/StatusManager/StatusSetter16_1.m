@@ -427,6 +427,29 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isDataNetworkTypeOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideDataNetworkType == 1;
+}
+
+- (int) getDataNetworkTypeOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.dataNetworkType;
+}
+
+- (void) setDataNetworkType:(int)identifier {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideDataNetworkType = 1;
+    overrides->values.dataNetworkType = identifier;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetDataNetworkType {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideDataNetworkType = 0;
+    [self applyChanges:overrides];
+}
+
 - (bool) isBatteryCapacityOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideBatteryCapacity == 1;

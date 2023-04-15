@@ -34,6 +34,10 @@
 - (NSString*) getCrumbOverride;
 - (void) setCrumb:(NSString*)text;
 - (void) unsetCrumb;
+- (bool) isDataNetworkTypeOverridden;
+- (int) getDataNetworkTypeOverride;
+- (void) setDataNetworkType:(int)identifier;
+- (void) unsetDataNetworkType;
 - (bool) isBatteryCapacityOverridden;
 - (int) getBatteryCapacityOverride;
 - (void) setBatteryCapacity:(int)capacity;
