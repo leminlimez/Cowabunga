@@ -74,6 +74,32 @@ func remvoeIconCache() {
     }
 }
 
+func createStatusBarDateTag() {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = UserDefaults.standard.string(forKey: "DateFormat") ?? "MM/dd"
+    
+    let newStr: String = dateFormatter.string(from: Date())
+    
+    if (newStr + " ▶").utf8CString.count <= 256 {
+        // set the date
+        StatusManager.sharedInstance().setCrumb(newStr)
+        if StatusManager.sharedInstance().isMDCMode() {
+            // if mdc then apply and respring
+            if FileManager.default.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing") {
+                do {
+                    let _ = try FileManager.default.replaceItemAt(URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"), withItemAt: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing"))
+                    restartFrontboard()
+                } catch {
+                    UIApplication.shared.alert(body: "\(error)")
+                }
+                
+            }
+        }
+    } else {
+        UIApplication.shared.alert(body: "Length error!")
+    }
+}
+
 //func rebuildIconCache() throws {
 //    let fm = FileManager.default
 //    for path in try! fm.contentsOfDirectory(atPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.lsd.iconscache/Library/Caches/com.apple.IconsCache/") {
