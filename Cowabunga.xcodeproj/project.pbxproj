@@ -127,6 +127,17 @@
 		6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C91296482C6001CFE46 /* SpringBoardView.swift */; };
 		6F721C94296482C7001CFE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F721C93296482C7001CFE46 /* Assets.xcassets */; };
 		6F75AD72298AB723009C0AD6 /* SpringboardColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75AD71298AB723009C0AD6 /* SpringboardColorManager.swift */; };
+		6F7B3ED429EDA19A0080FFDA /* ApplicationManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3ED329EDA19A0080FFDA /* ApplicationManager2.swift */; };
+		6F7B3ED629EDA1AB0080FFDA /* JIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3ED529EDA1AB0080FFDA /* JIT.swift */; };
+		6F7B3ED829EDA1BD0080FFDA /* cert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6F7B3ED729EDA1BD0080FFDA /* cert.pem */; };
+		6F7B3EDB29EDA1FA0080FFDA /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EDA29EDA1FA0080FFDA /* ButtonStyles.swift */; };
+		6F7B3EDD29EDA20A0080FFDA /* TextField++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EDC29EDA20A0080FFDA /* TextField++.swift */; };
+		6F7B3EE029EDA23D0080FFDA /* jit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EDF29EDA23D0080FFDA /* jit.m */; };
+		6F7B3EE229EDA32F0080FFDA /* DirtyJITView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EE129EDA32F0080FFDA /* DirtyJITView.swift */; };
+		6F7B3EE529EDA3760080FFDA /* AppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EE429EDA3760080FFDA /* AppsView.swift */; };
+		6F7B3EE729EDA39B0080FFDA /* DirtySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EE629EDA39B0080FFDA /* DirtySettingsView.swift */; };
+		6F7B3EE929EDA3B60080FFDA /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EE829EDA3B60080FFDA /* SearchBar.swift */; };
+		6F7B3EEB29EDA3C40080FFDA /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3EEA29EDA3C40080FFDA /* SetupView.swift */; };
 		6F7C01D52968E0C500BC427A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D42968E0C500BC427A /* RootView.swift */; };
 		6F7C01D7296924F500BC427A /* OtherModsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D6296924F500BC427A /* OtherModsView.swift */; };
 		6F7C01D92969B5A700BC427A /* MiscModsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C01D82969B5A700BC427A /* MiscModsManager.swift */; };
@@ -337,6 +348,18 @@
 		6F721C93296482C7001CFE46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F721C9D296487CC001CFE46 /* Cowabunga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cowabunga-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F75AD71298AB723009C0AD6 /* SpringboardColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringboardColorManager.swift; sourceTree = "<group>"; };
+		6F7B3ED329EDA19A0080FFDA /* ApplicationManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager2.swift; sourceTree = "<group>"; };
+		6F7B3ED529EDA1AB0080FFDA /* JIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIT.swift; sourceTree = "<group>"; };
+		6F7B3ED729EDA1BD0080FFDA /* cert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cert.pem; sourceTree = "<group>"; };
+		6F7B3EDA29EDA1FA0080FFDA /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		6F7B3EDC29EDA20A0080FFDA /* TextField++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField++.swift"; sourceTree = "<group>"; };
+		6F7B3EDE29EDA2300080FFDA /* jit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jit.h; sourceTree = "<group>"; };
+		6F7B3EDF29EDA23D0080FFDA /* jit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jit.m; sourceTree = "<group>"; };
+		6F7B3EE129EDA32F0080FFDA /* DirtyJITView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirtyJITView.swift; sourceTree = "<group>"; };
+		6F7B3EE429EDA3760080FFDA /* AppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsView.swift; sourceTree = "<group>"; };
+		6F7B3EE629EDA39B0080FFDA /* DirtySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirtySettingsView.swift; sourceTree = "<group>"; };
+		6F7B3EE829EDA3B60080FFDA /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		6F7B3EEA29EDA3C40080FFDA /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		6F7C01D42968E0C500BC427A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		6F7C01D6296924F500BC427A /* OtherModsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsView.swift; sourceTree = "<group>"; };
 		6F7C01D82969B5A700BC427A /* MiscModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscModsManager.swift; sourceTree = "<group>"; };
@@ -456,9 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				6F07ABA5299EB62700076436 /* AppIcon */,
+				6F7B3ED929EDA1DB0080FFDA /* UI */,
 				2183C9942987D8C800AE187C /* Alert++.swift */,
-				2183C9962987D8D800AE187C /* Color++.swift */,
-				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
 				21E54B40299413B800D5F85A /* Device+xpc_crash.swift */,
 				2183C99A2987D8FA00AE187C /* Extensions.swift */,
 				6F07AB9B29999DB400076436 /* FilePickerViewControllerDelegate.swift */,
@@ -467,7 +489,6 @@
 				21CB2B4E29982F3400188303 /* pow.swift */,
 				21D76C42298D43AB00B3C707 /* UIImage+resizeToApprox.swift */,
 				21AC8BAC298C07CB000B7E85 /* URLCache+imageCache.swift */,
-				6F24805B29AFAB5C00F2DAA2 /* View++.swift */,
 				6F2480D029BA314100F2DAA2 /* String+subscript.swift */,
 			);
 			path = Extensions;
@@ -482,6 +503,8 @@
 				6FF21AD32984513A0054EBC0 /* helpers.m */,
 				6FA660AB297EF260002471FB /* vm_unaligned_copy_switch_race.c */,
 				6F160E6F2965B20B0026D69D /* vm_unaligned_copy_switch_race.h */,
+				6F7B3EDE29EDA2300080FFDA /* jit.h */,
+				6F7B3EDF29EDA23D0080FFDA /* jit.m */,
 			);
 			path = Exploit;
 			sourceTree = "<group>";
@@ -811,6 +834,7 @@
 				2183C9A4298835BB00AE187C /* App */,
 				6F6D38ED2976FE6800DE3146 /* Controllers */,
 				2183C9932987D8B400AE187C /* Extensions */,
+				6F7B3ED229EDA1680080FFDA /* JIT */,
 				21CD1054298C8177007EE649 /* InfoPlist.strings */,
 				21CD1053298C8151007EE649 /* Localizable.strings */,
 				2183C9A32988356900AE187C /* ObjectiveC💀 */,
@@ -826,6 +850,7 @@
 				6F7C01D42968E0C500BC427A /* RootView.swift */,
 				6FF21ABB298050340054EBC0 /* AudioViews */,
 				6FF21AF9298826F00054EBC0 /* CardChangerViews */,
+				6F7B3EE329EDA3460080FFDA /* DirtyJIT */,
 				6F07ABB0299F140C00076436 /* FontsView */,
 				6F369560298C86990011ADB8 /* IconThemesViews */,
 				6FF21ABA298050150054EBC0 /* NavigatorViews */,
@@ -837,6 +862,40 @@
 				6F07ABA8299EB67100076436 /* ChangeAppIconView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6F7B3ED229EDA1680080FFDA /* JIT */ = {
+			isa = PBXGroup;
+			children = (
+				6F7B3ED329EDA19A0080FFDA /* ApplicationManager2.swift */,
+				6F7B3ED529EDA1AB0080FFDA /* JIT.swift */,
+				6F7B3ED729EDA1BD0080FFDA /* cert.pem */,
+			);
+			path = JIT;
+			sourceTree = "<group>";
+		};
+		6F7B3ED929EDA1DB0080FFDA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6F7B3EDA29EDA1FA0080FFDA /* ButtonStyles.swift */,
+				2183C9962987D8D800AE187C /* Color++.swift */,
+				21ED3C7929884AAD00135B50 /* CornerRadius++.swift */,
+				6F7B3EDC29EDA20A0080FFDA /* TextField++.swift */,
+				6F24805B29AFAB5C00F2DAA2 /* View++.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6F7B3EE329EDA3460080FFDA /* DirtyJIT */ = {
+			isa = PBXGroup;
+			children = (
+				6F7B3EE429EDA3760080FFDA /* AppsView.swift */,
+				6F7B3EE129EDA32F0080FFDA /* DirtyJITView.swift */,
+				6F7B3EE629EDA39B0080FFDA /* DirtySettingsView.swift */,
+				6F7B3EE829EDA3B60080FFDA /* SearchBar.swift */,
+				6F7B3EEA29EDA3C40080FFDA /* SetupView.swift */,
+			);
+			path = DirtyJIT;
 			sourceTree = "<group>";
 		};
 		6FB4F5F029A6F85A00BAA7B6 /* Fonts */ = {
@@ -888,12 +947,12 @@
 			children = (
 				6FB4F5EB29A6D14300BAA7B6 /* CCModifierView.swift */,
 				6F24811629BD5AD500F2DAA2 /* CalculatorErrorView.swift */,
+				D6D22B7029C763140095645B /* FreeloadView.swift */,
 				6FF21AC729840DC40054EBC0 /* LockView.swift */,
 				6FF21AE5298479BD0054EBC0 /* LSFootnoteChangerView.swift */,
 				6F2480A829B578DB00F2DAA2 /* SettingsCustomizerView.swift */,
 				6FF21AF2298821010054EBC0 /* SpringboardColorChangerView.swift */,
 				6F429675298DE8D700A96108 /* StatusBarView.swift */,
-				D6D22B7029C763140095645B /* FreeloadView.swift */,
 			);
 			path = UniqueToolsViews;
 			sourceTree = "<group>";
@@ -1078,6 +1137,7 @@
 				2113F94A29BA584500F67EB0 /* AssetsDummy19.car in Resources */,
 				6F2481CA29BF74BD00F2DAA2 /* modulesBackground.materialrecipe in Resources */,
 				2113F94629BA584500F67EB0 /* AssetsDummy22.car in Resources */,
+				6F7B3ED829EDA1BD0080FFDA /* cert.pem in Resources */,
 				2113F94729BA584500F67EB0 /* AssetsDummy20.car in Resources */,
 				6F2480B829B8D56100F2DAA2 /* plattersDark.materialrecipe in Resources */,
 				6F2480B229B8D51100F2DAA2 /* dockLight.materialrecipe in Resources */,
@@ -1107,6 +1167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F7B3EE029EDA23D0080FFDA /* jit.m in Sources */,
 				21E54B222994070200D5F85A /* MacDirtyCowSwift.swift in Sources */,
 				21E54B2B29940A6700D5F85A /* Wrappers.swift in Sources */,
 			);
@@ -1116,11 +1177,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F7B3EE529EDA3760080FFDA /* AppsView.swift in Sources */,
 				6FB4F5FE29A9986100BAA7B6 /* PatreonAPI.swift in Sources */,
 				2183C99E2987DA6800AE187C /* AppIcon.swift in Sources */,
 				21E54B3E2994133F00D5F85A /* CatalogThemeManager.swift in Sources */,
 				6F4296B52992CCB500A96108 /* AdvancedManager.swift in Sources */,
 				6F07AB922998744100076436 /* Haptic++.swift in Sources */,
+				6F7B3EE229EDA32F0080FFDA /* DirtyJITView.swift in Sources */,
 				6F2480A729B578BA00F2DAA2 /* SettingsCustomizerManager.swift in Sources */,
 				6FD9B526296C8AE300121229 /* AudioView.swift in Sources */,
 				21C08D9A2987CC2F00294DE7 /* LoginView.swift in Sources */,
@@ -1132,6 +1195,7 @@
 				6F2480AD29B662B900F2DAA2 /* AssetCatalogEditView.swift in Sources */,
 				2183C9922987D52500AE187C /* UIViewWrapperView.swift in Sources */,
 				6F07ABB2299F144000076436 /* MainFontsView.swift in Sources */,
+				6F7B3EDB29EDA1FA0080FFDA /* ButtonStyles.swift in Sources */,
 				2121EF0C29C11A720067DAC6 /* ThemingSettingsView.swift in Sources */,
 				6FBACD562996BDC200302F94 /* PlistEditView.swift in Sources */,
 				6F4296BE299407EB00A96108 /* EditingOperationView.swift in Sources */,
@@ -1140,6 +1204,7 @@
 				6F369566298C870F0011ADB8 /* AltIconSelectionView.swift in Sources */,
 				6F75AD72298AB723009C0AD6 /* SpringboardColorManager.swift in Sources */,
 				6F4296B32992CC4F00A96108 /* AdvancedView.swift in Sources */,
+				6F7B3EE729EDA39B0080FFDA /* DirtySettingsView.swift in Sources */,
 				21E155692989C2EC00B59658 /* StatusBarVisibilityController.swift in Sources */,
 				6FF21AF3298821010054EBC0 /* SpringboardColorChangerView.swift in Sources */,
 				6FF21AE129846AB20054EBC0 /* MaterialView.swift in Sources */,
@@ -1153,6 +1218,7 @@
 				6FF21AD52984513A0054EBC0 /* helpers.m in Sources */,
 				6FA660AC297EF260002471FB /* vm_unaligned_copy_switch_race.c in Sources */,
 				6FF21AD2298450C80054EBC0 /* grant_full_disk_access.m in Sources */,
+				6F7B3EE929EDA3B60080FFDA /* SearchBar.swift in Sources */,
 				6F369568298C874D0011ADB8 /* ThemeView.swift in Sources */,
 				6FB4F5F829A6FD9600BAA7B6 /* EditingFontView.swift in Sources */,
 				21C08D9C2987CC3500294DE7 /* SourcedRepoFetcher.swift in Sources */,
@@ -1183,6 +1249,7 @@
 				6F0E755129AD32CB002E7516 /* FSPConverter.swift in Sources */,
 				2183C9972987D8D800AE187C /* Color++.swift in Sources */,
 				21E54B3D299412C300D5F85A /* UIImage+resizeToApprox.swift in Sources */,
+				6F7B3EEB29EDA3C40080FFDA /* SetupView.swift in Sources */,
 				6F6D38F52976FF8B00DE3146 /* AppDelegate.swift in Sources */,
 				6FF21AFD298827190054EBC0 /* CardView.swift in Sources */,
 				6F721C92296482C6001CFE46 /* SpringBoardView.swift in Sources */,
@@ -1201,10 +1268,12 @@
 				6F07ABA9299EB67100076436 /* ChangeAppIconView.swift in Sources */,
 				6F07AB9C29999DB400076436 /* FilePickerViewControllerDelegate.swift in Sources */,
 				6F721C90296482C6001CFE46 /* CowabungaApp.swift in Sources */,
+				6F7B3ED429EDA19A0080FFDA /* ApplicationManager2.swift in Sources */,
 				6FF21ACA298416E90054EBC0 /* LockManager.swift in Sources */,
 				6FF21AE329846AC30054EBC0 /* ImagePickerView.swift in Sources */,
 				21BA94C92996E66400AE383D /* CatalogFixupView.swift in Sources */,
 				6F4296AE2991E8E400A96108 /* StatusSetter16.m in Sources */,
+				6F7B3EDD29EDA20A0080FFDA /* TextField++.swift in Sources */,
 				6F7C01D52968E0C500BC427A /* RootView.swift in Sources */,
 				216D5FB6298C5C0700910C67 /* LocString.swift in Sources */,
 				6FB4F5FC29A9209300BAA7B6 /* BackgroundEnablerView.swift in Sources */,
@@ -1216,6 +1285,7 @@
 				6FF21AD8298458690054EBC0 /* PasscodeEditorView.swift in Sources */,
 				6F2481D129C1586400F2DAA2 /* ColorSwapManager.swift in Sources */,
 				21E54B182994063200D5F85A /* ThemeManager.swift in Sources */,
+				6F7B3ED629EDA1AB0080FFDA /* JIT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1432,7 +1502,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1457,7 +1527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.1.2;
+				MARKETING_VERSION = 10.2.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1482,7 +1552,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1507,7 +1577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.1.2;
+				MARKETING_VERSION = 10.2.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leemin.Cowabunga;
 				PRODUCT_NAME = "$(TARGET_NAME)";

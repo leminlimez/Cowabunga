@@ -16,7 +16,7 @@ struct ToolsView: View {
         var title: String
         var imageName: String
         var active: Bool = false
-        var ios15Only: Bool = false
+        var ios15Only: Bool = false // this needs better implementation
     }
     
     struct ToolsCategory: Identifiable {
@@ -74,6 +74,22 @@ struct ToolsView: View {
                                             .frame(width: 24, height: 24)
                                             .foregroundColor(.blue)
                                         Text(NSLocalizedString(option.title.wrappedValue, comment: "A tools option"))
+                                            .padding(.horizontal, 8)
+                                    }
+                                }
+                            }
+                        }
+                        // this could be a lot cleaner
+                        if cat.systemImage.wrappedValue == "apps" {
+                            if #available(iOS 15, *) {
+                                NavigationLink(destination: DirtyJITView()) {
+                                    HStack {
+                                        Image(systemName: "apps.iphone.badge.plus")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 24, height: 24)
+                                            .foregroundColor(.blue)
+                                        Text(NSLocalizedString("App JIT Enabler", comment: "Title of tool"))
                                             .padding(.horizontal, 8)
                                     }
                                 }
