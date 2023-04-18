@@ -80,7 +80,7 @@ struct ToolsView: View {
                             }
                         }
                         // this could be a lot cleaner
-                        if cat.systemImage.wrappedValue == "apps" {
+                        if cat.systemImage.wrappedValue == "app" {
                             if #available(iOS 15, *) {
                                 NavigationLink(destination: DirtyJITView()) {
                                     HStack {
