@@ -83,9 +83,27 @@ struct CowabungaApp: App {
                     }
                 }
                 .onOpenURL(perform: { url in
-                    // for url schemes
+                    let fm = FileManager.default
+                    // MARK: URL Schemes
+                    // for setting the date
                     if url.absoluteString == "cowabunga://dateset" {
                         createStatusBarDateTag()
+                        return
+                    }
+                    // MARK: Status Bar
+                    if url.absoluteString.starts(with: "cowabunga://statusbar") {
+                        // reset status bar
+                        if url.absoluteString == "cowabunga://statusbar:reset" {
+                            if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
+                                do {
+                                    try fm.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"))
+                                    restartFrontboard()
+                                } catch {
+                                    UIApplication.shared.alert(body: "\(error)")
+                                }
+                            }
+                            return
+                        }
                         return
                     }
                     
