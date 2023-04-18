@@ -63,6 +63,7 @@ struct HomeView: View {
     @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
     @State var bgTasksVisible: Bool = false
     
+    @State private var respringType = UserDefaults.standard.string(forKey: "RespringType")
     @State private var customOperationsAuthorName = UserDefaults.standard.string(forKey: "CustomOperationsAuthorName")
     @State private var autoFetchAudio: Bool = UserDefaults.standard.bool(forKey: "AutoFetchAudio")
     @State private var autoFetchLocks: Bool = UserDefaults.standard.bool(forKey: "AutoFetchLocks")
@@ -251,7 +252,59 @@ struct HomeView: View {
                 
                 Section {
                     // app preferences
-                    // custom operations author name
+                    // MARK: Respring Type
+                    HStack {
+                        Text("Respring Type")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button(lockPrefs, action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Choose a respring type", comment: "Title for respring type"), message: NSLocalizedString("Try out each respring type and determine which works best for your needs.", comment: "Description for respring type"), preferredStyle: .actionSheet)
+                            
+                            // create the actions
+                            let frontboardAction = UIAlertAction(title: "Frontboard", style: .default) { (action) in
+                                // apply the type
+                                respringType = "Frontboard"
+                                // set the default
+                                UserDefaults.standard.set("Frontboard", forKey: "RespringType")
+                            }
+                            let backboardAction = UIAlertAction(title: "Backboard", style: .default) { (action) in
+                                // apply the type
+                                respringType = "Backboard"
+                                // set the default
+                                UserDefaults.standard.set("Backboard", forKey: "RespringType")
+                            }
+                            
+                            if respringType == "Backboard" {
+                                backboardAction.setValue(true, forKey: "checked")
+                            } else {
+                                frontboardAction.setValue(true, forKey: "checked")
+                            }
+                            alert.addAction(frontboardAction)
+                            alert.addAction(backboardAction)
+                            
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // MARK: Custom Operations Author Name
                     HStack {
                         Text("Custom Operations Author Name")
                             .minimumScaleFactor(0.5)
@@ -291,7 +344,7 @@ struct HomeView: View {
                         .padding(.leading, 10)
                     }
                     
-                    // lock type prefs
+                    // MARK: Lock Type Prefs
                     if LockManager.deviceLockPath[deviceType] != nil {
                         HStack {
                             Text("Lock Type")

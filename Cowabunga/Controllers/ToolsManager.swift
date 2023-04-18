@@ -44,7 +44,11 @@ func respring() {
     }
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-        restartFrontboard()
+        if UserDefaults.standard.string(forKey: "RespringType") ?? "Frontboard" == "Backboard" {
+            restartBackboard()
+        } else {
+            restartFrontboard()
+        }
         sleep(2) // give the springboard some time to restart before exiting
         exit(0)
     })
