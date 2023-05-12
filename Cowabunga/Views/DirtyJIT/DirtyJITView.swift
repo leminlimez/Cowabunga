@@ -15,7 +15,7 @@ struct DirtyJITView: View {
     @State private var presentAlert = false
     
     var body: some View {
-        NavigationView {
+        VStack {
             AppsView(searchText: $searchText, apps2: apps2)
                 .navigationBarTitle("DirtyJIT", displayMode: .inline)
                 .toolbar {
