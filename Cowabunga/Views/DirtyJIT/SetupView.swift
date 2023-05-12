@@ -12,7 +12,7 @@ struct SetupView: View {
     let jit = JIT.shared
     
     var body: some View {
-        NavigationView {
+        VStack {
             List {
                 Section(header: Text("Welcome!")) {
                     Text("DirtyJIT is a JIT enabler app that uses the MacDirtyCow (CVE-2022-46689) privilege escalation vulnerability in macOS, which also works on iOS. It can be used with apps, emulators, or any software that requires JIT to work (Such as PojavLauncher, DolphiniOS). You need to perform some setup steps to make this app work on your device. Let's get started!")
