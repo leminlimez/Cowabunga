@@ -34,6 +34,10 @@
 - (NSString*) getCrumbOverride;
 - (void) setCrumb:(NSString*)text;
 - (void) unsetCrumb;
+- (bool) isSecondaryCellularServiceOverridden;
+- (bool) getSecondaryCellularServiceOverride;
+- (void) setSecondaryCellularService:(bool)val;
+- (void) unsetSecondaryCellularService;
 - (bool) isDataNetworkTypeOverridden;
 - (int) getDataNetworkTypeOverride;
 - (void) setDataNetworkType:(int)identifier;
