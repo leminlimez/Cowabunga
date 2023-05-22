@@ -96,6 +96,22 @@
     [self.setter unsetCarrier];
 }
 
+- (bool) isSecondaryCellularServiceOverridden {
+    return [self.setter isSecondaryCellularServiceOverridden];
+}
+
+- (bool) getSecondaryCellularServiceOverride {
+    return [self.setter getSecondaryCellularServiceOverride];
+}
+
+- (void) setSecondaryCellularService:(bool)val {
+    [self.setter setSecondaryCellularService:val];
+}
+
+- (void) unsetSecondaryCellularService {
+    [self.setter unsetSecondaryCellularService];
+}
+
 - (bool) isSecondaryCarrierOverridden {
     return [self.setter isSecondaryCarrierOverridden];
 }

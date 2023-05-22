@@ -16,6 +16,9 @@ struct StatusBarView: View {
     @State private var primaryServiceBadgeText: String = StatusManager.sharedInstance().getPrimaryServiceBadgeOverride()
     @State private var primaryServiceBadgeTextEnabled: Bool = StatusManager.sharedInstance().isPrimaryServiceBadgeOverridden()
     
+    @State private var secondCellularServiceEnabled: Bool = StatusManager.sharedInstance().isSecondaryCellularServiceOverridden()
+    @State private var secondaryCellularServiceValue: Bool = StatusManager.sharedInstance().getSecondaryCellularServiceOverride()
+    
     @State private var secondaryCarrierText: String = StatusManager.sharedInstance().getSecondaryCarrierOverride()
     @State private var secondaryCarrierTextEnabled: Bool = StatusManager.sharedInstance().isSecondaryCarrierOverridden()
     
@@ -260,6 +263,25 @@ struct StatusBarView: View {
                         Text(NetworkTypes[dataNetworkType])
                     }
                 }
+            } header: {
+                Text("Primary Carrier")
+            }
+            
+            Section {
+                Toggle("Change Secondary Service Status", isOn: $secondCellularServiceEnabled).onChange(of: secondCellularServiceEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setSecondaryCellularService(secondaryCellularServiceValue)
+                    } else {
+                        StatusManager.sharedInstance().unsetSecondaryCellularService()
+                    }
+                })
+                if secondCellularServiceEnabled {
+                    Toggle("Secondary Cellular Service Enabled", isOn: $secondaryCellularServiceValue).onChange(of: secondaryCellularServiceValue, perform: { nv in
+                        if secondCellularServiceEnabled {
+                            StatusManager.sharedInstance().setSecondaryCellularService(nv)
+                        }
+                    })
+                }
                 
                 Toggle("Change Secondary Carrier Text", isOn: $secondaryCarrierTextEnabled).onChange(of: secondaryCarrierTextEnabled, perform: { nv in
                     if nv {
@@ -301,6 +323,8 @@ struct StatusBarView: View {
                         StatusManager.sharedInstance().setSecondaryServiceBadge(safeNv)
                     }
                 })
+            } header: {
+                Text("Secondary Carrier")
             }
             
             Section {
