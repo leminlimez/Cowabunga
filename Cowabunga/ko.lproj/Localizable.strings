@@ -40,6 +40,12 @@
 /* No comment provided by engineer. */
 "Advanced" = "고급";
 
+/* No comment provided by engineer. */
+"After rebooting, press the button below to replace iPhoneDebug.pem with cert.pem. Make sure you are NOT connected to a PC!" = "재부팅 후, 아래 버튼을 눌러 iPhoneDebug.pem 파일을 cert.pem 파일로 대체하세요. \nPC에 연결되어 있지 않은지 확인하세요!";
+
+/* No comment provided by engineer. */
+"After replacing the file, you can finally connect your device to your PC. Run the commands on your PC from below to finally mount the image from the first step. Make sure you have ideviceimagemounter installed and you cd'ed in the folder where you downloaded those files. If the commands won't work, disconnect and reboot your phone, replacing the certificate again and then try again (Step 3)." = "파일을 교체한 후에 기기를 PC에 연결할 수 있습니다. \n아래의 PC에서 명령어를 실행하여 첫 번째 단계에서 이미지를 마운트하세요. \nideviceimagemounter가 설치되어 있고 해당 파일들을 다운로드한 폴더로 이동했는지 확인해주세요. \n명령어가 작동하지 않는 경우, 휴대폰을 연결 해제하고 재부팅한 다음 인증서를 다시 교체한 후 다시 시도해주세요 (3단계).";
+
 /* resetting all icons */
 "All app icons will be reverted to their original appearance. Are you sure you want to continue? (Reboot may be required)" = "모든 앱 아이콘이 복구됩니다.\n진짜로 원하십니까?\n(다시시작이 필요합니다.)";
 
@@ -96,6 +102,9 @@
 
 /* No comment provided by engineer. */
 "Apple ID, iCloud, Media & Purchases" = "Apple ID, iCloud, 미디어 및 구입 항목";
+
+/* No comment provided by engineer. */
+"ApplicationManager, app icon" = "앱 메니저, 앱 아이콘";
 
 /* fix tweaks info */
 "Applies all tweaks which were applied before." = "이전에 적용된 모든 트윅을 적용합니다.";
@@ -167,6 +176,9 @@
 "Big" = "크게";
 
 /* No comment provided by engineer. */
+"Big brainer, made the method" = "큰 뇌를 가진사람, 방법을 만듬";
+
+/* No comment provided by engineer. */
 "binary" = "바이너리";
 
 /* No comment provided by engineer. */
@@ -182,10 +194,10 @@
 "Blur:   %lld" = "흐림도:   %lld";
 
 /* No comment provided by engineer. */
-"Breadcrumb Text" = "◂Cowabunga▸";
+"BomberFish" = "BomberFish";
 
 /* No comment provided by engineer. */
-"Bugs may arise. It's also not meant to be redistributed, because... blah blah blah, you know what happens if you do 🧌" = "버그가 발생할 수 있습니다. 또한 재배포를 의도하지 않았으며, 그 이유는... 재배포를 하면 일어나는 일을 이미 알고 있으시겠죠 🧌";
+"Breadcrumb Text" = "◂Cowabunga▸";
 
 /* No comment provided by engineer. */
 "Calculate Size" = "파일 크기";
@@ -203,7 +215,7 @@
 "Carrier Text" = "통신사 이름";
 
 /* No comment provided by engineer. */
-"catalogIconTheming" = "catalogIconTheming";
+"Catalog Icon Theming (v10 method)" = "카탈로그 아이콘 테마 (v10 방법)";
 
 /* No comment provided by engineer. */
 "CC Modules" = "제어센터 모듈";
@@ -228,6 +240,24 @@
 
 /* No comment provided by engineer. */
 "Change Cellular Signal Strength Bars" = "셀룰러 신호 상태바 변경";
+
+/* No comment provided by engineer. */
+"Change Data Network Type" = "데이터 연결 타입 변경";
+
+/* No comment provided by engineer. */
+"Change Primary Carrier Text" = "기본 통신사 이름 변경";
+
+/* No comment provided by engineer. */
+"Change Primary Service Badge Text" = "기본 통신 서비스 상태 텍스트 변경";
+
+/* No comment provided by engineer. */
+"Change Secondary Carrier Text" = "두번째 통신사 이름 변경";
+
+/* No comment provided by engineer. */
+"Change Secondary Service Badge Text" = "두번째 통신 서비스 상태 텍스트 변경";
+
+/* No comment provided by engineer. */
+"Change Status Bar Date Text" = "상단바 날짜 텍스트 변경";
 
 /* No comment provided by engineer. */
 "Change Status Bar Time Text" = "상단바 시계 텍스트 변경";
@@ -299,7 +329,7 @@
 "Confirm" = "확인";
 
 /* No comment provided by engineer. */
-"Continue" = "계속";
+"Congratulations! If you haven't encountered any errors, you have finished the setup and now you are good to go. Please note that after rebooting, you still need to repeat steps 3 and 4; Otherwise, you are good to go and you can finally click the dismiss button. If you still have questions or you encountered some errors, ask for help in our Discord server." = "축하합니다! 오류가 발생하지 않았다면 설정을 완료하셨으며 이제 사용할 준비가 되었습니다.\n재부팅한 후에 3단계와 4단계를 반복해야 함을 유의해주세요. \n그렇지 않으면 제대로 작동하며 마지막으로 '확인' 버튼을 클릭할 수 있습니다. \n여전히 질문이 있거나, 오류가 발생한 경우 Discord 서버에서 도움을 요청하세요.";
 
 /* Category of tool */
 "Control Center" = "제어센터";
@@ -364,6 +394,12 @@
 /* No comment provided by engineer. */
 "Custom Operations Author Name" = "커스텀 작업 제작자 이름";
 
+/* No comment provided by engineer. */
+"Data Network Type" = "네트워크 연결 유형";
+
+/* No comment provided by engineer. */
+"Date Format" = "날짜 형식";
+
 /* App icon name
    default device subtype
    Default passcode size */
@@ -391,6 +427,12 @@
 "Dialer keys successfully cleared!" = "다이얼 버튼이 저장되었습니다!";
 
 /* No comment provided by engineer. */
+"DirtyJIT" = "DirtyJIT";
+
+/* No comment provided by engineer. */
+"DirtyJIT is a JIT enabler app that uses the MacDirtyCow (CVE-2022-46689) privilege escalation vulnerability in macOS, which also works on iOS. It can be used with apps, emulators, or any software that requires JIT to work (Such as PojavLauncher, DolphiniOS). You need to perform some setup steps to make this app work on your device. Let's get started!" = "DirtyJIT는 macOS에서도 작동하는 MacDirtyCow (CVE-2022-46689) 익스플로잇을 사용하는 JIT 활성화 앱입니다. 이\n 앱은 JIT이 필요한 앱, 에뮬레이터 또는 기타 소프트웨어와 함께 사용할 수 있습니다 (예: PojavLauncher, DolphiniOS 등). \n이 앱을 기기에서 작동하도록 하려면 몇 가지 설정 단계를 수행해야 합니다. \n시작해봅시다!";
+
+/* No comment provided by engineer. */
 "Disable" = "비활성화";
 
 /* Springboard tool */
@@ -409,13 +451,28 @@
 "Disable Library Pods Background" = "앱서랍 배경 비활성화";
 
 /* No comment provided by engineer. */
+"Disable PNG Theming Fixup (Stop Random Reverts)" = "PNG 테마 수리창 비활성화 (랜덤 되돌림 중지)";
+
+/* No comment provided by engineer. */
 "Disable Screen Time" = "스크린타임 비활성화";
 
 /* No comment provided by engineer. */
 "Disable Shortcut Apps as Appclips" = "단축어 바로가기 비활성화";
 
 /* No comment provided by engineer. */
+"Disable Theming Fixup" = "테마 수리창 비활성화";
+
+/* No comment provided by engineer. */
+"Dismiss" = "무시";
+
+/* No comment provided by engineer. */
 "Dock" = "독";
+
+/* No comment provided by engineer. */
+"Download the attachments that matches your device's iOS version from the latest action and then drop them in a folder, you can find the link below. (We'll need this for later!)" = "최신 작업에서 기기의 iOS 버전과 일치하는 첨부 파일을 다운로드하고, 그 후에 파일을 폴더에 넣어주세요. 아래 링크에서 해당 파일을 찾을 수 있습니다. (나중에 필요합니다!)";
+
+/* No comment provided by engineer. */
+"Download the file from the link below. It should appear in Settings. Install it, disconnect your phone from your PC if you haven't yet and then reboot your device." = "아래 링크에서 파일을 다운로드하세요. 파일은 설정에 나타날 것입니다.\n다운로드한 파일을 설치하고, PC와 연결된 상태라면 휴대폰을 PC에서 연결을 해제한 후 기기를 재부팅해주세요.";
 
 /* No comment provided by engineer. */
 "Download themes in Themes tab." = "탐색 탭의 아이콘 탭에서 테마를 다운로드 하세요.";
@@ -570,6 +627,9 @@
 /* No comment provided by engineer. */
 "Go here if something isn't working correctly." = "정상적으로 작동하지 않으면 여기로 오세요.";
 
+/* No comment provided by engineer. */
+"haxi0" = "haxi0";
+
 /* Height of custom resolution
    Height of passcode keys */
 "Height" = "높이";
@@ -638,6 +698,9 @@
 "Icons override" = "아이콘 커스텀";
 
 /* No comment provided by engineer. */
+"ideviceimagemounter DeveloperDiskImageModified_YourVersionHere.dmg DeveloperDiskImageModified_YourVersionHere.dmg.signature" = "ideviceimagemounter DeveloperDiskImageModified_YourVersionHere.dmg DeveloperDiskImageModified_YourVersionHere.dmg.signature";
+
+/* No comment provided by engineer. */
 "If a file of the same name already exists in the pack, it will be overwritten." = "같은이름을 가진 파일이 팩 안에 있으면 \n새로운 파일로 덮어씌어집니다.";
 
 /* Description for lock preference */
@@ -664,6 +727,9 @@
 
 /* Header for inputting custom iOS version */
 "Input Software Version" = "소프트웨어 버전 입력";
+
+/* No comment provided by engineer. */
+"Install Profile" = "프로파일 설치";
 
 /* App icon name */
 "iOS 6" = "iOS 6";
@@ -713,6 +779,9 @@
 /* Audio name */
 "Low Power" = "배터리 부족";
 
+/* No comment provided by engineer. */
+"Made the app, instructions" = "앱 제작, 사용설명서";
+
 /* leminlimez's contribution
    sourcelocation's contribution */
 "Main Developer" = "메인 개발자";
@@ -743,6 +812,9 @@
 
 /* No comment provided by engineer. */
 "Name:" = "이름:";
+
+/* No comment provided by engineer. */
+"Nathan" = "Nathan";
 
 /* No comment provided by engineer. */
 "New" = "새로운";
@@ -777,9 +849,6 @@
 /* No comment provided by engineer. */
 "No themes found. Download themes in the Explore tab,\nor import them using the button in the top right corner (Themes have to contain icons in the format of <id>.png)." = "테마가 없습니다.\n탐색의 아이콘 탭에서 다운로드하거나 오른쪽 위의 버튼을 눌러 가져올 수 있습니다.\n(테마는 <id>.png 형식입니다.)";
 
-/* No comment provided by engineer. */
-"noPNGThemingFixup" = "noPNGThemingFixup";
-
 /* Not a valid size input for passcode keys */
 "Not a valid size!" = "너무 크거나 작습니다.";
 
@@ -789,7 +858,7 @@
 /* No comment provided by engineer. */
 "Not Playing" = "재생 안함";
 
-/* No comment provided by engineer. */
+/* (No Comment) */
 "noThemingFixup" = "noThemingFixup";
 
 /* No comment provided by engineer. */
@@ -826,10 +895,10 @@
 "Passcode Face Editor" = "암호 버튼 편집기";
 
 /* Title of tool */
-"Passcode Faces" = "암호 버튼 및 다이얼";
+"Passcode Faces" = "키패드";
 
 /* No comment provided by engineer. */
-"Passcodes" = "암호 버튼 및 다이얼";
+"Passcodes" = "키패드";
 
 /* No comment provided by engineer. */
 "Password" = "암호";
@@ -898,7 +967,7 @@
 "Plist Type:" = "Plist 유형:";
 
 /* No comment provided by engineer. */
-"pngIconTheming" = "pngIconTheming";
+"PNG Icon Theming (v8 method)" = "PNG 아이콘 테마 (v8 방법)";
 
 /* Power Saving */
 "Power Saving" = "에너지 절약";
@@ -910,7 +979,10 @@
 "Preview" = "미리보기";
 
 /* No comment provided by engineer. */
-"Private build" = "비밀 빌드";
+"Primary Carrier Text" = "기본 통신사 이름";
+
+/* No comment provided by engineer. */
+"Primary Service Badge Text" = "기본 통신 서비스 상태 텍스트";
 
 /* Successfully applying custom resolution */
 "Reboot to revert resolution changes. It will auto respring when done" = "작업이 완료되면 자동으로 SpringBoard가 재시작 됩니다.\n되돌리고 싶으면 껏다켜세요.";
@@ -940,10 +1012,19 @@
 "Remove theme" = "테마 삭제";
 
 /* No comment provided by engineer. */
+"Remove three-app limit" = "앱 3개 제한 삭제";
+
+/* No comment provided by engineer. */
 "Rename" = "이름 바꾸기";
 
 /* Entering new theme name */
 "Rename theme" = "테마 이름 바꾸기";
+
+/* No comment provided by engineer. */
+"Replace File" = "파일 교체";
+
+/* No comment provided by engineer. */
+"Replace iPhoneDebug.pem" = "iPhoneDebug.pem 교체";
 
 /* No comment provided by engineer. */
 "Replace With:" = "교체:";
@@ -974,6 +1055,9 @@
 
 /* Respring to see changes */
 "Respring to see changes" = "적용 하려면 SpringBoard를 다시시작해야합니다.";
+
+/* No comment provided by engineer. */
+"Respring Type" = "SpringBoard 다시시작 유형";
 
 /* No comment provided by engineer. */
 "Restore" = "복구";
@@ -1016,6 +1100,15 @@
 
 /* c22dev's contribution */
 "ScreenTime Remover, Included Audio, Credits, and Card Changer" = "스크린타임 제거, 내장 오디오, 크레딧, 카드 변경";
+
+/* No comment provided by engineer. */
+"Search" = "검색";
+
+/* No comment provided by engineer. */
+"Secondary Carrier Text" = "두번째 통신사 이름";
+
+/* No comment provided by engineer. */
+"Secondary Service Badge Text" = "두번째 통신 서비스 상태 텍스트";
 
 /* No comment provided by engineer. */
 "Select" = "선택";
@@ -1069,7 +1162,13 @@
 "Settings" = "설정";
 
 /* No comment provided by engineer. */
+"Setup" = "시작";
+
+/* No comment provided by engineer. */
 "Shortcut Apps" = "단축어";
+
+/* No comment provided by engineer. */
+"Show Instructions again" = "사용설명서 다시표시";
 
 /* No comment provided by engineer. */
 "Show Numeric Cellular Strength" = "데이터 신호강도를 숫자로 표시";
@@ -1077,7 +1176,7 @@
 /* No comment provided by engineer. */
 "Show Numeric WiFi Strength" = "WIFI 신호강도를 숫자로 표시";
 
-/* No comment provided by engineer. */
+/* (No Comment) */
 "showCancelButtonOnThemingEnd" = "showCancelButtonOnThemingEnd";
 
 /* No comment provided by engineer. */
@@ -1091,6 +1190,9 @@
 
 /* No comment provided by engineer. */
 "Software Version" = "소프트웨어 버전";
+
+/* No comment provided by engineer. */
+"sourcelocation & Evyrest" = "sourcelocation & Evyrest";
 
 /* Title of tool */
 "Springboard Colors" = "Springboard 색깔";
@@ -1108,7 +1210,25 @@
 "Status Bar" = "상단바";
 
 /* No comment provided by engineer. */
+"Status Bar Date Text" = "상단바 날짜 텍스트";
+
+/* No comment provided by engineer. */
 "Status Bar Time Text" = "상단바 시간 텍스트";
+
+/* No comment provided by engineer. */
+"Step 1" = "1단계";
+
+/* No comment provided by engineer. */
+"Step 2" = "2단계";
+
+/* No comment provided by engineer. */
+"Step 3" = "3단계";
+
+/* No comment provided by engineer. */
+"Step 4" = "4단계";
+
+/* No comment provided by engineer. */
+"Step 5" = "5단계";
 
 /* No comment provided by engineer. */
 "Submit themes" = "테마 재출";
@@ -1145,6 +1265,9 @@
 
 /* No comment provided by engineer. */
 "Test: theme all icons using 1 icon" = "테스트:테마는 모든 아이콘이 하나의 아이콘을 사용합니다.";
+
+/* No comment provided by engineer. */
+"TextField++" = "TextField++";
 
 /* No comment provided by engineer. */
 "The app will quit." = "앱이 종료됩니다.";
@@ -1216,6 +1339,9 @@
 "Update Included Audio" = "내장 오디오 업데이트";
 
 /* No comment provided by engineer. */
+"Update Status Bar Date" = "상단바 날짜 업데이트";
+
+/* No comment provided by engineer. */
 "Upload File" = "파일 업로드";
 
 /* No comment provided by engineer. */
@@ -1225,7 +1351,7 @@
 "Use at your own risk" = "본인의 책임하에 사용하세요.";
 
 /* No comment provided by engineer. */
-"Use Settings Footnote" = "설정의 각주 사용";
+"Use Settings Footnote" = "각주 사용";
 
 /* No comment provided by engineer. */
 "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "통신사 이름과 시계 택스트가 적용되지 않으면 재설정후 다시 하는걸 추천합니다.";
@@ -1249,7 +1375,16 @@
 "View contents of blacklist files" = "블랙리스트 파일 표시";
 
 /* No comment provided by engineer. */
+"Visit" = "방문";
+
+/* No comment provided by engineer. */
+"Visit the Discord Server" = "Discord 서버 방문";
+
+/* No comment provided by engineer. */
 "Wait, it's all TrollTools?" = "잠깐, 그거 전부 TrollTools야?";
+
+/* No comment provided by engineer. */
+"Welcome!" = "환영합니다!";
 
 /* No comment provided by engineer. */
 "When set to blank on notched devices, this will display the carrier name." = "노치가 있는 디바이스에서 이 칸을 비워두면 통신사 이름을 표시합니다.";
@@ -1286,7 +1421,7 @@
 "YN" = "YN";
 
 /* No comment provided by engineer. */
-"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 암호 버튼 및 다이얼 탭에서 다운로드 하세요.";
+"You do not have any saved passcode themes. Check out the explore tab to find some!" = "저장된 테마가 없습니다. 탐색탭의 키패드 탭에서 다운로드 하세요.";
 
 /* No comment provided by engineer. */
 "Your apps should now function properly" = "이제 앱이 정상적으로 작동 할겁니다.";
