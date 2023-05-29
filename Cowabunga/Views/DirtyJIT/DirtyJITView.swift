@@ -30,7 +30,7 @@ struct DirtyJITView: View {
                     }
                 }
         }
-        .sheet(isPresented: $firstTime, content: SetupView.init)
+//        .sheet(isPresented: $firstTime, content: SetupView.init)
         .onAppear {
             UIApplication.shared.alert(title: "Loading", body: "Please wait...", withButton: false)
             
