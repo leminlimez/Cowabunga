@@ -12,6 +12,7 @@ import MacDirtyCowSwift
 @main
 struct CowabungaApp: App {
     //let locationManager = LocationManager()
+    @AppStorage("firstTime") private var firstTime = true
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var cowabungaAPI = CowabungaAPI()
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -151,6 +152,11 @@ struct CowabungaApp: App {
                         }
                     }
                 })
+                .sheet(isPresented: $firstTime) {
+                    if #available(iOS 15, *) {
+                        SetupView()
+                    }
+                }
                 .sheet(isPresented: $importingFontShown) {
                     ImportingFontsView(isVisible: $importingFontShown, openingURL: $importingFontURL)
                 }
