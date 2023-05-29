@@ -531,12 +531,15 @@ typedef struct {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->values.gsmSignalStrengthBars = strength;
     overrides->overrideGsmSignalStrengthBars = 1;
+    overrides->overrideItemIsEnabled[CellularSignalStrengthStatusBarItem] = 1;
+    overrides->values.itemIsEnabled[CellularSignalStrengthStatusBarItem] = 1;
     [self applyChanges:overrides];
 }
 
 - (void) unsetGsmSignalStrengthBars {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideGsmSignalStrengthBars = 0;
+    overrides->overrideItemIsEnabled[CellularSignalStrengthStatusBarItem] = 0;
     [self applyChanges:overrides];
 }
 
@@ -554,12 +557,15 @@ typedef struct {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->values.secondaryGsmSignalStrengthBars = strength;
     overrides->overrideSecondaryGsmSignalStrengthBars = 1;
+    overrides->overrideItemIsEnabled[SecondaryCellularSignalStrengthStatusBarItem] = 1;
+    overrides->values.itemIsEnabled[SecondaryCellularSignalStrengthStatusBarItem] = 1;
     [self applyChanges:overrides];
 }
 
 - (void) unsetSecondaryGsmSignalStrengthBars {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideSecondaryGsmSignalStrengthBars = 0;
+    overrides->overrideItemIsEnabled[SecondaryCellularSignalStrengthStatusBarItem] = 0;
     [self applyChanges:overrides];
 }
 
