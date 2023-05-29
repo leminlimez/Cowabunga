@@ -241,6 +241,22 @@
     [self.setter unsetDataNetworkType];
 }
 
+- (bool) isSecondaryDataNetworkTypeOverridden {
+    return [self.setter isSecondaryDataNetworkTypeOverridden];
+}
+
+- (int) getSecondaryDataNetworkTypeOverride {
+    return [self.setter getSecondaryDataNetworkTypeOverride];
+}
+
+- (void) setSecondaryDataNetworkType:(int)identifier {
+    [self.setter setSecondaryDataNetworkType:identifier];
+}
+
+- (void) unsetSecondaryDataNetworkType {
+    [self.setter unsetSecondaryDataNetworkType];
+}
+
 - (bool) isBatteryCapacityOverridden {
     return [self.setter isBatteryCapacityOverridden];
 }
@@ -287,6 +303,22 @@
 
 - (void) unsetGsmSignalStrengthBars {
     [self.setter unsetGsmSignalStrengthBars];
+}
+
+- (bool) isSecondaryGsmSignalStrengthBarsOverridden {
+    return [self.setter isSecondaryGsmSignalStrengthBarsOverridden];
+}
+
+- (int) getSecondaryGsmSignalStrengthBarsOverride {
+    return [self.setter getSecondaryGsmSignalStrengthBarsOverride];
+}
+
+- (void) setSecondaryGsmSignalStrengthBars:(int)strength {
+    [self.setter setSecondaryGsmSignalStrengthBars:strength];
+}
+
+- (void) unsetSecondaryGsmSignalStrengthBars {
+    [self.setter unsetSecondaryGsmSignalStrengthBars];
 }
 
 - (bool) isDisplayingRawWiFiSignal {

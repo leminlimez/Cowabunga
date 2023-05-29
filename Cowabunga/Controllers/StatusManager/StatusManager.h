@@ -46,6 +46,10 @@
 - (int) getDataNetworkTypeOverride;
 - (void) setDataNetworkType:(int)identifier;
 - (void) unsetDataNetworkType;
+- (bool) isSecondaryDataNetworkTypeOverridden;
+- (int) getSecondaryDataNetworkTypeOverride;
+- (void) setSecondaryDataNetworkType:(int)identifier;
+- (void) unsetSecondaryDataNetworkType;
 - (bool) isBatteryCapacityOverridden;
 - (int) getBatteryCapacityOverride;
 - (void) setBatteryCapacity:(int)capacity;
@@ -58,6 +62,10 @@
 - (int) getGsmSignalStrengthBarsOverride;
 - (void) setGsmSignalStrengthBars:(int)strength;
 - (void) unsetGsmSignalStrengthBars;
+- (bool) isSecondaryGsmSignalStrengthBarsOverridden;
+- (int) getSecondaryGsmSignalStrengthBarsOverride;
+- (void) setSecondaryGsmSignalStrengthBars:(int)strength;
+- (void) unsetSecondaryGsmSignalStrengthBars;
 - (bool) isDisplayingRawWiFiSignal;
 - (void) displayRawWifiSignal:(bool)displaying;
 - (bool) isDisplayingRawGSMSignal;
