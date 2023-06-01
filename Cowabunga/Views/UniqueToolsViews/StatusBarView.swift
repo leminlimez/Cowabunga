@@ -10,6 +10,9 @@ import SwiftUI
 struct StatusBarView: View {
     @Environment(\.openURL) var openURL
     
+    @State private var cellularServiceEnabled: Bool = StatusManager.sharedInstance().isCellularServiceOverridden()
+    @State private var cellularServiceValue: Bool = StatusManager.sharedInstance().getCellularServiceOverride()
+    
     @State private var carrierText: String = StatusManager.sharedInstance().getCarrierOverride()
     @State private var carrierTextEnabled: Bool = StatusManager.sharedInstance().isCarrierOverridden()
     
@@ -200,6 +203,21 @@ struct StatusBarView: View {
             }
             
             Section {
+                Toggle("Change Service Status", isOn: $cellularServiceEnabled).onChange(of: cellularServiceEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setCellularService(cellularServiceValue)
+                    } else {
+                        StatusManager.sharedInstance().unsetCellularService()
+                    }
+                })
+                if cellularServiceEnabled {
+                    Toggle("Cellular Service Enabled", isOn: $cellularServiceValue).onChange(of: cellularServiceValue, perform: { nv in
+                        if cellularServiceEnabled {
+                            StatusManager.sharedInstance().setCellularService(nv)
+                        }
+                    })
+                }
+                
                 Toggle("Change Primary Carrier Text", isOn: $carrierTextEnabled).onChange(of: carrierTextEnabled, perform: { nv in
                     if nv {
                         StatusManager.sharedInstance().setCarrier(carrierText)

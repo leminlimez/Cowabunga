@@ -38,6 +38,10 @@
 - (NSString*) getCrumbOverride;
 - (void) setCrumb:(NSString*)text;
 - (void) unsetCrumb;
+- (bool) isCellularServiceOverridden;
+- (bool) getCellularServiceOverride;
+- (void) setCellularService:(bool)val;
+- (void) unsetCellularService;
 - (bool) isSecondaryCellularServiceOverridden;
 - (bool) getSecondaryCellularServiceOverride;
 - (void) setSecondaryCellularService:(bool)val;
