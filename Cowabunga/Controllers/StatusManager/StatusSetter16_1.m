@@ -427,6 +427,33 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isCellularServiceOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[CellularServiceStatusBarItem] == 1;
+}
+
+- (bool) getCellularServiceOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.itemIsEnabled[CellularServiceStatusBarItem] == 1;
+}
+
+- (void) setCellularService:(bool)val {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[CellularServiceStatusBarItem] = 1;
+    if (val) {
+        overrides->values.itemIsEnabled[CellularServiceStatusBarItem] = 1;
+    } else {
+        overrides->values.itemIsEnabled[CellularServiceStatusBarItem] = 0;
+    }
+    [self applyChanges:overrides];
+}
+
+- (void) unsetCellularService {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[CellularServiceStatusBarItem] = 0;
+    [self applyChanges:overrides];
+}
+
 - (bool) isSecondaryCellularServiceOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideItemIsEnabled[SecondaryCellularServiceStatusBarItem] == 1;

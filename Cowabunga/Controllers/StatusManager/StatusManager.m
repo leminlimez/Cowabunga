@@ -80,6 +80,22 @@
     return sharedObject;
 }
 
+- (bool) isCellularServiceOverridden {
+    return [self.setter isCellularServiceOverridden];
+}
+
+- (bool) getCellularServiceOverride {
+    return [self.setter getCellularServiceOverride];
+}
+
+- (void) setCellularService:(bool)val {
+    [self.setter setCellularService:val];
+}
+
+- (void) unsetCellularService {
+    [self.setter unsetCellularService];
+}
+
 - (bool) isCarrierOverridden {
     return [self.setter isCarrierOverridden];
 }
