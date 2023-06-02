@@ -259,7 +259,7 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        Button(lockPrefs, action: {
+                        Button(respringType ?? "Frontboard", action: {
                             // create and configure alert controller
                             let alert = UIAlertController(title: NSLocalizedString("Choose a respring type", comment: "Title for respring type"), message: NSLocalizedString("Try out each respring type and determine which works best for your needs.", comment: "Description for respring type"), preferredStyle: .actionSheet)
                             

@@ -26,7 +26,7 @@
 "NSPhotoLibraryUsageDescription" = "사진이 필요합니다.";
 
 /* (No Comment) */
-"OpenType font" = "오픈타입 폰트";
+"OpenType font" = "오픈타입 폰트(.otf)";
 
 /* (No Comment) */
 "Passcode Theme File" = "버튼 테마 파일";
@@ -35,8 +35,8 @@
 "Theme Archive File" = "테마 압축파일";
 
 /* (No Comment) */
-"TrueType collection" = "트루타입 모음";
+"TrueType collection" = "트루타입 모음(.ttc)";
 
 /* (No Comment) */
-"TrueType font" = "트루타입 폰트";
+"TrueType font" = "트루타입 폰트(.ttf)";
 

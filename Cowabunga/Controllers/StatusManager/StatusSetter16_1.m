@@ -427,6 +427,64 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isCellularServiceOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[CellularServiceStatusBarItem] == 1;
+}
+
+- (bool) getCellularServiceOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.itemIsEnabled[CellularServiceStatusBarItem] == 1;
+}
+
+- (void) setCellularService:(bool)val {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[CellularServiceStatusBarItem] = 1;
+    if (val) {
+        overrides->values.itemIsEnabled[CellularServiceStatusBarItem] = 1;
+    } else {
+        overrides->values.itemIsEnabled[CellularServiceStatusBarItem] = 0;
+    }
+    [self applyChanges:overrides];
+}
+
+- (void) unsetCellularService {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[CellularServiceStatusBarItem] = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isSecondaryCellularServiceOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[SecondaryCellularServiceStatusBarItem] == 1;
+}
+
+- (bool) getSecondaryCellularServiceOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.itemIsEnabled[SecondaryCellularServiceStatusBarItem] == 1;
+}
+
+- (void) setSecondaryCellularService:(bool)val {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[SecondaryCellularServiceStatusBarItem] = 1;
+    overrides->overrideSecondaryCellularConfigured = 1;
+    if (val) {
+        overrides->values.itemIsEnabled[SecondaryCellularServiceStatusBarItem] = 1;
+        overrides->values.secondaryCellularConfigured = 1;
+    } else {
+        overrides->values.itemIsEnabled[SecondaryCellularServiceStatusBarItem] = 0;
+        overrides->values.secondaryCellularConfigured = 0;
+    }
+    [self applyChanges:overrides];
+}
+
+- (void) unsetSecondaryCellularService {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[SecondaryCellularServiceStatusBarItem] = 0;
+    overrides->overrideSecondaryCellularConfigured = 0;
+    [self applyChanges:overrides];
+}
+
 - (bool) isDataNetworkTypeOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideDataNetworkType == 1;
@@ -447,6 +505,32 @@ typedef struct {
 - (void) unsetDataNetworkType {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideDataNetworkType = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isSecondaryDataNetworkTypeOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideSecondaryDataNetworkType == 1;
+}
+
+- (int) getSecondaryDataNetworkTypeOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.secondaryDataNetworkType;
+}
+
+- (void) setSecondaryDataNetworkType:(int)identifier {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideItemIsEnabled[SecondaryCellularDataNetworkStatusBarItem] = 1;
+    overrides->values.itemIsEnabled[SecondaryCellularDataNetworkStatusBarItem] = 1;
+    overrides->overrideSecondaryDataNetworkType = 1;
+    overrides->values.secondaryDataNetworkType = identifier;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetSecondaryDataNetworkType {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideSecondaryDataNetworkType = 0;
+    overrides->overrideItemIsEnabled[SecondaryCellularDataNetworkStatusBarItem] = 0;
     [self applyChanges:overrides];
 }
 
@@ -510,12 +594,41 @@ typedef struct {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->values.gsmSignalStrengthBars = strength;
     overrides->overrideGsmSignalStrengthBars = 1;
+    overrides->overrideItemIsEnabled[CellularSignalStrengthStatusBarItem] = 1;
+    overrides->values.itemIsEnabled[CellularSignalStrengthStatusBarItem] = 1;
     [self applyChanges:overrides];
 }
 
 - (void) unsetGsmSignalStrengthBars {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideGsmSignalStrengthBars = 0;
+    overrides->overrideItemIsEnabled[CellularSignalStrengthStatusBarItem] = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isSecondaryGsmSignalStrengthBarsOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideSecondaryGsmSignalStrengthBars == 1;
+}
+
+- (int) getSecondaryGsmSignalStrengthBarsOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->values.secondaryGsmSignalStrengthBars;
+}
+
+- (void) setSecondaryGsmSignalStrengthBars:(int)strength {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->values.secondaryGsmSignalStrengthBars = strength;
+    overrides->overrideSecondaryGsmSignalStrengthBars = 1;
+    overrides->overrideItemIsEnabled[SecondaryCellularSignalStrengthStatusBarItem] = 1;
+    overrides->values.itemIsEnabled[SecondaryCellularSignalStrengthStatusBarItem] = 1;
+    [self applyChanges:overrides];
+}
+
+- (void) unsetSecondaryGsmSignalStrengthBars {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideSecondaryGsmSignalStrengthBars = 0;
+    overrides->overrideItemIsEnabled[SecondaryCellularSignalStrengthStatusBarItem] = 0;
     [self applyChanges:overrides];
 }
 

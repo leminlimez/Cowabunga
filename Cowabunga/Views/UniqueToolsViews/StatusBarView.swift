@@ -10,11 +10,17 @@ import SwiftUI
 struct StatusBarView: View {
     @Environment(\.openURL) var openURL
     
+    @State private var cellularServiceEnabled: Bool = StatusManager.sharedInstance().isCellularServiceOverridden()
+    @State private var cellularServiceValue: Bool = StatusManager.sharedInstance().getCellularServiceOverride()
+    
     @State private var carrierText: String = StatusManager.sharedInstance().getCarrierOverride()
     @State private var carrierTextEnabled: Bool = StatusManager.sharedInstance().isCarrierOverridden()
     
     @State private var primaryServiceBadgeText: String = StatusManager.sharedInstance().getPrimaryServiceBadgeOverride()
     @State private var primaryServiceBadgeTextEnabled: Bool = StatusManager.sharedInstance().isPrimaryServiceBadgeOverridden()
+    
+    @State private var secondCellularServiceEnabled: Bool = StatusManager.sharedInstance().isSecondaryCellularServiceOverridden()
+    @State private var secondaryCellularServiceValue: Bool = StatusManager.sharedInstance().getSecondaryCellularServiceOverride()
     
     @State private var secondaryCarrierText: String = StatusManager.sharedInstance().getSecondaryCarrierOverride()
     @State private var secondaryCarrierTextEnabled: Bool = StatusManager.sharedInstance().isSecondaryCarrierOverridden()
@@ -37,6 +43,9 @@ struct StatusBarView: View {
     @State private var dataNetworkType: Int = Int(StatusManager.sharedInstance().getDataNetworkTypeOverride())
     @State private var dataNetworkTypeEnabled: Bool = StatusManager.sharedInstance().isDataNetworkTypeOverridden()
     
+    @State private var secondaryDataNetworkType: Int = Int(StatusManager.sharedInstance().getSecondaryDataNetworkTypeOverride())
+    @State private var secondaryDataNetworkTypeEnabled: Bool = StatusManager.sharedInstance().isSecondaryDataNetworkTypeOverridden()
+    
     @State private var batteryCapacity: Double = Double(StatusManager.sharedInstance().getBatteryCapacityOverride())
     @State private var batteryCapacityEnabled: Bool = StatusManager.sharedInstance().isBatteryCapacityOverridden()
     
@@ -45,6 +54,9 @@ struct StatusBarView: View {
     
     @State private var gsmStrengthBars: Double = Double(StatusManager.sharedInstance().getGsmSignalStrengthBarsOverride())
     @State private var gsmStrengthBarsEnabled: Bool = StatusManager.sharedInstance().isGsmSignalStrengthBarsOverridden()
+    
+    @State private var secondaryGsmStrengthBars: Double = Double(StatusManager.sharedInstance().getSecondaryGsmSignalStrengthBarsOverride())
+    @State private var secondaryGsmStrengthBarsEnabled: Bool = StatusManager.sharedInstance().isSecondaryGsmSignalStrengthBarsOverridden()
     
     @State private var displayingRawWiFiStrength: Bool = StatusManager.sharedInstance().isDisplayingRawWiFiSignal()
     @State private var displayingRawGSMStrength: Bool = StatusManager.sharedInstance().isDisplayingRawGSMSignal()
@@ -191,6 +203,21 @@ struct StatusBarView: View {
             }
             
             Section {
+                Toggle("Change Service Status", isOn: $cellularServiceEnabled).onChange(of: cellularServiceEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setCellularService(cellularServiceValue)
+                    } else {
+                        StatusManager.sharedInstance().unsetCellularService()
+                    }
+                })
+                if cellularServiceEnabled {
+                    Toggle("Cellular Service Enabled", isOn: $cellularServiceValue).onChange(of: cellularServiceValue, perform: { nv in
+                        if cellularServiceEnabled {
+                            StatusManager.sharedInstance().setCellularService(nv)
+                        }
+                    })
+                }
+                
                 Toggle("Change Primary Carrier Text", isOn: $carrierTextEnabled).onChange(of: carrierTextEnabled, perform: { nv in
                     if nv {
                         StatusManager.sharedInstance().setCarrier(carrierText)
@@ -260,6 +287,25 @@ struct StatusBarView: View {
                         Text(NetworkTypes[dataNetworkType])
                     }
                 }
+            } header: {
+                Text("Primary Carrier")
+            }
+            
+            Section {
+                Toggle("Change Secondary Service Status", isOn: $secondCellularServiceEnabled).onChange(of: secondCellularServiceEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setSecondaryCellularService(secondaryCellularServiceValue)
+                    } else {
+                        StatusManager.sharedInstance().unsetSecondaryCellularService()
+                    }
+                })
+                if secondCellularServiceEnabled {
+                    Toggle("Secondary Cellular Service Enabled", isOn: $secondaryCellularServiceValue).onChange(of: secondaryCellularServiceValue, perform: { nv in
+                        if secondCellularServiceEnabled {
+                            StatusManager.sharedInstance().setSecondaryCellularService(nv)
+                        }
+                    })
+                }
                 
                 Toggle("Change Secondary Carrier Text", isOn: $secondaryCarrierTextEnabled).onChange(of: secondaryCarrierTextEnabled, perform: { nv in
                     if nv {
@@ -301,6 +347,37 @@ struct StatusBarView: View {
                         StatusManager.sharedInstance().setSecondaryServiceBadge(safeNv)
                     }
                 })
+                
+                Toggle("Change Secondary Data Network Type", isOn: $secondaryDataNetworkTypeEnabled).onChange(of: secondaryDataNetworkTypeEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setSecondaryDataNetworkType(Int32(secondaryDataNetworkType))
+                    } else {
+                        StatusManager.sharedInstance().unsetSecondaryDataNetworkType()
+                    }
+                })
+                HStack {
+                    Text("Secondary Data Network Type")
+                    Spacer()
+                    
+                    Menu {
+                        ForEach(Array(NetworkTypes.enumerated()), id: \.offset) { i, net in
+                            if net != "???" {
+                                Button(action: {
+                                    secondaryDataNetworkType = i
+                                    if secondaryDataNetworkTypeEnabled {
+                                        StatusManager.sharedInstance().setSecondaryDataNetworkType(Int32(secondaryDataNetworkType))
+                                    }
+                                }) {
+                                    Text(net)
+                                }
+                            }
+                        }
+                    } label: {
+                        Text(NetworkTypes[secondaryDataNetworkType])
+                    }
+                }
+            } header: {
+                Text("Secondary Carrier")
             }
             
             Section {
@@ -340,7 +417,7 @@ struct StatusBarView: View {
                         }
                 }
                 
-                Toggle("Change Cellular Signal Strength Bars", isOn: $gsmStrengthBarsEnabled).onChange(of: gsmStrengthBarsEnabled, perform: { nv in
+                Toggle("Change Primary GSM Signal Strength Bars", isOn: $gsmStrengthBarsEnabled).onChange(of: gsmStrengthBarsEnabled, perform: { nv in
                     if nv {
                         StatusManager.sharedInstance().setGsmSignalStrengthBars(Int32(gsmStrengthBars))
                     } else {
@@ -355,6 +432,24 @@ struct StatusBarView: View {
                         .padding(.horizontal)
                         .onChange(of: gsmStrengthBars) { nv in
                             StatusManager.sharedInstance().setGsmSignalStrengthBars(Int32(nv))
+                        }
+                }
+                
+                Toggle("Change Secondary GSM Signal Strength Bars", isOn: $secondaryGsmStrengthBarsEnabled).onChange(of: secondaryGsmStrengthBarsEnabled, perform: { nv in
+                    if nv {
+                        StatusManager.sharedInstance().setSecondaryGsmSignalStrengthBars(Int32(secondaryGsmStrengthBars))
+                    } else {
+                        StatusManager.sharedInstance().unsetSecondaryGsmSignalStrengthBars()
+                    }
+                })
+                HStack {
+                    Text("\(Int(secondaryGsmStrengthBars))")
+                        .frame(width: 125)
+                    Spacer()
+                    Slider(value: $secondaryGsmStrengthBars, in: 0...4, step: 1.0)
+                        .padding(.horizontal)
+                        .onChange(of: secondaryGsmStrengthBars) { nv in
+                            StatusManager.sharedInstance().setSecondaryGsmSignalStrengthBars(Int32(nv))
                         }
                 }
             }

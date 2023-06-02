@@ -80,6 +80,22 @@
     return sharedObject;
 }
 
+- (bool) isCellularServiceOverridden {
+    return [self.setter isCellularServiceOverridden];
+}
+
+- (bool) getCellularServiceOverride {
+    return [self.setter getCellularServiceOverride];
+}
+
+- (void) setCellularService:(bool)val {
+    [self.setter setCellularService:val];
+}
+
+- (void) unsetCellularService {
+    [self.setter unsetCellularService];
+}
+
 - (bool) isCarrierOverridden {
     return [self.setter isCarrierOverridden];
 }
@@ -94,6 +110,22 @@
 
 - (void) unsetCarrier {
     [self.setter unsetCarrier];
+}
+
+- (bool) isSecondaryCellularServiceOverridden {
+    return [self.setter isSecondaryCellularServiceOverridden];
+}
+
+- (bool) getSecondaryCellularServiceOverride {
+    return [self.setter getSecondaryCellularServiceOverride];
+}
+
+- (void) setSecondaryCellularService:(bool)val {
+    [self.setter setSecondaryCellularService:val];
+}
+
+- (void) unsetSecondaryCellularService {
+    [self.setter unsetSecondaryCellularService];
 }
 
 - (bool) isSecondaryCarrierOverridden {
@@ -225,6 +257,22 @@
     [self.setter unsetDataNetworkType];
 }
 
+- (bool) isSecondaryDataNetworkTypeOverridden {
+    return [self.setter isSecondaryDataNetworkTypeOverridden];
+}
+
+- (int) getSecondaryDataNetworkTypeOverride {
+    return [self.setter getSecondaryDataNetworkTypeOverride];
+}
+
+- (void) setSecondaryDataNetworkType:(int)identifier {
+    [self.setter setSecondaryDataNetworkType:identifier];
+}
+
+- (void) unsetSecondaryDataNetworkType {
+    [self.setter unsetSecondaryDataNetworkType];
+}
+
 - (bool) isBatteryCapacityOverridden {
     return [self.setter isBatteryCapacityOverridden];
 }
@@ -271,6 +319,22 @@
 
 - (void) unsetGsmSignalStrengthBars {
     [self.setter unsetGsmSignalStrengthBars];
+}
+
+- (bool) isSecondaryGsmSignalStrengthBarsOverridden {
+    return [self.setter isSecondaryGsmSignalStrengthBarsOverridden];
+}
+
+- (int) getSecondaryGsmSignalStrengthBarsOverride {
+    return [self.setter getSecondaryGsmSignalStrengthBarsOverride];
+}
+
+- (void) setSecondaryGsmSignalStrengthBars:(int)strength {
+    [self.setter setSecondaryGsmSignalStrengthBars:strength];
+}
+
+- (void) unsetSecondaryGsmSignalStrengthBars {
+    [self.setter unsetSecondaryGsmSignalStrengthBars];
 }
 
 - (bool) isDisplayingRawWiFiSignal {
