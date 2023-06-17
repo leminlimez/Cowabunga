@@ -32,26 +32,29 @@ func setDefaultBoolean(forKey: String, value: Bool) {
 func respring() {
     UIImpactFeedbackGenerator(style: .soft).impactOccurred()
     
-    let view = UIView(frame: UIScreen.main.bounds)
-    view.backgroundColor = .black
-    view.alpha = 0
-
-    for window in UIApplication.shared.connectedScenes.map({ $0 as? UIWindowScene }).compactMap({ $0 }).flatMap({ $0.windows.map { $0 } }) {
-        window.addSubview(view)
-        UIView.animate(withDuration: 0.2, delay: 0, animations: {
-            view.alpha = 1
-        })
+    let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1) {
+        let windows: [UIWindow] = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+        
+        for window in windows {
+            window.alpha = 0
+            window.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }
     }
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+    animator.addCompletion { _ in
         if UserDefaults.standard.string(forKey: "RespringType") ?? "Frontboard" == "Backboard" {
             restartBackboard()
         } else {
             restartFrontboard()
         }
+        
         sleep(2) // give the springboard some time to restart before exiting
         exit(0)
-    })
+    }
+    
+    animator.startAnimation()
 }
 
 func exitGracefully() {
