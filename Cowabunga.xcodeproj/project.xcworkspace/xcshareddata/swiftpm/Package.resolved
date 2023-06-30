@@ -1,52 +1,59 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "ACarousel",
-        "repositoryURL": "https://github.com/JWAutumn/ACarousel",
-        "state": {
-          "branch": null,
-          "revision": "8a322513580f21288fd87eb3a1341c247b3e2a76",
-          "version": "0.2.0"
-        }
-      },
-      {
-        "package": "Dynamic",
-        "repositoryURL": "https://github.com/mhdhejazi/Dynamic",
-        "state": {
-          "branch": null,
-          "revision": "ab9a2570862d54aed2663691bb767f881226a12f",
-          "version": "1.2.0"
-        }
-      },
-      {
-        "package": "swiftui-cached-async-image",
-        "repositoryURL": "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
-        "state": {
-          "branch": null,
-          "revision": "467a3d17479887943ab917a379e62bbaff60ac8a",
-          "version": "2.1.1"
-        }
-      },
-      {
-        "package": "Zip",
-        "repositoryURL": "https://github.com/marmelroy/Zip.git",
-        "state": {
-          "branch": null,
-          "revision": "67fa55813b9e7b3b9acee9c0ae501def28746d76",
-          "version": "2.1.2"
-        }
-      },
-      {
-        "package": "ZIPFoundation",
-        "repositoryURL": "https://github.com/weichsel/ZIPFoundation",
-        "state": {
-          "branch": "development",
-          "revision": "22bfd0ad22e1b2057088180e8e9c66e204755098",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "acarousel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JWAutumn/ACarousel",
+      "state" : {
+        "revision" : "8a322513580f21288fd87eb3a1341c247b3e2a76",
+        "version" : "0.2.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "dynamic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mhdhejazi/Dynamic",
+      "state" : {
+        "revision" : "ab9a2570862d54aed2663691bb767f881226a12f",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "privatekits",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SerenaKit/PrivateKits",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3bc895ea04293a3f6e318dff70b3ecdf0526126b"
+      }
+    },
+    {
+      "identity" : "swiftui-cached-async-image",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
+      "state" : {
+        "revision" : "467a3d17479887943ab917a379e62bbaff60ac8a",
+        "version" : "2.1.1"
+      }
+    },
+    {
+      "identity" : "zip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/Zip.git",
+      "state" : {
+        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
+        "version" : "2.1.2"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation",
+      "state" : {
+        "branch" : "development",
+        "revision" : "22bfd0ad22e1b2057088180e8e9c66e204755098"
+      }
+    }
+  ],
+  "version" : 2
 }
