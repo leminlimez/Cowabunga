@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "privatekits",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SerenaKit/PrivateKits",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3bc895ea04293a3f6e318dff70b3ecdf0526126b"
+      }
+    },
+    {
       "identity" : "swiftui-cached-async-image",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
