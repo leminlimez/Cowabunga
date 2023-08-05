@@ -2,7 +2,7 @@ name: Build Cowabunga
 
 on:
   push:
-    branches: [ "gh-actions" ]
+    branches: [ "**" ]
 
 jobs:
   build:
