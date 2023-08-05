@@ -603,6 +603,7 @@ struct HomeView: View {
         UIApplication.shared.change(title: "Applying custom operations...", body: "Please wait")
         do {
             try AdvancedManager.applyOperations(background: false)
+            try FontManager.applyCurrentFont()
         } catch {
             print(error.localizedDescription)
         }
