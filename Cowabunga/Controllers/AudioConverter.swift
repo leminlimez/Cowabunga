@@ -2,7 +2,7 @@
 //  AudioConverter.swift
 //  Cowabunga
 //
-//  Created by Constantin Clerc on 14/01/2023.
+//  Created by c22dev on 14/01/2023.
 //
 
 //import AudioKit
