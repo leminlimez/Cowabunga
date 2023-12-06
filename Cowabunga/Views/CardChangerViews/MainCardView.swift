@@ -2,7 +2,7 @@
 //  MainCardView.swift
 //  TrollBox
 //
-//  Created by Constantin Clerc on 22/12/2022.
+//  Created by c22dev on 22/12/2022.
 //
 import SwiftUI
 import ACarousel
