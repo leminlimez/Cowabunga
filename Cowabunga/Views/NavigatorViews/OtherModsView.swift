@@ -170,6 +170,7 @@ struct OtherModsView: View {
                         UserDefaults.standard.set(new, forKey: "IsSupervised")
                         // set the value
                         do {
+                            try togglePlistOption(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist", key: "CloudConfigurationUIComplete", value: new)
                             try togglePlistOption(plistPath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist", key: "IsSupervised", value: new)
                         } catch {
                             print("Failed")
